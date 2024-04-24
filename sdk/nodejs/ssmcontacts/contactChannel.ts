@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     type: "EMAIL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage with SSM Contact
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +47,6 @@ import * as utilities from "../utilities";
  *     type: "EMAIL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### EC2 Transit Gateway
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +34,9 @@ import * as utilities from "../utilities";
  *     type: exampleCustomerGateway.type,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Virtual Private Gateway
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,11 +55,9 @@ import * as utilities from "../utilities";
  *     staticRoutesOnly: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS Site to Site Private VPN
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +99,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleErrorActionTimestreamDimensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the rule.
+        /// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the HTTP header.
+        /// The value to write in this column of the database record.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

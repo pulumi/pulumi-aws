@@ -343,7 +343,6 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,9 +354,7 @@ class User(pulumi.CustomResource):
             engine="REDIS",
             passwords=["password123456789"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,9 +368,7 @@ class User(pulumi.CustomResource):
                 type="iam",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,7 +386,6 @@ class User(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -426,7 +420,6 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,9 +431,7 @@ class User(pulumi.CustomResource):
             engine="REDIS",
             passwords=["password123456789"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,9 +445,7 @@ class User(pulumi.CustomResource):
                 type="iam",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,7 +463,6 @@ class User(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

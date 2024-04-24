@@ -248,7 +248,6 @@ class Multiplex(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +270,6 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,7 +302,6 @@ class Multiplex(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +324,6 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

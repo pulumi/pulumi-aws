@@ -239,7 +239,6 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +277,6 @@ class DeliveryChannel(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -310,7 +308,6 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,7 +346,6 @@ class DeliveryChannel(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

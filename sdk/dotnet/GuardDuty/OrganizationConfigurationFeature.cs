@@ -16,7 +16,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
     public partial class OrganizationConfigurationFeature : global::Pulumi.CustomResource

@@ -114,14 +114,12 @@ def get_outposts(availability_zone: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outposts(site_id=id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability Zone name.
@@ -158,14 +156,12 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outposts(site_id=id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability Zone name.

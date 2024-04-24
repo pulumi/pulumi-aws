@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### List all account IDs for the organization
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  * const example = aws.organizations.getOrganization({});
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### SNS topic that can be interacted by the organization only
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,7 +54,6 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
 
@@ -126,7 +122,6 @@ export interface GetOrganizationResult {
  *
  * ### List all account IDs for the organization
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,11 +129,9 @@ export interface GetOrganizationResult {
  * const example = aws.organizations.getOrganization({});
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### SNS topic that can be interacted by the organization only
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -169,7 +162,6 @@ export interface GetOrganizationResult {
  *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
     return pulumi.output(getOrganization(opts))

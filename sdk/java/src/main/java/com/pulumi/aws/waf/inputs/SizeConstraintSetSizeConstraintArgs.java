@@ -16,64 +16,30 @@ public final class SizeConstraintSetSizeConstraintArgs extends com.pulumi.resour
 
     public static final SizeConstraintSetSizeConstraintArgs Empty = new SizeConstraintSetSizeConstraintArgs();
 
-    /**
-     * Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
-     * 
-     */
     @Import(name="comparisonOperator", required=true)
     private Output<String> comparisonOperator;
 
-    /**
-     * @return Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
-     * 
-     */
     public Output<String> comparisonOperator() {
         return this.comparisonOperator;
     }
 
-    /**
-     * Parameter that specifies where in a web request to look for the size constraint.
-     * 
-     */
     @Import(name="fieldToMatch", required=true)
     private Output<SizeConstraintSetSizeConstraintFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return Parameter that specifies where in a web request to look for the size constraint.
-     * 
-     */
     public Output<SizeConstraintSetSizeConstraintFieldToMatchArgs> fieldToMatch() {
         return this.fieldToMatch;
     }
 
-    /**
-     * Size in bytes that you want to compare against the size of the specified `field_to_match`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
-     * 
-     */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
-    /**
-     * @return Size in bytes that you want to compare against the size of the specified `field_to_match`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
-     * 
-     */
     public Output<Integer> size() {
         return this.size;
     }
 
-    /**
-     * Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `field_to_match` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
-     * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
-     * 
-     */
     @Import(name="textTransformation", required=true)
     private Output<String> textTransformation;
 
-    /**
-     * @return Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `field_to_match` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
-     * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
-     * 
-     */
     public Output<String> textTransformation() {
         return this.textTransformation;
     }
@@ -105,88 +71,38 @@ public final class SizeConstraintSetSizeConstraintArgs extends com.pulumi.resour
             $ = new SizeConstraintSetSizeConstraintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparisonOperator Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparisonOperator(Output<String> comparisonOperator) {
             $.comparisonOperator = comparisonOperator;
             return this;
         }
 
-        /**
-         * @param comparisonOperator Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparisonOperator(String comparisonOperator) {
             return comparisonOperator(Output.of(comparisonOperator));
         }
 
-        /**
-         * @param fieldToMatch Parameter that specifies where in a web request to look for the size constraint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(Output<SizeConstraintSetSizeConstraintFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch Parameter that specifies where in a web request to look for the size constraint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param size Size in bytes that you want to compare against the size of the specified `field_to_match`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Size in bytes that you want to compare against the size of the specified `field_to_match`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param textTransformation Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `field_to_match` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
-         * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(Output<String> textTransformation) {
             $.textTransformation = textTransformation;
             return this;
         }
 
-        /**
-         * @param textTransformation Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `field_to_match` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
-         * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(String textTransformation) {
             return textTransformation(Output.of(textTransformation));
         }

@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs();
 
     /**
-     * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Output<Integer>> max() {
@@ -31,14 +31,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
     }
 
     /**
-     * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
      * 
      */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
      * 
      */
     public Optional<Output<Integer>> min() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
          * 
          * @return builder
          * 

@@ -219,14 +219,12 @@ def get_product(accept_language: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -274,14 +272,12 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.

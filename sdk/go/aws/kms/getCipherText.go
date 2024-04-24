@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.InvokeOption) (*GetCipherTextResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCipherTextResult

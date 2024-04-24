@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * The following example below creates an HSM module in CloudHSM cluster.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     clusterId: cluster.then(cluster => cluster.clusterId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

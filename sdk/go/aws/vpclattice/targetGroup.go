@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic usage with Health check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,13 +95,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ALB
 //
 // If the type is ALB, `healthCheck` block is not supported.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,13 +130,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda
 //
 // If the type is Lambda, `config` block is not supported.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -166,7 +159,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

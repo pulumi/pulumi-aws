@@ -172,7 +172,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +181,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
             vpc_id=main.id,
             cidr_block="172.20.0.0/16")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,7 +211,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +220,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
             vpc_id=main.id,
             cidr_block="172.20.0.0/16")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

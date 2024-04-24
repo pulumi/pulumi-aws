@@ -106,7 +106,6 @@ class RegexMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,7 +127,6 @@ class RegexMatchSet(pulumi.CustomResource):
                 text_transformation="NONE",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -154,7 +152,6 @@ class RegexMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +173,6 @@ class RegexMatchSet(pulumi.CustomResource):
                 text_transformation="NONE",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

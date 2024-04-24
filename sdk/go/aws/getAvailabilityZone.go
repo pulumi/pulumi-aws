@@ -28,7 +28,6 @@ import (
 // The following example shows how this data source might be used to derive
 // VPC and subnet CIDR prefixes systematically for an availability zone.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +109,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAvailabilityZoneResult

@@ -16,7 +16,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,7 +99,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBillingServiceAccountResult> InvokeAsync(GetBillingServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", args ?? new GetBillingServiceAccountArgs(), options.WithDefaults());
@@ -110,7 +108,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -194,7 +191,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBillingServiceAccountResult> Invoke(GetBillingServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", args ?? new GetBillingServiceAccountInvokeArgs(), options.WithDefaults());

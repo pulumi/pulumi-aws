@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,11 +34,9 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### With Framework Resource
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetControlResult> InvokeAsync(GetControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetControlResult>("aws:auditmanager/getControl:getControl", args ?? new GetControlArgs(), options.WithDefaults());
@@ -104,7 +100,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,11 +116,9 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### With Framework Resource
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -178,7 +171,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetControlResult> Invoke(GetControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControlResult>("aws:auditmanager/getControl:getControl", args ?? new GetControlInvokeArgs(), options.WithDefaults());

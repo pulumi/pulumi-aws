@@ -335,7 +335,6 @@ class LocationFsxWindows(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +345,6 @@ class LocationFsxWindows(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             security_group_arns=[example_aws_security_group["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -377,7 +375,6 @@ class LocationFsxWindows(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +385,6 @@ class LocationFsxWindows(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             security_group_arns=[example_aws_security_group["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

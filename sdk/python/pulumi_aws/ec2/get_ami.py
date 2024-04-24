@@ -509,7 +509,6 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -533,7 +532,6 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
@@ -627,7 +625,6 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -651,7 +648,6 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on

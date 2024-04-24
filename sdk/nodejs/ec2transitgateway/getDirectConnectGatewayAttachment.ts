@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Transit Gateway and Direct Connect Gateway Identifiers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     dxGatewayId: exampleAwsDxGateway.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {
     args = args || {};
@@ -83,7 +81,6 @@ export interface GetDirectConnectGatewayAttachmentResult {
  *
  * ### By Transit Gateway and Direct Connect Gateway Identifiers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,7 +90,6 @@ export interface GetDirectConnectGatewayAttachmentResult {
  *     dxGatewayId: exampleAwsDxGateway.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectConnectGatewayAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getDirectConnectGatewayAttachment(a, opts))

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `routingProfileId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     routingProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingProfileResult> {
 
@@ -116,7 +112,6 @@ export interface GetRoutingProfileResult {
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,11 +121,9 @@ export interface GetRoutingProfileResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `routingProfileId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -140,7 +133,6 @@ export interface GetRoutingProfileResult {
  *     routingProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingProfileResult> {
     return pulumi.output(args).apply((a: any) => getRoutingProfile(a, opts))

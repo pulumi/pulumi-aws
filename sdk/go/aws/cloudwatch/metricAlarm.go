@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example in Conjunction with Scaling Policies
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,11 +101,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example with an Expression
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,9 +167,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -226,11 +219,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -274,7 +265,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other

@@ -136,7 +136,6 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +148,6 @@ class VoiceConnectorLogging(pulumi.CustomResource):
             enable_media_metric_logs=True,
             voice_connector_id=default.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +186,6 @@ class VoiceConnectorLogging(pulumi.CustomResource):
             enable_media_metric_logs=True,
             voice_connector_id=default.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

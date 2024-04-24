@@ -22,7 +22,6 @@ import (
 //
 // The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,11 +81,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Selecting Backups By Tag
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,11 +116,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Selecting Backups By Conditions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -180,11 +175,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Selecting Backups By Resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -215,11 +208,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Selecting Backups By Not Resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -250,7 +241,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

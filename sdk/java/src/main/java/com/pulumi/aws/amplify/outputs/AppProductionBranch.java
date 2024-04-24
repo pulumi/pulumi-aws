@@ -22,7 +22,7 @@ public final class AppProductionBranch {
      */
     private @Nullable String lastDeployTime;
     /**
-     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status of the production branch.
      * 
      */
     private @Nullable String status;
@@ -48,7 +48,7 @@ public final class AppProductionBranch {
         return Optional.ofNullable(this.lastDeployTime);
     }
     /**
-     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status of the production branch.
      * 
      */
     public Optional<String> status() {

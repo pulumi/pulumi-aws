@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     frameworkType: "Standard",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
 
@@ -68,7 +66,6 @@ export interface GetFrameworkResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +75,6 @@ export interface GetFrameworkResult {
  *     frameworkType: "Standard",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
     return pulumi.output(args).apply((a: any) => getFramework(a, opts))

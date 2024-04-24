@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +36,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAwsIamRolePolicyAttachment],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Full usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,11 +81,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAwsIamRolePolicyAttachment],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example IAM Role for GameLift Game Server Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,7 +111,6 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

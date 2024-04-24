@@ -244,7 +244,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,7 +258,6 @@ class SubnetGroup(pulumi.CustomResource):
                 "Name": "My neptune subnet group",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +286,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +300,6 @@ class SubnetGroup(pulumi.CustomResource):
                 "Name": "My neptune subnet group",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

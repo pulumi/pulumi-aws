@@ -371,7 +371,6 @@ class ApnsChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,7 +382,6 @@ class ApnsChannel(pulumi.CustomResource):
             certificate=std.file(input="./certificate.pem").result,
             private_key=std.file(input="./private_key.key").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -426,7 +424,6 @@ class ApnsChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,7 +435,6 @@ class ApnsChannel(pulumi.CustomResource):
             certificate=std.file(input="./certificate.pem").result,
             private_key=std.file(input="./private_key.key").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

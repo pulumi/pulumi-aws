@@ -234,7 +234,6 @@ class Upload(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +244,6 @@ class Upload(pulumi.CustomResource):
             project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class Upload(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +283,6 @@ class Upload(pulumi.CustomResource):
             project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

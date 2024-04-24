@@ -19,13 +19,14 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         /// </summary>
         [Input("bufferingInterval")]
         public Input<int>? BufferingInterval { get; set; }
 
         /// <summary>
-        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         /// </summary>
         [Input("bufferingSize")]
         public Input<int>? BufferingSize { get; set; }
@@ -62,7 +63,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The ARN of the role used to access the Amazon MSK cluster.
+        /// The ARN of the AWS credentials.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

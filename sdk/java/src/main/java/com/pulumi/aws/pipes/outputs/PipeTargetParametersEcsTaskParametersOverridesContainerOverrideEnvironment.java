@@ -16,10 +16,6 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      * 
      */
     private @Nullable String name;
-    /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     private @Nullable String value;
 
     private PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment() {}
@@ -30,10 +26,6 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

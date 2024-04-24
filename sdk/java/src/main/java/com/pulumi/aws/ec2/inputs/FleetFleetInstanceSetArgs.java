@@ -32,14 +32,14 @@ public final class FleetFleetInstanceSetArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Instance type.
+     * The instance type.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return Instance type.
+     * @return The instance type.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -135,7 +135,7 @@ public final class FleetFleetInstanceSetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instanceType Instance type.
+         * @param instanceType The instance type.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FleetFleetInstanceSetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param instanceType Instance type.
+         * @param instanceType The instance type.
          * 
          * @return builder
          * 

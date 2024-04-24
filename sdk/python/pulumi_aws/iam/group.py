@@ -138,7 +138,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,7 +146,6 @@ class Group(pulumi.CustomResource):
             name="developers",
             path="/users/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +173,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +181,6 @@ class Group(pulumi.CustomResource):
             name="developers",
             path="/users/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

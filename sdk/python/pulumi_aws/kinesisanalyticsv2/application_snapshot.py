@@ -135,7 +135,6 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,6 @@ class ApplicationSnapshot(pulumi.CustomResource):
             application_name=example_aws_kinesisanalyticsv2_application["name"],
             snapshot_name="example-snapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,7 +169,6 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +177,6 @@ class ApplicationSnapshot(pulumi.CustomResource):
             application_name=example_aws_kinesisanalyticsv2_application["name"],
             snapshot_name="example-snapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

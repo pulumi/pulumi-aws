@@ -766,7 +766,6 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,7 +776,6 @@ class NfsFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -821,7 +819,6 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,7 +829,6 @@ class NfsFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

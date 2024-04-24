@@ -741,7 +741,6 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -757,7 +756,6 @@ class Canary(pulumi.CustomResource):
                 expression="rate(0 minute)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -803,7 +801,6 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -819,7 +816,6 @@ class Canary(pulumi.CustomResource):
                 expression="rate(0 minute)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Create Empty Stored iSCSI Volume
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     diskId: test.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create Stored iSCSI Volume From Snapshot
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,7 +41,6 @@ import * as utilities from "../utilities";
  *     diskId: test.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

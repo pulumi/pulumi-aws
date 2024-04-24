@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConstraintResult> InvokeAsync(GetConstraintArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithDefaults());

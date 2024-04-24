@@ -276,9 +276,7 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 }
 
 type AssessmentRolesAll struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn string `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  string `pulumi:"roleArn"`
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -294,9 +292,7 @@ type AssessmentRolesAllInput interface {
 }
 
 type AssessmentRolesAllArgs struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 
@@ -351,12 +347,10 @@ func (o AssessmentRolesAllOutput) ToAssessmentRolesAllOutputWithContext(ctx cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentRolesAllOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 func (o AssessmentRolesAllOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleType }).(pulumi.StringOutput)
 }
@@ -1053,7 +1047,7 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pulumi
 type FrameworkControlSet struct {
 	// List of controls within the control set. See `controls` below.
 	Controls []FrameworkControlSetControl `pulumi:"controls"`
-	// Unique identifier of the control.
+	// Unique identifier for the framework.
 	Id *string `pulumi:"id"`
 	// Name of the control set.
 	Name string `pulumi:"name"`
@@ -1073,7 +1067,7 @@ type FrameworkControlSetInput interface {
 type FrameworkControlSetArgs struct {
 	// List of controls within the control set. See `controls` below.
 	Controls FrameworkControlSetControlArrayInput `pulumi:"controls"`
-	// Unique identifier of the control.
+	// Unique identifier for the framework.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the control set.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1135,7 +1129,7 @@ func (o FrameworkControlSetOutput) Controls() FrameworkControlSetControlArrayOut
 	return o.ApplyT(func(v FrameworkControlSet) []FrameworkControlSetControl { return v.Controls }).(FrameworkControlSetControlArrayOutput)
 }
 
-// Unique identifier of the control.
+// Unique identifier for the framework.
 func (o FrameworkControlSetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrameworkControlSet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

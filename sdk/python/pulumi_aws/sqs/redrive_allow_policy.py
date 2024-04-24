@@ -102,7 +102,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -122,7 +121,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
                 "sourceQueueArns": [src.arn],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,7 +146,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -168,7 +165,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
                 "sourceQueueArns": [src.arn],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

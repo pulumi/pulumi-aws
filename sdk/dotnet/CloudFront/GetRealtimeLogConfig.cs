@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRealtimeLogConfigResult> InvokeAsync(GetRealtimeLogConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealtimeLogConfigResult>("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());

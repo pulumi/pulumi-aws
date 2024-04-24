@@ -240,17 +240,11 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
 
     def __init__(__self__, *,
                  days_after_initiation: int):
-        """
-        :param int days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> int:
-        """
-        Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         return pulumi.get(self, "days_after_initiation")
 
 
@@ -277,11 +271,6 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
                  date: Optional[str] = None,
                  days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
-        """
-        :param str date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        :param int days: Number of days before the object is to be deleted.
-        :param bool expired_object_delete_marker: Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         if date is not None:
             pulumi.set(__self__, "date", date)
         if days is not None:
@@ -292,25 +281,16 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
     @property
     @pulumi.getter
     def date(self) -> Optional[str]:
-        """
-        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        """
         return pulumi.get(self, "date")
 
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
-        """
-        Number of days before the object is to be deleted.
-        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[bool]:
-        """
-        Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         return pulumi.get(self, "expired_object_delete_marker")
 
 
@@ -319,10 +299,6 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
-        """
-        :param str prefix: Object prefix for rule filtering.
-        :param Mapping[str, str] tags: Key-value map of object tags for rule filtering.
-        """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
@@ -331,17 +307,11 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
-        """
-        Object prefix for rule filtering.
-        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Key-value map of object tags for rule filtering.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -1426,8 +1396,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  encryption: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption'] = None,
                  prefix: Optional[str] = None):
         """
-        :param str account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        :param str arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param str account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param str arn: The Amazon Resource Name (ARN) of the bucket.
         :param str format: The export format. Valid values: `CSV`, `Parquet`.
         :param str output_schema_version: The schema version of the export file. Valid values: `V_1`.
         :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
@@ -1446,7 +1416,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        The account ID of the owner of the S3 Storage Lens metrics export bucket.
         """
         return pulumi.get(self, "account_id")
 
@@ -1454,7 +1424,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        The Amazon Resource Name (ARN) of the bucket.
         """
         return pulumi.get(self, "arn")
 

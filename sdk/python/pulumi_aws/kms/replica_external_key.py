@@ -453,7 +453,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,7 +469,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
             primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -508,7 +506,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,7 +522,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
             primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

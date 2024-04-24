@@ -105,25 +105,21 @@ def get_models(by_customization_type: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Filter by Inference Type
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
@@ -161,25 +157,21 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Filter by Inference Type
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.

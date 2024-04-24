@@ -20,7 +20,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### For the Calling Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,7 +85,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type Enabler struct {
 	pulumi.CustomResourceState
 

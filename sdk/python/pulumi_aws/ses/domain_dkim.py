@@ -98,7 +98,6 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,7 +113,6 @@ class DomainDkim(pulumi.CustomResource):
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -141,7 +139,6 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,7 +154,6 @@ class DomainDkim(pulumi.CustomResource):
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

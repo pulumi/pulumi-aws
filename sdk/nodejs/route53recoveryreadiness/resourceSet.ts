@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -64,7 +62,8 @@ export class ResourceSet extends pulumi.CustomResource {
     }
 
     /**
-     * NLB resource ARN.
+     * ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -139,7 +138,8 @@ export class ResourceSet extends pulumi.CustomResource {
  */
 export interface ResourceSetState {
     /**
-     * NLB resource ARN.
+     * ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      */
     arn?: pulumi.Input<string>;
     /**

@@ -796,14 +796,12 @@ class PhpAppLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         app = aws.opsworks.PhpAppLayer("app", stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -847,14 +845,12 @@ class PhpAppLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         app = aws.opsworks.PhpAppLayer("app", stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

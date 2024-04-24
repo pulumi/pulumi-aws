@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupReferenceSetsIpSetReference {
-    /**
-     * @return Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-     * 
-     */
     private List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> ipSetReferences;
-    /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
-     * 
-     */
     private String key;
 
     private RuleGroupRuleGroupReferenceSetsIpSetReference() {}
-    /**
-     * @return Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-     * 
-     */
     public List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> ipSetReferences() {
         return this.ipSetReferences;
     }
-    /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
-     * 
-     */
     public String key() {
         return this.key;
     }

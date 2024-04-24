@@ -123,7 +123,6 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,18 +132,15 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
         values=["tgw-attach-12345678"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_connect(transit_gateway_connect_id="tgw-attach-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -180,7 +176,6 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,18 +185,15 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
         values=["tgw-attach-12345678"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_connect(transit_gateway_connect_id="tgw-attach-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

@@ -104,7 +104,6 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,7 +124,6 @@ class CustomRoutingListener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -151,7 +149,6 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +169,6 @@ class CustomRoutingListener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBootstrapBrokers(args: GetBootstrapBrokersArgs, opts?: pulumi.InvokeOptions): Promise<GetBootstrapBrokersResult> {
 
@@ -93,7 +91,6 @@ export interface GetBootstrapBrokersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,7 +99,6 @@ export interface GetBootstrapBrokersResult {
  *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBootstrapBrokersResult> {
     return pulumi.output(args).apply((a: any) => getBootstrapBrokers(a, opts))

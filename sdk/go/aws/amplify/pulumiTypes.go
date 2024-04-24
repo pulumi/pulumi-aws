@@ -450,7 +450,7 @@ type AppProductionBranch struct {
 	BranchName *string `pulumi:"branchName"`
 	// Last deploy time of the production branch.
 	LastDeployTime *string `pulumi:"lastDeployTime"`
-	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status of the production branch.
 	Status *string `pulumi:"status"`
 	// Thumbnail URL for the production branch.
 	ThumbnailUrl *string `pulumi:"thumbnailUrl"`
@@ -472,7 +472,7 @@ type AppProductionBranchArgs struct {
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
 	// Last deploy time of the production branch.
 	LastDeployTime pulumi.StringPtrInput `pulumi:"lastDeployTime"`
-	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status of the production branch.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Thumbnail URL for the production branch.
 	ThumbnailUrl pulumi.StringPtrInput `pulumi:"thumbnailUrl"`
@@ -539,7 +539,7 @@ func (o AppProductionBranchOutput) LastDeployTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.LastDeployTime }).(pulumi.StringPtrOutput)
 }
 
-// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+// Status of the production branch.
 func (o AppProductionBranchOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

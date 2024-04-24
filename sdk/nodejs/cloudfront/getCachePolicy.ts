@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +22,11 @@ import * as utilities from "../utilities";
  *     name: "example-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS-Managed Policies
  *
  * AWS managed cache policy names are prefixed with `Managed-`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     name: "Managed-CachingOptimized",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
     args = args || {};
@@ -102,7 +98,6 @@ export interface GetCachePolicyResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,13 +106,11 @@ export interface GetCachePolicyResult {
  *     name: "example-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS-Managed Policies
  *
  * AWS managed cache policy names are prefixed with `Managed-`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,7 +119,6 @@ export interface GetCachePolicyResult {
  *     name: "Managed-CachingOptimized",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
     return pulumi.output(args).apply((a: any) => getCachePolicy(a, opts))

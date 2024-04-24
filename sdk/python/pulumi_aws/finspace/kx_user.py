@@ -216,7 +216,6 @@ class KxUser(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -246,7 +245,6 @@ class KxUser(pulumi.CustomResource):
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -278,7 +276,6 @@ class KxUser(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -308,7 +305,6 @@ class KxUser(pulumi.CustomResource):
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -20,7 +20,6 @@ import (
 //
 // ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +65,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add analytics configuration with S3 object filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

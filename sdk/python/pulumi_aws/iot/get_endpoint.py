@@ -77,7 +77,6 @@ def get_endpoint(endpoint_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -99,7 +98,6 @@ def get_endpoint(endpoint_type: Optional[str] = None,
             }],
         }])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
@@ -123,7 +121,6 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -145,7 +142,6 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
             }],
         }])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.

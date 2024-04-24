@@ -3378,7 +3378,7 @@ func (o TopicRuleDynamodbArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamodb
 type TopicRuleDynamodbv2 struct {
 	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem *TopicRuleDynamodbv2PutItem `pulumi:"putItem"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -3396,7 +3396,7 @@ type TopicRuleDynamodbv2Input interface {
 type TopicRuleDynamodbv2Args struct {
 	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem TopicRuleDynamodbv2PutItemPtrInput `pulumi:"putItem"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -3456,7 +3456,7 @@ func (o TopicRuleDynamodbv2Output) PutItem() TopicRuleDynamodbv2PutItemPtrOutput
 	return o.ApplyT(func(v TopicRuleDynamodbv2) *TopicRuleDynamodbv2PutItem { return v.PutItem }).(TopicRuleDynamodbv2PutItemPtrOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamodbv2Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5047,7 +5047,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) TableName() pulumi.StringPtrOutpu
 type TopicRuleErrorActionDynamodbv2 struct {
 	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem *TopicRuleErrorActionDynamodbv2PutItem `pulumi:"putItem"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -5065,7 +5065,7 @@ type TopicRuleErrorActionDynamodbv2Input interface {
 type TopicRuleErrorActionDynamodbv2Args struct {
 	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem TopicRuleErrorActionDynamodbv2PutItemPtrInput `pulumi:"putItem"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -5151,7 +5151,7 @@ func (o TopicRuleErrorActionDynamodbv2Output) PutItem() TopicRuleErrorActionDyna
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2) *TopicRuleErrorActionDynamodbv2PutItem { return v.PutItem }).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbv2Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5190,7 +5190,7 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) PutItem() TopicRuleErrorActionD
 	}).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbv2PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2) *string {
 		if v == nil {
@@ -6627,9 +6627,9 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionKafkaHeader struct {
-	// The name of the HTTP header.
+	// The key of the Kafka header.
 	Key string `pulumi:"key"`
-	// The value of the HTTP header.
+	// The value of the Kafka header.
 	Value string `pulumi:"value"`
 }
 
@@ -6645,9 +6645,9 @@ type TopicRuleErrorActionKafkaHeaderInput interface {
 }
 
 type TopicRuleErrorActionKafkaHeaderArgs struct {
-	// The name of the HTTP header.
+	// The key of the Kafka header.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the HTTP header.
+	// The value of the Kafka header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6702,12 +6702,12 @@ func (o TopicRuleErrorActionKafkaHeaderOutput) ToTopicRuleErrorActionKafkaHeader
 	return o
 }
 
-// The name of the HTTP header.
+// The key of the Kafka header.
 func (o TopicRuleErrorActionKafkaHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafkaHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// The value of the Kafka header.
 func (o TopicRuleErrorActionKafkaHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafkaHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7046,8 +7046,6 @@ func (o TopicRuleErrorActionLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutpu
 
 type TopicRuleErrorActionRepublish struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-	//
-	// The `s3` object takes the following arguments:
 	Qos *int `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -7068,8 +7066,6 @@ type TopicRuleErrorActionRepublishInput interface {
 
 type TopicRuleErrorActionRepublishArgs struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-	//
-	// The `s3` object takes the following arguments:
 	Qos pulumi.IntPtrInput `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -7155,8 +7151,6 @@ func (o TopicRuleErrorActionRepublishOutput) ToTopicRuleErrorActionRepublishPtrO
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-//
-// The `s3` object takes the following arguments:
 func (o TopicRuleErrorActionRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
@@ -7196,8 +7190,6 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Elem() TopicRuleErrorActionRepub
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-//
-// The `s3` object takes the following arguments:
 func (o TopicRuleErrorActionRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) *int {
 		if v == nil {
@@ -7232,9 +7224,9 @@ type TopicRuleErrorActionS3 struct {
 	BucketName string `pulumi:"bucketName"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	CannedAcl *string `pulumi:"cannedAcl"`
-	// The name of the HTTP header.
+	// The object key.
 	Key string `pulumi:"key"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -7254,9 +7246,9 @@ type TopicRuleErrorActionS3Args struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	// The name of the HTTP header.
+	// The object key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -7347,12 +7339,12 @@ func (o TopicRuleErrorActionS3Output) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
 
-// The name of the HTTP header.
+// The object key.
 func (o TopicRuleErrorActionS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7401,7 +7393,7 @@ func (o TopicRuleErrorActionS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the HTTP header.
+// The object key.
 func (o TopicRuleErrorActionS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -7411,7 +7403,7 @@ func (o TopicRuleErrorActionS3PtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -8160,9 +8152,9 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) Timestamp() TopicRuleErrorActio
 }
 
 type TopicRuleErrorActionTimestreamDimension struct {
-	// The name of the rule.
+	// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 	Name string `pulumi:"name"`
-	// The value of the HTTP header.
+	// The value to write in this column of the database record.
 	Value string `pulumi:"value"`
 }
 
@@ -8178,9 +8170,9 @@ type TopicRuleErrorActionTimestreamDimensionInput interface {
 }
 
 type TopicRuleErrorActionTimestreamDimensionArgs struct {
-	// The name of the rule.
+	// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the HTTP header.
+	// The value to write in this column of the database record.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8235,12 +8227,12 @@ func (o TopicRuleErrorActionTimestreamDimensionOutput) ToTopicRuleErrorActionTim
 	return o
 }
 
-// The name of the rule.
+// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 func (o TopicRuleErrorActionTimestreamDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// The value to write in this column of the database record.
 func (o TopicRuleErrorActionTimestreamDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8268,7 +8260,7 @@ func (o TopicRuleErrorActionTimestreamDimensionArrayOutput) Index(i pulumi.IntIn
 type TopicRuleErrorActionTimestreamTimestamp struct {
 	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 	Unit string `pulumi:"unit"`
-	// The value of the HTTP header.
+	// An expression that returns a long epoch time value.
 	Value string `pulumi:"value"`
 }
 
@@ -8286,7 +8278,7 @@ type TopicRuleErrorActionTimestreamTimestampInput interface {
 type TopicRuleErrorActionTimestreamTimestampArgs struct {
 	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// The value of the HTTP header.
+	// An expression that returns a long epoch time value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8372,7 +8364,7 @@ func (o TopicRuleErrorActionTimestreamTimestampOutput) Unit() pulumi.StringOutpu
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// An expression that returns a long epoch time value.
 func (o TopicRuleErrorActionTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8411,7 +8403,7 @@ func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Unit() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the HTTP header.
+// An expression that returns a long epoch time value.
 func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) *string {
 		if v == nil {
@@ -9148,9 +9140,9 @@ func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput
 }
 
 type TopicRuleKafkaHeader struct {
-	// The name of the HTTP header.
+	// The key of the Kafka header.
 	Key string `pulumi:"key"`
-	// The value of the HTTP header.
+	// The value of the Kafka header.
 	Value string `pulumi:"value"`
 }
 
@@ -9166,9 +9158,9 @@ type TopicRuleKafkaHeaderInput interface {
 }
 
 type TopicRuleKafkaHeaderArgs struct {
-	// The name of the HTTP header.
+	// The key of the Kafka header.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the HTTP header.
+	// The value of the Kafka header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9223,12 +9215,12 @@ func (o TopicRuleKafkaHeaderOutput) ToTopicRuleKafkaHeaderOutputWithContext(ctx 
 	return o
 }
 
-// The name of the HTTP header.
+// The key of the Kafka header.
 func (o TopicRuleKafkaHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// The value of the Kafka header.
 func (o TopicRuleKafkaHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9467,8 +9459,6 @@ func (o TopicRuleLambdaArrayOutput) Index(i pulumi.IntInput) TopicRuleLambdaOutp
 
 type TopicRuleRepublish struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-	//
-	// The `s3` object takes the following arguments:
 	Qos *int `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -9489,8 +9479,6 @@ type TopicRuleRepublishInput interface {
 
 type TopicRuleRepublishArgs struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-	//
-	// The `s3` object takes the following arguments:
 	Qos pulumi.IntPtrInput `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -9550,8 +9538,6 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishOutputWithContext(ctx cont
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-//
-// The `s3` object takes the following arguments:
 func (o TopicRuleRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
@@ -9591,9 +9577,9 @@ type TopicRuleS3 struct {
 	BucketName string `pulumi:"bucketName"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	CannedAcl *string `pulumi:"cannedAcl"`
-	// The name of the HTTP header.
+	// The object key.
 	Key string `pulumi:"key"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -9613,9 +9599,9 @@ type TopicRuleS3Args struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	// The name of the HTTP header.
+	// The object key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The IAM role ARN that allows access to the CloudWatch alarm.
+	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -9680,12 +9666,12 @@ func (o TopicRuleS3Output) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
 
-// The name of the HTTP header.
+// The object key.
 func (o TopicRuleS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The IAM role ARN that allows access to the CloudWatch alarm.
+// The ARN of the IAM role that grants access.
 func (o TopicRuleS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -10189,9 +10175,9 @@ func (o TopicRuleTimestreamArrayOutput) Index(i pulumi.IntInput) TopicRuleTimest
 }
 
 type TopicRuleTimestreamDimension struct {
-	// The name of the rule.
+	// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 	Name string `pulumi:"name"`
-	// The value of the HTTP header.
+	// The value to write in this column of the database record.
 	Value string `pulumi:"value"`
 }
 
@@ -10207,9 +10193,9 @@ type TopicRuleTimestreamDimensionInput interface {
 }
 
 type TopicRuleTimestreamDimensionArgs struct {
-	// The name of the rule.
+	// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the HTTP header.
+	// The value to write in this column of the database record.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -10264,12 +10250,12 @@ func (o TopicRuleTimestreamDimensionOutput) ToTopicRuleTimestreamDimensionOutput
 	return o
 }
 
-// The name of the rule.
+// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 func (o TopicRuleTimestreamDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// The value to write in this column of the database record.
 func (o TopicRuleTimestreamDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10297,7 +10283,7 @@ func (o TopicRuleTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicR
 type TopicRuleTimestreamTimestamp struct {
 	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 	Unit string `pulumi:"unit"`
-	// The value of the HTTP header.
+	// An expression that returns a long epoch time value.
 	Value string `pulumi:"value"`
 }
 
@@ -10315,7 +10301,7 @@ type TopicRuleTimestreamTimestampInput interface {
 type TopicRuleTimestreamTimestampArgs struct {
 	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// The value of the HTTP header.
+	// An expression that returns a long epoch time value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -10401,7 +10387,7 @@ func (o TopicRuleTimestreamTimestampOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP header.
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10440,7 +10426,7 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the HTTP header.
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {

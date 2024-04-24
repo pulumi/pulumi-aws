@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult

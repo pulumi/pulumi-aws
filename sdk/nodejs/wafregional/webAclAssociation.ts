@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Application Load Balancer Association
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,7 +71,6 @@ import * as utilities from "../utilities";
  *     webAclId: fooWebAcl.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

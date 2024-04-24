@@ -308,7 +308,6 @@ class Target(pulumi.CustomResource):
 
         ### DynamoDB Table Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,11 +319,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### DynamoDB Index Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,11 +333,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="dynamodb:index:ReadCapacityUnits",
             service_namespace="dynamodb")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Service Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,11 +347,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aurora Read Replica Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,11 +361,9 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             max_capacity=15)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Suppressing `tags_all` Differences For Older Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,11 +375,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MSK / Kafka Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,7 +389,6 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             max_capacity=8)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -437,7 +425,6 @@ class Target(pulumi.CustomResource):
 
         ### DynamoDB Table Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,11 +436,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### DynamoDB Index Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,11 +450,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="dynamodb:index:ReadCapacityUnits",
             service_namespace="dynamodb")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Service Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,11 +464,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aurora Read Replica Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,11 +478,9 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             max_capacity=15)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Suppressing `tags_all` Differences For Older Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,11 +492,9 @@ class Target(pulumi.CustomResource):
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MSK / Kafka Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,7 +506,6 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             max_capacity=8)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

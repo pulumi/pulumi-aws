@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +33,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

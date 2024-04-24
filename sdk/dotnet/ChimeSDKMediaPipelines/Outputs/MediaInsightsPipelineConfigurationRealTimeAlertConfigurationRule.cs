@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
         /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration? SentimentConfiguration;
         /// <summary>
-        /// Element type.
+        /// Rule type.
         /// </summary>
         public readonly string Type;
 

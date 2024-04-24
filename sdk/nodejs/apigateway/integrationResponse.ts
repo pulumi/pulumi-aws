@@ -14,7 +14,6 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,16 +51,15 @@ import {RestApi} from "./index";
  *     httpMethod: myDemoMethod.httpMethod,
  *     statusCode: response200.statusCode,
  *     responseTemplates: {
- *         "application/xml": `#set($inputRoot = $input.path('$'))
+ *         "application/xml": `#set(inputRoot = input.path(''))
  * <?xml version="1.0" encoding="UTF-8"?>
  * <message>
- *     $inputRoot.body
+ *     inputRoot.body
  * </message>
  * `,
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

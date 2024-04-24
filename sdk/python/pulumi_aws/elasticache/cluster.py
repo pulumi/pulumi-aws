@@ -1171,7 +1171,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Memcached Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1184,11 +1183,9 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1202,13 +1199,11 @@ class Cluster(pulumi.CustomResource):
             engine_version="3.2.10",
             port=6379)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1217,11 +1212,9 @@ class Cluster(pulumi.CustomResource):
             cluster_id="cluster-example",
             replication_group_id=example["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Log Delivery configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1248,7 +1241,6 @@ class Cluster(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1334,7 +1326,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Memcached Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1347,11 +1338,9 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1365,13 +1354,11 @@ class Cluster(pulumi.CustomResource):
             engine_version="3.2.10",
             port=6379)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1380,11 +1367,9 @@ class Cluster(pulumi.CustomResource):
             cluster_id="cluster-example",
             replication_group_id=example["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Log Delivery configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1411,7 +1396,6 @@ class Cluster(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

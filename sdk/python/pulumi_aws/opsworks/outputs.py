@@ -609,11 +609,6 @@ class CustomLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling'] = None):
-        """
-        :param 'CustomLayerLoadBasedAutoScalingDownscalingArgs' downscaling: The downscaling settings, as defined below, used for load-based autoscaling
-        :param bool enable: Whether load-based auto scaling is enabled for the layer.
-        :param 'CustomLayerLoadBasedAutoScalingUpscalingArgs' upscaling: The upscaling settings, as defined below, used for load-based autoscaling
-        """
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -624,25 +619,16 @@ class CustomLayerLoadBasedAutoScaling(dict):
     @property
     @pulumi.getter
     def downscaling(self) -> Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling']:
-        """
-        The downscaling settings, as defined below, used for load-based autoscaling
-        """
         return pulumi.get(self, "downscaling")
 
     @property
     @pulumi.getter
     def enable(self) -> Optional[bool]:
-        """
-        Whether load-based auto scaling is enabled for the layer.
-        """
         return pulumi.get(self, "enable")
 
     @property
     @pulumi.getter
     def upscaling(self) -> Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling']:
-        """
-        The upscaling settings, as defined below, used for load-based autoscaling
-        """
         return pulumi.get(self, "upscaling")
 
 

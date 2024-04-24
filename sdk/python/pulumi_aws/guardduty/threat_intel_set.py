@@ -272,7 +272,6 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +293,6 @@ class ThreatIntelSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
             name="MyThreatIntelSet")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -326,7 +324,6 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +345,6 @@ class ThreatIntelSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
             name="MyThreatIntelSet")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

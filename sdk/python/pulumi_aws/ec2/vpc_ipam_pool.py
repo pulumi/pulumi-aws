@@ -615,7 +615,6 @@ class VpcIpamPool(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -629,11 +628,9 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         Nested Pools:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,7 +654,6 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -699,7 +695,6 @@ class VpcIpamPool(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -713,11 +708,9 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         Nested Pools:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,7 +734,6 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

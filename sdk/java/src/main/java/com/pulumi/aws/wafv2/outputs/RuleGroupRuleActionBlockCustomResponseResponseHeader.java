@@ -15,10 +15,6 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
      * 
      */
     private String name;
-    /**
-     * @return The value of the custom header.
-     * 
-     */
     private String value;
 
     private RuleGroupRuleActionBlockCustomResponseResponseHeader() {}
@@ -29,10 +25,6 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the custom header.
-     * 
-     */
     public String value() {
         return this.value;
     }

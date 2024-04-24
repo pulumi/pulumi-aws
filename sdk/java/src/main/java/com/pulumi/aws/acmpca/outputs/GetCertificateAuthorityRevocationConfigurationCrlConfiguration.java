@@ -12,25 +12,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
+    /**
+     * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+     * 
+     */
     private String customCname;
+    /**
+     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Number of days until a certificate expires.
+     * 
+     */
     private Integer expirationInDays;
+    /**
+     * @return Name of the S3 bucket that contains the CRL.
+     * 
+     */
     private String s3BucketName;
+    /**
+     * @return Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+     * 
+     */
     private String s3ObjectAcl;
 
     private GetCertificateAuthorityRevocationConfigurationCrlConfiguration() {}
+    /**
+     * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+     * 
+     */
     public String customCname() {
         return this.customCname;
     }
+    /**
+     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Number of days until a certificate expires.
+     * 
+     */
     public Integer expirationInDays() {
         return this.expirationInDays;
     }
+    /**
+     * @return Name of the S3 bucket that contains the CRL.
+     * 
+     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
+    /**
+     * @return Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+     * 
+     */
     public String s3ObjectAcl() {
         return this.s3ObjectAcl;
     }

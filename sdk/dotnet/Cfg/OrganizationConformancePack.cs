@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ### Using Template Body
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,18 +62,16 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsConfigConfigurationRecorder, 
-    ///             exampleOrganization, 
+    ///             exampleAwsConfigConfigurationRecorder,
+    ///             exampleOrganization,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Using Template S3 URI
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -125,14 +122,13 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsConfigConfigurationRecorder, 
-    ///             exampleOrganization, 
+    ///             exampleAwsConfigConfigurationRecorder,
+    ///             exampleOrganization,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

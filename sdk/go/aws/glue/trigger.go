@@ -18,7 +18,6 @@ import (
 //
 // ### Conditional Trigger
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,11 +55,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### On-Demand Trigger
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,11 +87,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Scheduled Trigger
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,13 +120,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Conditional Trigger with Crawler Action
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,13 +162,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Conditional Trigger with Crawler Condition
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,7 +204,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -243,7 +233,7 @@ type Trigger struct {
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrOutput `pulumi:"startOnCreation"`
-	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	// The current state of the trigger.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -311,7 +301,7 @@ type triggerState struct {
 	Schedule *string `pulumi:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation *bool `pulumi:"startOnCreation"`
-	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	// The current state of the trigger.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -344,7 +334,7 @@ type TriggerState struct {
 	Schedule pulumi.StringPtrInput
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrInput
-	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	// The current state of the trigger.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -545,7 +535,7 @@ func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }
 
-// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+// The current state of the trigger.
 func (o TriggerOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

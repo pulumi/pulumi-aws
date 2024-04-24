@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeEnrichmentParametersHttpParameters {
-    /**
-     * @return Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     private @Nullable Map<String,String> headerParameters;
-    /**
-     * @return The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-     * 
-     */
     private @Nullable String pathParameterValues;
-    /**
-     * @return Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     private @Nullable Map<String,String> queryStringParameters;
 
     private PipeEnrichmentParametersHttpParameters() {}
-    /**
-     * @return Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     public Map<String,String> headerParameters() {
         return this.headerParameters == null ? Map.of() : this.headerParameters;
     }
-    /**
-     * @return The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-     * 
-     */
     public Optional<String> pathParameterValues() {
         return Optional.ofNullable(this.pathParameterValues);
     }
-    /**
-     * @return Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     public Map<String,String> queryStringParameters() {
         return this.queryStringParameters == null ? Map.of() : this.queryStringParameters;
     }

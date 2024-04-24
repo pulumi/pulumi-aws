@@ -433,7 +433,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,11 +485,9 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Code
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,7 +503,6 @@ class Function(pulumi.CustomResource):
                 runtime_version="1.0.0",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -541,7 +537,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -594,11 +589,9 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Code
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -614,7 +607,6 @@ class Function(pulumi.CustomResource):
                 runtime_version="1.0.0",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

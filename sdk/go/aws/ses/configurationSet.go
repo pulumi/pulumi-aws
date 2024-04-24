@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +40,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Require TLS Connections
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +69,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Tracking Options
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,7 +98,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

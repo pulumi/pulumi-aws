@@ -16,47 +16,23 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs extends co
 
     public static final LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs();
 
-    /**
-     * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
-    /**
-     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
-     * 
-     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
-    /**
-     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
-    /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
-    /**
-     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
-    /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     public Optional<Output<String>> intervalUnit() {
         return Optional.ofNullable(this.intervalUnit);
     }
@@ -87,65 +63,29 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs extends co
             $ = new LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
-        /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(@Nullable Output<String> intervalUnit) {
             $.intervalUnit = intervalUnit;
             return this;
         }
 
-        /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(String intervalUnit) {
             return intervalUnit(Output.of(intervalUnit));
         }

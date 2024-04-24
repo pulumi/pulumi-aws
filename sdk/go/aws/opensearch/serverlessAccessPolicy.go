@@ -18,7 +18,6 @@ import (
 //
 // ### Grant all collection and index permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Grant read-only collection and index permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,11 +150,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Grant SAML identity permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -218,7 +213,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

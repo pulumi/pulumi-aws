@@ -19,7 +19,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpamPreviewNextCidrResult

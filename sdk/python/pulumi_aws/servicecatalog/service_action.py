@@ -181,7 +181,6 @@ class ServiceAction(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +192,6 @@ class ServiceAction(pulumi.CustomResource):
                 name="AWS-RestartEC2Instance",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -225,7 +223,6 @@ class ServiceAction(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +234,6 @@ class ServiceAction(pulumi.CustomResource):
                 name="AWS-RestartEC2Instance",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

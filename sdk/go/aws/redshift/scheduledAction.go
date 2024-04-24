@@ -16,7 +16,6 @@ import (
 //
 // ### Pause Cluster Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Resize Cluster Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,7 +143,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

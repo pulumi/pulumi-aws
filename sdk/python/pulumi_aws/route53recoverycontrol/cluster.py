@@ -121,14 +121,12 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.Cluster("example", name="georgefitzgerald")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,14 +151,12 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.Cluster("example", name="georgefitzgerald")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

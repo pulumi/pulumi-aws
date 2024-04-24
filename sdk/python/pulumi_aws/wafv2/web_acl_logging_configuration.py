@@ -174,7 +174,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
         ### With Redacted Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,11 +187,9 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Logging Filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,7 +259,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
         ### With Redacted Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,11 +272,9 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Logging Filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,7 +313,6 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

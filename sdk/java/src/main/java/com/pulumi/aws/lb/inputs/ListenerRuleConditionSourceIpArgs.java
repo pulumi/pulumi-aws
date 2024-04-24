@@ -15,17 +15,9 @@ public final class ListenerRuleConditionSourceIpArgs extends com.pulumi.resource
 
     public static final ListenerRuleConditionSourceIpArgs Empty = new ListenerRuleConditionSourceIpArgs();
 
-    /**
-     * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -54,33 +46,15 @@ public final class ListenerRuleConditionSourceIpArgs extends com.pulumi.resource
             $ = new ListenerRuleConditionSourceIpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

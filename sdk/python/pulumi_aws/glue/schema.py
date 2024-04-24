@@ -367,7 +367,6 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,7 +378,6 @@ class Schema(pulumi.CustomResource):
             compatibility="NONE",
             schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -410,7 +408,6 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,7 +419,6 @@ class Schema(pulumi.CustomResource):
             compatibility="NONE",
             schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

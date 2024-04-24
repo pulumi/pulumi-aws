@@ -514,7 +514,6 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -566,7 +565,6 @@ class Stack(pulumi.CustomResource):
                 "TagName": "TagValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -609,7 +607,6 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -661,7 +658,6 @@ class Stack(pulumi.CustomResource):
                 "TagName": "TagValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

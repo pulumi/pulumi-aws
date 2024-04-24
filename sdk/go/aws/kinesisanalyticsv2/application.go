@@ -21,7 +21,6 @@ import (
 //
 // ### Apache Flink Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,11 +108,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SQL Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -241,11 +238,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VPC Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -306,7 +301,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

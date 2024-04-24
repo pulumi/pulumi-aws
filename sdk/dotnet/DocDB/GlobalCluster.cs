@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ### New DocumentDB Global Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,7 @@ namespace Pulumi.Aws.DocDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primary, 
+    ///             primary,
     ///         },
     ///     });
     /// 
@@ -78,17 +77,15 @@ namespace Pulumi.Aws.DocDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -107,7 +104,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

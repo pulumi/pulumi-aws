@@ -309,7 +309,6 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +331,6 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,7 +383,6 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

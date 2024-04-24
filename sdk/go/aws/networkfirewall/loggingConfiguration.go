@@ -18,7 +18,6 @@ import (
 //
 // ### Logging to S3
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging to CloudWatch
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +90,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging to Kinesis Data Firehose
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,7 +127,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

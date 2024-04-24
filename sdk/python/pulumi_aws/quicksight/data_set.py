@@ -286,7 +286,7 @@ class _DataSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DataSet resources.
-        :param pulumi.Input[str] arn: ARN of the dataset that contains permissions for RLS.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the data set.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -350,7 +350,7 @@ class _DataSetState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the dataset that contains permissions for RLS.
+        Amazon Resource Name (ARN) of the data set.
         """
         return pulumi.get(self, "arn")
 
@@ -593,7 +593,6 @@ class DataSet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,11 +615,9 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Column Level Permission Rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -647,11 +644,9 @@ class DataSet(pulumi.CustomResource):
                 principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Field Folders
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -679,11 +674,9 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -716,11 +709,9 @@ class DataSet(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Row Level Permission Tag Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -752,7 +743,6 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -795,7 +785,6 @@ class DataSet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -818,11 +807,9 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Column Level Permission Rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -849,11 +836,9 @@ class DataSet(pulumi.CustomResource):
                 principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Field Folders
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -881,11 +866,9 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -918,11 +901,9 @@ class DataSet(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Row Level Permission Tag Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,7 +935,6 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1060,7 +1040,7 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the dataset that contains permissions for RLS.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the data set.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -1108,7 +1088,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        ARN of the dataset that contains permissions for RLS.
+        Amazon Resource Name (ARN) of the data set.
         """
         return pulumi.get(self, "arn")
 

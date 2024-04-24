@@ -276,7 +276,6 @@ class WebAcl(pulumi.CustomResource):
 
         ### Regular Rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,11 +309,9 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Group Rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,13 +331,11 @@ class WebAcl(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,7 +355,6 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -392,7 +386,6 @@ class WebAcl(pulumi.CustomResource):
 
         ### Regular Rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,11 +419,9 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Group Rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,13 +441,11 @@ class WebAcl(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +465,6 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

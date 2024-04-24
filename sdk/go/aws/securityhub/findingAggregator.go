@@ -20,7 +20,6 @@ import (
 //
 // The following example will enable the aggregator for every region.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,13 +49,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### All Regions Except Specified Regions Usage
 //
 // The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,13 +87,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Specified Regions Usage
 //
 // The following example will enable the aggregator for every region specified in `specifiedRegions`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,7 +125,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

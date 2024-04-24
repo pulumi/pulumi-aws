@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,13 +58,11 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Multiple Condition Keys and Values
  *
  * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,7 +97,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
  *
@@ -108,7 +104,6 @@ import * as utilities from "../utilities";
  *
  * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -136,11 +131,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Using A Source Document
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -170,13 +163,11 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
  *
  * ### Example Using An Override Document
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -206,7 +197,6 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
  *
@@ -214,7 +204,6 @@ import * as utilities from "../utilities";
  *
  * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -238,7 +227,6 @@ import * as utilities from "../utilities";
  *     overridePolicyDocuments: [override.json],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
  *
@@ -246,7 +234,6 @@ import * as utilities from "../utilities";
  *
  * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -284,13 +271,11 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  *
  * ### Example of Merging Override Documents
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -340,7 +325,6 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  */
@@ -428,7 +412,6 @@ export interface GetPolicyDocumentResult {
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -471,13 +454,11 @@ export interface GetPolicyDocumentResult {
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Multiple Condition Keys and Values
  *
  * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -512,7 +493,6 @@ export interface GetPolicyDocumentResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
  *
@@ -520,7 +500,6 @@ export interface GetPolicyDocumentResult {
  *
  * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -548,11 +527,9 @@ export interface GetPolicyDocumentResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Using A Source Document
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -582,13 +559,11 @@ export interface GetPolicyDocumentResult {
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
  *
  * ### Example Using An Override Document
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -618,7 +593,6 @@ export interface GetPolicyDocumentResult {
  *     ],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
  *
@@ -626,7 +600,6 @@ export interface GetPolicyDocumentResult {
  *
  * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -650,7 +623,6 @@ export interface GetPolicyDocumentResult {
  *     overridePolicyDocuments: [override.json],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
  *
@@ -658,7 +630,6 @@ export interface GetPolicyDocumentResult {
  *
  * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -696,13 +667,11 @@ export interface GetPolicyDocumentResult {
  *     ],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  *
  * ### Example of Merging Override Documents
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -752,7 +721,6 @@ export interface GetPolicyDocumentResult {
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  */

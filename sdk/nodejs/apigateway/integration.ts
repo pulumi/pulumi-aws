@@ -14,7 +14,6 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,17 +46,15 @@ import {RestApi} from "./index";
  *     },
  *     requestTemplates: {
  *         "application/xml": `{
- *    "body" : $input.json('$')
+ *    "body" : input.json('')
  * }
  * `,
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Lambda integration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,11 +118,9 @@ import {RestApi} from "./index";
  *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## VPC Link
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -164,7 +159,7 @@ import {RestApi} from "./index";
  *     httpMethod: testMethod.httpMethod,
  *     requestTemplates: {
  *         "application/json": "",
- *         "application/xml": `#set($inputRoot = $input.path('$'))
+ *         "application/xml": `#set(inputRoot = input.path(''))
  * { }`,
  *     },
  *     requestParameters: {
@@ -180,7 +175,6 @@ import {RestApi} from "./index";
  *     connectionId: testVpcLink.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

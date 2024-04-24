@@ -96,14 +96,12 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
@@ -129,14 +127,12 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.

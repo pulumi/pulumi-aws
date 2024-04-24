@@ -33,17 +33,9 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         return Optional.ofNullable(this.deleteOnTermination);
     }
 
-    /**
-     * Name of the device to mount.
-     * 
-     */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
-    /**
-     * @return Name of the device to mount.
-     * 
-     */
     public Optional<Output<String>> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
@@ -234,23 +226,11 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
             return deleteOnTermination(Output.of(deleteOnTermination));
         }
 
-        /**
-         * @param deviceName Name of the device to mount.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceName(@Nullable Output<String> deviceName) {
             $.deviceName = deviceName;
             return this;
         }
 
-        /**
-         * @param deviceName Name of the device to mount.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceName(String deviceName) {
             return deviceName(Output.of(deviceName));
         }

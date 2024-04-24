@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-    /**
-     * @return Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-     * 
-     */
     private String queryStringBehavior;
-    /**
-     * @return Configuration parameter that contains a list of query string names. See Items for more information.
-     * 
-     */
     private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings queryStrings;
 
     private CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig() {}
-    /**
-     * @return Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-     * 
-     */
     public String queryStringBehavior() {
         return this.queryStringBehavior;
     }
-    /**
-     * @return Configuration parameter that contains a list of query string names. See Items for more information.
-     * 
-     */
     public Optional<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings> queryStrings() {
         return Optional.ofNullable(this.queryStrings);
     }

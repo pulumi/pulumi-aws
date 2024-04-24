@@ -249,7 +249,6 @@ class KxDatabase(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +264,6 @@ class KxDatabase(pulumi.CustomResource):
             name="my-tf-kx-database",
             description="Example database description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,7 +295,6 @@ class KxDatabase(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,7 +310,6 @@ class KxDatabase(pulumi.CustomResource):
             name="my-tf-kx-database",
             description="Example database description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

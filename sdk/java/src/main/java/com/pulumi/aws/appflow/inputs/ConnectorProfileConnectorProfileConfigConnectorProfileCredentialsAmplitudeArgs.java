@@ -14,32 +14,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs();
 
-    /**
-     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
 
-    /**
-     * The Secret Access Key portion of the credentials.
-     * 
-     */
     @Import(name="secretKey", required=true)
     private Output<String> secretKey;
 
-    /**
-     * @return The Secret Access Key portion of the credentials.
-     * 
-     */
     public Output<String> secretKey() {
         return this.secretKey;
     }
@@ -69,44 +53,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param secretKey The Secret Access Key portion of the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(Output<String> secretKey) {
             $.secretKey = secretKey;
             return this;
         }
 
-        /**
-         * @param secretKey The Secret Access Key portion of the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(String secretKey) {
             return secretKey(Output.of(secretKey));
         }

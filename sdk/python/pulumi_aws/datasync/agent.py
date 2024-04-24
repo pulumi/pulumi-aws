@@ -342,7 +342,6 @@ class Agent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,7 +350,6 @@ class Agent(pulumi.CustomResource):
             ip_address="1.2.3.4",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -385,7 +383,6 @@ class Agent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,7 +391,6 @@ class Agent(pulumi.CustomResource):
             ip_address="1.2.3.4",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

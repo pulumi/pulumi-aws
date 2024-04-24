@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleCriteriaResourceDetailsOther
     {
-        /// <summary>
-        /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        /// </summary>
         public readonly string Comparison;
-        /// <summary>
-        /// The key of the map filter.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// A date range value for the date filter, provided as an Integer.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

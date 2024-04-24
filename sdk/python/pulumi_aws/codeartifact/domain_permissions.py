@@ -184,7 +184,6 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +205,6 @@ class DomainPermissions(pulumi.CustomResource):
             domain=example_domain.domain,
             policy_document=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -234,7 +232,6 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +253,6 @@ class DomainPermissions(pulumi.CustomResource):
             domain=example_domain.domain,
             policy_document=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

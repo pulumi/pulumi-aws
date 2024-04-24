@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * Create a replication set.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Add a Region to a replication set. (You can add only one Region at a time.)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,11 +47,9 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Delete a Region from a replication set. (You can delete only one Region at a time.)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,13 +58,11 @@ import * as utilities from "../utilities";
  *     name: "us-west-2",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Basic Usage with an AWS Customer Managed Key
  *
  * Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,7 +78,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -145,11 +137,6 @@ export class ReplicationSet extends pulumi.CustomResource {
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Tags applied to the replication set.
-     *
-     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -224,11 +211,6 @@ export interface ReplicationSetState {
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
     status?: pulumi.Input<string>;
-    /**
-     * Tags applied to the replication set.
-     *
-     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -243,10 +225,5 @@ export interface ReplicationSetState {
  */
 export interface ReplicationSetArgs {
     regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
-    /**
-     * Tags applied to the replication set.
-     *
-     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

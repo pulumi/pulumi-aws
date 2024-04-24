@@ -125,14 +125,14 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
         return this.accountId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      * 
      */
     public Output<String> arn() {

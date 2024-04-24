@@ -565,7 +565,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,11 +585,9 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,7 +612,6 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling Control Plane Logging
 
@@ -623,7 +619,6 @@ class Cluster(pulumi.CustomResource):
 
         > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -643,13 +638,11 @@ class Cluster(pulumi.CustomResource):
             name=cluster_name,
             opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling IAM Roles for Service Accounts
 
         Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,13 +674,11 @@ class Cluster(pulumi.CustomResource):
             assume_role_policy=example_assume_role_policy.json,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### EKS Cluster on AWS Outpost
 
         [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,11 +698,9 @@ class Cluster(pulumi.CustomResource):
                 outpost_arns=[example_aws_outposts_outpost["arn"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### EKS Cluster with Access Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,7 +720,6 @@ class Cluster(pulumi.CustomResource):
                 bootstrap_cluster_creator_admin_permissions=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
@@ -771,7 +759,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -792,11 +779,9 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -821,7 +806,6 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling Control Plane Logging
 
@@ -829,7 +813,6 @@ class Cluster(pulumi.CustomResource):
 
         > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -849,13 +832,11 @@ class Cluster(pulumi.CustomResource):
             name=cluster_name,
             opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling IAM Roles for Service Accounts
 
         Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -887,13 +868,11 @@ class Cluster(pulumi.CustomResource):
             assume_role_policy=example_assume_role_policy.json,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### EKS Cluster on AWS Outpost
 
         [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -913,11 +892,9 @@ class Cluster(pulumi.CustomResource):
                 outpost_arns=[example_aws_outposts_outpost["arn"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### EKS Cluster with Access Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -937,7 +914,6 @@ class Cluster(pulumi.CustomResource):
                 bootstrap_cluster_creator_admin_permissions=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 

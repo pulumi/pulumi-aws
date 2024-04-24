@@ -16,7 +16,6 @@ import {Deployment, RestApi} from "./index";
  *
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import {Deployment, RestApi} from "./index";
  *     dependsOn: [exampleLogGroup],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

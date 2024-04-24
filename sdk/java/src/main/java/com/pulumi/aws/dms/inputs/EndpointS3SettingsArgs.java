@@ -33,14 +33,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Custom S3 Bucket Object prefix for intermediate storage.
+     * S3 object prefix.
      * 
      */
     @Import(name="bucketFolder")
     private @Nullable Output<String> bucketFolder;
 
     /**
-     * @return Custom S3 Bucket Object prefix for intermediate storage.
+     * @return S3 object prefix.
      * 
      */
     public Optional<Output<String>> bucketFolder() {
@@ -48,14 +48,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Custom S3 Bucket name for intermediate storage.
+     * S3 bucket name.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return Custom S3 Bucket name for intermediate storage.
+     * @return S3 bucket name.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -348,14 +348,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
     public Optional<Output<String>> encryptionMode() {
@@ -423,14 +423,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<Integer> maxFileSize;
 
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
     public Optional<Output<Integer>> maxFileSize() {
@@ -528,14 +528,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
     /**
-     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
     public Optional<Output<String>> serviceAccessRoleArn() {
@@ -670,7 +670,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
+         * @param bucketFolder S3 object prefix.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
+         * @param bucketFolder S3 object prefix.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketName Custom S3 Bucket name for intermediate storage.
+         * @param bucketName S3 bucket name.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketName Custom S3 Bucket name for intermediate storage.
+         * @param bucketName S3 bucket name.
          * 
          * @return builder
          * 
@@ -1111,7 +1111,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
          * 
          * @return builder
          * 
@@ -1122,7 +1122,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
          * 
          * @return builder
          * 
@@ -1216,7 +1216,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maxFileSize Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         * @param maxFileSize Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
          * 
          * @return builder
          * 
@@ -1227,7 +1227,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maxFileSize Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         * @param maxFileSize Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
          * 
          * @return builder
          * 
@@ -1363,7 +1363,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          * 
          * @return builder
          * 
@@ -1374,7 +1374,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          * 
          * @return builder
          * 

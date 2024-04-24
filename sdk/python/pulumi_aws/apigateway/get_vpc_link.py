@@ -124,14 +124,12 @@ def get_vpc_link(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
@@ -166,14 +164,12 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.

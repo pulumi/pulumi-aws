@@ -518,7 +518,6 @@ class FileSystem(pulumi.CustomResource):
 
         ### EFS File System w/ tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,11 +528,9 @@ class FileSystem(pulumi.CustomResource):
                 "Name": "MyProduct",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using lifecycle policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,7 +541,6 @@ class FileSystem(pulumi.CustomResource):
                 transition_to_ia="AFTER_30_DAYS",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -583,7 +579,6 @@ class FileSystem(pulumi.CustomResource):
 
         ### EFS File System w/ tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -594,11 +589,9 @@ class FileSystem(pulumi.CustomResource):
                 "Name": "MyProduct",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using lifecycle policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,7 +602,6 @@ class FileSystem(pulumi.CustomResource):
                 transition_to_ia="AFTER_30_DAYS",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

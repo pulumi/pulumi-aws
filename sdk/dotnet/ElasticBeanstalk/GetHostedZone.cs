@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +49,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());

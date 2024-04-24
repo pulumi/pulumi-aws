@@ -18,7 +18,6 @@ import (
 //
 // ### Basic (Standard Workflow)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,11 +59,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic (Express Workflow)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,11 +104,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Publish (Publish SFN version)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -155,13 +150,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging
 //
 // > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,7 +201,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -15,14 +15,14 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
     public static final MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs();
 
     /**
-     * SQS queue to deliver results.
+     * Lambda Function to deliver results.
      * 
      */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
     /**
-     * @return SQS queue to deliver results.
+     * @return Lambda Function to deliver results.
      * 
      */
     public Output<String> insightsTarget() {
@@ -54,7 +54,7 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget Lambda Function to deliver results.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget Lambda Function to deliver results.
          * 
          * @return builder
          * 

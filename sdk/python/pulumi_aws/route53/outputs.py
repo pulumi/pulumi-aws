@@ -230,12 +230,6 @@ class RecordGeoproximityRoutingPolicy(dict):
                  bias: Optional[int] = None,
                  coordinates: Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']] = None,
                  local_zone_group: Optional[str] = None):
-        """
-        :param str aws_region: A AWS region where the resource is present.
-        :param int bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        :param Sequence['RecordGeoproximityRoutingPolicyCoordinateArgs'] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        :param str local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -248,33 +242,21 @@ class RecordGeoproximityRoutingPolicy(dict):
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[str]:
-        """
-        A AWS region where the resource is present.
-        """
         return pulumi.get(self, "aws_region")
 
     @property
     @pulumi.getter
     def bias(self) -> Optional[int]:
-        """
-        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        """
         return pulumi.get(self, "bias")
 
     @property
     @pulumi.getter
     def coordinates(self) -> Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']]:
-        """
-        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        """
         return pulumi.get(self, "coordinates")
 
     @property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[str]:
-        """
-        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         return pulumi.get(self, "local_zone_group")
 
 
@@ -735,7 +717,6 @@ class GetTrafficPolicyDocumentRuleResult(dict):
         :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
         :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
         :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleRegionArgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         :param str type: Type of the rule.
         """
@@ -798,9 +779,6 @@ class GetTrafficPolicyDocumentRuleResult(dict):
     @property
     @pulumi.getter
     def regions(self) -> Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleRegionResult']]:
-        """
-        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        """
         return pulumi.get(self, "regions")
 
     @property
@@ -928,10 +906,6 @@ class GetTrafficPolicyDocumentRuleItemResult(dict):
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  health_check: Optional[str] = None):
-        """
-        :param str endpoint_reference: References to an endpoint.
-        :param str health_check: If you want to associate a health check with the endpoint or rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if health_check is not None:
@@ -940,17 +914,11 @@ class GetTrafficPolicyDocumentRuleItemResult(dict):
     @property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
 
@@ -1186,12 +1154,6 @@ class GetTrafficPolicyDocumentRuleSecondaryResult(dict):
                  evaluate_target_health: Optional[bool] = None,
                  health_check: Optional[str] = None,
                  rule_reference: Optional[str] = None):
-        """
-        :param str endpoint_reference: References to an endpoint.
-        :param bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param str health_check: If you want to associate a health check with the endpoint or rule.
-        :param str rule_reference: References to a rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
@@ -1204,33 +1166,21 @@ class GetTrafficPolicyDocumentRuleSecondaryResult(dict):
     @property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
 

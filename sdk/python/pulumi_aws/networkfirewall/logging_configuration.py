@@ -106,7 +106,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ### Logging to S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -124,11 +123,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging to CloudWatch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,11 +142,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging to Kinesis Data Firehose
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +161,6 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +188,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ### Logging to S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,11 +205,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging to CloudWatch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,11 +224,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging to Kinesis Data Firehose
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +243,6 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

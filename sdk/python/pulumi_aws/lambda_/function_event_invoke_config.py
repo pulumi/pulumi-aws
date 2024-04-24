@@ -216,7 +216,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,11 +231,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Error Handling Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,11 +243,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Alias Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,11 +254,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_alias["functionName"],
             qualifier=example_aws_lambda_alias["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Function Latest Unpublished Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,11 +265,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier="$LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Function Published Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +276,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier=example_aws_lambda_function["version"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,7 +333,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,11 +348,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Error Handling Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,11 +360,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Alias Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,11 +371,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_alias["functionName"],
             qualifier=example_aws_lambda_alias["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Function Latest Unpublished Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -399,11 +382,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier="$LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration for Function Published Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,7 +393,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier=example_aws_lambda_function["version"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

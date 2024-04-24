@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     mapName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
 
@@ -85,7 +83,6 @@ export interface GetMapResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,7 +91,6 @@ export interface GetMapResult {
  *     mapName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
     return pulumi.output(args).apply((a: any) => getMap(a, opts))

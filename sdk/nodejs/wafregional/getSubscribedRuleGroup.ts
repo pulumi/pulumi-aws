@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,7 +32,6 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscribedRuleGroupResult> {
     args = args || {};
@@ -75,7 +73,6 @@ export interface GetSubscribedRuleGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,7 +96,6 @@ export interface GetSubscribedRuleGroupResult {
  *     },
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubscribedRuleGroup(a, opts))

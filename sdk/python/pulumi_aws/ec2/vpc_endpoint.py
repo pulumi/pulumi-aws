@@ -602,7 +602,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,11 +610,9 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic w/ Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,11 +624,9 @@ class VpcEndpoint(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Interface Endpoint Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -643,11 +638,9 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancer Endpoint Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -663,7 +656,6 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type=example.service_type,
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -711,7 +703,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -720,11 +711,9 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic w/ Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -736,11 +725,9 @@ class VpcEndpoint(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Interface Endpoint Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -752,11 +739,9 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancer Endpoint Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -772,7 +757,6 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type=example.service_type,
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     value: "bar",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Encrypted string using default SSM KMS key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,7 +55,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -355,7 +355,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,7 +370,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -406,7 +404,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,7 +419,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

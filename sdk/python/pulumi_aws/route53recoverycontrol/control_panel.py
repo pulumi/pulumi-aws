@@ -167,7 +167,6 @@ class ControlPanel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +175,6 @@ class ControlPanel(pulumi.CustomResource):
             name="balmorhea",
             cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -202,7 +200,6 @@ class ControlPanel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +208,6 @@ class ControlPanel(pulumi.CustomResource):
             name="balmorhea",
             cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

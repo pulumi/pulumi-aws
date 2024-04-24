@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     version: "1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -81,29 +79,14 @@ export class CustomActionType extends pulumi.CustomResource {
      * The configuration properties for the custom action. Max 10 items.
      */
     public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
-    /**
-     * The details of the input artifact for the action.
-     */
     public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     /**
      * The creator of the action being called.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
-    /**
-     * The provider of the service used in the custom action
-     */
     public readonly providerName!: pulumi.Output<string>;
-    /**
-     * The settings for an action type.
-     */
     public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -111,9 +94,6 @@ export class CustomActionType extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The version identifier of the custom action.
-     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -190,29 +170,14 @@ export interface CustomActionTypeState {
      * The configuration properties for the custom action. Max 10 items.
      */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    /**
-     * The details of the input artifact for the action.
-     */
     inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     /**
      * The creator of the action being called.
      */
     owner?: pulumi.Input<string>;
-    /**
-     * The provider of the service used in the custom action
-     */
     providerName?: pulumi.Input<string>;
-    /**
-     * The settings for an action type.
-     */
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -220,9 +185,6 @@ export interface CustomActionTypeState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version identifier of the custom action.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -238,28 +200,10 @@ export interface CustomActionTypeArgs {
      * The configuration properties for the custom action. Max 10 items.
      */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    /**
-     * The details of the input artifact for the action.
-     */
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The provider of the service used in the custom action
-     */
     providerName: pulumi.Input<string>;
-    /**
-     * The settings for an action type.
-     */
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version identifier of the custom action.
-     */
     version: pulumi.Input<string>;
 }

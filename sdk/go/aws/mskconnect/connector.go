@@ -18,7 +18,6 @@ import (
 //
 // ### Basic configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -103,7 +101,7 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the custom plugin.
+	// The Amazon Resource Name (ARN) of the connector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the capacity allocated to the connector. See below.
 	Capacity ConnectorCapacityOutput `pulumi:"capacity"`
@@ -187,7 +185,7 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
-	// The Amazon Resource Name (ARN) of the custom plugin.
+	// The Amazon Resource Name (ARN) of the connector.
 	Arn *string `pulumi:"arn"`
 	// Information about the capacity allocated to the connector. See below.
 	Capacity *ConnectorCapacity `pulumi:"capacity"`
@@ -218,7 +216,7 @@ type connectorState struct {
 }
 
 type ConnectorState struct {
-	// The Amazon Resource Name (ARN) of the custom plugin.
+	// The Amazon Resource Name (ARN) of the connector.
 	Arn pulumi.StringPtrInput
 	// Information about the capacity allocated to the connector. See below.
 	Capacity ConnectorCapacityPtrInput
@@ -394,7 +392,7 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the custom plugin.
+// The Amazon Resource Name (ARN) of the connector.
 func (o ConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

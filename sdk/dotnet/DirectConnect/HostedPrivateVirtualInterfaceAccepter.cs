@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,7 @@ namespace Pulumi.Aws.DirectConnect
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vpnGw, 
+    ///             vpnGw,
     ///         },
     ///     });
     /// 
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

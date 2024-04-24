@@ -288,7 +288,6 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +342,6 @@ class ClusterEndpoint(pulumi.CustomResource):
                 test3.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -374,7 +372,6 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,7 +426,6 @@ class ClusterEndpoint(pulumi.CustomResource):
                 test3.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

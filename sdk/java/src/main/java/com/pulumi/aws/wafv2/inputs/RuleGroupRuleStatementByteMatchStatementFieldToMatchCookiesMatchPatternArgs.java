@@ -17,17 +17,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMa
 
     public static final RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs Empty = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -72,23 +64,11 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMa
             $ = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

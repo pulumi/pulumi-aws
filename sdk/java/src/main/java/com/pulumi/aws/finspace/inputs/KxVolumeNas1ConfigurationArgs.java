@@ -31,14 +31,14 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * The type of the network attached storage.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * @return The type of the network attached storage.
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+         * @param type The type of the network attached storage.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+         * @param type The type of the network attached storage.
          * 
          * @return builder
          * 

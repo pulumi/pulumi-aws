@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,13 +70,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Threshold Expression Example
 //
 // ### Using a Percentage Threshold
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,11 +119,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using an `and` Expression
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SNS Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -311,7 +304,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

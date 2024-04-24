@@ -804,7 +804,6 @@ class Crawler(pulumi.CustomResource):
 
         ### DynamoDB Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -817,11 +816,9 @@ class Crawler(pulumi.CustomResource):
                 path="table-name",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### JDBC Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -835,11 +832,9 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -852,11 +847,9 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Catalog Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -880,11 +873,9 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MongoDB Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -898,11 +889,9 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration Settings Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -929,7 +918,6 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -977,7 +965,6 @@ class Crawler(pulumi.CustomResource):
 
         ### DynamoDB Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -990,11 +977,9 @@ class Crawler(pulumi.CustomResource):
                 path="table-name",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### JDBC Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1008,11 +993,9 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1025,11 +1008,9 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Catalog Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,11 +1034,9 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MongoDB Target Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1071,11 +1050,9 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Configuration Settings Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1102,7 +1079,6 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

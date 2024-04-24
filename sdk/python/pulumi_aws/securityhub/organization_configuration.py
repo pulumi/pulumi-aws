@@ -148,7 +148,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ### Local Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,11 +159,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Central Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,7 +178,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,7 +214,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ### Local Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,11 +225,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Central Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +244,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

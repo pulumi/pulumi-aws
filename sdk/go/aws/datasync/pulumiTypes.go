@@ -1015,7 +1015,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) MountOptions() LocationF
 }
 
 type LocationFsxOntapFileSystemProtocolNfsMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 	Version *string `pulumi:"version"`
 }
 
@@ -1031,7 +1030,6 @@ type LocationFsxOntapFileSystemProtocolNfsMountOptionsInput interface {
 }
 
 type LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1112,7 +1110,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOn
 	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1141,7 +1138,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Elem() Locat
 	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfsMountOptions) *string {
 		if v == nil {
@@ -1348,7 +1344,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) User() pulumi.StringPtrO
 }
 
 type LocationFsxOntapFileSystemProtocolSmbMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 	Version *string `pulumi:"version"`
 }
 
@@ -1364,7 +1359,6 @@ type LocationFsxOntapFileSystemProtocolSmbMountOptionsInput interface {
 }
 
 type LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1445,7 +1439,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOn
 	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1474,7 +1467,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Elem() Locat
 	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmbMountOptions) *string {
 		if v == nil {

@@ -23,7 +23,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClusterAuthResult> InvokeAsync(GetClusterAuthArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthArgs(), options.WithDefaults());
@@ -61,7 +59,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClusterAuthResult> Invoke(GetClusterAuthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthInvokeArgs(), options.WithDefaults());

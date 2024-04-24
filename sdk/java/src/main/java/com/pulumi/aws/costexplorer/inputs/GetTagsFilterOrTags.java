@@ -15,47 +15,23 @@ public final class GetTagsFilterOrTags extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsFilterOrTags Empty = new GetTagsFilterOrTags();
 
-    /**
-     * Unique name of the Cost Category.
-     * 
-     */
     @Import(name="key")
     private @Nullable String key;
 
-    /**
-     * @return Unique name of the Cost Category.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     @Import(name="matchOptions")
     private @Nullable List<String> matchOptions;
 
-    /**
-     * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     public Optional<List<String>> matchOptions() {
         return Optional.ofNullable(this.matchOptions);
     }
 
-    /**
-     * Specific value of the Cost Category.
-     * 
-     */
     @Import(name="values")
     private @Nullable List<String> values;
 
-    /**
-     * @return Specific value of the Cost Category.
-     * 
-     */
     public Optional<List<String>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -86,55 +62,25 @@ public final class GetTagsFilterOrTags extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsFilterOrTags(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Unique name of the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param matchOptions Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchOptions(@Nullable List<String> matchOptions) {
             $.matchOptions = matchOptions;
             return this;
         }
 
-        /**
-         * @param matchOptions Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchOptions(String... matchOptions) {
             return matchOptions(List.of(matchOptions));
         }
 
-        /**
-         * @param values Specific value of the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Specific value of the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -122,7 +122,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +155,6 @@ class RepositoryPolicy(pulumi.CustomResource):
             repository_name=example_repository.repository_name,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,7 +184,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +217,6 @@ class RepositoryPolicy(pulumi.CustomResource):
             repository_name=example_repository.repository_name,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

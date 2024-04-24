@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
-     * 
-     */
     private @Nullable String clientCredentialsArn;
-    /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
-     * 
-     */
     private @Nullable String jwtToken;
-    /**
-     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     private @Nullable String oauth2GrantType;
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce() {}
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
-     * 
-     */
     public Optional<String> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
-    /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
-     * 
-     */
     public Optional<String> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }
-    /**
-     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     public Optional<String> oauth2GrantType() {
         return Optional.ofNullable(this.oauth2GrantType);
     }
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

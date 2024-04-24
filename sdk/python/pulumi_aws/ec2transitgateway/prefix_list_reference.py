@@ -190,7 +190,6 @@ class PrefixListReference(pulumi.CustomResource):
 
         ### Attachment Routing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,11 +199,9 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blackhole Routing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +211,6 @@ class PrefixListReference(pulumi.CustomResource):
             prefix_list_id=example_aws_ec2_managed_prefix_list["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -246,7 +242,6 @@ class PrefixListReference(pulumi.CustomResource):
 
         ### Attachment Routing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,11 +251,9 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blackhole Routing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,7 +263,6 @@ class PrefixListReference(pulumi.CustomResource):
             prefix_list_id=example_aws_ec2_managed_prefix_list["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

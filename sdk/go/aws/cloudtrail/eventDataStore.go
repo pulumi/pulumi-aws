@@ -23,7 +23,6 @@ import (
 //
 // The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Data Event Logging
 //
@@ -57,7 +55,6 @@ import (
 //
 // ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

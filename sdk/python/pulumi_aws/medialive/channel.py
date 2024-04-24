@@ -252,7 +252,7 @@ class _ChannelState:
         :param pulumi.Input[str] arn: ARN of the Channel.
         :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         :param pulumi.Input[str] channel_class: Concise argument description.
-        :param pulumi.Input[str] channel_id: ID of the channel in MediaPackage that is the destination for this output group.
+        :param pulumi.Input[str] channel_id: ID of the Channel.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for channel. See Destinations for more details.
         :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See Encoder Settings for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
@@ -343,7 +343,7 @@ class _ChannelState:
     @pulumi.getter(name="channelId")
     def channel_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the channel in MediaPackage that is the destination for this output group.
+        ID of the Channel.
         """
         return pulumi.get(self, "channel_id")
 
@@ -524,7 +524,6 @@ class Channel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -593,7 +592,6 @@ class Channel(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -634,7 +632,6 @@ class Channel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,7 +700,6 @@ class Channel(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -812,7 +808,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Channel.
         :param pulumi.Input[pulumi.InputType['ChannelCdiInputSpecificationArgs']] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         :param pulumi.Input[str] channel_class: Concise argument description.
-        :param pulumi.Input[str] channel_id: ID of the channel in MediaPackage that is the destination for this output group.
+        :param pulumi.Input[str] channel_id: ID of the Channel.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDestinationArgs']]]] destinations: Destinations for channel. See Destinations for more details.
         :param pulumi.Input[pulumi.InputType['ChannelEncoderSettingsArgs']] encoder_settings: Encoder settings. See Encoder Settings for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelInputAttachmentArgs']]]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
@@ -877,7 +873,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[str]:
         """
-        ID of the channel in MediaPackage that is the destination for this output group.
+        ID of the Channel.
         """
         return pulumi.get(self, "channel_id")
 

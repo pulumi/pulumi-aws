@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTableItemResult> InvokeAsync(GetTableItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemArgs(), options.WithDefaults());
@@ -55,7 +53,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());

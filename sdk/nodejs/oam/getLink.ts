@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     linkIdentifier: "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
 
@@ -84,7 +82,6 @@ export interface GetLinkResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,7 +90,6 @@ export interface GetLinkResult {
  *     linkIdentifier: "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
     return pulumi.output(args).apply((a: any) => getLink(a, opts))

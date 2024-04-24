@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());

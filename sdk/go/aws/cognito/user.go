@@ -18,7 +18,6 @@ import (
 //
 // ### Basic configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Setting user attributes
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,7 +104,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

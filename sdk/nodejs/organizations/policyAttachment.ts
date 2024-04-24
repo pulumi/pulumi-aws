@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Organization Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     targetId: "123456789012",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Root
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +32,9 @@ import * as utilities from "../utilities";
  *     targetId: exampleAwsOrganizationsOrganization.roots[0].id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Unit
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,7 +44,6 @@ import * as utilities from "../utilities";
  *     targetId: exampleAwsOrganizationsOrganizationalUnit.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -321,7 +321,6 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +347,6 @@ class GatewayRoute(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -378,7 +376,6 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,7 +402,6 @@ class GatewayRoute(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

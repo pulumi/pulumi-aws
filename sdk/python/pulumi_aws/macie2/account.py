@@ -152,7 +152,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,7 +160,6 @@ class Account(pulumi.CustomResource):
             finding_publishing_frequency="FIFTEEN_MINUTES",
             status="ENABLED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,7 +185,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +193,6 @@ class Account(pulumi.CustomResource):
             finding_publishing_frequency="FIFTEEN_MINUTES",
             status="ENABLED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

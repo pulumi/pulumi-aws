@@ -13,7 +13,6 @@ import {PolicyDocument} from "../iam";
  *
  * ### Elasticsearch Log Publishing
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +36,9 @@ import {PolicyDocument} from "../iam";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Route53 Query Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,7 +61,6 @@ import {PolicyDocument} from "../iam";
  *     policyName: "route53-query-logging-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -17,32 +17,16 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
 
     public static final JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs Empty = new JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs();
 
-    /**
-     * Specifies whether the secret or the secret&#39;s keys must be defined.
-     * 
-     */
     @Import(name="optional")
     private @Nullable Output<Boolean> optional;
 
-    /**
-     * @return Specifies whether the secret or the secret&#39;s keys must be defined.
-     * 
-     */
     public Optional<Output<Boolean>> optional() {
         return Optional.ofNullable(this.optional);
     }
 
-    /**
-     * The name of the secret. The name must be allowed as a DNS subdomain name.
-     * 
-     */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
-    /**
-     * @return The name of the secret. The name must be allowed as a DNS subdomain name.
-     * 
-     */
     public Output<String> secretName() {
         return this.secretName;
     }
@@ -72,44 +56,20 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
             $ = new JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param optional Specifies whether the secret or the secret&#39;s keys must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optional(@Nullable Output<Boolean> optional) {
             $.optional = optional;
             return this;
         }
 
-        /**
-         * @param optional Specifies whether the secret or the secret&#39;s keys must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optional(Boolean optional) {
             return optional(Output.of(optional));
         }
 
-        /**
-         * @param secretName The name of the secret. The name must be allowed as a DNS subdomain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(Output<String> secretName) {
             $.secretName = secretName;
             return this;
         }
 
-        /**
-         * @param secretName The name of the secret. The name must be allowed as a DNS subdomain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(String secretName) {
             return secretName(Output.of(secretName));
         }

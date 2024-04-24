@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ### Public Zone
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Public Subdomain Zone
     /// 
@@ -40,7 +38,6 @@ namespace Pulumi.Aws.Route53
     /// `aws.route53.Record` of type `NS` as well as the subdomain
     /// zone.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Private Zone
     /// 
@@ -82,7 +78,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// &gt; **NOTE:** Private zones require at least one VPC association at all times.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,7 +100,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

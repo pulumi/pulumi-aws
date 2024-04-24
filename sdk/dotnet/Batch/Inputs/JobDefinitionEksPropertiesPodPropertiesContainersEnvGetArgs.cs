@@ -18,9 +18,6 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the environment variable.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

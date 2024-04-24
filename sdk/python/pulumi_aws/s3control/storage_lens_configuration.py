@@ -95,7 +95,7 @@ class _StorageLensConfigurationState:
         """
         Input properties used for looking up and filtering StorageLensConfiguration resources.
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,7 +133,7 @@ class _StorageLensConfigurationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -208,7 +208,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +250,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +319,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -394,7 +390,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -424,7 +420,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         """
         return pulumi.get(self, "arn")
 

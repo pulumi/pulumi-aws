@@ -158,14 +158,12 @@ class Container(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mediastore.Container("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,14 +189,12 @@ class Container(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mediastore.Container("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -788,14 +788,12 @@ class StaticWebLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         web = aws.opsworks.StaticWebLayer("web", stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -838,14 +836,12 @@ class StaticWebLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         web = aws.opsworks.StaticWebLayer("web", stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

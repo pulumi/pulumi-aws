@@ -136,7 +136,6 @@ class ApplicationAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,11 +145,9 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Group Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +157,6 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -189,7 +185,6 @@ class ApplicationAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,11 +194,9 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Group Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,7 +206,6 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

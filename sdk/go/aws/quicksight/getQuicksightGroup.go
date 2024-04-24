@@ -19,7 +19,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts ...pulumi.InvokeOption) (*GetQuicksightGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightGroupResult

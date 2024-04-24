@@ -122,7 +122,6 @@ def get_export(api_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,7 +130,6 @@ def get_export(api_id: Optional[str] = None,
         specification="OAS30",
         output_type="JSON")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_id: API identifier.
@@ -175,7 +173,6 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -184,7 +181,6 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
         specification="OAS30",
         output_type="JSON")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_id: API identifier.

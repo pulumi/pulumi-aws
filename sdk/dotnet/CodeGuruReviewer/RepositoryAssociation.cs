@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
     public partial class RepositoryAssociation : global::Pulumi.CustomResource
@@ -78,13 +76,13 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Output<Outputs.RepositoryAssociationKmsKeyDetails?> KmsKeyDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the third party source repository.
+        /// The name of the repository.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The username for the account that owns the repository.
+        /// The owner of the repository.
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
@@ -225,13 +223,13 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Input<Inputs.RepositoryAssociationKmsKeyDetailsGetArgs>? KmsKeyDetails { get; set; }
 
         /// <summary>
-        /// The name of the third party source repository.
+        /// The name of the repository.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The username for the account that owns the repository.
+        /// The owner of the repository.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

@@ -92,14 +92,12 @@ def get_apis(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: API name.
@@ -132,14 +130,12 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: API name.

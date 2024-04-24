@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all Local Gateway Route Table Ids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
     args = args || {};
@@ -78,7 +76,6 @@ export interface GetLocalGatewayRouteTablesResult {
  *
  * The following shows outputting all Local Gateway Route Table Ids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +87,6 @@ export interface GetLocalGatewayRouteTablesResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTables(a, opts))

@@ -201,7 +201,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,7 +212,6 @@ class Configuration(pulumi.CustomResource):
         delete.topic.enable = true
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +239,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +250,6 @@ class Configuration(pulumi.CustomResource):
         delete.topic.enable = true
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

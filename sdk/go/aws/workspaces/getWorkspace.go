@@ -17,7 +17,6 @@ import (
 //
 // ### Filter By Workspace ID
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +40,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter By Directory ID & User Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,7 +67,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult

@@ -266,7 +266,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,11 +277,9 @@ class UserHierarchyGroup(pulumi.CustomResource):
                 "Name": "Example User Hierarchy Group",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With a parent group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,7 +298,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
                 "Name": "Example User Hierarchy Group Child",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -335,7 +331,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,11 +342,9 @@ class UserHierarchyGroup(pulumi.CustomResource):
                 "Name": "Example User Hierarchy Group",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With a parent group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,7 +363,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
                 "Name": "Example User Hierarchy Group Child",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

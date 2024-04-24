@@ -119,7 +119,6 @@ class ResolverFirewallConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -132,7 +131,6 @@ class ResolverFirewallConfig(pulumi.CustomResource):
             resource_id=example.id,
             firewall_fail_open="ENABLED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -158,7 +156,6 @@ class ResolverFirewallConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +168,6 @@ class ResolverFirewallConfig(pulumi.CustomResource):
             resource_id=example.id,
             firewall_fail_open="ENABLED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

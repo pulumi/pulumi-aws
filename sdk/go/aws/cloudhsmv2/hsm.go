@@ -18,7 +18,6 @@ import (
 //
 // The following example below creates an HSM module in CloudHSM cluster.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

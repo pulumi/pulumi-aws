@@ -263,7 +263,6 @@ class ConformancePack(pulumi.CustomResource):
 
         ### Template Body
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,11 +287,9 @@ class ConformancePack(pulumi.CustomResource):
         \"\"\",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Template S3 URI
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +312,6 @@ class ConformancePack(pulumi.CustomResource):
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,7 +350,6 @@ class ConformancePack(pulumi.CustomResource):
 
         ### Template Body
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,11 +374,9 @@ class ConformancePack(pulumi.CustomResource):
         \"\"\",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Template S3 URI
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,7 +399,6 @@ class ConformancePack(pulumi.CustomResource):
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

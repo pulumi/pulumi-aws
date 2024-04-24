@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,11 +52,9 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,19 +70,17 @@ namespace Pulumi.Aws.Iam
         ///     {
         ///         DependsOn =
         ///         {
-        ///             s3ObjectAccess, 
+        ///             s3ObjectAccess,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Testing the Effect of a Declared Policy
         /// 
         /// The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -168,7 +163,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
@@ -189,7 +183,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -217,11 +210,9 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -237,19 +228,17 @@ namespace Pulumi.Aws.Iam
         ///     {
         ///         DependsOn =
         ///         {
-        ///             s3ObjectAccess, 
+        ///             s3ObjectAccess,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Testing the Effect of a Declared Policy
         /// 
         /// The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -332,7 +321,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>

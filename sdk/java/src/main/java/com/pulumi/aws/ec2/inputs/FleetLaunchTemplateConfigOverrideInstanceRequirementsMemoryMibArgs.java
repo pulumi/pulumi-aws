@@ -17,14 +17,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs();
 
     /**
-     * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Output<Integer>> max() {
@@ -32,14 +32,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
     }
 
     /**
-     * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
      * 
      */
     @Import(name="min", required=true)
     private Output<Integer> min;
 
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
      * 
      */
     public Output<Integer> min() {
@@ -72,7 +72,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
          * 
          * @return builder
          * 

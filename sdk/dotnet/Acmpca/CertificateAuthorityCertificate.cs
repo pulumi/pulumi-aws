@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ### Self-Signed Root Certificate Authority Certificate
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +62,11 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Certificate for Subordinate Certificate Authority
     /// 
     /// Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -122,7 +119,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
     public partial class CertificateAuthorityCertificate : global::Pulumi.CustomResource

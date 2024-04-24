@@ -42,11 +42,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument;
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString? QueryString;
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? UriPath;
 

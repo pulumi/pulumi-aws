@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
     public sealed class ServerlessCacheCacheUsageLimitsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
-        /// </summary>
         [Input("dataStorage")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsDataStorageGetArgs>? DataStorage { get; set; }
 
         [Input("ecpuPerSeconds")]
         private InputList<Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondGetArgs>? _ecpuPerSeconds;
-
-        /// <summary>
-        /// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
-        /// </summary>
         public InputList<Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondGetArgs> EcpuPerSeconds
         {
             get => _ecpuPerSeconds ?? (_ecpuPerSeconds = new InputList<Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondGetArgs>());

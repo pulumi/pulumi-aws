@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The permission type for the document. The permission type can be `Share`.
+        /// The type of parameter. Valid values: `String`, `StringList`.
         /// </summary>
         public readonly string? Type;
 

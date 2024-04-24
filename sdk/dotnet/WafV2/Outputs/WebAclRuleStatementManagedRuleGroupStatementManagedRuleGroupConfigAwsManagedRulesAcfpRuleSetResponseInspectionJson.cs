@@ -13,17 +13,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson
     {
-        /// <summary>
-        /// Values in the response header with the specified name that indicate a failed login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> FailureValues;
         /// <summary>
         /// The identifier for the value to match against in the JSON.
         /// </summary>
         public readonly string Identifier;
-        /// <summary>
-        /// Values in the response header with the specified name that indicate a successful login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> SuccessValues;
 
         [OutputConstructor]

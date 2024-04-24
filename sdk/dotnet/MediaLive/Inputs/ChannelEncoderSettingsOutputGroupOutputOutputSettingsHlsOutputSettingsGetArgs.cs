@@ -18,9 +18,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("hlsSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsGetArgs> HlsSettings { get; set; } = null!;
 
-        /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-        /// </summary>
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
 

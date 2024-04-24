@@ -41,10 +41,6 @@ public final class GetPermissionsTableWithColumns {
      * 
      */
     private String name;
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private GetPermissionsTableWithColumns() {}
@@ -85,10 +81,6 @@ public final class GetPermissionsTableWithColumns {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

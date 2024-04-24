@@ -109,7 +109,6 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,7 +116,6 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
     example = aws.directconnect.get_router_configuration(virtual_interface_id="dxvif-abcde123",
         router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -166,7 +164,6 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,7 +171,6 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     example = aws.directconnect.get_router_configuration(virtual_interface_id="dxvif-abcde123",
         router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`

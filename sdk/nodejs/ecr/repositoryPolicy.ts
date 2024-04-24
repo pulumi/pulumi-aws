@@ -13,7 +13,6 @@ import {PolicyDocument} from "../iam";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +49,6 @@ import {PolicyDocument} from "../iam";
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

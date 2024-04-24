@@ -244,7 +244,6 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         ### Dimensional Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,11 +253,9 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -280,7 +277,6 @@ class AnomalyMonitor(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,7 +309,6 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         ### Dimensional Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,11 +318,9 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -349,7 +342,6 @@ class AnomalyMonitor(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

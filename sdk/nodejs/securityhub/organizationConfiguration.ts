@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *
  * ### Local Configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Central Configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,7 +58,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleFindingAggregator],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

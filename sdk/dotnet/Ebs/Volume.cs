@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
     /// 

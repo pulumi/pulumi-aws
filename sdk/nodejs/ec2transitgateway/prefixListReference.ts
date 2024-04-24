@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Attachment Routing
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Blackhole Routing
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

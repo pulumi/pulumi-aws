@@ -483,7 +483,6 @@ class ElasticCluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,7 +495,6 @@ class ElasticCluster(pulumi.CustomResource):
             shard_capacity=2,
             shard_count=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -535,7 +533,6 @@ class ElasticCluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -548,7 +545,6 @@ class ElasticCluster(pulumi.CustomResource):
             shard_capacity=2,
             shard_count=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

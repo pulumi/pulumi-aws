@@ -29,7 +29,6 @@ import (
 //
 // ### Aurora MySQL 2.x (MySQL 5.7)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,11 +64,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Aurora MySQL 1.x (MySQL 5.6)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,11 +100,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Aurora with PostgreSQL engine
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,7 +137,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS Multi-AZ Cluster
 //
@@ -150,7 +144,6 @@ import (
 //
 // To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storageType`, `allocatedStorage`, `iops` and `dbClusterInstanceClass` attributes.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,7 +179,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS Serverless v2 Cluster
 //
@@ -197,7 +189,6 @@ import (
 //
 // To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -241,7 +232,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 //
@@ -249,7 +239,6 @@ import (
 //
 // You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `masterPassword` attribute (removal is required).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -276,7 +265,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 //
@@ -284,7 +272,6 @@ import (
 //
 // You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -319,11 +306,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Global Cluster Restored From Snapshot
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -365,7 +350,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

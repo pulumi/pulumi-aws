@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-     * 
-     */
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver() {}
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-     * 
-     */
     public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig() {
         return this.s3OutputFormatConfig;
     }

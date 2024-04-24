@@ -141,7 +141,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +157,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             description="Primary",
             prefix_list_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,7 +189,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,7 +205,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             description="Primary",
             prefix_list_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

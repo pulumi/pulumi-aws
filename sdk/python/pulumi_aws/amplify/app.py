@@ -739,7 +739,6 @@ class App(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -773,13 +772,11 @@ class App(pulumi.CustomResource):
                 "ENV": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Repository with Tokens
 
         If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,13 +786,11 @@ class App(pulumi.CustomResource):
             repository="https://github.com/example/app",
             access_token="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
 
         ### Auto Branch Creation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -811,11 +806,9 @@ class App(pulumi.CustomResource):
                 enable_auto_build=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic Authorization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -826,11 +819,9 @@ class App(pulumi.CustomResource):
             enable_basic_auth=True,
             basic_auth_credentials=std.base64encode(input="username1:password1").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rewrites and Redirects
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -850,11 +841,9 @@ class App(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -865,11 +854,9 @@ class App(pulumi.CustomResource):
                 "_CUSTOM_IMAGE": "node:16",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Headers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -891,7 +878,6 @@ class App(pulumi.CustomResource):
                 value: "default-src 'self'"
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -937,7 +923,6 @@ class App(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -971,13 +956,11 @@ class App(pulumi.CustomResource):
                 "ENV": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Repository with Tokens
 
         If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -987,13 +970,11 @@ class App(pulumi.CustomResource):
             repository="https://github.com/example/app",
             access_token="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
 
         ### Auto Branch Creation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1009,11 +990,9 @@ class App(pulumi.CustomResource):
                 enable_auto_build=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic Authorization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1024,11 +1003,9 @@ class App(pulumi.CustomResource):
             enable_basic_auth=True,
             basic_auth_credentials=std.base64encode(input="username1:password1").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rewrites and Redirects
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1048,11 +1025,9 @@ class App(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1063,11 +1038,9 @@ class App(pulumi.CustomResource):
                 "_CUSTOM_IMAGE": "node:16",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Headers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1089,7 +1062,6 @@ class App(pulumi.CustomResource):
                 value: "default-src 'self'"
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

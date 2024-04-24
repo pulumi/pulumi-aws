@@ -17,7 +17,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +63,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAmiIdsResult> InvokeAsync(GetAmiIdsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:autoscaling/getAmiIds:getAmiIds", args ?? new GetAmiIdsArgs(), options.WithDefaults());
@@ -75,7 +73,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -122,7 +119,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAmiIdsResult> Invoke(GetAmiIdsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiIdsResult>("aws:autoscaling/getAmiIds:getAmiIds", args ?? new GetAmiIdsInvokeArgs(), options.WithDefaults());

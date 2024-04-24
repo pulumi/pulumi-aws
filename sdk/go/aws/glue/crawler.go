@@ -18,7 +18,6 @@ import (
 //
 // ### DynamoDB Target Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### JDBC Target Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### S3 Target Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,11 +117,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Catalog Target Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,11 +165,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### MongoDB Target Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,11 +199,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configuration Settings Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -264,7 +253,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

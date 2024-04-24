@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypesResult

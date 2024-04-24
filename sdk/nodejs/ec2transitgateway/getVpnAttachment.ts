@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### By Transit Gateway and VPN Connection Identifiers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     vpnConnectionId: exampleAwsVpnConnection.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,7 +39,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
     args = args || {};
@@ -103,7 +99,6 @@ export interface GetVpnAttachmentResult {
  *
  * ### By Transit Gateway and VPN Connection Identifiers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,11 +108,9 @@ export interface GetVpnAttachmentResult {
  *     vpnConnectionId: exampleAwsVpnConnection.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -129,7 +122,6 @@ export interface GetVpnAttachmentResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpnAttachmentOutput(args?: GetVpnAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getVpnAttachment(a, opts))

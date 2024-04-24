@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Secrets Manager secret containing the credentials.
-        /// </summary>
         [Input("clientCertificateTlsAuth")]
         public Input<string>? ClientCertificateTlsAuth { get; set; }
 
-        /// <summary>
-        /// The ARN of the Secrets Manager secret containing the credentials.
-        /// </summary>
         [Input("saslScram512Auth")]
         public Input<string>? SaslScram512Auth { get; set; }
 

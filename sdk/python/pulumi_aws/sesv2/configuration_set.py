@@ -339,7 +339,6 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,7 +364,6 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -399,7 +397,6 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,7 +422,6 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

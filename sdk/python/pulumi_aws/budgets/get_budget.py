@@ -236,14 +236,12 @@ def get_budget(account_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.budgets.get_budget(name=test_aws_budgets_budget["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -291,14 +289,12 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.budgets.get_budget(name=test_aws_budgets_budget["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.

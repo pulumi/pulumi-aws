@@ -18,7 +18,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,11 +59,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With description
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,11 +104,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With multiple groups
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +156,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With metricMonitors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,11 +220,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With randomizationSalt
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -274,11 +265,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With multiple steps
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -333,11 +322,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With segment overrides
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -402,7 +389,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -18,7 +18,6 @@ import {IpAddressType, LoadBalancerType} from "./index";
  *
  * ### Application Load Balancer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,11 +39,9 @@ import {IpAddressType, LoadBalancerType} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Network Load Balancer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,11 +57,9 @@ import {IpAddressType, LoadBalancerType} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Specifying Elastic IPs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,11 +79,9 @@ import {IpAddressType, LoadBalancerType} from "./index";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Specifying private IP addresses for an internal-facing load balancer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,7 +101,6 @@ import {IpAddressType, LoadBalancerType} from "./index";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

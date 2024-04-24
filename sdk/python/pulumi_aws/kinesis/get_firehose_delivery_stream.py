@@ -74,14 +74,12 @@ def get_firehose_delivery_stream(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Kinesis Stream.
@@ -107,14 +105,12 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Kinesis Stream.

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     producerArn: "",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetProducerDataSharesResult> {
 
@@ -80,7 +78,6 @@ export interface GetProducerDataSharesResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,7 +86,6 @@ export interface GetProducerDataSharesResult {
  *     producerArn: "",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProducerDataSharesResult> {
     return pulumi.output(args).apply((a: any) => getProducerDataShares(a, opts))

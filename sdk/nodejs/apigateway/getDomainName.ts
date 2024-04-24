@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     domainName: "api.example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
 
@@ -113,7 +111,6 @@ export interface GetDomainNameResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,7 +119,6 @@ export interface GetDomainNameResult {
  *     domainName: "api.example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     return pulumi.output(args).apply((a: any) => getDomainName(a, opts))

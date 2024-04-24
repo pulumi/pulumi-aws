@@ -388,7 +388,6 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -403,11 +402,9 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
             "db.t3.small",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -425,7 +422,6 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
             "db.t3.large",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone_group: Availability zone group.
@@ -545,7 +541,6 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -560,11 +555,9 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
             "db.t3.small",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -582,7 +575,6 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
             "db.t3.large",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone_group: Availability zone group.

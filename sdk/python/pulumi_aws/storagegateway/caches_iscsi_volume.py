@@ -473,7 +473,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ### Create Empty Cached iSCSI Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,11 +483,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=5368709120)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Cached iSCSI Volume From Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,11 +497,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Cached iSCSI Volume From Source Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,7 +511,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -557,7 +551,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ### Create Empty Cached iSCSI Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,11 +561,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=5368709120)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Cached iSCSI Volume From Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -584,11 +575,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Cached iSCSI Volume From Source Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,7 +589,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetCallerIdentity(ctx *pulumi.Context, args *GetCallerIdentityArgs, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCallerIdentityResult

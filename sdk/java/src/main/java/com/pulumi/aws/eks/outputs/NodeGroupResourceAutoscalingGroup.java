@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NodeGroupResourceAutoscalingGroup {
     /**
-     * @return Name of the EC2 Launch Template. Conflicts with `id`.
+     * @return Name of the AutoScaling Group.
      * 
      */
     private @Nullable String name;
 
     private NodeGroupResourceAutoscalingGroup() {}
     /**
-     * @return Name of the EC2 Launch Template. Conflicts with `id`.
+     * @return Name of the AutoScaling Group.
      * 
      */
     public Optional<String> name() {

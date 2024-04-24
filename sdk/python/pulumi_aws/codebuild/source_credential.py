@@ -185,7 +185,6 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,11 +194,9 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Bitbucket Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,7 +207,6 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,7 +236,6 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,11 +245,9 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Bitbucket Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +258,6 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

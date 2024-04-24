@@ -1815,7 +1815,7 @@ type DocumentParameter struct {
 	Description *string `pulumi:"description"`
 	// The name of the document.
 	Name *string `pulumi:"name"`
-	// The permission type for the document. The permission type can be `Share`.
+	// The type of parameter. Valid values: `String`, `StringList`.
 	Type *string `pulumi:"type"`
 }
 
@@ -1837,7 +1837,7 @@ type DocumentParameterArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The name of the document.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The permission type for the document. The permission type can be `Share`.
+	// The type of parameter. Valid values: `String`, `StringList`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1907,7 +1907,7 @@ func (o DocumentParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The permission type for the document. The permission type can be `Share`.
+// The type of parameter. Valid values: `String`, `StringList`.
 func (o DocumentParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2033,8 +2033,7 @@ func (o MaintenanceWindowTargetTargetArrayOutput) Index(i pulumi.IntInput) Maint
 }
 
 type MaintenanceWindowTaskTarget struct {
-	Key string `pulumi:"key"`
-	// The array of strings.
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -2050,8 +2049,7 @@ type MaintenanceWindowTaskTargetInput interface {
 }
 
 type MaintenanceWindowTaskTargetArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
-	// The array of strings.
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2110,7 +2108,6 @@ func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The array of strings.
 func (o MaintenanceWindowTaskTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2791,8 +2788,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
 	DocumentHash *string `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType *string `pulumi:"documentHashType"`
-	// The version of an Automation document to use during task execution.
-	DocumentVersion *string `pulumi:"documentVersion"`
+	DocumentVersion  *string `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -2827,8 +2823,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struc
 	DocumentHash pulumi.StringPtrInput `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType pulumi.StringPtrInput `pulumi:"documentHashType"`
-	// The version of an Automation document to use during task execution.
-	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+	DocumentVersion  pulumi.StringPtrInput `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -2946,7 +2941,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of an Automation document to use during task execution.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		return v.DocumentVersion
@@ -3059,7 +3053,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of an Automation document to use during task execution.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		if v == nil {

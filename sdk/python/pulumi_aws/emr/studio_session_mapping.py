@@ -200,7 +200,6 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +210,6 @@ class StudioSessionMapping(pulumi.CustomResource):
             identity_id="example",
             session_policy_arn=example_aws_iam_policy["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,7 +238,6 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +248,6 @@ class StudioSessionMapping(pulumi.CustomResource):
             identity_id="example",
             session_policy_arn=example_aws_iam_policy["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

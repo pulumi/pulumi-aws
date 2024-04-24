@@ -254,7 +254,6 @@ def get_cluster(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -264,7 +263,6 @@ def get_cluster(name: Optional[str] = None,
     pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
     pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster.
@@ -306,7 +304,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -316,7 +313,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
     pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster.

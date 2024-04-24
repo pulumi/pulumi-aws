@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Acmpca.Outputs
     [OutputType]
     public sealed class GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult
     {
+        /// <summary>
+        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A CNAME specifying a customized OCSP domain.
+        /// </summary>
         public readonly string OcspCustomCname;
 
         [OutputConstructor]

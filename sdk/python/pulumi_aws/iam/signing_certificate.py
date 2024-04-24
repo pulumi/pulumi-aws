@@ -154,7 +154,6 @@ class SigningCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,11 +163,9 @@ class SigningCertificate(pulumi.CustomResource):
             username="some_test_cert",
             certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +177,6 @@ class SigningCertificate(pulumi.CustomResource):
         -----END CERTIFICATE-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +206,6 @@ class SigningCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,11 +215,9 @@ class SigningCertificate(pulumi.CustomResource):
             username="some_test_cert",
             certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +229,6 @@ class SigningCertificate(pulumi.CustomResource):
         -----END CERTIFICATE-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

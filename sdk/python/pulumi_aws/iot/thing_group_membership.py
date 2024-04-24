@@ -135,7 +135,6 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,7 +144,6 @@ class ThingGroupMembership(pulumi.CustomResource):
             thing_group_name="example-group",
             override_dynamic_group=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,7 +170,6 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +179,6 @@ class ThingGroupMembership(pulumi.CustomResource):
             thing_group_name="example-group",
             override_dynamic_group=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

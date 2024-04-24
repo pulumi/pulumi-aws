@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *
  * The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,13 +49,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example: Deny All Egress Traffic, Allow Ingress
  *
  * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,13 +71,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
  *
  * This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +83,6 @@ import * as utilities from "../utilities";
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {defaultNetworkAclId: mainvpc.defaultNetworkAclId});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managing Subnets In A Default Network ACL
  *
@@ -100,14 +94,12 @@ import * as utilities from "../utilities";
  *
  * As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration
  *

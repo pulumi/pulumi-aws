@@ -387,7 +387,6 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,7 +399,6 @@ class OrganizationManagedRule(pulumi.CustomResource):
             rule_identifier="IAM_PASSWORD_POLICY",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -438,7 +436,6 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,7 +448,6 @@ class OrganizationManagedRule(pulumi.CustomResource):
             rule_identifier="IAM_PASSWORD_POLICY",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

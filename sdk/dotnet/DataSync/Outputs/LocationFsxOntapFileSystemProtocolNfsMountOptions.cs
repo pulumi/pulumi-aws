@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class LocationFsxOntapFileSystemProtocolNfsMountOptions
     {
-        /// <summary>
-        /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

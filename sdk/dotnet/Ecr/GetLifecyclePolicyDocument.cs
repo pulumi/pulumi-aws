@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLifecyclePolicyDocumentResult> InvokeAsync(GetLifecyclePolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentArgs(), options.WithDefaults());
@@ -69,7 +67,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,7 +105,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLifecyclePolicyDocumentResult> Invoke(GetLifecyclePolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentInvokeArgs(), options.WithDefaults());

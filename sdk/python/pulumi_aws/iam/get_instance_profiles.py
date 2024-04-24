@@ -98,14 +98,12 @@ def get_instance_profiles(role_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_instance_profiles(role_name="an_example_iam_role_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str role_name: IAM role name.
@@ -133,14 +131,12 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_instance_profiles(role_name="an_example_iam_role_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str role_name: IAM role name.

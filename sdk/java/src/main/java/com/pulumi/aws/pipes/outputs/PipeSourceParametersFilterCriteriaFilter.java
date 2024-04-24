@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipeSourceParametersFilterCriteriaFilter {
-    /**
-     * @return The event pattern. At most 4096 characters.
-     * 
-     */
     private String pattern;
 
     private PipeSourceParametersFilterCriteriaFilter() {}
-    /**
-     * @return The event pattern. At most 4096 characters.
-     * 
-     */
     public String pattern() {
         return this.pattern;
     }

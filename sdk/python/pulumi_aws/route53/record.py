@@ -596,7 +596,6 @@ class Record(pulumi.CustomResource):
 
         ### Simple routing policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -608,13 +607,11 @@ class Record(pulumi.CustomResource):
             ttl=300,
             records=[lb["publicIp"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Weighted routing policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -640,11 +637,9 @@ class Record(pulumi.CustomResource):
             set_identifier="live",
             records=["live.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Geoproximity routing policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -663,7 +658,6 @@ class Record(pulumi.CustomResource):
             set_identifier="dev",
             records=["dev.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Alias record
 
@@ -673,7 +667,6 @@ class Record(pulumi.CustomResource):
         TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
         you cannot change this, therefore `ttl` has to be omitted in alias records.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -697,13 +690,11 @@ class Record(pulumi.CustomResource):
                 evaluate_target_health=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### NS and SOA Record Management
 
         When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -722,7 +713,6 @@ class Record(pulumi.CustomResource):
                 example.name_servers[3],
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -778,7 +768,6 @@ class Record(pulumi.CustomResource):
 
         ### Simple routing policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -790,13 +779,11 @@ class Record(pulumi.CustomResource):
             ttl=300,
             records=[lb["publicIp"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Weighted routing policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -822,11 +809,9 @@ class Record(pulumi.CustomResource):
             set_identifier="live",
             records=["live.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Geoproximity routing policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,7 +830,6 @@ class Record(pulumi.CustomResource):
             set_identifier="dev",
             records=["dev.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Alias record
 
@@ -855,7 +839,6 @@ class Record(pulumi.CustomResource):
         TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
         you cannot change this, therefore `ttl` has to be omitted in alias records.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -879,13 +862,11 @@ class Record(pulumi.CustomResource):
                 evaluate_target_health=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### NS and SOA Record Management
 
         When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -904,7 +885,6 @@ class Record(pulumi.CustomResource):
                 example.name_servers[3],
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

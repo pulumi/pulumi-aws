@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +18,11 @@ import * as utilities from "../utilities";
  *     addonName: "vpc-cni",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
  *
  * `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     resolveConflictsOnUpdate: "PRESERVE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example add-on usage with custom configurationValues
  *
@@ -50,7 +46,6 @@ import * as utilities from "../utilities";
  *
  * Example to create a `coredns` managed addon with custom `configurationValues`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,11 +70,9 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,7 +116,6 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

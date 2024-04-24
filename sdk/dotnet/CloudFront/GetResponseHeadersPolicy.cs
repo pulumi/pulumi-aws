@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,13 +33,11 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed response header policy names are prefixed with `Managed-`:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyArgs(), options.WithDefaults());
@@ -68,7 +64,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,13 +79,11 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed response header policy names are prefixed with `Managed-`:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,7 +99,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyInvokeArgs(), options.WithDefaults());

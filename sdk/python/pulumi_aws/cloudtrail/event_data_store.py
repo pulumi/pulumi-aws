@@ -350,14 +350,12 @@ class EventDataStore(pulumi.CustomResource):
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Data Event Logging
 
@@ -367,7 +365,6 @@ class EventDataStore(pulumi.CustomResource):
 
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,7 +392,6 @@ class EventDataStore(pulumi.CustomResource):
             ],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -435,14 +431,12 @@ class EventDataStore(pulumi.CustomResource):
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Data Event Logging
 
@@ -452,7 +446,6 @@ class EventDataStore(pulumi.CustomResource):
 
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -480,7 +473,6 @@ class EventDataStore(pulumi.CustomResource):
             ],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,7 +87,6 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -258,7 +258,6 @@ class QuickConnect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,7 +276,6 @@ class QuickConnect(pulumi.CustomResource):
                 "Name": "Example Quick Connect",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -307,7 +305,6 @@ class QuickConnect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +323,6 @@ class QuickConnect(pulumi.CustomResource):
                 "Name": "Example Quick Connect",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

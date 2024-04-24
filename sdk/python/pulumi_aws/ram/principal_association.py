@@ -114,7 +114,6 @@ class PrincipalAssociation(pulumi.CustomResource):
 
         ### AWS Account ID
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -124,11 +123,9 @@ class PrincipalAssociation(pulumi.CustomResource):
             principal="111111111111",
             resource_share_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Organization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,7 +134,6 @@ class PrincipalAssociation(pulumi.CustomResource):
             principal=example_aws_organizations_organization["arn"],
             resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +171,6 @@ class PrincipalAssociation(pulumi.CustomResource):
 
         ### AWS Account ID
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,11 +180,9 @@ class PrincipalAssociation(pulumi.CustomResource):
             principal="111111111111",
             resource_share_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Organization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +191,6 @@ class PrincipalAssociation(pulumi.CustomResource):
             principal=example_aws_organizations_organization["arn"],
             resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

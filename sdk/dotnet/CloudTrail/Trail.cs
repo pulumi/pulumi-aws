@@ -23,7 +23,6 @@ namespace Pulumi.Aws.CloudTrail
     /// Enable CloudTrail to capture all compatible management events in region.
     /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,13 +147,12 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketPolicy, 
+    ///             exampleBucketPolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Data Event Logging
     /// 
@@ -165,7 +163,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ### Logging All Lambda Function Invocations By Using Basic Event Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,11 +196,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging All S3 Object Events By Using Basic Event Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -237,11 +232,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -280,11 +273,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -359,11 +350,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -492,11 +481,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Sending Events to CloudWatch Logs
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -517,7 +504,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

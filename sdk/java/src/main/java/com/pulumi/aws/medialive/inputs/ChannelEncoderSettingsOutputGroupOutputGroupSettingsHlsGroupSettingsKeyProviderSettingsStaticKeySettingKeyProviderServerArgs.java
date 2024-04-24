@@ -16,47 +16,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs();
 
-    /**
-     * Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     @Import(name="passwordParam")
     private @Nullable Output<String> passwordParam;
 
-    /**
-     * @return Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     public Optional<Output<String>> passwordParam() {
         return Optional.ofNullable(this.passwordParam);
     }
 
-    /**
-     * Path to a file accessible to the live stream.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return Path to a file accessible to the live stream.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
 
-    /**
-     * . Username to be used.
-     * 
-     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
-    /**
-     * @return . Username to be used.
-     * 
-     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -87,65 +63,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordParam Key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(@Nullable Output<String> passwordParam) {
             $.passwordParam = passwordParam;
             return this;
         }
 
-        /**
-         * @param passwordParam Key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(String passwordParam) {
             return passwordParam(Output.of(passwordParam));
         }
 
-        /**
-         * @param uri Path to a file accessible to the live stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri Path to a file accessible to the live stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }
 
-        /**
-         * @param username . Username to be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username . Username to be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

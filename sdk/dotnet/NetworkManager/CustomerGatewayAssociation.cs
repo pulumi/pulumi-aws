@@ -15,7 +15,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +64,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpnConnection, 
+    ///             exampleVpnConnection,
     ///         },
     ///     });
     /// 
@@ -78,13 +77,12 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleTransitGatewayRegistration, 
+    ///             exampleTransitGatewayRegistration,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

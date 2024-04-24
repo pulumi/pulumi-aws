@@ -14,8 +14,7 @@ namespace Pulumi.Aws.Waf.Outputs
     public sealed class WebAclRuleOverrideAction
     {
         /// <summary>
-        /// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-        /// e.g., `ALLOW` or `BLOCK`
+        /// valid values are: `NONE` or `COUNT`
         /// </summary>
         public readonly string Type;
 

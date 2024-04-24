@@ -95,14 +95,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
      * 
      */
     @Import(name="maxHealthyPercentage")
     private @Nullable Output<Integer> maxHealthyPercentage;
 
     /**
-     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * @return Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
      * 
      */
     public Optional<Output<Integer>> maxHealthyPercentage() {
@@ -110,14 +110,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+     * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     @Import(name="minHealthyPercentage")
     private @Nullable Output<Integer> minHealthyPercentage;
 
     /**
-     * @return Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     public Optional<Output<Integer>> minHealthyPercentage() {
@@ -318,7 +318,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param maxHealthyPercentage Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         * @param maxHealthyPercentage Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param maxHealthyPercentage Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         * @param maxHealthyPercentage Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param minHealthyPercentage Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param minHealthyPercentage Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
          * 
          * @return builder
          * 

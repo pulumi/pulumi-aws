@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     customKeyStoreName: "my_cloudhsm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomKeyStoreResult> {
     args = args || {};
@@ -77,7 +75,6 @@ export interface GetCustomKeyStoreResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetCustomKeyStoreResult {
  *     customKeyStoreName: "my_cloudhsm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomKeyStoreResult> {
     return pulumi.output(args).apply((a: any) => getCustomKeyStore(a, opts))

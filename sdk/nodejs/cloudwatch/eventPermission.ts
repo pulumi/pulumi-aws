@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Account Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     statementId: "DevAccountAccess",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,7 +44,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

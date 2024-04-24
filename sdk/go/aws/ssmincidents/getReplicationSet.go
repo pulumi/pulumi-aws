@@ -19,7 +19,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSetResult

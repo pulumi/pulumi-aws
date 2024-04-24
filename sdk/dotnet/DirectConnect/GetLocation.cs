@@ -19,7 +19,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());

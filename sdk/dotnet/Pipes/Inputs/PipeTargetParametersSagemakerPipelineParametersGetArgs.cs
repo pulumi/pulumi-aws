@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Pipes.Inputs
     {
         [Input("pipelineParameters")]
         private InputList<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterGetArgs>? _pipelineParameters;
-
-        /// <summary>
-        /// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterGetArgs> PipelineParameters
         {
             get => _pipelineParameters ?? (_pipelineParameters = new InputList<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterGetArgs>());

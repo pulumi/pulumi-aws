@@ -13,13 +13,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     [OutputType]
     public sealed class InvocationLoggingConfigurationLoggingConfigS3Config
     {
-        /// <summary>
-        /// S3 bucket name.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// S3 prefix.
-        /// </summary>
         public readonly string? KeyPrefix;
 
         [OutputConstructor]

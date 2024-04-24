@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// Minimum.
         /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }

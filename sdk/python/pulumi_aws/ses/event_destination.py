@@ -295,7 +295,6 @@ class EventDestination(pulumi.CustomResource):
 
         ### CloudWatch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,11 +313,9 @@ class EventDestination(pulumi.CustomResource):
                 value_source="emailHeader",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,11 +333,9 @@ class EventDestination(pulumi.CustomResource):
                 role_arn=example["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +352,6 @@ class EventDestination(pulumi.CustomResource):
                 topic_arn=example["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -392,7 +386,6 @@ class EventDestination(pulumi.CustomResource):
 
         ### CloudWatch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,11 +404,9 @@ class EventDestination(pulumi.CustomResource):
                 value_source="emailHeader",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -433,11 +424,9 @@ class EventDestination(pulumi.CustomResource):
                 role_arn=example["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,7 +443,6 @@ class EventDestination(pulumi.CustomResource):
                 topic_arn=example["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

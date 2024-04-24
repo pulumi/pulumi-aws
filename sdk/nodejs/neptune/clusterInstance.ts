@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +37,6 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

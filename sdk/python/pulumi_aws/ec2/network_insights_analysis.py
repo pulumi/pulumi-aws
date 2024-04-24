@@ -361,7 +361,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,7 +371,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -402,7 +400,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -413,7 +410,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

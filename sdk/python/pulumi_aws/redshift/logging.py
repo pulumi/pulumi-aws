@@ -212,7 +212,6 @@ class Logging(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,11 +224,9 @@ class Logging(pulumi.CustomResource):
                 "userlog",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Destination Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +237,6 @@ class Logging(pulumi.CustomResource):
             bucket_name=example_aws_s3_bucket["id"],
             s3_key_prefix="example-prefix/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +269,6 @@ class Logging(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,11 +281,9 @@ class Logging(pulumi.CustomResource):
                 "userlog",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Destination Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,7 +294,6 @@ class Logging(pulumi.CustomResource):
             bucket_name=example_aws_s3_bucket["id"],
             s3_key_prefix="example-prefix/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

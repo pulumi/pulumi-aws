@@ -146,14 +146,12 @@ def get_place_index(index_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_place_index(index_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str index_name: Name of the place index resource.
@@ -186,14 +184,12 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_place_index(index_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str index_name: Name of the place index resource.

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     email: "awesome@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityResult> {
 
@@ -60,7 +58,6 @@ export interface GetEmailIdentityResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +66,6 @@ export interface GetEmailIdentityResult {
  *     email: "awesome@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityResult> {
     return pulumi.output(args).apply((a: any) => getEmailIdentity(a, opts))

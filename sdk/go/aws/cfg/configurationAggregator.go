@@ -17,7 +17,6 @@ import (
 //
 // ### Account Based Aggregation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Organization Based Aggregation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,7 +116,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

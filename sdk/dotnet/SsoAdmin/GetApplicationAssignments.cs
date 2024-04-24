@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationAssignmentsResult> InvokeAsync(GetApplicationAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsInvokeArgs(), options.WithDefaults());

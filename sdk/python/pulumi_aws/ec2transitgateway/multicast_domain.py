@@ -256,7 +256,6 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +342,6 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +370,6 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,7 +456,6 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

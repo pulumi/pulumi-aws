@@ -846,7 +846,6 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -858,13 +857,11 @@ class WindowsFileSystem(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,7 +881,6 @@ class WindowsFileSystem(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -937,7 +933,6 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -949,13 +944,11 @@ class WindowsFileSystem(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -975,7 +968,6 @@ class WindowsFileSystem(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

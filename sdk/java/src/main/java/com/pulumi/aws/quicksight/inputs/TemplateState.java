@@ -21,14 +21,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     public static final TemplateState Empty = new TemplateState();
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the template.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the template.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -280,7 +280,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the template.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the template.
          * 
          * @return builder
          * 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,7 +60,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesArgs(), options.WithDefaults());
@@ -71,7 +69,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -116,7 +113,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIpRangesResult> Invoke(GetIpRangesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesInvokeArgs(), options.WithDefaults());

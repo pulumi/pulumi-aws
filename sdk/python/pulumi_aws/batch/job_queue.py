@@ -350,7 +350,6 @@ class JobQueue(pulumi.CustomResource):
 
         ### Basic Job Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,11 +369,9 @@ class JobQueue(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Job Queue with a fair share scheduling policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,7 +402,6 @@ class JobQueue(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -439,7 +435,6 @@ class JobQueue(pulumi.CustomResource):
 
         ### Basic Job Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,11 +454,9 @@ class JobQueue(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Job Queue with a fair share scheduling policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,7 +487,6 @@ class JobQueue(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

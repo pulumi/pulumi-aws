@@ -552,7 +552,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
         ### RDS Custom for Oracle Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,7 +564,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        	"databaseInstallationFileNames":["V982063-01.zip"]
+        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
           }
         \"\"\",
             tags={
@@ -573,11 +572,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for Oracle External Manifest Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -597,11 +594,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for SQL Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -612,11 +607,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for SQL Server Usage with AMI from another region
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,7 +625,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -670,7 +662,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
         ### RDS Custom for Oracle Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -683,7 +674,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        	"databaseInstallationFileNames":["V982063-01.zip"]
+        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
           }
         \"\"\",
             tags={
@@ -691,11 +682,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for Oracle External Manifest Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -715,11 +704,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for SQL Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -730,11 +717,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RDS Custom for SQL Server Usage with AMI from another region
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -750,7 +735,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

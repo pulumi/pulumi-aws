@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ### Basic configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,7 +66,6 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

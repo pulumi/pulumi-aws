@@ -17,7 +17,6 @@ import {LifecyclePolicyDocument} from "./index";
  *
  * ### Policy on untagged image
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,11 +44,9 @@ import {LifecyclePolicyDocument} from "./index";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Policy on tagged image
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,7 +74,6 @@ import {LifecyclePolicyDocument} from "./index";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

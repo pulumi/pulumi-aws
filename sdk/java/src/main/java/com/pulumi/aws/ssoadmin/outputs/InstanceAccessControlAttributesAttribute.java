@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class InstanceAccessControlAttributesAttribute {
-    /**
-     * @return The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-     * 
-     */
     private String key;
-    /**
-     * @return The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-     * 
-     */
     private List<InstanceAccessControlAttributesAttributeValue> values;
 
     private InstanceAccessControlAttributesAttribute() {}
-    /**
-     * @return The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-     * 
-     */
     public List<InstanceAccessControlAttributesAttributeValue> values() {
         return this.values;
     }

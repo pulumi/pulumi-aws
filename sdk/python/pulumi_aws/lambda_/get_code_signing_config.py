@@ -123,14 +123,12 @@ def get_code_signing_config(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{aws_region}:{aws_account}:code-signing-config:csc-0f6c334abcdea4d8b")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the code signing configuration.
@@ -160,14 +158,12 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{aws_region}:{aws_account}:code-signing-config:csc-0f6c334abcdea4d8b")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the code signing configuration.

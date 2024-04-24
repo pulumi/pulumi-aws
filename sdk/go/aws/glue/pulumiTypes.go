@@ -4838,19 +4838,15 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+	// The name of a connection which allows crawler to access data in S3 within a VPC.
 	ConnectionName *string `pulumi:"connectionName"`
-	// A valid Amazon SQS ARN.
-	//
-	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-	//
-	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The path to the Amazon S3 target.
 	Path string `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize *int `pulumi:"sampleSize"`
@@ -4868,19 +4864,15 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+	// The name of a connection which allows crawler to access data in S3 within a VPC.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A valid Amazon SQS ARN.
-	//
-	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-	//
-	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The path to the Amazon S3 target.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
@@ -4937,21 +4929,17 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+// The name of a connection which allows crawler to access data in S3 within a VPC.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN.
-//
-// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-//
-// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+// The ARN of the dead-letter SQS queue.
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN.
+// The ARN of the SQS queue to receive S3 notifications from.
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
@@ -4961,7 +4949,7 @@ func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The name of the DynamoDB table to crawl.
+// The path to the Amazon S3 target.
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -7391,12 +7379,9 @@ func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.Boo
 }
 
 type PartitionStorageDescriptorColumn struct {
-	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// The name of the Column.
-	Name string `pulumi:"name"`
-	// The datatype of data in the Column.
-	Type *string `pulumi:"type"`
+	Name    string  `pulumi:"name"`
+	Type    *string `pulumi:"type"`
 }
 
 // PartitionStorageDescriptorColumnInput is an input type that accepts PartitionStorageDescriptorColumnArgs and PartitionStorageDescriptorColumnOutput values.
@@ -7411,12 +7396,9 @@ type PartitionStorageDescriptorColumnInput interface {
 }
 
 type PartitionStorageDescriptorColumnArgs struct {
-	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// The name of the Column.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The datatype of data in the Column.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Name    pulumi.StringInput    `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PartitionStorageDescriptorColumnArgs) ElementType() reflect.Type {
@@ -7470,17 +7452,14 @@ func (o PartitionStorageDescriptorColumnOutput) ToPartitionStorageDescriptorColu
 	return o
 }
 
-// Free-form text comment.
 func (o PartitionStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Column.
 func (o PartitionStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The datatype of data in the Column.
 func (o PartitionStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

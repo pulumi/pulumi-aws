@@ -1077,21 +1077,6 @@ class DefaultNetworkAclIngressArgs:
                  icmp_code: Optional[pulumi.Input[int]] = None,
                  icmp_type: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] action: The action to take.
-        :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
-        :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
-        :param pulumi.Input[int] to_port: The to port to match.
-               
-               The following arguments are optional:
-        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
-        :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
-        :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
-               
-               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1109,9 +1094,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
-        """
-        The action to take.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -1121,9 +1103,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
-        """
-        The from port to match.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -1133,9 +1112,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1145,9 +1121,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="ruleNo")
     def rule_no(self) -> pulumi.Input[int]:
-        """
-        The rule number. Used for ordering.
-        """
         return pulumi.get(self, "rule_no")
 
     @rule_no.setter
@@ -1157,11 +1130,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
-        """
-        The to port to match.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -1171,9 +1139,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CIDR block to match. This must be a valid network mask.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -1183,9 +1148,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ICMP type code to be used. Default 0.
-        """
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
@@ -1195,9 +1157,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ICMP type to be used. Default 0.
-        """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
@@ -1207,11 +1166,6 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv6 CIDR block.
-
-        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -1587,15 +1541,7 @@ class DefaultSecurityGroupIngressArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-        :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
-        :param pulumi.Input[str] description: Description of this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
+        :param pulumi.Input[str] description: Description of the security group.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1616,9 +1562,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
-        """
-        Start port (or ICMP type number if protocol is `icmp`)
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -1628,9 +1571,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1640,9 +1580,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
-        """
-        End range port (or ICMP code if protocol is `icmp`).
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -1652,9 +1589,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of CIDR blocks.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -1665,7 +1599,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this rule.
+        Description of the security group.
         """
         return pulumi.get(self, "description")
 
@@ -1676,9 +1610,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of IPv6 CIDR blocks.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @ipv6_cidr_blocks.setter
@@ -1688,9 +1619,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of prefix list IDs (for allowing access to VPC endpoints)
-        """
         return pulumi.get(self, "prefix_list_ids")
 
     @prefix_list_ids.setter
@@ -1700,9 +1628,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1712,9 +1637,6 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the security group itself will be added as a source to this egress rule.
-        """
         return pulumi.get(self, "self")
 
     @self.setter
@@ -1786,7 +1708,7 @@ class FleetFleetInstanceSetArgs:
                  platform: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ids: The IDs of the instances.
-        :param pulumi.Input[str] instance_type: Instance type.
+        :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle: Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
         :param pulumi.Input[str] platform: The value is `Windows` for Windows instances. Otherwise, the value is blank.
         """
@@ -1815,7 +1737,7 @@ class FleetFleetInstanceSetArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Instance type.
+        The instance type.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2457,8 +2379,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2469,7 +2391,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2481,7 +2403,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        Minimum.
         """
         return pulumi.get(self, "min")
 
@@ -2496,8 +2418,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2508,7 +2430,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2520,7 +2442,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2535,8 +2457,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
+        :param pulumi.Input[int] min: The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2547,7 +2469,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
         """
         return pulumi.get(self, "max")
 
@@ -2559,7 +2481,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         return pulumi.get(self, "min")
 
@@ -2574,8 +2496,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2586,7 +2508,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2598,7 +2520,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2613,8 +2535,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -2624,7 +2546,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def min(self) -> pulumi.Input[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
         """
         return pulumi.get(self, "min")
 
@@ -2636,7 +2558,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2651,8 +2573,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2663,7 +2585,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2675,7 +2597,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2690,8 +2612,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2702,7 +2624,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2714,7 +2636,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2729,8 +2651,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2741,7 +2663,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2753,7 +2675,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -4030,7 +3952,7 @@ class InstanceRootBlockDeviceArgs:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
-        :param pulumi.Input[str] device_name: Name of the device to mount.
+        :param pulumi.Input[str] device_name: Device name, e.g., `/dev/sdh` or `xvdh`.
         :param pulumi.Input[bool] encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -4082,7 +4004,7 @@ class InstanceRootBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the device to mount.
+        Device name, e.g., `/dev/sdh` or `xvdh`.
         """
         return pulumi.get(self, "device_name")
 
@@ -5624,7 +5546,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -5636,7 +5558,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5741,8 +5663,8 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5753,7 +5675,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5765,7 +5687,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -5896,8 +5818,8 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5908,7 +5830,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5920,7 +5842,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -12089,18 +12011,12 @@ class NetworkInterfaceAttachmentArgs:
 class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -12112,18 +12028,12 @@ class PeeringConnectionOptionsAccepterArgs:
 class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -12690,12 +12600,8 @@ class SpotFleetRequestLaunchSpecificationArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The type of instance to request.
-        :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[str] subnet_id: The subnet in which to launch the requested instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -12748,9 +12654,6 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        The type of instance to request.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -12769,9 +12672,6 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The availability zone in which to place the request.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -12883,9 +12783,6 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet in which to launch the requested instance.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -12925,9 +12822,6 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The capacity added to the fleet by a fulfilled request.
-        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -13874,7 +13768,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13886,7 +13780,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13991,8 +13885,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -14003,7 +13897,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -14015,7 +13909,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -14147,8 +14041,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -14159,7 +14053,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -14171,7 +14065,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -15021,7 +14915,6 @@ class SpotInstanceRequestRootBlockDeviceArgs:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
-        :param pulumi.Input[str] device_name: Name of the device to mount.
         :param pulumi.Input[bool] encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -15071,9 +14964,6 @@ class SpotInstanceRequestRootBlockDeviceArgs:
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the device to mount.
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -15502,20 +15392,12 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
 class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -15577,20 +15459,12 @@ class VpcPeeringConnectionAccepterRequesterArgs:
 class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -17384,7 +17258,6 @@ class GetSubnetsFilterArgs:
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -17394,7 +17267,6 @@ class GetSubnetsFilterArgs:
                    values=[""],
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -17409,7 +17281,6 @@ class GetSubnetsFilterArgs:
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -17419,7 +17290,6 @@ class GetSubnetsFilterArgs:
             values=[""],
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +36,9 @@ import * as utilities from "../utilities";
  *     ipamPoolId: p.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Filtering:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,7 +61,6 @@ import * as utilities from "../utilities";
  *     maxEntries: mycidrs.length,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrs(args: GetVpcIamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolCidrsResult> {
@@ -115,7 +111,6 @@ export interface GetVpcIamPoolCidrsResult {
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -136,11 +131,9 @@ export interface GetVpcIamPoolCidrsResult {
  *     ipamPoolId: p.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Filtering:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -163,7 +156,6 @@ export interface GetVpcIamPoolCidrsResult {
  *     maxEntries: mycidrs.length,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {

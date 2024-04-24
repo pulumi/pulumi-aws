@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.elasticbeanstalk.getHostedZone({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     args = args || {};
@@ -55,14 +53,12 @@ export interface GetHostedZoneResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.elasticbeanstalk.getHostedZone({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
     return pulumi.output(args).apply((a: any) => getHostedZone(a, opts))

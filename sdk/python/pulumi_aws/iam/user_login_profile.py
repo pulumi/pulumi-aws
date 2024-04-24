@@ -219,7 +219,6 @@ class UserLoginProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,7 +232,6 @@ class UserLoginProfile(pulumi.CustomResource):
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -264,7 +262,6 @@ class UserLoginProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +275,6 @@ class UserLoginProfile(pulumi.CustomResource):
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

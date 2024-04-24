@@ -183,7 +183,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +192,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
             service_name="codecommit.amazonaws.com",
             user_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,7 +227,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
             service_name="codecommit.amazonaws.com",
             user_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

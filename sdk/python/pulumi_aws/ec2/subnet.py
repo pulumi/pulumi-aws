@@ -692,7 +692,6 @@ class Subnet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -704,14 +703,12 @@ class Subnet(pulumi.CustomResource):
                 "Name": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Subnets In Secondary VPC CIDR Blocks
 
         When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
         resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,7 +720,6 @@ class Subnet(pulumi.CustomResource):
             vpc_id=secondary_cidr.vpc_id,
             cidr_block="172.20.0.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -773,7 +769,6 @@ class Subnet(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -785,14 +780,12 @@ class Subnet(pulumi.CustomResource):
                 "Name": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Subnets In Secondary VPC CIDR Blocks
 
         When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
         resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -804,7 +797,6 @@ class Subnet(pulumi.CustomResource):
             vpc_id=secondary_cidr.vpc_id,
             cidr_block="172.20.0.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -177,7 +177,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +187,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
             local_gateway_route_table_id=example.id,
             vpc_id=example_vpc.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +225,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
             local_gateway_route_table_id=example.id,
             vpc_id=example_vpc.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

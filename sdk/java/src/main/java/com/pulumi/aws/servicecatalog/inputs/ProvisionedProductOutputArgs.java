@@ -31,14 +31,14 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Parameter key.
+     * The output key.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Parameter key.
+     * @return The output key.
      * 
      */
     public Optional<Output<String>> key() {
@@ -46,14 +46,14 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Parameter value.
+     * The output value.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Parameter value.
+     * @return The output value.
      * 
      */
     public Optional<Output<String>> value() {
@@ -108,7 +108,7 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key Parameter key.
+         * @param key The output key.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key Parameter key.
+         * @param key The output key.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param value Parameter value.
+         * @param value The output value.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ProvisionedProductOutputArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param value Parameter value.
+         * @param value The output value.
          * 
          * @return builder
          * 

@@ -1010,7 +1010,6 @@ class BucketV2(pulumi.CustomResource):
 
         ### Private Bucket With Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1022,7 +1021,6 @@ class BucketV2(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1087,7 +1085,6 @@ class BucketV2(pulumi.CustomResource):
 
         ### Private Bucket With Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1099,7 +1096,6 @@ class BucketV2(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

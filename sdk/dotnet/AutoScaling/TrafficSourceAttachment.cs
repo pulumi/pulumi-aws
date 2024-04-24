@@ -18,7 +18,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
     public partial class TrafficSourceAttachment : global::Pulumi.CustomResource

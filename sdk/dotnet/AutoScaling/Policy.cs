@@ -20,7 +20,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,11 +54,9 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create target tracking scaling policy using metric math
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,11 +137,9 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create predictive scaling policy using customized metrics
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -214,11 +209,9 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create predictive scaling policy using customized scaling and predefined load metric
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -275,7 +268,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -370,7 +362,6 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -400,7 +391,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -410,7 +400,6 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -433,7 +422,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
@@ -565,7 +553,6 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -595,7 +582,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -608,7 +594,6 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -631,7 +616,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
@@ -731,7 +715,6 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -761,7 +744,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -774,7 +756,6 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -797,7 +778,6 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>

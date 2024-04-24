@@ -24,7 +24,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,13 +63,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### High-throughput Optimized Example
 //
 // This example shows the use of EBS storage for high-throughput optimized performance.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,11 +108,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Cross-Region Data Replication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -185,7 +180,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
 //

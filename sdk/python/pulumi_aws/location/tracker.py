@@ -280,14 +280,12 @@ class Tracker(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.Tracker("example", tracker_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -318,14 +316,12 @@ class Tracker(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.Tracker("example", tracker_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

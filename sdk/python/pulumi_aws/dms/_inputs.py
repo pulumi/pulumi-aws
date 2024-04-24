@@ -1163,8 +1163,8 @@ class EndpointS3SettingsArgs:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param pulumi.Input[str] bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
-        :param pulumi.Input[str] bucket_name: Custom S3 Bucket name for intermediate storage.
+        :param pulumi.Input[str] bucket_folder: S3 object prefix.
+        :param pulumi.Input[str] bucket_name: S3 bucket name.
         :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
@@ -1184,19 +1184,19 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
         :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
-        :param pulumi.Input[str] encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        :param pulumi.Input[str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
         :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         :param pulumi.Input[bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         :param pulumi.Input[str] parquet_version: Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. Default is `10000`.
         :param pulumi.Input[str] server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+        :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         :param pulumi.Input[bool] use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
@@ -1294,7 +1294,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom S3 Bucket Object prefix for intermediate storage.
+        S3 object prefix.
         """
         return pulumi.get(self, "bucket_folder")
 
@@ -1306,7 +1306,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom S3 Bucket name for intermediate storage.
+        S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -1546,7 +1546,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -1606,7 +1606,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         """
         return pulumi.get(self, "max_file_size")
 
@@ -1690,7 +1690,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         return pulumi.get(self, "service_access_role_arn")
 

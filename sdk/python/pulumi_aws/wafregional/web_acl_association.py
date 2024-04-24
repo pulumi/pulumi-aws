@@ -106,7 +106,6 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ### Application Load Balancer Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +157,6 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=foo_load_balancer.arn,
             web_acl_id=foo_web_acl.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -188,7 +186,6 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ### Application Load Balancer Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +237,6 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=foo_load_balancer.arn,
             web_acl_id=foo_web_acl.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

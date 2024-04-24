@@ -193,7 +193,6 @@ class FrameworkShare(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +202,6 @@ class FrameworkShare(pulumi.CustomResource):
             destination_region="us-east-1",
             framework_id=example_aws_auditmanager_framework["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -235,7 +233,6 @@ class FrameworkShare(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class FrameworkShare(pulumi.CustomResource):
             destination_region="us-east-1",
             framework_id=example_aws_auditmanager_framework["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

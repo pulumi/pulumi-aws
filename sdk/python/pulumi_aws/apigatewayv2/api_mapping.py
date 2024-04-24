@@ -170,7 +170,6 @@ class ApiMapping(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class ApiMapping(pulumi.CustomResource):
             domain_name=example_aws_apigatewayv2_domain_name["id"],
             stage=example_aws_apigatewayv2_stage["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -211,7 +209,6 @@ class ApiMapping(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +218,6 @@ class ApiMapping(pulumi.CustomResource):
             domain_name=example_aws_apigatewayv2_domain_name["id"],
             stage=example_aws_apigatewayv2_stage["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

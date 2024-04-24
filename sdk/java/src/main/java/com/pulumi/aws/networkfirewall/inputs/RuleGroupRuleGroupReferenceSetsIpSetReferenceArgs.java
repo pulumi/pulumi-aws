@@ -16,32 +16,16 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs extends com
 
     public static final RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs Empty = new RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs();
 
-    /**
-     * Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-     * 
-     */
     @Import(name="ipSetReferences", required=true)
     private Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences;
 
-    /**
-     * @return Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences() {
         return this.ipSetReferences;
     }
 
-    /**
-     * A unique alphanumeric string to identify the `ip_set`.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -71,54 +55,24 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs extends com
             $ = new RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSetReferences(Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences) {
             $.ipSetReferences = ipSetReferences;
             return this;
         }
 
-        /**
-         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSetReferences(List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs> ipSetReferences) {
             return ipSetReferences(Output.of(ipSetReferences));
         }
 
-        /**
-         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs... ipSetReferences) {
             return ipSetReferences(List.of(ipSetReferences));
         }
 
-        /**
-         * @param key A unique alphanumeric string to identify the `ip_set`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key A unique alphanumeric string to identify the `ip_set`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

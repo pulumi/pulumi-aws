@@ -18,7 +18,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessAccessPolicyResult> InvokeAsync(GetServerlessAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());

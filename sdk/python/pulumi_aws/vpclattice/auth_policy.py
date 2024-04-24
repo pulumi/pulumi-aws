@@ -137,7 +137,6 @@ class AuthPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -164,7 +163,6 @@ class AuthPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -193,7 +191,6 @@ class AuthPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -220,7 +217,6 @@ class AuthPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

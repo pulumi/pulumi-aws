@@ -105,19 +105,12 @@ class AssessmentRolesAllArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  role_type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
-        :param pulumi.Input[str] role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the IAM role.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -127,9 +120,6 @@ class AssessmentRolesAllArgs:
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
-        """
-        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
@@ -398,7 +388,7 @@ class FrameworkControlSetArgs:
         """
         :param pulumi.Input[str] name: Name of the control set.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]] controls: List of controls within the control set. See `controls` below.
-        :param pulumi.Input[str] id: Unique identifier of the control.
+        :param pulumi.Input[str] id: Unique identifier for the framework.
         """
         pulumi.set(__self__, "name", name)
         if controls is not None:
@@ -434,7 +424,7 @@ class FrameworkControlSetArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique identifier of the control.
+        Unique identifier for the framework.
         """
         return pulumi.get(self, "id")
 

@@ -19,7 +19,6 @@ import (
 //
 // The following example shows how to get a firewall rule group from its ID.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallRuleGroupResult

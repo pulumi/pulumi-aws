@@ -20,7 +20,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example with Airflow configuration options
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,13 +87,11 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example with logging configurations
 //
 // Note that Airflow task logs are enabled by default with the `INFO` log level.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,11 +144,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example with tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -188,7 +181,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

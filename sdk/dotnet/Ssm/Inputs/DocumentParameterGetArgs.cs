@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The permission type for the document. The permission type can be `Share`.
+        /// The type of parameter. Valid values: `String`, `StringList`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

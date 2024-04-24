@@ -175,14 +175,12 @@ def get_outpost(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outpost(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN.
@@ -227,14 +225,12 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outpost(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN.

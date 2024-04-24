@@ -510,10 +510,8 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration struct {
-	// The classification within a configuration.
-	Classification *string `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties map[string]string `pulumi:"properties"`
+	Classification *string           `pulumi:"classification"`
+	Properties     map[string]string `pulumi:"properties"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput values.
@@ -528,10 +526,8 @@ type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCon
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs struct {
-	// The classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties     pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ElementType() reflect.Type {
@@ -585,14 +581,12 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return o
 }
 
-// The classification within a configuration.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) *string {
 		return v.Classification
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of properties specified within a configuration classification.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) map[string]string {
 		return v.Properties
@@ -1907,7 +1901,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterCo
 }
 
 type VirtualClusterContainerProviderInfoEksInfo struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -1923,7 +1916,6 @@ type VirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoEksInfoArgs struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -2004,7 +1996,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -2033,7 +2024,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClust
 	}).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfoEksInfo) *string {
 		if v == nil {

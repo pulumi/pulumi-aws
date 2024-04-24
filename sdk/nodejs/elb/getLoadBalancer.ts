@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     name: lbName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
 
@@ -91,7 +89,6 @@ export interface GetLoadBalancerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,7 +99,6 @@ export interface GetLoadBalancerResult {
  *     name: lbName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))

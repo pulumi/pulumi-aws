@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Instance Target Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### IP Target Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,11 +44,9 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda Target Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,11 +56,9 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### ALB Target Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,11 +71,9 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Target group with unhealthy connection termination disabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,7 +88,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

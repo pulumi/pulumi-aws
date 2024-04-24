@@ -844,7 +844,6 @@ class CustomLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -854,7 +853,6 @@ class CustomLayer(pulumi.CustomResource):
             short_name="awesome",
             stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -901,7 +899,6 @@ class CustomLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -911,7 +908,6 @@ class CustomLayer(pulumi.CustomResource):
             short_name="awesome",
             stack_id=main["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());

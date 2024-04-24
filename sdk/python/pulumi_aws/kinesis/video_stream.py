@@ -312,7 +312,6 @@ class VideoStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +325,6 @@ class VideoStream(pulumi.CustomResource):
                 "Name": "kinesis-video-stream",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -359,7 +357,6 @@ class VideoStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,7 +370,6 @@ class VideoStream(pulumi.CustomResource):
                 "Name": "kinesis-video-stream",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

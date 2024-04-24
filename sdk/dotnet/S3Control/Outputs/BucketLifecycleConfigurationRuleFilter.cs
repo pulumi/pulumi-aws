@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class BucketLifecycleConfigurationRuleFilter
     {
-        /// <summary>
-        /// Object prefix for rule filtering.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Key-value map of object tags for rule filtering.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

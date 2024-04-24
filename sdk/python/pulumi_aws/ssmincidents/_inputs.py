@@ -100,18 +100,12 @@ class ReplicationSetRegionArgs:
 class ResponsePlanActionArgs:
     def __init__(__self__, *,
                  ssm_automations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         if ssm_automations is not None:
             pulumi.set(__self__, "ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
     def ssm_automations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]]:
-        """
-        The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         return pulumi.get(self, "ssm_automations")
 
     @ssm_automations.setter
@@ -128,14 +122,6 @@ class ResponsePlanActionSsmAutomationArgs:
                  dynamic_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]] = None,
                  target_account: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] document_name: The automation document's name.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        :param pulumi.Input[str] document_version: The version of the automation document to use at runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dynamic_parameters: The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
-        :param pulumi.Input[str] target_account: The account that the automation document runs in. This can be in either the management account or an application account.
-        """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if document_version is not None:
@@ -150,9 +136,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter(name="documentName")
     def document_name(self) -> pulumi.Input[str]:
-        """
-        The automation document's name.
-        """
         return pulumi.get(self, "document_name")
 
     @document_name.setter
@@ -162,9 +145,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -174,9 +154,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the automation document to use at runtime.
-        """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
@@ -186,9 +163,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter(name="dynamicParameters")
     def dynamic_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        """
         return pulumi.get(self, "dynamic_parameters")
 
     @dynamic_parameters.setter
@@ -198,9 +172,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]]:
-        """
-        The key-value pair parameters to use when the automation document runs. The following values are supported:
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -210,9 +181,6 @@ class ResponsePlanActionSsmAutomationArgs:
     @property
     @pulumi.getter(name="targetAccount")
     def target_account(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account that the automation document runs in. This can be in either the management account or an application account.
-        """
         return pulumi.get(self, "target_account")
 
     @target_account.setter
@@ -227,7 +195,6 @@ class ResponsePlanActionSsmAutomationParameterArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The values for the associated parameter name.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -247,9 +214,6 @@ class ResponsePlanActionSsmAutomationParameterArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The values for the associated parameter name.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -388,18 +352,12 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
                  pagerduties: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         if pagerduties is not None:
             pulumi.set(__self__, "pagerduties", pagerduties)
 
     @property
     @pulumi.getter
     def pagerduties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]]:
-        """
-        Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         return pulumi.get(self, "pagerduties")
 
     @pagerduties.setter
@@ -415,10 +373,6 @@ class ResponsePlanIntegrationPagerdutyArgs:
                  service_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[str] secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-               
-               For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-        :param pulumi.Input[str] service_id: The ID of the PagerDuty service that the response plan associated with the incident at launch.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "secret_id", secret_id)
@@ -439,11 +393,6 @@ class ResponsePlanIntegrationPagerdutyArgs:
     @property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-
-        For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-        """
         return pulumi.get(self, "secret_id")
 
     @secret_id.setter
@@ -453,9 +402,6 @@ class ResponsePlanIntegrationPagerdutyArgs:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the PagerDuty service that the response plan associated with the incident at launch.
-        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter

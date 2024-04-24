@@ -17,7 +17,6 @@ import (
 //
 // ### Generate Python Script
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,11 +129,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Generate Scala Code
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -247,7 +244,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetScriptResult

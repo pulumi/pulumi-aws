@@ -123,7 +123,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +157,6 @@ class Account(pulumi.CustomResource):
             role=cloudwatch_role.id,
             policy=cloudwatch.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,7 +183,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +217,6 @@ class Account(pulumi.CustomResource):
             role=cloudwatch_role.id,
             policy=cloudwatch.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

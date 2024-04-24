@@ -11,25 +11,21 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AccountRegistration("example", {});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Deregister On Destroy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AccountRegistration("example", {deregisterOnDestroy: true});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

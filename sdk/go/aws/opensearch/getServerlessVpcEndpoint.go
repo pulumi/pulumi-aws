@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupServerlessVpcEndpoint(ctx *pulumi.Context, args *LookupServerlessVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerlessVpcEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessVpcEndpointResult

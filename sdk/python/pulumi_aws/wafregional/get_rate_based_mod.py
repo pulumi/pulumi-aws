@@ -60,14 +60,12 @@ def get_rate_based_mod(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF Regional rate based rule.
@@ -90,14 +88,12 @@ def get_rate_based_mod_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF Regional rate based rule.

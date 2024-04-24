@@ -309,7 +309,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         The example below creates a CloudFront response headers policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,11 +330,9 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 origin_override=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,11 +354,9 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,7 +375,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 sampling_rate=50,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -417,7 +411,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         The example below creates a CloudFront response headers policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,11 +432,9 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 origin_override=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,11 +456,9 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,7 +477,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 sampling_rate=50,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

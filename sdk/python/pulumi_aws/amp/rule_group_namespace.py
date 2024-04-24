@@ -135,7 +135,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +150,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
               expr: avg(rate(container_cpu_usage_seconds_total[5m]))
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,7 +191,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
               expr: avg(rate(container_cpu_usage_seconds_total[5m]))
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

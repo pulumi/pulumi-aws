@@ -97,14 +97,12 @@ def get_queue(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mediaconvert.get_queue(id="tf-example-queue")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Unique identifier of the queue. The same as `name`.
@@ -133,14 +131,12 @@ def get_queue_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mediaconvert.get_queue(id="tf-example-queue")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Unique identifier of the queue. The same as `name`.

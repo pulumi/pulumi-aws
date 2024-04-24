@@ -305,7 +305,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New Neptune Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,11 +341,9 @@ class GlobalCluster(pulumi.CustomResource):
             neptune_subnet_group_name="default",
             opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +353,6 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -392,7 +388,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New Neptune Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,11 +424,9 @@ class GlobalCluster(pulumi.CustomResource):
             neptune_subnet_group_name="default",
             opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,7 +436,6 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,7 +27,6 @@ import * as utilities from "../utilities";
  *     routeTableId: _private.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};
@@ -152,7 +150,6 @@ export interface GetVpcEndpointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -167,7 +164,6 @@ export interface GetVpcEndpointResult {
  *     routeTableId: _private.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
     return pulumi.output(args).apply((a: any) => getVpcEndpoint(a, opts))

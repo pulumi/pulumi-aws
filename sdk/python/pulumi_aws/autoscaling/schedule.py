@@ -365,7 +365,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +387,6 @@ class Schedule(pulumi.CustomResource):
             end_time="2016-12-12T06:00:00Z",
             autoscaling_group_name=foobar.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -425,7 +423,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,7 +445,6 @@ class Schedule(pulumi.CustomResource):
             end_time="2016-12-12T06:00:00Z",
             autoscaling_group_name=foobar.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

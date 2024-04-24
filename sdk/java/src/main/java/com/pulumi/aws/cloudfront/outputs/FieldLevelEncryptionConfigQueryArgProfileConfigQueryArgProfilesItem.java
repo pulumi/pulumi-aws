@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
-    /**
-     * @return The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     private String profileId;
-    /**
-     * @return Query argument for field-level encryption query argument-profile mapping.
-     * 
-     */
     private String queryArg;
 
     private FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem() {}
-    /**
-     * @return The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     public String profileId() {
         return this.profileId;
     }
-    /**
-     * @return Query argument for field-level encryption query argument-profile mapping.
-     * 
-     */
     public String queryArg() {
         return this.queryArg;
     }

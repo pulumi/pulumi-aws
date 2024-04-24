@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -62,8 +60,7 @@ type Thesaurus struct {
 	pulumi.CustomResourceState
 
 	// ARN of the thesaurus.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description for a thesaurus.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
@@ -72,13 +69,10 @@ type Thesaurus struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
-	//
-	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -126,8 +120,7 @@ func GetThesaurus(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Thesaurus resources.
 type thesaurusState struct {
 	// ARN of the thesaurus.
-	Arn *string `pulumi:"arn"`
-	// The description for a thesaurus.
+	Arn         *string `pulumi:"arn"`
 	Description *string `pulumi:"description"`
 	// The identifier of the index for a thesaurus.
 	IndexId *string `pulumi:"indexId"`
@@ -136,13 +129,10 @@ type thesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
-	//
-	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -152,8 +142,7 @@ type thesaurusState struct {
 
 type ThesaurusState struct {
 	// ARN of the thesaurus.
-	Arn pulumi.StringPtrInput
-	// The description for a thesaurus.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringPtrInput
@@ -162,13 +151,10 @@ type ThesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
-	//
-	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
 	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -181,7 +167,6 @@ func (ThesaurusState) ElementType() reflect.Type {
 }
 
 type thesaurusArgs struct {
-	// The description for a thesaurus.
 	Description *string `pulumi:"description"`
 	// The identifier of the index for a thesaurus.
 	IndexId string `pulumi:"indexId"`
@@ -190,16 +175,12 @@ type thesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
-	//
-	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags         map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
 type ThesaurusArgs struct {
-	// The description for a thesaurus.
 	Description pulumi.StringPtrInput
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringInput
@@ -208,11 +189,8 @@ type ThesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
-	//
-	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {
@@ -307,7 +285,6 @@ func (o ThesaurusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description for a thesaurus.
 func (o ThesaurusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -328,8 +305,6 @@ func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The S3 path where your thesaurus file sits in S3. Detailed below.
-//
-// The `sourceS3Path` configuration block supports the following arguments:
 func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 	return o.ApplyT(func(v *Thesaurus) ThesaurusSourceS3PathOutput { return v.SourceS3Path }).(ThesaurusSourceS3PathOutput)
 }
@@ -339,7 +314,6 @@ func (o ThesaurusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

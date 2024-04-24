@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ResourceExplorer
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.ResourceExplorer
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<SearchResult> InvokeAsync(SearchArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<SearchResult>("aws:resourceexplorer/search:Search", args ?? new SearchArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.ResourceExplorer
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.ResourceExplorer
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<SearchResult> Invoke(SearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<SearchResult>("aws:resourceexplorer/search:Search", args ?? new SearchInvokeArgs(), options.WithDefaults());

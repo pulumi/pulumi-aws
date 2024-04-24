@@ -449,7 +449,6 @@ class Route(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,11 +461,9 @@ class Route(pulumi.CustomResource):
             api_id=example.id,
             route_key="$default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### HTTP Proxy Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,7 +481,6 @@ class Route(pulumi.CustomResource):
             route_key="ANY /example/{proxy+}",
             target=example_integration.id.apply(lambda id: f"integrations/{id}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -527,7 +523,6 @@ class Route(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,11 +535,9 @@ class Route(pulumi.CustomResource):
             api_id=example.id,
             route_key="$default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### HTTP Proxy Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -562,7 +555,6 @@ class Route(pulumi.CustomResource):
             route_key="ANY /example/{proxy+}",
             target=example_integration.id.apply(lambda id: f"integrations/{id}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

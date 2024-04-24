@@ -14,17 +14,9 @@ public final class EventSourceMappingDestinationConfigOnFailureArgs extends com.
 
     public static final EventSourceMappingDestinationConfigOnFailureArgs Empty = new EventSourceMappingDestinationConfigOnFailureArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the destination resource.
-     * 
-     */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the destination resource.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
@@ -53,23 +45,11 @@ public final class EventSourceMappingDestinationConfigOnFailureArgs extends com.
             $ = new EventSourceMappingDestinationConfigOnFailureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationArn The Amazon Resource Name (ARN) of the destination resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn The Amazon Resource Name (ARN) of the destination resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }

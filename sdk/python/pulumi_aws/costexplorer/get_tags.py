@@ -114,7 +114,6 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,7 +123,6 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
         end="2022-12-01",
     ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
@@ -166,7 +164,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -176,7 +173,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
         end="2022-12-01",
     ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.

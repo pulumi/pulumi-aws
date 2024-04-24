@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *
  * ### With Versioning Enabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,11 +38,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Versioning Disabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +57,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Object Dependency On Versioning
  *
@@ -70,7 +66,6 @@ import * as utilities from "../utilities";
  *
  * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +83,6 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("example.txt"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

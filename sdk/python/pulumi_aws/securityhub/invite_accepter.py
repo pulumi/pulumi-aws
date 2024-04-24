@@ -88,7 +88,6 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -102,7 +101,6 @@ class InviteAccepter(pulumi.CustomResource):
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
         opts=pulumi.ResourceOptions(depends_on=[invitee]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -129,7 +127,6 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,7 +140,6 @@ class InviteAccepter(pulumi.CustomResource):
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
         opts=pulumi.ResourceOptions(depends_on=[invitee]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

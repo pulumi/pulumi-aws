@@ -168,14 +168,12 @@ class Group(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.synthetics.Group("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,14 +203,12 @@ class Group(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.synthetics.Group("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

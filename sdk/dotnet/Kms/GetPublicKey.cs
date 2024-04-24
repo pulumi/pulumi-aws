@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicKeyResult> InvokeAsync(GetPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyArgs(), options.WithDefaults());
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -88,7 +85,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());

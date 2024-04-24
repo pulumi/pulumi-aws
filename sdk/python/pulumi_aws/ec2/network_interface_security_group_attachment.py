@@ -117,7 +117,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
         named `sg_attachment`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,13 +140,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             security_group_id=sg.id,
             network_interface_id=instance.primary_network_interface_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         In this example, `instance` is provided by the `ec2.Instance` data source,
         fetching an external instance, possibly not managed by this provider.
         `sg_attachment` then attaches to the output instance's `network_interface_id`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +157,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             security_group_id=sg.id,
             network_interface_id=instance.network_interface_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -201,7 +197,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
         named `sg_attachment`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,13 +220,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             security_group_id=sg.id,
             network_interface_id=instance.primary_network_interface_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         In this example, `instance` is provided by the `ec2.Instance` data source,
         fetching an external instance, possibly not managed by this provider.
         `sg_attachment` then attaches to the output instance's `network_interface_id`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +237,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             security_group_id=sg.id,
             network_interface_id=instance.network_interface_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

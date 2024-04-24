@@ -504,7 +504,6 @@ class Parameter(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,11 +513,9 @@ class Parameter(pulumi.CustomResource):
             type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Encrypted string using default SSM KMS key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,7 +540,6 @@ class Parameter(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -587,7 +583,6 @@ class Parameter(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -597,11 +592,9 @@ class Parameter(pulumi.CustomResource):
             type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Encrypted string using default SSM KMS key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -626,7 +619,6 @@ class Parameter(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

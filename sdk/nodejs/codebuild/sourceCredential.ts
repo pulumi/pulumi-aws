@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  *     token: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Bitbucket Server Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     userName: "test-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

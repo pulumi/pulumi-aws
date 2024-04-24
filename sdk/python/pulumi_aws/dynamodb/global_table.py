@@ -125,7 +125,6 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,7 +166,6 @@ class GlobalTable(pulumi.CustomResource):
                     us_west_2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +195,6 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,7 +236,6 @@ class GlobalTable(pulumi.CustomResource):
                     us_west_2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

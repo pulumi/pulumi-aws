@@ -18,7 +18,6 @@ import (
 //
 // ### Stateful Inspection for denying access to a domain
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Stateful Inspection for blocking packets from going to an intended destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,11 +117,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Stateful Inspection from rules specifications defined in Suricata flat format
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -162,11 +157,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -241,11 +234,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Stateless Inspection with a Custom Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -345,11 +336,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### IP Set References to the Rule Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -404,7 +393,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `contactFlowModuleId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +32,6 @@ import * as utilities from "../utilities";
  *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
 
@@ -113,7 +109,6 @@ export interface GetContactFlowModuleResult {
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,11 +118,9 @@ export interface GetContactFlowModuleResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `contactFlowModuleId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -137,7 +130,6 @@ export interface GetContactFlowModuleResult {
  *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
     return pulumi.output(args).apply((a: any) => getContactFlowModule(a, opts))

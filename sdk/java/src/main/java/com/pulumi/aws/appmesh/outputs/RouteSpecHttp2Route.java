@@ -21,7 +21,7 @@ public final class RouteSpecHttp2Route {
      */
     private RouteSpecHttp2RouteAction action;
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     private RouteSpecHttp2RouteMatch match;
@@ -45,7 +45,7 @@ public final class RouteSpecHttp2Route {
         return this.action;
     }
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     public RouteSpecHttp2RouteMatch match() {

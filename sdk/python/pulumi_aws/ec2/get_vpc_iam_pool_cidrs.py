@@ -90,7 +90,6 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
 
     Basic usage:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -107,11 +106,9 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
     ])
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
     ```
-    <!--End PulumiCodeChooser -->
 
     Filtering:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,7 +128,6 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
@@ -164,7 +160,6 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     Basic usage:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,11 +176,9 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     ])
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
     ```
-    <!--End PulumiCodeChooser -->
 
     Filtering:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -205,7 +198,6 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.

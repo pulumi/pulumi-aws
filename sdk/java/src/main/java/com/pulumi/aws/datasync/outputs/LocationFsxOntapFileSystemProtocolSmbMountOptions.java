@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LocationFsxOntapFileSystemProtocolSmbMountOptions {
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-     * 
-     */
     private @Nullable String version;
 
     private LocationFsxOntapFileSystemProtocolSmbMountOptions() {}
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

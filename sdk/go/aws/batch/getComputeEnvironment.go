@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupComputeEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupComputeEnvironmentResult

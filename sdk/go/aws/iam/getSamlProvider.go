@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSamlProvider(ctx *pulumi.Context, args *LookupSamlProviderArgs, opts ...pulumi.InvokeOption) (*LookupSamlProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSamlProviderResult

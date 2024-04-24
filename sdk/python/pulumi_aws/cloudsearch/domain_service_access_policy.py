@@ -104,7 +104,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +130,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
             domain_name=example_domain.id,
             access_policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -159,7 +157,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +183,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
             domain_name=example_domain.id,
             access_policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -135,7 +135,6 @@ class LfTag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,7 +147,6 @@ class LfTag(pulumi.CustomResource):
                 "Customers",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +173,6 @@ class LfTag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +185,6 @@ class LfTag(pulumi.CustomResource):
                 "Customers",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

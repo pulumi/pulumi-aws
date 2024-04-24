@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  * const delegated = aws.getCallerIdentity({});
  * const example = new aws.ec2.VpcIpamOrganizationAdminAccount("example", {delegatedAdminAccountId: delegated.then(delegated => delegated.accountId)});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

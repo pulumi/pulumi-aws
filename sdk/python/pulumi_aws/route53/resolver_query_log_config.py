@@ -214,7 +214,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +225,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +252,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +263,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

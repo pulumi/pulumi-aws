@@ -112,7 +112,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -153,7 +152,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -189,7 +187,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -230,7 +227,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

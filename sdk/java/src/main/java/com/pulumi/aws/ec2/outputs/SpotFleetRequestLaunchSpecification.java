@@ -20,20 +20,12 @@ import javax.annotation.Nullable;
 public final class SpotFleetRequestLaunchSpecification {
     private String ami;
     private @Nullable Boolean associatePublicIpAddress;
-    /**
-     * @return The availability zone in which to place the request.
-     * 
-     */
     private @Nullable String availabilityZone;
     private @Nullable List<SpotFleetRequestLaunchSpecificationEbsBlockDevice> ebsBlockDevices;
     private @Nullable Boolean ebsOptimized;
     private @Nullable List<SpotFleetRequestLaunchSpecificationEphemeralBlockDevice> ephemeralBlockDevices;
     private @Nullable String iamInstanceProfile;
     private @Nullable String iamInstanceProfileArn;
-    /**
-     * @return The type of instance to request.
-     * 
-     */
     private String instanceType;
     private @Nullable String keyName;
     private @Nullable Boolean monitoring;
@@ -45,10 +37,6 @@ public final class SpotFleetRequestLaunchSpecification {
      * 
      */
     private @Nullable String spotPrice;
-    /**
-     * @return The subnet in which to launch the requested instance.
-     * 
-     */
     private @Nullable String subnetId;
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -57,10 +45,6 @@ public final class SpotFleetRequestLaunchSpecification {
     private @Nullable Map<String,String> tags;
     private @Nullable String userData;
     private @Nullable List<String> vpcSecurityGroupIds;
-    /**
-     * @return The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     private @Nullable String weightedCapacity;
 
     private SpotFleetRequestLaunchSpecification() {}
@@ -70,10 +54,6 @@ public final class SpotFleetRequestLaunchSpecification {
     public Optional<Boolean> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
     }
-    /**
-     * @return The availability zone in which to place the request.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
@@ -92,10 +72,6 @@ public final class SpotFleetRequestLaunchSpecification {
     public Optional<String> iamInstanceProfileArn() {
         return Optional.ofNullable(this.iamInstanceProfileArn);
     }
-    /**
-     * @return The type of instance to request.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
@@ -121,10 +97,6 @@ public final class SpotFleetRequestLaunchSpecification {
     public Optional<String> spotPrice() {
         return Optional.ofNullable(this.spotPrice);
     }
-    /**
-     * @return The subnet in which to launch the requested instance.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -141,10 +113,6 @@ public final class SpotFleetRequestLaunchSpecification {
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }
-    /**
-     * @return The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     public Optional<String> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }

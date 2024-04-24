@@ -112,14 +112,12 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sesv2.get_dedicated_ip_pool(pool_name="my-pool")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pool_name: Name of the dedicated IP pool.
@@ -151,14 +149,12 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sesv2.get_dedicated_ip_pool(pool_name="my-pool")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pool_name: Name of the dedicated IP pool.

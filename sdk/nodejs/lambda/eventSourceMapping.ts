@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  *
  * ### DynamoDB
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Kinesis
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,11 +40,9 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managed Streaming for Apache Kafka (MSK)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,11 +54,9 @@ import * as utilities from "../utilities";
  *     startingPosition: "TRIM_HORIZON",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Self Managed Apache Kafka
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,11 +86,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### SQS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,11 +98,9 @@ import * as utilities from "../utilities";
  *     functionName: exampleAwsLambdaFunction.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### SQS with event filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,11 +127,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Amazon MQ (ActiveMQ)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,11 +146,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Amazon MQ (RabbitMQ)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -186,7 +171,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

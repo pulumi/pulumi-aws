@@ -326,7 +326,6 @@ class VpcIpam(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,7 +340,6 @@ class VpcIpam(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Shared with multiple operating_regions:
 
@@ -374,7 +372,6 @@ class VpcIpam(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +386,6 @@ class VpcIpam(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Shared with multiple operating_regions:
 

@@ -215,7 +215,6 @@ class Portfolio(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +224,6 @@ class Portfolio(pulumi.CustomResource):
             description="List of my organizations apps",
             provider_name="Brett")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class Portfolio(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +260,6 @@ class Portfolio(pulumi.CustomResource):
             description="List of my organizations apps",
             provider_name="Brett")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

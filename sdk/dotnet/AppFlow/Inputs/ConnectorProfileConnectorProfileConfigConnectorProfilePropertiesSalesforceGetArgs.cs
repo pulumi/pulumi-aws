@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location of the Datadog resource.
-        /// </summary>
         [Input("instanceUrl")]
         public Input<string>? InstanceUrl { get; set; }
 
-        /// <summary>
-        /// Indicates whether the connector profile applies to a sandbox or production environment.
-        /// </summary>
         [Input("isSandboxEnvironment")]
         public Input<bool>? IsSandboxEnvironment { get; set; }
 

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.Ebs
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEbsVolumesResult> InvokeAsync(GetEbsVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesArgs(), options.WithDefaults());
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,7 +93,6 @@ namespace Pulumi.Aws.Ebs
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());

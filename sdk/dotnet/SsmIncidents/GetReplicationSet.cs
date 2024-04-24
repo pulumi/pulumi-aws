@@ -20,7 +20,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationSetResult> InvokeAsync(GetReplicationSetArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());

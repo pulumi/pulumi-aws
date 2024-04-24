@@ -23,12 +23,12 @@ public final class TopicRuleS3 {
      */
     private @Nullable String cannedAcl;
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     private String key;
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the IAM role that grants access.
      * 
      */
     private String roleArn;
@@ -49,14 +49,14 @@ public final class TopicRuleS3 {
         return Optional.ofNullable(this.cannedAcl);
     }
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the IAM role that grants access.
      * 
      */
     public String roleArn() {

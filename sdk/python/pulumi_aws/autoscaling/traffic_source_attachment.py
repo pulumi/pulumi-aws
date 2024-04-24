@@ -109,7 +109,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,7 +120,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                 type="elbv2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +141,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,7 +152,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                 type="elbv2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param TrafficSourceAttachmentArgs args: The arguments to use to populate this resource's properties.

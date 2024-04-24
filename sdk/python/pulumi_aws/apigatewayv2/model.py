@@ -202,7 +202,6 @@ class Model(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -223,7 +222,6 @@ class Model(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +252,6 @@ class Model(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -275,7 +272,6 @@ class Model(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

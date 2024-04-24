@@ -221,7 +221,6 @@ class _V2modelsSlotTypeState:
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
-        :param pulumi.Input[str] slot_type_id: Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         :param pulumi.Input['V2modelsSlotTypeSlotTypeValuesArgs'] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         :param pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs'] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don't specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
         """
@@ -351,9 +350,6 @@ class _V2modelsSlotTypeState:
     @property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @slot_type_id.setter
@@ -418,7 +414,6 @@ class V2modelsSlotType(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,7 +446,6 @@ class V2modelsSlotType(pulumi.CustomResource):
             name="test",
             locale_id=test_v2models_bot_locale.locale_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -489,7 +483,6 @@ class V2modelsSlotType(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,7 +515,6 @@ class V2modelsSlotType(pulumi.CustomResource):
             name="test",
             locale_id=test_v2models_bot_locale.locale_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -624,7 +616,6 @@ class V2modelsSlotType(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
-        :param pulumi.Input[str] slot_type_id: Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         :param pulumi.Input[pulumi.InputType['V2modelsSlotTypeSlotTypeValuesArgs']] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         :param pulumi.Input[pulumi.InputType['V2modelsSlotTypeValueSelectionSettingArgs']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don't specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
         """
@@ -715,9 +706,6 @@ class V2modelsSlotType(pulumi.CustomResource):
     @property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> pulumi.Output[str]:
-        """
-        Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @property

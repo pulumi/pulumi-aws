@@ -12,7 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,7 +108,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iam/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource

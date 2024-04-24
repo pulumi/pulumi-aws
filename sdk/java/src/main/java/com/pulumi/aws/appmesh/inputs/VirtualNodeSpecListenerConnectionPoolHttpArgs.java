@@ -34,16 +34,12 @@ public final class VirtualNodeSpecListenerConnectionPoolHttpArgs extends com.pul
     /**
      * Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
-     * The `http2` connection pool object supports the following:
-     * 
      */
     @Import(name="maxPendingRequests")
     private @Nullable Output<Integer> maxPendingRequests;
 
     /**
      * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     * The `http2` connection pool object supports the following:
      * 
      */
     public Optional<Output<Integer>> maxPendingRequests() {
@@ -99,8 +95,6 @@ public final class VirtualNodeSpecListenerConnectionPoolHttpArgs extends com.pul
         /**
          * @param maxPendingRequests Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
          * 
-         * The `http2` connection pool object supports the following:
-         * 
          * @return builder
          * 
          */
@@ -111,8 +105,6 @@ public final class VirtualNodeSpecListenerConnectionPoolHttpArgs extends com.pul
 
         /**
          * @param maxPendingRequests Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         * 
-         * The `http2` connection pool object supports the following:
          * 
          * @return builder
          * 

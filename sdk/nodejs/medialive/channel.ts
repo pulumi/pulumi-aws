@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +83,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -135,7 +133,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly channelClass!: pulumi.Output<string>;
     /**
-     * ID of the channel in MediaPackage that is the destination for this output group.
+     * ID of the Channel.
      */
     public /*out*/ readonly channelId!: pulumi.Output<string>;
     /**
@@ -274,7 +272,7 @@ export interface ChannelState {
      */
     channelClass?: pulumi.Input<string>;
     /**
-     * ID of the channel in MediaPackage that is the destination for this output group.
+     * ID of the Channel.
      */
     channelId?: pulumi.Input<string>;
     /**

@@ -520,12 +520,9 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrO
 }
 
 type ProactiveEngagementEmergencyContact struct {
-	// Additional notes regarding the contact.
 	ContactNotes *string `pulumi:"contactNotes"`
-	// A valid email address that will be used for this contact.
-	EmailAddress string `pulumi:"emailAddress"`
-	// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-	PhoneNumber *string `pulumi:"phoneNumber"`
+	EmailAddress string  `pulumi:"emailAddress"`
+	PhoneNumber  *string `pulumi:"phoneNumber"`
 }
 
 // ProactiveEngagementEmergencyContactInput is an input type that accepts ProactiveEngagementEmergencyContactArgs and ProactiveEngagementEmergencyContactOutput values.
@@ -540,12 +537,9 @@ type ProactiveEngagementEmergencyContactInput interface {
 }
 
 type ProactiveEngagementEmergencyContactArgs struct {
-	// Additional notes regarding the contact.
 	ContactNotes pulumi.StringPtrInput `pulumi:"contactNotes"`
-	// A valid email address that will be used for this contact.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	EmailAddress pulumi.StringInput    `pulumi:"emailAddress"`
+	PhoneNumber  pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
 func (ProactiveEngagementEmergencyContactArgs) ElementType() reflect.Type {
@@ -599,17 +593,14 @@ func (o ProactiveEngagementEmergencyContactOutput) ToProactiveEngagementEmergenc
 	return o
 }
 
-// Additional notes regarding the contact.
 func (o ProactiveEngagementEmergencyContactOutput) ContactNotes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) *string { return v.ContactNotes }).(pulumi.StringPtrOutput)
 }
 
-// A valid email address that will be used for this contact.
 func (o ProactiveEngagementEmergencyContactOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
 func (o ProactiveEngagementEmergencyContactOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProactiveEngagementEmergencyContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }

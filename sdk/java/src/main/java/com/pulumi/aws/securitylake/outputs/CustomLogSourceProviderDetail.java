@@ -16,7 +16,7 @@ public final class CustomLogSourceProviderDetail {
      */
     private String location;
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      * 
      */
     private String roleArn;
@@ -30,7 +30,7 @@ public final class CustomLogSourceProviderDetail {
         return this.location;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      * 
      */
     public String roleArn() {

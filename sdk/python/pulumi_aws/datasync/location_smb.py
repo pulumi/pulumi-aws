@@ -351,7 +351,6 @@ class LocationSmb(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,7 +362,6 @@ class LocationSmb(pulumi.CustomResource):
             password="ANotGreatPassword",
             agent_arns=[example_aws_datasync_agent["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,7 +395,6 @@ class LocationSmb(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,7 +406,6 @@ class LocationSmb(pulumi.CustomResource):
             password="ANotGreatPassword",
             agent_arns=[example_aws_datasync_agent["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

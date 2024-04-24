@@ -44,17 +44,9 @@ class AmiArgs:
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
@@ -185,10 +177,6 @@ class AmiArgs:
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path to an S3 object containing an image manifest, e.g., created
-        by the `ec2-upload-bundle` command in the EC2 command line tools.
-        """
         return pulumi.get(self, "image_location")
 
     @image_location.setter
@@ -210,10 +198,6 @@ class AmiArgs:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the kernel image (AKI) that will be used as the paravirtual
-        kernel in created instances.
-        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -235,10 +219,6 @@ class AmiArgs:
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of an initrd image (ARI) that will be used when booting the
-        created instances.
-        """
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
@@ -260,10 +240,6 @@ class AmiArgs:
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        When set to "simple" (the default), enables enhanced networking
-        for created instances. No other value is supported at this time.
-        """
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
@@ -354,24 +330,16 @@ class _AmiState:
         :param pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] hypervisor: Hypervisor type of the image.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] image_owner_alias: AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         :param pulumi.Input[str] image_type: Type of image.
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] owner_id: AWS account ID of the image owner.
         :param pulumi.Input[str] platform: This value is set to windows for Windows AMIs; otherwise, it is blank.
         :param pulumi.Input[str] platform_details: Platform details associated with the billing code of the AMI.
         :param pulumi.Input[bool] public: Whether the image has public launch permissions.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[str] root_snapshot_id: Snapshot ID for the root volume (for EBS-backed AMIs)
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -555,10 +523,6 @@ class _AmiState:
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path to an S3 object containing an image manifest, e.g., created
-        by the `ec2-upload-bundle` command in the EC2 command line tools.
-        """
         return pulumi.get(self, "image_location")
 
     @image_location.setter
@@ -604,10 +568,6 @@ class _AmiState:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the kernel image (AKI) that will be used as the paravirtual
-        kernel in created instances.
-        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -686,10 +646,6 @@ class _AmiState:
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of an initrd image (ARI) that will be used when booting the
-        created instances.
-        """
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
@@ -723,10 +679,6 @@ class _AmiState:
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        When set to "simple" (the default), enables enhanced networking
-        for created instances. No other value is supported at this time.
-        """
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
@@ -834,7 +786,6 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -853,7 +804,6 @@ class Ami(pulumi.CustomResource):
                 volume_size=8,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -874,17 +824,9 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
@@ -909,7 +851,6 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -928,7 +869,6 @@ class Ami(pulumi.CustomResource):
                 volume_size=8,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1065,24 +1005,16 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] hypervisor: Hypervisor type of the image.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] image_owner_alias: AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         :param pulumi.Input[str] image_type: Type of image.
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] owner_id: AWS account ID of the image owner.
         :param pulumi.Input[str] platform: This value is set to windows for Windows AMIs; otherwise, it is blank.
         :param pulumi.Input[str] platform_details: Platform details associated with the billing code of the AMI.
         :param pulumi.Input[bool] public: Whether the image has public launch permissions.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[str] root_snapshot_id: Snapshot ID for the root volume (for EBS-backed AMIs)
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -1203,10 +1135,6 @@ class Ami(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
-        """
-        Path to an S3 object containing an image manifest, e.g., created
-        by the `ec2-upload-bundle` command in the EC2 command line tools.
-        """
         return pulumi.get(self, "image_location")
 
     @property
@@ -1236,10 +1164,6 @@ class Ami(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        ID of the kernel image (AKI) that will be used as the paravirtual
-        kernel in created instances.
-        """
         return pulumi.get(self, "kernel_id")
 
     @property
@@ -1290,10 +1214,6 @@ class Ami(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        ID of an initrd image (ARI) that will be used when booting the
-        created instances.
-        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
@@ -1315,10 +1235,6 @@ class Ami(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> pulumi.Output[Optional[str]]:
-        """
-        When set to "simple" (the default), enables enhanced networking
-        for created instances. No other value is supported at this time.
-        """
         return pulumi.get(self, "sriov_net_support")
 
     @property

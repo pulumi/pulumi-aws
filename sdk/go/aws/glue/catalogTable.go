@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Table
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,11 +42,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Parquet Table for Athena
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,7 +111,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

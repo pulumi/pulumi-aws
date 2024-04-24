@@ -307,7 +307,6 @@ class FlowDefinition(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,11 +326,9 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Workteam Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,11 +354,9 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Human Loop Activation Config Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,15 +378,15 @@ class FlowDefinition(pulumi.CustomResource):
             human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
                 human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
                     human_loop_activation_conditions=\"\"\"        {
-        			"Conditions": [
-        			  {
-        				"ConditionType": "Sampling",
-        				"ConditionParameters": {
-        				  "RandomSamplingPercentage": 5
-        				}
-        			  }
-        			]
-        		}
+        \\x09\\x09\\x09"Conditions": [
+        \\x09\\x09\\x09  {
+        \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
+        \\x09\\x09\\x09\\x09"ConditionParameters": {
+        \\x09\\x09\\x09\\x09  "RandomSamplingPercentage": 5
+        \\x09\\x09\\x09\\x09}
+        \\x09\\x09\\x09  }
+        \\x09\\x09\\x09]
+        \\x09\\x09}
         \"\"\",
                 ),
             ),
@@ -399,7 +394,6 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -432,7 +426,6 @@ class FlowDefinition(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -452,11 +445,9 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Workteam Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,11 +473,9 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Human Loop Activation Config Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,15 +497,15 @@ class FlowDefinition(pulumi.CustomResource):
             human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
                 human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
                     human_loop_activation_conditions=\"\"\"        {
-        			"Conditions": [
-        			  {
-        				"ConditionType": "Sampling",
-        				"ConditionParameters": {
-        				  "RandomSamplingPercentage": 5
-        				}
-        			  }
-        			]
-        		}
+        \\x09\\x09\\x09"Conditions": [
+        \\x09\\x09\\x09  {
+        \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
+        \\x09\\x09\\x09\\x09"ConditionParameters": {
+        \\x09\\x09\\x09\\x09  "RandomSamplingPercentage": 5
+        \\x09\\x09\\x09\\x09}
+        \\x09\\x09\\x09  }
+        \\x09\\x09\\x09]
+        \\x09\\x09}
         \"\"\",
                 ),
             ),
@@ -524,7 +513,6 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

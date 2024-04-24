@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,11 +32,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Error Handling Configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,11 +45,9 @@ import * as utilities from "../utilities";
  *     maximumRetryAttempts: 0,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Configuration for Alias Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,11 +57,9 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaAlias.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Configuration for Function Latest Unpublished Version
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,11 +69,9 @@ import * as utilities from "../utilities";
  *     qualifier: "$LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Configuration for Function Published Version
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +81,6 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaFunction.version,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

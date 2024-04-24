@@ -20,7 +20,7 @@ public final class FrameworkControlSet {
      */
     private @Nullable List<FrameworkControlSetControl> controls;
     /**
-     * @return Unique identifier of the control.
+     * @return Unique identifier for the framework.
      * 
      */
     private @Nullable String id;
@@ -39,7 +39,7 @@ public final class FrameworkControlSet {
         return this.controls == null ? List.of() : this.controls;
     }
     /**
-     * @return Unique identifier of the control.
+     * @return Unique identifier for the framework.
      * 
      */
     public Optional<String> id() {

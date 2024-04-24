@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// Basic usage:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,11 +33,9 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Get the URL of the Cloud9 environment after creation:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,11 +70,9 @@ namespace Pulumi.Aws.Cloud9
     ///     };
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Allocate a static IP to the Cloud9 environment:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,7 +113,6 @@ namespace Pulumi.Aws.Cloud9
     ///     };
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
     public partial class EnvironmentEC2 : global::Pulumi.CustomResource

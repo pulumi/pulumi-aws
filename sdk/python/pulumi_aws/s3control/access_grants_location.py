@@ -221,7 +221,6 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,7 +231,6 @@ class AccessGrantsLocation(pulumi.CustomResource):
             location_scope="s3://",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,7 +261,6 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +271,6 @@ class AccessGrantsLocation(pulumi.CustomResource):
             location_scope="s3://",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

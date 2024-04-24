@@ -700,7 +700,6 @@ class DevEndpoint(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -722,7 +721,6 @@ class DevEndpoint(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
             role=example_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -763,7 +761,6 @@ class DevEndpoint(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -785,7 +782,6 @@ class DevEndpoint(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
             role=example_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

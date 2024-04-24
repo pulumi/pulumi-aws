@@ -31,14 +31,14 @@ public final class FirewallFirewallStatusSyncStateAttachmentArgs extends com.pul
     }
 
     /**
-     * The unique identifier for the subnet.
+     * The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The unique identifier for the subnet.
+     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -92,7 +92,7 @@ public final class FirewallFirewallStatusSyncStateAttachmentArgs extends com.pul
         }
 
         /**
-         * @param subnetId The unique identifier for the subnet.
+         * @param subnetId The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FirewallFirewallStatusSyncStateAttachmentArgs extends com.pul
         }
 
         /**
-         * @param subnetId The unique identifier for the subnet.
+         * @param subnetId The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
          * 
          * @return builder
          * 

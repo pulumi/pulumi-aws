@@ -23,7 +23,6 @@ import (
 // via RAM, and using that pool id to create a VPC with a CIDR derived from
 // AWS IPAM.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVpcIpamPool(ctx *pulumi.Context, args *LookupVpcIpamPoolArgs, opts ...pulumi.InvokeOption) (*LookupVpcIpamPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcIpamPoolResult

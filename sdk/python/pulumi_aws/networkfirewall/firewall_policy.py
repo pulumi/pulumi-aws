@@ -258,7 +258,6 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,11 +278,9 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy with a HOME_NET Override
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,11 +311,9 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy with a Custom Action for Stateless Inspection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +338,6 @@ class FirewallPolicy(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +366,6 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,11 +386,9 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy with a HOME_NET Override
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,11 +419,9 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy with a Custom Action for Stateless Inspection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,7 +446,6 @@ class FirewallPolicy(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

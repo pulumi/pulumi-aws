@@ -134,7 +134,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,9 +167,7 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +185,6 @@ class Instance(pulumi.CustomResource):
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,7 +211,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,9 +244,7 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +262,6 @@ class Instance(pulumi.CustomResource):
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

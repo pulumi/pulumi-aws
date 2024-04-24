@@ -154,7 +154,7 @@ class _TemplateState:
                  version_number: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Template resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[str] arn: ARN of the template.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the template was created.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
@@ -207,7 +207,7 @@ class _TemplateState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the template.
         """
         return pulumi.get(self, "arn")
 
@@ -397,7 +397,6 @@ class Template(pulumi.CustomResource):
 
         ### From Source Template
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,7 +411,6 @@ class Template(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -447,7 +445,6 @@ class Template(pulumi.CustomResource):
 
         ### From Source Template
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,7 +459,6 @@ class Template(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -552,7 +548,7 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[str] arn: ARN of the template.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the template was created.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
@@ -593,7 +589,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the template.
         """
         return pulumi.get(self, "arn")
 

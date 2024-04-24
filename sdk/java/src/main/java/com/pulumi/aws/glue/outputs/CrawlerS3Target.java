@@ -15,21 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerS3Target {
     /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * @return The name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     private @Nullable String connectionName;
     /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     private @Nullable String dlqEventQueueArn;
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     private @Nullable String eventQueueArn;
@@ -39,7 +35,7 @@ public final class CrawlerS3Target {
      */
     private @Nullable List<String> exclusions;
     /**
-     * @return The name of the DynamoDB table to crawl.
+     * @return The path to the Amazon S3 target.
      * 
      */
     private String path;
@@ -51,25 +47,21 @@ public final class CrawlerS3Target {
 
     private CrawlerS3Target() {}
     /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * @return The name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
     /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     public Optional<String> eventQueueArn() {
@@ -83,7 +75,7 @@ public final class CrawlerS3Target {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return The name of the DynamoDB table to crawl.
+     * @return The path to the Amazon S3 target.
      * 
      */
     public String path() {

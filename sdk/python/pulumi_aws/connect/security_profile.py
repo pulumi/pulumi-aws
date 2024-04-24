@@ -277,7 +277,6 @@ class SecurityProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +293,6 @@ class SecurityProfile(pulumi.CustomResource):
                 "Name": "Example Security Profile",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -325,7 +323,6 @@ class SecurityProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,7 +339,6 @@ class SecurityProfile(pulumi.CustomResource):
                 "Name": "Example Security Profile",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

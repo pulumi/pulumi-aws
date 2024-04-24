@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### From Source Template
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,7 +32,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -76,7 +74,7 @@ export class Analysis extends pulumi.CustomResource {
      */
     public readonly analysisId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the analysis.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -196,7 +194,7 @@ export interface AnalysisState {
      */
     analysisId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the analysis.
      */
     arn?: pulumi.Input<string>;
     /**

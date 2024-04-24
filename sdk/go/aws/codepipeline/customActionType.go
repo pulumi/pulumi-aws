@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -68,24 +66,18 @@ type CustomActionType struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The configuration properties for the custom action. Max 10 items.
 	ConfigurationProperties CustomActionTypeConfigurationPropertyArrayOutput `pulumi:"configurationProperties"`
-	// The details of the input artifact for the action.
-	InputArtifactDetails CustomActionTypeInputArtifactDetailsOutput `pulumi:"inputArtifactDetails"`
-	// The details of the output artifact of the action.
-	OutputArtifactDetails CustomActionTypeOutputArtifactDetailsOutput `pulumi:"outputArtifactDetails"`
+	InputArtifactDetails    CustomActionTypeInputArtifactDetailsOutput       `pulumi:"inputArtifactDetails"`
+	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsOutput      `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The provider of the service used in the custom action
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The settings for an action type.
-	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Owner        pulumi.StringOutput               `pulumi:"owner"`
+	ProviderName pulumi.StringOutput               `pulumi:"providerName"`
+	Settings     CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
+	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The version identifier of the custom action.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewCustomActionType registers a new resource with the given unique name, arguments, and options.
@@ -139,24 +131,18 @@ type customActionTypeState struct {
 	Category *string `pulumi:"category"`
 	// The configuration properties for the custom action. Max 10 items.
 	ConfigurationProperties []CustomActionTypeConfigurationProperty `pulumi:"configurationProperties"`
-	// The details of the input artifact for the action.
-	InputArtifactDetails *CustomActionTypeInputArtifactDetails `pulumi:"inputArtifactDetails"`
-	// The details of the output artifact of the action.
-	OutputArtifactDetails *CustomActionTypeOutputArtifactDetails `pulumi:"outputArtifactDetails"`
+	InputArtifactDetails    *CustomActionTypeInputArtifactDetails   `pulumi:"inputArtifactDetails"`
+	OutputArtifactDetails   *CustomActionTypeOutputArtifactDetails  `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner *string `pulumi:"owner"`
-	// The provider of the service used in the custom action
-	ProviderName *string `pulumi:"providerName"`
-	// The settings for an action type.
-	Settings *CustomActionTypeSettings `pulumi:"settings"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Owner        *string                   `pulumi:"owner"`
+	ProviderName *string                   `pulumi:"providerName"`
+	Settings     *CustomActionTypeSettings `pulumi:"settings"`
+	Tags         map[string]string         `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The version identifier of the custom action.
-	Version *string `pulumi:"version"`
+	Version *string           `pulumi:"version"`
 }
 
 type CustomActionTypeState struct {
@@ -166,23 +152,17 @@ type CustomActionTypeState struct {
 	Category pulumi.StringPtrInput
 	// The configuration properties for the custom action. Max 10 items.
 	ConfigurationProperties CustomActionTypeConfigurationPropertyArrayInput
-	// The details of the input artifact for the action.
-	InputArtifactDetails CustomActionTypeInputArtifactDetailsPtrInput
-	// The details of the output artifact of the action.
-	OutputArtifactDetails CustomActionTypeOutputArtifactDetailsPtrInput
+	InputArtifactDetails    CustomActionTypeInputArtifactDetailsPtrInput
+	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsPtrInput
 	// The creator of the action being called.
-	Owner pulumi.StringPtrInput
-	// The provider of the service used in the custom action
+	Owner        pulumi.StringPtrInput
 	ProviderName pulumi.StringPtrInput
-	// The settings for an action type.
-	Settings CustomActionTypeSettingsPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Settings     CustomActionTypeSettingsPtrInput
+	Tags         pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// The version identifier of the custom action.
 	Version pulumi.StringPtrInput
 }
 
@@ -195,18 +175,12 @@ type customActionTypeArgs struct {
 	Category string `pulumi:"category"`
 	// The configuration properties for the custom action. Max 10 items.
 	ConfigurationProperties []CustomActionTypeConfigurationProperty `pulumi:"configurationProperties"`
-	// The details of the input artifact for the action.
-	InputArtifactDetails CustomActionTypeInputArtifactDetails `pulumi:"inputArtifactDetails"`
-	// The details of the output artifact of the action.
-	OutputArtifactDetails CustomActionTypeOutputArtifactDetails `pulumi:"outputArtifactDetails"`
-	// The provider of the service used in the custom action
-	ProviderName string `pulumi:"providerName"`
-	// The settings for an action type.
-	Settings *CustomActionTypeSettings `pulumi:"settings"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The version identifier of the custom action.
-	Version string `pulumi:"version"`
+	InputArtifactDetails    CustomActionTypeInputArtifactDetails    `pulumi:"inputArtifactDetails"`
+	OutputArtifactDetails   CustomActionTypeOutputArtifactDetails   `pulumi:"outputArtifactDetails"`
+	ProviderName            string                                  `pulumi:"providerName"`
+	Settings                *CustomActionTypeSettings               `pulumi:"settings"`
+	Tags                    map[string]string                       `pulumi:"tags"`
+	Version                 string                                  `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
@@ -215,18 +189,12 @@ type CustomActionTypeArgs struct {
 	Category pulumi.StringInput
 	// The configuration properties for the custom action. Max 10 items.
 	ConfigurationProperties CustomActionTypeConfigurationPropertyArrayInput
-	// The details of the input artifact for the action.
-	InputArtifactDetails CustomActionTypeInputArtifactDetailsInput
-	// The details of the output artifact of the action.
-	OutputArtifactDetails CustomActionTypeOutputArtifactDetailsInput
-	// The provider of the service used in the custom action
-	ProviderName pulumi.StringInput
-	// The settings for an action type.
-	Settings CustomActionTypeSettingsPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The version identifier of the custom action.
-	Version pulumi.StringInput
+	InputArtifactDetails    CustomActionTypeInputArtifactDetailsInput
+	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsInput
+	ProviderName            pulumi.StringInput
+	Settings                CustomActionTypeSettingsPtrInput
+	Tags                    pulumi.StringMapInput
+	Version                 pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
@@ -333,12 +301,10 @@ func (o CustomActionTypeOutput) ConfigurationProperties() CustomActionTypeConfig
 	}).(CustomActionTypeConfigurationPropertyArrayOutput)
 }
 
-// The details of the input artifact for the action.
 func (o CustomActionTypeOutput) InputArtifactDetails() CustomActionTypeInputArtifactDetailsOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeInputArtifactDetailsOutput { return v.InputArtifactDetails }).(CustomActionTypeInputArtifactDetailsOutput)
 }
 
-// The details of the output artifact of the action.
 func (o CustomActionTypeOutput) OutputArtifactDetails() CustomActionTypeOutputArtifactDetailsOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeOutputArtifactDetailsOutput { return v.OutputArtifactDetails }).(CustomActionTypeOutputArtifactDetailsOutput)
 }
@@ -348,17 +314,14 @@ func (o CustomActionTypeOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The provider of the service used in the custom action
 func (o CustomActionTypeOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The settings for an action type.
 func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeSettingsPtrOutput { return v.Settings }).(CustomActionTypeSettingsPtrOutput)
 }
 
-// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomActionTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -370,7 +333,6 @@ func (o CustomActionTypeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The version identifier of the custom action.
 func (o CustomActionTypeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

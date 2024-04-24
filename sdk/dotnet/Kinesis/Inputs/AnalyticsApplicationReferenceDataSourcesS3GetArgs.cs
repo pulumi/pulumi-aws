@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> FileKey { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM Role used to send application messages.
+        /// The IAM Role ARN to read the data.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

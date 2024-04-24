@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetParametersEcsTaskParametersOverrides
     {
-        /// <summary>
-        /// One or more container overrides that are sent to a task. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride> ContainerOverrides;
-        /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        /// </summary>
         public readonly string? Cpu;
-        /// <summary>
-        /// The ephemeral storage setting override for the task.  Detailed below.
-        /// </summary>
         public readonly Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? EphemeralStorage;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-        /// </summary>
         public readonly string? ExecutionRoleArn;
-        /// <summary>
-        /// List of Elastic Inference accelerator overrides for the task. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> InferenceAcceleratorOverrides;
-        /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-        /// </summary>
         public readonly string? Memory;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-        /// </summary>
         public readonly string? TaskRoleArn;
 
         [OutputConstructor]

@@ -24,7 +24,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,11 +153,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enrichment Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,11 +196,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -250,7 +245,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -262,7 +256,7 @@ import (
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -335,7 +329,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn *string `pulumi:"arn"`
 	// A description of the pipe. At most 512 characters.
 	Description *string `pulumi:"description"`
@@ -370,7 +364,7 @@ type pipeState struct {
 }
 
 type PipeState struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn pulumi.StringPtrInput
 	// A description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrInput
@@ -554,7 +548,7 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+// ARN of this pipe.
 func (o PipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

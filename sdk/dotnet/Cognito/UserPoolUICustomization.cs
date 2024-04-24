@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ### UI customization settings for a single client
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,11 +57,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### UI customization settings for all clients
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,7 +92,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

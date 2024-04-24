@@ -139,7 +139,6 @@ class ServiceIntegration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,11 +155,9 @@ class ServiceIntegration(pulumi.CustomResource):
                 opt_in_status="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Customer Managed KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +176,6 @@ class ServiceIntegration(pulumi.CustomResource):
                 opt_in_status="DISABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -206,7 +202,6 @@ class ServiceIntegration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,11 +218,9 @@ class ServiceIntegration(pulumi.CustomResource):
                 opt_in_status="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Customer Managed KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +239,6 @@ class ServiceIntegration(pulumi.CustomResource):
                 opt_in_status="DISABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

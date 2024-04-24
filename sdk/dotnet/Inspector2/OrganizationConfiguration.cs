@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource

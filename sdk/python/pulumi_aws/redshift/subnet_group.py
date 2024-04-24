@@ -211,7 +211,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +240,6 @@ class SubnetGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,7 +267,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +296,6 @@ class SubnetGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

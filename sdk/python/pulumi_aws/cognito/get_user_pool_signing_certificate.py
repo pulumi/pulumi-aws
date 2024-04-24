@@ -72,14 +72,12 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str user_pool_id: Cognito user pool ID.
@@ -103,14 +101,12 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str user_pool_id: Cognito user pool ID.

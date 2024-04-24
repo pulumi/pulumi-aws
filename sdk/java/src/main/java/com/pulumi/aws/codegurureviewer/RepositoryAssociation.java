@@ -135,28 +135,28 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyDetails);
     }
     /**
-     * The name of the third party source repository.
+     * The name of the repository.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the third party source repository.
+     * @return The name of the repository.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The username for the account that owns the repository.
+     * The owner of the repository.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
-     * @return The username for the account that owns the repository.
+     * @return The owner of the repository.
      * 
      */
     public Output<String> owner() {

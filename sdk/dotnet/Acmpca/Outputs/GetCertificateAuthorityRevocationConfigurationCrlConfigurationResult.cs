@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Acmpca.Outputs
     [OutputType]
     public sealed class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult
     {
+        /// <summary>
+        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        /// </summary>
         public readonly string CustomCname;
+        /// <summary>
+        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Number of days until a certificate expires.
+        /// </summary>
         public readonly int ExpirationInDays;
+        /// <summary>
+        /// Name of the S3 bucket that contains the CRL.
+        /// </summary>
         public readonly string S3BucketName;
+        /// <summary>
+        /// Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+        /// </summary>
         public readonly string S3ObjectAcl;
 
         [OutputConstructor]

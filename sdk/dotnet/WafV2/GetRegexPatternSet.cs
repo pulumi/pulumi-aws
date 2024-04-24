@@ -16,7 +16,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegexPatternSetResult>("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args ?? new GetRegexPatternSetArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());

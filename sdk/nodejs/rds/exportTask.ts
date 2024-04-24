@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     kmsKeyId: exampleAwsKmsKey.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Complete Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,7 +113,6 @@ import * as utilities from "../utilities";
  *     s3Prefix: "my_prefix/example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

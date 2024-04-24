@@ -339,7 +339,6 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +356,6 @@ class SigningProfile(pulumi.CustomResource):
                 "tag2": "value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -385,7 +383,6 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,7 +400,6 @@ class SigningProfile(pulumi.CustomResource):
                 "tag2": "value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

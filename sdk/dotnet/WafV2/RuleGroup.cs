@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// The ARN of the WAF rule group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class RuleGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// The ARN of the WAF rule group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

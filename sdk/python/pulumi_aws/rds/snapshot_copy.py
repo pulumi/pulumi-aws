@@ -555,7 +555,6 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -578,7 +577,6 @@ class SnapshotCopy(pulumi.CustomResource):
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -611,7 +609,6 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -634,7 +631,6 @@ class SnapshotCopy(pulumi.CustomResource):
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

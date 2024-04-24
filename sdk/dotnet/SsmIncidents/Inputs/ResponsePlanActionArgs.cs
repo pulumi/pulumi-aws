@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
     {
         [Input("ssmAutomations")]
         private InputList<Inputs.ResponsePlanActionSsmAutomationArgs>? _ssmAutomations;
-
-        /// <summary>
-        /// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        /// </summary>
         public InputList<Inputs.ResponsePlanActionSsmAutomationArgs> SsmAutomations
         {
             get => _ssmAutomations ?? (_ssmAutomations = new InputList<Inputs.ResponsePlanActionSsmAutomationArgs>());

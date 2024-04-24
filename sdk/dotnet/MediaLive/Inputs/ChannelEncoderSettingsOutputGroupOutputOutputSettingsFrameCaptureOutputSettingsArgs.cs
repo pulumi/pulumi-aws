@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-        /// </summary>
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
 

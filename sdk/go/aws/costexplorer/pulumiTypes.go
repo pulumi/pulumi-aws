@@ -364,10 +364,8 @@ func (o AnomalySubscriptionThresholdExpressionPtrOutput) Tags() AnomalySubscript
 }
 
 type AnomalySubscriptionThresholdExpressionAnd struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionAndCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension *AnomalySubscriptionThresholdExpressionAndDimension `pulumi:"dimension"`
+	Dimension    *AnomalySubscriptionThresholdExpressionAndDimension    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionAndTags `pulumi:"tags"`
 }
@@ -384,10 +382,8 @@ type AnomalySubscriptionThresholdExpressionAndInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionAndArgs struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension AnomalySubscriptionThresholdExpressionAndDimensionPtrInput `pulumi:"dimension"`
+	Dimension    AnomalySubscriptionThresholdExpressionAndDimensionPtrInput    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionAndTagsPtrInput `pulumi:"tags"`
 }
@@ -443,14 +439,12 @@ func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionTh
 	return o
 }
 
-// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionAndOutput) CostCategory() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionAndOutput) Dimension() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndDimension {
 		return v.Dimension
@@ -1360,10 +1354,8 @@ func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Values() pulum
 }
 
 type AnomalySubscriptionThresholdExpressionNot struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionNotCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension *AnomalySubscriptionThresholdExpressionNotDimension `pulumi:"dimension"`
+	Dimension    *AnomalySubscriptionThresholdExpressionNotDimension    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionNotTags `pulumi:"tags"`
 }
@@ -1380,10 +1372,8 @@ type AnomalySubscriptionThresholdExpressionNotInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionNotArgs struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension AnomalySubscriptionThresholdExpressionNotDimensionPtrInput `pulumi:"dimension"`
+	Dimension    AnomalySubscriptionThresholdExpressionNotDimensionPtrInput    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionNotTagsPtrInput `pulumi:"tags"`
 }
@@ -1465,14 +1455,12 @@ func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionTh
 	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
 }
 
-// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionNotOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionNotOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
 		return v.Dimension
@@ -1510,7 +1498,6 @@ func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Elem() AnomalySubscr
 	}).(AnomalySubscriptionThresholdExpressionNotOutput)
 }
 
-// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
 		if v == nil {
@@ -1520,7 +1507,6 @@ func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) CostCategory() Anoma
 	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
 		if v == nil {
@@ -2066,10 +2052,8 @@ func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Values() pulumi.
 }
 
 type AnomalySubscriptionThresholdExpressionOr struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionOrCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension *AnomalySubscriptionThresholdExpressionOrDimension `pulumi:"dimension"`
+	Dimension    *AnomalySubscriptionThresholdExpressionOrDimension    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionOrTags `pulumi:"tags"`
 }
@@ -2086,10 +2070,8 @@ type AnomalySubscriptionThresholdExpressionOrInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionOrArgs struct {
-	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific Dimension to use for.
-	Dimension AnomalySubscriptionThresholdExpressionOrDimensionPtrInput `pulumi:"dimension"`
+	Dimension    AnomalySubscriptionThresholdExpressionOrDimensionPtrInput    `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionOrTagsPtrInput `pulumi:"tags"`
 }
@@ -2145,14 +2127,12 @@ func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThr
 	return o
 }
 
-// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionOrOutput) CostCategory() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionOrOutput) Dimension() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrDimension {
 		return v.Dimension
@@ -3399,10 +3379,8 @@ func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput 
 }
 
 type CostCategoryRuleRuleAnd struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension *CostCategoryRuleRuleAndDimension `pulumi:"dimension"`
+	Dimension    *CostCategoryRuleRuleAndDimension    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
 }
@@ -3419,10 +3397,8 @@ type CostCategoryRuleRuleAndInput interface {
 }
 
 type CostCategoryRuleRuleAndArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension CostCategoryRuleRuleAndDimensionPtrInput `pulumi:"dimension"`
+	Dimension    CostCategoryRuleRuleAndDimensionPtrInput    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
 }
@@ -3478,12 +3454,10 @@ func (o CostCategoryRuleRuleAndOutput) ToCostCategoryRuleRuleAndOutputWithContex
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndOutput) CostCategory() CostCategoryRuleRuleAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
@@ -4389,10 +4363,8 @@ func (o CostCategoryRuleRuleDimensionPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type CostCategoryRuleRuleNot struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension *CostCategoryRuleRuleNotDimension `pulumi:"dimension"`
+	Dimension    *CostCategoryRuleRuleNotDimension    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
 }
@@ -4409,10 +4381,8 @@ type CostCategoryRuleRuleNotInput interface {
 }
 
 type CostCategoryRuleRuleNotArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension CostCategoryRuleRuleNotDimensionPtrInput `pulumi:"dimension"`
+	Dimension    CostCategoryRuleRuleNotDimensionPtrInput    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
 }
@@ -4494,12 +4464,10 @@ func (o CostCategoryRuleRuleNotOutput) ToCostCategoryRuleRuleNotPtrOutputWithCon
 	}).(CostCategoryRuleRuleNotPtrOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
@@ -4533,7 +4501,6 @@ func (o CostCategoryRuleRuleNotPtrOutput) Elem() CostCategoryRuleRuleNotOutput {
 	}).(CostCategoryRuleRuleNotOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotPtrOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory {
 		if v == nil {
@@ -4543,7 +4510,6 @@ func (o CostCategoryRuleRuleNotPtrOutput) CostCategory() CostCategoryRuleRuleNot
 	}).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension {
 		if v == nil {
@@ -5089,10 +5055,8 @@ func (o CostCategoryRuleRuleNotTagsPtrOutput) Values() pulumi.StringArrayOutput 
 }
 
 type CostCategoryRuleRuleOr struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension *CostCategoryRuleRuleOrDimension `pulumi:"dimension"`
+	Dimension    *CostCategoryRuleRuleOrDimension    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
 }
@@ -5109,10 +5073,8 @@ type CostCategoryRuleRuleOrInput interface {
 }
 
 type CostCategoryRuleRuleOrArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-	Dimension CostCategoryRuleRuleOrDimensionPtrInput `pulumi:"dimension"`
+	Dimension    CostCategoryRuleRuleOrDimensionPtrInput    `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
 }
@@ -5168,12 +5130,10 @@ func (o CostCategoryRuleRuleOrOutput) ToCostCategoryRuleRuleOrOutputWithContext(
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrOutput) CostCategory() CostCategoryRuleRuleOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
@@ -8693,10 +8653,8 @@ func (o GetTagsFilterPtrOutput) Tags() GetTagsFilterTagsPtrOutput {
 }
 
 type GetTagsFilterAnd struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterAndCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension *GetTagsFilterAndDimension `pulumi:"dimension"`
+	Dimension    *GetTagsFilterAndDimension    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterAndTags `pulumi:"tags"`
 }
@@ -8713,10 +8671,8 @@ type GetTagsFilterAndInput interface {
 }
 
 type GetTagsFilterAndArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterAndCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension GetTagsFilterAndDimensionPtrInput `pulumi:"dimension"`
+	Dimension    GetTagsFilterAndDimensionPtrInput    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterAndTagsPtrInput `pulumi:"tags"`
 }
@@ -8772,12 +8728,10 @@ func (o GetTagsFilterAndOutput) ToGetTagsFilterAndOutputWithContext(ctx context.
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterAndOutput) CostCategory() GetTagsFilterAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndCostCategory { return v.CostCategory }).(GetTagsFilterAndCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterAndOutput) Dimension() GetTagsFilterAndDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndDimension { return v.Dimension }).(GetTagsFilterAndDimensionPtrOutput)
 }
@@ -9158,12 +9112,9 @@ func (o GetTagsFilterAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterAndTags struct {
-	// Unique name of the Cost Category.
-	Key *string `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          *string  `pulumi:"key"`
 	MatchOptions []string `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values []string `pulumi:"values"`
+	Values       []string `pulumi:"values"`
 }
 
 // GetTagsFilterAndTagsInput is an input type that accepts GetTagsFilterAndTagsArgs and GetTagsFilterAndTagsOutput values.
@@ -9178,12 +9129,9 @@ type GetTagsFilterAndTagsInput interface {
 }
 
 type GetTagsFilterAndTagsArgs struct {
-	// Unique name of the Cost Category.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetTagsFilterAndTagsArgs) ElementType() reflect.Type {
@@ -9263,17 +9211,14 @@ func (o GetTagsFilterAndTagsOutput) ToGetTagsFilterAndTagsPtrOutputWithContext(c
 	}).(GetTagsFilterAndTagsPtrOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterAndTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterAndTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9302,7 +9247,6 @@ func (o GetTagsFilterAndTagsPtrOutput) Elem() GetTagsFilterAndTagsOutput {
 	}).(GetTagsFilterAndTagsOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterAndTags) *string {
 		if v == nil {
@@ -9312,7 +9256,6 @@ func (o GetTagsFilterAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterAndTags) []string {
 		if v == nil {
@@ -9322,7 +9265,6 @@ func (o GetTagsFilterAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterAndTags) []string {
 		if v == nil {
@@ -9683,10 +9625,8 @@ func (o GetTagsFilterDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterNot struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterNotCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension *GetTagsFilterNotDimension `pulumi:"dimension"`
+	Dimension    *GetTagsFilterNotDimension    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterNotTags `pulumi:"tags"`
 }
@@ -9703,10 +9643,8 @@ type GetTagsFilterNotInput interface {
 }
 
 type GetTagsFilterNotArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterNotCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension GetTagsFilterNotDimensionPtrInput `pulumi:"dimension"`
+	Dimension    GetTagsFilterNotDimensionPtrInput    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterNotTagsPtrInput `pulumi:"tags"`
 }
@@ -9788,12 +9726,10 @@ func (o GetTagsFilterNotOutput) ToGetTagsFilterNotPtrOutputWithContext(ctx conte
 	}).(GetTagsFilterNotPtrOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotCostCategory { return v.CostCategory }).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotDimension { return v.Dimension }).(GetTagsFilterNotDimensionPtrOutput)
 }
@@ -9827,7 +9763,6 @@ func (o GetTagsFilterNotPtrOutput) Elem() GetTagsFilterNotOutput {
 	}).(GetTagsFilterNotOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotCostCategory {
 		if v == nil {
@@ -9837,7 +9772,6 @@ func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPt
 	}).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotPtrOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotDimension {
 		if v == nil {
@@ -10208,12 +10142,9 @@ func (o GetTagsFilterNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterNotTags struct {
-	// Unique name of the Cost Category.
-	Key *string `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          *string  `pulumi:"key"`
 	MatchOptions []string `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values []string `pulumi:"values"`
+	Values       []string `pulumi:"values"`
 }
 
 // GetTagsFilterNotTagsInput is an input type that accepts GetTagsFilterNotTagsArgs and GetTagsFilterNotTagsOutput values.
@@ -10228,12 +10159,9 @@ type GetTagsFilterNotTagsInput interface {
 }
 
 type GetTagsFilterNotTagsArgs struct {
-	// Unique name of the Cost Category.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetTagsFilterNotTagsArgs) ElementType() reflect.Type {
@@ -10313,17 +10241,14 @@ func (o GetTagsFilterNotTagsOutput) ToGetTagsFilterNotTagsPtrOutputWithContext(c
 	}).(GetTagsFilterNotTagsPtrOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterNotTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterNotTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10352,7 +10277,6 @@ func (o GetTagsFilterNotTagsPtrOutput) Elem() GetTagsFilterNotTagsOutput {
 	}).(GetTagsFilterNotTagsOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNotTags) *string {
 		if v == nil {
@@ -10362,7 +10286,6 @@ func (o GetTagsFilterNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterNotTags) []string {
 		if v == nil {
@@ -10372,7 +10295,6 @@ func (o GetTagsFilterNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterNotTags) []string {
 		if v == nil {
@@ -10383,10 +10305,8 @@ func (o GetTagsFilterNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterOr struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterOrCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension *GetTagsFilterOrDimension `pulumi:"dimension"`
+	Dimension    *GetTagsFilterOrDimension    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterOrTags `pulumi:"tags"`
 }
@@ -10403,10 +10323,8 @@ type GetTagsFilterOrInput interface {
 }
 
 type GetTagsFilterOrArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterOrCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-	Dimension GetTagsFilterOrDimensionPtrInput `pulumi:"dimension"`
+	Dimension    GetTagsFilterOrDimensionPtrInput    `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterOrTagsPtrInput `pulumi:"tags"`
 }
@@ -10462,12 +10380,10 @@ func (o GetTagsFilterOrOutput) ToGetTagsFilterOrOutputWithContext(ctx context.Co
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterOrOutput) CostCategory() GetTagsFilterOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrCostCategory { return v.CostCategory }).(GetTagsFilterOrCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterOrOutput) Dimension() GetTagsFilterOrDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrDimension { return v.Dimension }).(GetTagsFilterOrDimensionPtrOutput)
 }
@@ -10848,12 +10764,9 @@ func (o GetTagsFilterOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterOrTags struct {
-	// Unique name of the Cost Category.
-	Key *string `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          *string  `pulumi:"key"`
 	MatchOptions []string `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values []string `pulumi:"values"`
+	Values       []string `pulumi:"values"`
 }
 
 // GetTagsFilterOrTagsInput is an input type that accepts GetTagsFilterOrTagsArgs and GetTagsFilterOrTagsOutput values.
@@ -10868,12 +10781,9 @@ type GetTagsFilterOrTagsInput interface {
 }
 
 type GetTagsFilterOrTagsArgs struct {
-	// Unique name of the Cost Category.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetTagsFilterOrTagsArgs) ElementType() reflect.Type {
@@ -10953,17 +10863,14 @@ func (o GetTagsFilterOrTagsOutput) ToGetTagsFilterOrTagsPtrOutputWithContext(ctx
 	}).(GetTagsFilterOrTagsPtrOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterOrTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterOrTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10992,7 +10899,6 @@ func (o GetTagsFilterOrTagsPtrOutput) Elem() GetTagsFilterOrTagsOutput {
 	}).(GetTagsFilterOrTagsOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterOrTags) *string {
 		if v == nil {
@@ -11002,7 +10908,6 @@ func (o GetTagsFilterOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterOrTags) []string {
 		if v == nil {
@@ -11012,7 +10917,6 @@ func (o GetTagsFilterOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterOrTags) []string {
 		if v == nil {
@@ -11023,12 +10927,9 @@ func (o GetTagsFilterOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterTags struct {
-	// Unique name of the Cost Category.
-	Key *string `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          *string  `pulumi:"key"`
 	MatchOptions []string `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values []string `pulumi:"values"`
+	Values       []string `pulumi:"values"`
 }
 
 // GetTagsFilterTagsInput is an input type that accepts GetTagsFilterTagsArgs and GetTagsFilterTagsOutput values.
@@ -11043,12 +10944,9 @@ type GetTagsFilterTagsInput interface {
 }
 
 type GetTagsFilterTagsArgs struct {
-	// Unique name of the Cost Category.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// Specific value of the Cost Category.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetTagsFilterTagsArgs) ElementType() reflect.Type {
@@ -11128,17 +11026,14 @@ func (o GetTagsFilterTagsOutput) ToGetTagsFilterTagsPtrOutputWithContext(ctx con
 	}).(GetTagsFilterTagsPtrOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsFilterTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -11167,7 +11062,6 @@ func (o GetTagsFilterTagsPtrOutput) Elem() GetTagsFilterTagsOutput {
 	}).(GetTagsFilterTagsOutput)
 }
 
-// Unique name of the Cost Category.
 func (o GetTagsFilterTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterTags) *string {
 		if v == nil {
@@ -11177,7 +11071,6 @@ func (o GetTagsFilterTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
 func (o GetTagsFilterTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterTags) []string {
 		if v == nil {
@@ -11187,7 +11080,6 @@ func (o GetTagsFilterTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specific value of the Cost Category.
 func (o GetTagsFilterTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetTagsFilterTags) []string {
 		if v == nil {

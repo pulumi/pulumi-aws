@@ -168,7 +168,6 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class PreparedStatement(pulumi.CustomResource):
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,7 +211,6 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,7 +227,6 @@ class PreparedStatement(pulumi.CustomResource):
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

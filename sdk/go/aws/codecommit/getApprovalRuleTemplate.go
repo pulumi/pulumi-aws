@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTemplateArgs, opts ...pulumi.InvokeOption) (*LookupApprovalRuleTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApprovalRuleTemplateResult

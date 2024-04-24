@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());

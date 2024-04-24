@@ -200,7 +200,6 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +213,6 @@ class AccessPolicyAssociation(pulumi.CustomResource):
                 namespaces=["example-namespace"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -242,7 +240,6 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +253,6 @@ class AccessPolicyAssociation(pulumi.CustomResource):
                 namespaces=["example-namespace"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

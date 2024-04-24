@@ -134,7 +134,6 @@ class EventStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,7 +168,6 @@ class EventStream(pulumi.CustomResource):
             role=test_role.id,
             policy=test_role_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -196,7 +194,6 @@ class EventStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class EventStream(pulumi.CustomResource):
             role=test_role.id,
             policy=test_role_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

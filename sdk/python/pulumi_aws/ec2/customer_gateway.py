@@ -276,7 +276,6 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +288,6 @@ class CustomerGateway(pulumi.CustomResource):
                 "Name": "main-customer-gateway",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -320,7 +318,6 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,7 +330,6 @@ class CustomerGateway(pulumi.CustomResource):
                 "Name": "main-customer-gateway",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

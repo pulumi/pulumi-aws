@@ -192,18 +192,15 @@ class Database(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +212,6 @@ class Database(pulumi.CustomResource):
                 "Name": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -244,18 +240,15 @@ class Database(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,7 +260,6 @@ class Database(pulumi.CustomResource):
                 "Name": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

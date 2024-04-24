@@ -355,14 +355,12 @@ def get_domain(domain_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Name of the domain.
@@ -415,14 +413,12 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Name of the domain.

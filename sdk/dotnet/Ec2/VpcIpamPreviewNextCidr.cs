@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +62,12 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpcIpamPoolCidr, 
+    ///             exampleVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
     public partial class VpcIpamPreviewNextCidr : global::Pulumi.CustomResource

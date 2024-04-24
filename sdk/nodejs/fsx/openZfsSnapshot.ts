@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ### Root volume Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     volumeId: exampleOpenZfsFileSystem.rootVolumeId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Child volume Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,7 +49,6 @@ import * as utilities from "../utilities";
  *     volumeId: exampleOpenZfsVolume.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

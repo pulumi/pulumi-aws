@@ -190,14 +190,12 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -223,14 +221,12 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

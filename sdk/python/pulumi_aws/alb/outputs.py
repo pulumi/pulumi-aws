@@ -1632,17 +1632,11 @@ class ListenerRuleCondition(dict):
 class ListenerRuleConditionHostHeader(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
-        """
-        :param Sequence[str] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         return pulumi.get(self, "values")
 
 
@@ -1696,17 +1690,11 @@ class ListenerRuleConditionHttpHeader(dict):
 class ListenerRuleConditionHttpRequestMethod(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
-        """
-        :param Sequence[str] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         return pulumi.get(self, "values")
 
 
@@ -1714,17 +1702,11 @@ class ListenerRuleConditionHttpRequestMethod(dict):
 class ListenerRuleConditionPathPattern(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
-        """
-        :param Sequence[str] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         return pulumi.get(self, "values")
 
 
@@ -1762,17 +1744,11 @@ class ListenerRuleConditionQueryString(dict):
 class ListenerRuleConditionSourceIp(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
-        """
-        :param Sequence[str] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-        """
         return pulumi.get(self, "values")
 
 

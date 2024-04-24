@@ -239,7 +239,6 @@ class TapePool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +247,6 @@ class TapePool(pulumi.CustomResource):
             pool_name="example",
             storage_class="GLACIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -277,7 +275,6 @@ class TapePool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +283,6 @@ class TapePool(pulumi.CustomResource):
             pool_name="example",
             storage_class="GLACIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,14 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.directconnect.getLocations({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
 
@@ -49,14 +47,12 @@ export interface GetLocationsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.directconnect.getLocations({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
     return pulumi.output(getLocations(opts))

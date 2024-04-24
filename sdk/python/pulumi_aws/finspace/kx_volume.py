@@ -420,7 +420,6 @@ class KxVolume(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,7 +435,6 @@ class KxVolume(pulumi.CustomResource):
                 type="SSD_250",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -472,7 +470,6 @@ class KxVolume(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,7 +485,6 @@ class KxVolume(pulumi.CustomResource):
                 type="SSD_250",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

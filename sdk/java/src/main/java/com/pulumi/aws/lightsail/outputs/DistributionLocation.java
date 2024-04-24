@@ -16,7 +16,7 @@ public final class DistributionLocation {
      */
     private String availabilityZone;
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return The AWS Region name.
      * 
      */
     private String regionName;
@@ -30,7 +30,7 @@ public final class DistributionLocation {
         return this.availabilityZone;
     }
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return The AWS Region name.
      * 
      */
     public String regionName() {

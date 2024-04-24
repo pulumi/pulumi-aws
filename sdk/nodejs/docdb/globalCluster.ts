@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### New DocumentDB Global Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,11 +58,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [primaryClusterInstance],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### New Global Cluster From Existing DB Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +71,6 @@ import * as utilities from "../utilities";
  *     sourceDbClusterIdentifier: example.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

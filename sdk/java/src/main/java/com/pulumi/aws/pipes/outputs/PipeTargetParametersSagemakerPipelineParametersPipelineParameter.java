@@ -15,10 +15,6 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
      * 
      */
     private String name;
-    /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     private String value;
 
     private PipeTargetParametersSagemakerPipelineParametersPipelineParameter() {}
@@ -29,10 +25,6 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -560,7 +560,6 @@ class CatalogTable(pulumi.CustomResource):
 
         ### Basic Table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,11 +568,9 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Parquet Table for Athena
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -624,7 +621,6 @@ class CatalogTable(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -667,7 +663,6 @@ class CatalogTable(pulumi.CustomResource):
 
         ### Basic Table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,11 +671,9 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Parquet Table for Athena
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,7 +724,6 @@ class CatalogTable(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

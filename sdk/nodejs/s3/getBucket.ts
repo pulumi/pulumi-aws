@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Route53 Record
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +34,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### CloudFront Origin
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,7 +49,6 @@ import * as utilities from "../utilities";
  *     originId: "s3-selected-bucket",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
 
@@ -120,7 +116,6 @@ export interface GetBucketResult {
  *
  * ### Route53 Record
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -141,11 +136,9 @@ export interface GetBucketResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### CloudFront Origin
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -158,7 +151,6 @@ export interface GetBucketResult {
  *     originId: "s3-selected-bucket",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply((a: any) => getBucket(a, opts))

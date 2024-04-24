@@ -391,7 +391,6 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,7 +401,6 @@ class DomainConfiguration(pulumi.CustomResource):
             service_type="DATA",
             server_certificate_arns=[cert["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -435,7 +433,6 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,7 +443,6 @@ class DomainConfiguration(pulumi.CustomResource):
             service_type="DATA",
             server_certificate_arns=[cert["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

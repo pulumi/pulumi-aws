@@ -18,7 +18,6 @@ import (
 //
 // ### CloudWatch Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Kinesis Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +90,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SNS Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,7 +125,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

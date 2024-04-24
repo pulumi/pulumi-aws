@@ -20,7 +20,6 @@ import (
 //
 // ### Create protection group for all resources
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create protection group for arbitrary number of resources
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create protection group for a type of resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,7 +136,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

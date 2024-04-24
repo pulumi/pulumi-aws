@@ -20,9 +20,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The audio selector settings. See Audio Selector Settings for more details.
-        /// </summary>
         [Input("selectorSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs>? SelectorSettings { get; set; }
 

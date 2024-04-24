@@ -1410,7 +1410,7 @@ class TopicRuleDynamodbv2(dict):
                  role_arn: str,
                  put_item: Optional['outputs.TopicRuleDynamodbv2PutItem'] = None):
         """
-        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param 'TopicRuleDynamodbv2PutItemArgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1421,7 +1421,7 @@ class TopicRuleDynamodbv2(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the IAM role that grants access to the DynamoDB table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2138,7 +2138,7 @@ class TopicRuleErrorActionDynamodbv2(dict):
                  role_arn: str,
                  put_item: Optional['outputs.TopicRuleErrorActionDynamodbv2PutItem'] = None):
         """
-        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param 'TopicRuleErrorActionDynamodbv2PutItemArgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2149,7 +2149,7 @@ class TopicRuleErrorActionDynamodbv2(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the IAM role that grants access to the DynamoDB table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2679,8 +2679,8 @@ class TopicRuleErrorActionKafkaHeader(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The name of the HTTP header.
-        :param str value: The value of the HTTP header.
+        :param str key: The key of the Kafka header.
+        :param str value: The value of the Kafka header.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2689,7 +2689,7 @@ class TopicRuleErrorActionKafkaHeader(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the HTTP header.
+        The key of the Kafka header.
         """
         return pulumi.get(self, "key")
 
@@ -2697,7 +2697,7 @@ class TopicRuleErrorActionKafkaHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        The value of the Kafka header.
         """
         return pulumi.get(self, "value")
 
@@ -2826,8 +2826,6 @@ class TopicRuleErrorActionRepublish(dict):
         :param str role_arn: The ARN of the IAM role that grants access.
         :param str topic: The name of the MQTT topic the message should be republished to.
         :param int qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-               
-               The `s3` object takes the following arguments:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -2855,8 +2853,6 @@ class TopicRuleErrorActionRepublish(dict):
     def qos(self) -> Optional[int]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-
-        The `s3` object takes the following arguments:
         """
         return pulumi.get(self, "qos")
 
@@ -2891,8 +2887,8 @@ class TopicRuleErrorActionS3(dict):
                  canned_acl: Optional[str] = None):
         """
         :param str bucket_name: The Amazon S3 bucket name.
-        :param str key: The name of the HTTP header.
-        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str key: The object key.
+        :param str role_arn: The ARN of the IAM role that grants access.
         :param str canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -2913,7 +2909,7 @@ class TopicRuleErrorActionS3(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -2921,7 +2917,7 @@ class TopicRuleErrorActionS3(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the IAM role that grants access.
         """
         return pulumi.get(self, "role_arn")
 
@@ -3209,8 +3205,8 @@ class TopicRuleErrorActionTimestreamDimension(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the rule.
-        :param str value: The value of the HTTP header.
+        :param str name: The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
+        :param str value: The value to write in this column of the database record.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -3219,7 +3215,7 @@ class TopicRuleErrorActionTimestreamDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the rule.
+        The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
         """
         return pulumi.get(self, "name")
 
@@ -3227,7 +3223,7 @@ class TopicRuleErrorActionTimestreamDimension(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        The value to write in this column of the database record.
         """
         return pulumi.get(self, "value")
 
@@ -3239,7 +3235,7 @@ class TopicRuleErrorActionTimestreamTimestamp(dict):
                  value: str):
         """
         :param str unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        :param str value: The value of the HTTP header.
+        :param str value: An expression that returns a long epoch time value.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -3256,7 +3252,7 @@ class TopicRuleErrorActionTimestreamTimestamp(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        An expression that returns a long epoch time value.
         """
         return pulumi.get(self, "value")
 
@@ -3664,8 +3660,8 @@ class TopicRuleKafkaHeader(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The name of the HTTP header.
-        :param str value: The value of the HTTP header.
+        :param str key: The key of the Kafka header.
+        :param str value: The value of the Kafka header.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3674,7 +3670,7 @@ class TopicRuleKafkaHeader(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the HTTP header.
+        The key of the Kafka header.
         """
         return pulumi.get(self, "key")
 
@@ -3682,7 +3678,7 @@ class TopicRuleKafkaHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        The value of the Kafka header.
         """
         return pulumi.get(self, "value")
 
@@ -3811,8 +3807,6 @@ class TopicRuleRepublish(dict):
         :param str role_arn: The ARN of the IAM role that grants access.
         :param str topic: The name of the MQTT topic the message should be republished to.
         :param int qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-               
-               The `s3` object takes the following arguments:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -3840,8 +3834,6 @@ class TopicRuleRepublish(dict):
     def qos(self) -> Optional[int]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-
-        The `s3` object takes the following arguments:
         """
         return pulumi.get(self, "qos")
 
@@ -3876,8 +3868,8 @@ class TopicRuleS3(dict):
                  canned_acl: Optional[str] = None):
         """
         :param str bucket_name: The Amazon S3 bucket name.
-        :param str key: The name of the HTTP header.
-        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str key: The object key.
+        :param str role_arn: The ARN of the IAM role that grants access.
         :param str canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -3898,7 +3890,7 @@ class TopicRuleS3(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -3906,7 +3898,7 @@ class TopicRuleS3(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the IAM role that grants access.
         """
         return pulumi.get(self, "role_arn")
 
@@ -4194,8 +4186,8 @@ class TopicRuleTimestreamDimension(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the rule.
-        :param str value: The value of the HTTP header.
+        :param str name: The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
+        :param str value: The value to write in this column of the database record.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -4204,7 +4196,7 @@ class TopicRuleTimestreamDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the rule.
+        The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
         """
         return pulumi.get(self, "name")
 
@@ -4212,7 +4204,7 @@ class TopicRuleTimestreamDimension(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        The value to write in this column of the database record.
         """
         return pulumi.get(self, "value")
 
@@ -4224,7 +4216,7 @@ class TopicRuleTimestreamTimestamp(dict):
                  value: str):
         """
         :param str unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        :param str value: The value of the HTTP header.
+        :param str value: An expression that returns a long epoch time value.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -4241,7 +4233,7 @@ class TopicRuleTimestreamTimestamp(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the HTTP header.
+        An expression that returns a long epoch time value.
         """
         return pulumi.get(self, "value")
 

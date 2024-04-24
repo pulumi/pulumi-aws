@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliveryStreamArgs, opts ...pulumi.InvokeOption) (*LookupFirehoseDeliveryStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirehoseDeliveryStreamResult

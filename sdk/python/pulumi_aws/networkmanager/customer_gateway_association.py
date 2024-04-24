@@ -168,7 +168,6 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +197,6 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
             device_id=example_device.id,
             opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +254,6 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
             device_id=example_device.id,
             opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

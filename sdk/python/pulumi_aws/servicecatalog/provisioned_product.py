@@ -718,7 +718,6 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,7 +734,6 @@ class ProvisionedProduct(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -785,7 +783,6 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -802,7 +799,6 @@ class ProvisionedProduct(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

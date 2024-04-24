@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAliasResult

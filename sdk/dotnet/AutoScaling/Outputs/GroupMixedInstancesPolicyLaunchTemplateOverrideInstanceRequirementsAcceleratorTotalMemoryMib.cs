@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         public readonly int? Max;
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

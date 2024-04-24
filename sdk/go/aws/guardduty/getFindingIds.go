@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.InvokeOption) (*GetFindingIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFindingIdsResult

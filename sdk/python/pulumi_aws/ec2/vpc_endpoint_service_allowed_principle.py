@@ -110,7 +110,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -120,7 +119,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +144,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +153,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceAllowedPrincipleArgs args: The arguments to use to populate this resource's properties.

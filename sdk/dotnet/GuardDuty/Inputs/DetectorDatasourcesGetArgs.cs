@@ -22,8 +22,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         /// <summary>
         /// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         /// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-        /// 
-        /// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         /// </summary>
         [Input("malwareProtection")]
         public Input<Inputs.DetectorDatasourcesMalwareProtectionGetArgs>? MalwareProtection { get; set; }

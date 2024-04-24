@@ -462,14 +462,12 @@ class TransitGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.TransitGateway("example", description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -505,14 +503,12 @@ class TransitGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.TransitGateway("example", description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

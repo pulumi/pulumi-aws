@@ -19,7 +19,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Integration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,11 +88,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Service Integration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,11 +122,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Private Integration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -183,7 +176,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

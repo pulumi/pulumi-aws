@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -72,9 +70,6 @@ export class Thesaurus extends pulumi.CustomResource {
      * ARN of the thesaurus.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description for a thesaurus.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index for a thesaurus.
@@ -90,17 +85,12 @@ export class Thesaurus extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.ThesaurusSourceS3Path>;
     /**
      * The current status of the thesaurus.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -168,9 +158,6 @@ export interface ThesaurusState {
      * ARN of the thesaurus.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * The description for a thesaurus.
-     */
     description?: pulumi.Input<string>;
     /**
      * The identifier of the index for a thesaurus.
@@ -186,17 +173,12 @@ export interface ThesaurusState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
     /**
      * The current status of the thesaurus.
      */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -211,9 +193,6 @@ export interface ThesaurusState {
  * The set of arguments for constructing a Thesaurus resource.
  */
 export interface ThesaurusArgs {
-    /**
-     * The description for a thesaurus.
-     */
     description?: pulumi.Input<string>;
     /**
      * The identifier of the index for a thesaurus.
@@ -229,12 +208,7 @@ export interface ThesaurusArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -96,7 +96,6 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -107,7 +106,6 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
             values=["Linux"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -136,7 +134,6 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -147,7 +144,6 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
             values=["Linux"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

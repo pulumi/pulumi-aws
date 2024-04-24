@@ -18,12 +18,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
      */
     private @Nullable Double bitrate;
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Dolby Digital Plus with Dolby Atmos coding mode.
      * 
      */
     private @Nullable String codingMode;
     /**
-     * @return Sets the dialnorm of the output.
+     * @return Sets the dialnorm for the output.
      * 
      */
     private @Nullable Double dialnorm;
@@ -57,14 +57,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Dolby Digital Plus with Dolby Atmos coding mode.
      * 
      */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
     /**
-     * @return Sets the dialnorm of the output.
+     * @return Sets the dialnorm for the output.
      * 
      */
     public Optional<Double> dialnorm() {

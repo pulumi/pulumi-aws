@@ -143,7 +143,6 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +170,6 @@ class FileSystemPolicy(pulumi.CustomResource):
             file_system_id=fs.id,
             policy=policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -200,7 +198,6 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +225,6 @@ class FileSystemPolicy(pulumi.CustomResource):
             file_system_id=fs.id,
             policy=policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

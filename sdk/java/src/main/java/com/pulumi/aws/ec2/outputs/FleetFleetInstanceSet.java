@@ -18,7 +18,7 @@ public final class FleetFleetInstanceSet {
      */
     private @Nullable List<String> instanceIds;
     /**
-     * @return Instance type.
+     * @return The instance type.
      * 
      */
     private @Nullable String instanceType;
@@ -42,7 +42,7 @@ public final class FleetFleetInstanceSet {
         return this.instanceIds == null ? List.of() : this.instanceIds;
     }
     /**
-     * @return Instance type.
+     * @return The instance type.
      * 
      */
     public Optional<String> instanceType() {

@@ -137,10 +137,6 @@ class KxClusterCacheStorageConfiguration(dict):
                  size: int,
                  type: str):
         """
-        :param int size: Size of cache in Gigabytes.
-               
-               Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-               volume of data being cached, as noted in the example configuration.
         :param str type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
@@ -154,12 +150,6 @@ class KxClusterCacheStorageConfiguration(dict):
     @property
     @pulumi.getter
     def size(self) -> int:
-        """
-        Size of cache in Gigabytes.
-
-        Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-        volume of data being cached, as noted in the example configuration.
-        """
         return pulumi.get(self, "size")
 
     @property
@@ -1081,7 +1071,7 @@ class KxVolumeNas1Configuration(dict):
                  type: str):
         """
         :param int size: The size of the network attached storage.
-        :param str type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        :param str type: The type of the network attached storage.
         """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
@@ -1098,7 +1088,7 @@ class KxVolumeNas1Configuration(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        The type of the network attached storage.
         """
         return pulumi.get(self, "type")
 

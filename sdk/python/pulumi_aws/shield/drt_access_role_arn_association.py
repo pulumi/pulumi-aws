@@ -100,7 +100,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -124,7 +123,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -152,7 +150,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -176,7 +173,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

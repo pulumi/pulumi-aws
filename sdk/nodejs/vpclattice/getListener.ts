@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getListener({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
 
@@ -113,14 +111,12 @@ export interface GetListenerResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getListener({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
     return pulumi.output(args).apply((a: any) => getListener(a, opts))

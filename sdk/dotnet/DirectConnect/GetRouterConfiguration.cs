@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouterConfigurationResult> InvokeAsync(GetRouterConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouterConfigurationResult> Invoke(GetRouterConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationInvokeArgs(), options.WithDefaults());

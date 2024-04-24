@@ -367,7 +367,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New MySQL Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -408,11 +407,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New PostgreSQL Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,11 +451,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,13 +464,11 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Upgrading Engine Versions
 
         When you upgrade the version of an `rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `rds.Cluster` resource is being updated through the `rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `rds.Cluster`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,7 +496,6 @@ class GlobalCluster(pulumi.CustomResource):
             identifier="donetsklviv",
             instance_class=aws.rds.InstanceType.R4_LARGE)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -542,7 +534,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New MySQL Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,11 +574,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New PostgreSQL Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -629,11 +618,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,13 +631,11 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Upgrading Engine Versions
 
         When you upgrade the version of an `rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `rds.Cluster` resource is being updated through the `rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `rds.Cluster`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -678,7 +663,6 @@ class GlobalCluster(pulumi.CustomResource):
             identifier="donetsklviv",
             instance_class=aws.rds.InstanceType.R4_LARGE)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

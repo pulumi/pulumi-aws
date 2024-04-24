@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,14 +25,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Subnets In Secondary VPC CIDR Blocks
  *
  * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
  * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,7 +44,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "172.20.0.0/24",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

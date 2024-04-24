@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Scheduling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,11 +77,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Filtering
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,7 +114,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -199,7 +199,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +208,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
             associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,7 +255,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
             associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

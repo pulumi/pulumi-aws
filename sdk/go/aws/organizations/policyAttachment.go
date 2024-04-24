@@ -18,7 +18,6 @@ import (
 //
 // ### Organization Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,11 +42,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Organization Root
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +69,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Organization Unit
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,7 +96,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

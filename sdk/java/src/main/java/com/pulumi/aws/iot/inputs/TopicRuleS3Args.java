@@ -47,14 +47,14 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the HTTP header.
+     * The object key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public Output<String> key() {
@@ -62,14 +62,14 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role ARN that allows access to the CloudWatch alarm.
+     * The ARN of the IAM role that grants access.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the IAM role that grants access.
      * 
      */
     public Output<String> roleArn() {
@@ -146,7 +146,7 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * @param roleArn The ARN of the IAM role that grants access.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * @param roleArn The ARN of the IAM role that grants access.
          * 
          * @return builder
          * 

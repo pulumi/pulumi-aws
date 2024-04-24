@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * The following shows getting all license grant ARNs granted to your account.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseGrantsResult> {
     args = args || {};
@@ -72,7 +70,6 @@ export interface GetLicenseGrantsResult {
  *
  * The following shows getting all license grant ARNs granted to your account.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,7 +82,6 @@ export interface GetLicenseGrantsResult {
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseGrantsResult> {
     return pulumi.output(args).apply((a: any) => getLicenseGrants(a, opts))

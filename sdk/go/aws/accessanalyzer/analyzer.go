@@ -18,7 +18,6 @@ import (
 //
 // ### Account Analyzer
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Organization Analyzer
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +79,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Universal Target
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +59,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -101,7 +97,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the schedule.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -216,7 +212,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the schedule.
      */
     arn?: pulumi.Input<string>;
     /**

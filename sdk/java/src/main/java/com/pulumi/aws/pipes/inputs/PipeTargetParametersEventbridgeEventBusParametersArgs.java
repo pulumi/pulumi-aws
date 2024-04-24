@@ -16,47 +16,23 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
 
     public static final PipeTargetParametersEventbridgeEventBusParametersArgs Empty = new PipeTargetParametersEventbridgeEventBusParametersArgs();
 
-    /**
-     * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-     * 
-     */
     @Import(name="detailType")
     private @Nullable Output<String> detailType;
 
-    /**
-     * @return A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-     * 
-     */
     public Optional<Output<String>> detailType() {
         return Optional.ofNullable(this.detailType);
     }
 
-    /**
-     * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-     * 
-     */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
-    /**
-     * @return The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-     * 
-     */
     public Optional<Output<String>> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
 
-    /**
-     * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-     * 
-     */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
-    /**
-     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-     * 
-     */
     public Optional<Output<List<String>>> resources() {
         return Optional.ofNullable(this.resources);
     }
@@ -76,17 +52,9 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         return Optional.ofNullable(this.source);
     }
 
-    /**
-     * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     @Import(name="time")
     private @Nullable Output<String> time;
 
-    /**
-     * @return The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     public Optional<Output<String>> time() {
         return Optional.ofNullable(this.time);
     }
@@ -119,75 +87,33 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
             $ = new PipeTargetParametersEventbridgeEventBusParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param detailType A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detailType(@Nullable Output<String> detailType) {
             $.detailType = detailType;
             return this;
         }
 
-        /**
-         * @param detailType A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detailType(String detailType) {
             return detailType(Output.of(detailType));
         }
 
-        /**
-         * @param endpointId The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(@Nullable Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
-        /**
-         * @param endpointId The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
         }
 
-        /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(@Nullable Output<List<String>> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(List<String> resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }
@@ -213,23 +139,11 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
             return source(Output.of(source));
         }
 
-        /**
-         * @param time The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(@Nullable Output<String> time) {
             $.time = time;
             return this;
         }
 
-        /**
-         * @param time The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(String time) {
             return time(Output.of(time));
         }

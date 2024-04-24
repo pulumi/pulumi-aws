@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### RDS Custom for Oracle Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,7 @@ import * as utilities from "../utilities";
  *     engineVersion: "19.cdb_cev1",
  *     kmsKeyId: example.arn,
  *     manifest: `  {
- * 	"databaseInstallationFileNames":["V982063-01.zip"]
+ * \x09"databaseInstallationFileNames":["V982063-01.zip"]
  *   }
  * `,
  *     tags: {
@@ -33,11 +32,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Custom for Oracle External Manifest Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,11 +57,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Custom for SQL Server Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,11 +71,9 @@ import * as utilities from "../utilities";
  *     sourceImageId: "ami-0aa12345678a12ab1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Custom for SQL Server Usage with AMI from another region
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +91,6 @@ import * as utilities from "../utilities";
  *     sourceImageId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

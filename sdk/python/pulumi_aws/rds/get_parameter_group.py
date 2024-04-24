@@ -96,14 +96,12 @@ def get_parameter_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.rds.get_parameter_group(name="default.postgres15")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: DB parameter group name.
@@ -129,14 +127,12 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.rds.get_parameter_group(name="default.postgres15")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: DB parameter group name.

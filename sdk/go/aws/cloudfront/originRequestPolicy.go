@@ -16,7 +16,6 @@ import (
 //
 // The following example below creates a CloudFront origin request policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *
  * ### EC2 Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,11 +100,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Fargate Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -124,11 +121,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [awsBatchServiceRole],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Setting Update Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -152,7 +147,6 @@ import * as utilities from "../utilities";
  *     type: "MANAGED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -635,7 +635,7 @@ class DocumentParameterArgs:
         :param pulumi.Input[str] default_value: If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
         :param pulumi.Input[str] description: A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         :param pulumi.Input[str] name: The name of the document.
-        :param pulumi.Input[str] type: The permission type for the document. The permission type can be `Share`.
+        :param pulumi.Input[str] type: The type of parameter. Valid values: `String`, `StringList`.
         """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -686,7 +686,7 @@ class DocumentParameterArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The permission type for the document. The permission type can be `Share`.
+        The type of parameter. Valid values: `String`, `StringList`.
         """
         return pulumi.get(self, "type")
 
@@ -727,9 +727,6 @@ class MaintenanceWindowTaskTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The array of strings.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -745,9 +742,6 @@ class MaintenanceWindowTaskTargetArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The array of strings.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -976,7 +970,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
         :param pulumi.Input[str] comment: Information about the command(s) to execute.
         :param pulumi.Input[str] document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param pulumi.Input[str] document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param pulumi.Input[str] output_s3_bucket: The name of the Amazon S3 bucket.
         :param pulumi.Input[str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -1058,9 +1051,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of an Automation document to use during task execution.
-        """
         return pulumi.get(self, "document_version")
 
     @document_version.setter

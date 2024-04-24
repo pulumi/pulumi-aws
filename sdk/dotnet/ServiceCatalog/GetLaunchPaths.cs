@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLaunchPathsResult> InvokeAsync(GetLaunchPathsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLaunchPathsResult> Invoke(GetLaunchPathsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     name: "my-launch-template",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
@@ -125,7 +121,6 @@ export interface GetLaunchTemplateResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,11 +129,9 @@ export interface GetLaunchTemplateResult {
  *     name: "my-launch-template",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -150,7 +143,6 @@ export interface GetLaunchTemplateResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
     return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))

@@ -34,14 +34,14 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Unique identifier of the control.
+     * Unique identifier for the framework.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Unique identifier of the control.
+     * @return Unique identifier for the framework.
      * 
      */
     public Optional<Output<String>> id() {
@@ -121,7 +121,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id Unique identifier of the control.
+         * @param id Unique identifier for the framework.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id Unique identifier of the control.
+         * @param id Unique identifier for the framework.
          * 
          * @return builder
          * 

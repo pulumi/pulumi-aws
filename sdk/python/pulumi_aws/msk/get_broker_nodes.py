@@ -70,14 +70,12 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.
@@ -101,14 +99,12 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.

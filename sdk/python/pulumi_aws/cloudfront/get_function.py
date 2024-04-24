@@ -166,7 +166,6 @@ def get_function(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -175,7 +174,6 @@ def get_function(name: Optional[str] = None,
     function_name = config.require("functionName")
     existing = aws.cloudfront.get_function(name=function_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the CloudFront function.
@@ -210,7 +208,6 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -219,7 +216,6 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
     function_name = config.require("functionName")
     existing = aws.cloudfront.get_function(name=function_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the CloudFront function.

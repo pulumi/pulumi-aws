@@ -16,32 +16,16 @@ public final class GetTagsFilterNot extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsFilterNot Empty = new GetTagsFilterNot();
 
-    /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-     * 
-     */
     @Import(name="costCategory")
     private @Nullable GetTagsFilterNotCostCategory costCategory;
 
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterNotCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
-    /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     @Import(name="dimension")
     private @Nullable GetTagsFilterNotDimension dimension;
 
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterNotDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
@@ -87,23 +71,11 @@ public final class GetTagsFilterNot extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsFilterNot(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(@Nullable GetTagsFilterNotCostCategory costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(@Nullable GetTagsFilterNotDimension dimension) {
             $.dimension = dimension;
             return this;

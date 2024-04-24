@@ -14,9 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanism
     {
         /// <summary>
-        /// Name of the user pool.
-        /// 
-        /// The following arguments are optional:
+        /// Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         public readonly string Name;
         /// <summary>

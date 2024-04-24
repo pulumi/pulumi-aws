@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class UsagePlanThrottleSettings
     {
-        /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        /// </summary>
         public readonly int? BurstLimit;
-        /// <summary>
-        /// The API request steady-state rate limit.
-        /// </summary>
         public readonly double? RateLimit;
 
         [OutputConstructor]

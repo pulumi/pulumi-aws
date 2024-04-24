@@ -18,7 +18,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessLifecyclePolicyResult> InvokeAsync(GetServerlessLifecyclePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());

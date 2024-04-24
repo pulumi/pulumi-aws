@@ -20,7 +20,6 @@ import (
 //
 // ### Kinesis Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +92,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SSM Document Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -247,11 +244,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RunCommand Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -297,11 +292,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ECS Run Task with Role and Task Override Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -419,11 +412,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### API Gateway target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -478,11 +469,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Cross-Account Event Bus target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -576,11 +565,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Input Transformer Usage - JSON Object
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -616,11 +603,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Input Transformer Usage - Simple String
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -656,11 +641,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Cloudwatch Log Group Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -778,7 +761,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -43,7 +43,6 @@ import (
 //
 // ### Edge Optimized (ACM Certificate)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +85,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Regional (ACM Certificate)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,7 +133,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

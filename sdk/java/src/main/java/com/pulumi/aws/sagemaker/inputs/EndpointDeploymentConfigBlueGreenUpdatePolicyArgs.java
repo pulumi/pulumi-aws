@@ -17,47 +17,23 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs extends com
 
     public static final EndpointDeploymentConfigBlueGreenUpdatePolicyArgs Empty = new EndpointDeploymentConfigBlueGreenUpdatePolicyArgs();
 
-    /**
-     * Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-     * 
-     */
     @Import(name="maximumExecutionTimeoutInSeconds")
     private @Nullable Output<Integer> maximumExecutionTimeoutInSeconds;
 
-    /**
-     * @return Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-     * 
-     */
     public Optional<Output<Integer>> maximumExecutionTimeoutInSeconds() {
         return Optional.ofNullable(this.maximumExecutionTimeoutInSeconds);
     }
 
-    /**
-     * Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-     * 
-     */
     @Import(name="terminationWaitInSeconds")
     private @Nullable Output<Integer> terminationWaitInSeconds;
 
-    /**
-     * @return Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-     * 
-     */
     public Optional<Output<Integer>> terminationWaitInSeconds() {
         return Optional.ofNullable(this.terminationWaitInSeconds);
     }
 
-    /**
-     * Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-     * 
-     */
     @Import(name="trafficRoutingConfiguration", required=true)
     private Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> trafficRoutingConfiguration;
 
-    /**
-     * @return Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-     * 
-     */
     public Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> trafficRoutingConfiguration() {
         return this.trafficRoutingConfiguration;
     }
@@ -88,65 +64,29 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs extends com
             $ = new EndpointDeploymentConfigBlueGreenUpdatePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumExecutionTimeoutInSeconds Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Output<Integer> maximumExecutionTimeoutInSeconds) {
             $.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param maximumExecutionTimeoutInSeconds Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionTimeoutInSeconds(Integer maximumExecutionTimeoutInSeconds) {
             return maximumExecutionTimeoutInSeconds(Output.of(maximumExecutionTimeoutInSeconds));
         }
 
-        /**
-         * @param terminationWaitInSeconds Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationWaitInSeconds(@Nullable Output<Integer> terminationWaitInSeconds) {
             $.terminationWaitInSeconds = terminationWaitInSeconds;
             return this;
         }
 
-        /**
-         * @param terminationWaitInSeconds Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationWaitInSeconds(Integer terminationWaitInSeconds) {
             return terminationWaitInSeconds(Output.of(terminationWaitInSeconds));
         }
 
-        /**
-         * @param trafficRoutingConfiguration Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficRoutingConfiguration(Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> trafficRoutingConfiguration) {
             $.trafficRoutingConfiguration = trafficRoutingConfiguration;
             return this;
         }
 
-        /**
-         * @param trafficRoutingConfiguration Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficRoutingConfiguration(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs trafficRoutingConfiguration) {
             return trafficRoutingConfiguration(Output.of(trafficRoutingConfiguration));
         }

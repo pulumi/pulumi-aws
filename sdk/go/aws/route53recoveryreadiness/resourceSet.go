@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -58,7 +56,8 @@ import (
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
-	// NLB resource ARN.
+	// ARN of the resource set
+	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique name describing the resource set.
 	ResourceSetName pulumi.StringOutput `pulumi:"resourceSetName"`
@@ -115,7 +114,8 @@ func GetResourceSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceSet resources.
 type resourceSetState struct {
-	// NLB resource ARN.
+	// ARN of the resource set
+	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
 	Arn *string `pulumi:"arn"`
 	// Unique name describing the resource set.
 	ResourceSetName *string `pulumi:"resourceSetName"`
@@ -134,7 +134,8 @@ type resourceSetState struct {
 }
 
 type ResourceSetState struct {
-	// NLB resource ARN.
+	// ARN of the resource set
+	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
 	Arn pulumi.StringPtrInput
 	// Unique name describing the resource set.
 	ResourceSetName pulumi.StringPtrInput
@@ -270,7 +271,8 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// NLB resource ARN.
+// ARN of the resource set
+// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
 func (o ResourceSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

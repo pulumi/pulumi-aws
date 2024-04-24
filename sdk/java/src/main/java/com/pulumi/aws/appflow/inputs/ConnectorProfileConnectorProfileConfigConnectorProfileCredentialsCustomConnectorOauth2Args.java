@@ -16,77 +16,37 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args();
 
-    /**
-     * The access token used to access the connector on your behalf.
-     * 
-     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
-    /**
-     * The identifier for the desired client.
-     * 
-     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
-    /**
-     * The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     public Optional<Output<String>> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
 
-    /**
-     * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs> oauthRequest;
 
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
 
-    /**
-     * The refresh token used to refresh an expired access token.
-     * 
-     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -119,107 +79,47 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessToken The access token used to access the connector on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
-        /**
-         * @param accessToken The access token used to access the connector on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
-        /**
-         * @param clientId The identifier for the desired client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId The identifier for the desired client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret The client secret used by the OAuth client to authenticate to the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(@Nullable Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret The client secret used by the OAuth client to authenticate to the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
-        /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
-        /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }
 
-        /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
-        /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

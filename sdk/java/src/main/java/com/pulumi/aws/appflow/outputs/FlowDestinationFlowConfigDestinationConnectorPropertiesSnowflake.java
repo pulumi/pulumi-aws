@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-     * 
-     */
     private String intermediateBucketName;
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake() {}
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-     * 
-     */
     public String intermediateBucketName() {
         return this.intermediateBucketName;
     }
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }

@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,11 +29,9 @@ import * as utilities from "../utilities";
  *     routeKey: "$default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### HTTP Proxy Integration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,7 +52,6 @@ import * as utilities from "../utilities";
  *     target: pulumi.interpolate`integrations/${exampleIntegration.id}`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

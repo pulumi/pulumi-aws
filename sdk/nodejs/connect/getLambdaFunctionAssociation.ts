@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionAssociationResult> {
 
@@ -60,7 +58,6 @@ export interface GetLambdaFunctionAssociationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,7 +67,6 @@ export interface GetLambdaFunctionAssociationResult {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLambdaFunctionAssociationOutput(args: GetLambdaFunctionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionAssociationResult> {
     return pulumi.output(args).apply((a: any) => getLambdaFunctionAssociation(a, opts))

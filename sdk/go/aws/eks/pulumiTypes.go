@@ -2614,7 +2614,7 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 }
 
 type NodeGroupResourceAutoscalingGroup struct {
-	// Name of the EC2 Launch Template. Conflicts with `id`.
+	// Name of the AutoScaling Group.
 	Name *string `pulumi:"name"`
 }
 
@@ -2630,7 +2630,7 @@ type NodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the EC2 Launch Template. Conflicts with `id`.
+	// Name of the AutoScaling Group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2685,7 +2685,7 @@ func (o NodeGroupResourceAutoscalingGroupOutput) ToNodeGroupResourceAutoscalingG
 	return o
 }
 
-// Name of the EC2 Launch Template. Conflicts with `id`.
+// Name of the AutoScaling Group.
 func (o NodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResourceAutoscalingGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

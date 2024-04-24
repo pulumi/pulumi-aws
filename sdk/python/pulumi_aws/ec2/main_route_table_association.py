@@ -125,7 +125,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,7 +133,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             vpc_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 
@@ -165,7 +163,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,7 +171,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             vpc_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 

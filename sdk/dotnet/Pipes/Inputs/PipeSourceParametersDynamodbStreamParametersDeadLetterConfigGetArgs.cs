@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        /// ARN of this pipe.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -312,7 +312,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +327,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -358,7 +356,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +371,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

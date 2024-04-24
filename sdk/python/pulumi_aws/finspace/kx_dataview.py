@@ -503,7 +503,6 @@ class KxDataview(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,7 +520,6 @@ class KxDataview(pulumi.CustomResource):
                 db_paths=["/*"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -563,7 +561,6 @@ class KxDataview(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -581,7 +578,6 @@ class KxDataview(pulumi.CustomResource):
                 db_paths=["/*"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

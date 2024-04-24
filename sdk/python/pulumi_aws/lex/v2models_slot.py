@@ -417,7 +417,6 @@ class V2modelsSlot(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,7 +428,6 @@ class V2modelsSlot(pulumi.CustomResource):
             locale_id=example_aws_lexv2models_bot_locale["localeId"],
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -467,7 +465,6 @@ class V2modelsSlot(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -479,7 +476,6 @@ class V2modelsSlot(pulumi.CustomResource):
             locale_id=example_aws_lexv2models_bot_locale["localeId"],
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

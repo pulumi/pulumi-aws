@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opts ...pulumi.InvokeOption) (*GetContainerRecipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainerRecipesResult

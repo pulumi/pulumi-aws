@@ -1000,7 +1000,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         ### Application Load Balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1021,11 +1020,9 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Load Balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1040,11 +1037,9 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specifying Elastic IPs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1063,11 +1058,9 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specifying private IP addresses for an internal-facing load balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1086,7 +1079,6 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1140,7 +1132,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         ### Application Load Balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1161,11 +1152,9 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Load Balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1180,11 +1169,9 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specifying Elastic IPs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1203,11 +1190,9 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specifying private IP addresses for an internal-facing load balancer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1226,7 +1211,6 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorageConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceStorageConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceStorageConfigResult

@@ -74,14 +74,12 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.lambda.get_functions()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -100,13 +98,11 @@ def get_functions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.lambda.get_functions()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

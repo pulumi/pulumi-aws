@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Aws.Neptune
     ///     }
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

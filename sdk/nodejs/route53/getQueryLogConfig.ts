@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,9 +20,7 @@ import * as utilities from "../utilities";
  *     resolverQueryLogConfigId: "rqlc-1abc2345ef678g91h",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +38,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getQueryLogConfig(args?: GetQueryLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryLogConfigResult> {
     args = args || {};
@@ -105,7 +101,6 @@ export interface GetQueryLogConfigResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,9 +109,7 @@ export interface GetQueryLogConfigResult {
  *     resolverQueryLogConfigId: "rqlc-1abc2345ef678g91h",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,7 +127,6 @@ export interface GetQueryLogConfigResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryLogConfigResult> {
     return pulumi.output(args).apply((a: any) => getQueryLogConfig(a, opts))

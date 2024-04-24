@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
 
@@ -71,7 +69,6 @@ export interface GetSolutionStackResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +78,6 @@ export interface GetSolutionStackResult {
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionStackResult> {
     return pulumi.output(args).apply((a: any) => getSolutionStack(a, opts))

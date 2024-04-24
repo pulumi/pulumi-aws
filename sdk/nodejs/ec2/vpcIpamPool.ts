@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     locale: current.then(current => current.name),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Nested Pools:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,7 +55,6 @@ import * as utilities from "../utilities";
  *     cidr: "172.20.0.0/24",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -251,14 +251,14 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
         return this.actions;
     }
     /**
-     * The Amazon Resource Name (ARN) of the target group.
+     * The ARN of the rule (matches `id`)
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target group.
+     * @return The ARN of the rule (matches `id`)
      * 
      */
     public Output<String> arn() {

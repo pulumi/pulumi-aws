@@ -147,7 +147,6 @@ class FastSnapshotRestore(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +155,6 @@ class FastSnapshotRestore(pulumi.CustomResource):
             availability_zone="us-west-2a",
             snapshot_id=example_aws_ebs_snapshot["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class FastSnapshotRestore(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +190,6 @@ class FastSnapshotRestore(pulumi.CustomResource):
             availability_zone="us-west-2a",
             snapshot_id=example_aws_ebs_snapshot["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

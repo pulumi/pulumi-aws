@@ -76,17 +76,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         return Optional.ofNullable(this.audioStreamType);
     }
 
-    /**
-     * Average bitrate in bits/second.
-     * 
-     */
     @Import(name="bitrate")
     private @Nullable Output<Integer> bitrate;
 
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Output<Integer>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
@@ -301,17 +293,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         return Optional.ofNullable(this.scte35Control);
     }
 
-    /**
-     * PID from which to read SCTE-35 messages.
-     * 
-     */
     @Import(name="scte35Pid")
     private @Nullable Output<String> scte35Pid;
 
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<Output<String>> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
@@ -507,23 +491,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return audioStreamType(Output.of(audioStreamType));
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(@Nullable Output<Integer> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(Integer bitrate) {
             return bitrate(Output.of(bitrate));
         }
@@ -798,23 +770,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return scte35Control(Output.of(scte35Control));
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(@Nullable Output<String> scte35Pid) {
             $.scte35Pid = scte35Pid;
             return this;
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(String scte35Pid) {
             return scte35Pid(Output.of(scte35Pid));
         }

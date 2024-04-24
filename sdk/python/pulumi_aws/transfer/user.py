@@ -370,7 +370,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,7 +410,6 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -442,7 +440,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,7 +480,6 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

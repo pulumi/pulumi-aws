@@ -214,7 +214,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         ### Object Lock configuration for new or existing buckets
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +233,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         ### Object Lock configuration for new or existing buckets
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +301,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

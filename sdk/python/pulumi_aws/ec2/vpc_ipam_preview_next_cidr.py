@@ -154,7 +154,6 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +175,6 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             disallowed_cidrs=["172.2.0.0/32"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +195,6 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +216,6 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             disallowed_cidrs=["172.2.0.0/32"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpcIpamPreviewNextCidrArgs args: The arguments to use to populate this resource's properties.

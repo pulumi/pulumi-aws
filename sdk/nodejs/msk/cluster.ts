@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,11 +127,9 @@ import * as utilities from "../utilities";
  * export const zookeeperConnectString = example.zookeeperConnectString;
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With volumeThroughput argument
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -161,7 +158,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -200,7 +196,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * Amazon Resource Name (ARN) of the MSK cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -405,7 +401,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * Amazon Resource Name (ARN) of the MSK cluster.
      */
     arn?: pulumi.Input<string>;
     /**

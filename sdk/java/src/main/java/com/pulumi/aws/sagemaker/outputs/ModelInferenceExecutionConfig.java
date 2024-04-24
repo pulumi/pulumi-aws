@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelInferenceExecutionConfig {
-    /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     private String mode;
 
     private ModelInferenceExecutionConfig() {}
-    /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }

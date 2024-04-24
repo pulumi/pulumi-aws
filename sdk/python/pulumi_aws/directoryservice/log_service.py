@@ -102,7 +102,6 @@ class LogService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,7 +128,6 @@ class LogService(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,7 +153,6 @@ class LogService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +179,6 @@ class LogService(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

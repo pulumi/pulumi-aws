@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Framework Resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,7 +99,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.InvokeOption) (*LookupControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupControlResult

@@ -321,7 +321,6 @@ class Connector(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,11 +339,9 @@ class Connector(pulumi.CustomResource):
             ),
             url="http://www.test.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SFTP Connector
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +354,6 @@ class Connector(pulumi.CustomResource):
             ),
             url="sftp://test.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -390,7 +386,6 @@ class Connector(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,11 +404,9 @@ class Connector(pulumi.CustomResource):
             ),
             url="http://www.test.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SFTP Connector
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,7 +419,6 @@ class Connector(pulumi.CustomResource):
             ),
             url="sftp://test.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

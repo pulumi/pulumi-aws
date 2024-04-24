@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic mysql blueprint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,11 +29,9 @@ import * as utilities from "../utilities";
  *     bundleId: "micro_1_0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic postrgres blueprint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,13 +46,11 @@ import * as utilities from "../utilities";
  *     bundleId: "micro_1_0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom backup and maintenance windows
  *
  * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +67,11 @@ import * as utilities from "../utilities";
  *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Final Snapshots
  *
  * To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,13 +89,11 @@ import * as utilities from "../utilities";
  *     finalSnapshotName: "MyFinalSnapshot",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Apply Immediately
  *
  * To enable applying changes immediately instead of waiting for a maintiance window, use the `applyImmediately` argument.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -118,7 +109,6 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Blueprint Ids
  *

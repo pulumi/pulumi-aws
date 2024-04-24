@@ -22,7 +22,6 @@ import (
 //
 // ### With `private` ACL
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,14 +63,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With `public-read` ACL
 //
 // > This example explicitly disables the default S3 bucket security settings. This
 // should be done with caution, as all bucket objects become publicly exposed.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,11 +121,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Grants
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,7 +189,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

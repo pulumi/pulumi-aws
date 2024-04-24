@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opts ...pulumi.InvokeOption) (*GetBootstrapBrokersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBootstrapBrokersResult

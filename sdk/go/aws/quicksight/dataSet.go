@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Column Level Permission Rules
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,11 +115,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Field Folders
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -174,11 +169,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -233,11 +226,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Row Level Permission Tag Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -291,7 +282,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -303,7 +293,7 @@ import (
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	// ARN of the dataset that contains permissions for RLS.
+	// Amazon Resource Name (ARN) of the data set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -380,7 +370,7 @@ func GetDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSet resources.
 type dataSetState struct {
-	// ARN of the dataset that contains permissions for RLS.
+	// Amazon Resource Name (ARN) of the data set.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -422,7 +412,7 @@ type dataSetState struct {
 }
 
 type DataSetState struct {
-	// ARN of the dataset that contains permissions for RLS.
+	// Amazon Resource Name (ARN) of the data set.
 	Arn pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
@@ -625,7 +615,7 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
-// ARN of the dataset that contains permissions for RLS.
+// Amazon Resource Name (ARN) of the data set.
 func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

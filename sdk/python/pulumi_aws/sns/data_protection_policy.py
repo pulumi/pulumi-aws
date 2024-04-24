@@ -102,7 +102,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -126,7 +125,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
                 "Version": "2021-06-01",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -152,7 +150,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -176,7 +173,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
                 "Version": "2021-06-01",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

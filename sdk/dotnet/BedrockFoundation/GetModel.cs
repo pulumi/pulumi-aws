@@ -18,7 +18,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());

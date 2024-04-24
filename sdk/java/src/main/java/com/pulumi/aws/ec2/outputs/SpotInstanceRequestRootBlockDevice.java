@@ -19,10 +19,6 @@ public final class SpotInstanceRequestRootBlockDevice {
      * 
      */
     private @Nullable Boolean deleteOnTermination;
-    /**
-     * @return Name of the device to mount.
-     * 
-     */
     private @Nullable String deviceName;
     /**
      * @return Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
@@ -76,10 +72,6 @@ public final class SpotInstanceRequestRootBlockDevice {
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return Name of the device to mount.
-     * 
-     */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }

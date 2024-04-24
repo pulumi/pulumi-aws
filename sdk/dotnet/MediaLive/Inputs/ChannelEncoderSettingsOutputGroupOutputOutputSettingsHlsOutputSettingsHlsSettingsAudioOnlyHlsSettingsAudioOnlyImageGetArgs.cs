@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key used to extract the password from EC2 Parameter store.
-        /// </summary>
         [Input("passwordParam")]
         public Input<string>? PasswordParam { get; set; }
 
-        /// <summary>
-        /// Path to a file accessible to the live stream.
-        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 
-        /// <summary>
-        /// . Username to be used.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

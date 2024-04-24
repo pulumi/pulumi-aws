@@ -244,14 +244,12 @@ def get_image(arn: Optional[str] = None,
 
     ### Latest
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
@@ -294,14 +292,12 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
 
     ### Latest
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.

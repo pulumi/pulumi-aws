@@ -24,7 +24,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,11 +70,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example of Using Data Source for Assume Role Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,13 +118,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example of Exclusive Inline Policies
 //
 // This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -195,13 +190,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example of Removing Inline Policies
 //
 // This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -229,13 +222,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example of Exclusive Managed Policies
 //
 // This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -314,13 +305,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example of Removing Managed Policies
 //
 // This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -346,7 +335,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepTagStepDetailsTag
     {
-        /// <summary>
-        /// The name assigned to the tag that you create.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value that corresponds to the key.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

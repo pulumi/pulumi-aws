@@ -27,11 +27,7 @@ class QuerySuggestionsBlockListArgs:
         :param pulumi.Input[str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
-               
-               The `source_s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[str] description: Description for a block list.
         :param pulumi.Input[str] name: Name for the block list.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -72,8 +68,6 @@ class QuerySuggestionsBlockListArgs:
     def source_s3_path(self) -> pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']:
         """
         S3 path where your block list text file is located. See details below.
-
-        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -84,9 +78,6 @@ class QuerySuggestionsBlockListArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for a block list.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -108,9 +99,6 @@ class QuerySuggestionsBlockListArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,15 +122,11 @@ class _QuerySuggestionsBlockListState:
         """
         Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
         :param pulumi.Input[str] arn: ARN of the block list.
-        :param pulumi.Input[str] description: Description for a block list.
         :param pulumi.Input[str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[str] name: Name for the block list.
         :param pulumi.Input[str] query_suggestions_block_list_id: Unique identifier of the block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
-               
-               The `source_s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         if arn is not None:
@@ -184,9 +168,6 @@ class _QuerySuggestionsBlockListState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for a block list.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -246,8 +227,6 @@ class _QuerySuggestionsBlockListState:
     def source_s3_path(self) -> Optional[pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']]:
         """
         S3 path where your block list text file is located. See details below.
-
-        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -267,9 +246,6 @@ class _QuerySuggestionsBlockListState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -311,7 +287,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +303,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                 "Name": "Example Kendra Index",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,14 +314,10 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description for a block list.
         :param pulumi.Input[str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[str] name: Name for the block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: S3 path where your block list text file is located. See details below.
-               
-               The `source_s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -362,7 +332,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,7 +348,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                 "Name": "Example Kendra Index",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -463,15 +431,11 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the block list.
-        :param pulumi.Input[str] description: Description for a block list.
         :param pulumi.Input[str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[str] name: Name for the block list.
         :param pulumi.Input[str] query_suggestions_block_list_id: Unique identifier of the block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: S3 path where your block list text file is located. See details below.
-               
-               The `source_s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -501,9 +465,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for a block list.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -543,8 +504,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     def source_s3_path(self) -> pulumi.Output['outputs.QuerySuggestionsBlockListSourceS3Path']:
         """
         S3 path where your block list text file is located. See details below.
-
-        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -556,9 +515,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property

@@ -107,7 +107,6 @@ class FindingAggregator(pulumi.CustomResource):
 
         The following example will enable the aggregator for every region.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,13 +115,11 @@ class FindingAggregator(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### All Regions Except Specified Regions Usage
 
         The following example will enable the aggregator for every region except those specified in `specified_regions`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,13 +133,11 @@ class FindingAggregator(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specified Regions Usage
 
         The following example will enable the aggregator for every region specified in `specified_regions`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +151,6 @@ class FindingAggregator(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,7 +180,6 @@ class FindingAggregator(pulumi.CustomResource):
 
         The following example will enable the aggregator for every region.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,13 +188,11 @@ class FindingAggregator(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### All Regions Except Specified Regions Usage
 
         The following example will enable the aggregator for every region except those specified in `specified_regions`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,13 +206,11 @@ class FindingAggregator(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Specified Regions Usage
 
         The following example will enable the aggregator for every region specified in `specified_regions`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,7 +224,6 @@ class FindingAggregator(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

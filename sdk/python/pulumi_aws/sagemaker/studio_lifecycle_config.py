@@ -207,7 +207,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +217,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
             studio_lifecycle_config_app_type="JupyterServer",
             studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,7 +256,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
             studio_lifecycle_config_app_type="JupyterServer",
             studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

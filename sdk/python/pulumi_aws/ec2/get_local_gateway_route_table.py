@@ -117,7 +117,6 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
 
     The following example returns a specific local gateway route table ID
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -126,7 +125,6 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
     aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
     selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
@@ -177,7 +175,6 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
 
     The following example returns a specific local gateway route table ID
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -186,7 +183,6 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
     aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
     selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str local_gateway_id: ID of the specific local gateway route table to retrieve.

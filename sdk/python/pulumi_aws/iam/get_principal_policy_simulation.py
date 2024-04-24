@@ -182,7 +182,6 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
 
     The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -196,11 +195,9 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
         policy_source_arn=current.arn,
         resource_arns=["arn:aws:s3:::my-test-bucket"])
     ```
-    <!--End PulumiCodeChooser -->
 
     If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -208,13 +205,11 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
     example = aws.s3.BucketObject("example", bucket="my-test-bucket",
     opts=pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Testing the Effect of a Declared Policy
 
     The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import json
@@ -255,7 +250,6 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
         resource_arns=[example_bucket_v2.arn],
         resource_policy_json=account_access.policy)
     ```
-    <!--End PulumiCodeChooser -->
 
     When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
 
@@ -341,7 +335,6 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
 
     The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -355,11 +348,9 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
         policy_source_arn=current.arn,
         resource_arns=["arn:aws:s3:::my-test-bucket"])
     ```
-    <!--End PulumiCodeChooser -->
 
     If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -367,13 +358,11 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
     example = aws.s3.BucketObject("example", bucket="my-test-bucket",
     opts=pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Testing the Effect of a Declared Policy
 
     The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import json
@@ -414,7 +403,6 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
         resource_arns=[example_bucket_v2.arn],
         resource_policy_json=account_access.policy)
     ```
-    <!--End PulumiCodeChooser -->
 
     When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
 

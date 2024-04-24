@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ### Database Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,11 +58,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Multiple Tags Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,7 +123,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
     public partial class ResourceLfTags : global::Pulumi.CustomResource

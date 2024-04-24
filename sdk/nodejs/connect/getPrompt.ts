@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "Beep.wav",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
 
@@ -72,7 +70,6 @@ export interface GetPromptResult {
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,7 +79,6 @@ export interface GetPromptResult {
  *     name: "Beep.wav",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
     return pulumi.output(args).apply((a: any) => getPrompt(a, opts))

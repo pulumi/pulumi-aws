@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     id: "ru3mpjgse6",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
 
@@ -91,7 +89,6 @@ export interface GetKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,7 +97,6 @@ export interface GetKeyResult {
  *     id: "ru3mpjgse6",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))

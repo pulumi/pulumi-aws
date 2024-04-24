@@ -181,7 +181,6 @@ class ReadinessCheck(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +189,6 @@ class ReadinessCheck(pulumi.CustomResource):
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class ReadinessCheck(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +225,6 @@ class ReadinessCheck(pulumi.CustomResource):
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

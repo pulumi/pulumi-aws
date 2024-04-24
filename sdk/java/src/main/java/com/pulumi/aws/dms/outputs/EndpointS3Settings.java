@@ -19,12 +19,12 @@ public final class EndpointS3Settings {
      */
     private @Nullable Boolean addColumnName;
     /**
-     * @return Custom S3 Bucket Object prefix for intermediate storage.
+     * @return S3 object prefix.
      * 
      */
     private @Nullable String bucketFolder;
     /**
-     * @return Custom S3 Bucket name for intermediate storage.
+     * @return S3 bucket name.
      * 
      */
     private @Nullable String bucketName;
@@ -124,7 +124,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable String encodingType;
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
     private @Nullable String encryptionMode;
@@ -149,7 +149,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable Boolean includeOpForFullLoad;
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
     private @Nullable Integer maxFileSize;
@@ -184,7 +184,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
     /**
-     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
     private @Nullable String serviceAccessRoleArn;
@@ -213,14 +213,14 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.addColumnName);
     }
     /**
-     * @return Custom S3 Bucket Object prefix for intermediate storage.
+     * @return S3 object prefix.
      * 
      */
     public Optional<String> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
     /**
-     * @return Custom S3 Bucket name for intermediate storage.
+     * @return S3 bucket name.
      * 
      */
     public Optional<String> bucketName() {
@@ -360,7 +360,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.encodingType);
     }
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
     public Optional<String> encryptionMode() {
@@ -395,7 +395,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.includeOpForFullLoad);
     }
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
     public Optional<Integer> maxFileSize() {
@@ -444,7 +444,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
     /**
-     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
     public Optional<String> serviceAccessRoleArn() {

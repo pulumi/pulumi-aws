@@ -20,7 +20,6 @@ import (
 //
 // ### Forward Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,11 +61,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // To a NLB:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,11 +97,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redirect Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,11 +139,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Fixed-response Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -188,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Authenticate-cognito Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -253,11 +244,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Authenticate-OIDC Action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -308,11 +297,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Gateway Load Balancer Listener
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -367,11 +354,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Mutual TLS Authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -415,7 +400,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -429,9 +413,7 @@ type Listener struct {
 
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy pulumi.StringPtrOutput `pulumi:"alpnPolicy"`
-	// ARN of the target group.
-	//
-	// The following arguments are optional:
+	// ARN of the listener (matches `id`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
@@ -503,9 +485,7 @@ func GetListener(ctx *pulumi.Context,
 type listenerState struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy *string `pulumi:"alpnPolicy"`
-	// ARN of the target group.
-	//
-	// The following arguments are optional:
+	// ARN of the listener (matches `id`).
 	Arn *string `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
@@ -536,9 +516,7 @@ type listenerState struct {
 type ListenerState struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy pulumi.StringPtrInput
-	// ARN of the target group.
-	//
-	// The following arguments are optional:
+	// ARN of the listener (matches `id`).
 	Arn pulumi.StringPtrInput
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
@@ -713,9 +691,7 @@ func (o ListenerOutput) AlpnPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.AlpnPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the target group.
-//
-// The following arguments are optional:
+// ARN of the listener (matches `id`).
 func (o ListenerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

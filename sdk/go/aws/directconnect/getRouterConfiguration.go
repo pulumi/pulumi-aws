@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouterConfigurationResult

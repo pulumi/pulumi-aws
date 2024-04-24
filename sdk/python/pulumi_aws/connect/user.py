@@ -427,7 +427,6 @@ class User(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -447,11 +446,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With hierarchy_group_id
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -472,11 +469,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With identity_info filled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,11 +492,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With phone_config phone type as desk phone
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,11 +510,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple Security profile ids specified in security_profile_ids
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -542,7 +533,6 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -580,7 +570,6 @@ class User(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,11 +589,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With hierarchy_group_id
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -625,11 +612,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With identity_info filled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -650,11 +635,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With phone_config phone type as desk phone
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -670,11 +653,9 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple Security profile ids specified in security_profile_ids
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -695,7 +676,6 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

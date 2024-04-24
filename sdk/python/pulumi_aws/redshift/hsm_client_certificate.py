@@ -157,14 +157,12 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,14 +188,12 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

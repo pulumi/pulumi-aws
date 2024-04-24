@@ -28,7 +28,6 @@ import (
 //
 // The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,13 +77,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example: Deny All Egress Traffic, Allow Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,13 +121,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
 //
 // This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -160,7 +155,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Managing Subnets In A Default Network ACL
 //
@@ -172,7 +166,6 @@ import (
 //
 // As an alternative to the above, you can also specify the following lifecycle configuration in your `ec2.DefaultNetworkAcl` resource:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,7 +187,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
 //

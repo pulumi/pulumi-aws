@@ -74,7 +74,6 @@ def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMain
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -84,7 +83,6 @@ def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMain
         values=["true"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -108,7 +106,6 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +115,6 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
         values=["true"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

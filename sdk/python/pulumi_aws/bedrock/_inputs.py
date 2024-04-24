@@ -26,7 +26,7 @@ class CustomModelOutputDataConfigArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] s3_uri: The S3 URI where the validation data is stored.
+        :param pulumi.Input[str] s3_uri: The S3 URI where the output data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -34,7 +34,7 @@ class CustomModelOutputDataConfigArgs:
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[str]:
         """
-        The S3 URI where the validation data is stored.
+        The S3 URI where the output data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -87,7 +87,7 @@ class CustomModelTrainingDataConfigArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] s3_uri: The S3 URI where the validation data is stored.
+        :param pulumi.Input[str] s3_uri: The S3 URI where the training data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -95,7 +95,7 @@ class CustomModelTrainingDataConfigArgs:
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[str]:
         """
-        The S3 URI where the validation data is stored.
+        The S3 URI where the training data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -153,17 +153,11 @@ class CustomModelValidationDataConfigArgs:
 class CustomModelValidationDataConfigValidatorArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] s3_uri: The S3 URI where the validation data is stored.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[str]:
-        """
-        The S3 URI where the validation data is stored.
-        """
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter

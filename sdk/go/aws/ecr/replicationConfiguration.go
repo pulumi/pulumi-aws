@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,11 +58,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Multiple Region Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,11 +108,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Repository Filter Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,7 +160,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -177,7 +171,7 @@ import (
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The account ID of the destination registry to replicate to.
+	// The registry ID where the replication configuration was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
@@ -213,14 +207,14 @@ func GetReplicationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationConfiguration resources.
 type replicationConfigurationState struct {
-	// The account ID of the destination registry to replicate to.
+	// The registry ID where the replication configuration was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration *ReplicationConfigurationReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
 type ReplicationConfigurationState struct {
-	// The account ID of the destination registry to replicate to.
+	// The registry ID where the replication configuration was created.
 	RegistryId pulumi.StringPtrInput
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationPtrInput
@@ -328,7 +322,7 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 	return o
 }
 
-// The account ID of the destination registry to replicate to.
+// The registry ID where the replication configuration was created.
 func (o ReplicationConfigurationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }

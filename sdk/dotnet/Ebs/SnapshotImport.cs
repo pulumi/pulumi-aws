@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotImport:SnapshotImport")]
     public partial class SnapshotImport : global::Pulumi.CustomResource

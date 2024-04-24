@@ -19,7 +19,6 @@ import (
 //
 // The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,13 +61,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter Example
 //
 // If you want to match against tag `Name`, use:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,7 +96,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetResult

@@ -14,89 +14,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
-    /**
-     * @return The location of the SAPOData resource.
-     * 
-     */
     private String applicationHostUrl;
-    /**
-     * @return The application path to catalog service.
-     * 
-     */
     private String applicationServicePath;
-    /**
-     * @return The client number for the client creating the connection.
-     * 
-     */
     private String clientNumber;
-    /**
-     * @return The logon language of SAPOData instance.
-     * 
-     */
     private @Nullable String logonLanguage;
-    /**
-     * @return The SAPOData OAuth properties required for OAuth type authentication.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties;
-    /**
-     * @return The port number of the SAPOData instance.
-     * 
-     */
     private Integer portNumber;
-    /**
-     * @return The SAPOData Private Link service name to be used for private data transfers.
-     * 
-     */
     private @Nullable String privateLinkServiceName;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData() {}
-    /**
-     * @return The location of the SAPOData resource.
-     * 
-     */
     public String applicationHostUrl() {
         return this.applicationHostUrl;
     }
-    /**
-     * @return The application path to catalog service.
-     * 
-     */
     public String applicationServicePath() {
         return this.applicationServicePath;
     }
-    /**
-     * @return The client number for the client creating the connection.
-     * 
-     */
     public String clientNumber() {
         return this.clientNumber;
     }
-    /**
-     * @return The logon language of SAPOData instance.
-     * 
-     */
     public Optional<String> logonLanguage() {
         return Optional.ofNullable(this.logonLanguage);
     }
-    /**
-     * @return The SAPOData OAuth properties required for OAuth type authentication.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties> oauthProperties() {
         return Optional.ofNullable(this.oauthProperties);
     }
-    /**
-     * @return The port number of the SAPOData instance.
-     * 
-     */
     public Integer portNumber() {
         return this.portNumber;
     }
-    /**
-     * @return The SAPOData Private Link service name to be used for private data transfers.
-     * 
-     */
     public Optional<String> privateLinkServiceName() {
         return Optional.ofNullable(this.privateLinkServiceName);
     }

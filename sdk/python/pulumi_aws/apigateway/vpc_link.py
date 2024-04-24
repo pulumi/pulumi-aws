@@ -206,7 +206,6 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class VpcLink(pulumi.CustomResource):
             description="example description",
             target_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +252,6 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +268,6 @@ class VpcLink(pulumi.CustomResource):
             description="example description",
             target_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

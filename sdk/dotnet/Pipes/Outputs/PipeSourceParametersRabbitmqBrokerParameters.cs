@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParametersRabbitmqBrokerParameters
     {
-        /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
-        /// </summary>
         public readonly int? BatchSize;
-        /// <summary>
-        /// The credentials needed to access the resource. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials Credentials;
-        /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
-        /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
-        /// <summary>
-        /// The name of the destination queue to consume. Maximum length of 1000.
-        /// </summary>
         public readonly string QueueName;
-        /// <summary>
-        /// The name of the virtual host associated with the source broker. Maximum length of 200.
-        /// </summary>
         public readonly string? VirtualHost;
 
         [OutputConstructor]

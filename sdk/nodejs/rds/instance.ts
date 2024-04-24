@@ -49,7 +49,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,11 +65,9 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Custom for Oracle Usage with Replica
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,11 +119,9 @@ import * as utilities from "../utilities";
  *     storageEncrypted: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Custom for SQL Server
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -163,11 +158,9 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### RDS Db2 Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -219,13 +212,11 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Storage Autoscaling
  *
  * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -235,7 +226,6 @@ import * as utilities from "../utilities";
  *     maxAllocatedStorage: 100,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managed Master Passwords via Secrets Manager, default KMS Key
  *
@@ -243,7 +233,6 @@ import * as utilities from "../utilities";
  *
  * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `password` attribute (removal is required).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -259,7 +248,6 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.mysql5.7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managed Master Passwords via Secrets Manager, specific KMS Key
  *
@@ -267,7 +255,6 @@ import * as utilities from "../utilities";
  *
  * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -285,7 +272,6 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.mysql5.7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

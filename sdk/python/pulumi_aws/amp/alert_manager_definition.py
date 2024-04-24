@@ -102,7 +102,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,7 +116,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
             - name: 'default'
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,7 +141,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +155,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
             - name: 'default'
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

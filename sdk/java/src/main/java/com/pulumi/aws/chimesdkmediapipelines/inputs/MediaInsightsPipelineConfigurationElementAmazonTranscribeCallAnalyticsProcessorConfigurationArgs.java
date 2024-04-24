@@ -35,14 +35,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Labels all personally identifiable information (PII) identified in Transcript events.
+     * Labels all personally identifiable information (PII) identified in Utterance events.
      * 
      */
     @Import(name="contentIdentificationType")
     private @Nullable Output<String> contentIdentificationType;
 
     /**
-     * @return Labels all personally identifiable information (PII) identified in Transcript events.
+     * @return Labels all personally identifiable information (PII) identified in Utterance events.
      * 
      */
     public Optional<Output<String>> contentIdentificationType() {
@@ -50,14 +50,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Redacts all personally identifiable information (PII) identified in Transcript events.
+     * Redacts all personally identifiable information (PII) identified in Utterance events.
      * 
      */
     @Import(name="contentRedactionType")
     private @Nullable Output<String> contentRedactionType;
 
     /**
-     * @return Redacts all personally identifiable information (PII) identified in Transcript events.
+     * @return Redacts all personally identifiable information (PII) identified in Utterance events.
      * 
      */
     public Optional<Output<String>> contentRedactionType() {
@@ -65,14 +65,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Enables partial result stabilization in Transcript events.
+     * Enables partial result stabilization in Utterance events.
      * 
      */
     @Import(name="enablePartialResultsStabilization")
     private @Nullable Output<Boolean> enablePartialResultsStabilization;
 
     /**
-     * @return Enables partial result stabilization in Transcript events.
+     * @return Enables partial result stabilization in Utterance events.
      * 
      */
     public Optional<Output<Boolean>> enablePartialResultsStabilization() {
@@ -140,14 +140,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Types of personally identifiable information (PII) to redact from a Transcript event.
+     * Types of personally identifiable information (PII) to redact from an Utterance event.
      * 
      */
     @Import(name="piiEntityTypes")
     private @Nullable Output<String> piiEntityTypes;
 
     /**
-     * @return Types of personally identifiable information (PII) to redact from a Transcript event.
+     * @return Types of personally identifiable information (PII) to redact from an Utterance event.
      * 
      */
     public Optional<Output<String>> piiEntityTypes() {
@@ -170,14 +170,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Method for applying a vocabulary filter to Transcript events.
+     * Method for applying a vocabulary filter to Utterance events.
      * 
      */
     @Import(name="vocabularyFilterMethod")
     private @Nullable Output<String> vocabularyFilterMethod;
 
     /**
-     * @return Method for applying a vocabulary filter to Transcript events.
+     * @return Method for applying a vocabulary filter to Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyFilterMethod() {
@@ -185,14 +185,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Name of the custom vocabulary filter to use when processing Transcript events.
+     * Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     @Import(name="vocabularyFilterName")
     private @Nullable Output<String> vocabularyFilterName;
 
     /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
+     * @return Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyFilterName() {
@@ -200,14 +200,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Name of the custom vocabulary to use when processing Transcript events.
+     * Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     @Import(name="vocabularyName")
     private @Nullable Output<String> vocabularyName;
 
     /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
+     * @return Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyName() {
@@ -282,7 +282,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param contentIdentificationType Labels all personally identifiable information (PII) identified in Transcript events.
+         * @param contentIdentificationType Labels all personally identifiable information (PII) identified in Utterance events.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param contentIdentificationType Labels all personally identifiable information (PII) identified in Transcript events.
+         * @param contentIdentificationType Labels all personally identifiable information (PII) identified in Utterance events.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param contentRedactionType Redacts all personally identifiable information (PII) identified in Transcript events.
+         * @param contentRedactionType Redacts all personally identifiable information (PII) identified in Utterance events.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param contentRedactionType Redacts all personally identifiable information (PII) identified in Transcript events.
+         * @param contentRedactionType Redacts all personally identifiable information (PII) identified in Utterance events.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param enablePartialResultsStabilization Enables partial result stabilization in Transcript events.
+         * @param enablePartialResultsStabilization Enables partial result stabilization in Utterance events.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param enablePartialResultsStabilization Enables partial result stabilization in Transcript events.
+         * @param enablePartialResultsStabilization Enables partial result stabilization in Utterance events.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param piiEntityTypes Types of personally identifiable information (PII) to redact from a Transcript event.
+         * @param piiEntityTypes Types of personally identifiable information (PII) to redact from an Utterance event.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param piiEntityTypes Types of personally identifiable information (PII) to redact from a Transcript event.
+         * @param piiEntityTypes Types of personally identifiable information (PII) to redact from an Utterance event.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Transcript events.
+         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Utterance events.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Transcript events.
+         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Utterance events.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Transcript events.
+         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Transcript events.
+         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyName Name of the custom vocabulary to use when processing Transcript events.
+         * @param vocabularyName Name of the custom vocabulary to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyName Name of the custom vocabulary to use when processing Transcript events.
+         * @param vocabularyName Name of the custom vocabulary to use when processing Utterance events.
          * 
          * @return builder
          * 

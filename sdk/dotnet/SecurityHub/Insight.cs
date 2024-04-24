@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ### Filter by AWS account ID
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,17 +50,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Filter by date range
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,17 +91,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Filter by destination IPv4 address
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,17 +128,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Filter by finding's confidence
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,17 +165,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Filter by resource tags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -213,13 +204,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

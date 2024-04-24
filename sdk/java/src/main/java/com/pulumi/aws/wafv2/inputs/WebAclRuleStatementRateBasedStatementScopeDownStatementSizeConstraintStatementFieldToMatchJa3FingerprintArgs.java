@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs();
 
     /**
-     * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 

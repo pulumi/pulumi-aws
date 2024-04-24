@@ -147,14 +147,12 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
 
     ### Basic configuration
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource.
@@ -189,14 +187,12 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
 
     ### Basic configuration
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource.

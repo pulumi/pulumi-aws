@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem
     {
-        /// <summary>
-        /// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-        /// </summary>
         public readonly string ContentType;
-        /// <summary>
-        /// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-        /// </summary>
         public readonly string Format;
-        /// <summary>
-        /// The profile ID for a field-level encryption content type-profile mapping.
-        /// </summary>
         public readonly string? ProfileId;
 
         [OutputConstructor]

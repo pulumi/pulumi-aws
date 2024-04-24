@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
     {
         [Input("endsWiths")]
         private InputList<string>? _endsWiths;
-
-        /// <summary>
-        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-        /// </summary>
         public InputList<string> EndsWiths
         {
             get => _endsWiths ?? (_endsWiths = new InputList<string>());
@@ -26,28 +22,17 @@ namespace Pulumi.Aws.CloudTrail.Inputs
 
         [Input("equals")]
         private InputList<string>? _equals;
-
-        /// <summary>
-        /// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-        /// </summary>
         public InputList<string> Equals
         {
             get => _equals ?? (_equals = new InputList<string>());
             set => _equals = value;
         }
 
-        /// <summary>
-        /// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-        /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
         [Input("notEndsWiths")]
         private InputList<string>? _notEndsWiths;
-
-        /// <summary>
-        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-        /// </summary>
         public InputList<string> NotEndsWiths
         {
             get => _notEndsWiths ?? (_notEndsWiths = new InputList<string>());
@@ -56,10 +41,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
 
         [Input("notEquals")]
         private InputList<string>? _notEquals;
-
-        /// <summary>
-        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-        /// </summary>
         public InputList<string> NotEquals
         {
             get => _notEquals ?? (_notEquals = new InputList<string>());
@@ -68,10 +49,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
 
         [Input("notStartsWiths")]
         private InputList<string>? _notStartsWiths;
-
-        /// <summary>
-        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-        /// </summary>
         public InputList<string> NotStartsWiths
         {
             get => _notStartsWiths ?? (_notStartsWiths = new InputList<string>());
@@ -80,10 +57,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
 
         [Input("startsWiths")]
         private InputList<string>? _startsWiths;
-
-        /// <summary>
-        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-        /// </summary>
         public InputList<string> StartsWiths
         {
             get => _startsWiths ?? (_startsWiths = new InputList<string>());

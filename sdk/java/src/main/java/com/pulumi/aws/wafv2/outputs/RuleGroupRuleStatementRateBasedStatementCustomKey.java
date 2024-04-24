@@ -55,12 +55,12 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument;
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString;
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath;
@@ -116,14 +116,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
         return Optional.ofNullable(this.queryArgument);
     }
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath> uriPath() {

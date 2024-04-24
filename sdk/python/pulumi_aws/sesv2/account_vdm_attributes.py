@@ -148,7 +148,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +161,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
                 optimized_shared_delivery="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -193,7 +191,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,7 +204,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
                 optimized_shared_delivery="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

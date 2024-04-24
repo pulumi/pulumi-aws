@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMaintenanceWindowsResult> InvokeAsync(GetMaintenanceWindowsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMaintenanceWindowsResult> Invoke(GetMaintenanceWindowsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsInvokeArgs(), options.WithDefaults());

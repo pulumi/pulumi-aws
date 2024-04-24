@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// By `name`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPromptResult> InvokeAsync(GetPromptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// By `name`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPromptResult> Invoke(GetPromptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithDefaults());

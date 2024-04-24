@@ -34,17 +34,9 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         return Optional.ofNullable(this.codeRepositories);
     }
 
-    /**
-     * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-     * 
-     */
     @Import(name="customImages")
     private @Nullable Output<List<UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs>> customImages;
 
-    /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs>>> customImages() {
         return Optional.ofNullable(this.customImages);
     }
@@ -137,33 +129,15 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
             return codeRepositories(List.of(codeRepositories));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(@Nullable Output<List<UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs>> customImages) {
             $.customImages = customImages;
             return this;
         }
 
-        /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(List<UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs> customImages) {
             return customImages(Output.of(customImages));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs... customImages) {
             return customImages(List.of(customImages));
         }

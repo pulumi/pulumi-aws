@@ -16,7 +16,7 @@ public final class RepositoryAssociationRepositoryS3Bucket {
      */
     private String bucketName;
     /**
-     * @return The name of the third party source repository.
+     * @return The name of the repository in the S3 bucket.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class RepositoryAssociationRepositoryS3Bucket {
         return this.bucketName;
     }
     /**
-     * @return The name of the third party source repository.
+     * @return The name of the repository in the S3 bucket.
      * 
      */
     public String name() {

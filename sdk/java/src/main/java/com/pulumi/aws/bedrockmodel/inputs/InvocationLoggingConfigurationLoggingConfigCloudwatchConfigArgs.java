@@ -16,47 +16,23 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
 
     public static final InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs();
 
-    /**
-     * S3 configuration for delivering a large amount of data.
-     * 
-     */
     @Import(name="largeDataDeliveryS3Config")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> largeDataDeliveryS3Config;
 
-    /**
-     * @return S3 configuration for delivering a large amount of data.
-     * 
-     */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs>> largeDataDeliveryS3Config() {
         return Optional.ofNullable(this.largeDataDeliveryS3Config);
     }
 
-    /**
-     * Log group name.
-     * 
-     */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
-    /**
-     * @return Log group name.
-     * 
-     */
     public Optional<Output<String>> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
 
-    /**
-     * The role ARN.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The role ARN.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -87,65 +63,29 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
             $ = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder largeDataDeliveryS3Config(@Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> largeDataDeliveryS3Config) {
             $.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
             return this;
         }
 
-        /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder largeDataDeliveryS3Config(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs largeDataDeliveryS3Config) {
             return largeDataDeliveryS3Config(Output.of(largeDataDeliveryS3Config));
         }
 
-        /**
-         * @param logGroupName Log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(@Nullable Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName Log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param roleArn The role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

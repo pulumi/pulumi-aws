@@ -188,7 +188,6 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +204,6 @@ class CodeSigningConfig(pulumi.CustomResource):
             ),
             description="My awesome code signing config.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -234,7 +232,6 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +248,6 @@ class CodeSigningConfig(pulumi.CustomResource):
             ),
             description="My awesome code signing config.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -463,7 +463,6 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,11 +485,9 @@ class GameServerGroup(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         Full usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,11 +528,9 @@ class GameServerGroup(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for GameLift Game Server Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,7 +554,6 @@ class GameServerGroup(pulumi.CustomResource):
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -601,7 +595,6 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -624,11 +617,9 @@ class GameServerGroup(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         Full usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -669,11 +660,9 @@ class GameServerGroup(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for GameLift Game Server Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -697,7 +686,6 @@ class GameServerGroup(pulumi.CustomResource):
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

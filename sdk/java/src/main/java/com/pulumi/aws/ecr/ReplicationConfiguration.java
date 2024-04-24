@@ -183,14 +183,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecr/replicationConfiguration:ReplicationConfiguration")
 public class ReplicationConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The account ID of the destination registry to replicate to.
+     * The registry ID where the replication configuration was created.
      * 
      */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
-     * @return The account ID of the destination registry to replicate to.
+     * @return The registry ID where the replication configuration was created.
      * 
      */
     public Output<String> registryId() {

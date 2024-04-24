@@ -326,7 +326,6 @@ class ServerlessCollection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -345,7 +344,6 @@ class ServerlessCollection(pulumi.CustomResource):
         example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -382,7 +380,6 @@ class ServerlessCollection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -401,7 +398,6 @@ class ServerlessCollection(pulumi.CustomResource):
         example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

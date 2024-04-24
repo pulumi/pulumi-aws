@@ -19,7 +19,6 @@ import (
 //
 // # To create a basic traffic mirror session
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,7 +61,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

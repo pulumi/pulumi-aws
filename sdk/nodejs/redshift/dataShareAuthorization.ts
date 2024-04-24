@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     dataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

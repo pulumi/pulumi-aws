@@ -298,14 +298,12 @@ class Room(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivschat.Room("example", name="tf-room")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -342,14 +340,12 @@ class Room(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivschat.Room("example", name="tf-room")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

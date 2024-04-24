@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ### Apple Push Notification Service (APNS) using certificate-based authentication
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,11 +34,9 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Apple Push Notification Service (APNS) using token-based authentication
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,11 +57,9 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Google Cloud Messaging (GCM)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +77,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

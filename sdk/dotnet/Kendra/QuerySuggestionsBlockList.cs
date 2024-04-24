@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -62,9 +60,6 @@ namespace Pulumi.Aws.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description for a block list.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -94,8 +89,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// S3 path where your block list text file is located. See details below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.QuerySuggestionsBlockListSourceS3Path> SourceS3Path { get; private set; } = null!;
@@ -103,9 +96,6 @@ namespace Pulumi.Aws.Kendra
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -161,9 +151,6 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class QuerySuggestionsBlockListArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description for a block list.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -187,18 +174,12 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// S3 path where your block list text file is located. See details below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -219,9 +200,6 @@ namespace Pulumi.Aws.Kendra
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description for a block list.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -251,8 +229,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// S3 path where your block list text file is located. See details below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathGetArgs>? SourceS3Path { get; set; }
@@ -262,10 +238,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

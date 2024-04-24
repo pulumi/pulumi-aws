@@ -628,7 +628,6 @@ class TaskSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -643,13 +642,11 @@ class TaskSet(pulumi.CustomResource):
                 container_port=8080,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ignoring Changes to Scale
 
         You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -658,7 +655,6 @@ class TaskSet(pulumi.CustomResource):
             value=50,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -701,7 +697,6 @@ class TaskSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -716,13 +711,11 @@ class TaskSet(pulumi.CustomResource):
                 container_port=8080,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ignoring Changes to Scale
 
         You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,7 +724,6 @@ class TaskSet(pulumi.CustomResource):
             value=50,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

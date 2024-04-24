@@ -14,32 +14,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs();
 
-    /**
-     * The password to use to connect to a resource.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return The password to use to connect to a resource.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * The username to use to connect to a resource.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The username to use to connect to a resource.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -69,44 +53,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password The password to use to connect to a resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password The password to use to connect to a resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param username The username to use to connect to a resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The username to use to connect to a resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

@@ -25,7 +25,6 @@ import (
 //
 // The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,13 +72,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Config To Deny All Egress Traffic, Allowing Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,7 +114,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 //
@@ -135,7 +131,7 @@ type DefaultSecurityGroup struct {
 
 	// ARN of the security group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of this rule.
+	// Description of the security group.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
@@ -189,7 +185,7 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 type defaultSecurityGroupState struct {
 	// ARN of the security group.
 	Arn *string `pulumi:"arn"`
-	// Description of this rule.
+	// Description of the security group.
 	Description *string `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
@@ -214,7 +210,7 @@ type defaultSecurityGroupState struct {
 type DefaultSecurityGroupState struct {
 	// ARN of the security group.
 	Arn pulumi.StringPtrInput
-	// Description of this rule.
+	// Description of the security group.
 	Description pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayInput
@@ -357,7 +353,7 @@ func (o DefaultSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of this rule.
+// Description of the security group.
 func (o DefaultSecurityGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

@@ -135,7 +135,6 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,6 @@ class NetworkAssociation(pulumi.CustomResource):
             client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,7 +169,6 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +177,6 @@ class NetworkAssociation(pulumi.CustomResource):
             client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

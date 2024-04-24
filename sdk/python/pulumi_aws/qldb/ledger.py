@@ -242,7 +242,6 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +250,6 @@ class Ledger(pulumi.CustomResource):
             name="sample-ledger",
             permissions_mode="STANDARD")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -282,7 +280,6 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,7 +288,6 @@ class Ledger(pulumi.CustomResource):
             name="sample-ledger",
             permissions_mode="STANDARD")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

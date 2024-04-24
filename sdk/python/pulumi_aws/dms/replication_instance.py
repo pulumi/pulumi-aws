@@ -676,7 +676,6 @@ class ReplicationInstance(pulumi.CustomResource):
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -736,7 +735,6 @@ class ReplicationInstance(pulumi.CustomResource):
                     dms_vpc_role__amazon_dmsvpc_management_role,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -788,7 +786,6 @@ class ReplicationInstance(pulumi.CustomResource):
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -848,7 +845,6 @@ class ReplicationInstance(pulumi.CustomResource):
                     dms_vpc_role__amazon_dmsvpc_management_role,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

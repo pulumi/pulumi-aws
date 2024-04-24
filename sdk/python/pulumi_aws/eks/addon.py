@@ -504,7 +504,6 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,13 +512,11 @@ class Addon(pulumi.CustomResource):
             cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,7 +527,6 @@ class Addon(pulumi.CustomResource):
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example add-on usage with custom configuration_values
 
@@ -543,7 +539,6 @@ class Addon(pulumi.CustomResource):
 
         Example to create a `coredns` managed addon with custom `configuration_values`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -568,11 +563,9 @@ class Addon(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -607,7 +600,6 @@ class Addon(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
             role=example_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -655,7 +647,6 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -664,13 +655,11 @@ class Addon(pulumi.CustomResource):
             cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,7 +670,6 @@ class Addon(pulumi.CustomResource):
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example add-on usage with custom configuration_values
 
@@ -694,7 +682,6 @@ class Addon(pulumi.CustomResource):
 
         Example to create a `coredns` managed addon with custom `configuration_values`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -719,11 +706,9 @@ class Addon(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -758,7 +743,6 @@ class Addon(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
             role=example_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

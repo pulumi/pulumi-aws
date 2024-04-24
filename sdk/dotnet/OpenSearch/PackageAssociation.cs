@@ -16,7 +16,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +53,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
     public partial class PackageAssociation : global::Pulumi.CustomResource

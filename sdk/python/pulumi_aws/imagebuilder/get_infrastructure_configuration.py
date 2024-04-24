@@ -240,14 +240,12 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the infrastructure configuration.
@@ -291,14 +289,12 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the infrastructure configuration.

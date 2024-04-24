@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +46,12 @@ namespace Pulumi.Aws.Macie2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

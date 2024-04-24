@@ -108,14 +108,12 @@ def get_account_public_access_block(account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3.get_account_public_access_block()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
@@ -142,14 +140,12 @@ def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3.get_account_public_access_block()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.

@@ -146,14 +146,12 @@ def get_report_plan(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Backup report plan name.
@@ -186,14 +184,12 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Backup report plan name.

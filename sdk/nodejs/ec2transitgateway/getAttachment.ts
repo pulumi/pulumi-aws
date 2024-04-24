@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAttachment(args?: GetAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentResult> {
     args = args || {};
@@ -117,7 +115,6 @@ export interface GetAttachmentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -135,7 +132,6 @@ export interface GetAttachmentResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAttachmentOutput(args?: GetAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getAttachment(a, opts))

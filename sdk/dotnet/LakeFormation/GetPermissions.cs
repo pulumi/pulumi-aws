@@ -20,7 +20,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,11 +39,9 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Permissions For A Glue Catalog Database
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,11 +62,9 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Permissions For Tag-Based Access Control
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -109,7 +104,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsArgs(), options.WithDefaults());
@@ -123,7 +117,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -143,11 +136,9 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Permissions For A Glue Catalog Database
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -168,11 +159,9 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Permissions For Tag-Based Access Control
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -212,7 +201,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithDefaults());

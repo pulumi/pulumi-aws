@@ -17,17 +17,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -64,23 +56,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

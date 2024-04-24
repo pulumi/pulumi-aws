@@ -132,7 +132,6 @@ class GroupAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +140,6 @@ class GroupAssociation(pulumi.CustomResource):
             group_name=example_aws_synthetics_group["name"],
             canary_arn=example_aws_synthetics_canary["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,7 +167,6 @@ class GroupAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +175,6 @@ class GroupAssociation(pulumi.CustomResource):
             group_name=example_aws_synthetics_group["name"],
             canary_arn=example_aws_synthetics_canary["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

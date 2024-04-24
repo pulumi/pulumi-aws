@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ResponseHeadersPolicyRemoveHeadersConfigItem {
-    /**
-     * @return The HTTP response header name.
-     * 
-     */
     private String header;
 
     private ResponseHeadersPolicyRemoveHeadersConfigItem() {}
-    /**
-     * @return The HTTP response header name.
-     * 
-     */
     public String header() {
         return this.header;
     }

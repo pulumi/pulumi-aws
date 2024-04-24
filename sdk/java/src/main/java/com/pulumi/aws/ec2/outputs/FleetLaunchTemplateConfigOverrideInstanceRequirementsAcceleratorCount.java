@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     private @Nullable Integer max;
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return Minimum.
      * 
      */
     private @Nullable Integer min;
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount() {}
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return Minimum.
      * 
      */
     public Optional<Integer> min() {

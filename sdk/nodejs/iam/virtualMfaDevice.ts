@@ -16,14 +16,12 @@ import * as utilities from "../utilities";
  *
  * **Using certs on file:**
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.VirtualMfaDevice("example", {virtualMfaDeviceName: "example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,7 +62,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -89,7 +87,7 @@ type ContainerRecipe struct {
 	DockerfileTemplateData pulumi.StringOutput `pulumi:"dockerfileTemplateData"`
 	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
 	DockerfileTemplateUri pulumi.StringPtrOutput `pulumi:"dockerfileTemplateUri"`
-	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	// A flag that indicates if the target container is encrypted.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
@@ -180,7 +178,7 @@ type containerRecipeState struct {
 	DockerfileTemplateData *string `pulumi:"dockerfileTemplateData"`
 	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
 	DockerfileTemplateUri *string `pulumi:"dockerfileTemplateUri"`
-	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	// A flag that indicates if the target container is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
@@ -227,7 +225,7 @@ type ContainerRecipeState struct {
 	DockerfileTemplateData pulumi.StringPtrInput
 	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
 	DockerfileTemplateUri pulumi.StringPtrInput
-	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	// A flag that indicates if the target container is encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
@@ -452,7 +450,7 @@ func (o ContainerRecipeOutput) DockerfileTemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DockerfileTemplateUri }).(pulumi.StringPtrOutput)
 }
 
-// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+// A flag that indicates if the target container is encrypted.
 func (o ContainerRecipeOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }

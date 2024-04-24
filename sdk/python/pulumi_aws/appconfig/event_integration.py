@@ -241,7 +241,6 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +256,6 @@ class EventIntegration(pulumi.CustomResource):
                 "Name": "Example Event Integration",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +299,6 @@ class EventIntegration(pulumi.CustomResource):
                 "Name": "Example Event Integration",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

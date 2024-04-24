@@ -65,14 +65,14 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
     }
 
     /**
-     * Element type.
+     * Rule type.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Element type.
+     * @return Rule type.
      * 
      */
     public Output<String> type() {
@@ -170,7 +170,7 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         }
 
         /**
-         * @param type Element type.
+         * @param type Rule type.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         }
 
         /**
-         * @param type Element type.
+         * @param type Rule type.
          * 
          * @return builder
          * 

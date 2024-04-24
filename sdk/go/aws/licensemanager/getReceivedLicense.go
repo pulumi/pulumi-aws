@@ -17,7 +17,6 @@ import (
 //
 // The following shows getting the received license data using and ARN.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetReceivedLicense(ctx *pulumi.Context, args *GetReceivedLicenseArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicenseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicenseResult

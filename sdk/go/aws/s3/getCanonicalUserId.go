@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCanonicalUserIdResult

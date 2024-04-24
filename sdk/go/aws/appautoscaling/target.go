@@ -22,7 +22,6 @@ import (
 //
 // ### DynamoDB Table Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### DynamoDB Index Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +83,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ECS Service Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,11 +115,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Aurora Read Replica Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,11 +147,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Suppressing `tagsAll` Differences For Older Resources
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -188,11 +179,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### MSK / Kafka Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -220,7 +209,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

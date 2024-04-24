@@ -154,7 +154,6 @@ def get_virtual_node(mesh_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,7 +161,6 @@ def get_virtual_node(mesh_name: Optional[str] = None,
     test = aws.appmesh.get_virtual_node(name="serviceBv1",
         mesh_name="example-mesh")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual node exists.
@@ -202,7 +200,6 @@ def get_virtual_node_output(mesh_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -210,7 +207,6 @@ def get_virtual_node_output(mesh_name: Optional[pulumi.Input[str]] = None,
     test = aws.appmesh.get_virtual_node(name="serviceBv1",
         mesh_name="example-mesh")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual node exists.

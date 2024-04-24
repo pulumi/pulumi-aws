@@ -104,7 +104,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### For a Firewall Policy resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -129,11 +128,9 @@ class ResourcePolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### For a Rule Group resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -157,7 +154,6 @@ class ResourcePolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +180,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### For a Firewall Policy resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -209,11 +204,9 @@ class ResourcePolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### For a Rule Group resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -237,7 +230,6 @@ class ResourcePolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

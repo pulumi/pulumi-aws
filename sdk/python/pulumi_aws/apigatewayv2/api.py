@@ -607,7 +607,6 @@ class Api(pulumi.CustomResource):
 
         ### Basic WebSocket API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -617,11 +616,9 @@ class Api(pulumi.CustomResource):
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic HTTP API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -630,7 +627,6 @@ class Api(pulumi.CustomResource):
             name="example-http-api",
             protocol_type="HTTP")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -679,7 +675,6 @@ class Api(pulumi.CustomResource):
 
         ### Basic WebSocket API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -689,11 +684,9 @@ class Api(pulumi.CustomResource):
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic HTTP API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -702,7 +695,6 @@ class Api(pulumi.CustomResource):
             name="example-http-api",
             protocol_type="HTTP")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

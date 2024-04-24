@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  *
  * ### Create Empty Cached iSCSI Volume
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: 5368709120,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create Cached iSCSI Volume From Snapshot
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,11 +43,9 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: exampleAwsEbsSnapshot.volumeSize * 1024 * 1024 * 1024,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create Cached iSCSI Volume From Source Volume
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,7 +58,6 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: existing.volumeSizeInBytes,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

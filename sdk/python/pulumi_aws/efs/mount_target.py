@@ -288,7 +288,6 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +301,6 @@ class MountTarget(pulumi.CustomResource):
             file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -332,7 +330,6 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +343,6 @@ class MountTarget(pulumi.CustomResource):
             file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         [Input("bitrate")]
         public Input<double>? Bitrate { get; set; }
 
-        /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
-        /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         [Input("sampleRate")]
         public Input<double>? SampleRate { get; set; }
 

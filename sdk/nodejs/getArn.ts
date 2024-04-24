@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
 
@@ -74,7 +72,6 @@ export interface GetArnResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetArnResult {
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getArnOutput(args: GetArnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArnResult> {
     return pulumi.output(args).apply((a: any) => getArn(a, opts))

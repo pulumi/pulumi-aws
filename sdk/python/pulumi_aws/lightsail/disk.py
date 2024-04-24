@@ -238,7 +238,6 @@ class Disk(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +252,6 @@ class Disk(pulumi.CustomResource):
             size_in_gb=8,
             availability_zone=available.names[0])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +279,6 @@ class Disk(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +293,6 @@ class Disk(pulumi.CustomResource):
             size_in_gb=8,
             availability_zone=available.names[0])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

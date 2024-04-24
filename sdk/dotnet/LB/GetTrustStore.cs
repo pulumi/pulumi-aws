@@ -22,7 +22,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrustStoreResult> InvokeAsync(GetTrustStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());

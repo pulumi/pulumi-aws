@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the policy. Must be between 1 and 255 characters in length.
+        /// Name of the dimension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

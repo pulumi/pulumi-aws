@@ -15,32 +15,16 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs extends com.pulumi
 
     public static final LifecyclePolicyPolicyDetailsParametersArgs Empty = new LifecyclePolicyPolicyDetailsParametersArgs();
 
-    /**
-     * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-     * 
-     */
     @Import(name="excludeBootVolume")
     private @Nullable Output<Boolean> excludeBootVolume;
 
-    /**
-     * @return Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> excludeBootVolume() {
         return Optional.ofNullable(this.excludeBootVolume);
     }
 
-    /**
-     * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-     * 
-     */
     @Import(name="noReboot")
     private @Nullable Output<Boolean> noReboot;
 
-    /**
-     * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-     * 
-     */
     public Optional<Output<Boolean>> noReboot() {
         return Optional.ofNullable(this.noReboot);
     }
@@ -70,44 +54,20 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs extends com.pulumi
             $ = new LifecyclePolicyPolicyDetailsParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludeBootVolume Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeBootVolume(@Nullable Output<Boolean> excludeBootVolume) {
             $.excludeBootVolume = excludeBootVolume;
             return this;
         }
 
-        /**
-         * @param excludeBootVolume Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeBootVolume(Boolean excludeBootVolume) {
             return excludeBootVolume(Output.of(excludeBootVolume));
         }
 
-        /**
-         * @param noReboot Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-         * 
-         * @return builder
-         * 
-         */
         public Builder noReboot(@Nullable Output<Boolean> noReboot) {
             $.noReboot = noReboot;
             return this;
         }
 
-        /**
-         * @param noReboot Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-         * 
-         * @return builder
-         * 
-         */
         public Builder noReboot(Boolean noReboot) {
             return noReboot(Output.of(noReboot));
         }

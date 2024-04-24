@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
 
@@ -75,7 +73,6 @@ export interface GetRegexPatternSetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,7 +82,6 @@ export interface GetRegexPatternSetResult {
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
     return pulumi.output(args).apply((a: any) => getRegexPatternSet(a, opts))

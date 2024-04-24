@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourceCollectionResult> InvokeAsync(GetResourceCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceCollectionResult>("aws:devopsguru/getResourceCollection:getResourceCollection", args ?? new GetResourceCollectionArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws:devopsguru/getResourceCollection:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());

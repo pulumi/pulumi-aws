@@ -234,7 +234,6 @@ class Template(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +244,6 @@ class Template(pulumi.CustomResource):
             service_code="lambda",
             value=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -277,7 +275,6 @@ class Template(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,7 +285,6 @@ class Template(pulumi.CustomResource):
             service_code="lambda",
             value=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

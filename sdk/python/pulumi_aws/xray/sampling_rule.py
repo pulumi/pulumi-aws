@@ -495,7 +495,6 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,7 +515,6 @@ class SamplingRule(pulumi.CustomResource):
                 "Hello": "Tris",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -553,7 +551,6 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,7 +571,6 @@ class SamplingRule(pulumi.CustomResource):
                 "Hello": "Tris",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

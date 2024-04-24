@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs();
 
-    /**
-     * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     @Import(name="ocrLanguage")
     private @Nullable Output<String> ocrLanguage;
 
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     public Optional<Output<String>> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
 
-    /**
-     * Selects a specific PID from within a source.
-     * 
-     */
     @Import(name="pid")
     private @Nullable Output<Integer> pid;
 
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     public Optional<Output<Integer>> pid() {
         return Optional.ofNullable(this.pid);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocrLanguage(@Nullable Output<String> ocrLanguage) {
             $.ocrLanguage = ocrLanguage;
             return this;
         }
 
-        /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocrLanguage(String ocrLanguage) {
             return ocrLanguage(Output.of(ocrLanguage));
         }
 
-        /**
-         * @param pid Selects a specific PID from within a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(@Nullable Output<Integer> pid) {
             $.pid = pid;
             return this;
         }
 
-        /**
-         * @param pid Selects a specific PID from within a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(Integer pid) {
             return pid(Output.of(pid));
         }

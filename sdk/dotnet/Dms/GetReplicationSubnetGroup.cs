@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Dms
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Dms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationSubnetGroupResult> InvokeAsync(GetReplicationSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Dms
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Dms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());

@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs();
 
     /**
-     * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
      * 
      */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
      * 
      */
     public Optional<Output<Integer>> max() {
@@ -31,14 +31,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
     }
 
     /**
-     * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
      * 
      */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
      * 
      */
     public Optional<Output<Integer>> min() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
          * 
          * @return builder
          * 

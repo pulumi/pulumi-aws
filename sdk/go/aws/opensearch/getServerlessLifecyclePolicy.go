@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerlessLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessLifecyclePolicyResult

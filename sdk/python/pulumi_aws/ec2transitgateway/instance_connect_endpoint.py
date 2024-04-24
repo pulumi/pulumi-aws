@@ -330,14 +330,12 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -365,14 +363,12 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

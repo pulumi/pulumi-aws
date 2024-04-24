@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Accept cross-account request
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     vpcEndpointId: exampleVpcEndpoint.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

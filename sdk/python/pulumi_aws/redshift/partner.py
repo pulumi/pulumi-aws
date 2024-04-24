@@ -198,7 +198,6 @@ class Partner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +208,6 @@ class Partner(pulumi.CustomResource):
             database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,7 +235,6 @@ class Partner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +245,6 @@ class Partner(pulumi.CustomResource):
             database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

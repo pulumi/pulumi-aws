@@ -16,34 +16,16 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
 
     public static final ListenerDefaultActionForwardTargetGroupArgs Empty = new ListenerDefaultActionForwardTargetGroupArgs();
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     @Import(name="targetGroupIdentifier")
     private @Nullable Output<String> targetGroupIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     public Optional<Output<String>> targetGroupIdentifier() {
         return Optional.ofNullable(this.targetGroupIdentifier);
     }
 
-    /**
-     * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-     * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-     * 
-     */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
-    /**
-     * @return Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-     * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-     * 
-     */
     public Optional<Output<Integer>> weight() {
         return Optional.ofNullable(this.weight);
     }
@@ -73,46 +55,20 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
             $ = new ListenerDefaultActionForwardTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupIdentifier(@Nullable Output<String> targetGroupIdentifier) {
             $.targetGroupIdentifier = targetGroupIdentifier;
             return this;
         }
 
-        /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupIdentifier(String targetGroupIdentifier) {
             return targetGroupIdentifier(Output.of(targetGroupIdentifier));
         }
 
-        /**
-         * @param weight Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-         * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-         * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

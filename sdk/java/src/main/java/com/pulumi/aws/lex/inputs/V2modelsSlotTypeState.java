@@ -144,17 +144,9 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.parentSlotTypeSignature);
     }
 
-    /**
-     * Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     * 
-     */
     @Import(name="slotTypeId")
     private @Nullable Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     * 
-     */
     public Optional<Output<String>> slotTypeId() {
         return Optional.ofNullable(this.slotTypeId);
     }
@@ -403,23 +395,11 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
             return parentSlotTypeSignature(Output.of(parentSlotTypeSignature));
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(@Nullable Output<String> slotTypeId) {
             $.slotTypeId = slotTypeId;
             return this;
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(String slotTypeId) {
             return slotTypeId(Output.of(slotTypeId));
         }

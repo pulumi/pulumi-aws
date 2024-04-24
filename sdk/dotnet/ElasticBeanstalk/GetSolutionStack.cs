@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithDefaults());

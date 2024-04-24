@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilingGroupResult> {
 
@@ -85,7 +83,6 @@ export interface GetProfilingGroupResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,7 +91,6 @@ export interface GetProfilingGroupResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
     return pulumi.output(args).apply((a: any) => getProfilingGroup(a, opts))

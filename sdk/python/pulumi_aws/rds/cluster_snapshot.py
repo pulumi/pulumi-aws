@@ -357,7 +357,6 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,7 +365,6 @@ class ClusterSnapshot(pulumi.CustomResource):
             db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -393,7 +391,6 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,7 +399,6 @@ class ClusterSnapshot(pulumi.CustomResource):
             db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

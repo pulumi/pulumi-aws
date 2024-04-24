@@ -181,14 +181,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.channelClass;
     }
     /**
-     * ID of the channel in MediaPackage that is the destination for this output group.
+     * ID of the Channel.
      * 
      */
     @Export(name="channelId", refs={String.class}, tree="[0]")
     private Output<String> channelId;
 
     /**
-     * @return ID of the channel in MediaPackage that is the destination for this output group.
+     * @return ID of the Channel.
      * 
      */
     public Output<String> channelId() {

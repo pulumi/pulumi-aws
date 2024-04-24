@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationProviders({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationProvidersResult> {
     args = args || {};
@@ -62,14 +60,12 @@ export interface GetApplicationProvidersResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationProviders({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationProvidersResult> {
     return pulumi.output(args).apply((a: any) => getApplicationProviders(a, opts))

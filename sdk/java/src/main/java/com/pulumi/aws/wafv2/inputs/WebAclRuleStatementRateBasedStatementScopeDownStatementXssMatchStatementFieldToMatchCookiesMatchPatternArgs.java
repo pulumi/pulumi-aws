@@ -17,17 +17,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -72,23 +64,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

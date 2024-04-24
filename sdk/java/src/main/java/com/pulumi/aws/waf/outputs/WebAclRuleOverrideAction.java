@@ -11,16 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleOverrideAction {
     /**
-     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
+     * @return valid values are: `NONE` or `COUNT`
      * 
      */
     private String type;
 
     private WebAclRuleOverrideAction() {}
     /**
-     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
+     * @return valid values are: `NONE` or `COUNT`
      * 
      */
     public String type() {

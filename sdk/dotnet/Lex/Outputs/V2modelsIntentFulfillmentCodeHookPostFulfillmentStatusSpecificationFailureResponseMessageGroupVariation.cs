@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation
     {
-        /// <summary>
-        /// Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayload? CustomPayload;
-        /// <summary>
-        /// Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCard? ImageResponseCard;
-        /// <summary>
-        /// Configuration block for a message in plain text format. See `plain_text_message`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessage? PlainTextMessage;
-        /// <summary>
-        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessage? SsmlMessage;
 
         [OutputConstructor]

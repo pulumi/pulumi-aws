@@ -129,7 +129,6 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,18 +138,15 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
         values=["tgw-attach-12345678"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -191,7 +187,6 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -201,18 +196,15 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
         values=["tgw-attach-12345678"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

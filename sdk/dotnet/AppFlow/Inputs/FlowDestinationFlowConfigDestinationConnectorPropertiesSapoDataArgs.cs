@@ -12,39 +12,23 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
         [Input("idFieldNames")]
         private InputList<string>? _idFieldNames;
-
-        /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-        /// </summary>
         public InputList<string> IdFieldNames
         {
             get => _idFieldNames ?? (_idFieldNames = new InputList<string>());
             set => _idFieldNames = value;
         }
 
-        /// <summary>
-        /// Object path specified in the SAPOData flow destination.
-        /// </summary>
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;
 
-        /// <summary>
-        /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-        /// </summary>
         [Input("successResponseHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs>? SuccessResponseHandlingConfig { get; set; }
 
-        /// <summary>
-        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-        /// </summary>
         [Input("writeOperationType")]
         public Input<string>? WriteOperationType { get; set; }
 

@@ -25,7 +25,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,7 +102,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With External Content
 //
@@ -111,7 +109,6 @@ import (
 //
 // Use the generated file as input:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -151,7 +148,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -389,7 +389,6 @@ class VpcConnection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -433,7 +432,6 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -469,7 +467,6 @@ class VpcConnection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -513,7 +510,6 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

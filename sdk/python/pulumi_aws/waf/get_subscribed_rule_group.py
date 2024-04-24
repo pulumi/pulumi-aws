@@ -70,7 +70,6 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -90,7 +89,6 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
         ),
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str metric_name: Name of the WAF rule group.
@@ -117,7 +115,6 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,7 +134,6 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
         ),
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str metric_name: Name of the WAF rule group.

@@ -1655,7 +1655,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1668,11 +1667,9 @@ class Cluster(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Managed Credentials
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1685,7 +1682,6 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             manage_master_password=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1770,7 +1766,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1783,11 +1778,9 @@ class Cluster(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Managed Credentials
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1800,7 +1793,6 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             manage_master_password=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

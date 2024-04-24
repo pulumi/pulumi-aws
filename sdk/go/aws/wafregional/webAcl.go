@@ -18,7 +18,6 @@ import (
 //
 // ### Regular Rule
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,11 +81,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Group Rule
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,13 +121,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging
 //
 // > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,7 +162,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -111,14 +111,12 @@ def get_sink(sink_identifier: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str sink_identifier: ARN of the sink.
@@ -150,14 +148,12 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str sink_identifier: ARN of the sink.

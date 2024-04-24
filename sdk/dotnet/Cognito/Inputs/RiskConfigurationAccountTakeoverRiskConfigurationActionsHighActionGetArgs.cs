@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        /// </summary>
         [Input("eventAction", required: true)]
         public Input<string> EventAction { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to send a notification.
-        /// </summary>
         [Input("notify", required: true)]
         public Input<bool> Notify { get; set; } = null!;
 

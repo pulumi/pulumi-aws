@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolLambdaConfigPreTokenGenerationConfig
     {
-        /// <summary>
-        /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-        /// </summary>
         public readonly string LambdaArn;
-        /// <summary>
-        /// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-        /// </summary>
         public readonly string LambdaVersion;
 
         [OutputConstructor]

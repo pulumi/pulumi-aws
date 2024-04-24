@@ -13,15 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRuleRuleAnd {
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleAndCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleAndDimension dimension;
     /**
      * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -30,17 +22,9 @@ public final class CostCategoryRuleRuleAnd {
     private @Nullable CostCategoryRuleRuleAndTags tags;
 
     private CostCategoryRuleRuleAnd() {}
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleAndCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleAndDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }

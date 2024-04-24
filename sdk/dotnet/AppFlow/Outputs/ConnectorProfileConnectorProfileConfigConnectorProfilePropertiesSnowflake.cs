@@ -13,33 +13,12 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake
     {
-        /// <summary>
-        /// The name of the account.
-        /// </summary>
         public readonly string? AccountName;
-        /// <summary>
-        /// A name for the associated Amazon S3 bucket.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// The object key for the destination bucket in which Amazon AppFlow places the files.
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// The SAPOData Private Link service name to be used for private data transfers.
-        /// </summary>
         public readonly string? PrivateLinkServiceName;
-        /// <summary>
-        /// AWS Region of the Snowflake account.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-        /// </summary>
         public readonly string Stage;
-        /// <summary>
-        /// The name of the Snowflake warehouse.
-        /// </summary>
         public readonly string Warehouse;
 
         [OutputConstructor]

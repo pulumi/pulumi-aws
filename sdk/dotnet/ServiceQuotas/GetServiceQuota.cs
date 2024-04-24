@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceQuotaResult> InvokeAsync(GetServiceQuotaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaArgs(), options.WithDefaults());
@@ -53,7 +51,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,7 +73,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceQuotaResult> Invoke(GetServiceQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaInvokeArgs(), options.WithDefaults());

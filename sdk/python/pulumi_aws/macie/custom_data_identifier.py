@@ -352,7 +352,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,7 +366,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
             ignore_words=["ignore"],
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -399,7 +397,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,7 +411,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
             ignore_words=["ignore"],
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

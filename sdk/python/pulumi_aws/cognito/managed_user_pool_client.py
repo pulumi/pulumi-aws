@@ -811,7 +811,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -856,7 +855,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             opts=pulumi.ResourceOptions(depends_on=[example_domain]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -910,7 +908,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -955,7 +952,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             opts=pulumi.ResourceOptions(depends_on=[example_domain]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -413,7 +413,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +430,6 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -467,7 +465,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,7 +482,6 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

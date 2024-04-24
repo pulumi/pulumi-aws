@@ -98,7 +98,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -108,11 +107,9 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
         values=["my-database-id"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Using tags
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -121,7 +118,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
         "Env": "test",
     })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
@@ -152,7 +148,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,11 +157,9 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
         values=["my-database-id"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Using tags
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -175,7 +168,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
         "Env": "test",
     })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.

@@ -190,14 +190,12 @@ class Revision(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.dataexchange.Revision("example", data_set_id=example_aws_dataexchange_data_set["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,14 +222,12 @@ class Revision(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.dataexchange.Revision("example", data_set_id=example_aws_dataexchange_data_set["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

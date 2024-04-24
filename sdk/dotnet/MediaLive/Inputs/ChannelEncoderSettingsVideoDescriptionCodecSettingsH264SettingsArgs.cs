@@ -52,7 +52,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? EntropyEncoding { get; set; }
 
         /// <summary>
-        /// Filters to apply to an encode. See H265 Filter Settings for more details.
+        /// Filters to apply to an encode. See H264 Filter Settings for more details.
         /// </summary>
         [Input("filterSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs>? FilterSettings { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? GopSizeUnits { get; set; }
 
         /// <summary>
-        /// H265 level.
+        /// H264 level.
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? ParNumerator { get; set; }
 
         /// <summary>
-        /// AAC profile.
+        /// H264 profile.
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? QvbrQualityLevel { get; set; }
 
         /// <summary>
-        /// The rate control mode.
+        /// Rate control mode.
         /// </summary>
         [Input("rateControlMode")]
         public Input<string>? RateControlMode { get; set; }

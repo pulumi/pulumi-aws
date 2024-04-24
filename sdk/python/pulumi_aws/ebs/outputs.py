@@ -257,7 +257,6 @@ class GetEbsVolumesFilterResult(dict):
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
                For example, if matching against the `size` filter, use:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -270,7 +269,6 @@ class GetEbsVolumesFilterResult(dict):
                    ],
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
@@ -285,7 +283,6 @@ class GetEbsVolumesFilterResult(dict):
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
         For example, if matching against the `size` filter, use:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +295,6 @@ class GetEbsVolumesFilterResult(dict):
             ],
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

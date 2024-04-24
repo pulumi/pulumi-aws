@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,13 +40,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With a Lifecycle Pre-Condition
 //
 // This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +79,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetSupportedInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSupportedInstanceTypesResult

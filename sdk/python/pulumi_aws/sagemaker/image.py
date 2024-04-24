@@ -241,7 +241,6 @@ class Image(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +249,6 @@ class Image(pulumi.CustomResource):
             image_name="example",
             role_arn=test["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +279,6 @@ class Image(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,7 +287,6 @@ class Image(pulumi.CustomResource):
             image_name="example",
             role_arn=test["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

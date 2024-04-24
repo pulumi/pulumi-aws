@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class SelectionConditionStringNotLikeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key in a key-value pair.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value in a key-value pair.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

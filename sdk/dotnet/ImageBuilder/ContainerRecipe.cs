@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -118,7 +116,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> DockerfileTemplateUri { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        /// A flag that indicates if the target container is encrypted.
         /// </summary>
         [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
@@ -398,7 +396,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? DockerfileTemplateUri { get; set; }
 
         /// <summary>
-        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        /// A flag that indicates if the target container is encrypted.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }

@@ -17,47 +17,23 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
 
     public static final OntapVolumeSnaplockConfigurationRetentionPeriodArgs Empty = new OntapVolumeSnaplockConfigurationRetentionPeriodArgs();
 
-    /**
-     * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-     * 
-     */
     @Import(name="defaultRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs> defaultRetention;
 
-    /**
-     * @return The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-     * 
-     */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs>> defaultRetention() {
         return Optional.ofNullable(this.defaultRetention);
     }
 
-    /**
-     * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     @Import(name="maximumRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs> maximumRetention;
 
-    /**
-     * @return The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs>> maximumRetention() {
         return Optional.ofNullable(this.maximumRetention);
     }
 
-    /**
-     * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     @Import(name="minimumRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs> minimumRetention;
 
-    /**
-     * @return The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs>> minimumRetention() {
         return Optional.ofNullable(this.minimumRetention);
     }
@@ -88,65 +64,29 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
             $ = new OntapVolumeSnaplockConfigurationRetentionPeriodArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRetention(@Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs> defaultRetention) {
             $.defaultRetention = defaultRetention;
             return this;
         }
 
-        /**
-         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRetention(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs defaultRetention) {
             return defaultRetention(Output.of(defaultRetention));
         }
 
-        /**
-         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumRetention(@Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs> maximumRetention) {
             $.maximumRetention = maximumRetention;
             return this;
         }
 
-        /**
-         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumRetention(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs maximumRetention) {
             return maximumRetention(Output.of(maximumRetention));
         }
 
-        /**
-         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumRetention(@Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs> minimumRetention) {
             $.minimumRetention = minimumRetention;
             return this;
         }
 
-        /**
-         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumRetention(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs minimumRetention) {
             return minimumRetention(Output.of(minimumRetention));
         }

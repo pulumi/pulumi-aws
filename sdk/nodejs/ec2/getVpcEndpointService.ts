@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### AWS Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,11 +32,9 @@ import * as utilities from "../utilities";
  *     serviceName: s3.then(s3 => s3.serviceName),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Non-AWS Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,11 +43,9 @@ import * as utilities from "../utilities";
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +57,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
@@ -170,7 +164,6 @@ export interface GetVpcEndpointServiceResult {
  *
  * ### AWS Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -188,11 +181,9 @@ export interface GetVpcEndpointServiceResult {
  *     serviceName: s3.then(s3 => s3.serviceName),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Non-AWS Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -201,11 +192,9 @@ export interface GetVpcEndpointServiceResult {
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -217,7 +206,6 @@ export interface GetVpcEndpointServiceResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServiceResult> {
     return pulumi.output(args).apply((a: any) => getVpcEndpointService(a, opts))

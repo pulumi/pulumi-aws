@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### UI customization settings for a single client
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +36,9 @@ import * as utilities from "../utilities";
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### UI customization settings for all clients
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +57,6 @@ import * as utilities from "../utilities";
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -137,7 +137,6 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,9 +145,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,7 +154,6 @@ class RouteTableAssociation(pulumi.CustomResource):
             gateway_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +190,6 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,9 +198,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +207,6 @@ class RouteTableAssociation(pulumi.CustomResource):
             gateway_id=foo["id"],
             route_table_id=bar["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

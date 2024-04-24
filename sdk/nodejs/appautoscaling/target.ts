@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### DynamoDB Table Autoscaling
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### DynamoDB Index Autoscaling
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,11 +42,9 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### ECS Service Autoscaling
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,11 +57,9 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Aurora Read Replica Autoscaling
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,11 +72,9 @@ import * as utilities from "../utilities";
  *     maxCapacity: 15,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Suppressing `tagsAll` Differences For Older Resources
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,11 +87,9 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### MSK / Kafka Autoscaling
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,7 +102,6 @@ import * as utilities from "../utilities";
  *     maxCapacity: 8,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

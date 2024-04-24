@@ -148,7 +148,6 @@ def get_bot_alias(bot_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_bot_alias(bot_name: Optional[str] = None,
     order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
         name="OrderFlowersProd")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str bot_name: Name of the bot.
@@ -189,7 +187,6 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +194,6 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
     order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
         name="OrderFlowersProd")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str bot_name: Name of the bot.

@@ -106,7 +106,6 @@ class NetworkAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class NetworkAclAssociation(pulumi.CustomResource):
             network_acl_id=main_aws_network_acl["id"],
             subnet_id=main_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class NetworkAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +151,6 @@ class NetworkAclAssociation(pulumi.CustomResource):
             network_acl_id=main_aws_network_acl["id"],
             subnet_id=main_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

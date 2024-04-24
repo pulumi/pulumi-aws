@@ -20,7 +20,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,7 +128,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -150,9 +148,8 @@ type LanguageModel struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The model name.
-	ModelName pulumi.StringOutput `pulumi:"modelName"`
-	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	ModelName pulumi.StringOutput    `pulumi:"modelName"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -208,9 +205,8 @@ type languageModelState struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode *string `pulumi:"languageCode"`
 	// The model name.
-	ModelName *string `pulumi:"modelName"`
-	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ModelName *string           `pulumi:"modelName"`
+	Tags      map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -226,8 +222,7 @@ type LanguageModelState struct {
 	LanguageCode pulumi.StringPtrInput
 	// The model name.
 	ModelName pulumi.StringPtrInput
-	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
@@ -244,9 +239,8 @@ type languageModelArgs struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode string `pulumi:"languageCode"`
 	// The model name.
-	ModelName string `pulumi:"modelName"`
-	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ModelName string            `pulumi:"modelName"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LanguageModel resource.
@@ -259,8 +253,7 @@ type LanguageModelArgs struct {
 	LanguageCode pulumi.StringInput
 	// The model name.
 	ModelName pulumi.StringInput
-	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
 }
 
 func (LanguageModelArgs) ElementType() reflect.Type {
@@ -375,7 +368,6 @@ func (o LanguageModelOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LanguageModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

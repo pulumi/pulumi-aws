@@ -185,7 +185,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +230,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,7 +257,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,7 +302,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

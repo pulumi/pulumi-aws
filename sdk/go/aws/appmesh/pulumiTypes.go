@@ -2178,7 +2178,7 @@ type GatewayRouteSpecHttp2RouteMatch struct {
 	Path *GatewayRouteSpecHttp2RouteMatchPath `pulumi:"path"`
 	// The port number to match from the request.
 	Port *int `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 	Prefix *string `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters []GatewayRouteSpecHttp2RouteMatchQueryParameter `pulumi:"queryParameters"`
@@ -2204,7 +2204,7 @@ type GatewayRouteSpecHttp2RouteMatchArgs struct {
 	Path GatewayRouteSpecHttp2RouteMatchPathPtrInput `pulumi:"path"`
 	// The port number to match from the request.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters GatewayRouteSpecHttp2RouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
@@ -2307,7 +2307,7 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2383,7 +2383,7 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -3312,7 +3312,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterArrayOutput) Index(i pulumi
 }
 
 type GatewayRouteSpecHttp2RouteMatchQueryParameterMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact query parameter to match on.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -3328,7 +3328,7 @@ type GatewayRouteSpecHttp2RouteMatchQueryParameterMatchInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact query parameter to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -3409,7 +3409,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) ToGatewayRoute
 	}).(GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact query parameter to match on.
 func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -3438,7 +3438,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Elem() Gate
 	}).(GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact query parameter to match on.
 func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -4675,7 +4675,7 @@ type GatewayRouteSpecHttpRouteMatch struct {
 	Path *GatewayRouteSpecHttpRouteMatchPath `pulumi:"path"`
 	// The port number to match from the request.
 	Port *int `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 	Prefix *string `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters []GatewayRouteSpecHttpRouteMatchQueryParameter `pulumi:"queryParameters"`
@@ -4701,7 +4701,7 @@ type GatewayRouteSpecHttpRouteMatchArgs struct {
 	Path GatewayRouteSpecHttpRouteMatchPathPtrInput `pulumi:"path"`
 	// The port number to match from the request.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters GatewayRouteSpecHttpRouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
@@ -4804,7 +4804,7 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -4880,7 +4880,7 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -5809,7 +5809,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterArrayOutput) Index(i pulumi.
 }
 
 type GatewayRouteSpecHttpRouteMatchQueryParameterMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact query parameter to match on.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -5825,7 +5825,7 @@ type GatewayRouteSpecHttpRouteMatchQueryParameterMatchInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact query parameter to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -5906,7 +5906,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) ToGatewayRouteS
 	}).(GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact query parameter to match on.
 func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -5935,7 +5935,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Elem() Gatew
 	}).(GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact query parameter to match on.
 func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -6896,8 +6896,7 @@ type RouteSpecGrpcRouteMatch struct {
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName *string `pulumi:"methodName"`
 	// The port number to match from the request.
-	Port *int `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	Port   *int    `pulumi:"port"`
 	Prefix *string `pulumi:"prefix"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName *string `pulumi:"serviceName"`
@@ -6920,8 +6919,7 @@ type RouteSpecGrpcRouteMatchArgs struct {
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
 	// The port number to match from the request.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	Port   pulumi.IntPtrInput    `pulumi:"port"`
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
@@ -7019,7 +7017,6 @@ func (o RouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
 func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -7083,7 +7080,6 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
 func (o RouteSpecGrpcRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
 		if v == nil {
@@ -7219,15 +7215,15 @@ func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) Rou
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatch struct {
-	// The exact path to match on.
+	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact *string `pulumi:"exact"`
-	// Header value sent by the client must begin with the specified characters.
+	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	Prefix *string `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the header value sent by the client must be included in.
+	// Object that specifies the range of numbers that the value sent by the client must be included in.
 	Range *RouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"range"`
-	// The regex used to match the path.
+	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex *string `pulumi:"regex"`
-	// Header value sent by the client must end with the specified characters.
+	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -7243,15 +7239,15 @@ type RouteSpecGrpcRouteMatchMetadataMatchInput interface {
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatchArgs struct {
-	// The exact path to match on.
+	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Header value sent by the client must begin with the specified characters.
+	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the header value sent by the client must be included in.
+	// Object that specifies the range of numbers that the value sent by the client must be included in.
 	Range RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput `pulumi:"range"`
-	// The regex used to match the path.
+	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// Header value sent by the client must end with the specified characters.
+	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -7332,29 +7328,29 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMet
 	}).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
 
-// The exact path to match on.
+// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the header value sent by the client must be included in.
+// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
 		return v.Range
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must end with the specified characters.
+// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -7383,7 +7379,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Elem() RouteSpecGrpcRoute
 	}).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
 }
 
-// The exact path to match on.
+// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -7393,7 +7389,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -7403,7 +7399,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the header value sent by the client must be included in.
+// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
 		if v == nil {
@@ -7413,7 +7409,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRout
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -7423,7 +7419,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must end with the specified characters.
+// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -8439,7 +8435,7 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 type RouteSpecHttp2Route struct {
 	// Action to take if a match is determined.
 	Action RouteSpecHttp2RouteAction `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
+	// Criteria for determining an HTTP request match.
 	Match RouteSpecHttp2RouteMatch `pulumi:"match"`
 	// Retry policy.
 	RetryPolicy *RouteSpecHttp2RouteRetryPolicy `pulumi:"retryPolicy"`
@@ -8461,7 +8457,7 @@ type RouteSpecHttp2RouteInput interface {
 type RouteSpecHttp2RouteArgs struct {
 	// Action to take if a match is determined.
 	Action RouteSpecHttp2RouteActionInput `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
+	// Criteria for determining an HTTP request match.
 	Match RouteSpecHttp2RouteMatchInput `pulumi:"match"`
 	// Retry policy.
 	RetryPolicy RouteSpecHttp2RouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
@@ -8551,7 +8547,7 @@ func (o RouteSpecHttp2RouteOutput) Action() RouteSpecHttp2RouteActionOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteAction { return v.Action }).(RouteSpecHttp2RouteActionOutput)
 }
 
-// Criteria for determining an gRPC request match.
+// Criteria for determining an HTTP request match.
 func (o RouteSpecHttp2RouteOutput) Match() RouteSpecHttp2RouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteMatch { return v.Match }).(RouteSpecHttp2RouteMatchOutput)
 }
@@ -8600,7 +8596,7 @@ func (o RouteSpecHttp2RoutePtrOutput) Action() RouteSpecHttp2RouteActionPtrOutpu
 	}).(RouteSpecHttp2RouteActionPtrOutput)
 }
 
-// Criteria for determining an gRPC request match.
+// Criteria for determining an HTTP request match.
 func (o RouteSpecHttp2RoutePtrOutput) Match() RouteSpecHttp2RouteMatchPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteMatch {
 		if v == nil {
@@ -8895,7 +8891,8 @@ type RouteSpecHttp2RouteMatch struct {
 	Path *RouteSpecHttp2RouteMatchPath `pulumi:"path"`
 	// The port number to match from the request.
 	Port *int `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters []RouteSpecHttp2RouteMatchQueryParameter `pulumi:"queryParameters"`
@@ -8923,7 +8920,8 @@ type RouteSpecHttp2RouteMatchArgs struct {
 	Path RouteSpecHttp2RouteMatchPathPtrInput `pulumi:"path"`
 	// The port number to match from the request.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters RouteSpecHttp2RouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
@@ -9028,7 +9026,8 @@ func (o RouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -9107,7 +9106,8 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -9253,13 +9253,13 @@ func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Rout
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatch struct {
-	// The exact path to match on.
+	// Header value sent by the client must match the specified value exactly.
 	Exact *string `pulumi:"exact"`
 	// Header value sent by the client must begin with the specified characters.
 	Prefix *string `pulumi:"prefix"`
 	// Object that specifies the range of numbers that the header value sent by the client must be included in.
 	Range *RouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"range"`
-	// The regex used to match the path.
+	// Header value sent by the client must include the specified characters.
 	Regex *string `pulumi:"regex"`
 	// Header value sent by the client must end with the specified characters.
 	Suffix *string `pulumi:"suffix"`
@@ -9277,13 +9277,13 @@ type RouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	// The exact path to match on.
+	// Header value sent by the client must match the specified value exactly.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 	// Header value sent by the client must begin with the specified characters.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Object that specifies the range of numbers that the header value sent by the client must be included in.
 	Range RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// The regex used to match the path.
+	// Header value sent by the client must include the specified characters.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// Header value sent by the client must end with the specified characters.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
@@ -9366,7 +9366,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHea
 	}).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
 
-// The exact path to match on.
+// Header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -9381,7 +9381,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Range() RouteSpecHttp2RouteMa
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Header value sent by the client must include the specified characters.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -9415,7 +9415,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttp2Route
 	}).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
 }
 
-// The exact path to match on.
+// Header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -9445,7 +9445,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttp2Rout
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Header value sent by the client must include the specified characters.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -9622,9 +9622,9 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtr
 }
 
 type RouteSpecHttp2RouteMatchPath struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact path to match on.
 	Exact *string `pulumi:"exact"`
-	// Header value sent by the client must include the specified characters.
+	// The regex used to match the path.
 	Regex *string `pulumi:"regex"`
 }
 
@@ -9640,9 +9640,9 @@ type RouteSpecHttp2RouteMatchPathInput interface {
 }
 
 type RouteSpecHttp2RouteMatchPathArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact path to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Header value sent by the client must include the specified characters.
+	// The regex used to match the path.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
@@ -9723,12 +9723,12 @@ func (o RouteSpecHttp2RouteMatchPathOutput) ToRouteSpecHttp2RouteMatchPathPtrOut
 	}).(RouteSpecHttp2RouteMatchPathPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact path to match on.
 func (o RouteSpecHttp2RouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must include the specified characters.
+// The regex used to match the path.
 func (o RouteSpecHttp2RouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -9757,7 +9757,7 @@ func (o RouteSpecHttp2RouteMatchPathPtrOutput) Elem() RouteSpecHttp2RouteMatchPa
 	}).(RouteSpecHttp2RouteMatchPathOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact path to match on.
 func (o RouteSpecHttp2RouteMatchPathPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchPath) *string {
 		if v == nil {
@@ -9767,7 +9767,7 @@ func (o RouteSpecHttp2RouteMatchPathPtrOutput) Exact() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must include the specified characters.
+// The regex used to match the path.
 func (o RouteSpecHttp2RouteMatchPathPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchPath) *string {
 		if v == nil {
@@ -9778,9 +9778,9 @@ func (o RouteSpecHttp2RouteMatchPathPtrOutput) Regex() pulumi.StringPtrOutput {
 }
 
 type RouteSpecHttp2RouteMatchQueryParameter struct {
-	// Criteria for determining an gRPC request match.
+	// The query parameter to match on.
 	Match *RouteSpecHttp2RouteMatchQueryParameterMatch `pulumi:"match"`
-	// Name to use for the route. Must be between 1 and 255 characters in length.
+	// Name for the query parameter that will be matched on.
 	Name string `pulumi:"name"`
 }
 
@@ -9796,9 +9796,9 @@ type RouteSpecHttp2RouteMatchQueryParameterInput interface {
 }
 
 type RouteSpecHttp2RouteMatchQueryParameterArgs struct {
-	// Criteria for determining an gRPC request match.
+	// The query parameter to match on.
 	Match RouteSpecHttp2RouteMatchQueryParameterMatchPtrInput `pulumi:"match"`
-	// Name to use for the route. Must be between 1 and 255 characters in length.
+	// Name for the query parameter that will be matched on.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -9853,14 +9853,14 @@ func (o RouteSpecHttp2RouteMatchQueryParameterOutput) ToRouteSpecHttp2RouteMatch
 	return o
 }
 
-// Criteria for determining an gRPC request match.
+// The query parameter to match on.
 func (o RouteSpecHttp2RouteMatchQueryParameterOutput) Match() RouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchQueryParameter) *RouteSpecHttp2RouteMatchQueryParameterMatch {
 		return v.Match
 	}).(RouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Name to use for the route. Must be between 1 and 255 characters in length.
+// Name for the query parameter that will be matched on.
 func (o RouteSpecHttp2RouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9886,7 +9886,7 @@ func (o RouteSpecHttp2RouteMatchQueryParameterArrayOutput) Index(i pulumi.IntInp
 }
 
 type RouteSpecHttp2RouteMatchQueryParameterMatch struct {
-	// The exact path to match on.
+	// The exact query parameter to match on.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -9902,7 +9902,7 @@ type RouteSpecHttp2RouteMatchQueryParameterMatchInput interface {
 }
 
 type RouteSpecHttp2RouteMatchQueryParameterMatchArgs struct {
-	// The exact path to match on.
+	// The exact query parameter to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -9983,7 +9983,7 @@ func (o RouteSpecHttp2RouteMatchQueryParameterMatchOutput) ToRouteSpecHttp2Route
 	}).(RouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput)
 }
 
-// The exact path to match on.
+// The exact query parameter to match on.
 func (o RouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -10012,7 +10012,7 @@ func (o RouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Elem() RouteSpecHt
 	}).(RouteSpecHttp2RouteMatchQueryParameterMatchOutput)
 }
 
-// The exact path to match on.
+// The exact query parameter to match on.
 func (o RouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -10031,6 +10031,8 @@ type RouteSpecHttp2RouteRetryPolicy struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
 }
 
@@ -10054,6 +10056,8 @@ type RouteSpecHttp2RouteRetryPolicyArgs struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
 }
 
@@ -10153,6 +10157,8 @@ func (o RouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttp2Ro
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttp2RouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -10213,6 +10219,8 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttp
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
 		if v == nil {
@@ -11305,7 +11313,8 @@ type RouteSpecHttpRouteMatch struct {
 	Path *RouteSpecHttpRouteMatchPath `pulumi:"path"`
 	// The port number to match from the request.
 	Port *int `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters []RouteSpecHttpRouteMatchQueryParameter `pulumi:"queryParameters"`
@@ -11333,7 +11342,8 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Path RouteSpecHttpRouteMatchPathPtrInput `pulumi:"path"`
 	// The port number to match from the request.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Header value sent by the client must begin with the specified characters.
+	// Path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Client request query parameters to match on.
 	QueryParameters RouteSpecHttpRouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
@@ -11438,7 +11448,8 @@ func (o RouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -11517,7 +11528,8 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Header value sent by the client must begin with the specified characters.
+// Path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -11663,13 +11675,13 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Route
 }
 
 type RouteSpecHttpRouteMatchHeaderMatch struct {
-	// The exact path to match on.
+	// Header value sent by the client must match the specified value exactly.
 	Exact *string `pulumi:"exact"`
 	// Header value sent by the client must begin with the specified characters.
 	Prefix *string `pulumi:"prefix"`
 	// Object that specifies the range of numbers that the header value sent by the client must be included in.
 	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
-	// The regex used to match the path.
+	// Header value sent by the client must include the specified characters.
 	Regex *string `pulumi:"regex"`
 	// Header value sent by the client must end with the specified characters.
 	Suffix *string `pulumi:"suffix"`
@@ -11687,13 +11699,13 @@ type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	// The exact path to match on.
+	// Header value sent by the client must match the specified value exactly.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 	// Header value sent by the client must begin with the specified characters.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Object that specifies the range of numbers that the header value sent by the client must be included in.
 	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// The regex used to match the path.
+	// Header value sent by the client must include the specified characters.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// Header value sent by the client must end with the specified characters.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
@@ -11776,7 +11788,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// The exact path to match on.
+// Header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -11791,7 +11803,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatc
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Header value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -11825,7 +11837,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMa
 	}).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
-// The exact path to match on.
+// Header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -11855,7 +11867,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteM
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The regex used to match the path.
+// Header value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -12032,9 +12044,9 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrO
 }
 
 type RouteSpecHttpRouteMatchPath struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact path to match on.
 	Exact *string `pulumi:"exact"`
-	// Header value sent by the client must include the specified characters.
+	// The regex used to match the path.
 	Regex *string `pulumi:"regex"`
 }
 
@@ -12050,9 +12062,9 @@ type RouteSpecHttpRouteMatchPathInput interface {
 }
 
 type RouteSpecHttpRouteMatchPathArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// The exact path to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Header value sent by the client must include the specified characters.
+	// The regex used to match the path.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
@@ -12133,12 +12145,12 @@ func (o RouteSpecHttpRouteMatchPathOutput) ToRouteSpecHttpRouteMatchPathPtrOutpu
 	}).(RouteSpecHttpRouteMatchPathPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact path to match on.
 func (o RouteSpecHttpRouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must include the specified characters.
+// The regex used to match the path.
 func (o RouteSpecHttpRouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -12167,7 +12179,7 @@ func (o RouteSpecHttpRouteMatchPathPtrOutput) Elem() RouteSpecHttpRouteMatchPath
 	}).(RouteSpecHttpRouteMatchPathOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// The exact path to match on.
 func (o RouteSpecHttpRouteMatchPathPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchPath) *string {
 		if v == nil {
@@ -12177,7 +12189,7 @@ func (o RouteSpecHttpRouteMatchPathPtrOutput) Exact() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Header value sent by the client must include the specified characters.
+// The regex used to match the path.
 func (o RouteSpecHttpRouteMatchPathPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchPath) *string {
 		if v == nil {
@@ -12188,9 +12200,9 @@ func (o RouteSpecHttpRouteMatchPathPtrOutput) Regex() pulumi.StringPtrOutput {
 }
 
 type RouteSpecHttpRouteMatchQueryParameter struct {
-	// Criteria for determining an gRPC request match.
+	// The query parameter to match on.
 	Match *RouteSpecHttpRouteMatchQueryParameterMatch `pulumi:"match"`
-	// Name to use for the route. Must be between 1 and 255 characters in length.
+	// Name for the query parameter that will be matched on.
 	Name string `pulumi:"name"`
 }
 
@@ -12206,9 +12218,9 @@ type RouteSpecHttpRouteMatchQueryParameterInput interface {
 }
 
 type RouteSpecHttpRouteMatchQueryParameterArgs struct {
-	// Criteria for determining an gRPC request match.
+	// The query parameter to match on.
 	Match RouteSpecHttpRouteMatchQueryParameterMatchPtrInput `pulumi:"match"`
-	// Name to use for the route. Must be between 1 and 255 characters in length.
+	// Name for the query parameter that will be matched on.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -12263,14 +12275,14 @@ func (o RouteSpecHttpRouteMatchQueryParameterOutput) ToRouteSpecHttpRouteMatchQu
 	return o
 }
 
-// Criteria for determining an gRPC request match.
+// The query parameter to match on.
 func (o RouteSpecHttpRouteMatchQueryParameterOutput) Match() RouteSpecHttpRouteMatchQueryParameterMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchQueryParameter) *RouteSpecHttpRouteMatchQueryParameterMatch {
 		return v.Match
 	}).(RouteSpecHttpRouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Name to use for the route. Must be between 1 and 255 characters in length.
+// Name for the query parameter that will be matched on.
 func (o RouteSpecHttpRouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12296,7 +12308,7 @@ func (o RouteSpecHttpRouteMatchQueryParameterArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RouteSpecHttpRouteMatchQueryParameterMatch struct {
-	// The exact path to match on.
+	// The exact query parameter to match on.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -12312,7 +12324,7 @@ type RouteSpecHttpRouteMatchQueryParameterMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchQueryParameterMatchArgs struct {
-	// The exact path to match on.
+	// The exact query parameter to match on.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -12393,7 +12405,7 @@ func (o RouteSpecHttpRouteMatchQueryParameterMatchOutput) ToRouteSpecHttpRouteMa
 	}).(RouteSpecHttpRouteMatchQueryParameterMatchPtrOutput)
 }
 
-// The exact path to match on.
+// The exact query parameter to match on.
 func (o RouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -12422,7 +12434,7 @@ func (o RouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Elem() RouteSpecHtt
 	}).(RouteSpecHttpRouteMatchQueryParameterMatchOutput)
 }
 
-// The exact path to match on.
+// The exact query parameter to match on.
 func (o RouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -12441,6 +12453,8 @@ type RouteSpecHttpRouteRetryPolicy struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
 }
 
@@ -12464,6 +12478,8 @@ type RouteSpecHttpRouteRetryPolicyArgs struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
 }
 
@@ -12563,6 +12579,8 @@ func (o RouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttpRout
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttpRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -12623,6 +12641,8 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttpR
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
 		if v == nil {
@@ -13259,8 +13279,7 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 type RouteSpecTcpRoute struct {
 	// Action to take if a match is determined.
 	Action RouteSpecTcpRouteAction `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match *RouteSpecTcpRouteMatch `pulumi:"match"`
+	Match  *RouteSpecTcpRouteMatch `pulumi:"match"`
 	// Types of timeouts.
 	Timeout *RouteSpecTcpRouteTimeout `pulumi:"timeout"`
 }
@@ -13278,9 +13297,8 @@ type RouteSpecTcpRouteInput interface {
 
 type RouteSpecTcpRouteArgs struct {
 	// Action to take if a match is determined.
-	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match RouteSpecTcpRouteMatchPtrInput `pulumi:"match"`
+	Action RouteSpecTcpRouteActionInput   `pulumi:"action"`
+	Match  RouteSpecTcpRouteMatchPtrInput `pulumi:"match"`
 	// Types of timeouts.
 	Timeout RouteSpecTcpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
@@ -13367,7 +13385,6 @@ func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecTcpRouteOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteMatch { return v.Match }).(RouteSpecTcpRouteMatchPtrOutput)
 }
@@ -13411,7 +13428,6 @@ func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 	}).(RouteSpecTcpRouteActionPtrOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecTcpRoutePtrOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteMatch {
 		if v == nil {
@@ -13688,7 +13704,6 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RouteSpecTcpRouteMatch struct {
-	// The port number to match from the request.
 	Port *int `pulumi:"port"`
 }
 
@@ -13704,7 +13719,6 @@ type RouteSpecTcpRouteMatchInput interface {
 }
 
 type RouteSpecTcpRouteMatchArgs struct {
-	// The port number to match from the request.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -13785,7 +13799,6 @@ func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchPtrOutputWithConte
 	}).(RouteSpecTcpRouteMatchPtrOutput)
 }
 
-// The port number to match from the request.
 func (o RouteSpecTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -13814,7 +13827,6 @@ func (o RouteSpecTcpRouteMatchPtrOutput) Elem() RouteSpecTcpRouteMatchOutput {
 	}).(RouteSpecTcpRouteMatchOutput)
 }
 
-// The port number to match from the request.
 func (o RouteSpecTcpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRouteMatch) *int {
 		if v == nil {
@@ -16840,8 +16852,6 @@ type VirtualGatewaySpecListenerConnectionPoolHttp struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections int `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-	//
-	// The `http2` connection pool object supports the following:
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -16860,8 +16870,6 @@ type VirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-	//
-	// The `http2` connection pool object supports the following:
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -16948,8 +16956,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pul
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-//
-// The `http2` connection pool object supports the following:
 func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
@@ -16989,8 +16995,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxConnections() 
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-//
-// The `http2` connection pool object supports the following:
 func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -24410,8 +24414,6 @@ type VirtualNodeSpecListenerConnectionPoolHttp struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections int `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-	//
-	// The `http2` connection pool object supports the following:
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -24430,8 +24432,6 @@ type VirtualNodeSpecListenerConnectionPoolHttpArgs struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-	//
-	// The `http2` connection pool object supports the following:
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -24492,8 +24492,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-//
-// The `http2` connection pool object supports the following:
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }

@@ -70,7 +70,6 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -78,7 +77,6 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
     example = aws.connect.get_lambda_function_association(function_arn="arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
@@ -105,7 +103,6 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[s
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +110,6 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[s
     example = aws.connect.get_lambda_function_association(function_arn="arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class EventSourceMappingDestinationConfigOnFailureGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination resource.
-        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 

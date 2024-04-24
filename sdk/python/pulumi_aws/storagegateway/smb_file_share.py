@@ -936,7 +936,6 @@ class SmbFileShare(pulumi.CustomResource):
 
         > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `storagegateway.Gateway` resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -947,13 +946,11 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Guest Authentication
 
         > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `storagegateway.Gateway` resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -964,7 +961,6 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1017,7 +1013,6 @@ class SmbFileShare(pulumi.CustomResource):
 
         > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `storagegateway.Gateway` resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1028,13 +1023,11 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Guest Authentication
 
         > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `storagegateway.Gateway` resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1045,7 +1038,6 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -244,18 +244,12 @@ class LocationFsxOntapFileSystemProtocolNfs(dict):
 class LocationFsxOntapFileSystemProtocolNfsMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
-        """
-        :param str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-        """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
-        """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-        """
         return pulumi.get(self, "version")
 
 
@@ -332,18 +326,12 @@ class LocationFsxOntapFileSystemProtocolSmb(dict):
 class LocationFsxOntapFileSystemProtocolSmbMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
-        """
-        :param str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-        """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
-        """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-        """
         return pulumi.get(self, "version")
 
 

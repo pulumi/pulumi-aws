@@ -674,7 +674,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -685,7 +684,6 @@ class Cluster(pulumi.CustomResource):
             node_type="dax.r4.large",
             replication_factor=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -740,7 +738,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -751,7 +748,6 @@ class Cluster(pulumi.CustomResource):
             node_type="dax.r4.large",
             replication_factor=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

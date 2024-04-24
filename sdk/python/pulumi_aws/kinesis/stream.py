@@ -399,7 +399,6 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +418,6 @@ class Stream(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -457,7 +455,6 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -477,7 +474,6 @@ class Stream(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

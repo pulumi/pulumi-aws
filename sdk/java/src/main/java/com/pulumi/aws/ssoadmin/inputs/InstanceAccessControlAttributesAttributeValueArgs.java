@@ -15,17 +15,9 @@ public final class InstanceAccessControlAttributesAttributeValueArgs extends com
 
     public static final InstanceAccessControlAttributesAttributeValueArgs Empty = new InstanceAccessControlAttributesAttributeValueArgs();
 
-    /**
-     * The identity source to use when mapping a specified attribute to AWS SSO.
-     * 
-     */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
-    /**
-     * @return The identity source to use when mapping a specified attribute to AWS SSO.
-     * 
-     */
     public Output<List<String>> sources() {
         return this.sources;
     }
@@ -54,33 +46,15 @@ public final class InstanceAccessControlAttributesAttributeValueArgs extends com
             $ = new InstanceAccessControlAttributesAttributeValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sources The identity source to use when mapping a specified attribute to AWS SSO.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(Output<List<String>> sources) {
             $.sources = sources;
             return this;
         }
 
-        /**
-         * @param sources The identity source to use when mapping a specified attribute to AWS SSO.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(List<String> sources) {
             return sources(Output.of(sources));
         }
 
-        /**
-         * @param sources The identity source to use when mapping a specified attribute to AWS SSO.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(String... sources) {
             return sources(List.of(sources));
         }

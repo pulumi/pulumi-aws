@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     subnetId: _public.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
@@ -139,7 +135,6 @@ export interface GetNatGatewayResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -148,11 +143,9 @@ export interface GetNatGatewayResult {
  *     subnetId: _public.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -164,7 +157,6 @@ export interface GetNatGatewayResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))

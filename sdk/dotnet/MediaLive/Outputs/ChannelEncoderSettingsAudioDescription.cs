@@ -37,9 +37,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// Audio codec settings. See Audio Codec Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
-        /// <summary>
-        /// Selects a specific three-letter language code from within an audio source.
-        /// </summary>
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;
         /// <summary>
@@ -47,9 +44,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         public readonly string? StreamName;
 
         [OutputConstructor]

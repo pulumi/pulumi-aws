@@ -430,7 +430,6 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ### EC2 Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,11 +496,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Fargate Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -518,11 +515,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Setting Update Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,7 +540,6 @@ class ComputeEnvironment(pulumi.CustomResource):
             ),
             type="MANAGED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -586,7 +580,6 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ### EC2 Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -653,11 +646,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Fargate Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -674,11 +665,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Setting Update Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -701,7 +690,6 @@ class ComputeEnvironment(pulumi.CustomResource):
             ),
             type="MANAGED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

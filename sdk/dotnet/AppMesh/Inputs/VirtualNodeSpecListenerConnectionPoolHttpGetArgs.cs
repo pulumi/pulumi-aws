@@ -20,8 +20,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
         /// <summary>
         /// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-        /// 
-        /// The `http2` connection pool object supports the following:
         /// </summary>
         [Input("maxPendingRequests")]
         public Input<int>? MaxPendingRequests { get; set; }

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting all license grant ARNs granted to your account.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLicenseGrantsResult> InvokeAsync(GetLicenseGrantsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsArgs(), options.WithDefaults());
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting all license grant ARNs granted to your account.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,7 +83,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());

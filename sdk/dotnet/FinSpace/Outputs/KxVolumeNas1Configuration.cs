@@ -18,7 +18,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// The type of the network attached storage.
         /// </summary>
         public readonly string Type;
 

@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? AddColumnName { get; set; }
 
         /// <summary>
-        /// Custom S3 Bucket Object prefix for intermediate storage.
+        /// S3 object prefix.
         /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
         /// <summary>
-        /// Custom S3 Bucket name for intermediate storage.
+        /// S3 bucket name.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? EncodingType { get; set; }
 
         /// <summary>
-        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? IncludeOpForFullLoad { get; set; }
 
         /// <summary>
-        /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

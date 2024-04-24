@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class IdentityPoolRoleAttachmentRoleMappingMappingRule
     {
-        /// <summary>
-        /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        /// </summary>
         public readonly string Claim;
-        /// <summary>
-        /// The match condition that specifies how closely the claim value in the IdP token must match Value.
-        /// </summary>
         public readonly string MatchType;
-        /// <summary>
-        /// The role ARN.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// A brief string that the claim must match, for example, "paid" or "yes".
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

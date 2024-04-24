@@ -81,44 +81,36 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The quota settings of the usage plan.
+     * Quota of the usage plan.
      * 
      */
     @Import(name="quotaSettings")
     private @Nullable Output<UsagePlanQuotaSettingsArgs> quotaSettings;
 
     /**
-     * @return The quota settings of the usage plan.
+     * @return Quota of the usage plan.
      * 
      */
     public Optional<Output<UsagePlanQuotaSettingsArgs>> quotaSettings() {
         return Optional.ofNullable(this.quotaSettings);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan.
      * 
      */
     @Import(name="throttleSettings")
     private @Nullable Output<UsagePlanThrottleSettingsArgs> throttleSettings;
 
     /**
-     * @return The throttling limits of the usage plan.
+     * @return Throttling limits of the usage plan.
      * 
      */
     public Optional<Output<UsagePlanThrottleSettingsArgs>> throttleSettings() {
@@ -250,7 +242,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotaSettings The quota settings of the usage plan.
+         * @param quotaSettings Quota of the usage plan.
          * 
          * @return builder
          * 
@@ -261,7 +253,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotaSettings The quota settings of the usage plan.
+         * @param quotaSettings Quota of the usage plan.
          * 
          * @return builder
          * 
@@ -270,29 +262,17 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
             return quotaSettings(Output.of(quotaSettings));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param throttleSettings The throttling limits of the usage plan.
+         * @param throttleSettings Throttling limits of the usage plan.
          * 
          * @return builder
          * 
@@ -303,7 +283,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings The throttling limits of the usage plan.
+         * @param throttleSettings Throttling limits of the usage plan.
          * 
          * @return builder
          * 

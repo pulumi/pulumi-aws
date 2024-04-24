@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With File Format
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,11 +49,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Language Code
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,7 +67,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -118,9 +112,6 @@ export class Faq extends pulumi.CustomResource {
      * The Unix datetime that the FAQ was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * The description for a FAQ.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
@@ -130,17 +121,11 @@ export class Faq extends pulumi.CustomResource {
      * The identifier of the FAQ.
      */
     public /*out*/ readonly faqId!: pulumi.Output<string>;
-    /**
-     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index for a FAQ.
      */
     public readonly indexId!: pulumi.Output<string>;
-    /**
-     * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     */
     public readonly languageCode!: pulumi.Output<string>;
     /**
      * The name that should be associated with the FAQ.
@@ -152,17 +137,12 @@ export class Faq extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
-     *
-     * The `s3Path` configuration block supports the following arguments:
      */
     public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -247,9 +227,6 @@ export interface FaqState {
      * The Unix datetime that the FAQ was created.
      */
     createdAt?: pulumi.Input<string>;
-    /**
-     * The description for a FAQ.
-     */
     description?: pulumi.Input<string>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
@@ -259,17 +236,11 @@ export interface FaqState {
      * The identifier of the FAQ.
      */
     faqId?: pulumi.Input<string>;
-    /**
-     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     */
     fileFormat?: pulumi.Input<string>;
     /**
      * The identifier of the index for a FAQ.
      */
     indexId?: pulumi.Input<string>;
-    /**
-     * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     */
     languageCode?: pulumi.Input<string>;
     /**
      * The name that should be associated with the FAQ.
@@ -281,17 +252,12 @@ export interface FaqState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
-     *
-     * The `s3Path` configuration block supports the following arguments:
      */
     s3Path?: pulumi.Input<inputs.kendra.FaqS3Path>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -309,21 +275,12 @@ export interface FaqState {
  * The set of arguments for constructing a Faq resource.
  */
 export interface FaqArgs {
-    /**
-     * The description for a FAQ.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     */
     fileFormat?: pulumi.Input<string>;
     /**
      * The identifier of the index for a FAQ.
      */
     indexId: pulumi.Input<string>;
-    /**
-     * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     */
     languageCode?: pulumi.Input<string>;
     /**
      * The name that should be associated with the FAQ.
@@ -335,12 +292,7 @@ export interface FaqArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
-     *
-     * The `s3Path` configuration block supports the following arguments:
      */
     s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

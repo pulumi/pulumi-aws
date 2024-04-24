@@ -272,7 +272,6 @@ class Constraint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -287,7 +286,6 @@ class Constraint(pulumi.CustomResource):
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,7 +321,6 @@ class Constraint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -338,7 +335,6 @@ class Constraint(pulumi.CustomResource):
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

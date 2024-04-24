@@ -20,7 +20,7 @@ public final class InstanceRootBlockDevice {
      */
     private @Nullable Boolean deleteOnTermination;
     /**
-     * @return Name of the device to mount.
+     * @return Device name, e.g., `/dev/sdh` or `xvdh`.
      * 
      */
     private @Nullable String deviceName;
@@ -81,7 +81,7 @@ public final class InstanceRootBlockDevice {
         return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
-     * @return Name of the device to mount.
+     * @return Device name, e.g., `/dev/sdh` or `xvdh`.
      * 
      */
     public Optional<String> deviceName() {

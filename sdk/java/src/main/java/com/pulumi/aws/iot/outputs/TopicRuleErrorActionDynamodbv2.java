@@ -19,7 +19,7 @@ public final class TopicRuleErrorActionDynamodbv2 {
      */
     private @Nullable TopicRuleErrorActionDynamodbv2PutItem putItem;
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the IAM role that grants access to the DynamoDB table.
      * 
      */
     private String roleArn;
@@ -33,7 +33,7 @@ public final class TopicRuleErrorActionDynamodbv2 {
         return Optional.ofNullable(this.putItem);
     }
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the IAM role that grants access to the DynamoDB table.
      * 
      */
     public String roleArn() {

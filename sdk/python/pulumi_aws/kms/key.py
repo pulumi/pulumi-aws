@@ -528,7 +528,6 @@ class Key(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -537,7 +536,6 @@ class Key(pulumi.CustomResource):
             description="KMS key 1",
             deletion_window_in_days=10)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -586,7 +584,6 @@ class Key(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -595,7 +592,6 @@ class Key(pulumi.CustomResource):
             description="KMS key 1",
             deletion_window_in_days=10)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

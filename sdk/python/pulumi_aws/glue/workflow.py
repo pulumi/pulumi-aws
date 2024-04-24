@@ -243,7 +243,6 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,7 +269,6 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -301,7 +299,6 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +325,6 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

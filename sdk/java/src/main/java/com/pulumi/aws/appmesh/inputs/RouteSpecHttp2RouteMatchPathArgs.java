@@ -16,14 +16,14 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
     public static final RouteSpecHttp2RouteMatchPathArgs Empty = new RouteSpecHttp2RouteMatchPathArgs();
 
     /**
-     * Header value sent by the client must match the specified value exactly.
+     * The exact path to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return The exact path to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -31,14 +31,14 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
     }
 
     /**
-     * Header value sent by the client must include the specified characters.
+     * The regex used to match the path.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return The regex used to match the path.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -71,7 +71,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact The exact path to match on.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact The exact path to match on.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regex Header value sent by the client must include the specified characters.
+         * @param regex The regex used to match the path.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regex Header value sent by the client must include the specified characters.
+         * @param regex The regex used to match the path.
          * 
          * @return builder
          * 

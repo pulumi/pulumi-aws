@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     productId: "prod-yakog5pdriver",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
 
@@ -72,7 +70,6 @@ export interface GetLaunchPathsResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +78,6 @@ export interface GetLaunchPathsResult {
  *     productId: "prod-yakog5pdriver",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
     return pulumi.output(args).apply((a: any) => getLaunchPaths(a, opts))

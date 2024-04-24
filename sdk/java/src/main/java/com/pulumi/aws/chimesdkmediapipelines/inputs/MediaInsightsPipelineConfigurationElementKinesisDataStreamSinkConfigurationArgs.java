@@ -15,14 +15,14 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
     public static final MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs();
 
     /**
-     * SQS queue to deliver results.
+     * Kinesis Data Stream to deliver results.
      * 
      */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
     /**
-     * @return SQS queue to deliver results.
+     * @return Kinesis Data Stream to deliver results.
      * 
      */
     public Output<String> insightsTarget() {
@@ -54,7 +54,7 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget Kinesis Data Stream to deliver results.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget Kinesis Data Stream to deliver results.
          * 
          * @return builder
          * 

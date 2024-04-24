@@ -216,7 +216,6 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,7 +228,6 @@ class UsageLimit(pulumi.CustomResource):
             usage_type="serverless-compute",
             amount=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +256,6 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +268,6 @@ class UsageLimit(pulumi.CustomResource):
             usage_type="serverless-compute",
             amount=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

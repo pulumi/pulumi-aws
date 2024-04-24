@@ -17,17 +17,9 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
 
     public static final RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs Empty = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -72,23 +64,11 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
             $ = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

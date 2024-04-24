@@ -182,7 +182,6 @@ class Type(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,7 +200,6 @@ class Type(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,7 +226,6 @@ class Type(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +244,6 @@ class Type(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

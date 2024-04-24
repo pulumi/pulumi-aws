@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoData
     {
-        /// <summary>
-        /// Object path specified in the SAPOData flow destination.
-        /// </summary>
         public readonly string ObjectPath;
 
         [OutputConstructor]

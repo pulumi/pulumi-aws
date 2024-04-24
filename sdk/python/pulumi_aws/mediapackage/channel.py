@@ -196,7 +196,6 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +204,6 @@ class Channel(pulumi.CustomResource):
             channel_id="kitten-channel",
             description="A channel dedicated to amusing videos of kittens.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +238,6 @@ class Channel(pulumi.CustomResource):
             channel_id="kitten-channel",
             description="A channel dedicated to amusing videos of kittens.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

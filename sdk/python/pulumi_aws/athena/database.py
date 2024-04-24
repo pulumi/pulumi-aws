@@ -304,7 +304,6 @@ class Database(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +313,6 @@ class Database(pulumi.CustomResource):
             name="database_name",
             bucket=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,7 +345,6 @@ class Database(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +354,6 @@ class Database(pulumi.CustomResource):
             name="database_name",
             bucket=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

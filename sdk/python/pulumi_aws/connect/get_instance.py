@@ -213,25 +213,21 @@ def get_instance(instance_alias: Optional[str] = None,
 
     By instance_alias
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.connect.get_instance(instance_alias="foo")
     ```
-    <!--End PulumiCodeChooser -->
 
     By instance_id
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str instance_alias: Returns information on a specific connect instance by alias
@@ -272,25 +268,21 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
 
     By instance_alias
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.connect.get_instance(instance_alias="foo")
     ```
-    <!--End PulumiCodeChooser -->
 
     By instance_id
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str instance_alias: Returns information on a specific connect instance by alias

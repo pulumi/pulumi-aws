@@ -901,7 +901,6 @@ class BucketObject(pulumi.CustomResource):
 
         ### Uploading a file to a bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -913,11 +912,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("path/to/file"),
             etag=std.filemd5(input="path/to/file").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Encrypting with KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -935,11 +932,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Side Encryption with S3 Default Master Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,11 +949,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Side Encryption with AWS-Managed Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -973,11 +966,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Object Lock
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1003,7 +994,6 @@ class BucketObject(pulumi.CustomResource):
             force_destroy=True,
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1066,7 +1056,6 @@ class BucketObject(pulumi.CustomResource):
 
         ### Uploading a file to a bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1078,11 +1067,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("path/to/file"),
             etag=std.filemd5(input="path/to/file").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Encrypting with KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1100,11 +1087,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Side Encryption with S3 Default Master Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1119,11 +1104,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Side Encryption with AWS-Managed Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1138,11 +1121,9 @@ class BucketObject(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Object Lock
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1168,7 +1149,6 @@ class BucketObject(pulumi.CustomResource):
             force_destroy=True,
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,7 +19,6 @@ import (
 //
 // The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult

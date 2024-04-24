@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,11 +22,9 @@ import * as utilities from "../utilities";
  *     retentionPeriod: 14,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Encrypting the automated backup with KMS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +34,9 @@ import * as utilities from "../utilities";
  *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example including a RDS DB instance
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,7 +60,6 @@ import * as utilities from "../utilities";
  *     kmsKeyId: defaultKey.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ import (
 //
 // ### DynamoDB Table Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +65,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ECS Service Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,11 +116,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Preserve desired count when updating an autoscaled ECS Service
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,11 +145,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Aurora Read Replica Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -202,11 +195,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create target tracking scaling policy using metric math
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -297,11 +288,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### MSK / Kafka Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -345,7 +334,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

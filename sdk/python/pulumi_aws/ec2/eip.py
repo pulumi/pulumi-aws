@@ -580,7 +580,6 @@ class Eip(pulumi.CustomResource):
 
         ### Single EIP associated with an instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -589,11 +588,9 @@ class Eip(pulumi.CustomResource):
             instance=web["id"],
             domain="vpc")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple EIPs associated with a single network interface
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -613,11 +610,9 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,11 +637,9 @@ class Eip(pulumi.CustomResource):
             associate_with_private_ip="10.0.0.12",
             opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allocating EIP from the BYOIP pool
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -655,7 +648,6 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -702,7 +694,6 @@ class Eip(pulumi.CustomResource):
 
         ### Single EIP associated with an instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,11 +702,9 @@ class Eip(pulumi.CustomResource):
             instance=web["id"],
             domain="vpc")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple EIPs associated with a single network interface
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,11 +724,9 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -764,11 +751,9 @@ class Eip(pulumi.CustomResource):
             associate_with_private_ip="10.0.0.12",
             opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allocating EIP from the BYOIP pool
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,7 +762,6 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

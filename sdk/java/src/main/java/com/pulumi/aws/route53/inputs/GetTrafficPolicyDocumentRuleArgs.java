@@ -98,17 +98,9 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
         return Optional.ofNullable(this.primary);
     }
 
-    /**
-     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<GetTrafficPolicyDocumentRuleRegionArgs>> regions;
 
-    /**
-     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     public Optional<Output<List<GetTrafficPolicyDocumentRuleRegionArgs>>> regions() {
         return Optional.ofNullable(this.regions);
     }
@@ -309,33 +301,15 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
             return primary(Output.of(primary));
         }
 
-        /**
-         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<GetTrafficPolicyDocumentRuleRegionArgs>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<GetTrafficPolicyDocumentRuleRegionArgs> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(GetTrafficPolicyDocumentRuleRegionArgs... regions) {
             return regions(List.of(regions));
         }

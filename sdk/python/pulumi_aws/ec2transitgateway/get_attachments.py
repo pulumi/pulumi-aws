@@ -86,7 +86,6 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,7 +102,6 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
     ])
     unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -132,7 +130,6 @@ def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -149,7 +146,6 @@ def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ])
     unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

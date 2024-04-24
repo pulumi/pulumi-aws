@@ -144,7 +144,6 @@ def get_service(cluster_arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,7 +151,6 @@ def get_service(cluster_arn: Optional[str] = None,
     example = aws.ecs.get_service(service_name="example",
         cluster_arn=example_aws_ecs_cluster["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_arn: ARN of the ECS Cluster
@@ -189,7 +187,6 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +194,6 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     example = aws.ecs.get_service(service_name="example",
         cluster_arn=example_aws_ecs_cluster["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_arn: ARN of the ECS Cluster

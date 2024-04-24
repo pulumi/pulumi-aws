@@ -18,7 +18,6 @@ import (
 //
 // ### Fixed response action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Forward action
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,11 +111,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Forward action with weighted target groups
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,7 +185,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

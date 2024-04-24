@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
         [Input("fallbackBehavior", required: true)]
         public Input<string> FallbackBehavior { get; set; } = null!;

@@ -25,14 +25,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectorState Empty = new ConnectorState();
 
     /**
-     * The Amazon Resource Name (ARN) of the custom plugin.
+     * The Amazon Resource Name (ARN) of the connector.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom plugin.
+     * @return The Amazon Resource Name (ARN) of the connector.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -272,7 +272,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom plugin.
+         * @param arn The Amazon Resource Name (ARN) of the connector.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom plugin.
+         * @param arn The Amazon Resource Name (ARN) of the connector.
          * 
          * @return builder
          * 

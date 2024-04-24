@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Signer.Inputs
 
     public sealed class SigningJobDestinationS3Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the S3 bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

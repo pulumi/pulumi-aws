@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sets the MaxCLL value for HDR10.
-        /// </summary>
         [Input("maxCll")]
         public Input<int>? MaxCll { get; set; }
 
-        /// <summary>
-        /// Sets the MaxFALL value for HDR10.
-        /// </summary>
         [Input("maxFall")]
         public Input<int>? MaxFall { get; set; }
 

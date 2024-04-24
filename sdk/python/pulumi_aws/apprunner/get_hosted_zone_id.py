@@ -61,7 +61,6 @@ def get_hosted_zone_id(region: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -77,7 +76,6 @@ def get_hosted_zone_id(region: Optional[str] = None,
             evaluate_target_health=True,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS App Runner service HostedZoneId is desired.
@@ -102,7 +100,6 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +115,6 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
             evaluate_target_health=True,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS App Runner service HostedZoneId is desired.

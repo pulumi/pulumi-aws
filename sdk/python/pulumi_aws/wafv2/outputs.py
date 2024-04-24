@@ -1202,7 +1202,6 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
                  value: str):
         """
         :param str name: A friendly name of the rule group.
-        :param str value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1218,9 +1217,6 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the custom header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1330,7 +1326,6 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
                  value: str):
         """
         :param str name: A friendly name of the rule group.
-        :param str value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1346,9 +1341,6 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the custom header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1430,7 +1422,6 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
                  value: str):
         """
         :param str name: A friendly name of the rule group.
-        :param str value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1446,9 +1437,6 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the custom header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1530,7 +1518,6 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
                  value: str):
         """
         :param str name: A friendly name of the rule group.
-        :param str value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1546,9 +1533,6 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the custom header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1630,7 +1614,6 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
                  value: str):
         """
         :param str name: A friendly name of the rule group.
-        :param str value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1646,9 +1629,6 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the custom header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -2248,18 +2228,12 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody(dict):
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -2349,9 +2323,6 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
                  all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -2362,9 +2333,6 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -2569,17 +2537,11 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -2681,9 +2643,6 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -2692,9 +2651,6 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -3214,8 +3170,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs' ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
@@ -3296,7 +3252,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString']:
         """
-        Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         """
         return pulumi.get(self, "query_string")
 
@@ -3304,7 +3260,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath']:
         """
-        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         return pulumi.get(self, "uri_path")
 
@@ -3333,9 +3289,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3352,9 +3306,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3418,9 +3370,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3437,9 +3387,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3527,9 +3475,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3546,9 +3492,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3604,9 +3548,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation']):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
 
@@ -3614,9 +3556,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3672,9 +3612,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation']):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
 
@@ -3682,9 +3620,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3820,20 +3756,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
                  size_constraint_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement'] = None,
                  sqli_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
-        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -3862,97 +3784,61 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement']:
-        """
-        A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        """
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement']:
-        """
-        A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        """
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement']:
-        """
-        A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        """
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement']:
-        """
-        A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement']:
-        """
-        A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        """
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement']:
-        """
-        A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        """
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement']:
-        """
-        A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        """
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement']:
-        """
-        A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        """
         return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement']:
-        """
-        A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement']:
-        """
-        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        """
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement']:
-        """
-        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        """
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement']:
-        """
-        A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
-        """
         return pulumi.get(self, "xss_match_statement")
 
 
@@ -4258,18 +4144,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -4359,9 +4239,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -4372,9 +4249,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -4579,17 +4453,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -4691,9 +4559,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -4702,9 +4567,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -5341,18 +5203,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -5442,9 +5298,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -5455,9 +5308,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -5662,17 +5512,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -5774,9 +5618,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -5785,9 +5626,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -6154,18 +5992,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -6255,9 +6087,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -6268,9 +6097,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -6475,17 +6301,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -6587,9 +6407,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -6598,9 +6415,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -6980,18 +6794,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -7081,9 +6889,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -7094,9 +6899,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -7301,17 +7103,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -7413,9 +7209,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -7424,9 +7217,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -7782,18 +7572,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -7883,9 +7667,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -7896,9 +7677,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -8103,17 +7881,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -8215,9 +7987,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -8226,9 +7995,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -8584,18 +8350,12 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -8685,9 +8445,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -8698,9 +8455,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -8905,17 +8659,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -9017,9 +8765,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -9028,9 +8773,6 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -9399,18 +9141,12 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody(dict):
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -9500,9 +9236,6 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
                  all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -9513,9 +9246,6 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -9720,17 +9450,11 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -9832,9 +9556,6 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -9843,9 +9564,6 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -10212,18 +9930,12 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(di
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -10313,9 +10025,6 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -10326,9 +10035,6 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -10533,17 +10239,11 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fing
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -10645,9 +10345,6 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -10656,9 +10353,6 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -11038,18 +10732,12 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -11139,9 +10827,6 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
                  all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -11152,9 +10837,6 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -11359,17 +11041,11 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(di
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -11471,9 +11147,6 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -11482,9 +11155,6 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -11840,18 +11510,12 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody(dict):
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -11941,9 +11605,6 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
                  all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -11954,9 +11615,6 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -12161,17 +11819,11 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -12273,9 +11925,6 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -12284,9 +11933,6 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -12642,18 +12288,12 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchBody(dict):
 
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
-        """
-        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
-        """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-        """
         return pulumi.get(self, "oversize_handling")
 
 
@@ -12743,9 +12383,6 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
                  all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -12756,9 +12393,6 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -12963,17 +12597,11 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
-        """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -13075,9 +12703,6 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
     def __init__(__self__, *,
                  all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -13086,9 +12711,6 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -15644,9 +15266,6 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
                  all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -15657,9 +15276,6 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -15865,7 +15481,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -15873,7 +15489,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -15976,9 +15592,6 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -15987,9 +15600,6 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -17018,9 +16628,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  identifier: str,
                  success_values: Sequence[str]):
         """
-        :param Sequence[str] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
         :param str identifier: The identifier for the value to match against in the JSON.
-        :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
         pulumi.set(__self__, "failure_values", failure_values)
         pulumi.set(__self__, "identifier", identifier)
@@ -17029,9 +16637,6 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="failureValues")
     def failure_values(self) -> Sequence[str]:
-        """
-        Values in the response header with the specified name that indicate a failed login attempt.
-        """
         return pulumi.get(self, "failure_values")
 
     @property
@@ -17045,9 +16650,6 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="successValues")
     def success_values(self) -> Sequence[str]:
-        """
-        Values in the response header with the specified name that indicate a successful login attempt.
-        """
         return pulumi.get(self, "success_values")
 
 
@@ -17480,9 +17082,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  identifier: str,
                  success_values: Sequence[str]):
         """
-        :param Sequence[str] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
         :param str identifier: The identifier for the value to match against in the JSON.
-        :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
         pulumi.set(__self__, "failure_values", failure_values)
         pulumi.set(__self__, "identifier", identifier)
@@ -17491,9 +17091,6 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="failureValues")
     def failure_values(self) -> Sequence[str]:
-        """
-        Values in the response header with the specified name that indicate a failed login attempt.
-        """
         return pulumi.get(self, "failure_values")
 
     @property
@@ -17507,9 +17104,6 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="successValues")
     def success_values(self) -> Sequence[str]:
-        """
-        Values in the response header with the specified name that indicate a successful login attempt.
-        """
         return pulumi.get(self, "success_values")
 
 
@@ -17686,13 +17280,6 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
                  captcha: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha'] = None,
                  challenge: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount'] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-        """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
@@ -17707,41 +17294,26 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow']:
-        """
-        Instructs AWS WAF to allow the web request. See `allow` below for details.
-        """
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
     def block(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock']:
-        """
-        Instructs AWS WAF to block the web request. See `block` below for details.
-        """
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
     def captcha(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha']:
-        """
-        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        """
         return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
     def challenge(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge']:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @property
     @pulumi.getter
     def count(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount']:
-        """
-        Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-        """
         return pulumi.get(self, "count")
 
 
@@ -18327,20 +17899,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
                  size_constraint_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement'] = None,
                  sqli_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement'] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -18369,97 +17927,61 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement']:
-        """
-        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        """
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement']:
-        """
-        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        """
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement']:
-        """
-        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        """
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement']:
-        """
-        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement']:
-        """
-        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        """
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement']:
-        """
-        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        """
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement']:
-        """
-        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        """
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement']:
-        """
-        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        """
         return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement']:
-        """
-        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement']:
-        """
-        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        """
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement']:
-        """
-        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        """
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement']:
-        """
-        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-        """
         return pulumi.get(self, "xss_match_statement")
 
 
@@ -18866,9 +18388,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -18879,9 +18398,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -19087,7 +18603,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -19095,7 +18611,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -19198,9 +18714,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -19209,9 +18722,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -19949,9 +19459,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -19962,9 +19469,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -20170,7 +19674,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -20178,7 +19682,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -20281,9 +19785,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -20292,9 +19793,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -20762,9 +20260,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -20775,9 +20270,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -20983,7 +20475,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -20991,7 +20483,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -21094,9 +20586,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -21105,9 +20594,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -21588,9 +21074,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -21601,9 +21084,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -21809,7 +21289,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -21817,7 +21297,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -21920,9 +21400,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -21931,9 +21408,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -22390,9 +21864,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -22403,9 +21874,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -22611,7 +22079,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -22619,7 +22087,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -22722,9 +22190,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -22733,9 +22198,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -23192,9 +22654,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -23205,9 +22664,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -23413,7 +22869,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -23421,7 +22877,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -23524,9 +22980,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -23535,9 +22988,6 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -24411,20 +23861,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
                  size_constraint_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement'] = None,
                  sqli_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -24453,97 +23889,61 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement']:
-        """
-        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        """
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement']:
-        """
-        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        """
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement']:
-        """
-        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        """
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement']:
-        """
-        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement']:
-        """
-        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        """
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement']:
-        """
-        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        """
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement']:
-        """
-        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        """
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement']:
-        """
-        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        """
         return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement']:
-        """
-        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement']:
-        """
-        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        """
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement']:
-        """
-        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        """
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement']:
-        """
-        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-        """
         return pulumi.get(self, "xss_match_statement")
 
 
@@ -24950,9 +24350,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -24963,9 +24360,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -25171,7 +24565,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -25179,7 +24573,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -25282,9 +24676,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -25293,9 +24684,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -26033,9 +25421,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -26046,9 +25431,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -26254,7 +25636,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -26262,7 +25644,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -26365,9 +25747,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -26376,9 +25755,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -26846,9 +26222,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -26859,9 +26232,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -27067,7 +26437,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -27075,7 +26445,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -27178,9 +26548,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -27189,9 +26556,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -27672,9 +27036,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -27685,9 +27046,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -27893,7 +27251,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -27901,7 +27259,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -28004,9 +27362,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -28015,9 +27370,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -28474,9 +27826,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -28487,9 +27836,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -28695,7 +28041,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -28703,7 +28049,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -28806,9 +28152,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -28817,9 +28160,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -29276,9 +28616,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -29289,9 +28626,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -29497,7 +28831,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -29505,7 +28839,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -29608,9 +28942,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -29619,9 +28950,6 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -30091,9 +29419,6 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
                  all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -30104,9 +29429,6 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -30312,7 +29634,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -30320,7 +29642,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -30423,9 +29745,6 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -30434,9 +29753,6 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -30904,9 +30220,6 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
                  all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -30917,9 +30230,6 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -31125,7 +30435,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerp
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -31133,7 +30443,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerp
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -31236,9 +30546,6 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -31247,9 +30554,6 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -31448,13 +30752,6 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  captcha: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha'] = None,
                  challenge: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount'] = None):
-        """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-        """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
@@ -31469,41 +30766,26 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow']:
-        """
-        Instructs AWS WAF to allow the web request. See `allow` below for details.
-        """
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
     def block(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock']:
-        """
-        Instructs AWS WAF to block the web request. See `block` below for details.
-        """
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
     def captcha(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha']:
-        """
-        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        """
         return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
     def challenge(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge']:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @property
     @pulumi.getter
     def count(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount']:
-        """
-        Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-        """
         return pulumi.get(self, "count")
 
 
@@ -32418,9 +31700,6 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
                  all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -32431,9 +31710,6 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -32639,7 +31915,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict)
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -32647,7 +31923,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict)
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -32750,9 +32026,6 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -32761,9 +32034,6 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -33220,9 +32490,6 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
                  all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -33233,9 +32500,6 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -33441,7 +32705,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -33449,7 +32713,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -33552,9 +32816,6 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -33563,9 +32824,6 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -34022,9 +33280,6 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
                  all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -34035,9 +33290,6 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property
@@ -34243,7 +33495,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -34251,7 +33503,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -34354,9 +33606,6 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
     def __init__(__self__, *,
                  all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
-        """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -34365,9 +33614,6 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
     @property
     @pulumi.getter
     def all(self) -> Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
-        """
-        An empty configuration block that is used for inspecting all headers.
-        """
         return pulumi.get(self, "all")
 
     @property

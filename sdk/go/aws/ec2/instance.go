@@ -17,7 +17,6 @@ import (
 //
 // ### Basic example using AMI lookup
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,11 +67,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Spot instance example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,11 +125,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Network and credit specification example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,11 +193,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CPU options example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -272,7 +265,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Host resource group or Licence Manager registered AMI example
 //
@@ -280,7 +272,6 @@ import (
 //
 // > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -307,7 +298,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Tag Guide
 //

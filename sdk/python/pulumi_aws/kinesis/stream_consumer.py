@@ -139,7 +139,6 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +150,6 @@ class StreamConsumer(pulumi.CustomResource):
             name="example-consumer",
             stream_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -181,7 +179,6 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +190,6 @@ class StreamConsumer(pulumi.CustomResource):
             name="example-consumer",
             stream_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +74,6 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -138,9 +136,6 @@ namespace Pulumi.Aws.Lex
         [Output("parentSlotTypeSignature")]
         public Output<string?> ParentSlotTypeSignature { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-        /// </summary>
         [Output("slotTypeId")]
         public Output<string> SlotTypeId { get; private set; } = null!;
 
@@ -328,9 +323,6 @@ namespace Pulumi.Aws.Lex
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
-        /// <summary>
-        /// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-        /// </summary>
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 

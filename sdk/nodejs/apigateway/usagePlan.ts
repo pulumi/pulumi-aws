@@ -67,12 +67,9 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly productCode!: pulumi.Output<string | undefined>;
     /**
-     * The quota settings of the usage plan.
+     * Quota of the usage plan.
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -81,7 +78,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan.
      */
     public readonly throttleSettings!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
@@ -149,12 +146,9 @@ export interface UsagePlanState {
      */
     productCode?: pulumi.Input<string>;
     /**
-     * The quota settings of the usage plan.
+     * Quota of the usage plan.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,7 +157,7 @@ export interface UsagePlanState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }
@@ -189,15 +183,12 @@ export interface UsagePlanArgs {
      */
     productCode?: pulumi.Input<string>;
     /**
-     * The quota settings of the usage plan.
+     * Quota of the usage plan.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }

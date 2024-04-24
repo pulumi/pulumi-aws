@@ -409,7 +409,6 @@ class Workflow(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,7 +445,6 @@ class Workflow(pulumi.CustomResource):
               value: "$.parameters.waitForActionAtEnd"
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -484,7 +482,6 @@ class Workflow(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,7 +518,6 @@ class Workflow(pulumi.CustomResource):
               value: "$.parameters.waitForActionAtEnd"
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

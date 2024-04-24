@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

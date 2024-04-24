@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Filters
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,11 +115,9 @@ import * as utilities from "../utilities";
  *     policy: firehoseToS3.apply(firehoseToS3 => firehoseToS3.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Additional Statistics
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,7 +148,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

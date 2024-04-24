@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a firewall rule group association from its id.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverFirewallRuleGroupAssociationResult> InvokeAsync(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a firewall rule group association from its id.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverFirewallRuleGroupAssociationResult> Invoke(GetResolverFirewallRuleGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());

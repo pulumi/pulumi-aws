@@ -172,7 +172,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,11 +195,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             enabled=True,
             continuous_deployment_policy_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Single Weight Config with Session Stickiness
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,11 +219,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Single Header Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +240,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -274,7 +268,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,11 +291,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             enabled=True,
             continuous_deployment_policy_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Single Weight Config with Session Stickiness
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,11 +315,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Single Header Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +336,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

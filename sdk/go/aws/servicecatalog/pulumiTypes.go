@@ -248,9 +248,9 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrO
 type ProvisionedProductOutputType struct {
 	// The description of the output.
 	Description *string `pulumi:"description"`
-	// Parameter key.
+	// The output key.
 	Key *string `pulumi:"key"`
-	// Parameter value.
+	// The output value.
 	Value *string `pulumi:"value"`
 }
 
@@ -268,9 +268,9 @@ type ProvisionedProductOutputTypeInput interface {
 type ProvisionedProductOutputTypeArgs struct {
 	// The description of the output.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameter key.
+	// The output key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Parameter value.
+	// The output value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -330,12 +330,12 @@ func (o ProvisionedProductOutputTypeOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Parameter key.
+// The output key.
 func (o ProvisionedProductOutputTypeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Parameter value.
+// The output value.
 func (o ProvisionedProductOutputTypeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

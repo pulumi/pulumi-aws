@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +20,11 @@ import * as utilities from "../utilities";
  *     name: "example-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS-Managed Policies
  *
  * AWS managed origin request policy names are prefixed with `Managed-`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +33,6 @@ import * as utilities from "../utilities";
  *     name: "Managed-UserAgentRefererHeaders",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
     args = args || {};
@@ -94,7 +90,6 @@ export interface GetOriginRequestPolicyResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,13 +98,11 @@ export interface GetOriginRequestPolicyResult {
  *     name: "example-policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS-Managed Policies
  *
  * AWS managed origin request policy names are prefixed with `Managed-`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -118,7 +111,6 @@ export interface GetOriginRequestPolicyResult {
  *     name: "Managed-UserAgentRefererHeaders",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
     return pulumi.output(args).apply((a: any) => getOriginRequestPolicy(a, opts))

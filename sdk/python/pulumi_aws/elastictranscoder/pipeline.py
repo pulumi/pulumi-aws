@@ -412,7 +412,6 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,7 +429,6 @@ class Pipeline(pulumi.CustomResource):
                 storage_class="Standard",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -471,7 +469,6 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,7 +486,6 @@ class Pipeline(pulumi.CustomResource):
                 storage_class="Standard",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

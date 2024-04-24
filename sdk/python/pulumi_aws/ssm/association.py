@@ -589,7 +589,6 @@ class Association(pulumi.CustomResource):
 
         ### Create an association for a specific instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,13 +600,11 @@ class Association(pulumi.CustomResource):
                 values=[example_aws_instance["id"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association for all managed instances in an AWS account
 
         To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -619,13 +616,11 @@ class Association(pulumi.CustomResource):
                 values=["*"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association for a specific tag
 
         This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -637,13 +632,11 @@ class Association(pulumi.CustomResource):
                 values=["Development"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association with a specific schedule
 
         This example shows how to schedule an association in various ways.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -656,7 +649,6 @@ class Association(pulumi.CustomResource):
                 values=[example_aws_instance["id"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -699,7 +691,6 @@ class Association(pulumi.CustomResource):
 
         ### Create an association for a specific instance
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,13 +702,11 @@ class Association(pulumi.CustomResource):
                 values=[example_aws_instance["id"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association for all managed instances in an AWS account
 
         To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -729,13 +718,11 @@ class Association(pulumi.CustomResource):
                 values=["*"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association for a specific tag
 
         This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -747,13 +734,11 @@ class Association(pulumi.CustomResource):
                 values=["Development"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an association with a specific schedule
 
         This example shows how to schedule an association in various ways.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -766,7 +751,6 @@ class Association(pulumi.CustomResource):
                 values=[example_aws_instance["id"]],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

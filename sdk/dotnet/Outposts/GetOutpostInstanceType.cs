@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOutpostInstanceTypeResult> InvokeAsync(GetOutpostInstanceTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOutpostInstanceTypeResult> Invoke(GetOutpostInstanceTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeInvokeArgs(), options.WithDefaults());

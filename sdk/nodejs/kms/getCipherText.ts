@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
 
@@ -84,7 +82,6 @@ export interface GetCipherTextResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,7 +99,6 @@ export interface GetCipherTextResult {
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCipherTextResult> {
     return pulumi.output(args).apply((a: any) => getCipherText(a, opts))

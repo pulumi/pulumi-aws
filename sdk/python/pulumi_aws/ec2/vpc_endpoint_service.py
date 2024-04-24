@@ -429,7 +429,6 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ### Network Load Balancers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,11 +437,9 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,7 +448,6 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -491,7 +487,6 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ### Network Load Balancers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,11 +495,9 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,7 +506,6 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

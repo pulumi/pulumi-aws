@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Response
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,11 +77,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Response with Custom Header and Model
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -175,7 +172,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

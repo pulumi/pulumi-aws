@@ -167,7 +167,6 @@ class DomainName(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +175,6 @@ class DomainName(pulumi.CustomResource):
             domain_name="api.example.com",
             certificate_arn=example_aws_acm_certificate["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -203,7 +201,6 @@ class DomainName(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +209,6 @@ class DomainName(pulumi.CustomResource):
             domain_name="api.example.com",
             certificate_arn=example_aws_acm_certificate["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

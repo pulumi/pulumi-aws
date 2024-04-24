@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserPoolSigningCertificateResult> InvokeAsync(GetUserPoolSigningCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolSigningCertificateResult>("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args ?? new GetUserPoolSigningCertificateArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserPoolSigningCertificateResult> Invoke(GetUserPoolSigningCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolSigningCertificateResult>("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args ?? new GetUserPoolSigningCertificateInvokeArgs(), options.WithDefaults());

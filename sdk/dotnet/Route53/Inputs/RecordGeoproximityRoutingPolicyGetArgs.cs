@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordGeoproximityRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A AWS region where the resource is present.
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        /// </summary>
         [Input("bias")]
         public Input<int>? Bias { get; set; }
 
         [Input("coordinates")]
         private InputList<Inputs.RecordGeoproximityRoutingPolicyCoordinateGetArgs>? _coordinates;
-
-        /// <summary>
-        /// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        /// </summary>
         public InputList<Inputs.RecordGeoproximityRoutingPolicyCoordinateGetArgs> Coordinates
         {
             get => _coordinates ?? (_coordinates = new InputList<Inputs.RecordGeoproximityRoutingPolicyCoordinateGetArgs>());
             set => _coordinates = value;
         }
 
-        /// <summary>
-        /// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        /// </summary>
         [Input("localZoneGroup")]
         public Input<string>? LocalZoneGroup { get; set; }
 

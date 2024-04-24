@@ -105,18 +105,15 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,7 +137,6 @@ class EncryptionConfig(pulumi.CustomResource):
             type="KMS",
             key_id=example_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,18 +164,15 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With KMS Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +196,6 @@ class EncryptionConfig(pulumi.CustomResource):
             type="KMS",
             key_id=example_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

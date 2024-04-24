@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKeyPairResult> InvokeAsync(GetKeyPairArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
@@ -64,7 +62,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,7 +95,6 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());

@@ -16,92 +16,44 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
 
     public static final GroupMixedInstancesPolicyInstancesDistributionArgs Empty = new GroupMixedInstancesPolicyInstancesDistributionArgs();
 
-    /**
-     * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-     * 
-     */
     @Import(name="onDemandAllocationStrategy")
     private @Nullable Output<String> onDemandAllocationStrategy;
 
-    /**
-     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-     * 
-     */
     public Optional<Output<String>> onDemandAllocationStrategy() {
         return Optional.ofNullable(this.onDemandAllocationStrategy);
     }
 
-    /**
-     * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-     * 
-     */
     @Import(name="onDemandBaseCapacity")
     private @Nullable Output<Integer> onDemandBaseCapacity;
 
-    /**
-     * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-     * 
-     */
     public Optional<Output<Integer>> onDemandBaseCapacity() {
         return Optional.ofNullable(this.onDemandBaseCapacity);
     }
 
-    /**
-     * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-     * 
-     */
     @Import(name="onDemandPercentageAboveBaseCapacity")
     private @Nullable Output<Integer> onDemandPercentageAboveBaseCapacity;
 
-    /**
-     * @return Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-     * 
-     */
     public Optional<Output<Integer>> onDemandPercentageAboveBaseCapacity() {
         return Optional.ofNullable(this.onDemandPercentageAboveBaseCapacity);
     }
 
-    /**
-     * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-     * 
-     */
     @Import(name="spotAllocationStrategy")
     private @Nullable Output<String> spotAllocationStrategy;
 
-    /**
-     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-     * 
-     */
     public Optional<Output<String>> spotAllocationStrategy() {
         return Optional.ofNullable(this.spotAllocationStrategy);
     }
 
-    /**
-     * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-     * 
-     */
     @Import(name="spotInstancePools")
     private @Nullable Output<Integer> spotInstancePools;
 
-    /**
-     * @return Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-     * 
-     */
     public Optional<Output<Integer>> spotInstancePools() {
         return Optional.ofNullable(this.spotInstancePools);
     }
 
-    /**
-     * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-     * 
-     */
     @Import(name="spotMaxPrice")
     private @Nullable Output<String> spotMaxPrice;
 
-    /**
-     * @return Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-     * 
-     */
     public Optional<Output<String>> spotMaxPrice() {
         return Optional.ofNullable(this.spotMaxPrice);
     }
@@ -135,128 +87,56 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
             $ = new GroupMixedInstancesPolicyInstancesDistributionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandAllocationStrategy(@Nullable Output<String> onDemandAllocationStrategy) {
             $.onDemandAllocationStrategy = onDemandAllocationStrategy;
             return this;
         }
 
-        /**
-         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandAllocationStrategy(String onDemandAllocationStrategy) {
             return onDemandAllocationStrategy(Output.of(onDemandAllocationStrategy));
         }
 
-        /**
-         * @param onDemandBaseCapacity Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandBaseCapacity(@Nullable Output<Integer> onDemandBaseCapacity) {
             $.onDemandBaseCapacity = onDemandBaseCapacity;
             return this;
         }
 
-        /**
-         * @param onDemandBaseCapacity Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandBaseCapacity(Integer onDemandBaseCapacity) {
             return onDemandBaseCapacity(Output.of(onDemandBaseCapacity));
         }
 
-        /**
-         * @param onDemandPercentageAboveBaseCapacity Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandPercentageAboveBaseCapacity(@Nullable Output<Integer> onDemandPercentageAboveBaseCapacity) {
             $.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
             return this;
         }
 
-        /**
-         * @param onDemandPercentageAboveBaseCapacity Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandPercentageAboveBaseCapacity(Integer onDemandPercentageAboveBaseCapacity) {
             return onDemandPercentageAboveBaseCapacity(Output.of(onDemandPercentageAboveBaseCapacity));
         }
 
-        /**
-         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotAllocationStrategy(@Nullable Output<String> spotAllocationStrategy) {
             $.spotAllocationStrategy = spotAllocationStrategy;
             return this;
         }
 
-        /**
-         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotAllocationStrategy(String spotAllocationStrategy) {
             return spotAllocationStrategy(Output.of(spotAllocationStrategy));
         }
 
-        /**
-         * @param spotInstancePools Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotInstancePools(@Nullable Output<Integer> spotInstancePools) {
             $.spotInstancePools = spotInstancePools;
             return this;
         }
 
-        /**
-         * @param spotInstancePools Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotInstancePools(Integer spotInstancePools) {
             return spotInstancePools(Output.of(spotInstancePools));
         }
 
-        /**
-         * @param spotMaxPrice Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotMaxPrice(@Nullable Output<String> spotMaxPrice) {
             $.spotMaxPrice = spotMaxPrice;
             return this;
         }
 
-        /**
-         * @param spotMaxPrice Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotMaxPrice(String spotMaxPrice) {
             return spotMaxPrice(Output.of(spotMaxPrice));
         }

@@ -271,7 +271,6 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,7 +282,6 @@ class Organization(pulumi.CustomResource):
             ],
             feature_set="ALL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -314,7 +312,6 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +323,6 @@ class Organization(pulumi.CustomResource):
             ],
             feature_set="ALL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

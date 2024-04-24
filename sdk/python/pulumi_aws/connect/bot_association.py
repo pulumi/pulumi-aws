@@ -109,7 +109,6 @@ class BotAssociation(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,11 +120,9 @@ class BotAssociation(pulumi.CustomResource):
                 name="Test",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Including a sample Lex bot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +163,6 @@ class BotAssociation(pulumi.CustomResource):
                 name=example_bot.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +193,6 @@ class BotAssociation(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,11 +204,9 @@ class BotAssociation(pulumi.CustomResource):
                 name="Test",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Including a sample Lex bot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +247,6 @@ class BotAssociation(pulumi.CustomResource):
                 name=example_bot.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

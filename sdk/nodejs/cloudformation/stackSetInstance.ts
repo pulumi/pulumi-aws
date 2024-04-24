@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example IAM Setup in Target Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,11 +68,9 @@ import * as utilities from "../utilities";
  *     role: aWSCloudFormationStackSetExecutionRole.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Deployment across Organizations account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +83,6 @@ import * as utilities from "../utilities";
  *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

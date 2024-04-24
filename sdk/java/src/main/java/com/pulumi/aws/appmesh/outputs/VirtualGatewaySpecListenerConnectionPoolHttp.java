@@ -20,8 +20,6 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp {
     /**
      * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
-     * The `http2` connection pool object supports the following:
-     * 
      */
     private @Nullable Integer maxPendingRequests;
 
@@ -35,8 +33,6 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp {
     }
     /**
      * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     * The `http2` connection pool object supports the following:
      * 
      */
     public Optional<Integer> maxPendingRequests() {

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ...pulumi.InvokeOption) (*GetImagePipelinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagePipelinesResult

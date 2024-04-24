@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBootstrapBrokersResult> InvokeAsync(GetBootstrapBrokersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBootstrapBrokersResult> Invoke(GetBootstrapBrokersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersInvokeArgs(), options.WithDefaults());

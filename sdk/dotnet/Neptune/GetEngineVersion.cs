@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Neptune
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Neptune
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEngineVersionResult>("aws:neptune/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.Neptune
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.Neptune
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:neptune/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());

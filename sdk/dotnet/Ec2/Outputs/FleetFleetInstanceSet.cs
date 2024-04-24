@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InstanceIds;
         /// <summary>
-        /// Instance type.
+        /// The instance type.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>

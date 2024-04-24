@@ -16,32 +16,16 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
 
     public static final DataSourceOpensearchserviceConfigArgs Empty = new DataSourceOpensearchserviceConfigArgs();
 
-    /**
-     * HTTP endpoint of the Elasticsearch domain.
-     * 
-     */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
-    /**
-     * @return HTTP endpoint of the Elasticsearch domain.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
 
-    /**
-     * AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
             $ = new DataSourceOpensearchserviceConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint HTTP endpoint of the Elasticsearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint HTTP endpoint of the Elasticsearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param region AWS region of the DynamoDB table. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region of the DynamoDB table. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

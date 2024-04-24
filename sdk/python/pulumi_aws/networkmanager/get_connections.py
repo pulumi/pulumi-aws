@@ -92,7 +92,6 @@ def get_connections(device_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_connections(device_id: Optional[str] = None,
             "Env": "test",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str device_id: ID of the device of the connections to retrieve.
@@ -134,7 +132,6 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,7 +141,6 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
             "Env": "test",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str device_id: ID of the device of the connections to retrieve.

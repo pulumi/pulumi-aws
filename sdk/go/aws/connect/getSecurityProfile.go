@@ -17,7 +17,6 @@ import (
 //
 // By `name`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // By `securityProfileId`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs, opts ...pulumi.InvokeOption) (*LookupSecurityProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityProfileResult

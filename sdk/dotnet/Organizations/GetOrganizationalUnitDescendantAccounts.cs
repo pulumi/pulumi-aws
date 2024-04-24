@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationalUnitDescendantAccountsResult> InvokeAsync(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitDescendantAccountsResult>("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", args ?? new GetOrganizationalUnitDescendantAccountsArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationalUnitDescendantAccountsResult> Invoke(GetOrganizationalUnitDescendantAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitDescendantAccountsResult>("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", args ?? new GetOrganizationalUnitDescendantAccountsInvokeArgs(), options.WithDefaults());

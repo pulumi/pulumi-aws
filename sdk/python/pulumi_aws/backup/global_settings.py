@@ -70,7 +70,6 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -79,7 +78,6 @@ class GlobalSettings(pulumi.CustomResource):
             "isCrossAccountBackupEnabled": "true",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -104,7 +102,6 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +110,6 @@ class GlobalSettings(pulumi.CustomResource):
             "isCrossAccountBackupEnabled": "true",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

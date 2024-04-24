@@ -223,7 +223,6 @@ class Backup(pulumi.CustomResource):
 
         ## Lustre Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,11 +234,9 @@ class Backup(pulumi.CustomResource):
             per_unit_storage_throughput=50)
         example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Windows Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,11 +249,9 @@ class Backup(pulumi.CustomResource):
             throughput_capacity=8)
         example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## ONTAP Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,11 +264,9 @@ class Backup(pulumi.CustomResource):
             storage_virtual_machine_id=test["id"])
         example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## OpenZFS Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +278,6 @@ class Backup(pulumi.CustomResource):
             throughput_capacity=64)
         example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -312,7 +304,6 @@ class Backup(pulumi.CustomResource):
 
         ## Lustre Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,11 +315,9 @@ class Backup(pulumi.CustomResource):
             per_unit_storage_throughput=50)
         example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Windows Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,11 +330,9 @@ class Backup(pulumi.CustomResource):
             throughput_capacity=8)
         example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## ONTAP Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,11 +345,9 @@ class Backup(pulumi.CustomResource):
             storage_virtual_machine_id=test["id"])
         example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## OpenZFS Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +359,6 @@ class Backup(pulumi.CustomResource):
             throughput_capacity=64)
         example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

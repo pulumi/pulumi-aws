@@ -33,7 +33,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +57,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.opensearch.DomainPolicy` resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,11 +126,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Log publishing to CloudWatch Logs
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,11 +194,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### VPC based OpenSearch
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -335,13 +328,12 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleServiceLinkedRole, 
+    ///             exampleServiceLinkedRole,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Enabling fine-grained access control on an existing domain
     /// 
@@ -349,7 +341,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ### First apply
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -399,13 +390,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Second apply
     /// 
     /// Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -455,7 +444,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

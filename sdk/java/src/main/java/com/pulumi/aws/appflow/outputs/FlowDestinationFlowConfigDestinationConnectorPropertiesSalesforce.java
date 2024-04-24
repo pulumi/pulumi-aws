@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     private @Nullable List<String> idFieldNames;
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
-    /**
-     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     private @Nullable String writeOperationType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce() {}
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }
-    /**
-     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     public Optional<String> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }

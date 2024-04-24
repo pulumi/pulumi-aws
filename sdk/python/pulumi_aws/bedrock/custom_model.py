@@ -556,7 +556,6 @@ class CustomModel(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -580,7 +579,6 @@ class CustomModel(pulumi.CustomResource):
                 s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -614,7 +612,6 @@ class CustomModel(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,7 +635,6 @@ class CustomModel(pulumi.CustomResource):
                 s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSitesResult> InvokeAsync(GetSitesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:networkmanager/getSites:getSites", args ?? new GetSitesArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSitesResult> Invoke(GetSitesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:networkmanager/getSites:getSites", args ?? new GetSitesInvokeArgs(), options.WithDefaults());

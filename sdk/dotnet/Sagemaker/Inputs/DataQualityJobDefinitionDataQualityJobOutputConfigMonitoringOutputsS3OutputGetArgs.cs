@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        /// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         /// </summary>
         [Input("localPath")]
         public Input<string>? LocalPath { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? S3UploadMode { get; set; }
 
         /// <summary>
-        /// The Amazon S3 URI for the constraints resource.
+        /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;

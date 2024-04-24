@@ -276,14 +276,12 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.mediaconvert.Queue("test", name="tf-test-queue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,14 +311,12 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.mediaconvert.Queue("test", name="tf-test-queue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

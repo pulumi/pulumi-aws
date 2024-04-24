@@ -19,10 +19,6 @@ public final class RouteSpecTcpRoute {
      * 
      */
     private RouteSpecTcpRouteAction action;
-    /**
-     * @return Criteria for determining an gRPC request match.
-     * 
-     */
     private @Nullable RouteSpecTcpRouteMatch match;
     /**
      * @return Types of timeouts.
@@ -38,10 +34,6 @@ public final class RouteSpecTcpRoute {
     public RouteSpecTcpRouteAction action() {
         return this.action;
     }
-    /**
-     * @return Criteria for determining an gRPC request match.
-     * 
-     */
     public Optional<RouteSpecTcpRouteMatch> match() {
         return Optional.ofNullable(this.match);
     }

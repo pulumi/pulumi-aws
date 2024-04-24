@@ -347,7 +347,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -366,7 +365,6 @@ class Application(pulumi.CustomResource):
             ))
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -400,7 +398,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -419,7 +416,6 @@ class Application(pulumi.CustomResource):
             ))
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

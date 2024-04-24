@@ -19,7 +19,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,13 +91,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Multiple Condition Keys and Values
 //
 // You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,7 +153,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
 //
@@ -164,7 +160,6 @@ import (
 //
 // You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -215,11 +210,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using A Source Document
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -279,13 +272,11 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
 //
 // ### Example Using An Override Document
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -345,7 +336,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
 //
@@ -353,7 +343,6 @@ import (
 //
 // You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -412,7 +401,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.politik.json` will evaluate to:
 //
@@ -420,7 +408,6 @@ import (
 //
 // Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -493,13 +480,11 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.combined.json` will evaluate to:
 //
 // ### Example of Merging Override Documents
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -597,7 +582,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_iam_policy_document.combined.json` will evaluate to:
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {

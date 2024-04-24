@@ -38,7 +38,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -58,7 +57,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
                    ],
                ))
                ```
-               <!--End PulumiCodeChooser -->
         """
         if adjustment_type is not None:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
@@ -125,7 +123,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
         """
         Set of adjustments that manage scaling. These have the following structure:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,7 +142,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
             ],
         ))
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -160,11 +156,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
                  scaling_adjustment: pulumi.Input[int],
                  metric_interval_lower_bound: Optional[pulumi.Input[str]] = None,
                  metric_interval_upper_bound: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] scaling_adjustment: Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        :param pulumi.Input[str] metric_interval_lower_bound: Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        :param pulumi.Input[str] metric_interval_upper_bound: Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-        """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
             pulumi.set(__self__, "metric_interval_lower_bound", metric_interval_lower_bound)
@@ -174,9 +165,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> pulumi.Input[int]:
-        """
-        Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        """
         return pulumi.get(self, "scaling_adjustment")
 
     @scaling_adjustment.setter
@@ -186,9 +174,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @property
     @pulumi.getter(name="metricIntervalLowerBound")
     def metric_interval_lower_bound(self) -> Optional[pulumi.Input[str]]:
-        """
-        Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        """
         return pulumi.get(self, "metric_interval_lower_bound")
 
     @metric_interval_lower_bound.setter
@@ -198,9 +183,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @property
     @pulumi.getter(name="metricIntervalUpperBound")
     def metric_interval_upper_bound(self) -> Optional[pulumi.Input[str]]:
-        """
-        Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-        """
         return pulumi.get(self, "metric_interval_upper_bound")
 
     @metric_interval_upper_bound.setter
@@ -419,7 +401,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[str] value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -429,7 +411,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the policy. Must be between 1 and 255 characters in length.
+        Name of the dimension.
         """
         return pulumi.get(self, "name")
 
@@ -648,7 +630,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[str] value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -658,7 +640,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the policy. Must be between 1 and 255 characters in length.
+        Name of the dimension.
         """
         return pulumi.get(self, "name")
 
@@ -722,10 +704,6 @@ class ScheduledActionScalableTargetActionArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max_capacity: Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        :param pulumi.Input[int] min_capacity: Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
-        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -734,9 +712,6 @@ class ScheduledActionScalableTargetActionArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -746,9 +721,6 @@ class ScheduledActionScalableTargetActionArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
-        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter

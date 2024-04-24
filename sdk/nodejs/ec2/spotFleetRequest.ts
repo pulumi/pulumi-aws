@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Using launch specifications
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,11 +57,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Using launch templates
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,14 +85,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [test_attach],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
  * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
  *
  * ### Using multiple launch specifications
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,11 +116,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,11 +152,9 @@ import * as utilities from "../utilities";
  *     terminateInstancesWithExpiration: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Using multiple launch configurations
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -206,7 +197,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [test_attach],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

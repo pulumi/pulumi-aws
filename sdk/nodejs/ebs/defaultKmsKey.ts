@@ -16,14 +16,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ebs.DefaultKmsKey("example", {keyArn: exampleAwsKmsKey.arn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

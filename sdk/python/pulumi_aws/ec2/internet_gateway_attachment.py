@@ -102,7 +102,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +112,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
             internet_gateway_id=example_internet_gateway.id,
             vpc_id=example_vpc.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -139,7 +137,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +147,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
             internet_gateway_id=example_internet_gateway.id,
             vpc_id=example_vpc.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

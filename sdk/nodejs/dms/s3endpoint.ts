@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  *
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,11 +30,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Complete Configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,7 +91,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

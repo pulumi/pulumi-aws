@@ -178,7 +178,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             product_id="prod-dnigbtea24ste")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +225,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             product_id="prod-dnigbtea24ste")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

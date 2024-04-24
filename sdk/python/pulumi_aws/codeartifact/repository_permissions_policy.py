@@ -216,7 +216,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,7 +241,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
             domain=example_domain.domain,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,7 +269,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +294,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
             domain=example_domain.domain,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -285,7 +285,6 @@ class S3Location(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +296,6 @@ class S3Location(pulumi.CustomResource):
                 bucket_access_role_arn=example_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -327,7 +325,6 @@ class S3Location(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,7 +336,6 @@ class S3Location(pulumi.CustomResource):
                 bucket_access_role_arn=example_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

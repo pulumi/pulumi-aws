@@ -84,7 +84,6 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,7 +94,6 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
         )],
         transit_gateway_route_table_id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.
@@ -126,7 +124,6 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,7 +134,6 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi
         )],
         transit_gateway_route_table_id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.

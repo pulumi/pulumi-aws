@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro() {}
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }

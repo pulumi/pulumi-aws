@@ -106,7 +106,6 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,7 +117,6 @@ class BucketOwnershipControls(pulumi.CustomResource):
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -146,7 +144,6 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +155,6 @@ class BucketOwnershipControls(pulumi.CustomResource):
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

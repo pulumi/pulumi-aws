@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Glue
         /// 
         /// ### Generate Python Script
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -149,11 +148,9 @@ namespace Pulumi.Aws.Glue
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Generate Scala Code
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -284,7 +281,6 @@ namespace Pulumi.Aws.Glue
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
@@ -296,7 +292,6 @@ namespace Pulumi.Aws.Glue
         /// 
         /// ### Generate Python Script
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -427,11 +422,9 @@ namespace Pulumi.Aws.Glue
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Generate Scala Code
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -562,7 +555,6 @@ namespace Pulumi.Aws.Glue
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());

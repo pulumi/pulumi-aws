@@ -20,7 +20,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### With `private` ACL
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,20 +50,18 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
+    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With `public-read` ACL
     /// 
     /// &gt; This example explicitly disables the default S3 bucket security settings. This
     /// should be done with caution, as all bucket objects become publicly exposed.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,18 +101,16 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
-    ///             exampleBucketPublicAccessBlock, 
+    ///             exampleBucketOwnershipControls,
+    ///             exampleBucketPublicAccessBlock,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Grants
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -175,13 +170,12 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
+    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -142,7 +142,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,7 +168,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "Side": "Accepter",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -196,7 +194,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +220,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "Side": "Accepter",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

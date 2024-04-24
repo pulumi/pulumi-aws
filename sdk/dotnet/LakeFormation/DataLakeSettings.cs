@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ### Data Lake Admins
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,11 +37,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create Default Permissions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,11 +83,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Enable EMR access to LakeFormation resources
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -144,7 +139,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
     public partial class DataLakeSettings : global::Pulumi.CustomResource

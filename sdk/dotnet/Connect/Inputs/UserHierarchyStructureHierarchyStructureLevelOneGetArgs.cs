@@ -24,9 +24,6 @@ namespace Pulumi.Aws.Connect.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The name of the user hierarchy level. Must not be more than 50 characters.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

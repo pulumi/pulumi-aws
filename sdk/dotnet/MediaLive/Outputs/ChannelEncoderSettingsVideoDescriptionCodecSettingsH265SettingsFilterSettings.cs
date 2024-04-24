@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings
     {
-        /// <summary>
-        /// Temporal filter settings. See Temporal Filter Settings
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings? TemporalFilterSettings;
 
         [OutputConstructor]

@@ -152,7 +152,6 @@ def get_resolver_rule(domain_name: Optional[str] = None,
 
     The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,7 +159,6 @@ def get_resolver_rule(domain_name: Optional[str] = None,
     example = aws.route53.get_resolver_rule(domain_name="subdomain.example.com",
         rule_type="SYSTEM")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
@@ -208,7 +206,6 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
 
     The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -216,7 +213,6 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
     example = aws.route53.get_resolver_rule(domain_name="subdomain.example.com",
         rule_type="SYSTEM")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.

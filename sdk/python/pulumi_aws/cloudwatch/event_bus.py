@@ -177,16 +177,13 @@ class EventBus(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +193,6 @@ class EventBus(pulumi.CustomResource):
             name=examplepartner.name,
             event_source_name=examplepartner.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -225,16 +221,13 @@ class EventBus(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +237,6 @@ class EventBus(pulumi.CustomResource):
             name=examplepartner.name,
             event_source_name=examplepartner.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

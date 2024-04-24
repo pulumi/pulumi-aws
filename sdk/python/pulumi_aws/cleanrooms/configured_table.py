@@ -311,7 +311,6 @@ class ConfiguredTable(pulumi.CustomResource):
 
         ### Configured table with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,7 +332,6 @@ class ConfiguredTable(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -367,7 +365,6 @@ class ConfiguredTable(pulumi.CustomResource):
 
         ### Configured table with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +386,6 @@ class ConfiguredTable(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

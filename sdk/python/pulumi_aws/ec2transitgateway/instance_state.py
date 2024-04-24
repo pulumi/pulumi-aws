@@ -145,7 +145,6 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +171,6 @@ class InstanceState(pulumi.CustomResource):
             instance_id=test.id,
             state="stopped")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -203,7 +201,6 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,7 +227,6 @@ class InstanceState(pulumi.CustomResource):
             instance_id=test.id,
             state="stopped")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopy
     {
-        /// <summary>
-        /// The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration EncryptionConfiguration;
-        /// <summary>
-        /// Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule? RetainRule;
-        /// <summary>
-        /// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSlack {
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSlack() {}
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }

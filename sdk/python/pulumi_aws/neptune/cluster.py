@@ -1156,7 +1156,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1170,7 +1169,6 @@ class Cluster(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** AWS Neptune does not support user name/password–based access control.
         See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -1235,7 +1233,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1249,7 +1246,6 @@ class Cluster(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** AWS Neptune does not support user name/password–based access control.
         See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.

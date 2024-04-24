@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -73,15 +71,9 @@ namespace Pulumi.Aws.CodePipeline
         [Output("configurationProperties")]
         public Output<ImmutableArray<Outputs.CustomActionTypeConfigurationProperty>> ConfigurationProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the input artifact for the action.
-        /// </summary>
         [Output("inputArtifactDetails")]
         public Output<Outputs.CustomActionTypeInputArtifactDetails> InputArtifactDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the output artifact of the action.
-        /// </summary>
         [Output("outputArtifactDetails")]
         public Output<Outputs.CustomActionTypeOutputArtifactDetails> OutputArtifactDetails { get; private set; } = null!;
 
@@ -91,21 +83,12 @@ namespace Pulumi.Aws.CodePipeline
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider of the service used in the custom action
-        /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// The settings for an action type.
-        /// </summary>
         [Output("settings")]
         public Output<Outputs.CustomActionTypeSettings?> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -115,9 +98,6 @@ namespace Pulumi.Aws.CodePipeline
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The version identifier of the custom action.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -185,45 +165,26 @@ namespace Pulumi.Aws.CodePipeline
             set => _configurationProperties = value;
         }
 
-        /// <summary>
-        /// The details of the input artifact for the action.
-        /// </summary>
         [Input("inputArtifactDetails", required: true)]
         public Input<Inputs.CustomActionTypeInputArtifactDetailsArgs> InputArtifactDetails { get; set; } = null!;
 
-        /// <summary>
-        /// The details of the output artifact of the action.
-        /// </summary>
         [Input("outputArtifactDetails", required: true)]
         public Input<Inputs.CustomActionTypeOutputArtifactDetailsArgs> OutputArtifactDetails { get; set; } = null!;
 
-        /// <summary>
-        /// The provider of the service used in the custom action
-        /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
-        /// <summary>
-        /// The settings for an action type.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsArgs>? Settings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The version identifier of the custom action.
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -259,15 +220,9 @@ namespace Pulumi.Aws.CodePipeline
             set => _configurationProperties = value;
         }
 
-        /// <summary>
-        /// The details of the input artifact for the action.
-        /// </summary>
         [Input("inputArtifactDetails")]
         public Input<Inputs.CustomActionTypeInputArtifactDetailsGetArgs>? InputArtifactDetails { get; set; }
 
-        /// <summary>
-        /// The details of the output artifact of the action.
-        /// </summary>
         [Input("outputArtifactDetails")]
         public Input<Inputs.CustomActionTypeOutputArtifactDetailsGetArgs>? OutputArtifactDetails { get; set; }
 
@@ -277,24 +232,14 @@ namespace Pulumi.Aws.CodePipeline
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// The provider of the service used in the custom action
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// The settings for an action type.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsGetArgs>? Settings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -314,9 +259,6 @@ namespace Pulumi.Aws.CodePipeline
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The version identifier of the custom action.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

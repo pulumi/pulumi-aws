@@ -100,25 +100,21 @@ def get_voices(engine: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.polly.get_voices()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With Language Code
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.polly.get_voices(language_code="en-GB")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
@@ -155,25 +151,21 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.polly.get_voices()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With Language Code
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.polly.get_voices(language_code="en-GB")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.

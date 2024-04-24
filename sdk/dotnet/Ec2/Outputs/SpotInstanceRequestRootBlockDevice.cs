@@ -17,9 +17,6 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Whether the volume should be destroyed on instance termination. Defaults to `true`.
         /// </summary>
         public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Name of the device to mount.
-        /// </summary>
         public readonly string? DeviceName;
         /// <summary>
         /// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.

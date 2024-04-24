@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,11 +46,9 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Universal Target
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,7 +82,6 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -99,7 +95,7 @@ namespace Pulumi.Aws.Scheduler
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
+        /// ARN of the schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -307,7 +303,7 @@ namespace Pulumi.Aws.Scheduler
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
+        /// ARN of the schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -18,7 +18,6 @@ import (
 //
 // ### Service with a Code Repository Source
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +71,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Service with an Image Repository Source
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,11 +110,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Service with Observability Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,7 +162,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

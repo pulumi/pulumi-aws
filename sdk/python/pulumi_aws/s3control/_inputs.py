@@ -199,17 +199,11 @@ class BucketLifecycleConfigurationRuleArgs:
 class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs:
     def __init__(__self__, *,
                  days_after_initiation: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> pulumi.Input[int]:
-        """
-        Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         return pulumi.get(self, "days_after_initiation")
 
     @days_after_initiation.setter
@@ -223,11 +217,6 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
                  date: Optional[pulumi.Input[str]] = None,
                  days: Optional[pulumi.Input[int]] = None,
                  expired_object_delete_marker: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        :param pulumi.Input[int] days: Number of days before the object is to be deleted.
-        :param pulumi.Input[bool] expired_object_delete_marker: Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         if date is not None:
             pulumi.set(__self__, "date", date)
         if days is not None:
@@ -238,9 +227,6 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
     @property
     @pulumi.getter
     def date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        """
         return pulumi.get(self, "date")
 
     @date.setter
@@ -250,9 +236,6 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
     @property
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of days before the object is to be deleted.
-        """
         return pulumi.get(self, "days")
 
     @days.setter
@@ -262,9 +245,6 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
     @property
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         return pulumi.get(self, "expired_object_delete_marker")
 
     @expired_object_delete_marker.setter
@@ -277,10 +257,6 @@ class BucketLifecycleConfigurationRuleFilterArgs:
     def __init__(__self__, *,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] prefix: Object prefix for rule filtering.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of object tags for rule filtering.
-        """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
@@ -289,9 +265,6 @@ class BucketLifecycleConfigurationRuleFilterArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Object prefix for rule filtering.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -301,9 +274,6 @@ class BucketLifecycleConfigurationRuleFilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of object tags for rule filtering.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1317,8 +1287,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  encryption: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs']] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param pulumi.Input[str] account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[str] format: The export format. Valid values: `CSV`, `Parquet`.
         :param pulumi.Input[str] output_schema_version: The schema version of the export file. Valid values: `V_1`.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
@@ -1337,7 +1307,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        The account ID of the owner of the S3 Storage Lens metrics export bucket.
         """
         return pulumi.get(self, "account_id")
 
@@ -1349,7 +1319,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        The Amazon Resource Name (ARN) of the bucket.
         """
         return pulumi.get(self, "arn")
 

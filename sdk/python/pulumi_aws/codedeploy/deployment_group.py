@@ -670,7 +670,6 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -724,11 +723,9 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             outdated_instances_strategy="UPDATE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blue Green Deployments with ECS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -778,11 +775,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blue Green Deployments with Servers and Classic ELB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -814,7 +809,6 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -857,7 +851,6 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -911,11 +904,9 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             outdated_instances_strategy="UPDATE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blue Green Deployments with ECS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -965,11 +956,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Blue Green Deployments with Servers and Classic ELB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1001,7 +990,6 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

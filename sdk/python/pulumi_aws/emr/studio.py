@@ -518,7 +518,6 @@ class Studio(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,7 +533,6 @@ class Studio(pulumi.CustomResource):
             vpc_id=test_aws_vpc["id"],
             workspace_security_group_id=test_aws_security_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -573,7 +571,6 @@ class Studio(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -589,7 +586,6 @@ class Studio(pulumi.CustomResource):
             vpc_id=test_aws_vpc["id"],
             workspace_security_group_id=test_aws_security_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ### Basic usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,11 +35,9 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example with Secret
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,13 +74,12 @@ namespace Pulumi.Aws.Sagemaker
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleSecretVersion, 
+    ///             exampleSecretVersion,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

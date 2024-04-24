@@ -310,7 +310,6 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
         ### With `routing_rule` configured
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,11 +331,9 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `routing_rules` configured
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,7 +356,6 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         }]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -404,7 +400,6 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
         ### With `routing_rule` configured
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,11 +421,9 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `routing_rules` configured
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -453,7 +446,6 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         }]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

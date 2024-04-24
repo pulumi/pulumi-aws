@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### DNS Validation with Route 53
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +53,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleListener = new aws.lb.Listener("example", {certificateArn: exampleCertificateValidation.certificateArn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Alternative Domains DNS Validation with Route 53
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,13 +100,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleListener = new aws.lb.Listener("example", {certificateArn: exampleCertificateValidation.certificateArn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Email Validation
  *
  * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -120,7 +115,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleCertificateValidation = new aws.acm.CertificateValidation("example", {certificateArn: example.arn});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**

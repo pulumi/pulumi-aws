@@ -28,7 +28,6 @@ import (
 //
 // ### AWS Account ID
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,11 +58,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Organization
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,7 +85,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

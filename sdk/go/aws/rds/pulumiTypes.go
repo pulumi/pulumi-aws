@@ -448,18 +448,11 @@ func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.B
 }
 
 type ClusterS3Import struct {
-	// Bucket name where your backup is stored
-	BucketName string `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Role applied to load the data.
-	IngestionRole string `pulumi:"ingestionRole"`
-	// Source engine for the backup
-	SourceEngine string `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
+	BucketName          string  `pulumi:"bucketName"`
+	BucketPrefix        *string `pulumi:"bucketPrefix"`
+	IngestionRole       string  `pulumi:"ingestionRole"`
+	SourceEngine        string  `pulumi:"sourceEngine"`
+	SourceEngineVersion string  `pulumi:"sourceEngineVersion"`
 }
 
 // ClusterS3ImportInput is an input type that accepts ClusterS3ImportArgs and ClusterS3ImportOutput values.
@@ -474,18 +467,11 @@ type ClusterS3ImportInput interface {
 }
 
 type ClusterS3ImportArgs struct {
-	// Bucket name where your backup is stored
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Role applied to load the data.
-	IngestionRole pulumi.StringInput `pulumi:"ingestionRole"`
-	// Source engine for the backup
-	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
+	BucketName          pulumi.StringInput    `pulumi:"bucketName"`
+	BucketPrefix        pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	IngestionRole       pulumi.StringInput    `pulumi:"ingestionRole"`
+	SourceEngine        pulumi.StringInput    `pulumi:"sourceEngine"`
+	SourceEngineVersion pulumi.StringInput    `pulumi:"sourceEngineVersion"`
 }
 
 func (ClusterS3ImportArgs) ElementType() reflect.Type {
@@ -565,29 +551,22 @@ func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutputWithContext(ctx context
 	}).(ClusterS3ImportPtrOutput)
 }
 
-// Bucket name where your backup is stored
 func (o ClusterS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Can be blank, but is the path to your backup
 func (o ClusterS3ImportOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Role applied to load the data.
 func (o ClusterS3ImportOutput) IngestionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
 }
 
-// Source engine for the backup
 func (o ClusterS3ImportOutput) SourceEngine() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -616,7 +595,6 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 	}).(ClusterS3ImportOutput)
 }
 
-// Bucket name where your backup is stored
 func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -626,7 +604,6 @@ func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can be blank, but is the path to your backup
 func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -636,7 +613,6 @@ func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role applied to load the data.
 func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -646,7 +622,6 @@ func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source engine for the backup
 func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -656,9 +631,6 @@ func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -882,9 +854,9 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 }
 
 type ClusterServerlessv2ScalingConfiguration struct {
-	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 	MaxCapacity float64 `pulumi:"maxCapacity"`
-	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
@@ -900,9 +872,9 @@ type ClusterServerlessv2ScalingConfigurationInput interface {
 }
 
 type ClusterServerlessv2ScalingConfigurationArgs struct {
-	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
-	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
@@ -983,12 +955,12 @@ func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2Scal
 	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
-// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -1017,7 +989,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerle
 	}).(ClusterServerlessv2ScalingConfigurationOutput)
 }
 
-// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1027,7 +999,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1915,18 +1887,11 @@ func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.
 }
 
 type InstanceS3Import struct {
-	// The bucket name where your backup is stored
-	BucketName string `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Role applied to load the data.
-	IngestionRole string `pulumi:"ingestionRole"`
-	// Source engine for the backup
-	SourceEngine string `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
+	BucketName          string  `pulumi:"bucketName"`
+	BucketPrefix        *string `pulumi:"bucketPrefix"`
+	IngestionRole       string  `pulumi:"ingestionRole"`
+	SourceEngine        string  `pulumi:"sourceEngine"`
+	SourceEngineVersion string  `pulumi:"sourceEngineVersion"`
 }
 
 // InstanceS3ImportInput is an input type that accepts InstanceS3ImportArgs and InstanceS3ImportOutput values.
@@ -1941,18 +1906,11 @@ type InstanceS3ImportInput interface {
 }
 
 type InstanceS3ImportArgs struct {
-	// The bucket name where your backup is stored
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Role applied to load the data.
-	IngestionRole pulumi.StringInput `pulumi:"ingestionRole"`
-	// Source engine for the backup
-	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
+	BucketName          pulumi.StringInput    `pulumi:"bucketName"`
+	BucketPrefix        pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	IngestionRole       pulumi.StringInput    `pulumi:"ingestionRole"`
+	SourceEngine        pulumi.StringInput    `pulumi:"sourceEngine"`
+	SourceEngineVersion pulumi.StringInput    `pulumi:"sourceEngineVersion"`
 }
 
 func (InstanceS3ImportArgs) ElementType() reflect.Type {
@@ -2032,29 +1990,22 @@ func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutputWithContext(ctx conte
 	}).(InstanceS3ImportPtrOutput)
 }
 
-// The bucket name where your backup is stored
 func (o InstanceS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Can be blank, but is the path to your backup
 func (o InstanceS3ImportOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Role applied to load the data.
 func (o InstanceS3ImportOutput) IngestionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
 }
 
-// Source engine for the backup
 func (o InstanceS3ImportOutput) SourceEngine() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -2083,7 +2034,6 @@ func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
 	}).(InstanceS3ImportOutput)
 }
 
-// The bucket name where your backup is stored
 func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2093,7 +2043,6 @@ func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can be blank, but is the path to your backup
 func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2103,7 +2052,6 @@ func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role applied to load the data.
 func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2113,7 +2061,6 @@ func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source engine for the backup
 func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2123,9 +2070,6 @@ func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {

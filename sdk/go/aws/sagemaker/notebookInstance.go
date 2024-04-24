@@ -18,7 +18,6 @@ import (
 //
 // ### Basic usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Code repository usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,7 +87,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

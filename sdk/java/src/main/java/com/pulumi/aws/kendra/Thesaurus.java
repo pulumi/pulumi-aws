@@ -85,17 +85,9 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description for a thesaurus.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description for a thesaurus.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -144,16 +136,12 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
-     * The `source_s3_path` configuration block supports the following arguments:
-     * 
      */
     @Export(name="sourceS3Path", refs={ThesaurusSourceS3Path.class}, tree="[0]")
     private Output<ThesaurusSourceS3Path> sourceS3Path;
 
     /**
      * @return The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<ThesaurusSourceS3Path> sourceS3Path() {
@@ -173,17 +161,9 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

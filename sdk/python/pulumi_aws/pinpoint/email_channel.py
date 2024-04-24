@@ -249,7 +249,6 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,7 +281,6 @@ class EmailChannel(pulumi.CustomResource):
             role=role.id,
             policy=role_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -312,7 +310,6 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,7 +342,6 @@ class EmailChannel(pulumi.CustomResource):
             role=role.id,
             policy=role_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

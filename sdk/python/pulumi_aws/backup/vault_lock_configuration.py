@@ -185,7 +185,6 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +195,6 @@ class VaultLockConfiguration(pulumi.CustomResource):
             max_retention_days=1200,
             min_retention_days=7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,7 +222,6 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,7 +232,6 @@ class VaultLockConfiguration(pulumi.CustomResource):
             max_retention_days=1200,
             min_retention_days=7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

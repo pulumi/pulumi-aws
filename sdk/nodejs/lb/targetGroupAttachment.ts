@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     port: 80,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda Target
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +51,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [withLb],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Registering Multiple Targets
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,7 +74,6 @@ import * as utilities from "../utilities";
  *     }
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
 
@@ -90,7 +88,6 @@ export interface GetAddonResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,7 +98,6 @@ export interface GetAddonResult {
  * });
  * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))

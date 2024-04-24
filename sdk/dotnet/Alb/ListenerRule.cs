@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -271,7 +270,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -291,7 +289,7 @@ namespace Pulumi.Aws.Alb
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// The ARN of the rule (matches `id`)
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -445,7 +443,7 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// The ARN of the rule (matches `id`)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

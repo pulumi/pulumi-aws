@@ -226,7 +226,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +240,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,7 +268,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +282,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,14 +15,14 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
     public static final TopicRuleTimestreamDimensionArgs Empty = new TopicRuleTimestreamDimensionArgs();
 
     /**
-     * The name of the rule.
+     * The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the rule.
+     * @return The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
     }
 
     /**
-     * The value of the HTTP header.
+     * The value to write in this column of the database record.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the HTTP header.
+     * @return The value to write in this column of the database record.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name The name of the rule.
+         * @param name The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name The name of the rule.
+         * @param name The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value The value to write in this column of the database record.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value The value to write in this column of the database record.
          * 
          * @return builder
          * 

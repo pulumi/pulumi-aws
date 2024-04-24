@@ -18,7 +18,6 @@ import (
 //
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,11 +44,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Apple Push Notification Service (APNS) using token-based authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,11 +75,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Google Cloud Messaging (GCM)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

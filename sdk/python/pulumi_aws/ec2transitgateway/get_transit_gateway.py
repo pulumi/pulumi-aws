@@ -234,7 +234,6 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -244,18 +243,15 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
         values=["64512"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_transit_gateway(id="tgw-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -300,7 +296,6 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -310,18 +305,15 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
         values=["64512"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_transit_gateway(id="tgw-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

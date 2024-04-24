@@ -168,7 +168,6 @@ class AdmChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class AdmChannel(pulumi.CustomResource):
             client_secret="",
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class AdmChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +218,6 @@ class AdmChannel(pulumi.CustomResource):
             client_secret="",
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

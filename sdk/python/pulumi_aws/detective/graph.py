@@ -121,7 +121,6 @@ class Graph(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,7 +129,6 @@ class Graph(pulumi.CustomResource):
             "Name": "example-detective-graph",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,7 +153,6 @@ class Graph(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,7 +161,6 @@ class Graph(pulumi.CustomResource):
             "Name": "example-detective-graph",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

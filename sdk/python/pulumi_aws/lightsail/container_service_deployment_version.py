@@ -191,7 +191,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +221,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
             ),
             service_name=example_aws_lightsail_container_service["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -255,7 +253,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +283,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
             ),
             service_name=example_aws_lightsail_container_service["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

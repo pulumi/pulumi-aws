@@ -97,14 +97,12 @@ def get_pipeline(pipeline_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pipeline_id: ID of the pipeline.
@@ -133,14 +131,12 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pipeline_id: ID of the pipeline.

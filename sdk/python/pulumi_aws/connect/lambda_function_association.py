@@ -103,7 +103,6 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,7 +111,6 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
             function_arn=example_aws_lambda_function["arn"],
             instance_id=example_aws_connect_instance["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -139,7 +137,6 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,7 +145,6 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
             function_arn=example_aws_lambda_function["arn"],
             instance_id=example_aws_connect_instance["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

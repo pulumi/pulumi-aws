@@ -225,7 +225,6 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +292,6 @@ class ServiceRegion(pulumi.CustomResource):
                 "Name": "Secondary",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,7 +321,6 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,7 +388,6 @@ class ServiceRegion(pulumi.CustomResource):
                 "Name": "Secondary",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

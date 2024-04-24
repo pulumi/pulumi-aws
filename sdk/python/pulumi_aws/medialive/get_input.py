@@ -228,14 +228,12 @@ def get_input(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.medialive.get_input(id=example_aws_medialive_input["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Input.
@@ -274,14 +272,12 @@ def get_input_output(id: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.medialive.get_input(id=example_aws_medialive_input["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Input.

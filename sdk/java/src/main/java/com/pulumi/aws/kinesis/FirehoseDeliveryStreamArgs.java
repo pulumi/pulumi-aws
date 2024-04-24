@@ -248,17 +248,9 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -609,23 +601,11 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

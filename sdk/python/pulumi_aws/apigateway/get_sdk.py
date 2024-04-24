@@ -124,7 +124,6 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,7 +138,6 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
             "invokerPackage": "example",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
@@ -175,7 +173,6 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,7 +187,6 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
             "invokerPackage": "example",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.

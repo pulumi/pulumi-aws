@@ -201,7 +201,6 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +208,6 @@ class SmsChannel(pulumi.CustomResource):
         app = aws.pinpoint.App("app")
         sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,7 +235,6 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class SmsChannel(pulumi.CustomResource):
         app = aws.pinpoint.App("app")
         sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

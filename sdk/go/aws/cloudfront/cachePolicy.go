@@ -16,7 +16,6 @@ import (
 //
 // Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,7 +69,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -62,10 +62,6 @@ namespace Pulumi.Aws.Route53.Inputs
 
         [Input("regions")]
         private InputList<Inputs.GetTrafficPolicyDocumentRuleRegionInputArgs>? _regions;
-
-        /// <summary>
-        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        /// </summary>
         public InputList<Inputs.GetTrafficPolicyDocumentRuleRegionInputArgs> Regions
         {
             get => _regions ?? (_regions = new InputList<Inputs.GetTrafficPolicyDocumentRuleRegionInputArgs>());

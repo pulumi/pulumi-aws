@@ -16,7 +16,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +55,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSubscribedRuleGroupResult> InvokeAsync(GetSubscribedRuleGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscribedRuleGroupResult>("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupArgs(), options.WithDefaults());
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,7 +103,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSubscribedRuleGroupResult> Invoke(GetSubscribedRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscribedRuleGroupResult>("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupInvokeArgs(), options.WithDefaults());

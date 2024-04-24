@@ -145,7 +145,6 @@ class EipDomainName(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +159,6 @@ class EipDomainName(pulumi.CustomResource):
             allocation_id=example.allocation_id,
             domain_name=example_record.fqdn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +176,6 @@ class EipDomainName(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +190,6 @@ class EipDomainName(pulumi.CustomResource):
             allocation_id=example.allocation_id,
             domain_name=example_record.fqdn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EipDomainNameArgs args: The arguments to use to populate this resource's properties.

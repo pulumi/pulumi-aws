@@ -409,7 +409,6 @@ class Method(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,11 +426,9 @@ class Method(pulumi.CustomResource):
             http_method="GET",
             authorization="NONE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Usage with Cognito User Pool Authorizer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,7 +456,6 @@ class Method(pulumi.CustomResource):
                 "method.request.path.proxy": True,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -497,7 +493,6 @@ class Method(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,11 +510,9 @@ class Method(pulumi.CustomResource):
             http_method="GET",
             authorization="NONE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Usage with Cognito User Pool Authorizer
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,7 +540,6 @@ class Method(pulumi.CustomResource):
                 "method.request.path.proxy": True,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

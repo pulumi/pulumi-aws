@@ -134,7 +134,6 @@ class ServiceSetting(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,7 +142,6 @@ class ServiceSetting(pulumi.CustomResource):
             setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
             setting_value="true")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,7 +167,6 @@ class ServiceSetting(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +175,6 @@ class ServiceSetting(pulumi.CustomResource):
             setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
             setting_value="true")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

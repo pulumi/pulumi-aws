@@ -105,7 +105,6 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,7 +116,6 @@ class BackupPolicy(pulumi.CustomResource):
                 status="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -144,7 +142,6 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +153,6 @@ class BackupPolicy(pulumi.CustomResource):
                 status="ENABLED",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -355,7 +355,6 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +367,6 @@ class DedicatedHost(pulumi.CustomResource):
             host_recovery="on",
             auto_placement="on")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -400,7 +398,6 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -413,7 +410,6 @@ class DedicatedHost(pulumi.CustomResource):
             host_recovery="on",
             auto_placement="on")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

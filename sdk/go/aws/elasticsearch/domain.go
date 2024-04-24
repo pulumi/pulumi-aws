@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,13 +47,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Access Policy
 //
 // > See also: `elasticsearch.DomainPolicy` resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +109,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Log Publishing to CloudWatch Logs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VPC based ES
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -316,7 +309,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

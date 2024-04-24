@@ -12,14 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.ec2.getLocalGatewayVirtualInterfaceGroups({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterfaceGroups(args?: GetLocalGatewayVirtualInterfaceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupsResult> {
     args = args || {};
@@ -69,14 +67,12 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.ec2.getLocalGatewayVirtualInterfaceGroups({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupsResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroups(a, opts))

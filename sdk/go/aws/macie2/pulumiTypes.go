@@ -3653,8 +3653,6 @@ type ClassificationJobScheduleFrequency struct {
 	// Specifies a daily recurrence pattern for running the job.
 	DailySchedule *bool `pulumi:"dailySchedule"`
 	// Specifies a monthly recurrence pattern for running the job.
-	//
-	// The `s3JobDefinition` object supports the following:
 	MonthlySchedule *int `pulumi:"monthlySchedule"`
 	// Specifies a weekly recurrence pattern for running the job.
 	WeeklySchedule *string `pulumi:"weeklySchedule"`
@@ -3675,8 +3673,6 @@ type ClassificationJobScheduleFrequencyArgs struct {
 	// Specifies a daily recurrence pattern for running the job.
 	DailySchedule pulumi.BoolPtrInput `pulumi:"dailySchedule"`
 	// Specifies a monthly recurrence pattern for running the job.
-	//
-	// The `s3JobDefinition` object supports the following:
 	MonthlySchedule pulumi.IntPtrInput `pulumi:"monthlySchedule"`
 	// Specifies a weekly recurrence pattern for running the job.
 	WeeklySchedule pulumi.StringPtrInput `pulumi:"weeklySchedule"`
@@ -3765,8 +3761,6 @@ func (o ClassificationJobScheduleFrequencyOutput) DailySchedule() pulumi.BoolPtr
 }
 
 // Specifies a monthly recurrence pattern for running the job.
-//
-// The `s3JobDefinition` object supports the following:
 func (o ClassificationJobScheduleFrequencyOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *int { return v.MonthlySchedule }).(pulumi.IntPtrOutput)
 }
@@ -3811,8 +3805,6 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) DailySchedule() pulumi.Bool
 }
 
 // Specifies a monthly recurrence pattern for running the job.
-//
-// The `s3JobDefinition` object supports the following:
 func (o ClassificationJobScheduleFrequencyPtrOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) *int {
 		if v == nil {

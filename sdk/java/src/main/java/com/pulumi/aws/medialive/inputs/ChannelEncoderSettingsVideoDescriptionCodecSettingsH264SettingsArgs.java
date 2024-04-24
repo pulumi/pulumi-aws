@@ -116,14 +116,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Filters to apply to an encode. See H265 Filter Settings for more details.
+     * Filters to apply to an encode. See H264 Filter Settings for more details.
      * 
      */
     @Import(name="filterSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs> filterSettings;
 
     /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs>> filterSettings() {
@@ -288,14 +288,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * H265 level.
+     * H264 level.
      * 
      */
     @Import(name="level")
     private @Nullable Output<String> level;
 
     /**
-     * @return H265 level.
+     * @return H264 level.
      * 
      */
     public Optional<Output<String>> level() {
@@ -400,14 +400,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * AAC profile.
+     * H264 profile.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return AAC profile.
+     * @return H264 profile.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -445,14 +445,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * The rate control mode.
+     * Rate control mode.
      * 
      */
     @Import(name="rateControlMode")
     private @Nullable Output<String> rateControlMode;
 
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     public Optional<Output<String>> rateControlMode() {
@@ -793,7 +793,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
          * 
          * @return builder
          * 
@@ -804,7 +804,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
          * 
          * @return builder
          * 
@@ -1033,7 +1033,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param level H265 level.
+         * @param level H264 level.
          * 
          * @return builder
          * 
@@ -1044,7 +1044,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param level H265 level.
+         * @param level H264 level.
          * 
          * @return builder
          * 
@@ -1189,7 +1189,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param profile AAC profile.
+         * @param profile H264 profile.
          * 
          * @return builder
          * 
@@ -1200,7 +1200,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param profile AAC profile.
+         * @param profile H264 profile.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 
@@ -1263,7 +1263,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 

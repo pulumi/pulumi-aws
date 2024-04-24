@@ -242,7 +242,6 @@ class MethodResponse(pulumi.CustomResource):
 
         ### Basic Response
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,11 +269,9 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Response with Custom Header and Model
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -325,7 +322,6 @@ class MethodResponse(pulumi.CustomResource):
                 "method-response-header.X-My-Demo-Header": False,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -359,7 +355,6 @@ class MethodResponse(pulumi.CustomResource):
 
         ### Basic Response
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,11 +382,9 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Response with Custom Header and Model
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -442,7 +435,6 @@ class MethodResponse(pulumi.CustomResource):
                 "method-response-header.X-My-Demo-Header": False,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

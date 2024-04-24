@@ -136,7 +136,6 @@ class EmailIdentityPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +167,6 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +195,6 @@ class EmailIdentityPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,7 +226,6 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPolicyStoreResult> InvokeAsync(GetPolicyStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());

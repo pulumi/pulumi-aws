@@ -254,7 +254,6 @@ class NfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +265,6 @@ class NfsLocation(pulumi.CustomResource):
                 agent_arns=[example_aws_datasync_agent["arn"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,7 +295,6 @@ class NfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,7 +306,6 @@ class NfsLocation(pulumi.CustomResource):
                 agent_arns=[example_aws_datasync_agent["arn"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -209,7 +209,6 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +247,6 @@ class TrustAnchor(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,7 +274,6 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +312,6 @@ class TrustAnchor(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

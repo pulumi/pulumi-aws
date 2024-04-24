@@ -78,14 +78,12 @@ def get_notification_channel(filters: Optional[Sequence[pulumi.InputType['GetNot
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.devopsguru.get_notification_channel(id="channel-1234")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
@@ -117,14 +115,12 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.devopsguru.get_notification_channel(id="channel-1234")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.

@@ -169,7 +169,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,7 +234,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +253,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,7 +318,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerPolicyArgs args: The arguments to use to populate this resource's properties.

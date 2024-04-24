@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     configurationSetName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
 
@@ -94,7 +92,6 @@ export interface GetConfigurationSetResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,7 +100,6 @@ export interface GetConfigurationSetResult {
  *     configurationSetName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationSet(a, opts))

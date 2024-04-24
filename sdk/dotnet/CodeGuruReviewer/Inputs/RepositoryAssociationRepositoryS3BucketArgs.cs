@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the third party source repository.
+        /// The name of the repository in the S3 bucket.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

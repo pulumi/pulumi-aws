@@ -26,7 +26,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic w/ Tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Interface Endpoint Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,11 +112,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Gateway Load Balancer Endpoint Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,7 +160,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

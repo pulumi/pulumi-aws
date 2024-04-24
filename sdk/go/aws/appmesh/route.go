@@ -18,7 +18,6 @@ import (
 //
 // ### HTTP Routing
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,11 +62,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### HTTP Header Routing
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,11 +115,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Retry Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -173,11 +168,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### TCP Routing
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -215,7 +208,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,11 +56,9 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Column Level Permission Rules
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,11 +113,9 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Field Folders
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -173,11 +168,9 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Permissions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -233,11 +226,9 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Row Level Permission Tag Configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -292,7 +283,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -306,7 +296,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class DataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the dataset that contains permissions for RLS.
+        /// Amazon Resource Name (ARN) of the data set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -601,7 +591,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class DataSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the dataset that contains permissions for RLS.
+        /// Amazon Resource Name (ARN) of the data set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

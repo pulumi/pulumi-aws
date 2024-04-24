@@ -17,7 +17,6 @@ import (
 //
 // ### All users in an account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,13 +38,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Users filtered by name regex
 //
 // Users whose username contains `abc`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Users filtered by path prefix
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,7 +92,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult

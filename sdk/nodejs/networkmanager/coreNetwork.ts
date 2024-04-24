@@ -14,18 +14,15 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.CoreNetwork("example", {globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With description
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +32,9 @@ import * as utilities from "../utilities";
  *     description: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,7 +46,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With VPC Attachment (Single Region)
  *
@@ -64,7 +58,6 @@ import * as utilities from "../utilities";
  *
  * If you require a custom ASN for the edge location, please use the `basePolicyDocument` argument to pass a specific ASN. For example:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,11 +108,9 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Option 2 - createBasePolicy only
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -156,7 +147,6 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With VPC Attachment (Multi-Region)
  *
@@ -167,7 +157,6 @@ import * as utilities from "../utilities";
  *
  * ### Option 1 - using basePolicyDocument
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -248,11 +237,9 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Option 2 - using basePolicyRegions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -316,7 +303,6 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

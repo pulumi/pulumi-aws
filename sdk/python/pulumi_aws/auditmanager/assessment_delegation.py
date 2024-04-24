@@ -241,7 +241,6 @@ class AssessmentDelegation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,7 +251,6 @@ class AssessmentDelegation(pulumi.CustomResource):
             role_type="RESOURCE_OWNER",
             control_set_id="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,7 +283,6 @@ class AssessmentDelegation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +293,6 @@ class AssessmentDelegation(pulumi.CustomResource):
             role_type="RESOURCE_OWNER",
             control_set_id="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

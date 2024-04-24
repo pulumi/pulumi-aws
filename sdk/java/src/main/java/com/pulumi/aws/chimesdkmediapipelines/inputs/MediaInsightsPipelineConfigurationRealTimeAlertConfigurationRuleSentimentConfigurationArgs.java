@@ -15,47 +15,23 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
     public static final MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs Empty = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs();
 
-    /**
-     * Rule name.
-     * 
-     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
-    /**
-     * @return Rule name.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
 
-    /**
-     * Sentiment type to match.
-     * 
-     */
     @Import(name="sentimentType", required=true)
     private Output<String> sentimentType;
 
-    /**
-     * @return Sentiment type to match.
-     * 
-     */
     public Output<String> sentimentType() {
         return this.sentimentType;
     }
 
-    /**
-     * Analysis interval.
-     * 
-     */
     @Import(name="timePeriod", required=true)
     private Output<Integer> timePeriod;
 
-    /**
-     * @return Analysis interval.
-     * 
-     */
     public Output<Integer> timePeriod() {
         return this.timePeriod;
     }
@@ -86,65 +62,29 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             $ = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }
 
-        /**
-         * @param sentimentType Sentiment type to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sentimentType(Output<String> sentimentType) {
             $.sentimentType = sentimentType;
             return this;
         }
 
-        /**
-         * @param sentimentType Sentiment type to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sentimentType(String sentimentType) {
             return sentimentType(Output.of(sentimentType));
         }
 
-        /**
-         * @param timePeriod Analysis interval.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timePeriod(Output<Integer> timePeriod) {
             $.timePeriod = timePeriod;
             return this;
         }
 
-        /**
-         * @param timePeriod Analysis interval.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timePeriod(Integer timePeriod) {
             return timePeriod(Output.of(timePeriod));
         }

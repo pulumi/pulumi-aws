@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### clusterIdentifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### workgroupName
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +38,6 @@ import * as utilities from "../utilities";
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

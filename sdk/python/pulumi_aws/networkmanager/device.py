@@ -408,7 +408,6 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,7 +416,6 @@ class Device(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -452,7 +450,6 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,7 +458,6 @@ class Device(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

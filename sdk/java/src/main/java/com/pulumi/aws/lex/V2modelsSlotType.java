@@ -222,17 +222,9 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> parentSlotTypeSignature() {
         return Codegen.optional(this.parentSlotTypeSignature);
     }
-    /**
-     * Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     * 
-     */
     @Export(name="slotTypeId", refs={String.class}, tree="[0]")
     private Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     * 
-     */
     public Output<String> slotTypeId() {
         return this.slotTypeId;
     }

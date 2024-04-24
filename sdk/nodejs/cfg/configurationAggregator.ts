@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Account Based Aggregation
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Based Aggregation
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,7 +61,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [organizationRolePolicyAttachment],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

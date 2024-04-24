@@ -30,15 +30,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("datadog")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs>? Datadog { get; set; }
 
-        /// <summary>
-        /// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs>? Dynatrace { get; set; }
 
-        /// <summary>
-        /// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-        /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs>? GoogleAnalytics { get; set; }
 
@@ -90,9 +84,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("slack")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs>? Slack { get; set; }
 
-        /// <summary>
-        /// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs>? Trendmicro { get; set; }
 

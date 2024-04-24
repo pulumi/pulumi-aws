@@ -1013,7 +1013,6 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1037,7 +1036,6 @@ class ClusterInstance(pulumi.CustomResource):
                 engine=default.engine,
                 engine_version=default.engine_version))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1101,7 +1099,6 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1125,7 +1122,6 @@ class ClusterInstance(pulumi.CustomResource):
                 engine=default.engine,
                 engine_version=default.engine_version))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

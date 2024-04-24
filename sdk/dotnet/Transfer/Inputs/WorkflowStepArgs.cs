@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowStepArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details for a step that performs a file copy. See Copy Step Details below.
-        /// </summary>
         [Input("copyStepDetails")]
         public Input<Inputs.WorkflowStepCopyStepDetailsArgs>? CopyStepDetails { get; set; }
 
-        /// <summary>
-        /// Details for a step that invokes a lambda function.
-        /// </summary>
         [Input("customStepDetails")]
         public Input<Inputs.WorkflowStepCustomStepDetailsArgs>? CustomStepDetails { get; set; }
 
-        /// <summary>
-        /// Details for a step that decrypts the file.
-        /// </summary>
         [Input("decryptStepDetails")]
         public Input<Inputs.WorkflowStepDecryptStepDetailsArgs>? DecryptStepDetails { get; set; }
 
-        /// <summary>
-        /// Details for a step that deletes the file.
-        /// </summary>
         [Input("deleteStepDetails")]
         public Input<Inputs.WorkflowStepDeleteStepDetailsArgs>? DeleteStepDetails { get; set; }
 
-        /// <summary>
-        /// Details for a step that creates one or more tags.
-        /// </summary>
         [Input("tagStepDetails")]
         public Input<Inputs.WorkflowStepTagStepDetailsArgs>? TagStepDetails { get; set; }
 
-        /// <summary>
-        /// The type of encryption used. Currently, this value must be `"PGP"`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

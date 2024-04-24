@@ -18,7 +18,6 @@ import (
 //
 // ### DynamoDB Table Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,11 +59,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ECS Service Autoscaling
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 

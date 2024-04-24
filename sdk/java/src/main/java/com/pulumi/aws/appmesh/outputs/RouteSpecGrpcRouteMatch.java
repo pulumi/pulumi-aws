@@ -29,10 +29,6 @@ public final class RouteSpecGrpcRouteMatch {
      * 
      */
     private @Nullable Integer port;
-    /**
-     * @return Header value sent by the client must begin with the specified characters.
-     * 
-     */
     private @Nullable String prefix;
     /**
      * @return Fully qualified domain name for the service to match from the request.
@@ -62,10 +58,6 @@ public final class RouteSpecGrpcRouteMatch {
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return Header value sent by the client must begin with the specified characters.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

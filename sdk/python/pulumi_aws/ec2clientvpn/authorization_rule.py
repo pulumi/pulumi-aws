@@ -202,7 +202,6 @@ class AuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +211,6 @@ class AuthorizationRule(pulumi.CustomResource):
             target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,7 +249,6 @@ class AuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +258,6 @@ class AuthorizationRule(pulumi.CustomResource):
             target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

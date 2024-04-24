@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly Outputs.TopicRuleErrorActionDynamodbv2PutItem? PutItem;
         /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
         public readonly string RoleArn;
 

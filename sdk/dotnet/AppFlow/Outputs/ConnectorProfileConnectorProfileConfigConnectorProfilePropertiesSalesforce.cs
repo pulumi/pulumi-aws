@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     {
-        /// <summary>
-        /// The location of the Datadog resource.
-        /// </summary>
         public readonly string? InstanceUrl;
-        /// <summary>
-        /// Indicates whether the connector profile applies to a sandbox or production environment.
-        /// </summary>
         public readonly bool? IsSandboxEnvironment;
 
         [OutputConstructor]

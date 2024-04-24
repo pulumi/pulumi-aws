@@ -211,7 +211,6 @@ class JobTemplate(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +227,6 @@ class JobTemplate(pulumi.CustomResource):
             ),
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +256,6 @@ class JobTemplate(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +272,6 @@ class JobTemplate(pulumi.CustomResource):
             ),
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

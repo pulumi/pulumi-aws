@@ -104,7 +104,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -126,7 +125,6 @@ class BucketPolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -154,7 +152,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -176,7 +173,6 @@ class BucketPolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

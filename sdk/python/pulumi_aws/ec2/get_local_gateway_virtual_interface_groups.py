@@ -96,14 +96,12 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[pulumi
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.ec2.get_local_gateway_virtual_interface_groups()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
@@ -132,14 +130,12 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.ec2.get_local_gateway_virtual_interface_groups()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.

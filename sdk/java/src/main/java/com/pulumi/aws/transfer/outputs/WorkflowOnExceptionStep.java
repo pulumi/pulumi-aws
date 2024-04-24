@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowOnExceptionStep {
-    /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
-     * 
-     */
     private @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails;
-    /**
-     * @return Details for a step that invokes a lambda function.
-     * 
-     */
     private @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
-    /**
-     * @return Details for a step that decrypts the file.
-     * 
-     */
     private @Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails;
-    /**
-     * @return Details for a step that deletes the file.
-     * 
-     */
     private @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails;
-    /**
-     * @return Details for a step that creates one or more tags.
-     * 
-     */
     private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
-    /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     private String type;
 
     private WorkflowOnExceptionStep() {}
-    /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
-     * 
-     */
     public Optional<WorkflowOnExceptionStepCopyStepDetails> copyStepDetails() {
         return Optional.ofNullable(this.copyStepDetails);
     }
-    /**
-     * @return Details for a step that invokes a lambda function.
-     * 
-     */
     public Optional<WorkflowOnExceptionStepCustomStepDetails> customStepDetails() {
         return Optional.ofNullable(this.customStepDetails);
     }
-    /**
-     * @return Details for a step that decrypts the file.
-     * 
-     */
     public Optional<WorkflowOnExceptionStepDecryptStepDetails> decryptStepDetails() {
         return Optional.ofNullable(this.decryptStepDetails);
     }
-    /**
-     * @return Details for a step that deletes the file.
-     * 
-     */
     public Optional<WorkflowOnExceptionStepDeleteStepDetails> deleteStepDetails() {
         return Optional.ofNullable(this.deleteStepDetails);
     }
-    /**
-     * @return Details for a step that creates one or more tags.
-     * 
-     */
     public Optional<WorkflowOnExceptionStepTagStepDetails> tagStepDetails() {
         return Optional.ofNullable(this.tagStepDetails);
     }
-    /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     public String type() {
         return this.type;
     }

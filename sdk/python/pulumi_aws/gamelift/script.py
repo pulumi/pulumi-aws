@@ -243,7 +243,6 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +255,6 @@ class Script(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,7 +283,6 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +295,6 @@ class Script(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

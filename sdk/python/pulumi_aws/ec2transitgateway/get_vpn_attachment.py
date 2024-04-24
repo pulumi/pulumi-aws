@@ -99,7 +99,6 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
 
     ### By Transit Gateway and VPN Connection Identifiers
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -107,11 +106,9 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
         vpn_connection_id=example_aws_vpn_connection["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -121,7 +118,6 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
         values=["some-resource"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -160,7 +156,6 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ### By Transit Gateway and VPN Connection Identifiers
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -168,11 +163,9 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
         vpn_connection_id=example_aws_vpn_connection["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -182,7 +175,6 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         values=["some-resource"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

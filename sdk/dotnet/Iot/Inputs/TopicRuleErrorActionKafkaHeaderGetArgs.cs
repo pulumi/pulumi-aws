@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleErrorActionKafkaHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the HTTP header.
+        /// The key of the Kafka header.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value of the HTTP header.
+        /// The value of the Kafka header.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

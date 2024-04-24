@@ -114,7 +114,6 @@ def get_resolver_rules(name_regex: Optional[str] = None,
 
     ### Retrieving the default resolver rule
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -123,11 +122,9 @@ def get_resolver_rules(name_regex: Optional[str] = None,
         rule_type="RECURSIVE",
         share_status="NOT_SHARED")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieving forward rules shared with me
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,20 +132,17 @@ def get_resolver_rules(name_regex: Optional[str] = None,
     example = aws.route53.get_resolver_rules(rule_type="FORWARD",
         share_status="SHARED_WITH_ME")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieving rules by name regex
 
     Resolver rules whose name contains `abc`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to filter resolver rule names.
@@ -192,7 +186,6 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
 
     ### Retrieving the default resolver rule
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -201,11 +194,9 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
         rule_type="RECURSIVE",
         share_status="NOT_SHARED")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieving forward rules shared with me
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -213,20 +204,17 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
     example = aws.route53.get_resolver_rules(rule_type="FORWARD",
         share_status="SHARED_WITH_ME")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieving rules by name regex
 
     Resolver rules whose name contains `abc`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to filter resolver rule names.

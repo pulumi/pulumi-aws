@@ -185,7 +185,6 @@ class ServiceNetwork(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,7 +193,6 @@ class ServiceNetwork(pulumi.CustomResource):
             name="example",
             auth_type="AWS_IAM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -225,7 +223,6 @@ class ServiceNetwork(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +231,6 @@ class ServiceNetwork(pulumi.CustomResource):
             name="example",
             auth_type="AWS_IAM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

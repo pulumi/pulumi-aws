@@ -13,9 +13,6 @@ namespace Pulumi.Aws.IvsChat.Outputs
     [OutputType]
     public sealed class LoggingConfigurationDestinationConfigurationFirehose
     {
-        /// <summary>
-        /// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-        /// </summary>
         public readonly string DeliveryStreamName;
 
         [OutputConstructor]

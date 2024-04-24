@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,13 +62,11 @@ import * as utilities from "../utilities";
  *     policy: p.then(p => p.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Rules
  *
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,11 +89,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Policies
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,22 +105,21 @@ import * as utilities from "../utilities";
  *         }],
  *         customPolicyDetails: {
  *             policyRuntime: "guard-2.x.x",
- *             policyText: `	  rule tableisactive when
- * 		  resourceType == "AWS::DynamoDB::Table" {
- * 		  configuration.tableStatus == ['ACTIVE']
- * 	  }
- * 	  
- * 	  rule checkcompliance when
- * 		  resourceType == "AWS::DynamoDB::Table"
- * 		  tableisactive {
- * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
- * 	  }
+ *             policyText: `\x09  rule tableisactive when
+ * \x09\x09  resourceType == "AWS::DynamoDB::Table" {
+ * \x09\x09  configuration.tableStatus == ['ACTIVE']
+ * \x09  }
+ * \x09  
+ * \x09  rule checkcompliance when
+ * \x09\x09  resourceType == "AWS::DynamoDB::Table"
+ * \x09\x09  tableisactive {
+ * \x09\x09\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+ * \x09  }
  * `,
  *         },
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

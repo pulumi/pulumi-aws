@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
      * 
      */
     private @Nullable Integer max;
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
      * 
      */
     private @Nullable Integer min;
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps() {}
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
      * 
      */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
      * 
      */
     public Optional<Integer> min() {

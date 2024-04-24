@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LB
     /// 
     /// ### Forward Action
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,11 +49,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To a NLB:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,11 +79,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Redirect Action
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,11 +114,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Fixed-response Action
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,11 +149,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Authenticate-cognito Action
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -206,11 +197,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Authenticate-OIDC Action
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -253,11 +242,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Gateway Load Balancer Listener
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -307,11 +294,9 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Mutual TLS Authentication
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -347,7 +332,6 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -367,9 +351,7 @@ namespace Pulumi.Aws.LB
         public Output<string?> AlpnPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the target group.
-        /// 
-        /// The following arguments are optional:
+        /// ARN of the listener (matches `id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -567,9 +549,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? AlpnPolicy { get; set; }
 
         /// <summary>
-        /// ARN of the target group.
-        /// 
-        /// The following arguments are optional:
+        /// ARN of the listener (matches `id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

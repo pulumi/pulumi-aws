@@ -11,14 +11,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

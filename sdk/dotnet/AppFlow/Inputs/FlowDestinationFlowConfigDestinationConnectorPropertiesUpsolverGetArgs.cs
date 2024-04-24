@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon S3 bucket prefix.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-        /// </summary>
         [Input("s3OutputFormatConfig", required: true)]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigGetArgs> S3OutputFormatConfig { get; set; } = null!;
 

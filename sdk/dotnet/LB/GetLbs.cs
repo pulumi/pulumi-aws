@@ -19,7 +19,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLbsResult> InvokeAsync(GetLbsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLbsResult>("aws:lb/getLbs:getLbs", args ?? new GetLbsArgs(), options.WithDefaults());
@@ -51,7 +49,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLbsResult> Invoke(GetLbsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLbsResult>("aws:lb/getLbs:getLbs", args ?? new GetLbsInvokeArgs(), options.WithDefaults());

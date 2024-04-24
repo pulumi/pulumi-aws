@@ -2120,7 +2120,6 @@ class VpnConnection(pulumi.CustomResource):
 
         ### EC2 Transit Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2135,11 +2134,9 @@ class VpnConnection(pulumi.CustomResource):
             transit_gateway_id=example.id,
             type=example_customer_gateway.type)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Virtual Private Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2156,11 +2153,9 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Site to Site Private VPN
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2195,7 +2190,6 @@ class VpnConnection(pulumi.CustomResource):
                 "Name": "example_ipsec_vpn_example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2279,7 +2273,6 @@ class VpnConnection(pulumi.CustomResource):
 
         ### EC2 Transit Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2294,11 +2287,9 @@ class VpnConnection(pulumi.CustomResource):
             transit_gateway_id=example.id,
             type=example_customer_gateway.type)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Virtual Private Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2315,11 +2306,9 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Site to Site Private VPN
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2354,7 +2343,6 @@ class VpnConnection(pulumi.CustomResource):
                 "Name": "example_ipsec_vpn_example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

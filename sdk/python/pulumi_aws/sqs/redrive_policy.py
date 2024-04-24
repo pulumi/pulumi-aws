@@ -107,7 +107,6 @@ class RedrivePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -127,7 +126,6 @@ class RedrivePolicy(pulumi.CustomResource):
                 "maxReceiveCount": 4,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -158,7 +156,6 @@ class RedrivePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -178,7 +175,6 @@ class RedrivePolicy(pulumi.CustomResource):
                 "maxReceiveCount": 4,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

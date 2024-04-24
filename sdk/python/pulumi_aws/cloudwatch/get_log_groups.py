@@ -84,14 +84,12 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
@@ -116,14 +114,12 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list

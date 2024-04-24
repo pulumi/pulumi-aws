@@ -19,7 +19,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCanonicalUserIdResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());

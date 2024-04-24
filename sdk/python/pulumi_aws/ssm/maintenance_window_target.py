@@ -241,7 +241,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         ### Instance Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,11 +260,9 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["acceptance_test"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Group Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +282,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["AWS::EC2::Instance"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -318,7 +314,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         ### Instance Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,11 +333,9 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["acceptance_test"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Group Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,7 +355,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["AWS::EC2::Instance"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,7 +19,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3 {
      */
     private @Nullable String bucket;
     /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     private Boolean enabled;
@@ -38,7 +38,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3 {
         return Optional.ofNullable(this.bucket);
     }
     /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     public Boolean enabled() {

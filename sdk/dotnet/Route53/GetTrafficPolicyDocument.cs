@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,13 +75,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Complex Example
         /// 
         /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -178,7 +175,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficPolicyDocumentResult> InvokeAsync(GetTrafficPolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentArgs(), options.WithDefaults());
@@ -190,7 +186,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -248,13 +243,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Complex Example
         /// 
         /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -350,7 +343,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficPolicyDocumentResult> Invoke(GetTrafficPolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentInvokeArgs(), options.WithDefaults());

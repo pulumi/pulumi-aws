@@ -200,7 +200,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,7 +207,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -239,7 +237,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +244,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

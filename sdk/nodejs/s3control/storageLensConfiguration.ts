@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,7 +55,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -99,7 +97,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -169,7 +167,7 @@ export interface StorageLensConfigurationState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      */
     arn?: pulumi.Input<string>;
     /**

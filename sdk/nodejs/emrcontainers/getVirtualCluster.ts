@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * export const name = example.then(example => example.name);
  * export const arn = example.then(example => example.arn);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
 
@@ -87,7 +85,6 @@ export interface GetVirtualClusterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +95,6 @@ export interface GetVirtualClusterResult {
  * export const name = example.then(example => example.name);
  * export const arn = example.then(example => example.arn);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
     return pulumi.output(args).apply((a: any) => getVirtualCluster(a, opts))

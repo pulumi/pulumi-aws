@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage - Logging to CloudWatch
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

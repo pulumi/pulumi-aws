@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDevEnvironment(args: GetDevEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDevEnvironmentResult> {
 
@@ -132,7 +130,6 @@ export interface GetDevEnvironmentResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -143,7 +140,6 @@ export interface GetDevEnvironmentResult {
  *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getDevEnvironment(a, opts))

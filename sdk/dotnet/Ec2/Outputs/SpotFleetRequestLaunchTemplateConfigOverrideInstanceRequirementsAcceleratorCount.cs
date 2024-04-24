@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         public readonly int? Max;
         /// <summary>

@@ -1253,21 +1253,6 @@ class DefaultNetworkAclIngress(dict):
                  icmp_code: Optional[int] = None,
                  icmp_type: Optional[int] = None,
                  ipv6_cidr_block: Optional[str] = None):
-        """
-        :param str action: The action to take.
-        :param int from_port: The from port to match.
-        :param str protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
-        :param int rule_no: The rule number. Used for ordering.
-        :param int to_port: The to port to match.
-               
-               The following arguments are optional:
-        :param str cidr_block: The CIDR block to match. This must be a valid network mask.
-        :param int icmp_code: The ICMP type code to be used. Default 0.
-        :param int icmp_type: The ICMP type to be used. Default 0.
-        :param str ipv6_cidr_block: The IPv6 CIDR block.
-               
-               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1285,77 +1270,46 @@ class DefaultNetworkAclIngress(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
-        """
-        The action to take.
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
-        """
-        The from port to match.
-        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter
     def protocol(self) -> str:
-        """
-        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleNo")
     def rule_no(self) -> int:
-        """
-        The rule number. Used for ordering.
-        """
         return pulumi.get(self, "rule_no")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
-        """
-        The to port to match.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "to_port")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[str]:
-        """
-        The CIDR block to match. This must be a valid network mask.
-        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[int]:
-        """
-        The ICMP type code to be used. Default 0.
-        """
         return pulumi.get(self, "icmp_code")
 
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[int]:
-        """
-        The ICMP type to be used. Default 0.
-        """
         return pulumi.get(self, "icmp_type")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[str]:
-        """
-        The IPv6 CIDR block.
-
-        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
 
@@ -1736,15 +1690,7 @@ class DefaultSecurityGroupIngress(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  self: Optional[bool] = None):
         """
-        :param int from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param str protocol: Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-        :param int to_port: End range port (or ICMP code if protocol is `icmp`).
-        :param Sequence[str] cidr_blocks: List of CIDR blocks.
-        :param str description: Description of this rule.
-        :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param Sequence[str] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
-        :param Sequence[str] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        :param bool self: Whether the security group itself will be added as a source to this egress rule.
+        :param str description: Description of the security group.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1765,73 +1711,49 @@ class DefaultSecurityGroupIngress(dict):
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
-        """
-        Start port (or ICMP type number if protocol is `icmp`)
-        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter
     def protocol(self) -> str:
-        """
-        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
-        """
-        End range port (or ICMP code if protocol is `icmp`).
-        """
         return pulumi.get(self, "to_port")
 
     @property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[Sequence[str]]:
-        """
-        List of CIDR blocks.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of this rule.
+        Description of the security group.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[Sequence[str]]:
-        """
-        List of IPv6 CIDR blocks.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[Sequence[str]]:
-        """
-        List of prefix list IDs (for allowing access to VPC endpoints)
-        """
         return pulumi.get(self, "prefix_list_ids")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
-        """
-        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter
     def self(self) -> Optional[bool]:
-        """
-        Whether the security group itself will be added as a source to this egress rule.
-        """
         return pulumi.get(self, "self")
 
 
@@ -1906,7 +1828,7 @@ class FleetFleetInstanceSet(dict):
                  platform: Optional[str] = None):
         """
         :param Sequence[str] instance_ids: The IDs of the instances.
-        :param str instance_type: Instance type.
+        :param str instance_type: The instance type.
         :param str lifecycle: Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
         :param str platform: The value is `Windows` for Windows instances. Otherwise, the value is blank.
         """
@@ -1931,7 +1853,7 @@ class FleetFleetInstanceSet(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        Instance type.
+        The instance type.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2545,8 +2467,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param int min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param int max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param int min: Minimum.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2557,7 +2479,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2565,7 +2487,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict
     @pulumi.getter
     def min(self) -> Optional[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        Minimum.
         """
         return pulumi.get(self, "min")
 
@@ -2576,8 +2498,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param int min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param int max: The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+        :param int min: The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2588,7 +2510,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2596,7 +2518,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def min(self) -> Optional[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2607,8 +2529,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param int min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param int max: The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
+        :param int min: The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2619,7 +2541,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
         """
         return pulumi.get(self, "max")
 
@@ -2627,7 +2549,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def min(self) -> Optional[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         return pulumi.get(self, "min")
 
@@ -2638,8 +2560,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param float min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param float max: The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+        :param float min: The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2650,7 +2572,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2658,7 +2580,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2669,8 +2591,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
                  min: int,
                  max: Optional[int] = None):
         """
-        :param int min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
-        :param int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        :param int min: The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
+        :param int max: The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -2680,7 +2602,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
     @pulumi.getter
     def min(self) -> int:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
         """
         return pulumi.get(self, "min")
 
@@ -2688,7 +2610,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2699,8 +2621,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param float min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param float max: The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+        :param float min: The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2711,7 +2633,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2719,7 +2641,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2730,8 +2652,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param int min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param int max: The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+        :param int min: The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2742,7 +2664,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2750,7 +2672,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def min(self) -> Optional[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2761,8 +2683,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(d
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param float min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param float max: The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+        :param float min: The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2773,7 +2695,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(d
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2781,7 +2703,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(d
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -4197,7 +4119,7 @@ class InstanceRootBlockDevice(dict):
                  volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
-        :param str device_name: Name of the device to mount.
+        :param str device_name: Device name, e.g., `/dev/sdh` or `xvdh`.
         :param bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -4245,7 +4167,7 @@ class InstanceRootBlockDevice(dict):
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
         """
-        Name of the device to mount.
+        Device name, e.g., `/dev/sdh` or `xvdh`.
         """
         return pulumi.get(self, "device_name")
 
@@ -5756,7 +5678,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCount(dict):
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: Maximum.
+        :param int max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param int min: Minimum.
         """
         if max is not None:
@@ -5768,7 +5690,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCount(dict):
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5849,8 +5771,8 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: Maximum.
-        :param float min: Minimum.
+        :param float max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param float min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5861,7 +5783,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5869,7 +5791,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -5972,8 +5894,8 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: Maximum.
-        :param float min: Minimum.
+        :param float max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param float min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5984,7 +5906,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5992,7 +5914,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -11660,18 +11582,12 @@ class PeeringConnectionOptionsAccepter(dict):
 
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
-        """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
 
@@ -11696,18 +11612,12 @@ class PeeringConnectionOptionsRequester(dict):
 
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
-        """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
 
@@ -12290,12 +12200,8 @@ class SpotFleetRequestLaunchSpecification(dict):
                  vpc_security_group_ids: Optional[Sequence[str]] = None,
                  weighted_capacity: Optional[str] = None):
         """
-        :param str instance_type: The type of instance to request.
-        :param str availability_zone: The availability zone in which to place the request.
         :param str spot_price: The maximum bid price per unit hour.
-        :param str subnet_id: The subnet in which to launch the requested instance.
         :param Mapping[str, str] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param str weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -12344,9 +12250,6 @@ class SpotFleetRequestLaunchSpecification(dict):
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
-        """
-        The type of instance to request.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
@@ -12357,9 +12260,6 @@ class SpotFleetRequestLaunchSpecification(dict):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
-        """
-        The availability zone in which to place the request.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
@@ -12423,9 +12323,6 @@ class SpotFleetRequestLaunchSpecification(dict):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
-        """
-        The subnet in which to launch the requested instance.
-        """
         return pulumi.get(self, "subnet_id")
 
     @property
@@ -12449,9 +12346,6 @@ class SpotFleetRequestLaunchSpecification(dict):
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[str]:
-        """
-        The capacity added to the fleet by a fulfilled request.
-        """
         return pulumi.get(self, "weighted_capacity")
 
 
@@ -13356,7 +13250,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
                  max: Optional[int] = None,
                  min: Optional[int] = None):
         """
-        :param int max: Maximum.
+        :param int max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param int min: Minimum.
         """
         if max is not None:
@@ -13368,7 +13262,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
     @pulumi.getter
     def max(self) -> Optional[int]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13449,8 +13343,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: Maximum.
-        :param float min: Minimum.
+        :param float max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param float min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -13461,7 +13355,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -13469,7 +13363,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -13573,8 +13467,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
                  max: Optional[float] = None,
                  min: Optional[float] = None):
         """
-        :param float max: Maximum.
-        :param float min: Minimum.
+        :param float max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param float min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -13585,7 +13479,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def max(self) -> Optional[float]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -13593,7 +13487,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def min(self) -> Optional[float]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -14540,7 +14434,6 @@ class SpotInstanceRequestRootBlockDevice(dict):
                  volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
-        :param str device_name: Name of the device to mount.
         :param bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -14586,9 +14479,6 @@ class SpotInstanceRequestRootBlockDevice(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
-        """
-        Name of the device to mount.
-        """
         return pulumi.get(self, "device_name")
 
     @property
@@ -15040,20 +14930,12 @@ class VpcPeeringConnectionAccepter(dict):
 
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
-        """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
 
@@ -15154,20 +15036,12 @@ class VpcPeeringConnectionRequester(dict):
 
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
-        """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
-        """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
-        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
 
@@ -18591,7 +18465,6 @@ class GetNetworkInsightsAnalysisExplanationAclResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18613,9 +18486,6 @@ class GetNetworkInsightsAnalysisExplanationAclResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18693,7 +18563,6 @@ class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18715,9 +18584,6 @@ class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18748,7 +18614,6 @@ class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18770,9 +18635,6 @@ class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18784,7 +18646,6 @@ class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18806,9 +18667,6 @@ class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18820,7 +18678,6 @@ class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18842,9 +18699,6 @@ class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18856,7 +18710,6 @@ class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18878,9 +18731,6 @@ class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18892,7 +18742,6 @@ class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dic
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18914,9 +18763,6 @@ class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dic
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18928,7 +18774,6 @@ class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18950,9 +18795,6 @@ class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -18964,7 +18806,6 @@ class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -18986,9 +18827,6 @@ class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19000,7 +18838,6 @@ class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19022,9 +18859,6 @@ class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19036,7 +18870,6 @@ class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19058,9 +18891,6 @@ class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19072,7 +18902,6 @@ class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19094,9 +18923,6 @@ class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19127,7 +18953,6 @@ class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19149,9 +18974,6 @@ class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19163,7 +18985,6 @@ class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19185,9 +19006,6 @@ class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19274,7 +19092,6 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19296,9 +19113,6 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19376,7 +19190,6 @@ class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19398,9 +19211,6 @@ class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19412,7 +19222,6 @@ class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19434,9 +19243,6 @@ class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19448,7 +19254,6 @@ class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19470,9 +19275,6 @@ class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19484,7 +19286,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19506,9 +19307,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19520,7 +19318,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19542,9 +19339,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19556,7 +19350,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19578,9 +19371,6 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19646,7 +19436,6 @@ class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19668,9 +19457,6 @@ class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19682,7 +19468,6 @@ class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19704,9 +19489,6 @@ class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19718,7 +19500,6 @@ class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19740,9 +19521,6 @@ class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19754,7 +19532,6 @@ class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19776,9 +19553,6 @@ class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -19790,7 +19564,6 @@ class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -19812,9 +19585,6 @@ class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20050,7 +19820,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentRes
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20072,9 +19841,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentRes
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20086,7 +19852,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20108,9 +19873,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20122,7 +19884,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20144,9 +19905,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20158,7 +19916,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20180,9 +19937,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20491,7 +20245,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20513,9 +20266,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20527,7 +20277,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20549,9 +20298,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20563,7 +20309,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20585,9 +20330,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20653,7 +20395,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20675,9 +20416,6 @@ class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20884,7 +20622,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResu
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20906,9 +20643,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResu
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20920,7 +20654,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20942,9 +20675,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20956,7 +20686,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -20978,9 +20707,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -20992,7 +20718,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -21014,9 +20739,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -21325,7 +21047,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -21347,9 +21068,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -21361,7 +21079,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -21383,9 +21100,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -21397,7 +21111,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -21419,9 +21132,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -21487,7 +21197,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
                  name: str):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
-        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -21509,9 +21218,6 @@ class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
 
@@ -22225,7 +21931,6 @@ class GetSubnetsFilterResult(dict):
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -22235,7 +21940,6 @@ class GetSubnetsFilterResult(dict):
                    values=[""],
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -22250,7 +21954,6 @@ class GetSubnetsFilterResult(dict):
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -22260,7 +21963,6 @@ class GetSubnetsFilterResult(dict):
             values=[""],
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

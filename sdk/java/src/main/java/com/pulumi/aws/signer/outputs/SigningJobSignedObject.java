@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SigningJobSignedObject {
-    /**
-     * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
-     * 
-     */
     private @Nullable List<SigningJobSignedObjectS3> s3s;
 
     private SigningJobSignedObject() {}
-    /**
-     * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
-     * 
-     */
     public List<SigningJobSignedObjectS3> s3s() {
         return this.s3s == null ? List.of() : this.s3s;
     }

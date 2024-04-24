@@ -27,7 +27,6 @@ import (
 //
 // In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type CertificateValidation struct {
 	pulumi.CustomResourceState
 

@@ -427,7 +427,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,7 +438,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             ip_protocol="tcp",
             to_port=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -480,7 +478,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,7 +489,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             ip_protocol="tcp",
             to_port=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

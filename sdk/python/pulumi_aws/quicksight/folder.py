@@ -366,7 +366,6 @@ class Folder(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -375,11 +374,9 @@ class Folder(pulumi.CustomResource):
             folder_id="example-id",
             name="example-name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,11 +398,9 @@ class Folder(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Parent Folder
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +413,6 @@ class Folder(pulumi.CustomResource):
             name="example-name",
             parent_folder_arn=parent.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -453,7 +447,6 @@ class Folder(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,11 +455,9 @@ class Folder(pulumi.CustomResource):
             folder_id="example-id",
             name="example-name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,11 +479,9 @@ class Folder(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Parent Folder
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,7 +494,6 @@ class Folder(pulumi.CustomResource):
             name="example-name",
             parent_folder_arn=parent.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

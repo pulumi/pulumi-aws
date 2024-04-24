@@ -109,7 +109,6 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
 
     The following example shows how one might accept a local gateway id as a variable.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +117,6 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
     local_gateway_id = config.require_object("localGatewayId")
     selected = aws.ec2.get_local_gateway(id=local_gateway_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
@@ -161,7 +159,6 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
 
     The following example shows how one might accept a local gateway id as a variable.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,7 +167,6 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     local_gateway_id = config.require_object("localGatewayId")
     selected = aws.ec2.get_local_gateway(id=local_gateway_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.

@@ -219,7 +219,7 @@ class _ImageState:
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[str] name: The name of the Workflow parameter.
+        :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[str] platform: Platform of the image.
@@ -394,7 +394,7 @@ class _ImageState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Workflow parameter.
+        Name of the AMI.
         """
         return pulumi.get(self, "name")
 
@@ -511,7 +511,6 @@ class Image(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,7 +520,6 @@ class Image(pulumi.CustomResource):
             image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -557,7 +555,6 @@ class Image(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -567,7 +564,6 @@ class Image(pulumi.CustomResource):
             image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -678,7 +674,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[str] name: The name of the Workflow parameter.
+        :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArgs']]]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[str] platform: Platform of the image.
@@ -797,7 +793,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Workflow parameter.
+        Name of the AMI.
         """
         return pulumi.get(self, "name")
 

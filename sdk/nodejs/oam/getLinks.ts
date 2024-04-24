@@ -11,14 +11,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.oam.getLinks({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLinks(opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
 
@@ -47,14 +45,12 @@ export interface GetLinksResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.oam.getLinks({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
     return pulumi.output(getLinks(opts))

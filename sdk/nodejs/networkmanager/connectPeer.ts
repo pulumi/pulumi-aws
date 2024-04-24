@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,11 +40,9 @@ import * as utilities from "../utilities";
  *     insideCidrBlocks: ["172.16.0.0/16"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage with attachment accepter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,11 +81,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example2],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage with a Tunnel-less Connect attachment
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,7 +110,6 @@ import * as utilities from "../utilities";
  *     subnetArn: test2.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

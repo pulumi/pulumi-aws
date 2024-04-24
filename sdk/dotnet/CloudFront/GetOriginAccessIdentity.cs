@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// The following example below creates a CloudFront origin access identity.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOriginAccessIdentityResult> InvokeAsync(GetOriginAccessIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// The following example below creates a CloudFront origin access identity.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());

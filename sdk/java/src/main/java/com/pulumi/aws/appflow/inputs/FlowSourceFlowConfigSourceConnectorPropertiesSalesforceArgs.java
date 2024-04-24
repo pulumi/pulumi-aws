@@ -17,47 +17,23 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs();
 
-    /**
-     * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-     * 
-     */
     @Import(name="enableDynamicFieldUpdate")
     private @Nullable Output<Boolean> enableDynamicFieldUpdate;
 
-    /**
-     * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-     * 
-     */
     public Optional<Output<Boolean>> enableDynamicFieldUpdate() {
         return Optional.ofNullable(this.enableDynamicFieldUpdate);
     }
 
-    /**
-     * Whether Amazon AppFlow includes deleted files in the flow run.
-     * 
-     */
     @Import(name="includeDeletedRecords")
     private @Nullable Output<Boolean> includeDeletedRecords;
 
-    /**
-     * @return Whether Amazon AppFlow includes deleted files in the flow run.
-     * 
-     */
     public Optional<Output<Boolean>> includeDeletedRecords() {
         return Optional.ofNullable(this.includeDeletedRecords);
     }
 
-    /**
-     * Object specified in the flow destination.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
@@ -88,65 +64,29 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableDynamicFieldUpdate Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDynamicFieldUpdate(@Nullable Output<Boolean> enableDynamicFieldUpdate) {
             $.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
             return this;
         }
 
-        /**
-         * @param enableDynamicFieldUpdate Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDynamicFieldUpdate(Boolean enableDynamicFieldUpdate) {
             return enableDynamicFieldUpdate(Output.of(enableDynamicFieldUpdate));
         }
 
-        /**
-         * @param includeDeletedRecords Whether Amazon AppFlow includes deleted files in the flow run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDeletedRecords(@Nullable Output<Boolean> includeDeletedRecords) {
             $.includeDeletedRecords = includeDeletedRecords;
             return this;
         }
 
-        /**
-         * @param includeDeletedRecords Whether Amazon AppFlow includes deleted files in the flow run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDeletedRecords(Boolean includeDeletedRecords) {
             return includeDeletedRecords(Output.of(includeDeletedRecords));
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

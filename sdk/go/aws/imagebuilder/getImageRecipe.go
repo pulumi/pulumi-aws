@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageRecipeResult

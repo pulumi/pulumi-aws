@@ -148,7 +148,6 @@ class DelegationSignerRecord(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -223,7 +222,6 @@ class DelegationSignerRecord(pulumi.CustomResource):
                 public_key=example_key_signing_key.public_key,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,7 +249,6 @@ class DelegationSignerRecord(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -326,7 +323,6 @@ class DelegationSignerRecord(pulumi.CustomResource):
                 public_key=example_key_signing_key.public_key,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

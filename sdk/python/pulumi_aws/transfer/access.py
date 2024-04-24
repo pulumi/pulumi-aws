@@ -306,7 +306,6 @@ class Access(pulumi.CustomResource):
 
         ### Basic S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,11 +316,9 @@ class Access(pulumi.CustomResource):
             role=example_aws_iam_role["arn"],
             home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic EFS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,7 +333,6 @@ class Access(pulumi.CustomResource):
                 uid=1000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +368,6 @@ class Access(pulumi.CustomResource):
 
         ### Basic S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,11 +378,9 @@ class Access(pulumi.CustomResource):
             role=example_aws_iam_role["arn"],
             home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic EFS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,7 +395,6 @@ class Access(pulumi.CustomResource):
                 uid=1000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

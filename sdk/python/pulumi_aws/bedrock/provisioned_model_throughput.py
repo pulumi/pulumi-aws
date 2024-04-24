@@ -265,7 +265,6 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             commitment_duration="SixMonths",
             model_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -305,7 +303,6 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,7 +313,6 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             commitment_duration="SixMonths",
             model_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

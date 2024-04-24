@@ -273,7 +273,6 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +292,6 @@ class AssessmentTemplate(pulumi.CustomResource):
                 topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,7 +321,6 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +340,6 @@ class AssessmentTemplate(pulumi.CustomResource):
                 topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

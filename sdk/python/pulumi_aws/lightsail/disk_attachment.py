@@ -134,7 +134,6 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +157,6 @@ class Disk_attachment(pulumi.CustomResource):
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,7 +183,6 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +206,6 @@ class Disk_attachment(pulumi.CustomResource):
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

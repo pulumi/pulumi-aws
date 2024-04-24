@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetArnResult

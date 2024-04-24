@@ -17,32 +17,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs();
 
-    /**
-     * Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-     * 
-     */
     @Import(name="customProperties")
     private @Nullable Output<Map<String,String>> customProperties;
 
-    /**
-     * @return Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-     * 
-     */
     public Optional<Output<Map<String,String>>> customProperties() {
         return Optional.ofNullable(this.customProperties);
     }
 
-    /**
-     * Entity specified in the custom connector as a destination in the flow.
-     * 
-     */
     @Import(name="entityName", required=true)
     private Output<String> entityName;
 
-    /**
-     * @return Entity specified in the custom connector as a destination in the flow.
-     * 
-     */
     public Output<String> entityName() {
         return this.entityName;
     }
@@ -72,44 +56,20 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customProperties(@Nullable Output<Map<String,String>> customProperties) {
             $.customProperties = customProperties;
             return this;
         }
 
-        /**
-         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customProperties(Map<String,String> customProperties) {
             return customProperties(Output.of(customProperties));
         }
 
-        /**
-         * @param entityName Entity specified in the custom connector as a destination in the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityName(Output<String> entityName) {
             $.entityName = entityName;
             return this;
         }
 
-        /**
-         * @param entityName Entity specified in the custom connector as a destination in the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityName(String entityName) {
             return entityName(Output.of(entityName));
         }

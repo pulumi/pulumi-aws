@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,7 +90,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

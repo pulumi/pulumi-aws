@@ -226,7 +226,6 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,7 +237,6 @@ class Acl(pulumi.CustomResource):
                 "my-user-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -268,7 +266,6 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +277,6 @@ class Acl(pulumi.CustomResource):
                 "my-user-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

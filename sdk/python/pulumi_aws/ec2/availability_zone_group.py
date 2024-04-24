@@ -104,7 +104,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +112,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             group_name="us-west-2-lax-1",
             opt_in_status="opted-in")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -141,7 +139,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +147,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             group_name="us-west-2-lax-1",
             opt_in_status="opted-in")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,45 +13,15 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class ProfileBillingAddress
     {
-        /// <summary>
-        /// The first line of a customer address.
-        /// </summary>
         public readonly string? Address1;
-        /// <summary>
-        /// The second line of a customer address.
-        /// </summary>
         public readonly string? Address2;
-        /// <summary>
-        /// The third line of a customer address.
-        /// </summary>
         public readonly string? Address3;
-        /// <summary>
-        /// The fourth line of a customer address.
-        /// </summary>
         public readonly string? Address4;
-        /// <summary>
-        /// The city in which a customer lives.
-        /// </summary>
         public readonly string? City;
-        /// <summary>
-        /// The country in which a customer lives.
-        /// </summary>
         public readonly string? Country;
-        /// <summary>
-        /// The county in which a customer lives.
-        /// </summary>
         public readonly string? County;
-        /// <summary>
-        /// The postal code of a customer address.
-        /// </summary>
         public readonly string? PostalCode;
-        /// <summary>
-        /// The province in which a customer lives.
-        /// </summary>
         public readonly string? Province;
-        /// <summary>
-        /// The state in which a customer lives.
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

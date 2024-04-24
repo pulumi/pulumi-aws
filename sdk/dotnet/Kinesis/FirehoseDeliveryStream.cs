@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ### Extended S3 Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,13 +142,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Extended S3 Destination with dynamic partitioning
     /// 
     /// These examples use built-in Firehose functionality, rather than requiring a lambda.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -218,13 +215,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
     /// 
     /// The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -277,11 +272,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Redshift Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -340,11 +333,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Elasticsearch Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -400,11 +391,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Elasticsearch Destination With VPC
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -520,17 +509,15 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         DependsOn =
     ///         {
-    ///             firehose_elasticsearchRolePolicy, 
+    ///             firehose_elasticsearchRolePolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### OpenSearch Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -585,11 +572,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### OpenSearch Destination With VPC
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -701,17 +686,15 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         DependsOn =
     ///         {
-    ///             firehose_opensearch, 
+    ///             firehose_opensearch,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### OpenSearch Serverless Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -766,11 +749,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Splunk Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -803,11 +784,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### HTTP Endpoint (e.g., New Relic) Destination
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -859,7 +838,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -968,9 +946,6 @@ namespace Pulumi.Aws.Kinesis
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
@@ -1115,9 +1090,6 @@ namespace Pulumi.Aws.Kinesis
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
@@ -1237,9 +1209,6 @@ namespace Pulumi.Aws.Kinesis
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 

@@ -344,7 +344,6 @@ class Connection(pulumi.CustomResource):
 
         ### Non-VPC Connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,13 +356,11 @@ class Connection(pulumi.CustomResource):
             },
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,7 +378,6 @@ class Connection(pulumi.CustomResource):
                 subnet_id=example_aws_subnet["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -415,7 +411,6 @@ class Connection(pulumi.CustomResource):
 
         ### Non-VPC Connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,13 +423,11 @@ class Connection(pulumi.CustomResource):
             },
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -452,7 +445,6 @@ class Connection(pulumi.CustomResource):
                 subnet_id=example_aws_subnet["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -344,14 +344,12 @@ def get_cluster(cluster_identifier: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.
@@ -408,14 +406,12 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.

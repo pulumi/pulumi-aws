@@ -213,7 +213,6 @@ class SecretVersion(pulumi.CustomResource):
 
         ### Simple String Value
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,13 +221,11 @@ class SecretVersion(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             secret_string="example-string-to-protect")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Key-Value Pairs
 
         Secrets Manager also accepts key-value pairs in JSON.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -245,7 +242,6 @@ class SecretVersion(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             secret_string=json.dumps(example))
         ```
-        <!--End PulumiCodeChooser -->
 
         Reading key-value pairs from JSON back into a native map
 
@@ -281,7 +277,6 @@ class SecretVersion(pulumi.CustomResource):
 
         ### Simple String Value
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,13 +285,11 @@ class SecretVersion(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             secret_string="example-string-to-protect")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Key-Value Pairs
 
         Secrets Manager also accepts key-value pairs in JSON.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -313,7 +306,6 @@ class SecretVersion(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             secret_string=json.dumps(example))
         ```
-        <!--End PulumiCodeChooser -->
 
         Reading key-value pairs from JSON back into a native map
 

@@ -17,7 +17,7 @@ type WebAcl struct {
 
 	// The URL to use in SDK integrations with managed rule groups.
 	ApplicationIntegrationUrl pulumi.StringOutput `pulumi:"applicationIntegrationUrl"`
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF WebACL.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig WebAclAssociationConfigPtrOutput `pulumi:"associationConfig"`
@@ -93,7 +93,7 @@ func GetWebAcl(ctx *pulumi.Context,
 type webAclState struct {
 	// The URL to use in SDK integrations with managed rule groups.
 	ApplicationIntegrationUrl *string `pulumi:"applicationIntegrationUrl"`
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF WebACL.
 	Arn *string `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
@@ -131,7 +131,7 @@ type webAclState struct {
 type WebAclState struct {
 	// The URL to use in SDK integrations with managed rule groups.
 	ApplicationIntegrationUrl pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF WebACL.
 	Arn pulumi.StringPtrInput
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig WebAclAssociationConfigPtrInput
@@ -317,7 +317,7 @@ func (o WebAclOutput) ApplicationIntegrationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.ApplicationIntegrationUrl }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// The ARN of the WAF WebACL.
 func (o WebAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

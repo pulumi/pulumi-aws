@@ -15,17 +15,9 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs extends com.pulumi.
 
     public static final ClusterBrokerNodeGroupInfoStorageInfoArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoArgs();
 
-    /**
-     * A block that contains EBS volume information. See below.
-     * 
-     */
     @Import(name="ebsStorageInfo")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs> ebsStorageInfo;
 
-    /**
-     * @return A block that contains EBS volume information. See below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs>> ebsStorageInfo() {
         return Optional.ofNullable(this.ebsStorageInfo);
     }
@@ -54,23 +46,11 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs extends com.pulumi.
             $ = new ClusterBrokerNodeGroupInfoStorageInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ebsStorageInfo A block that contains EBS volume information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsStorageInfo(@Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs> ebsStorageInfo) {
             $.ebsStorageInfo = ebsStorageInfo;
             return this;
         }
 
-        /**
-         * @param ebsStorageInfo A block that contains EBS volume information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs ebsStorageInfo) {
             return ebsStorageInfo(Output.of(ebsStorageInfo));
         }

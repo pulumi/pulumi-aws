@@ -171,7 +171,6 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
             http_tokens="required",
             http_put_response_hop_limit=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,7 +203,6 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +211,6 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
             http_tokens="required",
             http_put_response_hop_limit=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

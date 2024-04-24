@@ -325,7 +325,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,11 +334,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
             "8.8.4.4",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Full usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,7 +355,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "Name": "foo-name",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 
@@ -399,7 +395,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,11 +404,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
             "8.8.4.4",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Full usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,7 +425,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "Name": "foo-name",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 

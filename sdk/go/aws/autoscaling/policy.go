@@ -22,7 +22,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +65,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create target tracking scaling policy using metric math
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,11 +142,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create predictive scaling policy using customized metrics
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -214,11 +209,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create predictive scaling policy using customized scaling and predefined load metric
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -273,7 +266,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -318,7 +310,6 @@ type Policy struct {
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -350,13 +341,11 @@ type Policy struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayOutput `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -382,7 +371,6 @@ type Policy struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrOutput `pulumi:"targetTrackingConfiguration"`
@@ -454,7 +442,6 @@ type policyState struct {
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -486,13 +473,11 @@ type policyState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -518,7 +503,6 @@ type policyState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
@@ -558,7 +542,6 @@ type PolicyState struct {
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -590,13 +573,11 @@ type PolicyState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -622,7 +603,6 @@ type PolicyState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
@@ -664,7 +644,6 @@ type policyArgs struct {
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -696,13 +675,11 @@ type policyArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -728,7 +705,6 @@ type policyArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
@@ -767,7 +743,6 @@ type PolicyArgs struct {
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -799,13 +774,11 @@ type PolicyArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -831,7 +804,6 @@ type PolicyArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	//
 	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
@@ -993,7 +965,6 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 // Set of adjustments that manage
 // group scaling. These have the following structure:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -1028,7 +999,6 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following fields are available in step adjustments:
 func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
@@ -1037,7 +1007,6 @@ func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 
 // Target tracking policy. These have the following structure:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -1066,7 +1035,6 @@ func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following fields are available in target tracking configuration:
 func (o PolicyOutput) TargetTrackingConfiguration() PolicyTargetTrackingConfigurationPtrOutput {

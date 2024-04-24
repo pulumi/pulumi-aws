@@ -382,10 +382,6 @@ class DataSourceOpensearchserviceConfigArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  region: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] endpoint: HTTP endpoint of the Elasticsearch domain.
-        :param pulumi.Input[str] region: AWS region of the DynamoDB table. Defaults to current region.
-        """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -393,9 +389,6 @@ class DataSourceOpensearchserviceConfigArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
-        """
-        HTTP endpoint of the Elasticsearch domain.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -405,9 +398,6 @@ class DataSourceOpensearchserviceConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS region of the DynamoDB table. Defaults to current region.
-        """
         return pulumi.get(self, "region")
 
     @region.setter

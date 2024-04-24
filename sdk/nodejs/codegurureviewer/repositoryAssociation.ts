@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class RepositoryAssociation extends pulumi.CustomResource {
     /**
@@ -78,11 +76,11 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      */
     public readonly kmsKeyDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
-     * The name of the third party source repository.
+     * The name of the repository.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The username for the account that owns the repository.
+     * The owner of the repository.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
@@ -181,11 +179,11 @@ export interface RepositoryAssociationState {
      */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
     /**
-     * The name of the third party source repository.
+     * The name of the repository.
      */
     name?: pulumi.Input<string>;
     /**
-     * The username for the account that owns the repository.
+     * The owner of the repository.
      */
     owner?: pulumi.Input<string>;
     /**

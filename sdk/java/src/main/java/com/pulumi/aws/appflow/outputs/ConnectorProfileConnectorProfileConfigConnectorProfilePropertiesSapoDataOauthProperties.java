@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
-    /**
-     * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-     * 
-     */
     private String authCodeUrl;
-    /**
-     * @return The OAuth scopes required for OAuth type authentication.
-     * 
-     */
     private List<String> oauthScopes;
-    /**
-     * @return The token URL required for OAuth 2.0 authentication.
-     * 
-     */
     private String tokenUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties() {}
-    /**
-     * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-     * 
-     */
     public String authCodeUrl() {
         return this.authCodeUrl;
     }
-    /**
-     * @return The OAuth scopes required for OAuth type authentication.
-     * 
-     */
     public List<String> oauthScopes() {
         return this.oauthScopes;
     }
-    /**
-     * @return The token URL required for OAuth 2.0 authentication.
-     * 
-     */
     public String tokenUrl() {
         return this.tokenUrl;
     }

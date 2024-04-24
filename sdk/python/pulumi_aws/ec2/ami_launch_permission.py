@@ -204,7 +204,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ### AWS Account ID
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,11 +212,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             account_id="123456789012")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,11 +223,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             group="all")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +235,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             organization_arn=current.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,7 +265,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ### AWS Account ID
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,11 +273,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             account_id="123456789012")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,11 +284,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             group="all")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +296,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             organization_arn=current.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

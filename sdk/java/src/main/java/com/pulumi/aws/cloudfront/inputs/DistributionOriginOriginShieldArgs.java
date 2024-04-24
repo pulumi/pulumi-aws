@@ -18,31 +18,23 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
     public static final DistributionOriginOriginShieldArgs Empty = new DistributionOriginOriginShieldArgs();
 
     /**
-     * Whether Origin Shield is enabled.
+     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-     * 
-     */
     @Import(name="originShieldRegion")
     private @Nullable Output<String> originShieldRegion;
 
-    /**
-     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-     * 
-     */
     public Optional<Output<String>> originShieldRegion() {
         return Optional.ofNullable(this.originShieldRegion);
     }
@@ -73,7 +65,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 
@@ -84,7 +76,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 
@@ -93,23 +85,11 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param originShieldRegion AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originShieldRegion(@Nullable Output<String> originShieldRegion) {
             $.originShieldRegion = originShieldRegion;
             return this;
         }
 
-        /**
-         * @param originShieldRegion AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originShieldRegion(String originShieldRegion) {
             return originShieldRegion(Output.of(originShieldRegion));
         }

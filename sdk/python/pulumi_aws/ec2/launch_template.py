@@ -676,7 +676,7 @@ class _LaunchTemplateState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LaunchTemplate resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs'] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
@@ -814,7 +814,7 @@ class _LaunchTemplateState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        Amazon Resource Name (ARN) of the launch template.
         """
         return pulumi.get(self, "arn")
 
@@ -1581,7 +1581,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateBlockDeviceMappingArgs']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateCapacityReservationSpecificationArgs']] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
@@ -1681,7 +1681,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        Amazon Resource Name (ARN) of the launch template.
         """
         return pulumi.get(self, "arn")
 

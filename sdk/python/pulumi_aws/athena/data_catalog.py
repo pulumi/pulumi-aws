@@ -242,7 +242,6 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,11 +257,9 @@ class DataCatalog(pulumi.CustomResource):
                 "Name": "example-athena-data-catalog",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Hive based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,11 +272,9 @@ class DataCatalog(pulumi.CustomResource):
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Glue based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,11 +287,9 @@ class DataCatalog(pulumi.CustomResource):
                 "catalog-id": "123456789012",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +303,6 @@ class DataCatalog(pulumi.CustomResource):
                 "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,7 +335,6 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,11 +350,9 @@ class DataCatalog(pulumi.CustomResource):
                 "Name": "example-athena-data-catalog",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Hive based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,11 +365,9 @@ class DataCatalog(pulumi.CustomResource):
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Glue based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,11 +380,9 @@ class DataCatalog(pulumi.CustomResource):
                 "catalog-id": "123456789012",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda based Data Catalog
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,7 +396,6 @@ class DataCatalog(pulumi.CustomResource):
                 "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

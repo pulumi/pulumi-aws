@@ -21,7 +21,6 @@ import (
 //
 // ### Single EIP associated with an instance
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Multiple EIPs associated with a single network interface
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,11 +91,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,11 +153,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Allocating EIP from the BYOIP pool
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -187,7 +180,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

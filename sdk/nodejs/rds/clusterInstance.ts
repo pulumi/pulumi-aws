@@ -29,7 +29,6 @@ import {EngineType} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,7 +55,6 @@ import {EngineType} from "./index";
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

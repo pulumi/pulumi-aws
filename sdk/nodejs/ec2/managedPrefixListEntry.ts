@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     prefixListId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

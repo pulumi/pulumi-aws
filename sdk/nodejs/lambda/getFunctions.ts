@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctions(opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
 
@@ -47,14 +45,12 @@ export interface GetFunctionsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsResult> {
     return pulumi.output(getFunctions(opts))

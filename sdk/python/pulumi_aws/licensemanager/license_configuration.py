@@ -324,7 +324,6 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,7 +339,6 @@ class LicenseConfiguration(pulumi.CustomResource):
                 "foo": "barr",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Rules
 
@@ -385,7 +383,6 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +398,6 @@ class LicenseConfiguration(pulumi.CustomResource):
                 "foo": "barr",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Rules
 

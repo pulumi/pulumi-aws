@@ -175,7 +175,6 @@ class PublishingDestination(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,7 +241,6 @@ class PublishingDestination(pulumi.CustomResource):
             kms_key_arn=gd_key.arn,
             opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
 
@@ -274,7 +272,6 @@ class PublishingDestination(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,7 +338,6 @@ class PublishingDestination(pulumi.CustomResource):
             kms_key_arn=gd_key.arn,
             opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
 

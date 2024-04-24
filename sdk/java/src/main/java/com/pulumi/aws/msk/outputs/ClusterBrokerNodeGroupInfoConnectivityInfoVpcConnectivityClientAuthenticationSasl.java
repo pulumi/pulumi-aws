@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
-    /**
-     * @return Enables IAM client authentication. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean iam;
-    /**
-     * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean scram;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl() {}
-    /**
-     * @return Enables IAM client authentication. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> iam() {
         return Optional.ofNullable(this.iam);
     }
-    /**
-     * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> scram() {
         return Optional.ofNullable(this.scram);
     }

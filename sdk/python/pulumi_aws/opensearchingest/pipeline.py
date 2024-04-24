@@ -418,7 +418,6 @@ class Pipeline(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -457,11 +456,9 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using file function
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -473,7 +470,6 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -510,7 +506,6 @@ class Pipeline(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -549,11 +544,9 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using file function
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,7 +558,6 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

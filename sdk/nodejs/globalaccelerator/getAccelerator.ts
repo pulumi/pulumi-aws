@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     name: acceleratorName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     args = args || {};
@@ -76,7 +74,6 @@ export interface GetAcceleratorResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,7 +86,6 @@ export interface GetAcceleratorResult {
  *     name: acceleratorName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getAccelerator(a, opts))

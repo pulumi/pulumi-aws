@@ -17,7 +17,6 @@ import (
 //
 // The following example below creates a CloudFront origin access identity.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupOriginAccessIdentity(ctx *pulumi.Context, args *LookupOriginAccessIdentityArgs, opts ...pulumi.InvokeOption) (*LookupOriginAccessIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginAccessIdentityResult

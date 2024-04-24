@@ -173,7 +173,6 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +181,6 @@ class AggregateAuthorization(pulumi.CustomResource):
             account_id="123456789012",
             region="eu-west-2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +215,6 @@ class AggregateAuthorization(pulumi.CustomResource):
             account_id="123456789012",
             region="eu-west-2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

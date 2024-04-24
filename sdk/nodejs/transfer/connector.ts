@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,11 +33,9 @@ import * as utilities from "../utilities";
  *     url: "http://www.test.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### SFTP Connector
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,7 +49,6 @@ import * as utilities from "../utilities";
  *     url: "sftp://test.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

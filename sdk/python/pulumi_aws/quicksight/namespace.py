@@ -276,14 +276,12 @@ class Namespace(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Namespace("example", namespace="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -315,14 +313,12 @@ class Namespace(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Namespace("example", namespace="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

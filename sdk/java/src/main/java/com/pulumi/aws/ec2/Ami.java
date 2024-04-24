@@ -215,19 +215,9 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<String> hypervisor() {
         return this.hypervisor;
     }
-    /**
-     * Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     * 
-     */
     @Export(name="imageLocation", refs={String.class}, tree="[0]")
     private Output<String> imageLocation;
 
-    /**
-     * @return Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     * 
-     */
     public Output<String> imageLocation() {
         return this.imageLocation;
     }
@@ -273,19 +263,9 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> imdsSupport() {
         return Codegen.optional(this.imdsSupport);
     }
-    /**
-     * ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     * 
-     */
     @Export(name="kernelId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kernelId;
 
-    /**
-     * @return ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     * 
-     */
     public Output<Optional<String>> kernelId() {
         return Codegen.optional(this.kernelId);
     }
@@ -365,19 +345,9 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<Boolean> public_() {
         return this.public_;
     }
-    /**
-     * ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     * 
-     */
     @Export(name="ramdiskId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ramdiskId;
 
-    /**
-     * @return ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     * 
-     */
     public Output<Optional<String>> ramdiskId() {
         return Codegen.optional(this.ramdiskId);
     }
@@ -409,19 +379,9 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<String> rootSnapshotId() {
         return this.rootSnapshotId;
     }
-    /**
-     * When set to &#34;simple&#34; (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     * 
-     */
     @Export(name="sriovNetSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sriovNetSupport;
 
-    /**
-     * @return When set to &#34;simple&#34; (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     * 
-     */
     public Output<Optional<String>> sriovNetSupport() {
         return Codegen.optional(this.sriovNetSupport);
     }

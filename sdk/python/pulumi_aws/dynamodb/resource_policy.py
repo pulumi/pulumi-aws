@@ -161,7 +161,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,7 +169,6 @@ class ResourcePolicy(pulumi.CustomResource):
             resource_arn=example_aws_dynamodb_table["arn"],
             policy=test["json"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -201,7 +199,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,7 +207,6 @@ class ResourcePolicy(pulumi.CustomResource):
             resource_arn=example_aws_dynamodb_table["arn"],
             policy=test["json"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -338,7 +338,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New DocumentDB Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,11 +373,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class="db.r5.large",
             opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +385,6 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -425,7 +421,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ### New DocumentDB Global Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,11 +456,9 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class="db.r5.large",
             opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### New Global Cluster From Existing DB Cluster
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,7 +468,6 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

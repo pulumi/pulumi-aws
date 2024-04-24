@@ -351,18 +351,15 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -375,11 +372,9 @@ class Fleet(pulumi.CustomResource):
                 security_group_ids=[test["id"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +387,6 @@ class Fleet(pulumi.CustomResource):
                 saml_metadata=std.file(input="saml-metadata.xml").result,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -427,18 +421,15 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,11 +442,9 @@ class Fleet(pulumi.CustomResource):
                 security_group_ids=[test["id"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,7 +457,6 @@ class Fleet(pulumi.CustomResource):
                 saml_metadata=std.file(input="saml-metadata.xml").result,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

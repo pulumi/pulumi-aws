@@ -570,7 +570,6 @@ class Document(pulumi.CustomResource):
 
         ### Create an ssm document in JSON format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -597,11 +596,9 @@ class Document(pulumi.CustomResource):
           }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an ssm document in YAML format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,7 +618,6 @@ class Document(pulumi.CustomResource):
                   - ifconfig
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -660,7 +656,6 @@ class Document(pulumi.CustomResource):
 
         ### Create an ssm document in JSON format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -687,11 +682,9 @@ class Document(pulumi.CustomResource):
           }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create an ssm document in YAML format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,7 +704,6 @@ class Document(pulumi.CustomResource):
                   - ifconfig
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

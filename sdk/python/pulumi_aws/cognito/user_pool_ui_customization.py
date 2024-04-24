@@ -237,7 +237,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ### UI customization settings for a single client
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,11 +255,9 @@ class UserPoolUICustomization(pulumi.CustomResource):
             image_file=std.filebase64(input="logo.png").result,
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### UI customization settings for all clients
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +272,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
             image_file=std.filebase64(input="logo.png").result,
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -307,7 +303,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ### UI customization settings for a single client
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,11 +321,9 @@ class UserPoolUICustomization(pulumi.CustomResource):
             image_file=std.filebase64(input="logo.png").result,
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### UI customization settings for all clients
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,7 +338,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
             image_file=std.filebase64(input="logo.png").result,
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

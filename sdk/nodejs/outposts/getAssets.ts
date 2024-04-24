@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,11 +19,9 @@ import * as utilities from "../utilities";
  *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Host ID Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,11 +31,9 @@ import * as utilities from "../utilities";
  *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Status ID Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +43,6 @@ import * as utilities from "../utilities";
  *     statusIdFilters: ["ACTIVE"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetsResult> {
 
@@ -101,7 +95,6 @@ export interface GetAssetsResult {
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,11 +103,9 @@ export interface GetAssetsResult {
  *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Host ID Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -124,11 +115,9 @@ export interface GetAssetsResult {
  *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Status ID Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,7 +127,6 @@ export interface GetAssetsResult {
  *     statusIdFilters: ["ACTIVE"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetsResult> {
     return pulumi.output(args).apply((a: any) => getAssets(a, opts))

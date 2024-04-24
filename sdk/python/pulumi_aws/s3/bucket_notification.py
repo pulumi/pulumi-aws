@@ -218,7 +218,6 @@ class BucketNotification(pulumi.CustomResource):
 
         ### Add notification configuration to SNS Topic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,11 +248,9 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add notification configuration to SQS Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,11 +281,9 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add notification configuration to Lambda Function
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,11 +322,9 @@ class BucketNotification(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Trigger multiple Lambda functions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,11 +385,9 @@ class BucketNotification(pulumi.CustomResource):
                     allow_bucket2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add multiple notification configurations to SQS Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,13 +427,11 @@ class BucketNotification(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         For JSON syntax, use an array instead of defining the `queue` key twice.
 
         ### Emit events to EventBridge
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -452,7 +441,6 @@ class BucketNotification(pulumi.CustomResource):
             bucket=bucket.id,
             eventbridge=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -489,7 +477,6 @@ class BucketNotification(pulumi.CustomResource):
 
         ### Add notification configuration to SNS Topic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,11 +507,9 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add notification configuration to SQS Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -555,11 +540,9 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add notification configuration to Lambda Function
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,11 +581,9 @@ class BucketNotification(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Trigger multiple Lambda functions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -663,11 +644,9 @@ class BucketNotification(pulumi.CustomResource):
                     allow_bucket2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add multiple notification configurations to SQS Queue
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,13 +686,11 @@ class BucketNotification(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         For JSON syntax, use an array instead of defining the `queue` key twice.
 
         ### Emit events to EventBridge
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,7 +700,6 @@ class BucketNotification(pulumi.CustomResource):
             bucket=bucket.id,
             eventbridge=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

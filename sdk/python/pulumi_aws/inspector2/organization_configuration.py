@@ -94,7 +94,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -106,7 +105,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
             lambda_code=True,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +127,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +138,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
             lambda_code=True,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

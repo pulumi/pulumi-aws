@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,7 +32,6 @@ import * as utilities from "../utilities";
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
 
@@ -62,7 +60,6 @@ export interface GetRulesPackagesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +81,6 @@ export interface GetRulesPackagesResult {
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRulesPackagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesPackagesResult> {
     return pulumi.output(getRulesPackages(opts))

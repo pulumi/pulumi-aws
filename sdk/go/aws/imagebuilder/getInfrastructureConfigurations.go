@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructureConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetInfrastructureConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInfrastructureConfigurationsResult

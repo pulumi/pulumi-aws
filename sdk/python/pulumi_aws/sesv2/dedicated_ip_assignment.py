@@ -106,7 +106,6 @@ class DedicatedIpAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class DedicatedIpAssignment(pulumi.CustomResource):
             ip="0.0.0.0",
             destination_pool_name="my-pool")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class DedicatedIpAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +151,6 @@ class DedicatedIpAssignment(pulumi.CustomResource):
             ip="0.0.0.0",
             destination_pool_name="my-pool")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

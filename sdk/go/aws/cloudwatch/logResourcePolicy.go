@@ -18,7 +18,6 @@ import (
 //
 // ### Elasticsearch Log Publishing
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,11 +68,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Route53 Query Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,7 +120,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "MyExampleApprovalRuleTemplate",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetApprovalRuleTemplateResult> {
 
@@ -81,7 +79,6 @@ export interface GetApprovalRuleTemplateResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +87,6 @@ export interface GetApprovalRuleTemplateResult {
  *     name: "MyExampleApprovalRuleTemplate",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApprovalRuleTemplateResult> {
     return pulumi.output(args).apply((a: any) => getApprovalRuleTemplate(a, opts))

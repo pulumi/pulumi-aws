@@ -77,14 +77,12 @@ def get_application_assignments(application_arn: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_arn: ARN of the application.
@@ -113,14 +111,12 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[st
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_arn: ARN of the application.

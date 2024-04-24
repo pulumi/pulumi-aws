@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainMatchingExportingConfigS3Exporting {
-    /**
-     * @return The name of the S3 bucket where Identity Resolution Jobs write result files.
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return The S3 key name of the location where Identity Resolution Jobs write result files.
-     * 
-     */
     private @Nullable String s3KeyName;
 
     private DomainMatchingExportingConfigS3Exporting() {}
-    /**
-     * @return The name of the S3 bucket where Identity Resolution Jobs write result files.
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return The S3 key name of the location where Identity Resolution Jobs write result files.
-     * 
-     */
     public Optional<String> s3KeyName() {
         return Optional.ofNullable(this.s3KeyName);
     }

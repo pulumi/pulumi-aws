@@ -466,7 +466,6 @@ class DefaultVpc(pulumi.CustomResource):
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,7 +474,6 @@ class DefaultVpc(pulumi.CustomResource):
             "Name": "Default VPC",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -512,7 +510,6 @@ class DefaultVpc(pulumi.CustomResource):
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,7 +518,6 @@ class DefaultVpc(pulumi.CustomResource):
             "Name": "Default VPC",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

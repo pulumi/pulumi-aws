@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * List the event categories of all the RDS resources.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * List the event categories specific to the RDS resource `db-snapshot`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +36,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
     args = args || {};
@@ -79,7 +75,6 @@ export interface GetEventCategoriesResult {
  *
  * List the event categories of all the RDS resources.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,11 +86,9 @@ export interface GetEventCategoriesResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * List the event categories specific to the RDS resource `db-snapshot`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -109,7 +102,6 @@ export interface GetEventCategoriesResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventCategoriesResult> {
     return pulumi.output(args).apply((a: any) => getEventCategories(a, opts))

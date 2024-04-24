@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        /// </summary>
         [Input("amplitude")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs>? Amplitude { get; set; }
 
@@ -36,15 +33,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs>? Dynatrace { get; set; }
 
-        /// <summary>
-        /// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-        /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs>? GoogleAnalytics { get; set; }
 
-        /// <summary>
-        /// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        /// </summary>
         [Input("honeycode")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs>? Honeycode { get; set; }
 
@@ -84,9 +75,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs>? ServiceNow { get; set; }
 
-        /// <summary>
-        /// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        /// </summary>
         [Input("singular")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs>? Singular { get; set; }
 
@@ -102,9 +90,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("snowflake")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs>? Snowflake { get; set; }
 
-        /// <summary>
-        /// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs>? Trendmicro { get; set; }
 

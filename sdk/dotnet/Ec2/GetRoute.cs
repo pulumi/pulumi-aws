@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

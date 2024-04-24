@@ -72,14 +72,12 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -106,14 +104,12 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

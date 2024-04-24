@@ -26,182 +26,86 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs();
 
-    /**
-     * Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-     * 
-     */
     @Import(name="andStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs> andStatement;
 
-    /**
-     * @return Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs>> andStatement() {
         return Optional.ofNullable(this.andStatement);
     }
 
-    /**
-     * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-     * 
-     */
     @Import(name="byteMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs> byteMatchStatement;
 
-    /**
-     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs>> byteMatchStatement() {
         return Optional.ofNullable(this.byteMatchStatement);
     }
 
-    /**
-     * Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-     * 
-     */
     @Import(name="geoMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs> geoMatchStatement;
 
-    /**
-     * @return Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs>> geoMatchStatement() {
         return Optional.ofNullable(this.geoMatchStatement);
     }
 
-    /**
-     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-     * 
-     */
     @Import(name="ipSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs> ipSetReferenceStatement;
 
-    /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs>> ipSetReferenceStatement() {
         return Optional.ofNullable(this.ipSetReferenceStatement);
     }
 
-    /**
-     * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-     * 
-     */
     @Import(name="labelMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs> labelMatchStatement;
 
-    /**
-     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs>> labelMatchStatement() {
         return Optional.ofNullable(this.labelMatchStatement);
     }
 
-    /**
-     * Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-     * 
-     */
     @Import(name="notStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs> notStatement;
 
-    /**
-     * @return Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs>> notStatement() {
         return Optional.ofNullable(this.notStatement);
     }
 
-    /**
-     * Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-     * 
-     */
     @Import(name="orStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs> orStatement;
 
-    /**
-     * @return Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs>> orStatement() {
         return Optional.ofNullable(this.orStatement);
     }
 
-    /**
-     * Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-     * 
-     */
     @Import(name="regexMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs> regexMatchStatement;
 
-    /**
-     * @return Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs>> regexMatchStatement() {
         return Optional.ofNullable(this.regexMatchStatement);
     }
 
-    /**
-     * Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-     * 
-     */
     @Import(name="regexPatternSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement;
 
-    /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs>> regexPatternSetReferenceStatement() {
         return Optional.ofNullable(this.regexPatternSetReferenceStatement);
     }
 
-    /**
-     * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
-     * 
-     */
     @Import(name="sizeConstraintStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs> sizeConstraintStatement;
 
-    /**
-     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs>> sizeConstraintStatement() {
         return Optional.ofNullable(this.sizeConstraintStatement);
     }
 
-    /**
-     * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-     * 
-     */
     @Import(name="sqliMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs> sqliMatchStatement;
 
-    /**
-     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs>> sqliMatchStatement() {
         return Optional.ofNullable(this.sqliMatchStatement);
     }
 
-    /**
-     * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-     * 
-     */
     @Import(name="xssMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs> xssMatchStatement;
 
-    /**
-     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs>> xssMatchStatement() {
         return Optional.ofNullable(this.xssMatchStatement);
     }
@@ -241,254 +145,110 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder andStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs> andStatement) {
             $.andStatement = andStatement;
             return this;
         }
 
-        /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder andStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs andStatement) {
             return andStatement(Output.of(andStatement));
         }
 
-        /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs> byteMatchStatement) {
             $.byteMatchStatement = byteMatchStatement;
             return this;
         }
 
-        /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs byteMatchStatement) {
             return byteMatchStatement(Output.of(byteMatchStatement));
         }
 
-        /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs> geoMatchStatement) {
             $.geoMatchStatement = geoMatchStatement;
             return this;
         }
 
-        /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs geoMatchStatement) {
             return geoMatchStatement(Output.of(geoMatchStatement));
         }
 
-        /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSetReferenceStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs> ipSetReferenceStatement) {
             $.ipSetReferenceStatement = ipSetReferenceStatement;
             return this;
         }
 
-        /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSetReferenceStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs ipSetReferenceStatement) {
             return ipSetReferenceStatement(Output.of(ipSetReferenceStatement));
         }
 
-        /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs> labelMatchStatement) {
             $.labelMatchStatement = labelMatchStatement;
             return this;
         }
 
-        /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs labelMatchStatement) {
             return labelMatchStatement(Output.of(labelMatchStatement));
         }
 
-        /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs> notStatement) {
             $.notStatement = notStatement;
             return this;
         }
 
-        /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs notStatement) {
             return notStatement(Output.of(notStatement));
         }
 
-        /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs> orStatement) {
             $.orStatement = orStatement;
             return this;
         }
 
-        /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs orStatement) {
             return orStatement(Output.of(orStatement));
         }
 
-        /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs> regexMatchStatement) {
             $.regexMatchStatement = regexMatchStatement;
             return this;
         }
 
-        /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs regexMatchStatement) {
             return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
-        /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternSetReferenceStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement) {
             $.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
         }
 
-        /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternSetReferenceStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs regexPatternSetReferenceStatement) {
             return regexPatternSetReferenceStatement(Output.of(regexPatternSetReferenceStatement));
         }
 
-        /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraintStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs> sizeConstraintStatement) {
             $.sizeConstraintStatement = sizeConstraintStatement;
             return this;
         }
 
-        /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraintStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs sizeConstraintStatement) {
             return sizeConstraintStatement(Output.of(sizeConstraintStatement));
         }
 
-        /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqliMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs> sqliMatchStatement) {
             $.sqliMatchStatement = sqliMatchStatement;
             return this;
         }
 
-        /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqliMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs sqliMatchStatement) {
             return sqliMatchStatement(Output.of(sqliMatchStatement));
         }
 
-        /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xssMatchStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs> xssMatchStatement) {
             $.xssMatchStatement = xssMatchStatement;
             return this;
         }
 
-        /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xssMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs xssMatchStatement) {
             return xssMatchStatement(Output.of(xssMatchStatement));
         }

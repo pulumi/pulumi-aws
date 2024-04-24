@@ -132,7 +132,6 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -142,7 +141,6 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,7 +169,6 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,7 +178,6 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

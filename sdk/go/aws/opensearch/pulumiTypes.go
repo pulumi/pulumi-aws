@@ -2706,9 +2706,7 @@ func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) WindowStartTime() Doma
 }
 
 type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
-	// Starting hour of the 10-hour window for updates
-	Hours *int `pulumi:"hours"`
-	// Starting minute of the 10-hour window for updates
+	Hours   *int `pulumi:"hours"`
 	Minutes *int `pulumi:"minutes"`
 }
 
@@ -2724,9 +2722,7 @@ type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
 }
 
 type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
-	// Starting hour of the 10-hour window for updates
-	Hours pulumi.IntPtrInput `pulumi:"hours"`
-	// Starting minute of the 10-hour window for updates
+	Hours   pulumi.IntPtrInput `pulumi:"hours"`
 	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
 }
 
@@ -2807,12 +2803,10 @@ func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOf
 	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
 }
 
-// Starting hour of the 10-hour window for updates
 func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
 }
 
-// Starting minute of the 10-hour window for updates
 func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
 }
@@ -2841,7 +2835,6 @@ func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Elem() 
 	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
 }
 
-// Starting hour of the 10-hour window for updates
 func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
 		if v == nil {
@@ -2851,7 +2844,6 @@ func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Hours()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Starting minute of the 10-hour window for updates
 func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
 		if v == nil {

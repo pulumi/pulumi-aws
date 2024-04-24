@@ -241,7 +241,6 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,7 +254,6 @@ class Build(pulumi.CustomResource):
                 role_arn=test_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +295,6 @@ class Build(pulumi.CustomResource):
                 role_arn=test_aws_iam_role["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ### With CloudWatch Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Kinesis Data Firehose Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,11 +79,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With S3 logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,11 +112,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With all three logging options
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -159,11 +152,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With `includeTrustContext`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With `logVersion`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -221,7 +210,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

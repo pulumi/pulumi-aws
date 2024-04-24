@@ -150,7 +150,6 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,7 +163,6 @@ class EnvironmentMembership(pulumi.CustomResource):
             permissions="read-only",
             user_arn=test_user.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,7 +189,6 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +202,6 @@ class EnvironmentMembership(pulumi.CustomResource):
             permissions="read-only",
             user_arn=test_user.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

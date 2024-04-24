@@ -233,7 +233,7 @@ class _PipeState:
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
-        :param pulumi.Input[str] arn: The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: ARN of this pipe.
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
@@ -286,7 +286,7 @@ class _PipeState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        ARN of this pipe.
         """
         return pulumi.get(self, "arn")
 
@@ -487,7 +487,6 @@ class Pipe(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -545,11 +544,9 @@ class Pipe(pulumi.CustomResource):
                     target,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enrichment Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,11 +571,9 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Filter Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -599,7 +594,6 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,7 +639,6 @@ class Pipe(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -703,11 +696,9 @@ class Pipe(pulumi.CustomResource):
                     target,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enrichment Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,11 +723,9 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Filter Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -757,7 +746,6 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -854,7 +842,7 @@ class Pipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: ARN of this pipe.
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
@@ -895,7 +883,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        ARN of this pipe.
         """
         return pulumi.get(self, "arn")
 

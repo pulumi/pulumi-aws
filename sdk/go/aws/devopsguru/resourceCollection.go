@@ -20,7 +20,6 @@ import (
 //
 // ### All Account Resources
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CloudFormation Stacks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,11 +79,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,13 +111,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Tags All Resources
 //
 // To analyze all resources with the `appBoundaryKey` regardless of the corresponding tag value, set `tagValues` to `["*"]`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -152,7 +145,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

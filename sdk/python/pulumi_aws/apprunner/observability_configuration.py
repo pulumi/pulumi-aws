@@ -224,7 +224,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,7 +237,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                 "Name": "example-apprunner-observability-configuration",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,7 +263,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,7 +276,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                 "Name": "example-apprunner-observability-configuration",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

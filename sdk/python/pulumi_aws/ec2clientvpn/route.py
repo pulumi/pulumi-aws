@@ -200,7 +200,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +223,6 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,7 +274,6 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

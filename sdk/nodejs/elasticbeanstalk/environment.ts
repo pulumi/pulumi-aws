@@ -19,7 +19,6 @@ import {Application, ApplicationVersion} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +33,6 @@ import {Application, ApplicationVersion} from "./index";
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Option Settings
  *
@@ -50,7 +48,6 @@ import {Application, ApplicationVersion} from "./index";
  *
  * ### Example With Options
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,7 +74,6 @@ import {Application, ApplicationVersion} from "./index";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:vpclattice/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:vpclattice/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());

@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableItemResult

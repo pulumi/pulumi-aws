@@ -292,7 +292,6 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,7 +304,6 @@ class Member(pulumi.CustomResource):
             message="Message of the invitation",
             disable_email_notification=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -334,7 +332,6 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +344,6 @@ class Member(pulumi.CustomResource):
             message="Message of the invitation",
             disable_email_notification=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

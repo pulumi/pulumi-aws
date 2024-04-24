@@ -106,7 +106,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +151,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

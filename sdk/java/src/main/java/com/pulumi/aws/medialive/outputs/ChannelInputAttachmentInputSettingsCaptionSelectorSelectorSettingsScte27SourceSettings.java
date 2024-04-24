@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     private @Nullable String ocrLanguage;
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     private @Nullable Integer pid;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings() {}
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     public Optional<String> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     public Optional<Integer> pid() {
         return Optional.ofNullable(this.pid);
     }

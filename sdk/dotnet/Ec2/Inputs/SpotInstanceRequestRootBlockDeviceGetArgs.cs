@@ -18,9 +18,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
-        /// <summary>
-        /// Name of the device to mount.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 

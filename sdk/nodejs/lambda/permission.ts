@@ -13,7 +13,6 @@ import {Function} from "./index";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +53,9 @@ import {Function} from "./index";
  *     qualifier: testAlias.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With SNS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,11 +95,9 @@ import {Function} from "./index";
  *     endpoint: func.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With API Gateway REST API
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,11 +114,9 @@ import {Function} from "./index";
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With CloudWatch Log Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -165,11 +158,9 @@ import {Function} from "./index";
  *     dependsOn: [logging],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Cross-Account Invocation Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -186,7 +177,6 @@ import {Function} from "./index";
  *     functionUrlAuthType: "AWS_IAM",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

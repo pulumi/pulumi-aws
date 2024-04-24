@@ -321,14 +321,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * AAC profile.
+     * H265 profile.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return AAC profile.
+     * @return H265 profile.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -351,14 +351,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * The rate control mode.
+     * Rate control mode.
      * 
      */
     @Import(name="rateControlMode")
     private @Nullable Output<String> rateControlMode;
 
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     public Optional<Output<String>> rateControlMode() {
@@ -926,7 +926,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param profile AAC profile.
+         * @param profile H265 profile.
          * 
          * @return builder
          * 
@@ -937,7 +937,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param profile AAC profile.
+         * @param profile H265 profile.
          * 
          * @return builder
          * 
@@ -968,7 +968,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 
@@ -979,7 +979,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 

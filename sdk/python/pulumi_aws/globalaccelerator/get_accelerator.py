@@ -141,7 +141,6 @@ def get_accelerator(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_accelerator(arn: Optional[str] = None,
     example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
         name=accelerator_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the Global Accelerator.
@@ -195,7 +193,6 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -210,7 +207,6 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
         name=accelerator_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the Global Accelerator.

@@ -21,7 +21,6 @@ import {ARN} from "..";
  *
  * ### Kinesis Stream Input
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,11 +58,9 @@ import {ARN} from "..";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Starting An Application
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,7 +125,6 @@ import {ARN} from "..";
  *     startApplication: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

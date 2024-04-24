@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
-    /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
-     * 
-     */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload customPayload;
-    /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
-     * 
-     */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard imageResponseCard;
-    /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
-     * 
-     */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage plainTextMessage;
-    /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
-     * 
-     */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation() {}
-    /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
-     * 
-     */
     public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload> customPayload() {
         return Optional.ofNullable(this.customPayload);
     }
-    /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
-     * 
-     */
     public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
-    /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
-     * 
-     */
     public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
-    /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
-     * 
-     */
     public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage> ssmlMessage() {
         return Optional.ofNullable(this.ssmlMessage);
     }

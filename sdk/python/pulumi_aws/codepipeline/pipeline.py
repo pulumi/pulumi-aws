@@ -380,7 +380,6 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,7 +502,6 @@ class Pipeline(pulumi.CustomResource):
             role=codepipeline_role.id,
             policy=codepipeline_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -538,7 +536,6 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -661,7 +658,6 @@ class Pipeline(pulumi.CustomResource):
             role=codepipeline_role.id,
             policy=codepipeline_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

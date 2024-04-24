@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
-    /**
-     * @return The password to use to connect to a resource.
-     * 
-     */
     private String password;
-    /**
-     * @return The username to use to connect to a resource.
-     * 
-     */
     private String username;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic() {}
-    /**
-     * @return The password to use to connect to a resource.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return The username to use to connect to a resource.
-     * 
-     */
     public String username() {
         return this.username;
     }

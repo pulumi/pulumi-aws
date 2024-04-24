@@ -29,13 +29,7 @@ class FaqArgs:
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-               
-               The `s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[str] description: The description for a FAQ.
-        :param pulumi.Input[str] file_format: The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -80,8 +74,6 @@ class FaqArgs:
     def s3_path(self) -> pulumi.Input['FaqS3PathArgs']:
         """
         The S3 location of the FAQ input data. Detailed below.
-
-        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 
@@ -92,9 +84,6 @@ class FaqArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description for a FAQ.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -104,9 +93,6 @@ class FaqArgs:
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -116,9 +102,6 @@ class FaqArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -140,9 +123,6 @@ class FaqArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -172,19 +152,13 @@ class _FaqState:
         Input properties used for looking up and filtering Faq resources.
         :param pulumi.Input[str] arn: ARN of the FAQ.
         :param pulumi.Input[str] created_at: The Unix datetime that the FAQ was created.
-        :param pulumi.Input[str] description: The description for a FAQ.
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
         :param pulumi.Input[str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[str] file_format: The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-               
-               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The date and time that the FAQ was last updated.
         """
@@ -249,9 +223,6 @@ class _FaqState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description for a FAQ.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -285,9 +256,6 @@ class _FaqState:
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -309,9 +277,6 @@ class _FaqState:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -347,8 +312,6 @@ class _FaqState:
     def s3_path(self) -> Optional[pulumi.Input['FaqS3PathArgs']]:
         """
         The S3 location of the FAQ input data. Detailed below.
-
-        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 
@@ -371,9 +334,6 @@ class _FaqState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -429,7 +389,6 @@ class Faq(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,11 +405,9 @@ class Faq(pulumi.CustomResource):
                 "Name": "Example Kendra Faq",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With File Format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,11 +422,9 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Language Code
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,7 +439,6 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -496,16 +450,10 @@ class Faq(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description for a FAQ.
-        :param pulumi.Input[str] file_format: The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
-               
-               The `s3_path` configuration block supports the following arguments:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -520,7 +468,6 @@ class Faq(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -537,11 +484,9 @@ class Faq(pulumi.CustomResource):
                 "Name": "Example Kendra Faq",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With File Format
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -556,11 +501,9 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Language Code
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,7 +518,6 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -672,19 +614,13 @@ class Faq(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the FAQ.
         :param pulumi.Input[str] created_at: The Unix datetime that the FAQ was created.
-        :param pulumi.Input[str] description: The description for a FAQ.
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
         :param pulumi.Input[str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[str] file_format: The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
-               
-               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The date and time that the FAQ was last updated.
         """
@@ -728,9 +664,6 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description for a FAQ.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -752,9 +685,6 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output[Optional[str]]:
-        """
-        The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        """
         return pulumi.get(self, "file_format")
 
     @property
@@ -768,9 +698,6 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[str]:
-        """
-        The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        """
         return pulumi.get(self, "language_code")
 
     @property
@@ -794,8 +721,6 @@ class Faq(pulumi.CustomResource):
     def s3_path(self) -> pulumi.Output['outputs.FaqS3Path']:
         """
         The S3 location of the FAQ input data. Detailed below.
-
-        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 
@@ -810,9 +735,6 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property

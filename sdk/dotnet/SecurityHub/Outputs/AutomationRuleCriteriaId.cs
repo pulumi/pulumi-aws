@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleCriteriaId
     {
-        /// <summary>
-        /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        /// </summary>
         public readonly string Comparison;
-        /// <summary>
-        /// A date range value for the date filter, provided as an Integer.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

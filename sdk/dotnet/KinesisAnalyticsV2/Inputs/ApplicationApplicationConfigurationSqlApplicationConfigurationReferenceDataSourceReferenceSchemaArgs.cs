@@ -26,8 +26,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
         /// <summary>
         /// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        /// 
-        /// The `s3_reference_data_source` object supports the following:
         /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }

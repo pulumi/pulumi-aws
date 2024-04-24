@@ -170,7 +170,6 @@ class TableItem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +195,6 @@ class TableItem(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -223,7 +221,6 @@ class TableItem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,7 +246,6 @@ class TableItem(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

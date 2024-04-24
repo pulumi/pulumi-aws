@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,8 +99,8 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsCognitoUserPoolDomain, 
-    ///             exampleRolePolicyAttachment, 
+    ///             exampleAwsCognitoUserPoolDomain,
+    ///             exampleRolePolicyAttachment,
     ///         },
     ///     });
     /// 
@@ -113,13 +112,12 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleDomain, 
+    ///             exampleDomain,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -830,10 +830,8 @@ func (o DomainMatchingExportingConfigPtrOutput) S3Exporting() DomainMatchingExpo
 }
 
 type DomainMatchingExportingConfigS3Exporting struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName *string `pulumi:"s3KeyName"`
+	S3BucketName string  `pulumi:"s3BucketName"`
+	S3KeyName    *string `pulumi:"s3KeyName"`
 }
 
 // DomainMatchingExportingConfigS3ExportingInput is an input type that accepts DomainMatchingExportingConfigS3ExportingArgs and DomainMatchingExportingConfigS3ExportingOutput values.
@@ -848,10 +846,8 @@ type DomainMatchingExportingConfigS3ExportingInput interface {
 }
 
 type DomainMatchingExportingConfigS3ExportingArgs struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName pulumi.StringPtrInput `pulumi:"s3KeyName"`
+	S3BucketName pulumi.StringInput    `pulumi:"s3BucketName"`
+	S3KeyName    pulumi.StringPtrInput `pulumi:"s3KeyName"`
 }
 
 func (DomainMatchingExportingConfigS3ExportingArgs) ElementType() reflect.Type {
@@ -931,12 +927,10 @@ func (o DomainMatchingExportingConfigS3ExportingOutput) ToDomainMatchingExportin
 	}).(DomainMatchingExportingConfigS3ExportingPtrOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainMatchingExportingConfigS3Exporting) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMatchingExportingConfigS3Exporting) *string { return v.S3KeyName }).(pulumi.StringPtrOutput)
 }
@@ -965,7 +959,6 @@ func (o DomainMatchingExportingConfigS3ExportingPtrOutput) Elem() DomainMatching
 	}).(DomainMatchingExportingConfigS3ExportingOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -975,7 +968,6 @@ func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -1897,10 +1889,8 @@ func (o DomainRuleBasedMatchingExportingConfigPtrOutput) S3Exporting() DomainRul
 }
 
 type DomainRuleBasedMatchingExportingConfigS3Exporting struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName *string `pulumi:"s3KeyName"`
+	S3BucketName string  `pulumi:"s3BucketName"`
+	S3KeyName    *string `pulumi:"s3KeyName"`
 }
 
 // DomainRuleBasedMatchingExportingConfigS3ExportingInput is an input type that accepts DomainRuleBasedMatchingExportingConfigS3ExportingArgs and DomainRuleBasedMatchingExportingConfigS3ExportingOutput values.
@@ -1915,10 +1905,8 @@ type DomainRuleBasedMatchingExportingConfigS3ExportingInput interface {
 }
 
 type DomainRuleBasedMatchingExportingConfigS3ExportingArgs struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName pulumi.StringPtrInput `pulumi:"s3KeyName"`
+	S3BucketName pulumi.StringInput    `pulumi:"s3BucketName"`
+	S3KeyName    pulumi.StringPtrInput `pulumi:"s3KeyName"`
 }
 
 func (DomainRuleBasedMatchingExportingConfigS3ExportingArgs) ElementType() reflect.Type {
@@ -1998,12 +1986,10 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) ToDomainRuleBas
 	}).(DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingExportingConfigS3Exporting) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingExportingConfigS3Exporting) *string { return v.S3KeyName }).(pulumi.StringPtrOutput)
 }
@@ -2032,7 +2018,6 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) Elem() Domai
 	}).(DomainRuleBasedMatchingExportingConfigS3ExportingOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -2042,7 +2027,6 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -2458,26 +2442,16 @@ func (o ProfileAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileBillingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileBillingAddressInput is an input type that accepts ProfileBillingAddressArgs and ProfileBillingAddressOutput values.
@@ -2492,26 +2466,16 @@ type ProfileBillingAddressInput interface {
 }
 
 type ProfileBillingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileBillingAddressArgs) ElementType() reflect.Type {
@@ -2591,52 +2555,42 @@ func (o ProfileBillingAddressOutput) ToProfileBillingAddressPtrOutputWithContext
 	}).(ProfileBillingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileBillingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileBillingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileBillingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileBillingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileBillingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileBillingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileBillingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileBillingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileBillingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileBillingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2665,7 +2619,6 @@ func (o ProfileBillingAddressPtrOutput) Elem() ProfileBillingAddressOutput {
 	}).(ProfileBillingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2675,7 +2628,6 @@ func (o ProfileBillingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2685,7 +2637,6 @@ func (o ProfileBillingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2695,7 +2646,6 @@ func (o ProfileBillingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2705,7 +2655,6 @@ func (o ProfileBillingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2715,7 +2664,6 @@ func (o ProfileBillingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2725,7 +2673,6 @@ func (o ProfileBillingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2735,7 +2682,6 @@ func (o ProfileBillingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileBillingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2745,7 +2691,6 @@ func (o ProfileBillingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2755,7 +2700,6 @@ func (o ProfileBillingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2766,26 +2710,16 @@ func (o ProfileBillingAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileMailingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileMailingAddressInput is an input type that accepts ProfileMailingAddressArgs and ProfileMailingAddressOutput values.
@@ -2800,26 +2734,16 @@ type ProfileMailingAddressInput interface {
 }
 
 type ProfileMailingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileMailingAddressArgs) ElementType() reflect.Type {
@@ -2899,52 +2823,42 @@ func (o ProfileMailingAddressOutput) ToProfileMailingAddressPtrOutputWithContext
 	}).(ProfileMailingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileMailingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileMailingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileMailingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileMailingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileMailingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileMailingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileMailingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileMailingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileMailingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileMailingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2973,7 +2887,6 @@ func (o ProfileMailingAddressPtrOutput) Elem() ProfileMailingAddressOutput {
 	}).(ProfileMailingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -2983,7 +2896,6 @@ func (o ProfileMailingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -2993,7 +2905,6 @@ func (o ProfileMailingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3003,7 +2914,6 @@ func (o ProfileMailingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3013,7 +2923,6 @@ func (o ProfileMailingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3023,7 +2932,6 @@ func (o ProfileMailingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3033,7 +2941,6 @@ func (o ProfileMailingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3043,7 +2950,6 @@ func (o ProfileMailingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileMailingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3053,7 +2959,6 @@ func (o ProfileMailingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3063,7 +2968,6 @@ func (o ProfileMailingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3074,26 +2978,16 @@ func (o ProfileMailingAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileShippingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileShippingAddressInput is an input type that accepts ProfileShippingAddressArgs and ProfileShippingAddressOutput values.
@@ -3108,26 +3002,16 @@ type ProfileShippingAddressInput interface {
 }
 
 type ProfileShippingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileShippingAddressArgs) ElementType() reflect.Type {
@@ -3207,52 +3091,42 @@ func (o ProfileShippingAddressOutput) ToProfileShippingAddressPtrOutputWithConte
 	}).(ProfileShippingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileShippingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileShippingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileShippingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileShippingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileShippingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileShippingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileShippingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileShippingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileShippingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileShippingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -3281,7 +3155,6 @@ func (o ProfileShippingAddressPtrOutput) Elem() ProfileShippingAddressOutput {
 	}).(ProfileShippingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3291,7 +3164,6 @@ func (o ProfileShippingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3301,7 +3173,6 @@ func (o ProfileShippingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3311,7 +3182,6 @@ func (o ProfileShippingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3321,7 +3191,6 @@ func (o ProfileShippingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3331,7 +3200,6 @@ func (o ProfileShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3341,7 +3209,6 @@ func (o ProfileShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3351,7 +3218,6 @@ func (o ProfileShippingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3361,7 +3227,6 @@ func (o ProfileShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3371,7 +3236,6 @@ func (o ProfileShippingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {

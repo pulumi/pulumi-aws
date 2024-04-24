@@ -309,7 +309,6 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,7 +349,6 @@ class IntegrationResponse(pulumi.CustomResource):
         \"\"\",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -387,7 +385,6 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,7 +425,6 @@ class IntegrationResponse(pulumi.CustomResource):
         \"\"\",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

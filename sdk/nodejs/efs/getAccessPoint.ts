@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     accessPointId: "fsap-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
 
@@ -86,7 +84,6 @@ export interface GetAccessPointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,7 +92,6 @@ export interface GetAccessPointResult {
  *     accessPointId: "fsap-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))

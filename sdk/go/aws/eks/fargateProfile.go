@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,11 +56,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example IAM Role for EKS Fargate Profile
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +108,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -18,7 +18,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With default variation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,11 +96,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With entity overrides
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,11 +140,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With evaluation strategy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,7 +179,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

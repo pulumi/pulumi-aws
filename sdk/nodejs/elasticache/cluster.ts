@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  *
  * ### Memcached Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,11 +45,9 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Redis Instance
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,13 +62,11 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Redis Cluster Mode Disabled Read Replica Instance
  *
  * These inherit their settings from the replication group.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,11 +76,9 @@ import * as utilities from "../utilities";
  *     replicationGroupId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Redis Log Delivery configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,7 +106,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

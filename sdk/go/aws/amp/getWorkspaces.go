@@ -17,7 +17,6 @@ import (
 //
 // The following example returns all of the workspaces in a region:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,12 +38,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following example filters the workspaces by alias. Only the workspaces with
 // aliases that begin with the value of `aliasPrefix` will be returned:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacesResult

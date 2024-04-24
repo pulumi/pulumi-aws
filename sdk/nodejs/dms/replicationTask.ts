@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     targetEndpointArn: test_dms_target_endpoint_tf.endpointArn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

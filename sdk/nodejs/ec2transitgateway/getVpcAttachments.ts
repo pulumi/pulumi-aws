@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     id: _arg0_.ids[__index],
  * })));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
     args = args || {};
@@ -71,7 +69,6 @@ export interface GetVpcAttachmentsResult {
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetVpcAttachmentsResult {
  *     id: _arg0_.ids[__index],
  * })));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
     return pulumi.output(args).apply((a: any) => getVpcAttachments(a, opts))

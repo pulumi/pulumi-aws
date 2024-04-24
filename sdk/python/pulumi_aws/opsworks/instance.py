@@ -1276,7 +1276,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1288,7 +1287,6 @@ class Instance(pulumi.CustomResource):
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Block devices
 
@@ -1388,7 +1386,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1400,7 +1397,6 @@ class Instance(pulumi.CustomResource):
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Block devices
 

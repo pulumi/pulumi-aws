@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
-
-        /// <summary>
-        /// Specifies which headers are allowed.
-        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
-
-        /// <summary>
-        /// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
-
-        /// <summary>
-        /// Specifies which origins are allowed.
-        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -50,19 +38,12 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("exposeHeaders")]
         private InputList<string>? _exposeHeaders;
-
-        /// <summary>
-        /// Specifies expose header in the response.
-        /// </summary>
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
-        /// <summary>
-        /// Specifies time in seconds that browser can cache the response for a preflight request.
-        /// </summary>
         [Input("maxAgeSeconds")]
         public Input<int>? MaxAgeSeconds { get; set; }
 

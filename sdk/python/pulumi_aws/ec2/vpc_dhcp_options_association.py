@@ -102,7 +102,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -111,7 +110,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             vpc_id=foo_aws_vpc["id"],
             dhcp_options_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 
@@ -142,7 +140,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +148,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             vpc_id=foo_aws_vpc["id"],
             dhcp_options_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Remarks
 

@@ -133,7 +133,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? ParNumerator { get; set; }
 
         /// <summary>
-        /// AAC profile.
+        /// H265 profile.
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? QvbrQualityLevel { get; set; }
 
         /// <summary>
-        /// The rate control mode.
+        /// Rate control mode.
         /// </summary>
         [Input("rateControlMode")]
         public Input<string>? RateControlMode { get; set; }

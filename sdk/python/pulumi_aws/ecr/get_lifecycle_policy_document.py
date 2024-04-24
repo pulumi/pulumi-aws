@@ -76,7 +76,6 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[pulumi.InputType['Get
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,7 +94,6 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[pulumi.InputType['Get
         repository=example_aws_ecr_repository["name"],
         policy=example.json)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['rules'] = rules
@@ -118,7 +116,6 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,6 +134,5 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
         repository=example_aws_ecr_repository["name"],
         policy=example.json)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

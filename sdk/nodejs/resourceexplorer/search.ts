@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     viewArn: test.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function search(args: SearchArgs, opts?: pulumi.InvokeOptions): Promise<SearchResult> {
 
@@ -87,7 +85,6 @@ export interface SearchResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,7 +94,6 @@ export interface SearchResult {
  *     viewArn: test.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function searchOutput(args: SearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<SearchResult> {
     return pulumi.output(args).apply((a: any) => search(a, opts))

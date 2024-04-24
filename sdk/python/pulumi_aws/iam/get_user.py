@@ -126,14 +126,12 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_user(user_name="an_example_user_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
@@ -166,14 +164,12 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_user(user_name="an_example_user_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of key-value pairs associated with the user.

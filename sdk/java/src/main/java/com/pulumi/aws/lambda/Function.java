@@ -421,14 +421,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.architectures;
     }
     /**
-     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * Amazon Resource Name (ARN) identifying your Lambda Function.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * @return Amazon Resource Name (ARN) identifying your Lambda Function.
      * 
      */
     public Output<String> arn() {

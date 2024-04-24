@@ -642,7 +642,6 @@ class NotebookInstance(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -655,11 +654,9 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Code repository usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -678,7 +675,6 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -721,7 +717,6 @@ class NotebookInstance(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -734,11 +729,9 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Code repository usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -757,7 +750,6 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

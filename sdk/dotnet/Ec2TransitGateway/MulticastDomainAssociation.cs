@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")]
     public partial class MulticastDomainAssociation : global::Pulumi.CustomResource

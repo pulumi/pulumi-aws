@@ -106,7 +106,6 @@ def get_selection(plan_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -114,7 +113,6 @@ def get_selection(plan_id: Optional[str] = None,
     example = aws.backup.get_selection(plan_id=example_aws_backup_plan["id"],
         selection_id="selection-id-example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str plan_id: Backup plan ID associated with the selection of resources.
@@ -144,7 +142,6 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,7 +149,6 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     example = aws.backup.get_selection(plan_id=example_aws_backup_plan["id"],
         selection_id="selection-id-example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str plan_id: Backup plan ID associated with the selection of resources.

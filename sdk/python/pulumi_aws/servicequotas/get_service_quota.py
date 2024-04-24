@@ -167,7 +167,6 @@ def get_service_quota(quota_code: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,7 +176,6 @@ def get_service_quota(quota_code: Optional[str] = None,
     by_quota_name = aws.servicequotas.get_service_quota(quota_name="VPCs per Region",
         service_code="vpc")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
@@ -217,7 +215,6 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -227,7 +224,6 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] =
     by_quota_name = aws.servicequotas.get_service_quota(quota_name="VPCs per Region",
         service_code="vpc")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.

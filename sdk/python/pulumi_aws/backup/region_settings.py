@@ -103,7 +103,6 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,7 +126,6 @@ class RegionSettings(pulumi.CustomResource):
                 "EFS": True,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,7 +151,6 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,7 +174,6 @@ class RegionSettings(pulumi.CustomResource):
                 "EFS": True,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

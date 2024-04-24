@@ -167,7 +167,6 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +201,6 @@ class ExtensionAssociation(pulumi.CustomResource):
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -229,7 +227,6 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,7 +261,6 @@ class ExtensionAssociation(pulumi.CustomResource):
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region name of the origin resource.
+        /// The AWS Region name.
         /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;

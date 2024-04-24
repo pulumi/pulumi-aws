@@ -109,14 +109,12 @@ def get_realtime_log_config(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_realtime_log_config(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Unique name to identify this real-time log configuration.
@@ -143,14 +141,12 @@ def get_realtime_log_config_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_realtime_log_config(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Unique name to identify this real-time log configuration.

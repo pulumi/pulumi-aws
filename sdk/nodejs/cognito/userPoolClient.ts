@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  *
  * ### Create a basic user pool client
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a user pool client with no SRP authentication
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,11 +42,9 @@ import * as utilities from "../utilities";
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a user pool client with pinpoint analytics
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,11 +92,9 @@ import * as utilities from "../utilities";
  *     policy: test.apply(test => test.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a user pool client with Cognito as the identity provider
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,7 +116,6 @@ import * as utilities from "../utilities";
  *     supportedIdentityProviders: ["COGNITO"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomLogSourceConfigurationProviderIdentity {
-    /**
-     * @return The external ID used to estalish trust relationship with the AWS identity.
-     * 
-     */
     private String externalId;
-    /**
-     * @return The AWS identity principal.
-     * 
-     */
     private String principal;
 
     private CustomLogSourceConfigurationProviderIdentity() {}
-    /**
-     * @return The external ID used to estalish trust relationship with the AWS identity.
-     * 
-     */
     public String externalId() {
         return this.externalId;
     }
-    /**
-     * @return The AWS identity principal.
-     * 
-     */
     public String principal() {
         return this.principal;
     }

@@ -61,14 +61,14 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The permission type for the document. The permission type can be `Share`.
+     * The type of parameter. Valid values: `String`, `StringList`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The permission type for the document. The permission type can be `Share`.
+     * @return The type of parameter. Valid values: `String`, `StringList`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -166,7 +166,7 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The permission type for the document. The permission type can be `Share`.
+         * @param type The type of parameter. Valid values: `String`, `StringList`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The permission type for the document. The permission type can be `Share`.
+         * @param type The type of parameter. Valid values: `String`, `StringList`.
          * 
          * @return builder
          * 

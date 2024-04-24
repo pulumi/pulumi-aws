@@ -17,7 +17,6 @@ import (
 //
 // ### Non-VPC Connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,13 +45,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VPC Connection
 //
 // For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,7 +87,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

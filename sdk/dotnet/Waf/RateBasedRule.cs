@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,13 +54,12 @@ namespace Pulumi.Aws.Waf
     ///     {
     ///         DependsOn =
     ///         {
-    ///             ipset, 
+    ///             ipset,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

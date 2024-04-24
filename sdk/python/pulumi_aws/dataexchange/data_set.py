@@ -206,7 +206,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +215,6 @@ class DataSet(pulumi.CustomResource):
             description="example",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -244,7 +242,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +251,6 @@ class DataSet(pulumi.CustomResource):
             description="example",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

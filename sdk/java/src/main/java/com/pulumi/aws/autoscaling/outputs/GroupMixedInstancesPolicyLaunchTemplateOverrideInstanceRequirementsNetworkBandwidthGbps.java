@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
-    /**
-     * @return Maximum.
-     * 
-     */
     private @Nullable Double max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private @Nullable Double min;
 
     private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

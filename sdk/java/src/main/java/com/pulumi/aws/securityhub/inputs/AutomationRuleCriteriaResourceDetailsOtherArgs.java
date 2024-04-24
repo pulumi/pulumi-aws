@@ -14,47 +14,23 @@ public final class AutomationRuleCriteriaResourceDetailsOtherArgs extends com.pu
 
     public static final AutomationRuleCriteriaResourceDetailsOtherArgs Empty = new AutomationRuleCriteriaResourceDetailsOtherArgs();
 
-    /**
-     * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     @Import(name="comparison", required=true)
     private Output<String> comparison;
 
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     public Output<String> comparison() {
         return this.comparison;
     }
 
-    /**
-     * The key of the map filter.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The key of the map filter.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A date range value for the date filter, provided as an Integer.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -85,65 +61,29 @@ public final class AutomationRuleCriteriaResourceDetailsOtherArgs extends com.pu
             $ = new AutomationRuleCriteriaResourceDetailsOtherArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparison The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(Output<String> comparison) {
             $.comparison = comparison;
             return this;
         }
 
-        /**
-         * @param comparison The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(String comparison) {
             return comparison(Output.of(comparison));
         }
 
-        /**
-         * @param key The key of the map filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The key of the map filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value A date range value for the date filter, provided as an Integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value A date range value for the date filter, provided as an Integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

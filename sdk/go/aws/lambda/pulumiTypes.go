@@ -701,7 +701,6 @@ func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMap
 }
 
 type EventSourceMappingDestinationConfigOnFailure struct {
-	// The Amazon Resource Name (ARN) of the destination resource.
 	DestinationArn string `pulumi:"destinationArn"`
 }
 
@@ -717,7 +716,6 @@ type EventSourceMappingDestinationConfigOnFailureInput interface {
 }
 
 type EventSourceMappingDestinationConfigOnFailureArgs struct {
-	// The Amazon Resource Name (ARN) of the destination resource.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
 }
 
@@ -798,7 +796,6 @@ func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMapping
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventSourceMappingDestinationConfigOnFailureOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
@@ -827,7 +824,6 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourc
 	}).(EventSourceMappingDestinationConfigOnFailureOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) *string {
 		if v == nil {
@@ -1150,7 +1146,6 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingF
 }
 
 type EventSourceMappingFilterCriteriaFilter struct {
-	// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern *string `pulumi:"pattern"`
 }
 
@@ -1166,7 +1161,6 @@ type EventSourceMappingFilterCriteriaFilterInput interface {
 }
 
 type EventSourceMappingFilterCriteriaFilterArgs struct {
-	// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 }
 
@@ -1221,7 +1215,6 @@ func (o EventSourceMappingFilterCriteriaFilterOutput) ToEventSourceMappingFilter
 	return o
 }
 
-// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 func (o EventSourceMappingFilterCriteriaFilterOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingFilterCriteriaFilter) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
@@ -2335,7 +2328,6 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnSuccess() Functio
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnFailure struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination string `pulumi:"destination"`
 }
 
@@ -2351,7 +2343,6 @@ type FunctionEventInvokeConfigDestinationConfigOnFailureInput interface {
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnFailureArgs struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -2432,7 +2423,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -2461,7 +2451,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() Fun
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnFailure) *string {
 		if v == nil {
@@ -2472,7 +2461,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destinatio
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination string `pulumi:"destination"`
 }
 
@@ -2488,7 +2476,6 @@ type FunctionEventInvokeConfigDestinationConfigOnSuccessInput interface {
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccessArgs struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -2569,7 +2556,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -2598,7 +2584,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() Fun
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnSuccess) *string {
 		if v == nil {

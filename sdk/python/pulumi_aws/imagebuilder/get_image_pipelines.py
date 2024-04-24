@@ -86,7 +86,6 @@ def get_image_pipelines(filters: Optional[Sequence[pulumi.InputType['GetImagePip
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -96,7 +95,6 @@ def get_image_pipelines(filters: Optional[Sequence[pulumi.InputType['GetImagePip
         values=["example"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -121,7 +119,6 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,7 +128,6 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
         values=["example"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

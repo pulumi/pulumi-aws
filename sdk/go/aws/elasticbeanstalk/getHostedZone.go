@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostedZoneResult

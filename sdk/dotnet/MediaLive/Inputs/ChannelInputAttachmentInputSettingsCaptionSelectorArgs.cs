@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Selects a specific three-letter language code from within an audio source.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
@@ -26,9 +23,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The audio selector settings. See Audio Selector Settings for more details.
-        /// </summary>
         [Input("selectorSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs>? SelectorSettings { get; set; }
 

@@ -104,30 +104,22 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.productCode);
     }
     /**
-     * The quota settings of the usage plan.
+     * Quota of the usage plan.
      * 
      */
     @Export(name="quotaSettings", refs={UsagePlanQuotaSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanQuotaSettings> quotaSettings;
 
     /**
-     * @return The quota settings of the usage plan.
+     * @return Quota of the usage plan.
      * 
      */
     public Output<Optional<UsagePlanQuotaSettings>> quotaSettings() {
         return Codegen.optional(this.quotaSettings);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -150,14 +142,14 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan.
      * 
      */
     @Export(name="throttleSettings", refs={UsagePlanThrottleSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanThrottleSettings> throttleSettings;
 
     /**
-     * @return The throttling limits of the usage plan.
+     * @return Throttling limits of the usage plan.
      * 
      */
     public Output<Optional<UsagePlanThrottleSettings>> throttleSettings() {

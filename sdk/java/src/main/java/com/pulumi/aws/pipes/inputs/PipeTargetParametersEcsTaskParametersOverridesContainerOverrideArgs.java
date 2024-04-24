@@ -20,92 +20,44 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
 
     public static final PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs Empty = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs();
 
-    /**
-     * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-     * 
-     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
-    /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-     * 
-     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
-    /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     public Optional<Output<Integer>> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-     * 
-     */
     @Import(name="environmentFiles")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>> environmentFiles;
 
-    /**
-     * @return A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-     * 
-     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>>> environmentFiles() {
         return Optional.ofNullable(this.environmentFiles);
     }
 
-    /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-     * 
-     */
     @Import(name="environments")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>> environments;
 
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-     * 
-     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>>> environments() {
         return Optional.ofNullable(this.environments);
     }
 
-    /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-     * 
-     */
     @Import(name="memory")
     private @Nullable Output<Integer> memory;
 
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-     * 
-     */
     public Optional<Output<Integer>> memory() {
         return Optional.ofNullable(this.memory);
     }
 
-    /**
-     * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     @Import(name="memoryReservation")
     private @Nullable Output<Integer> memoryReservation;
 
-    /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     public Optional<Output<Integer>> memoryReservation() {
         return Optional.ofNullable(this.memoryReservation);
     }
@@ -125,17 +77,9 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-     * 
-     */
     @Import(name="resourceRequirements")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements;
 
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-     * 
-     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>>> resourceRequirements() {
         return Optional.ofNullable(this.resourceRequirements);
     }
@@ -171,158 +115,68 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
             $ = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
-        /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
-        /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
-        /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable Output<Integer> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(Integer cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentFiles(@Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>> environmentFiles) {
             $.environmentFiles = environmentFiles;
             return this;
         }
 
-        /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentFiles(List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs> environmentFiles) {
             return environmentFiles(Output.of(environmentFiles));
         }
 
-        /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentFiles(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs... environmentFiles) {
             return environmentFiles(List.of(environmentFiles));
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(@Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>> environments) {
             $.environments = environments;
             return this;
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs> environments) {
             return environments(Output.of(environments));
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs... environments) {
             return environments(List.of(environments));
         }
 
-        /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(@Nullable Output<Integer> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(Integer memory) {
             return memory(Output.of(memory));
         }
 
-        /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(@Nullable Output<Integer> memoryReservation) {
             $.memoryReservation = memoryReservation;
             return this;
         }
 
-        /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(Integer memoryReservation) {
             return memoryReservation(Output.of(memoryReservation));
         }
@@ -348,33 +202,15 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
             return name(Output.of(name));
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(@Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements) {
             $.resourceRequirements = resourceRequirements;
             return this;
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs> resourceRequirements) {
             return resourceRequirements(Output.of(resourceRequirements));
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs... resourceRequirements) {
             return resourceRequirements(List.of(resourceRequirements));
         }

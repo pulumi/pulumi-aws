@@ -999,18 +999,15 @@ class Topic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with Delivery Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1036,11 +1033,9 @@ class Topic(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with Server-side encryption (SSE)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1049,11 +1044,9 @@ class Topic(pulumi.CustomResource):
             name="user-updates-topic",
             kms_master_key_id="alias/aws/sns")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with First-In-First-Out (FIFO)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1063,7 +1056,6 @@ class Topic(pulumi.CustomResource):
             fifo_topic=True,
             content_based_deduplication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Message Delivery Status Arguments
 
@@ -1118,18 +1110,15 @@ class Topic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with Delivery Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1155,11 +1144,9 @@ class Topic(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with Server-side encryption (SSE)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1168,11 +1155,9 @@ class Topic(pulumi.CustomResource):
             name="user-updates-topic",
             kms_master_key_id="alias/aws/sns")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with First-In-First-Out (FIFO)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1182,7 +1167,6 @@ class Topic(pulumi.CustomResource):
             fifo_topic=True,
             content_based_deduplication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Message Delivery Status Arguments
 

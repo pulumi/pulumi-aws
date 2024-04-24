@@ -173,7 +173,6 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +188,6 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,7 +216,6 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +231,6 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

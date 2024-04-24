@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class CustomModelOutputDataConfig
     {
         /// <summary>
-        /// The S3 URI where the validation data is stored.
+        /// The S3 URI where the output data is stored.
         /// </summary>
         public readonly string S3Uri;
 

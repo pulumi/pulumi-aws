@@ -225,7 +225,6 @@ class Application(pulumi.CustomResource):
 
         ### ECS Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,11 +233,9 @@ class Application(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,11 +244,9 @@ class Application(pulumi.CustomResource):
             compute_platform="Lambda",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +255,6 @@ class Application(pulumi.CustomResource):
             compute_platform="Server",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +283,6 @@ class Application(pulumi.CustomResource):
 
         ### ECS Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,11 +291,9 @@ class Application(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,11 +302,9 @@ class Application(pulumi.CustomResource):
             compute_platform="Lambda",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Server Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,7 +313,6 @@ class Application(pulumi.CustomResource):
             compute_platform="Server",
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

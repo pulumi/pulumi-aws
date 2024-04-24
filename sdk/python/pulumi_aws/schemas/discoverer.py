@@ -176,7 +176,6 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +185,6 @@ class Discoverer(pulumi.CustomResource):
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,7 +213,6 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +222,6 @@ class Discoverer(pulumi.CustomResource):
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

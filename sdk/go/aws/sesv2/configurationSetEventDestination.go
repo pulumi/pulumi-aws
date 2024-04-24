@@ -18,7 +18,6 @@ import (
 //
 // ### Cloud Watch Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,11 +63,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Kinesis Firehose Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,11 +106,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Pinpoint Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,11 +148,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SNS Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -197,7 +190,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

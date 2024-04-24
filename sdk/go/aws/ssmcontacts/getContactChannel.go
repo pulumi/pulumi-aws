@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, opts ...pulumi.InvokeOption) (*LookupContactChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactChannelResult

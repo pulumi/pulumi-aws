@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,22 +26,18 @@ import * as utilities from "../utilities";
  *     Name: "Example",
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Security Policy Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VPC Endpoint
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,11 +51,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS Directory authentication
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,11 +63,9 @@ import * as utilities from "../utilities";
  *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS Lambda authentication
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,11 +75,9 @@ import * as utilities from "../utilities";
  *     "function": exampleAwsLambdaIdentityProvider.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Protocols
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,11 +97,9 @@ import * as utilities from "../utilities";
  *     url: `${exampleAwsApiGatewayDeployment.invokeUrl}${exampleAwsApiGatewayResource.path}`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Using Structured Logging Destinations
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -140,7 +127,6 @@ import * as utilities from "../utilities";
  *     structuredLogDestinations: [pulumi.interpolate`${transfer.arn}:*`],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

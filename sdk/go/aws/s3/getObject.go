@@ -21,7 +21,6 @@ import (
 // The following example retrieves a text object (which must have a `Content-Type`
 // value starting with `text/`) and uses it as the `userData` for an EC2 instance:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following, more-complex example retrieves only the metadata for a zip
 // file stored in S3, which is then used to pass the most recent `versionId`
@@ -63,7 +61,6 @@ import (
 // Lambda functions is available in the documentation for
 // `lambda.Function`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,7 +98,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetObject(ctx *pulumi.Context, args *GetObjectArgs, opts ...pulumi.InvokeOption) (*GetObjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetObjectResult

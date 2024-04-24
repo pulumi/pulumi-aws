@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
      * 
      */
     private @Nullable Double max;
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
      * 
      */
     private @Nullable Double min;
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps() {}
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
      * 
      */
     public Optional<Double> min() {

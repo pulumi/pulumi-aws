@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,7 +103,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 func GetBillingServiceAccount(ctx *pulumi.Context, args *GetBillingServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetBillingServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBillingServiceAccountResult

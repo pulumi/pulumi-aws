@@ -178,7 +178,6 @@ class SourceRepository(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +187,6 @@ class SourceRepository(pulumi.CustomResource):
             project_name="example-project",
             space_name="example-space")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class SourceRepository(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,7 +227,6 @@ class SourceRepository(pulumi.CustomResource):
             project_name="example-project",
             space_name="example-space")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

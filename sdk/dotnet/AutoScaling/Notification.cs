@@ -18,7 +18,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// Basic usage:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +60,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:autoscaling/notification:Notification")]
     public partial class Notification : global::Pulumi.CustomResource

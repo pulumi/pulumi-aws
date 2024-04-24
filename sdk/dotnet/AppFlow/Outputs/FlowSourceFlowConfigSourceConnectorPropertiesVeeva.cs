@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesVeeva
     {
-        /// <summary>
-        /// Document type specified in the Veeva document extract flow.
-        /// </summary>
         public readonly string? DocumentType;
-        /// <summary>
-        /// Boolean value to include All Versions of files in Veeva document extract flow.
-        /// </summary>
         public readonly bool? IncludeAllVersions;
-        /// <summary>
-        /// Boolean value to include file renditions in Veeva document extract flow.
-        /// </summary>
         public readonly bool? IncludeRenditions;
-        /// <summary>
-        /// Boolean value to include source files in Veeva document extract flow.
-        /// </summary>
         public readonly bool? IncludeSourceFiles;
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

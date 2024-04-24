@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDnsNamespaceResult> InvokeAsync(GetDnsNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDnsNamespaceResult> Invoke(GetDnsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceInvokeArgs(), options.WithDefaults());

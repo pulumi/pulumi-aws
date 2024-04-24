@@ -15,7 +15,7 @@ import (
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF rule group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
@@ -80,7 +80,7 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF rule group.
 	Arn *string `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity *int `pulumi:"capacity"`
@@ -107,7 +107,7 @@ type ruleGroupState struct {
 }
 
 type RuleGroupState struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// The ARN of the WAF rule group.
 	Arn pulumi.StringPtrInput
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntPtrInput
@@ -265,7 +265,7 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// The ARN of the WAF rule group.
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

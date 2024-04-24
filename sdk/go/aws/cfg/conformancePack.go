@@ -24,7 +24,6 @@ import (
 //
 // ### Template Body
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +71,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Template S3 URI
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,7 +131,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

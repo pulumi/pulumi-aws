@@ -19,55 +19,23 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
 
     public static final BotClarificationPromptArgs Empty = new BotClarificationPromptArgs();
 
-    /**
-     * The number of times to prompt the user for information.
-     * 
-     */
     @Import(name="maxAttempts", required=true)
     private Output<Integer> maxAttempts;
 
-    /**
-     * @return The number of times to prompt the user for information.
-     * 
-     */
     public Output<Integer> maxAttempts() {
         return this.maxAttempts;
     }
 
-    /**
-     * A set of messages, each of which provides a message string and its type.
-     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-     * Attributes are documented under message.
-     * 
-     */
     @Import(name="messages", required=true)
     private Output<List<BotClarificationPromptMessageArgs>> messages;
 
-    /**
-     * @return A set of messages, each of which provides a message string and its type.
-     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-     * Attributes are documented under message.
-     * 
-     */
     public Output<List<BotClarificationPromptMessageArgs>> messages() {
         return this.messages;
     }
 
-    /**
-     * The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-     * 
-     */
     @Import(name="responseCard")
     private @Nullable Output<String> responseCard;
 
-    /**
-     * @return The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-     * 
-     */
     public Optional<Output<String>> responseCard() {
         return Optional.ofNullable(this.responseCard);
     }
@@ -98,85 +66,33 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
             $ = new BotClarificationPromptArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxAttempts The number of times to prompt the user for information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAttempts(Output<Integer> maxAttempts) {
             $.maxAttempts = maxAttempts;
             return this;
         }
 
-        /**
-         * @param maxAttempts The number of times to prompt the user for information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAttempts(Integer maxAttempts) {
             return maxAttempts(Output.of(maxAttempts));
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(Output<List<BotClarificationPromptMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(List<BotClarificationPromptMessageArgs> messages) {
             return messages(Output.of(messages));
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(BotClarificationPromptMessageArgs... messages) {
             return messages(List.of(messages));
         }
 
-        /**
-         * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCard(@Nullable Output<String> responseCard) {
             $.responseCard = responseCard;
             return this;
         }
 
-        /**
-         * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCard(String responseCard) {
             return responseCard(Output.of(responseCard));
         }

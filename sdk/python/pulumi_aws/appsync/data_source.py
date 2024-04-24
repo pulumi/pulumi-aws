@@ -450,7 +450,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,7 +495,6 @@ class DataSource(pulumi.CustomResource):
                 table_name=example_table.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -532,7 +530,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -578,7 +575,6 @@ class DataSource(pulumi.CustomResource):
                 table_name=example_table.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReceivedLicensesResult> InvokeAsync(GetReceivedLicensesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesArgs(), options.WithDefaults());
@@ -56,7 +54,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReceivedLicensesResult> Invoke(GetReceivedLicensesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesInvokeArgs(), options.WithDefaults());

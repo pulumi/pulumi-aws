@@ -36,9 +36,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("documentHashType")]
         public Input<string>? DocumentHashType { get; set; }
 
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 

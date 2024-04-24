@@ -74,14 +74,14 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Description of this rule.
+     * Description of the security group.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Description of this rule.
+     * @return Description of the security group.
      * 
      */
     public Output<String> description() {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     name: "example-mesh",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
 
@@ -97,7 +95,6 @@ export interface GetVirtualGatewayResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,7 +104,6 @@ export interface GetVirtualGatewayResult {
  *     name: "example-mesh",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGateway(a, opts))

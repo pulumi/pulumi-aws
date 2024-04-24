@@ -436,7 +436,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -447,11 +446,9 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Existing Active Directory
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,11 +460,9 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SAML
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -478,7 +473,6 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -516,7 +510,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -527,11 +520,9 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Existing Active Directory
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,11 +534,9 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SAML
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,7 +547,6 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

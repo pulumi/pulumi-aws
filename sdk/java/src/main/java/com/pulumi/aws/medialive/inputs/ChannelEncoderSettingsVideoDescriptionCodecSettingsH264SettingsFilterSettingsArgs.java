@@ -15,17 +15,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs();
 
-    /**
-     * Temporal filter settings. See Temporal Filter Settings
-     * 
-     */
     @Import(name="temporalFilterSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs> temporalFilterSettings;
 
-    /**
-     * @return Temporal filter settings. See Temporal Filter Settings
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs>> temporalFilterSettings() {
         return Optional.ofNullable(this.temporalFilterSettings);
     }
@@ -54,23 +46,11 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param temporalFilterSettings Temporal filter settings. See Temporal Filter Settings
-         * 
-         * @return builder
-         * 
-         */
         public Builder temporalFilterSettings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs> temporalFilterSettings) {
             $.temporalFilterSettings = temporalFilterSettings;
             return this;
         }
 
-        /**
-         * @param temporalFilterSettings Temporal filter settings. See Temporal Filter Settings
-         * 
-         * @return builder
-         * 
-         */
         public Builder temporalFilterSettings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs temporalFilterSettings) {
             return temporalFilterSettings(Output.of(temporalFilterSettings));
         }

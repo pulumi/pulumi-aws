@@ -147,7 +147,6 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
 
     ### By State
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -158,13 +157,11 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
     secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Filter
 
     All Local Zones (regardless of opt-in status):
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,11 +175,9 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
             ],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     Only Availability Zones (no Local Zones):
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -192,7 +187,6 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
         values=["opt-in-not-required"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -246,7 +240,6 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
 
     ### By State
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -257,13 +250,11 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
     secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Filter
 
     All Local Zones (regardless of opt-in status):
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -277,11 +268,9 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
             ],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     Only Availability Zones (no Local Zones):
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -291,7 +280,6 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
         values=["opt-in-not-required"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

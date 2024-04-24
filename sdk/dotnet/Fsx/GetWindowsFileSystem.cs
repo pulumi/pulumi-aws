@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// ### Root volume Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWindowsFileSystemResult> InvokeAsync(GetWindowsFileSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWindowsFileSystemResult>("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args ?? new GetWindowsFileSystemArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// ### Root volume Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWindowsFileSystemResult> Invoke(GetWindowsFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWindowsFileSystemResult>("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args ?? new GetWindowsFileSystemInvokeArgs(), options.WithDefaults());

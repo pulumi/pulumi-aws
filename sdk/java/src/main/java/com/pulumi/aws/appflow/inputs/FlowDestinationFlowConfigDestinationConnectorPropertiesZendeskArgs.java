@@ -18,62 +18,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs();
 
-    /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs> errorHandlingConfig;
 
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
-    /**
-     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     public Optional<Output<List<String>>> idFieldNames() {
         return Optional.ofNullable(this.idFieldNames);
     }
 
-    /**
-     * Object specified in the flow destination.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
 
-    /**
-     * Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     @Import(name="writeOperationType")
     private @Nullable Output<String> writeOperationType;
 
-    /**
-     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     public Optional<Output<String>> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }
@@ -105,96 +73,42 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(@Nullable Output<List<String>> idFieldNames) {
             $.idFieldNames = idFieldNames;
             return this;
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(List<String> idFieldNames) {
             return idFieldNames(Output.of(idFieldNames));
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(String... idFieldNames) {
             return idFieldNames(List.of(idFieldNames));
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }
 
-        /**
-         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeOperationType(@Nullable Output<String> writeOperationType) {
             $.writeOperationType = writeOperationType;
             return this;
         }
 
-        /**
-         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeOperationType(String writeOperationType) {
             return writeOperationType(Output.of(writeOperationType));
         }

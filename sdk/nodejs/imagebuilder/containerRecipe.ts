@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,7 +44,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -112,7 +110,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
      */
     public readonly dockerfileTemplateUri!: pulumi.Output<string | undefined>;
     /**
-     * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * A flag that indicates if the target container is encrypted.
      */
     public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
     /**
@@ -277,7 +275,7 @@ export interface ContainerRecipeState {
      */
     dockerfileTemplateUri?: pulumi.Input<string>;
     /**
-     * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * A flag that indicates if the target container is encrypted.
      */
     encrypted?: pulumi.Input<boolean>;
     /**

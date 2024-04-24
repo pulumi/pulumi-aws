@@ -31,17 +31,9 @@ public final class IpGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
@@ -92,23 +84,11 @@ public final class IpGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param source The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

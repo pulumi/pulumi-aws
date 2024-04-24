@@ -83,14 +83,12 @@ class TemplateAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.TemplateAssociation("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -118,14 +116,12 @@ class TemplateAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.TemplateAssociation("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

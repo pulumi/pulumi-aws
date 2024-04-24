@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:servicecatalog/organizationsAccess:OrganizationsAccess")]
     public partial class OrganizationsAccess : global::Pulumi.CustomResource

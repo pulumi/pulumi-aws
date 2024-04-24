@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Cached and VTL Gateway Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Stored Gateway Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,7 +42,6 @@ import * as utilities from "../utilities";
  *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

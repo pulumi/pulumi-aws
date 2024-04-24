@@ -19,8 +19,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> RecordColumns;
         /// <summary>
         /// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        /// 
-        /// The `s3_reference_data_source` object supports the following:
         /// </summary>
         public readonly string? RecordEncoding;
         /// <summary>

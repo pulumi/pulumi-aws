@@ -14,17 +14,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs();
 
-    /**
-     * Object path specified in the SAPOData flow destination.
-     * 
-     */
     @Import(name="objectPath", required=true)
     private Output<String> objectPath;
 
-    /**
-     * @return Object path specified in the SAPOData flow destination.
-     * 
-     */
     public Output<String> objectPath() {
         return this.objectPath;
     }
@@ -53,23 +45,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param objectPath Object path specified in the SAPOData flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectPath(Output<String> objectPath) {
             $.objectPath = objectPath;
             return this;
         }
 
-        /**
-         * @param objectPath Object path specified in the SAPOData flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectPath(String objectPath) {
             return objectPath(Output.of(objectPath));
         }

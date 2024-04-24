@@ -420,7 +420,6 @@ class TableExport(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,11 +442,9 @@ class TableExport(pulumi.CustomResource):
             table_arn=example_table.arn,
             s3_bucket=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with export time
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,7 +454,6 @@ class TableExport(pulumi.CustomResource):
             s3_bucket=example_aws_s3_bucket["id"],
             table_arn=example_aws_dynamodb_table["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -491,7 +487,6 @@ class TableExport(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,11 +509,9 @@ class TableExport(pulumi.CustomResource):
             table_arn=example_table.arn,
             s3_bucket=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with export time
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,7 +521,6 @@ class TableExport(pulumi.CustomResource):
             s3_bucket=example_aws_s3_bucket["id"],
             table_arn=example_aws_dynamodb_table["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

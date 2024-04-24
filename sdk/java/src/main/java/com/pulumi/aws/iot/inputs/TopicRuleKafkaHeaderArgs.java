@@ -15,14 +15,14 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
     public static final TopicRuleKafkaHeaderArgs Empty = new TopicRuleKafkaHeaderArgs();
 
     /**
-     * The name of the HTTP header.
+     * The key of the Kafka header.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the HTTP header.
+     * @return The key of the Kafka header.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The value of the HTTP header.
+     * The value of the Kafka header.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the HTTP header.
+     * @return The value of the Kafka header.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The key of the Kafka header.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The key of the Kafka header.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value The value of the Kafka header.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value The value of the Kafka header.
          * 
          * @return builder
          * 

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     indexName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
 
@@ -89,7 +87,6 @@ export interface GetPlaceIndexResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +95,6 @@ export interface GetPlaceIndexResult {
  *     indexName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
     return pulumi.output(args).apply((a: any) => getPlaceIndex(a, opts))

@@ -136,7 +136,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     for range in [{"value": i} for i in range(0, len(test.ids))]:
         test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
@@ -200,7 +198,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -220,7 +217,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     for range in [{"value": i} for i in range(0, len(test.ids))]:
         test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are

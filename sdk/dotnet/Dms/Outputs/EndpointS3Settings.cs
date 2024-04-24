@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? AddColumnName;
         /// <summary>
-        /// Custom S3 Bucket Object prefix for intermediate storage.
+        /// S3 object prefix.
         /// </summary>
         public readonly string? BucketFolder;
         /// <summary>
-        /// Custom S3 Bucket name for intermediate storage.
+        /// S3 bucket name.
         /// </summary>
         public readonly string? BucketName;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? EncodingType;
         /// <summary>
-        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         /// </summary>
         public readonly string? EncryptionMode;
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? IncludeOpForFullLoad;
         /// <summary>
-        /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         /// </summary>
         public readonly int? MaxFileSize;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
         /// <summary>
-        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         /// </summary>
         public readonly string? ServiceAccessRoleArn;
         /// <summary>

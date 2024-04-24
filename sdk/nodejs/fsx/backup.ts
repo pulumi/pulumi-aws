@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Lustre Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.fsx.Backup("example", {fileSystemId: exampleLustreFileSystem.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Windows Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,11 +37,9 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.fsx.Backup("example", {fileSystemId: exampleWindowsFileSystem.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## ONTAP Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,11 +53,9 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.fsx.Backup("example", {volumeId: exampleOntapVolume.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## OpenZFS Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,7 +68,6 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.fsx.Backup("example", {fileSystemId: exampleOpenZfsFileSystem.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

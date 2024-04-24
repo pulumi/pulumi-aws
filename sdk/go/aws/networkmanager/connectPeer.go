@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,11 +76,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with attachment accepter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,11 +155,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with a Tunnel-less Connect attachment
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -219,7 +214,6 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -12,9 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class UserPoolAccountRecoverySettingRecoveryMechanism {
     /**
-     * @return Name of the user pool.
-     * 
-     * The following arguments are optional:
+     * @return Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
      * 
      */
     private String name;
@@ -26,9 +24,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
 
     private UserPoolAccountRecoverySettingRecoveryMechanism() {}
     /**
-     * @return Name of the user pool.
-     * 
-     * The following arguments are optional:
+     * @return Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
      * 
      */
     public String name() {

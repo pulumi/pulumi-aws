@@ -20,8 +20,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
         /// <summary>
         /// The text-format code for the application.
-        /// 
-        /// The `s3_content_location` object supports the following:
         /// </summary>
         [Input("textContent")]
         public Input<string>? TextContent { get; set; }

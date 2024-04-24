@@ -208,7 +208,6 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +219,6 @@ class ResourceShare(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +257,6 @@ class ResourceShare(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

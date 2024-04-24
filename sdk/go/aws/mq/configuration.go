@@ -20,7 +20,6 @@ import (
 //
 // ### ActiveMQ
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,11 +59,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RabbitMQ
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,7 +89,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

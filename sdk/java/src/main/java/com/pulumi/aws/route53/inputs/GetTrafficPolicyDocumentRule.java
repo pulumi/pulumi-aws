@@ -97,17 +97,9 @@ public final class GetTrafficPolicyDocumentRule extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.primary);
     }
 
-    /**
-     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     @Import(name="regions")
     private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
 
-    /**
-     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     public Optional<List<GetTrafficPolicyDocumentRuleRegion>> regions() {
         return Optional.ofNullable(this.regions);
     }
@@ -258,23 +250,11 @@ public final class GetTrafficPolicyDocumentRule extends com.pulumi.resources.Inv
             return this;
         }
 
-        /**
-         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable List<GetTrafficPolicyDocumentRuleRegion> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(GetTrafficPolicyDocumentRuleRegion... regions) {
             return regions(List.of(regions));
         }

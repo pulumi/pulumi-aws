@@ -94,14 +94,12 @@ def get_region(endpoint: Optional[str] = None,
     The following example shows how the resource might be used to obtain
     the name of the AWS region configured on the provider.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_region()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint: EC2 endpoint of the region to select.
@@ -139,14 +137,12 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
     The following example shows how the resource might be used to obtain
     the name of the AWS region configured on the provider.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_region()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint: EC2 endpoint of the region to select.

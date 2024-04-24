@@ -391,7 +391,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,7 +424,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                 to_port=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -464,7 +462,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -498,7 +495,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                 to_port=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

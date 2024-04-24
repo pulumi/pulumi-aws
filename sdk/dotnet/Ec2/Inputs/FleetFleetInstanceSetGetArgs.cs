@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Instance type.
+        /// The instance type.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

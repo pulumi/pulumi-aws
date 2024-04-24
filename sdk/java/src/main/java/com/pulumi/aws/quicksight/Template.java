@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/template:Template")
 public class Template extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the template.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the template.
      * 
      */
     public Output<String> arn() {

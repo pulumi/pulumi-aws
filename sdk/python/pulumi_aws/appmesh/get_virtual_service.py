@@ -154,7 +154,6 @@ def get_virtual_service(mesh_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,9 +161,7 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     test = aws.appmesh.get_virtual_service(name="example.mesh.local",
         mesh_name="example-mesh")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,7 +171,6 @@ def get_virtual_service(mesh_name: Optional[str] = None,
         mesh_name="example-mesh",
         mesh_owner=current.account_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual service exists.
@@ -214,7 +210,6 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -222,9 +217,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     test = aws.appmesh.get_virtual_service(name="example.mesh.local",
         mesh_name="example-mesh")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -234,7 +227,6 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
         mesh_name="example-mesh",
         mesh_owner=current.account_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual service exists.

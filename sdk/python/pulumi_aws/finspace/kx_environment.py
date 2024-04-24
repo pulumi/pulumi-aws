@@ -365,7 +365,6 @@ class KxEnvironment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -377,11 +376,9 @@ class KxEnvironment(pulumi.CustomResource):
             name="my-tf-kx-environment",
             kms_key_id=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Transit Gateway Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,11 +400,9 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Transit Gateway Attachment Network ACL Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,7 +438,6 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -477,7 +471,6 @@ class KxEnvironment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,11 +482,9 @@ class KxEnvironment(pulumi.CustomResource):
             name="my-tf-kx-environment",
             kms_key_id=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Transit Gateway Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,11 +506,9 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Transit Gateway Attachment Network ACL Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -555,7 +544,6 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

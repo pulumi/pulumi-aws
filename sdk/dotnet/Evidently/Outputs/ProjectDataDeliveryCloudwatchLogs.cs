@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Evidently.Outputs
     {
         /// <summary>
         /// The name of the log group where the project stores evaluation events.
-        /// 
-        /// The `s3_destination` block supports the following arguments:
         /// </summary>
         public readonly string? LogGroup;
 

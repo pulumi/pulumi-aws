@@ -19,7 +19,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// ### Apache Flink Application
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,11 +110,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### SQL Application
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -264,11 +261,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### VPC Configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -325,7 +320,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

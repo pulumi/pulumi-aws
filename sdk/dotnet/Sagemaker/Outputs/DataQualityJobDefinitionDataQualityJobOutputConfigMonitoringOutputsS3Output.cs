@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output
     {
         /// <summary>
-        /// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        /// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         /// </summary>
         public readonly string? LocalPath;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? S3UploadMode;
         /// <summary>
-        /// The Amazon S3 URI for the constraints resource.
+        /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         /// </summary>
         public readonly string S3Uri;
 

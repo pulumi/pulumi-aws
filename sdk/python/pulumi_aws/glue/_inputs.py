@@ -1886,14 +1886,10 @@ class CrawlerS3TargetArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
-        :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
-        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon SQS ARN.
-               
-               > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-               
-               > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
-        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN.
+        :param pulumi.Input[str] path: The path to the Amazon S3 target.
+        :param pulumi.Input[str] connection_name: The name of a connection which allows crawler to access data in S3 within a VPC.
+        :param pulumi.Input[str] dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+        :param pulumi.Input[str] event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
@@ -1913,7 +1909,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table to crawl.
+        The path to the Amazon S3 target.
         """
         return pulumi.get(self, "path")
 
@@ -1925,7 +1921,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+        The name of a connection which allows crawler to access data in S3 within a VPC.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1937,11 +1933,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN.
-
-        > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-
-        > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+        The ARN of the dead-letter SQS queue.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -1953,7 +1945,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN.
+        The ARN of the SQS queue to receive S3 notifications from.
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -2795,11 +2787,6 @@ class PartitionStorageDescriptorColumnArgs:
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the Column.
-        :param pulumi.Input[str] comment: Free-form text comment.
-        :param pulumi.Input[str] type: The datatype of data in the Column.
-        """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -2809,9 +2796,6 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The name of the Column.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2821,9 +2805,6 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Free-form text comment.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -2833,9 +2814,6 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The datatype of data in the Column.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

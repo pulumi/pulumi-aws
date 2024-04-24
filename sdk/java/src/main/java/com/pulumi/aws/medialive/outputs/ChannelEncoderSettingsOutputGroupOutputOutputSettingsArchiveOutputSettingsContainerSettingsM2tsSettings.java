@@ -24,10 +24,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     private @Nullable Integer audioFramesPerPes;
     private @Nullable String audioPids;
     private @Nullable String audioStreamType;
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     private @Nullable Integer bitrate;
     private @Nullable String bufferModel;
     private @Nullable String ccDescriptor;
@@ -59,10 +55,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     private @Nullable String rateMode;
     private @Nullable String scte27Pids;
     private @Nullable String scte35Control;
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     private @Nullable String scte35Pid;
     private @Nullable String segmentationMarkers;
     private @Nullable String segmentationStyle;
@@ -97,10 +89,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     public Optional<String> audioStreamType() {
         return Optional.ofNullable(this.audioStreamType);
     }
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Integer> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
@@ -194,10 +182,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     public Optional<String> scte35Control() {
         return Optional.ofNullable(this.scte35Control);
     }
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<String> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }

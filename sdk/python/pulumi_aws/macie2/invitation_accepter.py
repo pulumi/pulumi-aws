@@ -86,7 +86,6 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -102,7 +101,6 @@ class InvitationAccepter(pulumi.CustomResource):
         member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
         opts=pulumi.ResourceOptions(depends_on=[primary_member]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -127,7 +125,6 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,7 +140,6 @@ class InvitationAccepter(pulumi.CustomResource):
         member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
         opts=pulumi.ResourceOptions(depends_on=[primary_member]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

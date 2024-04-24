@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginCustomOriginConfig
     {
-        /// <summary>
-        /// HTTP port the custom origin listens on.
-        /// </summary>
         public readonly int HttpPort;
-        /// <summary>
-        /// HTTPS port the custom origin listens on.
-        /// </summary>
         public readonly int HttpsPort;
-        /// <summary>
-        /// The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-        /// </summary>
         public readonly int? OriginKeepaliveTimeout;
-        /// <summary>
-        /// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-        /// </summary>
         public readonly string OriginProtocolPolicy;
-        /// <summary>
-        /// The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-        /// </summary>
         public readonly int? OriginReadTimeout;
-        /// <summary>
-        /// SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
-        /// </summary>
         public readonly ImmutableArray<string> OriginSslProtocols;
 
         [OutputConstructor]

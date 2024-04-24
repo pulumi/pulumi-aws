@@ -16,14 +16,14 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfigAr
     public static final PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs Empty = new PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs();
 
     /**
-     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * ARN of this pipe.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of this pipe.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -55,7 +55,7 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfigAr
         }
 
         /**
-         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of this pipe.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfigAr
         }
 
         /**
-         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of this pipe.
          * 
          * @return builder
          * 

@@ -12,14 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.guardduty.getDetector({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     args = args || {};
@@ -67,14 +65,12 @@ export interface GetDetectorResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.guardduty.getDetector({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
     return pulumi.output(args).apply((a: any) => getDetector(a, opts))

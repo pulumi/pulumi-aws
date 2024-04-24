@@ -14,17 +14,9 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
 
     public static final BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs Empty = new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs();
 
-    /**
-     * Number of days after which Amazon S3 aborts an incomplete multipart upload.
-     * 
-     */
     @Import(name="daysAfterInitiation", required=true)
     private Output<Integer> daysAfterInitiation;
 
-    /**
-     * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
-     * 
-     */
     public Output<Integer> daysAfterInitiation() {
         return this.daysAfterInitiation;
     }
@@ -53,23 +45,11 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
             $ = new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param daysAfterInitiation Number of days after which Amazon S3 aborts an incomplete multipart upload.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysAfterInitiation(Output<Integer> daysAfterInitiation) {
             $.daysAfterInitiation = daysAfterInitiation;
             return this;
         }
 
-        /**
-         * @param daysAfterInitiation Number of days after which Amazon S3 aborts an incomplete multipart upload.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysAfterInitiation(Integer daysAfterInitiation) {
             return daysAfterInitiation(Output.of(daysAfterInitiation));
         }

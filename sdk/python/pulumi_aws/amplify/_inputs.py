@@ -262,7 +262,7 @@ class AppProductionBranchArgs:
         """
         :param pulumi.Input[str] branch_name: Branch name for the production branch.
         :param pulumi.Input[str] last_deploy_time: Last deploy time of the production branch.
-        :param pulumi.Input[str] status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        :param pulumi.Input[str] status: Status of the production branch.
         :param pulumi.Input[str] thumbnail_url: Thumbnail URL for the production branch.
         """
         if branch_name is not None:
@@ -302,7 +302,7 @@ class AppProductionBranchArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        Status of the production branch.
         """
         return pulumi.get(self, "status")
 

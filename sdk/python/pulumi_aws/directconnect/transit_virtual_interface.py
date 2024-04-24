@@ -516,7 +516,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,7 +531,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
             address_family="ipv4",
             bgp_asn=65352)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -570,7 +568,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,7 +583,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
             address_family="ipv4",
             bgp_asn=65352)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

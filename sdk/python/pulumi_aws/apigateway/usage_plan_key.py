@@ -166,7 +166,6 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class UsagePlanKey(pulumi.CustomResource):
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -212,7 +210,6 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class UsagePlanKey(pulumi.CustomResource):
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -271,7 +271,6 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -289,7 +288,6 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
@@ -347,7 +345,6 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -365,7 +362,6 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are

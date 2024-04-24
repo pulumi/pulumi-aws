@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelector
     {
-        /// <summary>
-        /// Selects a specific three-letter language code from within an audio source.
-        /// </summary>
         public readonly string? LanguageCode;
         /// <summary>
         /// Name of the Channel.
@@ -23,9 +20,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The audio selector settings. See Audio Selector Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings;
 
         [OutputConstructor]

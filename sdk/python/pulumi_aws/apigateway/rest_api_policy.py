@@ -106,7 +106,6 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,7 +129,6 @@ class RestApiPolicy(pulumi.CustomResource):
             rest_api_id=test_rest_api.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -160,7 +158,6 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +181,6 @@ class RestApiPolicy(pulumi.CustomResource):
             rest_api_id=test_rest_api.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

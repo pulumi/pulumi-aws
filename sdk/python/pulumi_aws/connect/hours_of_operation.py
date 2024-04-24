@@ -290,7 +290,6 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +327,6 @@ class HoursOfOperation(pulumi.CustomResource):
                 "Name": "Example Hours of Operation",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -359,7 +357,6 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,7 +394,6 @@ class HoursOfOperation(pulumi.CustomResource):
                 "Name": "Example Hours of Operation",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -276,7 +276,6 @@ class Table(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,11 +284,9 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,11 +302,9 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Customer-defined Partition Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +320,6 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -357,7 +351,6 @@ class Table(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,11 +359,9 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,11 +377,9 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Customer-defined Partition Key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,7 +395,6 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -623,18 +623,15 @@ class Vpc(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -646,11 +643,9 @@ class Vpc(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         VPC with CIDR from AWS IPAM:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -671,7 +666,6 @@ class Vpc(pulumi.CustomResource):
             ipv4_netmask_length=28,
             opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -710,18 +704,15 @@ class Vpc(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -733,11 +724,9 @@ class Vpc(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         VPC with CIDR from AWS IPAM:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -758,7 +747,6 @@ class Vpc(pulumi.CustomResource):
             ipv4_netmask_length=28,
             opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

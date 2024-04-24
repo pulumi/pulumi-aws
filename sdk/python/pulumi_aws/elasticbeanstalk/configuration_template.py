@@ -251,7 +251,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,7 +263,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Option Settings
 
@@ -300,7 +298,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,7 +310,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Option Settings
 

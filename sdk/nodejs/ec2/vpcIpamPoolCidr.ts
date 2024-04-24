@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,11 +37,9 @@ import * as utilities from "../utilities";
  *     cidr: "172.20.0.0/16",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Provision Public IPv6 Pool CIDRs:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,7 +62,6 @@ import * as utilities from "../utilities";
  *     netmaskLength: 52,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

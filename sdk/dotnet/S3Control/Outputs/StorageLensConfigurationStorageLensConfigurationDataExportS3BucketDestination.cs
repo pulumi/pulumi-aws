@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination
     {
         /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        /// The Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         public readonly string Arn;
         /// <summary>

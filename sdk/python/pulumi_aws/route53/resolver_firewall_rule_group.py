@@ -174,14 +174,12 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,14 +205,12 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

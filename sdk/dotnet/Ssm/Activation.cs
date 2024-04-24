@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,13 +70,12 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAttach, 
+    ///             testAttach,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

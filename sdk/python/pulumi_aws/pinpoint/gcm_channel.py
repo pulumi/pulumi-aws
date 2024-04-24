@@ -136,7 +136,6 @@ class GcmChannel(pulumi.CustomResource):
         > **Note:** Api Key argument will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class GcmChannel(pulumi.CustomResource):
             application_id=app.application_id,
             api_key="api_key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -174,7 +172,6 @@ class GcmChannel(pulumi.CustomResource):
         > **Note:** Api Key argument will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +181,6 @@ class GcmChannel(pulumi.CustomResource):
             application_id=app.application_id,
             api_key="api_key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

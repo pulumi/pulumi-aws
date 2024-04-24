@@ -246,7 +246,6 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,7 +254,6 @@ class RouteCalculation(pulumi.CustomResource):
             calculator_name="example",
             data_source="Here")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,7 +283,6 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +291,6 @@ class RouteCalculation(pulumi.CustomResource):
             calculator_name="example",
             data_source="Here")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -30,14 +30,14 @@ public final class RepositoryAssociationRepositoryS3BucketArgs extends com.pulum
     }
 
     /**
-     * The name of the third party source repository.
+     * The name of the repository in the S3 bucket.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the third party source repository.
+     * @return The name of the repository in the S3 bucket.
      * 
      */
     public Output<String> name() {
@@ -91,7 +91,7 @@ public final class RepositoryAssociationRepositoryS3BucketArgs extends com.pulum
         }
 
         /**
-         * @param name The name of the third party source repository.
+         * @param name The name of the repository in the S3 bucket.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RepositoryAssociationRepositoryS3BucketArgs extends com.pulum
         }
 
         /**
-         * @param name The name of the third party source repository.
+         * @param name The name of the repository in the S3 bucket.
          * 
          * @return builder
          * 

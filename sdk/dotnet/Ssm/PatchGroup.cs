@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
     public partial class PatchGroup : global::Pulumi.CustomResource

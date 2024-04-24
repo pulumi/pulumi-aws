@@ -102,7 +102,6 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +112,6 @@ class TrackerAssociation(pulumi.CustomResource):
             consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -139,7 +137,6 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +147,6 @@ class TrackerAssociation(pulumi.CustomResource):
             consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

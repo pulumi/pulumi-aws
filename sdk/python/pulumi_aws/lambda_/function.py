@@ -614,7 +614,7 @@ class _FunctionState:
         """
         Input properties used for looking up and filtering Function resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your Lambda Function.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
@@ -771,7 +771,7 @@ class _FunctionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        Amazon Resource Name (ARN) identifying your Lambda Function.
         """
         return pulumi.get(self, "arn")
 
@@ -1337,7 +1337,6 @@ class Function(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1370,11 +1369,9 @@ class Function(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Layers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1382,13 +1379,11 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example")
         example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1414,13 +1409,11 @@ class Function(pulumi.CustomResource):
                 size=10240,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1461,7 +1454,6 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda retries
 
@@ -1471,7 +1463,6 @@ class Function(pulumi.CustomResource):
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1513,7 +1504,6 @@ class Function(pulumi.CustomResource):
                     example,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 
@@ -1590,7 +1580,6 @@ class Function(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1623,11 +1612,9 @@ class Function(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Layers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1635,13 +1622,11 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example")
         example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1667,13 +1652,11 @@ class Function(pulumi.CustomResource):
                 size=10240,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1714,7 +1697,6 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda retries
 
@@ -1724,7 +1706,6 @@ class Function(pulumi.CustomResource):
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1766,7 +1747,6 @@ class Function(pulumi.CustomResource):
                     example,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 
@@ -1947,7 +1927,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your Lambda Function.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
@@ -2053,7 +2033,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        Amazon Resource Name (ARN) identifying your Lambda Function.
         """
         return pulumi.get(self, "arn")
 

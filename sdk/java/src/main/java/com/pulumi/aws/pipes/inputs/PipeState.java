@@ -20,14 +20,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     public static final PipeState Empty = new PipeState();
 
     /**
-     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * ARN of this pipe.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of this pipe.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -279,7 +279,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of this pipe.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of this pipe.
          * 
          * @return builder
          * 

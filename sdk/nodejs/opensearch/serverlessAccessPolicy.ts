@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Grant all collection and index permissions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,11 +37,9 @@ import * as utilities from "../utilities";
  *     }]),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Grant read-only collection and index permissions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,11 +69,9 @@ import * as utilities from "../utilities";
  *     }]),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Grant SAML identity permissions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,7 +100,6 @@ import * as utilities from "../utilities";
  *     }]),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

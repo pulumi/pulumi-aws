@@ -504,7 +504,6 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,7 +522,6 @@ class ReplicationTask(pulumi.CustomResource):
             },
             target_endpoint_arn=test_dms_target_endpoint_tf["endpointArn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -566,7 +564,6 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,7 +582,6 @@ class ReplicationTask(pulumi.CustomResource):
             },
             target_endpoint_arn=test_dms_target_endpoint_tf["endpointArn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

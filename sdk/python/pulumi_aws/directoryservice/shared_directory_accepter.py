@@ -136,7 +136,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +148,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +186,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

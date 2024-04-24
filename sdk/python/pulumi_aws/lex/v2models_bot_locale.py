@@ -302,7 +302,6 @@ class V2modelsBotLocale(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,11 +312,9 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Voice Settings
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +329,6 @@ class V2modelsBotLocale(pulumi.CustomResource):
                 engine="standard",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -367,7 +363,6 @@ class V2modelsBotLocale(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,11 +373,9 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Voice Settings
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,7 +390,6 @@ class V2modelsBotLocale(pulumi.CustomResource):
                 engine="standard",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

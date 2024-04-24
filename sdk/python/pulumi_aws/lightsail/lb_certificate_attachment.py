@@ -102,7 +102,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -122,7 +121,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
             lb_name=test.name,
             certificate_name=test_lb_certificate.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,7 +146,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +165,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
             lb_name=test.name,
             certificate_name=test_lb_certificate.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

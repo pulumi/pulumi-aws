@@ -24,7 +24,6 @@ class GetLicenseGrantsFilterArgs:
                [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
                For example, if filtering using `ProductSKU`, use:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -34,7 +33,6 @@ class GetLicenseGrantsFilterArgs:
                    values=[""],
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
         pulumi.set(__self__, "name", name)
@@ -48,7 +46,6 @@ class GetLicenseGrantsFilterArgs:
         [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
         For example, if filtering using `ProductSKU`, use:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -58,7 +55,6 @@ class GetLicenseGrantsFilterArgs:
             values=[""],
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 
@@ -89,7 +85,6 @@ class GetReceivedLicensesFilterArgs:
                [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
                For example, if filtering using `ProductSKU`, use:
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -99,7 +94,6 @@ class GetReceivedLicensesFilterArgs:
                    values=[""],
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
         pulumi.set(__self__, "name", name)
@@ -113,7 +107,6 @@ class GetReceivedLicensesFilterArgs:
         [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
         For example, if filtering using `ProductSKU`, use:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,7 +116,6 @@ class GetReceivedLicensesFilterArgs:
             values=[""],
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

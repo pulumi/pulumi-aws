@@ -16,7 +16,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessVpcEndpointResult> InvokeAsync(GetServerlessVpcEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessVpcEndpointResult> Invoke(GetServerlessVpcEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointInvokeArgs(), options.WithDefaults());

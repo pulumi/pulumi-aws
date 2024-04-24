@@ -17,14 +17,14 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
     public static final DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs Empty = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs();
 
     /**
-     * Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+     * The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
      * 
      */
     @Import(name="localPath")
     private @Nullable Output<String> localPath;
 
     /**
-     * @return Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+     * @return The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
      * 
      */
     public Optional<Output<String>> localPath() {
@@ -47,14 +47,14 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
     }
 
     /**
-     * The Amazon S3 URI for the constraints resource.
+     * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return The Amazon S3 URI for the constraints resource.
+     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
      * 
      */
     public Output<String> s3Uri() {
@@ -88,7 +88,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         }
 
         /**
-         * @param localPath Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+         * @param localPath The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         }
 
         /**
-         * @param localPath Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+         * @param localPath The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         }
 
         /**
-         * @param s3Uri The Amazon S3 URI for the constraints resource.
+         * @param s3Uri A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         }
 
         /**
-         * @param s3Uri The Amazon S3 URI for the constraints resource.
+         * @param s3Uri A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          * 
          * @return builder
          * 

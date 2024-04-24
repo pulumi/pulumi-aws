@@ -20,7 +20,6 @@ import (
 //
 // ### Domain Identity MAIL FROM
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Email Identity MAIL FROM
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,7 +116,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

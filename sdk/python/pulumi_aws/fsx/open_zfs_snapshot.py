@@ -189,7 +189,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ### Root volume Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,11 +202,9 @@ class OpenZfsSnapshot(pulumi.CustomResource):
             name="example",
             volume_id=example_open_zfs_file_system.root_volume_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Child volume Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +221,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
             name="example",
             volume_id=example_open_zfs_volume.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +250,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ### Root volume Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,11 +263,9 @@ class OpenZfsSnapshot(pulumi.CustomResource):
             name="example",
             volume_id=example_open_zfs_file_system.root_volume_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Child volume Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +282,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
             name="example",
             volume_id=example_open_zfs_volume.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

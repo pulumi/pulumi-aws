@@ -220,7 +220,6 @@ class ProfilingGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,7 +231,6 @@ class ProfilingGroup(pulumi.CustomResource):
                 profiling_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -264,7 +262,6 @@ class ProfilingGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +273,6 @@ class ProfilingGroup(pulumi.CustomResource):
                 profiling_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

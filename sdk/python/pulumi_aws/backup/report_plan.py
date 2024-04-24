@@ -273,7 +273,6 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +294,6 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -324,7 +322,6 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +343,6 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

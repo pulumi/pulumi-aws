@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     id: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStoreResult> {
 
@@ -73,7 +71,6 @@ export interface GetPolicyStoreResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,7 +79,6 @@ export interface GetPolicyStoreResult {
  *     id: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
     return pulumi.output(args).apply((a: any) => getPolicyStore(a, opts))

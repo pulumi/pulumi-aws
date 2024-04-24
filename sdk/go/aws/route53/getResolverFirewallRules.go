@@ -17,7 +17,6 @@ import (
 //
 // The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverFirewallRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverFirewallRulesResult

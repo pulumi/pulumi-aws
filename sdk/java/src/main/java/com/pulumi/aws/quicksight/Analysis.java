@@ -131,14 +131,14 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return this.analysisId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the analysis.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the analysis.
      * 
      */
     public Output<String> arn() {

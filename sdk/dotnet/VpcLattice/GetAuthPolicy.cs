@@ -18,7 +18,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthPolicyResult> InvokeAsync(GetAuthPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthPolicyResult> Invoke(GetAuthPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyInvokeArgs(), options.WithDefaults());

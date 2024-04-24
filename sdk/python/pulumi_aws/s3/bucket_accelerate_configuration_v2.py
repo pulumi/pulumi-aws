@@ -137,7 +137,6 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,7 +146,6 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
             bucket=mybucket.id,
             status="Enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,7 +183,6 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,7 +192,6 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
             bucket=mybucket.id,
             status="Enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

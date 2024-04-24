@@ -488,14 +488,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.originPublicDns;
     }
     /**
-     * The resource type of the origin resource (e.g., Instance).
+     * The Lightsail resource type (e.g., Distribution).
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return The resource type of the origin resource (e.g., Instance).
+     * @return The Lightsail resource type (e.g., Distribution).
      * 
      */
     public Output<String> resourceType() {

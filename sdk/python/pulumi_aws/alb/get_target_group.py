@@ -250,7 +250,6 @@ def get_target_group(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -265,7 +264,6 @@ def get_target_group(arn: Optional[str] = None,
     test = aws.lb.get_target_group(arn=lb_tg_arn,
         name=lb_tg_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the target group.
@@ -324,7 +322,6 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -339,7 +336,6 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     test = aws.lb.get_target_group(arn=lb_tg_arn,
         name=lb_tg_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the target group.

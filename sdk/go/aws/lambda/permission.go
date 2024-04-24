@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +92,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With SNS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,11 +174,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With API Gateway REST API
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -221,11 +216,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With CloudWatch Log Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -313,11 +306,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Cross-Account Invocation Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -352,7 +343,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -44,7 +44,7 @@ class _ReplicationConfigurationState:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
-        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        :param pulumi.Input[str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         if registry_id is not None:
@@ -56,7 +56,7 @@ class _ReplicationConfigurationState:
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the destination registry to replicate to.
+        The registry ID where the replication configuration was created.
         """
         return pulumi.get(self, "registry_id")
 
@@ -89,7 +89,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -105,11 +104,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Multiple Region Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,11 +128,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Repository Filter Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,7 +150,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,7 +174,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,11 +189,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Multiple Region Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,11 +213,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Repository Filter Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +235,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -302,7 +290,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        :param pulumi.Input[str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -317,7 +305,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
         """
-        The account ID of the destination registry to replicate to.
+        The registry ID where the replication configuration was created.
         """
         return pulumi.get(self, "registry_id")
 

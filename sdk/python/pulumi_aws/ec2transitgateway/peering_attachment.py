@@ -235,7 +235,6 @@ class PeeringAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +255,6 @@ class PeeringAttachment(pulumi.CustomResource):
                 "Name": "TGW Peering Requestor",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class PeeringAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +304,6 @@ class PeeringAttachment(pulumi.CustomResource):
                 "Name": "TGW Peering Requestor",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -1803,7 +1803,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic example using AMI lookup
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1827,11 +1826,9 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Spot instance example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1860,11 +1857,9 @@ class Instance(pulumi.CustomResource):
                 "Name": "test-spot",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network and credit specification example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1898,11 +1893,9 @@ class Instance(pulumi.CustomResource):
                 cpu_credits="unlimited",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CPU options example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1937,7 +1930,6 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Host resource group or Licence Manager registered AMI example
 
@@ -1945,7 +1937,6 @@ class Instance(pulumi.CustomResource):
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1956,7 +1947,6 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Tag Guide
 
@@ -2046,7 +2036,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic example using AMI lookup
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2070,11 +2059,9 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Spot instance example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2103,11 +2090,9 @@ class Instance(pulumi.CustomResource):
                 "Name": "test-spot",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network and credit specification example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2141,11 +2126,9 @@ class Instance(pulumi.CustomResource):
                 cpu_credits="unlimited",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CPU options example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2180,7 +2163,6 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Host resource group or Licence Manager registered AMI example
 
@@ -2188,7 +2170,6 @@ class Instance(pulumi.CustomResource):
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2199,7 +2180,6 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Tag Guide
 

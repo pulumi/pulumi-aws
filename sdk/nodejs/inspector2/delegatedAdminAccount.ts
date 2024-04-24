@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = new aws.inspector2.DelegatedAdminAccount("example", {accountId: current.then(current => current.accountId)});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

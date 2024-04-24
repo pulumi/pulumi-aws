@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     private String clientId;
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     private String clientSecret;
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo() {}
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     public String clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }

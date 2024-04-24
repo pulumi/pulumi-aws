@@ -100,7 +100,6 @@ class DataCellsFilter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,7 +115,6 @@ class DataCellsFilter(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,7 +141,6 @@ class DataCellsFilter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,7 +156,6 @@ class DataCellsFilter(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

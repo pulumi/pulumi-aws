@@ -174,7 +174,6 @@ class MethodSettings(pulumi.CustomResource):
 
         ### Off
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,11 +186,9 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="OFF",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Errors Only
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,11 +203,9 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Errors and Info Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,11 +220,9 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full Request and Response Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +237,6 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -278,7 +270,6 @@ class MethodSettings(pulumi.CustomResource):
 
         ### Off
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,11 +282,9 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="OFF",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Errors Only
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,11 +299,9 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Errors and Info Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,11 +316,9 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Full Request and Response Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +333,6 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

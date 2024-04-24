@@ -315,7 +315,6 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +325,6 @@ class ProxyEndpoint(pulumi.CustomResource):
             vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,7 +354,6 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,7 +364,6 @@ class ProxyEndpoint(pulumi.CustomResource):
             vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

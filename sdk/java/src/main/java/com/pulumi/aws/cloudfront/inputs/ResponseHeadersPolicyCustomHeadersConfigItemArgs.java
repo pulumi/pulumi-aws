@@ -15,47 +15,23 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
 
     public static final ResponseHeadersPolicyCustomHeadersConfigItemArgs Empty = new ResponseHeadersPolicyCustomHeadersConfigItemArgs();
 
-    /**
-     * The HTTP response header name.
-     * 
-     */
     @Import(name="header", required=true)
     private Output<String> header;
 
-    /**
-     * @return The HTTP response header name.
-     * 
-     */
     public Output<String> header() {
         return this.header;
     }
 
-    /**
-     * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
 
-    /**
-     * The value for the HTTP response header.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value for the HTTP response header.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -86,65 +62,29 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
             $ = new ResponseHeadersPolicyCustomHeadersConfigItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param header The HTTP response header name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(Output<String> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header The HTTP response header name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(String header) {
             return header(Output.of(header));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }
 
-        /**
-         * @param value The value for the HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value for the HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

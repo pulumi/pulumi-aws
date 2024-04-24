@@ -102,7 +102,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -111,7 +110,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
             resolver_query_log_config_id=example_aws_route53_resolver_query_log_config["id"],
             resource_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -137,7 +135,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +143,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
             resolver_query_log_config_id=example_aws_route53_resolver_query_log_config["id"],
             resource_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

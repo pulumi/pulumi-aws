@@ -254,7 +254,6 @@ class TableReplica(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class TableReplica(pulumi.CustomResource):
                 "Pozo": "Amargo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -315,7 +313,6 @@ class TableReplica(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,7 +334,6 @@ class TableReplica(pulumi.CustomResource):
                 "Pozo": "Amargo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

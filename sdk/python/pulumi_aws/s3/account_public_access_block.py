@@ -227,7 +227,6 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +235,6 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_acls=True,
             block_public_policy=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -274,7 +272,6 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,7 +280,6 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_acls=True,
             block_public_policy=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

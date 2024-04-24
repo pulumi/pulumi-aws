@@ -600,7 +600,6 @@ class FlowLog(pulumi.CustomResource):
 
         ### CloudWatch Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,11 +637,9 @@ class FlowLog(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -654,11 +651,9 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -674,7 +669,6 @@ class FlowLog(pulumi.CustomResource):
                 per_hour_partition=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -719,7 +713,6 @@ class FlowLog(pulumi.CustomResource):
 
         ### CloudWatch Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -757,11 +750,9 @@ class FlowLog(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -773,11 +764,9 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -793,7 +782,6 @@ class FlowLog(pulumi.CustomResource):
                 per_hour_partition=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

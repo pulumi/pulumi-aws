@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * The following example below creates a CloudFront public key.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     name: "test_key",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

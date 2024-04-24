@@ -34,14 +34,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Name of the tag key to filter on.
+     * Name of the resource share to retrieve.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the tag key to filter on.
+     * @return Name of the resource share to retrieve.
      * 
      */
     public Optional<String> name() {
@@ -143,7 +143,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name Name of the tag key to filter on.
+         * @param name Name of the resource share to retrieve.
          * 
          * @return builder
          * 

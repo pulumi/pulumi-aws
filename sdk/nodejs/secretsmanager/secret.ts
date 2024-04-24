@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.Secret("example", {name: "example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -31,7 +31,6 @@ import (
 // primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
 // named `sgAttachment`:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,13 +90,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // In this example, `instance` is provided by the `ec2.Instance` data source,
 // fetching an external instance, possibly not managed by this provider.
 // `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,7 +133,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

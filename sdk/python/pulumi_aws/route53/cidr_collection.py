@@ -103,14 +103,12 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.CidrCollection("example", name="collection-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -135,14 +133,12 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.CidrCollection("example", name="collection-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

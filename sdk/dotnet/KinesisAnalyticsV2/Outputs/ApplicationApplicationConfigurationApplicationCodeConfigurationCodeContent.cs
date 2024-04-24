@@ -19,8 +19,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation? S3ContentLocation;
         /// <summary>
         /// The text-format code for the application.
-        /// 
-        /// The `s3_content_location` object supports the following:
         /// </summary>
         public readonly string? TextContent;
 

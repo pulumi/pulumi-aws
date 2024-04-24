@@ -32,7 +32,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// <summary>
         /// Set of adjustments that manage scaling. These have the following structure:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,7 +64,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyStepScalingPolicyConfigurationStepAdjustment> StepAdjustments;
 

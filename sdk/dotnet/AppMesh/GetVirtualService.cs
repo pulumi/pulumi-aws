@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,9 +32,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualServiceResult> InvokeAsync(GetVirtualServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualServiceResult>("aws:appmesh/getVirtualService:getVirtualService", args ?? new GetVirtualServiceArgs(), options.WithDefaults());
@@ -65,7 +61,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,9 +77,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +97,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualServiceResult> Invoke(GetVirtualServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualServiceResult>("aws:appmesh/getVirtualService:getVirtualService", args ?? new GetVirtualServiceInvokeArgs(), options.WithDefaults());

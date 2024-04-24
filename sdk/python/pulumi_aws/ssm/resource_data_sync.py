@@ -105,7 +105,6 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,7 +147,6 @@ class ResourceDataSync(pulumi.CustomResource):
                 region=hoge_bucket_v2.region,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -174,7 +172,6 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,7 +214,6 @@ class ResourceDataSync(pulumi.CustomResource):
                 region=hoge_bucket_v2.region,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

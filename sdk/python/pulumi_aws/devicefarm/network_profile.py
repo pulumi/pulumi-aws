@@ -506,7 +506,6 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,7 +515,6 @@ class NetworkProfile(pulumi.CustomResource):
             name="example",
             project_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -555,7 +553,6 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,7 +562,6 @@ class NetworkProfile(pulumi.CustomResource):
             name="example",
             project_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

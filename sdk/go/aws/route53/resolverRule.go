@@ -18,7 +18,6 @@ import (
 //
 // ### System rule
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,11 +42,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Forward rule
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +79,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

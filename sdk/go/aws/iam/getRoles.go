@@ -17,7 +17,6 @@ import (
 //
 // ### All roles in an account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,13 +38,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Roles filtered by name regex
 //
 // Roles whose role-name contains `project`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Roles filtered by path prefix
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,13 +92,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Roles provisioned by AWS SSO
 //
 // # Roles in the account filtered by path prefix
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,11 +120,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # Specific role in the account filtered by name regex and path prefix
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,7 +147,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult

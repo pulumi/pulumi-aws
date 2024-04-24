@@ -427,7 +427,6 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,7 +442,6 @@ class NetworkAclRule(pulumi.CustomResource):
             from_port=22,
             to_port=22)
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 
@@ -501,7 +499,6 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,7 +514,6 @@ class NetworkAclRule(pulumi.CustomResource):
             from_port=22,
             to_port=22)
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 

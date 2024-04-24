@@ -18,7 +18,6 @@ import (
 //
 // ### Virtual Node Provider
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Virtual Router Provider
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,7 +83,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

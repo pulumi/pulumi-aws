@@ -21,7 +21,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Security Policy Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,11 +72,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VPC Endpoint
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Directory authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,11 +134,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Lambda authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,11 +161,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Protocols
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,11 +202,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using Structured Logging Destinations
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -291,7 +278,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

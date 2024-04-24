@@ -22,7 +22,6 @@ import (
 //
 // ### Using launch specifications
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,11 +78,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using launch templates
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,14 +126,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
 // launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
 //
 // ### Using multiple launch specifications
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,13 +172,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
 //
 // ### Using multiple launch configurations
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -251,7 +244,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

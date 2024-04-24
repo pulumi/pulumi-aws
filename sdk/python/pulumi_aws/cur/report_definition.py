@@ -412,7 +412,6 @@ class ReportDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -433,7 +432,6 @@ class ReportDefinition(pulumi.CustomResource):
                 "QUICKSIGHT",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -470,7 +468,6 @@ class ReportDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,7 +488,6 @@ class ReportDefinition(pulumi.CustomResource):
                 "QUICKSIGHT",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

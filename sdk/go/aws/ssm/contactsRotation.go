@@ -16,7 +16,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,11 +55,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with Weekly Settings and Shift Coverages Fields
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,11 +129,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with Monthly Settings Fields
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,7 +181,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

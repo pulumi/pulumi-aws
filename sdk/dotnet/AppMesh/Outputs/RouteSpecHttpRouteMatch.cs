@@ -30,7 +30,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
+        /// Path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

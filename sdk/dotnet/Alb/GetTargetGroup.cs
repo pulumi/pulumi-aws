@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Alb
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithDefaults());
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.Alb
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());

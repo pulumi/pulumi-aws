@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-        /// </summary>
         [Input("sizeInGib", required: true)]
         public Input<int> SizeInGib { get; set; } = null!;
 

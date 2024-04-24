@@ -378,7 +378,6 @@ def get_engine_version(default_only: Optional[bool] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -389,11 +388,9 @@ def get_engine_version(default_only: Optional[bool] = None,
             "8.0.26",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With `filter`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -406,7 +403,6 @@ def get_engine_version(default_only: Optional[bool] = None,
             values=["serverless"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only: Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
@@ -493,7 +489,6 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -504,11 +499,9 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
             "8.0.26",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With `filter`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -521,7 +514,6 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
             values=["serverless"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only: Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.

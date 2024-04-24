@@ -19,7 +19,6 @@ import (
 //
 // ### Instance Target Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,11 +52,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### IP Target Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,11 +89,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Target Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,11 +116,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ALB Target Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,11 +146,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Target group with unhealthy connection termination disabled
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,7 +180,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

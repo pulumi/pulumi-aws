@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Amplify.Outputs
         /// </summary>
         public readonly string? LastDeployTime;
         /// <summary>
-        /// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        /// Status of the production branch.
         /// </summary>
         public readonly string? Status;
         /// <summary>

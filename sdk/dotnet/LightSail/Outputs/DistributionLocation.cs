@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The AWS Region name of the origin resource.
+        /// The AWS Region name.
         /// </summary>
         public readonly string RegionName;
 

@@ -505,7 +505,6 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,7 +538,6 @@ class FileCache(pulumi.CustomResource):
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -577,7 +575,6 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,7 +608,6 @@ class FileCache(pulumi.CustomResource):
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

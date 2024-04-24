@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ### Basic Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,11 +91,9 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Lambda Layers
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,13 +114,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Lambda Ephemeral Storage
     /// 
     /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -179,13 +174,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Lambda File Systems
     /// 
     /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -258,13 +251,12 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         DependsOn =
     ///         {
-    ///             alpha, 
+    ///             alpha,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Lambda retries
     /// 
@@ -274,7 +266,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -340,14 +331,13 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         DependsOn =
     ///         {
-    ///             lambdaLogs, 
-    ///             example, 
+    ///             lambdaLogs,
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Specifying the Deployment Package
     /// 
@@ -375,7 +365,7 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        /// Amazon Resource Name (ARN) identifying your Lambda Function.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -920,7 +910,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        /// Amazon Resource Name (ARN) identifying your Lambda Function.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -114,7 +114,7 @@ class _DefaultSecurityGroupState:
         """
         Input properties used for looking up and filtering DefaultSecurityGroup resources.
         :param pulumi.Input[str] arn: ARN of the security group.
-        :param pulumi.Input[str] description: Description of this rule.
+        :param pulumi.Input[str] description: Description of the security group.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the security group.
@@ -165,7 +165,7 @@ class _DefaultSecurityGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this rule.
+        Description of the security group.
         """
         return pulumi.get(self, "description")
 
@@ -305,7 +305,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,13 +325,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                 cidr_blocks=["0.0.0.0/0"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Config To Deny All Egress Traffic, Allowing Ingress
 
         The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +344,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                 to_port=0,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 
@@ -389,7 +385,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,13 +405,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                 cidr_blocks=["0.0.0.0/0"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Config To Deny All Egress Traffic, Allowing Ingress
 
         The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +424,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                 to_port=0,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 
@@ -514,7 +506,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the security group.
-        :param pulumi.Input[str] description: Description of this rule.
+        :param pulumi.Input[str] description: Description of the security group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the security group.
@@ -552,7 +544,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Description of this rule.
+        Description of the security group.
         """
         return pulumi.get(self, "description")
 

@@ -18,7 +18,6 @@ import (
 //
 // ### Basic usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Default File System Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,7 +78,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

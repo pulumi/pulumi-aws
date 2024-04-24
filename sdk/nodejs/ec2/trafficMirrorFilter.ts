@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * To create a basic traffic mirror filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     networkServices: ["amazon-dns"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

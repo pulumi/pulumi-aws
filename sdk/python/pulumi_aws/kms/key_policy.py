@@ -151,7 +151,6 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -174,7 +173,6 @@ class KeyPolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,7 +203,6 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -228,7 +225,6 @@ class KeyPolicy(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

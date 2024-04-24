@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,12 +22,11 @@ import * as utilities from "../utilities";
  *     },
  *     projectionExpression: "#P",
  *     key: `{
- * 	"hashKey": {"S": "example"}
+ * \x09"hashKey": {"S": "example"}
  * }
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTableItem(args: GetTableItemArgs, opts?: pulumi.InvokeOptions): Promise<GetTableItemResult> {
 
@@ -88,7 +86,6 @@ export interface GetTableItemResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,12 +97,11 @@ export interface GetTableItemResult {
  *     },
  *     projectionExpression: "#P",
  *     key: `{
- * 	"hashKey": {"S": "example"}
+ * \x09"hashKey": {"S": "example"}
  * }
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableItemResult> {
     return pulumi.output(args).apply((a: any) => getTableItem(a, opts))

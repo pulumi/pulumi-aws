@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetParametersStepFunctionStateMachineParameters
     {
-        /// <summary>
-        /// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
-        /// </summary>
         public readonly string InvocationType;
 
         [OutputConstructor]

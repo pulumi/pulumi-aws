@@ -82,14 +82,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * Header value sent by the client must begin with the specified characters.
+     * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Header value sent by the client must begin with the specified characters.
+     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -235,7 +235,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param prefix Header value sent by the client must begin with the specified characters.
+         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param prefix Header value sent by the client must begin with the specified characters.
+         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
          * 
          * @return builder
          * 

@@ -133,11 +133,6 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
                  large_data_delivery_s3_config: Optional['outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config'] = None,
                  log_group_name: Optional[str] = None,
                  role_arn: Optional[str] = None):
-        """
-        :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs' large_data_delivery_s3_config: S3 configuration for delivering a large amount of data.
-        :param str log_group_name: Log group name.
-        :param str role_arn: The role ARN.
-        """
         if large_data_delivery_s3_config is not None:
             pulumi.set(__self__, "large_data_delivery_s3_config", large_data_delivery_s3_config)
         if log_group_name is not None:
@@ -148,25 +143,16 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
     @property
     @pulumi.getter(name="largeDataDeliveryS3Config")
     def large_data_delivery_s3_config(self) -> Optional['outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config']:
-        """
-        S3 configuration for delivering a large amount of data.
-        """
         return pulumi.get(self, "large_data_delivery_s3_config")
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[str]:
-        """
-        Log group name.
-        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
-        """
-        The role ARN.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -194,10 +180,6 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
     def __init__(__self__, *,
                  bucket_name: Optional[str] = None,
                  key_prefix: Optional[str] = None):
-        """
-        :param str bucket_name: S3 bucket name.
-        :param str key_prefix: S3 prefix.
-        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if key_prefix is not None:
@@ -206,17 +188,11 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[str]:
-        """
-        S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
-        """
-        S3 prefix.
-        """
         return pulumi.get(self, "key_prefix")
 
 
@@ -244,10 +220,6 @@ class InvocationLoggingConfigurationLoggingConfigS3Config(dict):
     def __init__(__self__, *,
                  bucket_name: Optional[str] = None,
                  key_prefix: Optional[str] = None):
-        """
-        :param str bucket_name: S3 bucket name.
-        :param str key_prefix: S3 prefix.
-        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if key_prefix is not None:
@@ -256,17 +228,11 @@ class InvocationLoggingConfigurationLoggingConfigS3Config(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[str]:
-        """
-        S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
-        """
-        S3 prefix.
-        """
         return pulumi.get(self, "key_prefix")
 
 

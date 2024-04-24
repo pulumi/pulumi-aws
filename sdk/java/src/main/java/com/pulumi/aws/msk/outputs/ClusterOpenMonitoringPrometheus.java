@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterOpenMonitoringPrometheus {
-    /**
-     * @return Configuration block for JMX Exporter. See below.
-     * 
-     */
     private @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter;
-    /**
-     * @return Configuration block for Node Exporter. See below.
-     * 
-     */
     private @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter;
 
     private ClusterOpenMonitoringPrometheus() {}
-    /**
-     * @return Configuration block for JMX Exporter. See below.
-     * 
-     */
     public Optional<ClusterOpenMonitoringPrometheusJmxExporter> jmxExporter() {
         return Optional.ofNullable(this.jmxExporter);
     }
-    /**
-     * @return Configuration block for Node Exporter. See below.
-     * 
-     */
     public Optional<ClusterOpenMonitoringPrometheusNodeExporter> nodeExporter() {
         return Optional.ofNullable(this.nodeExporter);
     }

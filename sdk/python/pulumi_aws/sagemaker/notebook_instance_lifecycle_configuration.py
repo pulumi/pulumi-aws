@@ -155,7 +155,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +165,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             on_create=std.base64encode(input="echo foo").result,
             on_start=std.base64encode(input="echo bar").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -195,7 +193,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         Usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +203,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             on_create=std.base64encode(input="echo foo").result,
             on_start=std.base64encode(input="echo bar").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

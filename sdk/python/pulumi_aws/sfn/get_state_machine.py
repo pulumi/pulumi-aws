@@ -143,14 +143,12 @@ def get_state_machine(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sfn.get_state_machine(name="an_example_sfn_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the state machine to match.
@@ -182,14 +180,12 @@ def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sfn.get_state_machine(name="an_example_sfn_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the state machine to match.

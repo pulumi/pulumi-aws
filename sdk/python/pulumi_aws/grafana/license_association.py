@@ -136,7 +136,6 @@ class LicenseAssociation(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -164,7 +163,6 @@ class LicenseAssociation(pulumi.CustomResource):
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -192,7 +190,6 @@ class LicenseAssociation(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -220,7 +217,6 @@ class LicenseAssociation(pulumi.CustomResource):
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

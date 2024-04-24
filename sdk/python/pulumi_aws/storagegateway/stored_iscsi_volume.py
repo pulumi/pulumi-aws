@@ -516,7 +516,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
         ### Create Empty Stored iSCSI Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,11 +527,9 @@ class StoredIscsiVolume(pulumi.CustomResource):
             preserve_existing_data=False,
             disk_id=test["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Stored iSCSI Volume From Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,7 +542,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
             preserve_existing_data=False,
             disk_id=test["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -582,7 +578,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
         ### Create Empty Stored iSCSI Volume
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -594,11 +589,9 @@ class StoredIscsiVolume(pulumi.CustomResource):
             preserve_existing_data=False,
             disk_id=test["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Stored iSCSI Volume From Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,7 +604,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
             preserve_existing_data=False,
             disk_id=test["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

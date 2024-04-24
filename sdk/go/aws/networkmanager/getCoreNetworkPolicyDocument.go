@@ -19,7 +19,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetCoreNetworkPolicyDocumentResult, error) {

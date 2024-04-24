@@ -340,7 +340,6 @@ class Project(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,11 +351,9 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Store evaluation events in a CloudWatch Log Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,11 +370,9 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Store evaluation events in an S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,7 +390,6 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -425,7 +419,6 @@ class Project(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,11 +430,9 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Store evaluation events in a CloudWatch Log Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,11 +449,9 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Store evaluation events in an S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -480,7 +469,6 @@ class Project(pulumi.CustomResource):
                 "Key1": "example Project",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

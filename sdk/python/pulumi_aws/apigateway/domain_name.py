@@ -629,7 +629,6 @@ class DomainName(pulumi.CustomResource):
 
         ### Edge Optimized (ACM Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -649,11 +648,9 @@ class DomainName(pulumi.CustomResource):
                 zone_id=example.cloudfront_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Regional (ACM Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,7 +673,6 @@ class DomainName(pulumi.CustomResource):
                 zone_id=example.regional_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -744,7 +740,6 @@ class DomainName(pulumi.CustomResource):
 
         ### Edge Optimized (ACM Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -764,11 +759,9 @@ class DomainName(pulumi.CustomResource):
                 zone_id=example.cloudfront_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Regional (ACM Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -791,7 +784,6 @@ class DomainName(pulumi.CustomResource):
                 zone_id=example.regional_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

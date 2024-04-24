@@ -11,14 +11,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ecr.getRepositories({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositories(opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
 
@@ -47,14 +45,12 @@ export interface GetRepositoriesResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ecr.getRepositories({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoriesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
     return pulumi.output(getRepositories(opts))

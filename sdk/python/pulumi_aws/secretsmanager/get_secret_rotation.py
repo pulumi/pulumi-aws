@@ -99,14 +99,12 @@ def get_secret_rotation(secret_id: Optional[str] = None,
 
     ### Retrieve Secret Rotation Configuration
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.secretsmanager.get_secret_rotation(secret_id=example_aws_secretsmanager_secret["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -134,14 +132,12 @@ def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
 
     ### Retrieve Secret Rotation Configuration
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.secretsmanager.get_secret_rotation(secret_id=example_aws_secretsmanager_secret["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.

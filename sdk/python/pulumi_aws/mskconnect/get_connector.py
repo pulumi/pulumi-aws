@@ -96,14 +96,12 @@ def get_connector(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mskconnect.get_connector(name="example-mskconnector")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the connector.
@@ -129,14 +127,12 @@ def get_connector_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mskconnect.get_connector(name="example-mskconnector")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the connector.

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  *     numCacheClusters: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managing Redis Engine Versions
  *
@@ -56,7 +54,6 @@ import * as utilities from "../utilities";
  * and then upgraded to Redis 6.2 once added to the Global Replication Group.
  * The secondary replication group will be created with Redis 6.2.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +78,6 @@ import * as utilities from "../utilities";
  *     numCacheClusters: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

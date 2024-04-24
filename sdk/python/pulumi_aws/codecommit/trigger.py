@@ -120,7 +120,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,7 +133,6 @@ class Trigger(pulumi.CustomResource):
                 destination_arn=test_aws_sns_topic["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +150,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +163,6 @@ class Trigger(pulumi.CustomResource):
                 destination_arn=test_aws_sns_topic["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

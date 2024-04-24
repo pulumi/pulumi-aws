@@ -180,14 +180,12 @@ def get_serverless_collection(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_collection(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.
@@ -225,14 +223,12 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_collection(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.

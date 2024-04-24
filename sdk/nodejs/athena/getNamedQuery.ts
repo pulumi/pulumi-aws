@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "athenaQueryName",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
 
@@ -68,7 +66,6 @@ export interface GetNamedQueryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,7 +74,6 @@ export interface GetNamedQueryResult {
  *     name: "athenaQueryName",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
     return pulumi.output(args).apply((a: any) => getNamedQuery(a, opts))

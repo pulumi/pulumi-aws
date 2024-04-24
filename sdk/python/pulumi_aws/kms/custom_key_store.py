@@ -168,7 +168,6 @@ class CustomKeyStore(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class CustomKeyStore(pulumi.CustomResource):
             key_store_password="noplaintextpasswords1",
             trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +208,6 @@ class CustomKeyStore(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +219,6 @@ class CustomKeyStore(pulumi.CustomResource):
             key_store_password="noplaintextpasswords1",
             trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

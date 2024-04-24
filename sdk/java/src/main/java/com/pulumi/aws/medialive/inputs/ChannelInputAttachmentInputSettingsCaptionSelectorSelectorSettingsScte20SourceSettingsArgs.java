@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs();
 
-    /**
-     * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-     * 
-     */
     @Import(name="convert608To708")
     private @Nullable Output<String> convert608To708;
 
-    /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-     * 
-     */
     public Optional<Output<String>> convert608To708() {
         return Optional.ofNullable(this.convert608To708);
     }
 
-    /**
-     * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-     * 
-     */
     @Import(name="source608ChannelNumber")
     private @Nullable Output<Integer> source608ChannelNumber;
 
-    /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-     * 
-     */
     public Optional<Output<Integer>> source608ChannelNumber() {
         return Optional.ofNullable(this.source608ChannelNumber);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param convert608To708 If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder convert608To708(@Nullable Output<String> convert608To708) {
             $.convert608To708 = convert608To708;
             return this;
         }
 
-        /**
-         * @param convert608To708 If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder convert608To708(String convert608To708) {
             return convert608To708(Output.of(convert608To708));
         }
 
-        /**
-         * @param source608ChannelNumber Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source608ChannelNumber(@Nullable Output<Integer> source608ChannelNumber) {
             $.source608ChannelNumber = source608ChannelNumber;
             return this;
         }
 
-        /**
-         * @param source608ChannelNumber Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source608ChannelNumber(Integer source608ChannelNumber) {
             return source608ChannelNumber(Output.of(source608ChannelNumber));
         }

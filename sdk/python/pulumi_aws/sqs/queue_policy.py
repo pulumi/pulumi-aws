@@ -103,7 +103,6 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,7 +127,6 @@ class QueuePolicy(pulumi.CustomResource):
             queue_url=q.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,7 +153,6 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +177,6 @@ class QueuePolicy(pulumi.CustomResource):
             queue_url=q.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

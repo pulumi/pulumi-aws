@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterServerlessV2ScalingConfiguration {
-    /**
-     * @return The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     private @Nullable Double maxCapacity;
-    /**
-     * @return The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     private @Nullable Double minCapacity;
 
     private ClusterServerlessV2ScalingConfiguration() {}
-    /**
-     * @return The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     public Optional<Double> maxCapacity() {
         return Optional.ofNullable(this.maxCapacity);
     }
-    /**
-     * @return The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     public Optional<Double> minCapacity() {
         return Optional.ofNullable(this.minCapacity);
     }

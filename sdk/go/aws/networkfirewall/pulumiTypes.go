@@ -377,7 +377,7 @@ func (o FirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) Fir
 type FirewallFirewallStatusSyncStateAttachment struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId *string `pulumi:"endpointId"`
-	// The unique identifier for the subnet.
+	// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -395,7 +395,7 @@ type FirewallFirewallStatusSyncStateAttachmentInput interface {
 type FirewallFirewallStatusSyncStateAttachmentArgs struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// The unique identifier for the subnet.
+	// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -455,7 +455,7 @@ func (o FirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.Str
 	return o.ApplyT(func(v FirewallFirewallStatusSyncStateAttachment) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the subnet.
+// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
 func (o FirewallFirewallStatusSyncStateAttachmentOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallFirewallStatusSyncStateAttachment) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2928,10 +2928,8 @@ func (o RuleGroupRuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupRul
 }
 
 type RuleGroupRuleGroupReferenceSetsIpSetReference struct {
-	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 	IpSetReferences []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference `pulumi:"ipSetReferences"`
-	// A unique alphanumeric string to identify the `ipSet`.
-	Key string `pulumi:"key"`
+	Key             string                                                        `pulumi:"key"`
 }
 
 // RuleGroupRuleGroupReferenceSetsIpSetReferenceInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs and RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput values.
@@ -2946,10 +2944,8 @@ type RuleGroupRuleGroupReferenceSetsIpSetReferenceInput interface {
 }
 
 type RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs struct {
-	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 	IpSetReferences RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
-	// A unique alphanumeric string to identify the `ipSet`.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key             pulumi.StringInput                                                    `pulumi:"key"`
 }
 
 func (RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ElementType() reflect.Type {
@@ -3003,14 +2999,12 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGrou
 	return o
 }
 
-// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReference) []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
 		return v.IpSetReferences
 	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput)
 }
 
-// A unique alphanumeric string to identify the `ipSet`.
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReference) string { return v.Key }).(pulumi.StringOutput)
 }

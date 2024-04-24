@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  * });
  * const receiverAccept = new aws.ram.ResourceShareAccepter("receiver_accept", {shareArn: senderInvite.resourceShareArn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

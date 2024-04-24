@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Object path specified in the SAPOData flow destination.
-        /// </summary>
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;
 

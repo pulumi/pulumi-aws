@@ -188,7 +188,6 @@ class SecretRotation(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +199,6 @@ class SecretRotation(pulumi.CustomResource):
                 automatically_after_days=30,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rotation Configuration
 
@@ -238,7 +236,6 @@ class SecretRotation(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +247,6 @@ class SecretRotation(pulumi.CustomResource):
                 automatically_after_days=30,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rotation Configuration
 

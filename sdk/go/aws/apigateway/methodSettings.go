@@ -22,7 +22,6 @@ import (
 //
 // ### Off
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Errors Only
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +83,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Errors and Info Logs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,11 +116,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Full Request and Response Logs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,7 +149,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

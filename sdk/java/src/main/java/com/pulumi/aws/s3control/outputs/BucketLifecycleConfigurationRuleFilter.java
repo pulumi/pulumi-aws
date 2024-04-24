@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationRuleFilter {
-    /**
-     * @return Object prefix for rule filtering.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Key-value map of object tags for rule filtering.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private BucketLifecycleConfigurationRuleFilter() {}
-    /**
-     * @return Object prefix for rule filtering.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Key-value map of object tags for rule filtering.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

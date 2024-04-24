@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     private String apiKey;
-    /**
-     * @return The API secret key required for API key authentication.
-     * 
-     */
     private @Nullable String apiSecretKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey() {}
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     public String apiKey() {
         return this.apiKey;
     }
-    /**
-     * @return The API secret key required for API key authentication.
-     * 
-     */
     public Optional<String> apiSecretKey() {
         return Optional.ofNullable(this.apiSecretKey);
     }

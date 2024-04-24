@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,9 +38,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,7 +75,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ...pulumi.InvokeOption) (*GetQueryLogConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQueryLogConfigResult

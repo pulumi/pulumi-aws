@@ -137,14 +137,12 @@ def get_snapshot(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_snapshot(name="my-snapshot")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the snapshot.
@@ -176,14 +174,12 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_snapshot(name="my-snapshot")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the snapshot.

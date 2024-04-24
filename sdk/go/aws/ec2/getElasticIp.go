@@ -17,7 +17,6 @@ import (
 //
 // ### Search By Allocation ID (VPC only)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +40,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Search By Filters (EC2-Classic or VPC)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,11 +73,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Search By Public IP (EC2-Classic or VPC)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,11 +99,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Search By Tags (EC2-Classic or VPC)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,7 +127,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.InvokeOption) (*GetElasticIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetElasticIpResult

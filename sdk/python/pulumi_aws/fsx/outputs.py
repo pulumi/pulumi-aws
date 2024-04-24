@@ -94,10 +94,6 @@ class DataRepositoryAssociationS3(dict):
     def __init__(__self__, *,
                  auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
                  auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None):
-        """
-        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
-        """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
@@ -106,17 +102,11 @@ class DataRepositoryAssociationS3(dict):
     @property
     @pulumi.getter(name="autoExportPolicy")
     def auto_export_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy']:
-        """
-        Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-        """
         return pulumi.get(self, "auto_export_policy")
 
     @property
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy']:
-        """
-        Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
-        """
         return pulumi.get(self, "auto_import_policy")
 
 
@@ -124,18 +114,12 @@ class DataRepositoryAssociationS3(dict):
 class DataRepositoryAssociationS3AutoExportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-        """
         if events is not None:
             pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
-        """
-        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-        """
         return pulumi.get(self, "events")
 
 
@@ -143,18 +127,12 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
 class DataRepositoryAssociationS3AutoImportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-        """
         if events is not None:
             pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
-        """
-        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-        """
         return pulumi.get(self, "events")
 
 
@@ -827,14 +805,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
-        """
-        :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-        :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "password", password)
@@ -847,49 +817,31 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[str]:
-        """
-        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-        """
         return pulumi.get(self, "dns_ips")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
-        """
-        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def password(self) -> str:
-        """
-        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
-        """
-        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> Optional[str]:
-        """
-        The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        """
         return pulumi.get(self, "file_system_administrators_group")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
-        """
-        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -1311,11 +1263,6 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
                  default_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention'] = None,
                  maximum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention'] = None,
                  minimum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention'] = None):
-        """
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs' default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs' maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs' minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
         if maximum_retention is not None:
@@ -1326,25 +1273,16 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
     @property
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention']:
-        """
-        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-        """
         return pulumi.get(self, "default_retention")
 
     @property
     @pulumi.getter(name="maximumRetention")
     def maximum_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention']:
-        """
-        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        """
         return pulumi.get(self, "maximum_retention")
 
     @property
     @pulumi.getter(name="minimumRetention")
     def minimum_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention']:
-        """
-        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        """
         return pulumi.get(self, "minimum_retention")
 
 
@@ -1353,10 +1291,6 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
-        """
-        :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1365,17 +1299,11 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[int]:
-        """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1384,10 +1312,6 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
-        """
-        :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1396,17 +1320,11 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[int]:
-        """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1415,10 +1333,6 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
-        """
-        :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1427,17 +1341,11 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[int]:
-        """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        """
         return pulumi.get(self, "value")
 
 

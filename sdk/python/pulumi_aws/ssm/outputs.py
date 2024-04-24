@@ -730,7 +730,7 @@ class DocumentParameter(dict):
         :param str default_value: If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
         :param str description: A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         :param str name: The name of the document.
-        :param str type: The permission type for the document. The permission type can be `Share`.
+        :param str type: The type of parameter. Valid values: `String`, `StringList`.
         """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -769,7 +769,7 @@ class DocumentParameter(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The permission type for the document. The permission type can be `Share`.
+        The type of parameter. Valid values: `String`, `StringList`.
         """
         return pulumi.get(self, "type")
 
@@ -798,9 +798,6 @@ class MaintenanceWindowTaskTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
-        """
-        :param Sequence[str] values: The array of strings.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -812,9 +809,6 @@ class MaintenanceWindowTaskTarget(dict):
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        The array of strings.
-        """
         return pulumi.get(self, "values")
 
 
@@ -1085,7 +1079,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param str comment: Information about the command(s) to execute.
         :param str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param str document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        :param str document_version: The version of an Automation document to use during task execution.
         :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -1151,9 +1144,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[str]:
-        """
-        The version of an Automation document to use during task execution.
-        """
         return pulumi.get(self, "document_version")
 
     @property

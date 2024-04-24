@@ -35,14 +35,14 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Criteria for determining an gRPC request match.
+     * Criteria for determining an HTTP request match.
      * 
      */
     @Import(name="match", required=true)
     private Output<RouteSpecHttp2RouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     public Output<RouteSpecHttp2RouteMatchArgs> match() {
@@ -128,7 +128,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param match Criteria for determining an gRPC request match.
+         * @param match Criteria for determining an HTTP request match.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param match Criteria for determining an gRPC request match.
+         * @param match Criteria for determining an HTTP request match.
          * 
          * @return builder
          * 

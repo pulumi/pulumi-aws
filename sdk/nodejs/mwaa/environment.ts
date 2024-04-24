@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example with Airflow configuration options
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,13 +53,11 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example with logging configurations
  *
  * Note that Airflow task logs are enabled by default with the `INFO` log level.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,11 +95,9 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example with tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -124,7 +117,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

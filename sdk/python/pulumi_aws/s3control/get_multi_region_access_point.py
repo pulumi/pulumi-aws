@@ -155,14 +155,12 @@ def get_multi_region_access_point(account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3control.get_multi_region_access_point(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -196,14 +194,12 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3control.get_multi_region_access_point(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.

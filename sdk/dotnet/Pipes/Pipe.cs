@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -122,18 +121,16 @@ namespace Pulumi.Aws.Pipes
     ///     {
     ///         DependsOn =
     ///         {
-    ///             source, 
-    ///             target, 
+    ///             source,
+    ///             target,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Enrichment Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -170,11 +167,9 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Filter Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -213,7 +208,6 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -227,7 +221,7 @@ namespace Pulumi.Aws.Pipes
     public partial class Pipe : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        /// ARN of this pipe.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -447,7 +441,7 @@ namespace Pulumi.Aws.Pipes
     public sealed class PipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        /// ARN of this pipe.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

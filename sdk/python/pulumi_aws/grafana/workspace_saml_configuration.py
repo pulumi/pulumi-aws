@@ -491,7 +491,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -520,7 +519,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
             idp_metadata_url="https://my_idp_metadata.url",
             workspace_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -561,7 +559,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -590,7 +587,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
             idp_metadata_url="https://my_idp_metadata.url",
             workspace_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

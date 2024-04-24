@@ -702,7 +702,6 @@ class Job(pulumi.CustomResource):
 
         ### Python Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -714,11 +713,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ray Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,11 +732,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Scala Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -754,11 +749,9 @@ class Job(pulumi.CustomResource):
                 "--job-language": "scala",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Streaming Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -771,11 +764,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling CloudWatch Logs and Metrics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -790,7 +781,6 @@ class Job(pulumi.CustomResource):
             "--enable-metrics": "",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -843,7 +833,6 @@ class Job(pulumi.CustomResource):
 
         ### Python Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -855,11 +844,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ray Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -876,11 +863,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Scala Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -895,11 +880,9 @@ class Job(pulumi.CustomResource):
                 "--job-language": "scala",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Streaming Job
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -912,11 +895,9 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling CloudWatch Logs and Metrics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -931,7 +912,6 @@ class Job(pulumi.CustomResource):
             "--enable-metrics": "",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

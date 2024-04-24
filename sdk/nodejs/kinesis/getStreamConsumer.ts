@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     streamArn: exampleAwsKinesisStream.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
 
@@ -78,7 +76,6 @@ export interface GetStreamConsumerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +85,6 @@ export interface GetStreamConsumerResult {
  *     streamArn: exampleAwsKinesisStream.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
     return pulumi.output(args).apply((a: any) => getStreamConsumer(a, opts))

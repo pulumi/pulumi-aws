@@ -19,7 +19,6 @@ import (
 //
 // The following example shows how to get a firewall domain list from its ID.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallDomainListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallDomainListResult

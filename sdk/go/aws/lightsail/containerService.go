@@ -23,7 +23,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Public Domain Names
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,11 +88,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Private Registry Access
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,7 +148,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

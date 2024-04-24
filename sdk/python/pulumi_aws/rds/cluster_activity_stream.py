@@ -191,7 +191,6 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +219,6 @@ class ClusterActivityStream(pulumi.CustomResource):
             kms_key_id=default_key.key_id,
             opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -256,7 +254,6 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +282,6 @@ class ClusterActivityStream(pulumi.CustomResource):
             kms_key_id=default_key.key_id,
             opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

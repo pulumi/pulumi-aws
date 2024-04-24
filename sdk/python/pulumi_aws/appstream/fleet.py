@@ -706,7 +706,6 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,7 +730,6 @@ class Fleet(pulumi.CustomResource):
                 "TagName": "tag-value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -775,7 +773,6 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -800,7 +797,6 @@ class Fleet(pulumi.CustomResource):
                 "TagName": "tag-value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

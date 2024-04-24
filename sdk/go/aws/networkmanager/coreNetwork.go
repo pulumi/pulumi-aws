@@ -18,7 +18,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With description
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,11 +68,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,7 +97,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With VPC Attachment (Single Region)
 //
@@ -115,7 +109,6 @@ import (
 //
 // If you require a custom ASN for the edge location, please use the `basePolicyDocument` argument to pass a specific ASN. For example:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -226,11 +219,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Option 2 - createBasePolicy only
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -316,7 +307,6 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With VPC Attachment (Multi-Region)
 //
@@ -327,7 +317,6 @@ import (
 //
 // ### Option 1 - using basePolicyDocument
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -471,11 +460,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Option 2 - using basePolicyRegions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -593,7 +580,6 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

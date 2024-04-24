@@ -235,7 +235,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,7 +254,6 @@ class Repository(pulumi.CustomResource):
                 "env": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +301,6 @@ class Repository(pulumi.CustomResource):
                 "env": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

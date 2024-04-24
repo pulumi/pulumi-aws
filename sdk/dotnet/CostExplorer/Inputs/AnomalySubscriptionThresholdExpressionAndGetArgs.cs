@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class AnomalySubscriptionThresholdExpressionAndGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the filter that's based on  values. See Cost Category below.
-        /// </summary>
         [Input("costCategory")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionAndCostCategoryGetArgs>? CostCategory { get; set; }
 
-        /// <summary>
-        /// Configuration block for the specific Dimension to use for.
-        /// </summary>
         [Input("dimension")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionAndDimensionGetArgs>? Dimension { get; set; }
 

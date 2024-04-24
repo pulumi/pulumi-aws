@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  *     brokerName: brokerName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
@@ -90,7 +88,6 @@ export interface GetBrokerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,7 +102,6 @@ export interface GetBrokerResult {
  *     brokerName: brokerName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
     return pulumi.output(args).apply((a: any) => getBroker(a, opts))

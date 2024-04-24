@@ -305,7 +305,6 @@ class Activation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,7 +330,6 @@ class Activation(pulumi.CustomResource):
             registration_limit=5,
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -362,7 +360,6 @@ class Activation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +385,6 @@ class Activation(pulumi.CustomResource):
             registration_limit=5,
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

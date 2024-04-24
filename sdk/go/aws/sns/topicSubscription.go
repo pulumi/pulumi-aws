@@ -28,7 +28,6 @@ import (
 //
 // You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,11 +94,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -270,7 +265,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

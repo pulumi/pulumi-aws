@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
-    /**
-     * @return Rule name.
-     * 
-     */
     private String ruleName;
-    /**
-     * @return Sentiment type to match.
-     * 
-     */
     private String sentimentType;
-    /**
-     * @return Analysis interval.
-     * 
-     */
     private Integer timePeriod;
 
     private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration() {}
-    /**
-     * @return Rule name.
-     * 
-     */
     public String ruleName() {
         return this.ruleName;
     }
-    /**
-     * @return Sentiment type to match.
-     * 
-     */
     public String sentimentType() {
         return this.sentimentType;
     }
-    /**
-     * @return Analysis interval.
-     * 
-     */
     public Integer timePeriod() {
         return this.timePeriod;
     }

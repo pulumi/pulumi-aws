@@ -16,7 +16,6 @@ import {Bucket} from "./index";
  *
  * ### Uploading a file to a bucket
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,11 +30,9 @@ import {Bucket} from "./index";
  *     }).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Encrypting with KMS Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,11 +53,9 @@ import {Bucket} from "./index";
  *     kmsKeyId: examplekms.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Server Side Encryption with S3 Default Master Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,11 +72,9 @@ import {Bucket} from "./index";
  *     serverSideEncryption: "aws:kms",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Server Side Encryption with AWS-Managed Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,11 +91,9 @@ import {Bucket} from "./index";
  *     serverSideEncryption: "AES256",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### S3 Object Lock
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,7 +124,6 @@ import {Bucket} from "./index";
  *     dependsOn: [exampleBucketVersioningV2],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Ignoring Provider `defaultTags`
  *
@@ -142,7 +132,6 @@ import {Bucket} from "./index";
  *
  * > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `defaultTags` must be suppressed.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -162,7 +151,6 @@ import {Bucket} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,47 +18,23 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
     public static final MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs Empty = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs();
 
-    /**
-     * Collection of keywords to match.
-     * 
-     */
     @Import(name="keywords", required=true)
     private Output<List<String>> keywords;
 
-    /**
-     * @return Collection of keywords to match.
-     * 
-     */
     public Output<List<String>> keywords() {
         return this.keywords;
     }
 
-    /**
-     * Negate the rule.
-     * 
-     */
     @Import(name="negate")
     private @Nullable Output<Boolean> negate;
 
-    /**
-     * @return Negate the rule.
-     * 
-     */
     public Optional<Output<Boolean>> negate() {
         return Optional.ofNullable(this.negate);
     }
 
-    /**
-     * Rule name.
-     * 
-     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
-    /**
-     * @return Rule name.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
@@ -89,75 +65,33 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             $ = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keywords Collection of keywords to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywords(Output<List<String>> keywords) {
             $.keywords = keywords;
             return this;
         }
 
-        /**
-         * @param keywords Collection of keywords to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywords(List<String> keywords) {
             return keywords(Output.of(keywords));
         }
 
-        /**
-         * @param keywords Collection of keywords to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywords(String... keywords) {
             return keywords(List.of(keywords));
         }
 
-        /**
-         * @param negate Negate the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder negate(@Nullable Output<Boolean> negate) {
             $.negate = negate;
             return this;
         }
 
-        /**
-         * @param negate Negate the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder negate(Boolean negate) {
             return negate(Output.of(negate));
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }

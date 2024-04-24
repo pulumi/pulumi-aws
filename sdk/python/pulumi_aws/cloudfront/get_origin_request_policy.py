@@ -119,27 +119,23 @@ def get_origin_request_policy(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_origin_request_policy(name="example-policy")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### AWS-Managed Policies
 
     AWS managed origin request policy names are prefixed with `Managed-`:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ua_referer = aws.cloudfront.get_origin_request_policy(name="Managed-UserAgentRefererHeaders")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the origin request policy.
@@ -170,27 +166,23 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_origin_request_policy(name="example-policy")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### AWS-Managed Policies
 
     AWS managed origin request policy names are prefixed with `Managed-`:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ua_referer = aws.cloudfront.get_origin_request_policy(name="Managed-UserAgentRefererHeaders")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the origin request policy.

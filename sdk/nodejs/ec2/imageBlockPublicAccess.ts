@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
  * const test = new aws.ec2.ImageBlockPublicAccess("test", {state: "block-new-sharing"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

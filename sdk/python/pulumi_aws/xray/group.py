@@ -208,7 +208,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +220,6 @@ class Group(pulumi.CustomResource):
                 notifications_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +247,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +259,6 @@ class Group(pulumi.CustomResource):
                 notifications_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

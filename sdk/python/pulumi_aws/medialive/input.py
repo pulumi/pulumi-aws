@@ -477,7 +477,6 @@ class Input(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,7 +496,6 @@ class Input(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -535,7 +533,6 @@ class Input(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -555,7 +552,6 @@ class Input(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

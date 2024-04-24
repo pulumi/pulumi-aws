@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: pc.then(pc => pc.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
@@ -164,7 +162,6 @@ export interface GetVpcPeeringConnectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -183,7 +180,6 @@ export interface GetVpcPeeringConnectionResult {
  *     vpcPeeringConnectionId: pc.then(pc => pc.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpcPeeringConnection(a, opts))

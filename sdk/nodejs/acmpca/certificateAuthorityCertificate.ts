@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Self-Signed Root Certificate Authority Certificate
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,13 +42,11 @@ import * as utilities from "../utilities";
  *     certificateChain: exampleCertificate.certificateChain,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Certificate for Subordinate Certificate Authority
  *
  * Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +81,6 @@ import * as utilities from "../utilities";
  * const rootCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("root", {});
  * const rootCertificate = new aws.acmpca.Certificate("root", {});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class CertificateAuthorityCertificate extends pulumi.CustomResource {
     /**

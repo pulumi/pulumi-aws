@@ -129,14 +129,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs> queryString;
 
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs>> queryString() {
@@ -144,14 +144,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
     @Import(name="uriPath")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs> uriPath;
 
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs>> uriPath() {
@@ -338,7 +338,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
          * 
          * @return builder
          * 

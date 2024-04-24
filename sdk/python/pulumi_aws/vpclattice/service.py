@@ -285,7 +285,6 @@ class Service(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +294,6 @@ class Service(pulumi.CustomResource):
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,7 +326,6 @@ class Service(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,7 +335,6 @@ class Service(pulumi.CustomResource):
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

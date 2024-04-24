@@ -122,14 +122,12 @@ def get_event_integration(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.appintegrations.get_event_integration(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The AppIntegrations Event Integration name.
@@ -160,14 +158,12 @@ def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.appintegrations.get_event_integration(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The AppIntegrations Event Integration name.

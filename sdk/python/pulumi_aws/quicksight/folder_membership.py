@@ -177,7 +177,6 @@ class FolderMembership(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class FolderMembership(pulumi.CustomResource):
             member_type="DATASET",
             member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class FolderMembership(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,7 +226,6 @@ class FolderMembership(pulumi.CustomResource):
             member_type="DATASET",
             member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

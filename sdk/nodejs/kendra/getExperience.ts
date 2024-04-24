@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     indexId: "12345678-1234-1234-1234-123456789123",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetExperienceResult> {
 
@@ -103,7 +101,6 @@ export interface GetExperienceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,7 +110,6 @@ export interface GetExperienceResult {
  *     indexId: "12345678-1234-1234-1234-123456789123",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperienceResult> {
     return pulumi.output(args).apply((a: any) => getExperience(a, opts))

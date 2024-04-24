@@ -204,7 +204,6 @@ class RiskConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +214,6 @@ class RiskConfiguration(pulumi.CustomResource):
                 blocked_ip_range_lists=["10.10.10.10/32"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class RiskConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,7 +261,6 @@ class RiskConfiguration(pulumi.CustomResource):
                 blocked_ip_range_lists=["10.10.10.10/32"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

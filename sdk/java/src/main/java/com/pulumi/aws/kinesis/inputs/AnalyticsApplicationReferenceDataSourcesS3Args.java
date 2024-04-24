@@ -45,14 +45,14 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
     }
 
     /**
-     * The ARN of the IAM Role used to send application messages.
+     * The IAM Role ARN to read the data.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM Role used to send application messages.
+     * @return The IAM Role ARN to read the data.
      * 
      */
     public Output<String> roleArn() {
@@ -128,7 +128,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role used to send application messages.
+         * @param roleArn The IAM Role ARN to read the data.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role used to send application messages.
+         * @param roleArn The IAM Role ARN to read the data.
          * 
          * @return builder
          * 

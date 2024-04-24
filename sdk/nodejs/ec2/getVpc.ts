@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * and use this data source to obtain the data necessary to create a subnet
  * within it.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     })).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
@@ -167,7 +165,6 @@ export interface GetVpcResult {
  * and use this data source to obtain the data necessary to create a subnet
  * within it.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -188,7 +185,6 @@ export interface GetVpcResult {
  *     })).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
     return pulumi.output(args).apply((a: any) => getVpc(a, opts))

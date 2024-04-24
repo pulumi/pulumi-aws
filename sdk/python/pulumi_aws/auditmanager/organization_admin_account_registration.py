@@ -88,14 +88,12 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -122,14 +120,12 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

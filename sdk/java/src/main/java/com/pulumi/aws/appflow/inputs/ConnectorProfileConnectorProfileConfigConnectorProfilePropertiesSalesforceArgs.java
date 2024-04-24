@@ -16,32 +16,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs();
 
-    /**
-     * The location of the Datadog resource.
-     * 
-     */
     @Import(name="instanceUrl")
     private @Nullable Output<String> instanceUrl;
 
-    /**
-     * @return The location of the Datadog resource.
-     * 
-     */
     public Optional<Output<String>> instanceUrl() {
         return Optional.ofNullable(this.instanceUrl);
     }
 
-    /**
-     * Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     @Import(name="isSandboxEnvironment")
     private @Nullable Output<Boolean> isSandboxEnvironment;
 
-    /**
-     * @return Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     public Optional<Output<Boolean>> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
     }
@@ -71,44 +55,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceUrl The location of the Datadog resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceUrl(@Nullable Output<String> instanceUrl) {
             $.instanceUrl = instanceUrl;
             return this;
         }
 
-        /**
-         * @param instanceUrl The location of the Datadog resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceUrl(String instanceUrl) {
             return instanceUrl(Output.of(instanceUrl));
         }
 
-        /**
-         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSandboxEnvironment(@Nullable Output<Boolean> isSandboxEnvironment) {
             $.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }
 
-        /**
-         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSandboxEnvironment(Boolean isSandboxEnvironment) {
             return isSandboxEnvironment(Output.of(isSandboxEnvironment));
         }

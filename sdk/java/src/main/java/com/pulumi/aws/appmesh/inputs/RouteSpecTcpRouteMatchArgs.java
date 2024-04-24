@@ -15,17 +15,9 @@ public final class RouteSpecTcpRouteMatchArgs extends com.pulumi.resources.Resou
 
     public static final RouteSpecTcpRouteMatchArgs Empty = new RouteSpecTcpRouteMatchArgs();
 
-    /**
-     * The port number to match from the request.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
@@ -54,23 +46,11 @@ public final class RouteSpecTcpRouteMatchArgs extends com.pulumi.resources.Resou
             $ = new RouteSpecTcpRouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

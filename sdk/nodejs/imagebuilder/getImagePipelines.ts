@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelinesResult> {
     args = args || {};
@@ -68,7 +66,6 @@ export interface GetImagePipelinesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,7 +77,6 @@ export interface GetImagePipelinesResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelinesResult> {
     return pulumi.output(args).apply((a: any) => getImagePipelines(a, opts))

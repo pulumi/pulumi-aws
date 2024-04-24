@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,13 +72,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Repository with Tokens
 //
 // If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,13 +102,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
 //
 // ### Auto Branch Creation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,11 +138,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic Authorization
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -180,11 +173,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Rewrites and Redirects
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -220,11 +211,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Image
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -251,11 +240,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Headers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -295,7 +282,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

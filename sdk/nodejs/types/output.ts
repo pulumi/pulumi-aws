@@ -272,15 +272,36 @@ export namespace acmpca {
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
+        /**
+         * Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+         */
         customCname: string;
+        /**
+         * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+         */
         enabled: boolean;
+        /**
+         * Number of days until a certificate expires.
+         */
         expirationInDays: number;
+        /**
+         * Name of the S3 bucket that contains the CRL.
+         */
         s3BucketName: string;
+        /**
+         * Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+         */
         s3ObjectAcl: string;
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
+        /**
+         * Boolean value that specifies whether a custom OCSP responder is enabled.
+         */
         enabled: boolean;
+        /**
+         * A CNAME specifying a customized OCSP domain.
+         */
         ocspCustomCname: string;
     }
 
@@ -846,9 +867,6 @@ export namespace alb {
     }
 
     export interface ListenerRuleConditionHostHeader {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -864,16 +882,10 @@ export namespace alb {
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -889,9 +901,6 @@ export namespace alb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -1164,7 +1173,7 @@ export namespace amplify {
          */
         lastDeployTime: string;
         /**
-         * Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         * Status of the production branch.
          */
         status: string;
         /**
@@ -1348,17 +1357,8 @@ export namespace apigateway {
     }
 
     export interface UsagePlanApiStage {
-        /**
-         * API Id of the associated API stage in a usage plan.
-         */
         apiId: string;
-        /**
-         * API stage name of the associated API stage in a usage plan.
-         */
         stage: string;
-        /**
-         * The throttling limits of the usage plan.
-         */
         throttles?: outputs.apigateway.UsagePlanApiStageThrottle[];
     }
 
@@ -1378,28 +1378,13 @@ export namespace apigateway {
     }
 
     export interface UsagePlanQuotaSettings {
-        /**
-         * Maximum number of requests that can be made in a given time period.
-         */
         limit: number;
-        /**
-         * Number of requests subtracted from the given limit in the initial time period.
-         */
         offset?: number;
-        /**
-         * Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-         */
         period: string;
     }
 
     export interface UsagePlanThrottleSettings {
-        /**
-         * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-         */
         burstLimit?: number;
-        /**
-         * The API request steady-state rate limit.
-         */
         rateLimit?: number;
     }
 
@@ -1627,7 +1612,6 @@ export namespace appautoscaling {
         /**
          * Set of adjustments that manage scaling. These have the following structure:
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
@@ -1647,23 +1631,13 @@ export namespace appautoscaling {
          *     ],
          * }});
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         stepAdjustments?: outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment[];
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
-        /**
-         * Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-         */
         metricIntervalLowerBound?: string;
-        /**
-         * Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-         */
         metricIntervalUpperBound?: string;
-        /**
-         * Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-         */
         scalingAdjustment: number;
     }
 
@@ -1723,7 +1697,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
         /**
-         * Name of the policy. Must be between 1 and 255 characters in length.
+         * Name of the dimension.
          */
         name: string;
         /**
@@ -1787,7 +1761,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
         /**
-         * Name of the policy. Must be between 1 and 255 characters in length.
+         * Name of the dimension.
          */
         name: string;
         /**
@@ -1808,13 +1782,7 @@ export namespace appautoscaling {
     }
 
     export interface ScheduledActionScalableTargetAction {
-        /**
-         * Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
-         */
         maxCapacity?: number;
-        /**
-         * Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
-         */
         minCapacity?: number;
     }
 
@@ -2007,92 +1975,38 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
-        /**
-         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         */
         apiKey: string;
-        /**
-         * The Secret Access Key portion of the credentials.
-         */
         secretKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
-        /**
-         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         */
         apiKey?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey;
-        /**
-         * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
-         */
         authenticationType: string;
-        /**
-         * Basic credentials that are required for the authentication of the user.
-         */
         basic?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic;
-        /**
-         * If the connector uses the custom authentication mechanism, this holds the required credentials.
-         */
         custom?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
-        /**
-         * OAuth 2.0 credentials required for the authentication of the user.
-         */
         oauth2?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
-        /**
-         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         */
         apiKey: string;
-        /**
-         * The API secret key required for API key authentication.
-         */
         apiSecretKey?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
-        /**
-         * A map that holds custom authentication credentials.
-         */
         credentialsMap?: {[key: string]: string};
-        /**
-         * The custom authentication type that the connector uses.
-         */
         customAuthenticationType: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId?: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret?: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest;
-        /**
-         * The refresh token used to refresh an expired access token.
-         */
         refreshToken?: string;
     }
 
@@ -2108,43 +2022,19 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
-        /**
-         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         */
         apiKey: string;
-        /**
-         * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-         */
         applicationKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace {
-        /**
-         * The API tokens used by Dynatrace API to authenticate various API calls.
-         */
         apiToken: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest;
-        /**
-         * The refresh token used to refresh an expired access token.
-         */
         refreshToken?: string;
     }
 
@@ -2160,17 +2050,8 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest;
-        /**
-         * The refresh token used to refresh an expired access token.
-         */
         refreshToken?: string;
     }
 
@@ -2186,40 +2067,16 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
-        /**
-         * The Access Key portion of the credentials.
-         */
         accessKeyId: string;
-        /**
-         * Encryption keys used to encrypt data.
-         */
         datakey: string;
-        /**
-         * The secret key used to sign requests.
-         */
         secretAccessKey: string;
-        /**
-         * Identifier for the user.
-         */
         userId: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest;
     }
 
@@ -2235,40 +2092,16 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The secret manager ARN, which contains the client ID and client secret of the connected app.
-         */
         clientCredentialsArn?: string;
-        /**
-         * A JSON web token (JWT) that authorizes access to Salesforce records.
-         */
         jwtToken?: string;
-        /**
-         * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-         */
         oauth2GrantType?: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
-        /**
-         * The refresh token used to refresh an expired access token.
-         */
         refreshToken?: string;
     }
 
@@ -2284,47 +2117,20 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
-        /**
-         * The SAPOData basic authentication credentials.
-         */
         basicAuthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials;
-        /**
-         * The SAPOData OAuth type authentication credentials.
-         */
         oauthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest;
-        /**
-         * The refresh token used to refresh an expired access token.
-         */
         refreshToken?: string;
     }
 
@@ -2340,39 +2146,18 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
-        /**
-         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         */
         apiKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest;
     }
 
@@ -2388,50 +2173,23 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro {
-        /**
-         * The API secret key required for API key authentication.
-         */
         apiSecretKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
-        /**
-         * The password to use to connect to a resource.
-         */
         password: string;
-        /**
-         * The username to use to connect to a resource.
-         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
-        /**
-         * The access token used to access the connector on your behalf.
-         */
         accessToken?: string;
-        /**
-         * The identifier for the desired client.
-         */
         clientId: string;
-        /**
-         * The client secret used by the OAuth client to authenticate to the authorization server.
-         */
         clientSecret: string;
-        /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest;
     }
 
@@ -2447,9 +2205,6 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
-        /**
-         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-         */
         amplitude?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude;
         /**
          * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
@@ -2463,13 +2218,7 @@ export namespace appflow {
          * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
          */
         dynatrace?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace;
-        /**
-         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-         */
         googleAnalytics?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics;
-        /**
-         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-         */
         honeycode?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode;
         /**
          * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
@@ -2495,9 +2244,6 @@ export namespace appflow {
          * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
          */
         serviceNow?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow;
-        /**
-         * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-         */
         singular?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular;
         /**
          * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
@@ -2507,9 +2253,6 @@ export namespace appflow {
          * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
          */
         snowflake?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake;
-        /**
-         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-         */
         trendmicro?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro;
         /**
          * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
@@ -2525,42 +2268,21 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
-        /**
-         * The OAuth 2.0 properties required for OAuth 2.0 authentication.
-         */
         oauth2Properties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties;
-        /**
-         * A map of properties that are required to create a profile for the custom connector.
-         */
         profileProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
-        /**
-         * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-         */
         oauth2GrantType: string;
-        /**
-         * The token URL required for OAuth 2.0 authentication.
-         */
         tokenUrl: string;
-        /**
-         * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
-         */
         tokenUrlCustomProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
@@ -2571,111 +2293,45 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
-        /**
-         * A name for the associated Amazon S3 bucket.
-         */
         bucketName: string;
-        /**
-         * The object key for the destination bucket in which Amazon AppFlow places the files.
-         */
         bucketPrefix?: string;
-        /**
-         * The unique ID that's assigned to an Amazon Redshift cluster.
-         */
         clusterIdentifier?: string;
-        /**
-         * ARN of the IAM role that permits AppFlow to access the database through Data API.
-         */
         dataApiRoleArn?: string;
-        /**
-         * The name of an Amazon Redshift database.
-         */
         databaseName?: string;
-        /**
-         * The JDBC URL of the Amazon Redshift cluster.
-         */
         databaseUrl?: string;
-        /**
-         * ARN of the IAM role.
-         */
         roleArn: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl?: string;
-        /**
-         * Indicates whether the connector profile applies to a sandbox or production environment.
-         */
         isSandboxEnvironment?: boolean;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
-        /**
-         * The location of the SAPOData resource.
-         */
         applicationHostUrl: string;
-        /**
-         * The application path to catalog service.
-         */
         applicationServicePath: string;
-        /**
-         * The client number for the client creating the connection.
-         */
         clientNumber: string;
-        /**
-         * The logon language of SAPOData instance.
-         */
         logonLanguage?: string;
-        /**
-         * The SAPOData OAuth properties required for OAuth type authentication.
-         */
         oauthProperties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties;
-        /**
-         * The port number of the SAPOData instance.
-         */
         portNumber: number;
-        /**
-         * The SAPOData Private Link service name to be used for private data transfers.
-         */
         privateLinkServiceName?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
-        /**
-         * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-         */
         authCodeUrl: string;
-        /**
-         * The OAuth scopes required for OAuth type authentication.
-         */
         oauthScopes: string[];
-        /**
-         * The token URL required for OAuth 2.0 authentication.
-         */
         tokenUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
@@ -2683,40 +2339,16 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
-        /**
-         * The name of the account.
-         */
         accountName?: string;
-        /**
-         * A name for the associated Amazon S3 bucket.
-         */
         bucketName: string;
-        /**
-         * The object key for the destination bucket in which Amazon AppFlow places the files.
-         */
         bucketPrefix?: string;
-        /**
-         * The SAPOData Private Link service name to be used for private data transfers.
-         */
         privateLinkServiceName?: string;
-        /**
-         * AWS Region of the Snowflake account.
-         */
         region?: string;
-        /**
-         * Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
-         */
         stage: string;
-        /**
-         * The name of the Snowflake warehouse.
-         */
         warehouse: string;
     }
 
@@ -2724,16 +2356,10 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk {
-        /**
-         * The location of the Datadog resource.
-         */
         instanceUrl: string;
     }
 
@@ -2809,25 +2435,10 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
-        /**
-         * Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-         */
         customProperties?: {[key: string]: string};
-        /**
-         * Entity specified in the custom connector as a destination in the flow.
-         */
         entityName: string;
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
-        /**
-         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         */
         idFieldNames?: string[];
-        /**
-         * Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         */
         writeOperationType?: string;
     }
 
@@ -2847,24 +2458,12 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
-        /**
-         * Unique name of the Amazon Connect Customer Profiles domain.
-         */
         domainName: string;
-        /**
-         * Object specified in the Amazon Connect Customer Profiles flow destination.
-         */
         objectTypeName?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -2884,13 +2483,7 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -2913,13 +2506,7 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -2939,21 +2526,9 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
-        /**
-         * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-         */
         intermediateBucketName: string;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -2973,17 +2548,8 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix: string;
-        /**
-         * Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-         */
         s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
     }
 
@@ -3029,21 +2595,9 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
-        /**
-         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         */
         idFieldNames?: string[];
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
-        /**
-         * Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         */
         writeOperationType?: string;
     }
 
@@ -3063,25 +2617,10 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
-        /**
-         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         */
         idFieldNames?: string[];
-        /**
-         * Object path specified in the SAPOData flow destination.
-         */
         objectPath: string;
-        /**
-         * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-         */
         successResponseHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
-        /**
-         * Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         */
         writeOperationType?: string;
     }
 
@@ -3112,21 +2651,9 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
-        /**
-         * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-         */
         intermediateBucketName: string;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -3146,17 +2673,8 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
-        /**
-         * Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-         */
         s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
     }
 
@@ -3194,21 +2712,9 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
-        /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
-        /**
-         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-         */
         idFieldNames?: string[];
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
-        /**
-         * Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         */
         writeOperationType?: string;
     }
 
@@ -3270,13 +2776,7 @@ export namespace appflow {
          * Information that is required for querying Datadog. See Generic Source Properties for more details.
          */
         datadog?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDatadog;
-        /**
-         * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         dynatrace?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace;
-        /**
-         * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         */
         googleAnalytics?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics;
         /**
          * Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
@@ -3310,9 +2810,6 @@ export namespace appflow {
          * Information that is required for querying Slack. See Generic Source Properties for more details.
          */
         slack?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSlack;
-        /**
-         * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         trendmicro?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro;
         /**
          * Information that is required for querying Veeva. See Veeva Source Properties for more details.
@@ -3325,70 +2822,37 @@ export namespace appflow {
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
-        /**
-         * Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-         */
         customProperties?: {[key: string]: string};
-        /**
-         * Entity specified in the custom connector as a destination in the flow.
-         */
         entityName: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesS3 {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix: string;
-        /**
-         * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-         */
         s3InputFormatConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
     }
 
@@ -3400,82 +2864,40 @@ export namespace appflow {
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
-        /**
-         * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-         */
         enableDynamicFieldUpdate?: boolean;
-        /**
-         * Whether Amazon AppFlow includes deleted files in the flow run.
-         */
         includeDeletedRecords?: boolean;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
-        /**
-         * Object path specified in the SAPOData flow destination.
-         */
         objectPath: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSingular {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSlack {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
-        /**
-         * Document type specified in the Veeva document extract flow.
-         */
         documentType?: string;
-        /**
-         * Boolean value to include All Versions of files in Veeva document extract flow.
-         */
         includeAllVersions?: boolean;
-        /**
-         * Boolean value to include file renditions in Veeva document extract flow.
-         */
         includeRenditions?: boolean;
-        /**
-         * Boolean value to include source files in Veeva document extract flow.
-         */
         includeSourceFiles?: boolean;
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
-        /**
-         * Object specified in the flow destination.
-         */
         object: string;
     }
 
@@ -3807,7 +3229,7 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Header value sent by the client must begin with the specified characters.
+         * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
          */
         prefix?: string;
         /**
@@ -3900,7 +3322,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: string;
     }
@@ -4003,7 +3425,7 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Header value sent by the client must begin with the specified characters.
+         * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
          */
         prefix?: string;
         /**
@@ -4096,7 +3518,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: string;
     }
@@ -5274,9 +4696,6 @@ export namespace appmesh {
          * The port number to match from the request.
          */
         port?: number;
-        /**
-         * Header value sent by the client must begin with the specified characters.
-         */
         prefix?: string;
         /**
          * Fully qualified domain name for the service to match from the request.
@@ -5301,23 +4720,23 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteMatchMetadataMatch {
         /**
-         * The exact path to match on.
+         * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          */
         exact?: string;
         /**
-         * Header value sent by the client must begin with the specified characters.
+         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the value sent by the client must be included in.
          */
         range?: outputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange;
         /**
-         * The regex used to match the path.
+         * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          */
         regex?: string;
         /**
-         * Header value sent by the client must end with the specified characters.
+         * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          */
         suffix?: string;
     }
@@ -5408,7 +4827,7 @@ export namespace appmesh {
          */
         action: outputs.appmesh.RouteSpecHttp2RouteAction;
         /**
-         * Criteria for determining an gRPC request match.
+         * Criteria for determining an HTTP request match.
          */
         match: outputs.appmesh.RouteSpecHttp2RouteMatch;
         /**
@@ -5462,7 +4881,8 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Header value sent by the client must begin with the specified characters.
+         * Path with which to match requests.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: string;
         /**
@@ -5492,7 +4912,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
@@ -5504,7 +4924,7 @@ export namespace appmesh {
          */
         range?: outputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange;
         /**
-         * The regex used to match the path.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: string;
         /**
@@ -5526,29 +4946,29 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchPath {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact path to match on.
          */
         exact?: string;
         /**
-         * Header value sent by the client must include the specified characters.
+         * The regex used to match the path.
          */
         regex?: string;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameter {
         /**
-         * Criteria for determining an gRPC request match.
+         * The query parameter to match on.
          */
         match?: outputs.appmesh.RouteSpecHttp2RouteMatchQueryParameterMatch;
         /**
-         * Name to use for the route. Must be between 1 and 255 characters in length.
+         * Name for the query parameter that will be matched on.
          */
         name: string;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * The exact path to match on.
+         * The exact query parameter to match on.
          */
         exact?: string;
     }
@@ -5569,6 +4989,8 @@ export namespace appmesh {
         perRetryTimeout: outputs.appmesh.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
+         *
+         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: string[];
     }
@@ -5677,7 +5099,8 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Header value sent by the client must begin with the specified characters.
+         * Path with which to match requests.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: string;
         /**
@@ -5707,7 +5130,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
@@ -5719,7 +5142,7 @@ export namespace appmesh {
          */
         range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
         /**
-         * The regex used to match the path.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: string;
         /**
@@ -5741,29 +5164,29 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchPath {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact path to match on.
          */
         exact?: string;
         /**
-         * Header value sent by the client must include the specified characters.
+         * The regex used to match the path.
          */
         regex?: string;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameter {
         /**
-         * Criteria for determining an gRPC request match.
+         * The query parameter to match on.
          */
         match?: outputs.appmesh.RouteSpecHttpRouteMatchQueryParameterMatch;
         /**
-         * Name to use for the route. Must be between 1 and 255 characters in length.
+         * Name for the query parameter that will be matched on.
          */
         name: string;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * The exact path to match on.
+         * The exact query parameter to match on.
          */
         exact?: string;
     }
@@ -5784,6 +5207,8 @@ export namespace appmesh {
         perRetryTimeout: outputs.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeout;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
+         *
+         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: string[];
     }
@@ -5837,9 +5262,6 @@ export namespace appmesh {
          * Action to take if a match is determined.
          */
         action: outputs.appmesh.RouteSpecTcpRouteAction;
-        /**
-         * Criteria for determining an gRPC request match.
-         */
         match?: outputs.appmesh.RouteSpecTcpRouteMatch;
         /**
          * Types of timeouts.
@@ -5871,9 +5293,6 @@ export namespace appmesh {
     }
 
     export interface RouteSpecTcpRouteMatch {
-        /**
-         * The port number to match from the request.
-         */
         port?: number;
     }
 
@@ -6081,8 +5500,6 @@ export namespace appmesh {
         maxConnections: number;
         /**
          * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         *
-         * The `http2` connection pool object supports the following:
          */
         maxPendingRequests?: number;
     }
@@ -6628,8 +6045,6 @@ export namespace appmesh {
         maxConnections: number;
         /**
          * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         *
-         * The `http2` connection pool object supports the following:
          */
         maxPendingRequests?: number;
     }
@@ -7647,13 +7062,7 @@ export namespace appsync {
     }
 
     export interface DataSourceOpensearchserviceConfig {
-        /**
-         * HTTP endpoint of the Elasticsearch domain.
-         */
         endpoint: string;
-        /**
-         * AWS region of the DynamoDB table. Defaults to current region.
-         */
         region: string;
     }
 
@@ -8039,13 +7448,7 @@ export namespace auditmanager {
     }
 
     export interface AssessmentRolesAll {
-        /**
-         * Amazon Resource Name (ARN) of the IAM role.
-         */
         roleArn: string;
-        /**
-         * Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-         */
         roleType: string;
     }
 
@@ -8125,7 +7528,7 @@ export namespace auditmanager {
          */
         controls?: outputs.auditmanager.FrameworkControlSetControl[];
         /**
-         * Unique identifier of the control.
+         * Unique identifier for the framework.
          */
         id: string;
         /**
@@ -8615,11 +8018,11 @@ export namespace autoscaling {
          */
         instanceWarmup?: string;
         /**
-         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         * Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
          */
         maxHealthyPercentage?: number;
         /**
-         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
          */
         minHealthyPercentage?: number;
         /**
@@ -8637,9 +8040,6 @@ export namespace autoscaling {
     }
 
     export interface GroupInstanceRefreshPreferencesAlarmSpecification {
-        /**
-         * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-         */
         alarms?: string[];
     }
 
@@ -8670,338 +8070,106 @@ export namespace autoscaling {
     }
 
     export interface GroupMixedInstancesPolicyInstancesDistribution {
-        /**
-         * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-         */
         onDemandAllocationStrategy: string;
-        /**
-         * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-         */
         onDemandBaseCapacity: number;
-        /**
-         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-         */
         onDemandPercentageAboveBaseCapacity: number;
-        /**
-         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-         */
         spotAllocationStrategy: string;
-        /**
-         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-         */
         spotInstancePools: number;
-        /**
-         * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-         */
         spotMaxPrice?: string;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplate {
-        /**
-         * Override the instance launch template specification in the Launch Template.
-         */
         launchTemplateSpecification: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
-        /**
-         * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-         */
         overrides: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
-        /**
-         * ID of the launch template. Conflicts with `launchTemplateName`.
-         */
         launchTemplateId: string;
-        /**
-         * Name of the launch template. Conflicts with `launchTemplateId`.
-         */
         launchTemplateName: string;
-        /**
-         * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-         */
         version: string;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverride {
-        /**
-         * Override the instance type in the Launch Template with instance types that satisfy the requirements.
-         */
         instanceRequirements?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements;
-        /**
-         * Override the instance type in the Launch Template.
-         */
         instanceType?: string;
-        /**
-         * Override the instance launch template specification in the Launch Template.
-         */
         launchTemplateSpecification?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification;
-        /**
-         * Number of capacity units, which gives the instance type a proportional weight to other instance types.
-         */
         weightedCapacity?: string;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
-        /**
-         * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-         */
         acceleratorCount?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount;
-        /**
-         * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```
-         * Valid names:
-         * * amazon-web-services
-         * * amd
-         * * nvidia
-         * * xilinx
-         * ```
-         */
         acceleratorManufacturers?: string[];
-        /**
-         * List of accelerator names. Default is any acclerator.
-         *
-         * ```
-         * Valid names:
-         * * a100            - NVIDIA A100 GPUs
-         * * v100            - NVIDIA V100 GPUs
-         * * k80             - NVIDIA K80 GPUs
-         * * t4              - NVIDIA T4 GPUs
-         * * m60             - NVIDIA M60 GPUs
-         * * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
-         * * vu9p            - Xilinx VU9P FPGAs
-         * ```
-         */
         acceleratorNames?: string[];
-        /**
-         * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-         */
         acceleratorTotalMemoryMib?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
-        /**
-         * List of accelerator types. Default is any accelerator type.
-         *
-         * ```
-         * Valid types:
-         * * fpga
-         * * gpu
-         * * inference
-         * ```
-         */
         acceleratorTypes?: string[];
-        /**
-         * List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-         *
-         * > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
-         */
         allowedInstanceTypes?: string[];
-        /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-         */
         bareMetal?: string;
-        /**
-         * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-         */
         baselineEbsBandwidthMbps?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps;
-        /**
-         * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-         */
         burstablePerformance?: string;
-        /**
-         * List of CPU manufacturer names. Default is any manufacturer.
-         *
-         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```
-         * Valid names:
-         * * amazon-web-services
-         * * amd
-         * * intel
-         * ```
-         */
         cpuManufacturers?: string[];
-        /**
-         * List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-         *
-         * > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
-         */
         excludedInstanceTypes?: string[];
-        /**
-         * List of instance generation names. Default is any generation.
-         *
-         * ```
-         * Valid names:
-         * * current  - Recommended for best performance.
-         * * previous - For existing applications optimized for older instance types.
-         * ```
-         */
         instanceGenerations?: string[];
-        /**
-         * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-         */
         localStorage?: string;
-        /**
-         * List of local storage type names. Default any storage type.
-         *
-         * ```
-         * Value names:
-         * * hdd - hard disk drive
-         * * ssd - solid state drive
-         * ```
-         */
         localStorageTypes?: string[];
-        /**
-         * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-         */
         memoryGibPerVcpu?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu;
-        /**
-         * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-         */
         memoryMib?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib;
-        /**
-         * Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-         */
         networkBandwidthGbps?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps;
-        /**
-         * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-         */
         networkInterfaceCount?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount;
-        /**
-         * Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-         *
-         * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-         */
         onDemandMaxPricePercentageOverLowestPrice?: number;
-        /**
-         * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-         */
         requireHibernateSupport?: boolean;
-        /**
-         * Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
-         *
-         * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-         */
         spotMaxPricePercentageOverLowestPrice?: number;
-        /**
-         * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-         */
         totalLocalStorageGb?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb;
-        /**
-         * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-         */
         vcpuCount?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
-        /**
-         * Maximum.
-         */
         max?: number;
-        /**
-         * Minimum.
-         */
         min?: number;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
-        /**
-         * ID of the launch template. Conflicts with `launchTemplateName`.
-         */
         launchTemplateId: string;
-        /**
-         * Name of the launch template. Conflicts with `launchTemplateId`.
-         */
         launchTemplateName: string;
-        /**
-         * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-         */
         version: string;
     }
 
@@ -10014,46 +9182,22 @@ export namespace backup {
     }
 
     export interface SelectionConditionStringEqual {
-        /**
-         * The key in a key-value pair.
-         */
         key: string;
-        /**
-         * The value in a key-value pair.
-         */
         value: string;
     }
 
     export interface SelectionConditionStringLike {
-        /**
-         * The key in a key-value pair.
-         */
         key: string;
-        /**
-         * The value in a key-value pair.
-         */
         value: string;
     }
 
     export interface SelectionConditionStringNotEqual {
-        /**
-         * The key in a key-value pair.
-         */
         key: string;
-        /**
-         * The value in a key-value pair.
-         */
         value: string;
     }
 
     export interface SelectionConditionStringNotLike {
-        /**
-         * The key in a key-value pair.
-         */
         key: string;
-        /**
-         * The value in a key-value pair.
-         */
         value: string;
     }
 
@@ -10345,9 +9489,6 @@ export namespace batch {
          * Specifies the name of the job definition.
          */
         name: string;
-        /**
-         * The value of the environment variable.
-         */
         value: string;
     }
 
@@ -10388,31 +9529,16 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
-        /**
-         * The medium to store the volume. The default value is an empty string, which uses the storage of the node.
-         */
         medium?: string;
-        /**
-         * The maximum size of the volume. By default, there's no maximum size defined.
-         */
         sizeLimit: string;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
-        /**
-         * The path of the file or directory on the host to mount into containers on the pod.
-         */
         path: string;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
-        /**
-         * Specifies whether the secret or the secret's keys must be defined.
-         */
         optional?: boolean;
-        /**
-         * The name of the secret. The name must be allowed as a DNS subdomain name.
-         */
         secretName: string;
     }
 
@@ -10480,14 +9606,8 @@ export namespace batch {
     }
 
     export interface SchedulingPolicyFairSharePolicy {
-        /**
-         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-         */
         computeReservation?: number;
         shareDecaySeconds?: number;
-        /**
-         * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
-         */
         shareDistributions?: outputs.batch.SchedulingPolicyFairSharePolicyShareDistribution[];
     }
 
@@ -10507,7 +9627,7 @@ export namespace batch {
 export namespace bedrock {
     export interface CustomModelOutputDataConfig {
         /**
-         * The S3 URI where the validation data is stored.
+         * The S3 URI where the output data is stored.
          */
         s3Uri: string;
     }
@@ -10525,7 +9645,7 @@ export namespace bedrock {
 
     export interface CustomModelTrainingDataConfig {
         /**
-         * The S3 URI where the validation data is stored.
+         * The S3 URI where the training data is stored.
          */
         s3Uri: string;
     }
@@ -10545,9 +9665,6 @@ export namespace bedrock {
     }
 
     export interface CustomModelValidationDataConfigValidator {
-        /**
-         * The S3 URI where the validation data is stored.
-         */
         s3Uri: string;
     }
 
@@ -10695,39 +9812,18 @@ export namespace bedrockmodel {
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
-        /**
-         * S3 configuration for delivering a large amount of data.
-         */
         largeDataDeliveryS3Config?: outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config;
-        /**
-         * Log group name.
-         */
         logGroupName?: string;
-        /**
-         * The role ARN.
-         */
         roleArn?: string;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
-        /**
-         * S3 bucket name.
-         */
         bucketName?: string;
-        /**
-         * S3 prefix.
-         */
         keyPrefix?: string;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigS3Config {
-        /**
-         * S3 bucket name.
-         */
         bucketName?: string;
-        /**
-         * S3 prefix.
-         */
         keyPrefix?: string;
     }
 
@@ -11458,15 +10554,15 @@ export namespace chimesdkmediapipelines {
          */
         callAnalyticsStreamCategories?: string[];
         /**
-         * Labels all personally identifiable information (PII) identified in Transcript events.
+         * Labels all personally identifiable information (PII) identified in Utterance events.
          */
         contentIdentificationType?: string;
         /**
-         * Redacts all personally identifiable information (PII) identified in Transcript events.
+         * Redacts all personally identifiable information (PII) identified in Utterance events.
          */
         contentRedactionType?: string;
         /**
-         * Enables partial result stabilization in Transcript events.
+         * Enables partial result stabilization in Utterance events.
          */
         enablePartialResultsStabilization?: boolean;
         /**
@@ -11486,7 +10582,7 @@ export namespace chimesdkmediapipelines {
          */
         partialResultsStability?: string;
         /**
-         * Types of personally identifiable information (PII) to redact from a Transcript event.
+         * Types of personally identifiable information (PII) to redact from an Utterance event.
          */
         piiEntityTypes?: string;
         /**
@@ -11494,35 +10590,23 @@ export namespace chimesdkmediapipelines {
          */
         postCallAnalyticsSettings?: outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings;
         /**
-         * Method for applying a vocabulary filter to Transcript events.
+         * Method for applying a vocabulary filter to Utterance events.
          */
         vocabularyFilterMethod?: string;
         /**
-         * Name of the custom vocabulary filter to use when processing Transcript events.
+         * Name of the custom vocabulary filter to use when processing Utterance events.
          */
         vocabularyFilterName?: string;
         /**
-         * Name of the custom vocabulary to use when processing Transcript events.
+         * Name of the custom vocabulary to use when processing Utterance events.
          */
         vocabularyName?: string;
     }
 
     export interface MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
-        /**
-         * Should output be redacted.
-         */
         contentRedactionOutput?: string;
-        /**
-         * ARN of the role used by AWS Transcribe to upload your post call analysis.
-         */
         dataAccessRoleArn: string;
-        /**
-         * ID of the KMS key used to encrypt the output.
-         */
         outputEncryptionKmsKeyId?: string;
-        /**
-         * The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-         */
         outputLocation: string;
     }
 
@@ -11579,14 +10663,14 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * Kinesis Data Stream to deliver results.
          */
         insightsTarget: string;
     }
 
     export interface MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * Lambda Function to deliver results.
          */
         insightsTarget: string;
     }
@@ -11600,7 +10684,7 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * SNS topic to deliver results.
          */
         insightsTarget: string;
     }
@@ -11648,45 +10732,24 @@ export namespace chimesdkmediapipelines {
          */
         sentimentConfiguration?: outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration;
         /**
-         * Element type.
+         * Rule type.
          */
         type: string;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration {
-        /**
-         * Rule name.
-         */
         ruleName: string;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
-        /**
-         * Collection of keywords to match.
-         */
         keywords: string[];
-        /**
-         * Negate the rule.
-         */
         negate: boolean;
-        /**
-         * Rule name.
-         */
         ruleName: string;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
-        /**
-         * Rule name.
-         */
         ruleName: string;
-        /**
-         * Sentiment type to match.
-         */
         sentimentType: string;
-        /**
-         * Analysis interval.
-         */
         timePeriod: number;
     }
 
@@ -11869,9 +10932,6 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
-        /**
-         * List of item names, such as cookies, headers, or query strings.
-         */
         items?: string[];
     }
 
@@ -11887,27 +10947,15 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
-        /**
-         * List of item names, such as cookies, headers, or query strings.
-         */
         items?: string[];
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-        /**
-         * Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
-         */
         queryStringBehavior: string;
-        /**
-         * Configuration parameter that contains a list of query string names. See Items for more information.
-         */
         queryStrings?: outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
-        /**
-         * List of item names, such as cookies, headers, or query strings.
-         */
         items?: string[];
     }
 
@@ -11971,130 +11019,49 @@ export namespace cloudfront {
     }
 
     export interface DistributionCustomErrorResponse {
-        /**
-         * Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
-         */
         errorCachingMinTtl?: number;
-        /**
-         * 4xx or 5xx HTTP status code that you want to customize.
-         */
         errorCode: number;
-        /**
-         * HTTP status code that you want CloudFront to return with the custom error page to the viewer.
-         */
         responseCode?: number;
-        /**
-         * Path of the custom error page (for example, `/custom_404.html`).
-         */
         responsePagePath?: string;
     }
 
     export interface DistributionDefaultCacheBehavior {
-        /**
-         * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-         */
         allowedMethods: string[];
-        /**
-         * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
-         */
         cachePolicyId?: string;
-        /**
-         * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         */
         cachedMethods: string[];
-        /**
-         * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-         */
         compress?: boolean;
-        /**
-         * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-         */
         defaultTtl: number;
-        /**
-         * Field level encryption configuration ID.
-         */
         fieldLevelEncryptionId?: string;
-        /**
-         * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-         */
         forwardedValues?: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
-        /**
-         * A config block that triggers a cloudfront function with specific actions (maximum 2).
-         */
         functionAssociations?: outputs.cloudfront.DistributionDefaultCacheBehaviorFunctionAssociation[];
-        /**
-         * A config block that triggers a lambda function with specific actions (maximum 4).
-         */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionDefaultCacheBehaviorLambdaFunctionAssociation[];
-        /**
-         * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-         */
         maxTtl: number;
-        /**
-         * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-         */
         minTtl?: number;
-        /**
-         * Unique identifier of the origin request policy that is attached to the behavior.
-         */
         originRequestPolicyId?: string;
-        /**
-         * ARN of the real-time log configuration that is attached to this cache behavior.
-         */
         realtimeLogConfigArn?: string;
-        /**
-         * Identifier for a response headers policy.
-         */
         responseHeadersPolicyId?: string;
-        /**
-         * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-         */
         smoothStreaming?: boolean;
-        /**
-         * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-         */
         targetOriginId: string;
         /**
-         * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          */
         trustedKeyGroups: string[];
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          */
         trustedSigners: string[];
-        /**
-         * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-         */
         viewerProtocolPolicy: string;
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValues {
-        /**
-         * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-         */
         cookies: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookies;
-        /**
-         * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-         */
         headers: string[];
-        /**
-         * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-         */
         queryString: boolean;
-        /**
-         * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
-         */
         queryStringCacheKeys: string[];
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValuesCookies {
-        /**
-         * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
-         */
         forward: string;
-        /**
-         * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-         */
         whitelistedNames: string[];
     }
 
@@ -12125,130 +11092,49 @@ export namespace cloudfront {
     }
 
     export interface DistributionLoggingConfig {
-        /**
-         * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
-         */
         bucket: string;
-        /**
-         * Whether to include cookies in access logs (default: `false`).
-         */
         includeCookies?: boolean;
-        /**
-         * Prefix to the access log filenames for this distribution, for example, `myprefix/`.
-         */
         prefix?: string;
     }
 
     export interface DistributionOrderedCacheBehavior {
-        /**
-         * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-         */
         allowedMethods: string[];
-        /**
-         * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
-         */
         cachePolicyId?: string;
-        /**
-         * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         */
         cachedMethods: string[];
-        /**
-         * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-         */
         compress?: boolean;
-        /**
-         * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-         */
         defaultTtl: number;
-        /**
-         * Field level encryption configuration ID.
-         */
         fieldLevelEncryptionId?: string;
-        /**
-         * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-         */
         forwardedValues?: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
-        /**
-         * A config block that triggers a cloudfront function with specific actions (maximum 2).
-         */
         functionAssociations?: outputs.cloudfront.DistributionOrderedCacheBehaviorFunctionAssociation[];
-        /**
-         * A config block that triggers a lambda function with specific actions (maximum 4).
-         */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionOrderedCacheBehaviorLambdaFunctionAssociation[];
-        /**
-         * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-         */
         maxTtl: number;
-        /**
-         * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-         */
         minTtl?: number;
-        /**
-         * Unique identifier of the origin request policy that is attached to the behavior.
-         */
         originRequestPolicyId?: string;
-        /**
-         * Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
-         */
         pathPattern: string;
-        /**
-         * ARN of the real-time log configuration that is attached to this cache behavior.
-         */
         realtimeLogConfigArn?: string;
-        /**
-         * Identifier for a response headers policy.
-         */
         responseHeadersPolicyId?: string;
-        /**
-         * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-         */
         smoothStreaming?: boolean;
-        /**
-         * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-         */
         targetOriginId: string;
         /**
-         * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          */
         trustedKeyGroups?: string[];
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          */
         trustedSigners?: string[];
-        /**
-         * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-         */
         viewerProtocolPolicy: string;
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValues {
-        /**
-         * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-         */
         cookies: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookies;
-        /**
-         * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-         */
         headers: string[];
-        /**
-         * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-         */
         queryString: boolean;
-        /**
-         * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
-         */
         queryStringCacheKeys: string[];
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValuesCookies {
-        /**
-         * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
-         */
         forward: string;
-        /**
-         * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-         */
         whitelistedNames?: string[];
     }
 
@@ -12279,45 +11165,18 @@ export namespace cloudfront {
     }
 
     export interface DistributionOrigin {
-        /**
-         * Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
-         */
         connectionAttempts?: number;
-        /**
-         * Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
-         */
         connectionTimeout?: number;
-        /**
-         * One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
-         */
         customHeaders?: outputs.cloudfront.DistributionOriginCustomHeader[];
-        /**
-         * The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
-         */
         customOriginConfig?: outputs.cloudfront.DistributionOriginCustomOriginConfig;
         /**
-         * DNS domain name of either the S3 bucket, or web site of your custom origin.
+         * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
          */
         domainName: string;
-        /**
-         * Unique identifier of a [CloudFront origin access control][8] for this origin.
-         */
         originAccessControlId?: string;
-        /**
-         * Unique identifier of the member origin.
-         */
         originId: string;
-        /**
-         * Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-         */
         originPath?: string;
-        /**
-         * CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-         */
         originShield?: outputs.cloudfront.DistributionOriginOriginShield;
-        /**
-         * CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
-         */
         s3OriginConfig?: outputs.cloudfront.DistributionOriginS3OriginConfig;
     }
 
@@ -12327,76 +11186,37 @@ export namespace cloudfront {
     }
 
     export interface DistributionOriginCustomOriginConfig {
-        /**
-         * HTTP port the custom origin listens on.
-         */
         httpPort: number;
-        /**
-         * HTTPS port the custom origin listens on.
-         */
         httpsPort: number;
-        /**
-         * The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-         */
         originKeepaliveTimeout?: number;
-        /**
-         * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-         */
         originProtocolPolicy: string;
-        /**
-         * The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-         */
         originReadTimeout?: number;
-        /**
-         * SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
-         */
         originSslProtocols: string[];
     }
 
     export interface DistributionOriginGroup {
-        /**
-         * The failover criteria for when to failover to the secondary origin.
-         */
         failoverCriteria: outputs.cloudfront.DistributionOriginGroupFailoverCriteria;
-        /**
-         * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-         */
         members: outputs.cloudfront.DistributionOriginGroupMember[];
-        /**
-         * Unique identifier of the member origin.
-         */
         originId: string;
     }
 
     export interface DistributionOriginGroupFailoverCriteria {
-        /**
-         * List of HTTP status codes for the origin group.
-         */
         statusCodes: number[];
     }
 
     export interface DistributionOriginGroupMember {
-        /**
-         * Unique identifier of the member origin.
-         */
         originId: string;
     }
 
     export interface DistributionOriginOriginShield {
         /**
-         * Whether Origin Shield is enabled.
+         * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          */
         enabled: boolean;
-        /**
-         * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-         */
         originShieldRegion?: string;
     }
 
     export interface DistributionOriginS3OriginConfig {
-        /**
-         * The CloudFront origin access identity to associate with the origin.
-         */
         originAccessIdentity: string;
     }
 
@@ -12405,19 +11225,13 @@ export namespace cloudfront {
     }
 
     export interface DistributionRestrictionsGeoRestriction {
-        /**
-         * [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
-         */
         locations: string[];
-        /**
-         * Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
-         */
         restrictionType: string;
     }
 
     export interface DistributionTrustedKeyGroup {
         /**
-         * Whether Origin Shield is enabled.
+         * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          */
         enabled: boolean;
         /**
@@ -12439,7 +11253,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedSigner {
         /**
-         * Whether Origin Shield is enabled.
+         * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          */
         enabled: boolean;
         /**
@@ -12460,25 +11274,10 @@ export namespace cloudfront {
     }
 
     export interface DistributionViewerCertificate {
-        /**
-         * ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM certificate must be in  US-EAST-1.
-         */
         acmCertificateArn?: string;
-        /**
-         * `true` if you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
-         */
         cloudfrontDefaultCertificate?: boolean;
-        /**
-         * IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
-         */
         iamCertificateId?: string;
-        /**
-         * Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
-         */
         minimumProtocolVersion?: string;
-        /**
-         * How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
-         */
         sslSupportMethod?: string;
     }
 
@@ -12498,17 +11297,8 @@ export namespace cloudfront {
     }
 
     export interface FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
-        /**
-         * he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-         */
         contentType: string;
-        /**
-         * The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-         */
         format: string;
-        /**
-         * The profile ID for a field-level encryption content type-profile mapping.
-         */
         profileId?: string;
     }
 
@@ -12528,13 +11318,7 @@ export namespace cloudfront {
     }
 
     export interface FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
-        /**
-         * The profile ID for a field-level encryption content type-profile mapping.
-         */
         profileId: string;
-        /**
-         * Query argument for field-level encryption query argument-profile mapping.
-         */
         queryArg: string;
     }
 
@@ -12543,17 +11327,8 @@ export namespace cloudfront {
     }
 
     export interface FieldLevelEncryptionProfileEncryptionEntitiesItem {
-        /**
-         * Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
-         */
         fieldPatterns: outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns;
-        /**
-         * The provider associated with the public key being used for encryption.
-         */
         providerId: string;
-        /**
-         * The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
-         */
         publicKeyId: string;
     }
 
@@ -13001,17 +11776,8 @@ export namespace cloudfront {
     }
 
     export interface ResponseHeadersPolicyCustomHeadersConfigItem {
-        /**
-         * The HTTP response header name.
-         */
         header: string;
-        /**
-         * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         */
         override: boolean;
-        /**
-         * The value for the HTTP response header.
-         */
         value: string;
     }
 
@@ -13020,9 +11786,6 @@ export namespace cloudfront {
     }
 
     export interface ResponseHeadersPolicyRemoveHeadersConfigItem {
-        /**
-         * The HTTP response header name.
-         */
         header: string;
     }
 
@@ -13310,9 +12073,6 @@ export namespace cloudtrail {
     }
 
     export interface TrailAdvancedEventSelector {
-        /**
-         * Specifies the selector statements in an advanced event selector. Fields documented below.
-         */
         fieldSelectors: outputs.cloudtrail.TrailAdvancedEventSelectorFieldSelector[];
         /**
          * Name of the trail.
@@ -13321,33 +12081,12 @@ export namespace cloudtrail {
     }
 
     export interface TrailAdvancedEventSelectorFieldSelector {
-        /**
-         * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-         */
         endsWiths?: string[];
-        /**
-         * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-         */
         equals?: string[];
-        /**
-         * Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-         */
         field: string;
-        /**
-         * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-         */
         notEndsWiths?: string[];
-        /**
-         * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-         */
         notEquals?: string[];
-        /**
-         * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-         */
         notStartsWiths?: string[];
-        /**
-         * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-         */
         startsWiths?: string[];
     }
 
@@ -13468,11 +12207,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -13483,11 +12222,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -13498,11 +12237,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -13558,11 +12297,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -13573,11 +12312,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -13588,11 +12327,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: boolean;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: string;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: string;
     }
@@ -14122,24 +12861,12 @@ export namespace cloudwatch {
     }
 
     export interface MetricStreamStatisticsConfiguration {
-        /**
-         * The additional statistics to stream for the metrics listed in `includeMetrics`.
-         */
         additionalStatistics: string[];
-        /**
-         * An array that defines the metrics that are to have additional statistics streamed. See details below.
-         */
         includeMetrics: outputs.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetric[];
     }
 
     export interface MetricStreamStatisticsConfigurationIncludeMetric {
-        /**
-         * The name of the metric.
-         */
         metricName: string;
-        /**
-         * Name of the metric namespace in the filter.
-         */
         namespace: string;
     }
 
@@ -14283,18 +13010,18 @@ export namespace codebuild {
          */
         registryCredential?: outputs.codebuild.ProjectEnvironmentRegistryCredential;
         /**
-         * Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+         * Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
          */
         type: string;
     }
 
     export interface ProjectEnvironmentEnvironmentVariable {
         /**
-         * Project's name.
+         * Environment variable's name or key.
          */
         name: string;
         /**
-         * Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+         * Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
          */
         type?: string;
         /**
@@ -14354,7 +13081,7 @@ export namespace codebuild {
          */
         groupName?: string;
         /**
-         * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+         * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
          */
         status?: string;
         /**
@@ -14369,11 +13096,11 @@ export namespace codebuild {
          */
         bucketOwnerAccess?: string;
         /**
-         * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+         * Whether to disable encrypting S3 logs. Defaults to `false`.
          */
         encryptionDisabled?: boolean;
         /**
-         * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
          */
         location?: string;
         /**
@@ -14633,9 +13360,6 @@ export namespace codecatalyst {
     }
 
     export interface DevEnvironmentPersistentStorage {
-        /**
-         * The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-         */
         size: number;
     }
 
@@ -15064,15 +13788,12 @@ export namespace codegurureviewer {
          */
         bucketName: string;
         /**
-         * The name of the third party source repository.
+         * The name of the repository in the S3 bucket.
          */
         name: string;
     }
 
     export interface RepositoryAssociationS3RepositoryDetail {
-        /**
-         * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-         */
         bucketName: string;
         codeArtifacts: outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetailCodeArtifact[];
     }
@@ -15521,40 +14242,16 @@ export namespace cognito {
     }
 
     export interface IdentityPoolRoleAttachmentRoleMapping {
-        /**
-         * Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-         */
         ambiguousRoleResolution?: string;
-        /**
-         * A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
-         */
         identityProvider: string;
-        /**
-         * The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-         */
         mappingRules?: outputs.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRule[];
-        /**
-         * The role mapping type.
-         */
         type: string;
     }
 
     export interface IdentityPoolRoleAttachmentRoleMappingMappingRule {
-        /**
-         * The claim name that must be present in the token, for example, "isAdmin" or "paid".
-         */
         claim: string;
-        /**
-         * The match condition that specifies how closely the claim value in the IdP token must match Value.
-         */
         matchType: string;
-        /**
-         * The role ARN.
-         */
         roleArn: string;
-        /**
-         * A brief string that the claim must match, for example, "paid" or "yes".
-         */
         value: string;
     }
 
@@ -15597,13 +14294,7 @@ export namespace cognito {
     }
 
     export interface ResourceServerScope {
-        /**
-         * The scope description.
-         */
         scopeDescription: string;
-        /**
-         * The scope name.
-         */
         scopeName: string;
     }
 
@@ -15634,35 +14325,17 @@ export namespace cognito {
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
-        /**
-         * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-         */
         eventAction: string;
-        /**
-         * Whether to send a notification.
-         */
         notify: boolean;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
-        /**
-         * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-         */
         eventAction: string;
-        /**
-         * Whether to send a notification.
-         */
         notify: boolean;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
-        /**
-         * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-         */
         eventAction: string;
-        /**
-         * Whether to send a notification.
-         */
         notify: boolean;
     }
 
@@ -15694,47 +14367,20 @@ export namespace cognito {
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
-        /**
-         * The email HTML body.
-         */
         htmlBody: string;
-        /**
-         * The email subject.
-         */
         subject: string;
-        /**
-         * The email text body.
-         */
         textBody: string;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
-        /**
-         * The email HTML body.
-         */
         htmlBody: string;
-        /**
-         * The email subject.
-         */
         subject: string;
-        /**
-         * The email text body.
-         */
         textBody: string;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
-        /**
-         * The email HTML body.
-         */
         htmlBody: string;
-        /**
-         * The email subject.
-         */
         subject: string;
-        /**
-         * The email text body.
-         */
         textBody: string;
     }
 
@@ -15780,9 +14426,7 @@ export namespace cognito {
 
     export interface UserPoolAccountRecoverySettingRecoveryMechanism {
         /**
-         * Name of the user pool.
-         *
-         * The following arguments are optional:
+         * Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
          */
         name: string;
         /**
@@ -15971,13 +14615,7 @@ export namespace cognito {
     }
 
     export interface UserPoolLambdaConfigPreTokenGenerationConfig {
-        /**
-         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-         */
         lambdaArn: string;
-        /**
-         * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-         */
         lambdaVersion: string;
     }
 
@@ -18383,9 +17021,6 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id: string;
-        /**
-         * The name of the user hierarchy level. Must not be more than 50 characters.
-         */
         name: string;
     }
 
@@ -18398,9 +17033,6 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id: string;
-        /**
-         * The name of the user hierarchy level. Must not be more than 50 characters.
-         */
         name: string;
     }
 
@@ -18413,9 +17045,6 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id: string;
-        /**
-         * The name of the user hierarchy level. Must not be more than 50 characters.
-         */
         name: string;
     }
 
@@ -18428,9 +17057,6 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id: string;
-        /**
-         * The name of the user hierarchy level. Must not be more than 50 characters.
-         */
         name: string;
     }
 
@@ -18443,9 +17069,6 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id: string;
-        /**
-         * The name of the user hierarchy level. Must not be more than 50 characters.
-         */
         name: string;
     }
 
@@ -18535,13 +17158,7 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionAnd {
-        /**
-         * Configuration block for the filter that's based on  values. See Cost Category below.
-         */
         costCategory?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionAndCostCategory;
-        /**
-         * Configuration block for the specific Dimension to use for.
-         */
         dimension?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionAndDimension;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -18625,13 +17242,7 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionNot {
-        /**
-         * Configuration block for the filter that's based on  values. See Cost Category below.
-         */
         costCategory?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionNotCostCategory;
-        /**
-         * Configuration block for the specific Dimension to use for.
-         */
         dimension?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionNotDimension;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -18685,13 +17296,7 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionOr {
-        /**
-         * Configuration block for the filter that's based on  values. See Cost Category below.
-         */
         costCategory?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionOrCostCategory;
-        /**
-         * Configuration block for the specific Dimension to use for.
-         */
         dimension?: outputs.costexplorer.AnomalySubscriptionThresholdExpressionOrDimension;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -18817,13 +17422,7 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAnd {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
-         */
         costCategory?: outputs.costexplorer.CostCategoryRuleRuleAndCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
-         */
         dimension?: outputs.costexplorer.CostCategoryRuleRuleAndDimension;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -18907,13 +17506,7 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNot {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
-         */
         costCategory?: outputs.costexplorer.CostCategoryRuleRuleNotCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
-         */
         dimension?: outputs.costexplorer.CostCategoryRuleRuleNotDimension;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -18967,13 +17560,7 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOr {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
-         */
         costCategory?: outputs.costexplorer.CostCategoryRuleRuleOrCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
-         */
         dimension?: outputs.costexplorer.CostCategoryRuleRuleOrDimension;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -19411,13 +17998,7 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterAnd {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
-         */
         costCategory?: outputs.costexplorer.GetTagsFilterAndCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         */
         dimension?: outputs.costexplorer.GetTagsFilterAndDimension;
         /**
          * Tags that match your request.
@@ -19456,17 +18037,8 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterAndTags {
-        /**
-         * Unique name of the Cost Category.
-         */
         key?: string;
-        /**
-         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         */
         matchOptions?: string[];
-        /**
-         * Specific value of the Cost Category.
-         */
         values?: string[];
     }
 
@@ -19501,13 +18073,7 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterNot {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
-         */
         costCategory?: outputs.costexplorer.GetTagsFilterNotCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         */
         dimension?: outputs.costexplorer.GetTagsFilterNotDimension;
         /**
          * Tags that match your request.
@@ -19546,28 +18112,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterNotTags {
-        /**
-         * Unique name of the Cost Category.
-         */
         key?: string;
-        /**
-         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         */
         matchOptions?: string[];
-        /**
-         * Specific value of the Cost Category.
-         */
         values?: string[];
     }
 
     export interface GetTagsFilterOr {
-        /**
-         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
-         */
         costCategory?: outputs.costexplorer.GetTagsFilterOrCostCategory;
-        /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         */
         dimension?: outputs.costexplorer.GetTagsFilterOrDimension;
         /**
          * Tags that match your request.
@@ -19606,32 +18157,14 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterOrTags {
-        /**
-         * Unique name of the Cost Category.
-         */
         key?: string;
-        /**
-         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         */
         matchOptions?: string[];
-        /**
-         * Specific value of the Cost Category.
-         */
         values?: string[];
     }
 
     export interface GetTagsFilterTags {
-        /**
-         * Unique name of the Cost Category.
-         */
         key?: string;
-        /**
-         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-         */
         matchOptions?: string[];
-        /**
-         * Specific value of the Cost Category.
-         */
         values?: string[];
     }
 
@@ -19719,13 +18252,7 @@ export namespace customerprofiles {
     }
 
     export interface DomainMatchingExportingConfigS3Exporting {
-        /**
-         * The name of the S3 bucket where Identity Resolution Jobs write result files.
-         */
         s3BucketName: string;
-        /**
-         * The S3 key name of the location where Identity Resolution Jobs write result files.
-         */
         s3KeyName?: string;
     }
 
@@ -19807,13 +18334,7 @@ export namespace customerprofiles {
     }
 
     export interface DomainRuleBasedMatchingExportingConfigS3Exporting {
-        /**
-         * The name of the S3 bucket where Identity Resolution Jobs write result files.
-         */
         s3BucketName: string;
-        /**
-         * The S3 key name of the location where Identity Resolution Jobs write result files.
-         */
         s3KeyName?: string;
     }
 
@@ -19868,131 +18389,41 @@ export namespace customerprofiles {
     }
 
     export interface ProfileBillingAddress {
-        /**
-         * The first line of a customer address.
-         */
         address1?: string;
-        /**
-         * The second line of a customer address.
-         */
         address2?: string;
-        /**
-         * The third line of a customer address.
-         */
         address3?: string;
-        /**
-         * The fourth line of a customer address.
-         */
         address4?: string;
-        /**
-         * The city in which a customer lives.
-         */
         city?: string;
-        /**
-         * The country in which a customer lives.
-         */
         country?: string;
-        /**
-         * The county in which a customer lives.
-         */
         county?: string;
-        /**
-         * The postal code of a customer address.
-         */
         postalCode?: string;
-        /**
-         * The province in which a customer lives.
-         */
         province?: string;
-        /**
-         * The state in which a customer lives.
-         */
         state?: string;
     }
 
     export interface ProfileMailingAddress {
-        /**
-         * The first line of a customer address.
-         */
         address1?: string;
-        /**
-         * The second line of a customer address.
-         */
         address2?: string;
-        /**
-         * The third line of a customer address.
-         */
         address3?: string;
-        /**
-         * The fourth line of a customer address.
-         */
         address4?: string;
-        /**
-         * The city in which a customer lives.
-         */
         city?: string;
-        /**
-         * The country in which a customer lives.
-         */
         country?: string;
-        /**
-         * The county in which a customer lives.
-         */
         county?: string;
-        /**
-         * The postal code of a customer address.
-         */
         postalCode?: string;
-        /**
-         * The province in which a customer lives.
-         */
         province?: string;
-        /**
-         * The state in which a customer lives.
-         */
         state?: string;
     }
 
     export interface ProfileShippingAddress {
-        /**
-         * The first line of a customer address.
-         */
         address1?: string;
-        /**
-         * The second line of a customer address.
-         */
         address2?: string;
-        /**
-         * The third line of a customer address.
-         */
         address3?: string;
-        /**
-         * The fourth line of a customer address.
-         */
         address4?: string;
-        /**
-         * The city in which a customer lives.
-         */
         city?: string;
-        /**
-         * The country in which a customer lives.
-         */
         country?: string;
-        /**
-         * The county in which a customer lives.
-         */
         county?: string;
-        /**
-         * The postal code of a customer address.
-         */
         postalCode?: string;
-        /**
-         * The province in which a customer lives.
-         */
         province?: string;
-        /**
-         * The state in which a customer lives.
-         */
         state?: string;
     }
 
@@ -20183,9 +18614,6 @@ export namespace datasync {
     }
 
     export interface LocationFsxOntapFileSystemProtocolNfsMountOptions {
-        /**
-         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-         */
         version?: string;
     }
 
@@ -20209,9 +18637,6 @@ export namespace datasync {
     }
 
     export interface LocationFsxOntapFileSystemProtocolSmbMountOptions {
-        /**
-         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-         */
         version?: string;
     }
 
@@ -20774,295 +19199,113 @@ export namespace directoryservice {
 
 export namespace dlm {
     export interface LifecyclePolicyPolicyDetails {
-        /**
-         * The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-         */
         action?: outputs.dlm.LifecyclePolicyPolicyDetailsAction;
-        /**
-         * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
-         */
         eventSource?: outputs.dlm.LifecyclePolicyPolicyDetailsEventSource;
-        /**
-         * Information about the event. See the `parameters` configuration block.
-         */
         parameters?: outputs.dlm.LifecyclePolicyPolicyDetailsParameters;
-        /**
-         * The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
-         */
         policyType?: string;
-        /**
-         * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
-         */
         resourceLocations: string;
-        /**
-         * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-         */
         resourceTypes?: string[];
-        /**
-         * See the `schedule` configuration block.
-         */
         schedules?: outputs.dlm.LifecyclePolicyPolicyDetailsSchedule[];
-        /**
-         * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-         *
-         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
-         */
         targetTags?: {[key: string]: string};
     }
 
     export interface LifecyclePolicyPolicyDetailsAction {
-        /**
-         * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-         */
         crossRegionCopies: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopy[];
-        /**
-         * A descriptive name for the action.
-         */
         name: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
-        /**
-         * The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
-         */
         encryptionConfiguration: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration;
-        /**
-         * Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
-         */
         retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule;
-        /**
-         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         */
         target: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
-        /**
-         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-         */
         cmkArn?: string;
-        /**
-         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-         */
         encrypted?: boolean;
     }
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsEventSource {
-        /**
-         * Information about the event. See the `parameters` configuration block.
-         */
         parameters: outputs.dlm.LifecyclePolicyPolicyDetailsEventSourceParameters;
-        /**
-         * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-         */
         type: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsEventSourceParameters {
-        /**
-         * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
-         */
         descriptionRegex: string;
-        /**
-         * The type of event. Currently, only `shareSnapshot` events are supported.
-         */
         eventType: string;
-        /**
-         * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-         */
         snapshotOwners: string[];
     }
 
     export interface LifecyclePolicyPolicyDetailsParameters {
-        /**
-         * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-         */
         excludeBootVolume?: boolean;
-        /**
-         * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-         */
         noReboot?: boolean;
     }
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
-        /**
-         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-         */
         copyTags: boolean;
-        /**
-         * See the `createRule` block. Max of 1 per schedule.
-         */
         createRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule;
-        /**
-         * See the `crossRegionCopyRule` block. Max of 3 per schedule.
-         */
         crossRegionCopyRules?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule[];
-        /**
-         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
-         */
         deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleDeprecateRule;
-        /**
-         * See the `fastRestoreRule` block. Max of 1 per schedule.
-         */
         fastRestoreRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleFastRestoreRule;
-        /**
-         * A descriptive name for the action.
-         */
         name: string;
-        /**
-         * Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
-         */
         retainRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule;
-        /**
-         * See the `shareRule` block. Max of 1 per schedule.
-         */
         shareRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleShareRule;
-        /**
-         * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-         */
         tagsToAdd?: {[key: string]: string};
-        /**
-         * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
-         */
         variableTags?: {[key: string]: string};
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
-        /**
-         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
-         */
         cronExpression?: string;
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval?: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit: string;
-        /**
-         * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-         */
         location: string;
-        /**
-         * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         times: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
-        /**
-         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-         */
         cmkArn?: string;
-        /**
-         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-         */
         copyTags?: boolean;
-        /**
-         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
-         */
         deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule;
-        /**
-         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-         */
         encrypted: boolean;
-        /**
-         * Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
-         */
         retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule;
-        /**
-         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         */
         target: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
-        /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
-         */
         count?: number;
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval?: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit?: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
-        /**
-         * The Availability Zones in which to enable fast snapshot restore.
-         */
         availabilityZones: string[];
-        /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
-         */
         count?: number;
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval?: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit?: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
-        /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
-         */
         count?: number;
-        /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
-         */
         interval?: number;
-        /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
-         */
         intervalUnit?: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleShareRule {
-        /**
-         * The IDs of the AWS accounts with which to share the snapshots.
-         */
         targetAccounts: string[];
         unshareInterval?: number;
         unshareIntervalUnit?: string;
@@ -21362,11 +19605,11 @@ export namespace dms {
          */
         addColumnName?: boolean;
         /**
-         * Custom S3 Bucket Object prefix for intermediate storage.
+         * S3 object prefix.
          */
         bucketFolder?: string;
         /**
-         * Custom S3 Bucket name for intermediate storage.
+         * S3 bucket name.
          */
         bucketName?: string;
         /**
@@ -21446,7 +19689,7 @@ export namespace dms {
          */
         encodingType?: string;
         /**
-         * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
          */
         encryptionMode?: string;
         /**
@@ -21466,7 +19709,7 @@ export namespace dms {
          */
         includeOpForFullLoad?: boolean;
         /**
-         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
          */
         maxFileSize?: number;
         /**
@@ -21494,7 +19737,7 @@ export namespace dms {
          */
         serverSideEncryptionKmsKeyId?: string;
         /**
-         * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+         * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          */
         serviceAccessRoleArn?: string;
         /**
@@ -21985,7 +20228,6 @@ export namespace ebs {
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
@@ -22000,7 +20242,6 @@ export namespace ebs {
          *     }],
          * });
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         name: string;
         /**
@@ -22298,45 +20539,14 @@ export namespace ec2 {
     }
 
     export interface DefaultNetworkAclIngress {
-        /**
-         * The action to take.
-         */
         action: string;
-        /**
-         * The CIDR block to match. This must be a valid network mask.
-         */
         cidrBlock?: string;
-        /**
-         * The from port to match.
-         */
         fromPort: number;
-        /**
-         * The ICMP type code to be used. Default 0.
-         */
         icmpCode?: number;
-        /**
-         * The ICMP type to be used. Default 0.
-         */
         icmpType?: number;
-        /**
-         * The IPv6 CIDR block.
-         *
-         * > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-         */
         ipv6CidrBlock?: string;
-        /**
-         * The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
-         */
         protocol: string;
-        /**
-         * The rule number. Used for ordering.
-         */
         ruleNo: number;
-        /**
-         * The to port to match.
-         *
-         * The following arguments are optional:
-         */
         toPort: number;
     }
 
@@ -22435,41 +20645,17 @@ export namespace ec2 {
     }
 
     export interface DefaultSecurityGroupIngress {
-        /**
-         * List of CIDR blocks.
-         */
         cidrBlocks?: string[];
         /**
-         * Description of this rule.
+         * Description of the security group.
          */
         description?: string;
-        /**
-         * Start port (or ICMP type number if protocol is `icmp`)
-         */
         fromPort: number;
-        /**
-         * List of IPv6 CIDR blocks.
-         */
         ipv6CidrBlocks?: string[];
-        /**
-         * List of prefix list IDs (for allowing access to VPC endpoints)
-         */
         prefixListIds?: string[];
-        /**
-         * Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-         */
         protocol: string;
-        /**
-         * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-         */
         securityGroups?: string[];
-        /**
-         * Whether the security group itself will be added as a source to this egress rule.
-         */
         self?: boolean;
-        /**
-         * End range port (or ICMP code if protocol is `icmp`).
-         */
         toPort: number;
     }
 
@@ -22494,7 +20680,7 @@ export namespace ec2 {
          */
         instanceIds: string[];
         /**
-         * Instance type.
+         * The instance type.
          */
         instanceType: string;
         /**
@@ -22670,88 +20856,88 @@ export namespace ec2 {
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * Maximum. Set to `0` to exclude instance types with accelerators.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * Minimum.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
          */
         min: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
@@ -23750,9 +21936,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23776,9 +21959,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23793,9 +21973,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23805,9 +21982,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23817,9 +21991,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23829,9 +22000,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23841,9 +22009,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23853,9 +22018,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23865,9 +22027,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23877,9 +22036,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23889,9 +22045,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23901,9 +22054,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23918,9 +22068,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23930,9 +22077,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23955,9 +22099,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23981,9 +22122,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -23993,9 +22131,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24005,9 +22140,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24017,9 +22149,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24029,9 +22158,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24041,9 +22167,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24063,9 +22186,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24075,9 +22195,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24087,9 +22204,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24099,9 +22213,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24111,9 +22222,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24171,9 +22279,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24183,9 +22288,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24195,9 +22297,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24207,9 +22306,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24282,9 +22378,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24294,9 +22387,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24306,9 +22396,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24328,9 +22415,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24377,9 +22461,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24389,9 +22470,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24401,9 +22479,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24413,9 +22488,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24488,9 +22560,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24500,9 +22569,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24512,9 +22578,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24534,9 +22597,6 @@ export namespace ec2 {
          */
         arn: string;
         id: string;
-        /**
-         * Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-         */
         name: string;
     }
 
@@ -24799,7 +22859,6 @@ export namespace ec2 {
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
@@ -24811,7 +22870,6 @@ export namespace ec2 {
          *     }],
          * });
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         name: string;
         /**
@@ -25446,7 +23504,7 @@ export namespace ec2 {
          */
         deleteOnTermination?: boolean;
         /**
-         * Name of the device to mount.
+         * Device name, e.g., `/dev/sdh` or `xvdh`.
          */
         deviceName: string;
         /**
@@ -25871,7 +23929,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum.
+         * Maximum. Set to `0` to exclude instance types with accelerators.
          */
         max?: number;
         /**
@@ -25904,11 +23962,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: number;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: number;
     }
@@ -25948,11 +24006,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: number;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: number;
     }
@@ -27114,16 +25172,10 @@ export namespace ec2 {
     }
 
     export interface PeeringConnectionOptionsAccepter {
-        /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-         */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface PeeringConnectionOptionsRequester {
-        /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
-         */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
@@ -27275,18 +25327,12 @@ export namespace ec2 {
     export interface SpotFleetRequestLaunchSpecification {
         ami: string;
         associatePublicIpAddress?: boolean;
-        /**
-         * The availability zone in which to place the request.
-         */
         availabilityZone: string;
         ebsBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice[];
         ebsOptimized?: boolean;
         ephemeralBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[];
         iamInstanceProfile?: string;
         iamInstanceProfileArn?: string;
-        /**
-         * The type of instance to request.
-         */
         instanceType: string;
         keyName: string;
         monitoring?: boolean;
@@ -27297,9 +25343,6 @@ export namespace ec2 {
          * The maximum bid price per unit hour.
          */
         spotPrice?: string;
-        /**
-         * The subnet in which to launch the requested instance.
-         */
         subnetId: string;
         /**
          * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -27307,9 +25350,6 @@ export namespace ec2 {
         tags?: {[key: string]: string};
         userData?: string;
         vpcSecurityGroupIds: string[];
-        /**
-         * The capacity added to the fleet by a fulfilled request.
-         */
         weightedCapacity?: string;
     }
 
@@ -27553,7 +25593,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum.
+         * Maximum. Set to `0` to exclude instance types with accelerators.
          */
         max?: number;
         /**
@@ -27586,11 +25626,11 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: number;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: number;
     }
@@ -27630,11 +25670,11 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: number;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: number;
     }
@@ -27874,9 +25914,6 @@ export namespace ec2 {
          * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: boolean;
-        /**
-         * Name of the device to mount.
-         */
         deviceName: string;
         /**
          * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
@@ -28004,10 +26041,6 @@ export namespace ec2 {
     }
 
     export interface VpcPeeringConnectionAccepter {
-        /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
-         */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
@@ -28028,10 +26061,6 @@ export namespace ec2 {
     }
 
     export interface VpcPeeringConnectionRequester {
-        /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
-         */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
@@ -29971,7 +28000,7 @@ export namespace eks {
 
     export interface NodeGroupResourceAutoscalingGroup {
         /**
-         * Name of the EC2 Launch Template. Conflicts with `id`.
+         * Name of the AutoScaling Group.
          */
         name: string;
     }
@@ -30129,39 +28158,18 @@ export namespace elasticache {
     }
 
     export interface ServerlessCacheCacheUsageLimits {
-        /**
-         * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
-         */
         dataStorage?: outputs.elasticache.ServerlessCacheCacheUsageLimitsDataStorage;
-        /**
-         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
-         */
         ecpuPerSeconds?: outputs.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecond[];
     }
 
     export interface ServerlessCacheCacheUsageLimitsDataStorage {
-        /**
-         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         */
         maximum?: number;
-        /**
-         * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         */
         minimum?: number;
-        /**
-         * The unit that the storage is measured in, in GB.
-         */
         unit: string;
     }
 
     export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
-        /**
-         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         */
         maximum?: number;
-        /**
-         * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         */
         minimum?: number;
     }
 
@@ -31956,13 +29964,7 @@ export namespace emrcontainers {
     }
 
     export interface JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration {
-        /**
-         * The classification within a configuration.
-         */
         classification?: string;
-        /**
-         * A set of properties specified within a configuration classification.
-         */
         properties?: {[key: string]: string};
     }
 
@@ -32059,9 +30061,6 @@ export namespace emrcontainers {
     }
 
     export interface VirtualClusterContainerProviderInfoEksInfo {
-        /**
-         * The namespace where the EMR Containers cluster is running
-         */
         namespace?: string;
     }
 
@@ -32311,8 +30310,6 @@ export namespace evidently {
     export interface ProjectDataDeliveryCloudwatchLogs {
         /**
          * The name of the log group where the project stores evaluation events.
-         *
-         * The `s3Destination` block supports the following arguments:
          */
         logGroup?: string;
     }
@@ -32359,12 +30356,6 @@ export namespace finspace {
     }
 
     export interface KxClusterCacheStorageConfiguration {
-        /**
-         * Size of cache in Gigabytes.
-         *
-         * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-         * volume of data being cached, as noted in the example configuration.
-         */
         size: number;
         /**
          * Type of KDB database. The following types are available:
@@ -32604,7 +30595,7 @@ export namespace finspace {
          */
         size: number;
         /**
-         * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         * The type of the network attached storage.
          */
         type: string;
     }
@@ -32834,27 +30825,15 @@ export namespace fms {
 
 export namespace fsx {
     export interface DataRepositoryAssociationS3 {
-        /**
-         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-         */
         autoExportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoExportPolicy;
-        /**
-         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
-         */
         autoImportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoImportPolicy;
     }
 
     export interface DataRepositoryAssociationS3AutoExportPolicy {
-        /**
-         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-         */
         events: string[];
     }
 
     export interface DataRepositoryAssociationS3AutoImportPolicy {
-        /**
-         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-         */
         events: string[];
     }
 
@@ -33162,29 +31141,11 @@ export namespace fsx {
     }
 
     export interface OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
-        /**
-         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-         */
         dnsIps: string[];
-        /**
-         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-         */
         domainName: string;
-        /**
-         * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-         */
         fileSystemAdministratorsGroup?: string;
-        /**
-         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-         */
         organizationalUnitDistinguishedName?: string;
-        /**
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-         */
         password: string;
-        /**
-         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-         */
         username: string;
     }
 
@@ -33290,50 +31251,23 @@ export namespace fsx {
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriod {
-        /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-         */
         defaultRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention;
-        /**
-         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         */
         maximumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention;
-        /**
-         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-         */
         minimumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
-        /**
-         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-         */
         type: string;
-        /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-         */
         value?: number;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
-        /**
-         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-         */
         type: string;
-        /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-         */
         value?: number;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
-        /**
-         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-         */
         type: string;
-        /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-         */
         value?: number;
     }
 
@@ -34367,19 +32301,15 @@ export namespace glue {
 
     export interface CrawlerS3Target {
         /**
-         * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+         * The name of a connection which allows crawler to access data in S3 within a VPC.
          */
         connectionName?: string;
         /**
-         * A valid Amazon SQS ARN.
-         *
-         * > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-         *
-         * > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+         * The ARN of the dead-letter SQS queue.
          */
         dlqEventQueueArn?: string;
         /**
-         * A valid Amazon SQS ARN.
+         * The ARN of the SQS queue to receive S3 notifications from.
          */
         eventQueueArn?: string;
         /**
@@ -34387,7 +32317,7 @@ export namespace glue {
          */
         exclusions?: string[];
         /**
-         * The name of the DynamoDB table to crawl.
+         * The path to the Amazon S3 target.
          */
         path: string;
         /**
@@ -34899,17 +32829,8 @@ export namespace glue {
     }
 
     export interface PartitionStorageDescriptorColumn {
-        /**
-         * Free-form text comment.
-         */
         comment?: string;
-        /**
-         * The name of the Column.
-         */
         name: string;
-        /**
-         * The datatype of data in the Column.
-         */
         type?: string;
     }
 
@@ -35123,8 +33044,6 @@ export namespace guardduty {
         /**
          * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
          * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-         *
-         * The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
          */
         malwareProtection: outputs.guardduty.DetectorDatasourcesMalwareProtection;
         /**
@@ -35176,7 +33095,8 @@ export namespace guardduty {
 
     export interface DetectorDatasourcesS3Logs {
         /**
-         * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+         * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+         * Defaults to `true`.
          */
         enable: boolean;
     }
@@ -35310,7 +33230,7 @@ export namespace guardduty {
 
     export interface OrganizationConfigurationDatasourcesS3Logs {
         /**
-         * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
          */
         autoEnable: boolean;
     }
@@ -35418,13 +33338,7 @@ export namespace iam {
     }
 
     export interface GetPolicyDocumentStatementNotPrincipal {
-        /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-         */
         identifiers: string[];
-        /**
-         * Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-         */
         type: string;
     }
 
@@ -36717,7 +34631,7 @@ export namespace imagebuilder {
          */
         image: string;
         /**
-         * The name of the Workflow parameter.
+         * Name of the AMI.
          */
         name: string;
         /**
@@ -36934,13 +34848,7 @@ export namespace imagebuilder {
 
 export namespace inspector {
     export interface AssessmentTemplateEventSubscription {
-        /**
-         * The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-         */
         event: string;
-        /**
-         * The ARN of the SNS topic to which notifications are sent.
-         */
         topicArn: string;
     }
 
@@ -37300,7 +35208,7 @@ export namespace iot {
          */
         putItem?: outputs.iot.TopicRuleDynamodbv2PutItem;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the IAM role that grants access to the DynamoDB table.
          */
         roleArn: string;
     }
@@ -37463,7 +35371,7 @@ export namespace iot {
          */
         putItem?: outputs.iot.TopicRuleErrorActionDynamodbv2PutItem;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the IAM role that grants access to the DynamoDB table.
          */
         roleArn: string;
     }
@@ -37606,11 +35514,11 @@ export namespace iot {
 
     export interface TopicRuleErrorActionKafkaHeader {
         /**
-         * The name of the HTTP header.
+         * The key of the Kafka header.
          */
         key: string;
         /**
-         * The value of the HTTP header.
+         * The value of the Kafka header.
          */
         value: string;
     }
@@ -37640,8 +35548,6 @@ export namespace iot {
     export interface TopicRuleErrorActionRepublish {
         /**
          * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-         *
-         * The `s3` object takes the following arguments:
          */
         qos?: number;
         /**
@@ -37664,11 +35570,11 @@ export namespace iot {
          */
         cannedAcl?: string;
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: string;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the IAM role that grants access.
          */
         roleArn: string;
     }
@@ -37743,11 +35649,11 @@ export namespace iot {
 
     export interface TopicRuleErrorActionTimestreamDimension {
         /**
-         * The name of the rule.
+         * The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
          */
         name: string;
         /**
-         * The value of the HTTP header.
+         * The value to write in this column of the database record.
          */
         value: string;
     }
@@ -37758,7 +35664,7 @@ export namespace iot {
          */
         unit: string;
         /**
-         * The value of the HTTP header.
+         * An expression that returns a long epoch time value.
          */
         value: string;
     }
@@ -37871,11 +35777,11 @@ export namespace iot {
 
     export interface TopicRuleKafkaHeader {
         /**
-         * The name of the HTTP header.
+         * The key of the Kafka header.
          */
         key: string;
         /**
-         * The value of the HTTP header.
+         * The value of the Kafka header.
          */
         value: string;
     }
@@ -37905,8 +35811,6 @@ export namespace iot {
     export interface TopicRuleRepublish {
         /**
          * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-         *
-         * The `s3` object takes the following arguments:
          */
         qos?: number;
         /**
@@ -37929,11 +35833,11 @@ export namespace iot {
          */
         cannedAcl?: string;
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: string;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the IAM role that grants access.
          */
         roleArn: string;
     }
@@ -38008,11 +35912,11 @@ export namespace iot {
 
     export interface TopicRuleTimestreamDimension {
         /**
-         * The name of the rule.
+         * The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
          */
         name: string;
         /**
-         * The value of the HTTP header.
+         * The value to write in this column of the database record.
          */
         value: string;
     }
@@ -38023,7 +35927,7 @@ export namespace iot {
          */
         unit: string;
         /**
-         * The value of the HTTP header.
+         * An expression that returns a long epoch time value.
          */
         value: string;
     }
@@ -38039,11 +35943,6 @@ export namespace ivs {
     }
 
     export interface RecordingConfigurationDestinationConfigurationS3 {
-        /**
-         * S3 bucket name where recorded videos will be stored.
-         *
-         * The following arguments are optional:
-         */
         bucketName: string;
     }
 
@@ -38077,25 +35976,14 @@ export namespace ivschat {
     }
 
     export interface LoggingConfigurationDestinationConfigurationCloudwatchLogs {
-        /**
-         * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
-         */
         logGroupName: string;
     }
 
     export interface LoggingConfigurationDestinationConfigurationFirehose {
-        /**
-         * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-         */
         deliveryStreamName: string;
     }
 
     export interface LoggingConfigurationDestinationConfigurationS3 {
-        /**
-         * Name of the Amazon S3 bucket where chat activity will be logged.
-         *
-         * The following arguments are optional:
-         */
         bucketName: string;
     }
 
@@ -39354,7 +37242,7 @@ export namespace kinesis {
          */
         fileKey: string;
         /**
-         * The ARN of the IAM Role used to send application messages.
+         * The IAM Role ARN to read the data.
          */
         roleArn: string;
     }
@@ -39549,11 +37437,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -39578,7 +37467,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -39615,25 +37504,10 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
-        /**
-         * The ARN of the S3 bucket
-         */
         bucketArn: string;
-        /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-         */
         bufferingInterval?: number;
-        /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         */
         bufferingSize?: number;
-        /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
-        /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-         */
         compressionFormat?: string;
         /**
          * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
@@ -39647,37 +37521,24 @@ export namespace kinesis {
          * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          */
         dynamicPartitioningConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration;
-        /**
-         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-         */
         errorOutputPrefix?: string;
         /**
          * The file extension to override the default file extension (for example, `.json`).
          */
         fileExtension?: string;
-        /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
-         */
         kmsKeyArn?: string;
-        /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-         */
         prefix?: string;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration;
-        /**
-         * The ARN of the role used to access the Amazon MSK cluster.
-         */
         roleArn: string;
         /**
          * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
          */
         s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
          */
         s3BackupMode?: string;
     }
@@ -39920,42 +37781,14 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
-        /**
-         * The ARN of the S3 bucket
-         */
         bucketArn: string;
-        /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-         */
         bufferingInterval?: number;
-        /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         */
         bufferingSize?: number;
-        /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
-        /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-         */
         compressionFormat?: string;
-        /**
-         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-         */
         errorOutputPrefix?: string;
-        /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
-         */
         kmsKeyArn?: string;
-        /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-         */
         prefix?: string;
-        /**
-         * The ARN of the role used to access the Amazon MSK cluster.
-         */
         roleArn: string;
     }
 
@@ -40103,11 +37936,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -40132,7 +37966,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -40315,11 +38149,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -40344,7 +38179,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -40483,11 +38318,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -40512,7 +38348,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -40654,42 +38490,14 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
-        /**
-         * The ARN of the S3 bucket
-         */
         bucketArn: string;
-        /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-         */
         bufferingInterval?: number;
-        /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         */
         bufferingSize?: number;
-        /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
-        /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-         */
         compressionFormat?: string;
-        /**
-         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-         */
         errorOutputPrefix?: string;
-        /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
-         */
         kmsKeyArn?: string;
-        /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-         */
         prefix?: string;
-        /**
-         * The ARN of the role used to access the Amazon MSK cluster.
-         */
         roleArn: string;
     }
 
@@ -40714,11 +38522,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -40743,7 +38552,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -40881,11 +38690,12 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -40910,7 +38720,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * The ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -40996,8 +38806,6 @@ export namespace kinesisanalyticsv2 {
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation;
         /**
          * The text-format code for the application.
-         *
-         * The `s3ContentLocation` object supports the following:
          */
         textContent?: string;
     }
@@ -41378,8 +39186,6 @@ export namespace kinesisanalyticsv2 {
         recordColumns: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn[];
         /**
          * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-         *
-         * The `s3ReferenceDataSource` object supports the following:
          */
         recordEncoding?: string;
         /**
@@ -41445,11 +39251,11 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
         /**
-         * The ARN for the S3 bucket containing the application code.
+         * The ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
-         * The file key for the object containing the application code.
+         * The object key name containing the reference data.
          */
         fileKey: string;
     }
@@ -41811,9 +39617,6 @@ export namespace lakeformation {
          * The following arguments are optional:
          */
         name: string;
-        /**
-         * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-         */
         wildcard?: boolean;
     }
 
@@ -42167,9 +39970,6 @@ export namespace lambda {
     }
 
     export interface EventSourceMappingDestinationConfigOnFailure {
-        /**
-         * The Amazon Resource Name (ARN) of the destination resource.
-         */
         destinationArn: string;
     }
 
@@ -42196,9 +39996,6 @@ export namespace lambda {
     }
 
     export interface EventSourceMappingFilterCriteriaFilter {
-        /**
-         * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-         */
         pattern?: string;
     }
 
@@ -42267,16 +40064,10 @@ export namespace lambda {
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnFailure {
-        /**
-         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-         */
         destination: string;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnSuccess {
-        /**
-         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-         */
         destination: string;
     }
 
@@ -43012,9 +40803,6 @@ export namespace lb {
     }
 
     export interface ListenerRuleConditionHostHeader {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -43030,16 +40818,10 @@ export namespace lb {
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -43055,9 +40837,6 @@ export namespace lb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        /**
-         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         */
         values: string[];
     }
 
@@ -43205,17 +40984,7 @@ export namespace lb {
 
 export namespace lex {
     export interface BotAbortStatement {
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
-         */
         messages: outputs.lex.BotAbortStatementMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-         */
         responseCard?: string;
     }
 
@@ -43270,21 +41039,8 @@ export namespace lex {
     }
 
     export interface BotClarificationPrompt {
-        /**
-         * The number of times to prompt the user for information.
-         */
         maxAttempts: number;
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
-         */
         messages: outputs.lex.BotClarificationPromptMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-         */
         responseCard?: string;
     }
 
@@ -43321,17 +41077,7 @@ export namespace lex {
     }
 
     export interface IntentConclusionStatement {
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message. Must contain between 1 and 15 messages.
-         */
         messages: outputs.lex.IntentConclusionStatementMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         */
         responseCard?: string;
     }
 
@@ -43352,21 +41098,8 @@ export namespace lex {
     }
 
     export interface IntentConfirmationPrompt {
-        /**
-         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-         */
         maxAttempts: number;
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message. Must contain between 1 and 15 messages.
-         */
         messages: outputs.lex.IntentConfirmationPromptMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         */
         responseCard?: string;
     }
 
@@ -43387,15 +41120,7 @@ export namespace lex {
     }
 
     export interface IntentDialogCodeHook {
-        /**
-         * The version of the request-response that you want Amazon Lex to use
-         * to invoke your Lambda function. For more information, see
-         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
-         */
         messageVersion: string;
-        /**
-         * The Amazon Resource Name (ARN) of the Lambda function.
-         */
         uri: string;
     }
 
@@ -43448,17 +41173,7 @@ export namespace lex {
     }
 
     export interface IntentFollowUpPromptRejectionStatement {
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message. Must contain between 1 and 15 messages.
-         */
         messages: outputs.lex.IntentFollowUpPromptRejectionStatementMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         */
         responseCard?: string;
     }
 
@@ -43505,17 +41220,7 @@ export namespace lex {
     }
 
     export interface IntentRejectionStatement {
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message. Must contain between 1 and 15 messages.
-         */
         messages: outputs.lex.IntentRejectionStatementMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         */
         responseCard?: string;
     }
 
@@ -43584,21 +41289,8 @@ export namespace lex {
     }
 
     export interface IntentSlotValueElicitationPrompt {
-        /**
-         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-         */
         maxAttempts: number;
-        /**
-         * A set of messages, each of which provides a message string and its type.
-         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message. Must contain between 1 and 15 messages.
-         */
         messages: outputs.lex.IntentSlotValueElicitationPromptMessage[];
-        /**
-         * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         */
         responseCard?: string;
     }
 
@@ -43827,21 +41519,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -43979,9 +41659,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43994,9 +41671,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -44093,21 +41767,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -44215,9 +41877,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44230,9 +41889,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -44329,21 +41985,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -44440,9 +42084,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44455,9 +42096,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -44657,9 +42295,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44672,9 +42307,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -44771,21 +42403,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -44893,9 +42513,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44908,9 +42525,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -45007,21 +42621,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -45118,9 +42720,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45133,9 +42732,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -45232,21 +42828,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -45384,9 +42968,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45399,9 +42980,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -45498,21 +43076,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -45620,9 +43186,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45635,9 +43198,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -45734,21 +43294,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -45845,9 +43393,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45860,9 +43405,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -45959,21 +43501,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -46111,9 +43641,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46126,9 +43653,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -46225,21 +43749,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -46347,9 +43859,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46362,9 +43871,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -46461,21 +43967,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -46572,9 +44066,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46587,9 +44078,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -46686,21 +44174,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -46838,9 +44314,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46853,9 +44326,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -46952,21 +44422,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -47074,9 +44532,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47089,9 +44544,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -47188,21 +44640,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -47299,9 +44739,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47314,9 +44751,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -47413,21 +44847,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -47565,9 +44987,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47580,9 +44999,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -47679,21 +45095,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -47801,9 +45205,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47816,9 +45217,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -47915,21 +45313,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -48026,9 +45412,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48041,9 +45424,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -48140,21 +45520,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -48303,9 +45671,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48318,9 +45683,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -48417,21 +45779,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -48539,9 +45889,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48554,9 +45901,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -48653,21 +45997,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -48764,9 +46096,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48779,9 +46108,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -48878,21 +46204,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -49052,21 +46366,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
     }
 
@@ -49349,21 +46651,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -49515,21 +46805,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -49706,9 +46984,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -49721,9 +46996,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -49820,21 +47092,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -49942,9 +47202,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -49957,9 +47214,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -50056,21 +47310,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -50167,9 +47409,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -50182,9 +47421,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -50281,21 +47517,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -50433,9 +47657,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -50448,9 +47669,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -50547,21 +47765,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -50669,9 +47875,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -50684,9 +47887,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -50783,21 +47983,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -50894,9 +48082,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -50909,9 +48094,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -51008,21 +48190,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -51160,9 +48330,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -51175,9 +48342,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -51274,21 +48438,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -51396,9 +48548,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -51411,9 +48560,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -51510,21 +48656,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -51621,9 +48755,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -51636,9 +48767,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -51735,21 +48863,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -51964,9 +49080,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -51979,9 +49092,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -52078,21 +49188,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -52200,9 +49298,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -52215,9 +49310,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -52314,21 +49406,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -52425,9 +49505,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -52440,9 +49517,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -52539,21 +49613,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -52691,9 +49753,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -52706,9 +49765,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -52805,21 +49861,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -52927,9 +49971,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -52942,9 +49983,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -53041,21 +50079,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -53152,9 +50178,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -53167,9 +50190,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -53266,21 +50286,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -53418,9 +50426,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -53433,9 +50438,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -53532,21 +50534,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -53654,9 +50644,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -53669,9 +50656,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -53768,21 +50752,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -53879,9 +50851,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -53894,9 +50863,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -53993,21 +50959,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -54145,9 +51099,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -54160,9 +51111,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -54259,21 +51207,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -54381,9 +51317,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -54396,9 +51329,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -54495,21 +51425,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -54657,21 +51575,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation {
-        /**
-         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         */
         customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload;
-        /**
-         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         */
         imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard;
-        /**
-         * Configuration block for a message in plain text format. See `plainTextMessage`.
-         */
         plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage;
-        /**
-         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         */
         ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage;
     }
 
@@ -54768,9 +51674,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingNextStepIntentSlot {
-        /**
-         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         */
         mapBlockKey: string;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -54783,9 +51686,6 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingNextStepIntentSlotValue {
-        /**
-         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         */
         interpretedValue?: string;
     }
 
@@ -54910,17 +51810,8 @@ export namespace lex {
     }
 
     export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
-        /**
-         * KMS key required to decrypt the contents of the grammar, if any.
-         */
         kmsKeyArn: string;
-        /**
-         * Name of the Amazon S3 bucket that contains the grammar source.
-         */
         s3BucketName: string;
-        /**
-         * Path to the grammar in the Amazon S3 bucket.
-         */
         s3ObjectKey: string;
     }
 
@@ -54936,9 +51827,6 @@ export namespace lex {
     }
 
     export interface V2modelsSlotTypeSlotTypeValuesSynonym {
-        /**
-         * Value that can be used for a slot type.
-         */
         value: string;
     }
 
@@ -54977,10 +51865,6 @@ export namespace lex {
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
-        /**
-         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
-         */
         pattern: string;
     }
 
@@ -55353,7 +52237,6 @@ export namespace licensemanager {
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
@@ -55365,7 +52248,6 @@ export namespace licensemanager {
          *     }],
          * });
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         name: string;
         /**
@@ -55485,7 +52367,6 @@ export namespace licensemanager {
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
@@ -55497,7 +52378,6 @@ export namespace licensemanager {
          *     }],
          * });
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         name: string;
         /**
@@ -55705,7 +52585,7 @@ export namespace lightsail {
          */
         availabilityZone: string;
         /**
-         * The AWS Region name of the origin resource.
+         * The AWS Region name.
          */
         regionName: string;
     }
@@ -56257,8 +53137,6 @@ export namespace macie2 {
         dailySchedule?: boolean;
         /**
          * Specifies a monthly recurrence pattern for running the job.
-         *
-         * The `s3JobDefinition` object supports the following:
          */
         monthlySchedule: number;
         /**
@@ -56421,9 +53299,6 @@ export namespace medialive {
          * Audio codec settings. See Audio Codec Settings for more details.
          */
         codecSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettings;
-        /**
-         * Selects a specific three-letter language code from within an audio source.
-         */
         languageCode: string;
         languageCodeControl: string;
         /**
@@ -56431,9 +53306,6 @@ export namespace medialive {
          */
         name: string;
         remixSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettings;
-        /**
-         * Stream name RTMP destinations (URLs of type rtmp://)
-         */
         streamName: string;
     }
 
@@ -56457,17 +53329,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
-        /**
-         * Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
-         */
         nielsenCbetSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings;
-        /**
-         * Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
-         */
         nielsenDistributionType: string;
-        /**
-         * Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
-         */
         nielsenNaesIiNwSettings: outputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting[];
     }
 
@@ -56492,21 +53355,9 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettings {
-        /**
-         * Aac Settings. See AAC Settings for more details.
-         */
         aacSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings;
-        /**
-         * Ac3 Settings. See AC3 Settings for more details.
-         */
         ac3Settings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings;
-        /**
-         * Eac3 Atmos Settings. See EAC3 Atmos Settings
-         */
         eac3AtmosSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings;
-        /**
-         * Eac3 Settings. See EAC3 Settings
-         */
         eac3Settings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings;
         mp2Settings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings;
         passThroughSettings?: outputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings;
@@ -56562,7 +53413,7 @@ export namespace medialive {
          */
         bitstreamMode: string;
         /**
-         * Mono, Stereo, or 5.1 channel layout.
+         * Dolby Digital coding mode.
          */
         codingMode: string;
         /**
@@ -56589,11 +53440,11 @@ export namespace medialive {
          */
         bitrate: number;
         /**
-         * Mono, Stereo, or 5.1 channel layout.
+         * Dolby Digital Plus with Dolby Atmos coding mode.
          */
         codingMode: string;
         /**
-         * Sets the dialnorm of the output.
+         * Sets the dialnorm for the output.
          */
         dialnorm: number;
         /**
@@ -56628,34 +53479,19 @@ export namespace medialive {
          */
         bitstreamMode: string;
         /**
-         * Mono, Stereo, or 5.1 channel layout.
+         * Dolby Digital Plus coding mode.
          */
         codingMode: string;
         dcFilter: string;
-        /**
-         * Sets the dialnorm of the output.
-         */
         dialnorm: number;
-        /**
-         * Sets the Dolby dynamic range compression profile.
-         */
         drcLine: string;
-        /**
-         * Sets the profile for heavy Dolby dynamic range compression.
-         */
         drcRf: string;
         lfeControl: string;
-        /**
-         * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-         */
         lfeFilter: string;
         loRoCenterMixLevel: number;
         loRoSurroundMixLevel: number;
         ltRtCenterMixLevel: number;
         ltRtSurroundMixLevel: number;
-        /**
-         * Metadata control.
-         */
         metadataControl: string;
         passthroughControl: string;
         phaseControl: string;
@@ -56665,17 +53501,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
-        /**
-         * Average bitrate in bits/second.
-         */
         bitrate: number;
-        /**
-         * Mono, Stereo, or 5.1 channel layout.
-         */
         codingMode: string;
-        /**
-         * Sample rate in Hz.
-         */
         sampleRate: number;
     }
 
@@ -56684,13 +53511,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
         bitDepth: number;
-        /**
-         * Mono, Stereo, or 5.1 channel layout.
-         */
         codingMode: string;
-        /**
-         * Sample rate in Hz.
-         */
         sampleRate: number;
     }
 
@@ -57083,17 +53904,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
-        /**
-         * Key used to extract the password from EC2 Parameter store.
-         */
         passwordParam: string;
-        /**
-         * Path to a file accessible to the live stream.
-         */
         uri: string;
-        /**
-         * . Username to be used.
-         */
         username: string;
     }
 
@@ -57224,9 +54036,6 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
-        /**
-         * A director and base filename where archive files should be written. See Destination for more details.
-         */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination;
         frameCaptureCdnSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
     }
@@ -57243,16 +54052,10 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings {
-        /**
-         * Specify the canned ACL to apply to each S3 request.
-         */
         cannedAcl?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
-        /**
-         * The ad marker type for this output group.
-         */
         adMarkers: string[];
         baseUrlContent: string;
         baseUrlContent1: string;
@@ -57263,9 +54066,6 @@ export namespace medialive {
         clientCache: string;
         codecSpecification: string;
         constantIv: string;
-        /**
-         * A director and base filename where archive files should be written. See Destination for more details.
-         */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination;
         directoryStructure: string;
         discontinuityTags: string;
@@ -57275,9 +54075,6 @@ export namespace medialive {
         iframeOnlyPlaylists: string;
         incompleteSegmentBehavior: string;
         indexNSegments: number;
-        /**
-         * Controls the behavior of the RTMP group if input becomes unavailable.
-         */
         inputLossAction: string;
         ivInManifest: string;
         ivSource: string;
@@ -57297,9 +54094,6 @@ export namespace medialive {
         segmentLength: number;
         segmentsPerSubdirectory: number;
         streamInfResolution: string;
-        /**
-         * Indicates ID3 frame that has the timecode.
-         */
         timedMetadataId3Frame: string;
         timedMetadataId3Period: number;
         timestampDeltaMilliseconds: number;
@@ -57308,13 +54102,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
         captionChannel: number;
-        /**
-         * Selects a specific three-letter language code from within an audio source.
-         */
         languageCode: string;
-        /**
-         * Human readable information to indicate captions available for players (eg. English, or Spanish).
-         */
         languageDescription: string;
     }
 
@@ -57334,78 +54122,39 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
-        /**
-         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
         httpTransferMode: string;
-        /**
-         * Number of retry attempts.
-         */
         numRetries?: number;
-        /**
-         * Number of seconds to wait until a restart is initiated.
-         */
         restartDelay?: number;
         salt: string;
         token: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
-        /**
-         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
-        /**
-         * Number of retry attempts.
-         */
         numRetries?: number;
-        /**
-         * Number of seconds to wait until a restart is initiated.
-         */
         restartDelay?: number;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings {
-        /**
-         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
         mediaStoreStorageClass: string;
-        /**
-         * Number of retry attempts.
-         */
         numRetries?: number;
-        /**
-         * Number of seconds to wait until a restart is initiated.
-         */
         restartDelay?: number;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings {
-        /**
-         * Specify the canned ACL to apply to each S3 request.
-         */
         cannedAcl?: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings {
-        /**
-         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         */
         connectionRetryInterval?: number;
         filecacheDuration?: number;
         httpTransferMode: string;
-        /**
-         * Number of retry attempts.
-         */
         numRetries?: number;
-        /**
-         * Number of seconds to wait until a restart is initiated.
-         */
         restartDelay?: number;
     }
 
@@ -57419,17 +54168,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer {
-        /**
-         * Key used to extract the password from EC2 Parameter store.
-         */
         passwordParam: string;
-        /**
-         * Path to a file accessible to the live stream.
-         */
         uri: string;
-        /**
-         * . Username to be used.
-         */
         username: string;
     }
 
@@ -57450,34 +54190,16 @@ export namespace medialive {
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
         acquisitionPointId: string;
         audioOnlyTimecodeControl: string;
-        /**
-         * Setting to allow self signed or verified RTMP certificates.
-         */
         certificateMode: string;
-        /**
-         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         */
         connectionRetryInterval: number;
-        /**
-         * A director and base filename where archive files should be written. See Destination for more details.
-         */
         destination: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination;
         eventId: string;
         eventIdMode: string;
         eventStopBehavior: string;
         filecacheDuration?: number;
         fragmentLength: number;
-        /**
-         * Controls the behavior of the RTMP group if input becomes unavailable.
-         */
         inputLossAction: string;
-        /**
-         * Number of retry attempts.
-         */
         numRetries?: number;
-        /**
-         * Number of seconds to wait until a restart is initiated.
-         */
         restartDelay?: number;
         segmentationMode: string;
         sendDelayMs: number;
@@ -57601,9 +54323,6 @@ export namespace medialive {
         audioFramesPerPes?: number;
         audioPids: string;
         audioStreamType?: string;
-        /**
-         * Average bitrate in bits/second.
-         */
         bitrate?: number;
         bufferModel?: string;
         ccDescriptor?: string;
@@ -57635,9 +54354,6 @@ export namespace medialive {
         rateMode?: string;
         scte27Pids: string;
         scte35Control?: string;
-        /**
-         * PID from which to read SCTE-35 messages.
-         */
         scte35Pid: string;
         segmentationMarkers?: string;
         segmentationStyle?: string;
@@ -57669,18 +54385,12 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings {
-        /**
-         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         */
         nameModifier: string;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
         h265PackagingType: string;
         hlsSettings: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings;
-        /**
-         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         */
         nameModifier: string;
         segmentModifier: string;
     }
@@ -57700,17 +54410,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage {
-        /**
-         * Key used to extract the password from EC2 Parameter store.
-         */
         passwordParam: string;
-        /**
-         * Path to a file accessible to the live stream.
-         */
         uri: string;
-        /**
-         * . Username to be used.
-         */
         username: string;
     }
 
@@ -57741,9 +54442,6 @@ export namespace medialive {
         pmtPid: string;
         programNum: number;
         scte35Behavior: string;
-        /**
-         * PID from which to read SCTE-35 messages.
-         */
         scte35Pid: string;
         timedMetadataBehavior: string;
         timedMetadataPid: string;
@@ -57756,9 +54454,6 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
         h265PackagingType: string;
-        /**
-         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         */
         nameModifier: string;
     }
 
@@ -57834,9 +54529,6 @@ export namespace medialive {
         audioFramesPerPes?: number;
         audioPids: string;
         audioStreamType?: string;
-        /**
-         * Average bitrate in bits/second.
-         */
         bitrate?: number;
         bufferModel?: string;
         ccDescriptor?: string;
@@ -57868,9 +54560,6 @@ export namespace medialive {
         rateMode?: string;
         scte27Pids: string;
         scte35Control?: string;
-        /**
-         * PID from which to read SCTE-35 messages.
-         */
         scte35Pid: string;
         segmentationMarkers?: string;
         segmentationStyle?: string;
@@ -57963,13 +54652,7 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettings {
-        /**
-         * Frame capture settings. See Frame Capture Settings for more details.
-         */
         frameCaptureSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings;
-        /**
-         * H264 settings. See H264 Settings for more details.
-         */
         h264Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings;
         h265Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings;
     }
@@ -58012,7 +54695,7 @@ export namespace medialive {
          */
         entropyEncoding: string;
         /**
-         * Filters to apply to an encode. See H265 Filter Settings for more details.
+         * Filters to apply to an encode. See H264 Filter Settings for more details.
          */
         filterSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings;
         /**
@@ -58057,7 +54740,7 @@ export namespace medialive {
          */
         gopSizeUnits: string;
         /**
-         * H265 level.
+         * H264 level.
          */
         level: string;
         /**
@@ -58086,7 +54769,7 @@ export namespace medialive {
          */
         parNumerator: number;
         /**
-         * AAC profile.
+         * H264 profile.
          */
         profile: string;
         /**
@@ -58098,7 +54781,7 @@ export namespace medialive {
          */
         qvbrQualityLevel: number;
         /**
-         * The rate control mode.
+         * Rate control mode.
          */
         rateControlMode: string;
         /**
@@ -58140,9 +54823,6 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
-        /**
-         * Temporal filter settings. See Temporal Filter Settings
-         */
         temporalFilterSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings;
     }
 
@@ -58237,7 +54917,7 @@ export namespace medialive {
          */
         parNumerator?: number;
         /**
-         * AAC profile.
+         * H265 profile.
          */
         profile: string;
         /**
@@ -58245,7 +54925,7 @@ export namespace medialive {
          */
         qvbrQualityLevel?: number;
         /**
-         * The rate control mode.
+         * Rate control mode.
          */
         rateControlMode: string;
         /**
@@ -58275,25 +54955,10 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
-        /**
-         * Sets the colorspace metadata to be passed through.
-         */
         colorSpacePassthroughSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings;
-        /**
-         * Set the colorspace to Dolby Vision81.
-         */
         dolbyVision81Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings;
-        /**
-         * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
-         */
         hdr10Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings;
-        /**
-         * Set the colorspace to Rec. 601.
-         */
         rec601Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings;
-        /**
-         * Set the colorspace to Rec. 709.
-         */
         rec709Settings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings;
     }
 
@@ -58304,13 +54969,7 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
-        /**
-         * Sets the MaxCLL value for HDR10.
-         */
         maxCll?: number;
-        /**
-         * Sets the MaxFALL value for HDR10.
-         */
         maxFall?: number;
     }
 
@@ -58321,9 +54980,6 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
-        /**
-         * Temporal filter settings. See Temporal Filter Settings
-         */
         temporalFilterSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings;
     }
 
@@ -58339,17 +54995,8 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
-        /**
-         * Set a prefix on the burned in timecode.
-         */
         prefix: string;
-        /**
-         * Sets the size of the burned in timecode.
-         */
         timecodeBurninFontSize: string;
-        /**
-         * Sets the position of the burned in timecode.
-         */
         timecodeBurninPosition: string;
     }
 
@@ -58392,9 +55039,6 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
-        /**
-         * Failover condition type-specific settings. See Failover Condition Settings for more details.
-         */
         failoverConditionSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings;
     }
 
@@ -58414,31 +55058,16 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
-        /**
-         * The name of the audio selector used as the source for this AudioDescription.
-         */
         audioSelectorName: string;
-        /**
-         * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-         */
         audioSilenceThresholdMsec?: number;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
-        /**
-         * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
-         */
         inputLossThresholdMsec?: number;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
-        /**
-         * A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
-         */
         blackDetectThreshold?: number;
-        /**
-         * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
-         */
         videoBlackThresholdMsec?: number;
     }
 
@@ -58487,28 +55116,13 @@ export namespace medialive {
          * The following arguments are optional:
          */
         name: string;
-        /**
-         * The audio selector settings. See Audio Selector Settings for more details.
-         */
         selectorSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
-        /**
-         * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-         */
         audioHlsRenditionSelection?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection;
-        /**
-         * Audio Language Selection. See Audio Language Selection for more details.
-         */
         audioLanguageSelection?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection;
-        /**
-         * Audio Pid Selection. See Audio PID Selection for more details.
-         */
         audioPidSelection?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection;
-        /**
-         * Audio Track Selection. See Audio Track Selection for more details.
-         */
         audioTrackSelection?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection;
     }
 
@@ -58560,16 +55174,10 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
-        /**
-         * 1-based integer value that maps to a specific audio track.
-         */
         track: number;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelector {
-        /**
-         * Selects a specific three-letter language code from within an audio source.
-         */
         languageCode?: string;
         /**
          * Name of the Channel.
@@ -58577,40 +55185,16 @@ export namespace medialive {
          * The following arguments are optional:
          */
         name: string;
-        /**
-         * The audio selector settings. See Audio Selector Settings for more details.
-         */
         selectorSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
-        /**
-         * Ancillary Source Settings. See Ancillary Source Settings for more details.
-         */
         ancillarySourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings;
-        /**
-         * ARIB Source Settings.
-         */
         aribSourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings;
-        /**
-         * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
-         */
         dvbSubSourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings;
-        /**
-         * Embedded Source Settings. See Embedded Source Settings for more details.
-         */
         embeddedSourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings;
-        /**
-         * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
-         */
         scte20SourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings;
-        /**
-         * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
-         */
         scte27SourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings;
-        /**
-         * Teletext Source Settings. See Teletext Source Settings for more details.
-         */
         teletextSourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings;
     }
 
@@ -58651,24 +55235,12 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
-        /**
-         * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-         */
         convert608To708?: string;
-        /**
-         * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-         */
         source608ChannelNumber?: number;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
-        /**
-         * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-         */
         ocrLanguage?: string;
-        /**
-         * Selects a specific PID from within a source.
-         */
         pid?: number;
     }
 
@@ -58684,21 +55256,9 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
-        /**
-         * See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
-         */
         height: number;
-        /**
-         * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
-         */
         leftOffset: number;
-        /**
-         * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
-         */
         topOffset: number;
-        /**
-         * See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
-         */
         width: number;
     }
 
@@ -58870,21 +55430,9 @@ export namespace medialive {
     }
 
     export interface MultiplexProgramMultiplexProgramSettings {
-        /**
-         * Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
-         */
         preferredChannelPipeline: string;
-        /**
-         * Unique program number.
-         */
         programNumber: number;
-        /**
-         * Service Descriptor. See Service Descriptor for more details.
-         */
         serviceDescriptor?: outputs.medialive.MultiplexProgramMultiplexProgramSettingsServiceDescriptor;
-        /**
-         * Video settings. See Video Settings for more details.
-         */
         videoSettings?: outputs.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettings;
     }
 
@@ -59499,20 +56047,11 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfo {
-        /**
-         * Access control settings for brokers. See below.
-         */
         publicAccess: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
-        /**
-         * VPC connectivity access control for brokers. See below.
-         */
         vpcConnectivity: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
-        /**
-         * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-         */
         type: string;
     }
 
@@ -59535,42 +56074,21 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
-        /**
-         * Enables IAM client authentication. Defaults to `false`.
-         */
         iam: boolean;
-        /**
-         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-         */
         scram: boolean;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfo {
-        /**
-         * A block that contains EBS volume information. See below.
-         */
         ebsStorageInfo?: outputs.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
-        /**
-         * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-         */
         provisionedThroughput?: outputs.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput;
-        /**
-         * The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-         */
         volumeSize?: number;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
-        /**
-         * Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         */
         enabled?: boolean;
-        /**
-         * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
-         */
         volumeThroughput?: number;
     }
 
@@ -59590,20 +56108,11 @@ export namespace msk {
     }
 
     export interface ClusterClientAuthenticationSasl {
-        /**
-         * Enables IAM client authentication. Defaults to `false`.
-         */
         iam?: boolean;
-        /**
-         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-         */
         scram?: boolean;
     }
 
     export interface ClusterClientAuthenticationTls {
-        /**
-         * List of ACM Certificate Authority Amazon Resource Names (ARNs).
-         */
         certificateAuthorityArns?: string[];
     }
 
@@ -59630,13 +56139,7 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
-        /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-         */
         clientBroker?: string;
-        /**
-         * Whether data communication among broker nodes is encrypted. Default value: `true`.
-         */
         inCluster?: boolean;
     }
 
@@ -59654,39 +56157,18 @@ export namespace msk {
     }
 
     export interface ClusterLoggingInfoBrokerLogsCloudwatchLogs {
-        /**
-         * Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         */
         enabled: boolean;
-        /**
-         * Name of the Cloudwatch Log Group to deliver logs to.
-         */
         logGroup?: string;
     }
 
     export interface ClusterLoggingInfoBrokerLogsFirehose {
-        /**
-         * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-         */
         deliveryStream?: string;
-        /**
-         * Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         */
         enabled: boolean;
     }
 
     export interface ClusterLoggingInfoBrokerLogsS3 {
-        /**
-         * Name of the S3 bucket to deliver logs to.
-         */
         bucket?: string;
-        /**
-         * Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         */
         enabled: boolean;
-        /**
-         * Prefix to append to the folder name.
-         */
         prefix?: string;
     }
 
@@ -59698,27 +56180,15 @@ export namespace msk {
     }
 
     export interface ClusterOpenMonitoringPrometheus {
-        /**
-         * Configuration block for JMX Exporter. See below.
-         */
         jmxExporter?: outputs.msk.ClusterOpenMonitoringPrometheusJmxExporter;
-        /**
-         * Configuration block for Node Exporter. See below.
-         */
         nodeExporter?: outputs.msk.ClusterOpenMonitoringPrometheusNodeExporter;
     }
 
     export interface ClusterOpenMonitoringPrometheusJmxExporter {
-        /**
-         * Indicates whether you want to enable or disable the Node Exporter.
-         */
         enabledInBroker: boolean;
     }
 
     export interface ClusterOpenMonitoringPrometheusNodeExporter {
-        /**
-         * Indicates whether you want to enable or disable the Node Exporter.
-         */
         enabledInBroker: boolean;
     }
 
@@ -60032,7 +56502,7 @@ export namespace mskconnect {
          */
         bucket?: string;
         /**
-         * Whether log delivery to Amazon CloudWatch Logs is enabled.
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
          */
         enabled: boolean;
         /**
@@ -60078,17 +56548,8 @@ export namespace mskconnect {
     }
 
     export interface CustomPluginLocationS3 {
-        /**
-         * The Amazon Resource Name (ARN) of an S3 bucket.
-         */
         bucketArn: string;
-        /**
-         * The file key for an object in an S3 bucket.
-         */
         fileKey: string;
-        /**
-         * The version of an object in an S3 bucket.
-         */
         objectVersion?: string;
     }
 
@@ -60137,61 +56598,31 @@ export namespace mwaa {
 
     export interface EnvironmentLoggingConfigurationDagProcessingLogs {
         cloudWatchLogGroupArn: string;
-        /**
-         * Enabling or disabling the collection of logs
-         */
         enabled: boolean;
-        /**
-         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-         */
         logLevel: string;
     }
 
     export interface EnvironmentLoggingConfigurationSchedulerLogs {
         cloudWatchLogGroupArn: string;
-        /**
-         * Enabling or disabling the collection of logs
-         */
         enabled: boolean;
-        /**
-         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-         */
         logLevel: string;
     }
 
     export interface EnvironmentLoggingConfigurationTaskLogs {
         cloudWatchLogGroupArn: string;
-        /**
-         * Enabling or disabling the collection of logs
-         */
         enabled: boolean;
-        /**
-         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-         */
         logLevel: string;
     }
 
     export interface EnvironmentLoggingConfigurationWebserverLogs {
         cloudWatchLogGroupArn: string;
-        /**
-         * Enabling or disabling the collection of logs
-         */
         enabled: boolean;
-        /**
-         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-         */
         logLevel: string;
     }
 
     export interface EnvironmentLoggingConfigurationWorkerLogs {
         cloudWatchLogGroupArn: string;
-        /**
-         * Enabling or disabling the collection of logs
-         */
         enabled: boolean;
-        /**
-         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-         */
         logLevel: string;
     }
 
@@ -60225,13 +56656,7 @@ export namespace neptune {
     }
 
     export interface ClusterServerlessV2ScalingConfiguration {
-        /**
-         * The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         */
         maxCapacity?: number;
-        /**
-         * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         */
         minCapacity?: number;
     }
 
@@ -60299,7 +56724,7 @@ export namespace networkfirewall {
          */
         endpointId: string;
         /**
-         * The unique identifier for the subnet.
+         * The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
          */
         subnetId: string;
     }
@@ -60659,13 +57084,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleGroupReferenceSetsIpSetReference {
-        /**
-         * Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-         */
         ipSetReferences: outputs.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference[];
-        /**
-         * A unique alphanumeric string to identify the `ipSet`.
-         */
         key: string;
     }
 
@@ -61576,13 +57995,7 @@ export namespace opensearch {
     }
 
     export interface DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
-        /**
-         * Starting hour of the 10-hour window for updates
-         */
         hours: number;
-        /**
-         * Starting minute of the 10-hour window for updates
-         */
         minutes: number;
     }
 
@@ -62261,17 +58674,8 @@ export namespace opsworks {
     }
 
     export interface CustomLayerLoadBasedAutoScaling {
-        /**
-         * The downscaling settings, as defined below, used for load-based autoscaling
-         */
         downscaling: outputs.opsworks.CustomLayerLoadBasedAutoScalingDownscaling;
-        /**
-         * Whether load-based auto scaling is enabled for the layer.
-         */
         enable?: boolean;
-        /**
-         * The upscaling settings, as defined below, used for load-based autoscaling
-         */
         upscaling: outputs.opsworks.CustomLayerLoadBasedAutoScalingUpscaling;
     }
 
@@ -63453,17 +59857,8 @@ export namespace pipes {
     }
 
     export interface PipeEnrichmentParametersHttpParameters {
-        /**
-         * Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         */
         headerParameters?: {[key: string]: string};
-        /**
-         * The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-         */
         pathParameterValues?: string;
-        /**
-         * Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         */
         queryStringParameters?: {[key: string]: string};
     }
 
@@ -63503,278 +59898,113 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersActivemqBrokerParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The credentials needed to access the resource. Detailed below.
-         */
         credentials: outputs.pipes.PipeSourceParametersActivemqBrokerParametersCredentials;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * The name of the destination queue to consume. Maximum length of 1000.
-         */
         queueName: string;
     }
 
     export interface PipeSourceParametersActivemqBrokerParametersCredentials {
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         basicAuth: string;
     }
 
     export interface PipeSourceParametersDynamodbStreamParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * Define the target queue to send dead-letter queue events to. Detailed below.
-         */
         deadLetterConfig?: outputs.pipes.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-         */
         maximumRecordAgeInSeconds: number;
-        /**
-         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-         */
         maximumRetryAttempts?: number;
-        /**
-         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-         */
         onPartialBatchItemFailure?: string;
-        /**
-         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-         */
         parallelizationFactor: number;
-        /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         */
         startingPosition: string;
     }
 
     export interface PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
         /**
-         * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * ARN of this pipe.
          */
         arn?: string;
     }
 
     export interface PipeSourceParametersFilterCriteria {
-        /**
-         * An array of up to 5 event patterns. Detailed below.
-         */
         filters?: outputs.pipes.PipeSourceParametersFilterCriteriaFilter[];
     }
 
     export interface PipeSourceParametersFilterCriteriaFilter {
-        /**
-         * The event pattern. At most 4096 characters.
-         */
         pattern: string;
     }
 
     export interface PipeSourceParametersKinesisStreamParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * Define the target queue to send dead-letter queue events to. Detailed below.
-         */
         deadLetterConfig?: outputs.pipes.PipeSourceParametersKinesisStreamParametersDeadLetterConfig;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-         */
         maximumRecordAgeInSeconds: number;
-        /**
-         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-         */
         maximumRetryAttempts?: number;
-        /**
-         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-         */
         onPartialBatchItemFailure?: string;
-        /**
-         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-         */
         parallelizationFactor: number;
-        /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         */
         startingPosition: string;
-        /**
-         * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-         */
         startingPositionTimestamp?: string;
     }
 
     export interface PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
         /**
-         * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         * ARN of this pipe.
          */
         arn?: string;
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The name of the destination queue to consume. Maximum value of 200.
-         */
         consumerGroupId?: string;
-        /**
-         * The credentials needed to access the resource. Detailed below.
-         */
         credentials?: outputs.pipes.PipeSourceParametersManagedStreamingKafkaParametersCredentials;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         */
         startingPosition?: string;
-        /**
-         * The name of the topic that the pipe will read from. Maximum length of 249.
-         */
         topicName: string;
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParametersCredentials {
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         clientCertificateTlsAuth?: string;
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         saslScram512Auth?: string;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The credentials needed to access the resource. Detailed below.
-         */
         credentials: outputs.pipes.PipeSourceParametersRabbitmqBrokerParametersCredentials;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * The name of the destination queue to consume. Maximum length of 1000.
-         */
         queueName: string;
-        /**
-         * The name of the virtual host associated with the source broker. Maximum length of 200.
-         */
         virtualHost?: string;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParametersCredentials {
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         basicAuth: string;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParameters {
-        /**
-         * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-         */
         additionalBootstrapServers?: string[];
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The name of the destination queue to consume. Maximum value of 200.
-         */
         consumerGroupId?: string;
-        /**
-         * The credentials needed to access the resource. Detailed below.
-         */
         credentials?: outputs.pipes.PipeSourceParametersSelfManagedKafkaParametersCredentials;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * The ARN of the Secrets Manager secret used for certification.
-         */
         serverRootCaCertificate?: string;
-        /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         */
         startingPosition?: string;
-        /**
-         * The name of the topic that the pipe will read from. Maximum length of 249.
-         */
         topicName: string;
-        /**
-         * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
-         */
         vpc?: outputs.pipes.PipeSourceParametersSelfManagedKafkaParametersVpc;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         basicAuth: string;
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         clientCertificateTlsAuth?: string;
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         saslScram256Auth?: string;
-        /**
-         * The ARN of the Secrets Manager secret containing the credentials.
-         */
         saslScram512Auth?: string;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersVpc {
-        /**
-         * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-         */
         securityGroups?: string[];
-        /**
-         * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-         */
         subnets?: string[];
     }
 
     export interface PipeSourceParametersSqsQueueParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
     }
 
@@ -63830,59 +60060,23 @@ export namespace pipes {
     }
 
     export interface PipeTargetParametersBatchJobParameters {
-        /**
-         * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
-         */
         arrayProperties?: outputs.pipes.PipeTargetParametersBatchJobParametersArrayProperties;
-        /**
-         * The overrides that are sent to a container. Detailed below.
-         */
         containerOverrides?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverrides;
-        /**
-         * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
-         */
         dependsOns?: outputs.pipes.PipeTargetParametersBatchJobParametersDependsOn[];
-        /**
-         * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
-         */
         jobDefinition: string;
-        /**
-         * The name of the job. It can be up to 128 letters long.
-         */
         jobName: string;
-        /**
-         * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
-         */
         parameters?: {[key: string]: string};
-        /**
-         * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
-         */
         retryStrategy?: outputs.pipes.PipeTargetParametersBatchJobParametersRetryStrategy;
     }
 
     export interface PipeTargetParametersBatchJobParametersArrayProperties {
-        /**
-         * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
-         */
         size?: number;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverrides {
-        /**
-         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-         */
         commands?: string[];
-        /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-         */
         environments?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment[];
-        /**
-         * The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-         */
         instanceType?: string;
-        /**
-         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-         */
         resourceRequirements?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement[];
     }
 
@@ -63891,215 +60085,86 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value?: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersDependsOn {
-        /**
-         * The job ID of the AWS Batch job that's associated with this dependency.
-         */
         jobId?: string;
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type?: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersRetryStrategy {
-        /**
-         * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
-         */
         attempts?: number;
     }
 
     export interface PipeTargetParametersCloudwatchLogsParameters {
-        /**
-         * The name of the log stream.
-         */
         logStreamName?: string;
-        /**
-         * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         */
         timestamp?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParameters {
-        /**
-         * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
-         */
         capacityProviderStrategies?: outputs.pipes.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy[];
-        /**
-         * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
-         */
         enableEcsManagedTags?: boolean;
-        /**
-         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
-         */
         enableExecuteCommand?: boolean;
-        /**
-         * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
-         */
         group?: string;
-        /**
-         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
-         */
         launchType?: string;
-        /**
-         * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
-         */
         networkConfiguration?: outputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfiguration;
-        /**
-         * The overrides that are associated with a task. Detailed below.
-         */
         overrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverrides;
-        /**
-         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
-         */
         placementConstraints?: outputs.pipes.PipeTargetParametersEcsTaskParametersPlacementConstraint[];
-        /**
-         * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
-         */
         placementStrategies?: outputs.pipes.PipeTargetParametersEcsTaskParametersPlacementStrategy[];
-        /**
-         * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
-         */
         platformVersion?: string;
-        /**
-         * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
-         */
         propagateTags?: string;
-        /**
-         * The reference ID to use for the task. Maximum length of 1,024.
-         */
         referenceId?: string;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: {[key: string]: string};
-        /**
-         * The number of tasks to create based on TaskDefinition. The default is 1.
-         */
         taskCount?: number;
-        /**
-         * The ARN of the task definition to use if the event target is an Amazon ECS task.
-         */
         taskDefinitionArn: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
-        /**
-         * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
-         */
         base?: number;
-        /**
-         * The short name of the capacity provider. Maximum value of 255.
-         */
         capacityProvider: string;
-        /**
-         * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
-         */
         weight?: number;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfiguration {
-        /**
-         * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
-         */
         awsVpcConfiguration?: outputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
-        /**
-         * Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-         */
         assignPublicIp?: string;
-        /**
-         * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-         */
         securityGroups?: string[];
-        /**
-         * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-         */
         subnets?: string[];
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverrides {
-        /**
-         * One or more container overrides that are sent to a task. Detailed below.
-         */
         containerOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverride[];
-        /**
-         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-         */
         cpu?: string;
-        /**
-         * The ephemeral storage setting override for the task.  Detailed below.
-         */
         ephemeralStorage?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage;
-        /**
-         * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-         */
         executionRoleArn?: string;
-        /**
-         * List of Elastic Inference accelerator overrides for the task. Detailed below.
-         */
         inferenceAcceleratorOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride[];
-        /**
-         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-         */
         memory?: string;
-        /**
-         * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-         */
         taskRoleArn?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
-        /**
-         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-         */
         commands?: string[];
-        /**
-         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-         */
         cpu?: number;
-        /**
-         * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-         */
         environmentFiles?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile[];
-        /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-         */
         environments?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment[];
-        /**
-         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-         */
         memory?: number;
-        /**
-         * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-         */
         memoryReservation?: number;
         /**
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: string;
-        /**
-         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-         */
         resourceRequirements?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement[];
     }
 
@@ -64108,157 +60173,73 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
-        /**
-         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-         */
         sizeInGib: number;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
-        /**
-         * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-         */
         deviceName?: string;
-        /**
-         * The Elastic Inference accelerator type to use.
-         */
         deviceType?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementConstraint {
-        /**
-         * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
-         */
         expression?: string;
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementStrategy {
-        /**
-         * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
-         */
         field?: string;
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type?: string;
     }
 
     export interface PipeTargetParametersEventbridgeEventBusParameters {
-        /**
-         * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-         */
         detailType?: string;
-        /**
-         * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-         */
         endpointId?: string;
-        /**
-         * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-         */
         resources?: string[];
         /**
          * Source resource of the pipe (typically an ARN).
          */
         source?: string;
-        /**
-         * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         */
         time?: string;
     }
 
     export interface PipeTargetParametersHttpParameters {
-        /**
-         * Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         */
         headerParameters?: {[key: string]: string};
-        /**
-         * The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-         */
         pathParameterValues?: string;
-        /**
-         * Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         */
         queryStringParameters?: {[key: string]: string};
     }
 
     export interface PipeTargetParametersKinesisStreamParameters {
-        /**
-         * Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-         */
         partitionKey: string;
     }
 
     export interface PipeTargetParametersLambdaFunctionParameters {
-        /**
-         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
-         */
         invocationType: string;
     }
 
     export interface PipeTargetParametersRedshiftDataParameters {
-        /**
-         * The name of the database. Required when authenticating using temporary credentials.
-         */
         database: string;
-        /**
-         * The database user name. Required when authenticating using temporary credentials.
-         */
         dbUser?: string;
-        /**
-         * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
-         */
         secretManagerArn?: string;
-        /**
-         * List of SQL statements text to run, each of maximum length of 100,000.
-         */
         sqls: string[];
-        /**
-         * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-         */
         statementName?: string;
-        /**
-         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
-         */
         withEvent?: boolean;
     }
 
     export interface PipeTargetParametersSagemakerPipelineParameters {
-        /**
-         * List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
-         */
         pipelineParameters?: outputs.pipes.PipeTargetParametersSagemakerPipelineParametersPipelineParameter[];
     }
 
@@ -64267,27 +60248,15 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name: string;
-        /**
-         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersSqsQueueParameters {
-        /**
-         * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
-         */
         messageDeduplicationId?: string;
-        /**
-         * The FIFO message group ID to use as the target.
-         */
         messageGroupId?: string;
     }
 
     export interface PipeTargetParametersStepFunctionStateMachineParameters {
-        /**
-         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
-         */
         invocationType: string;
     }
 
@@ -64927,17 +60896,11 @@ export namespace quicksight {
     }
 
     export interface DataSetOutputColumn {
-        /**
-         * Field folder description.
-         */
         description: string;
         /**
          * Display name for the dataset.
          */
         name: string;
-        /**
-         * Data type of the column.
-         */
         type: string;
     }
 
@@ -66360,27 +62323,10 @@ export namespace rds {
     }
 
     export interface ClusterS3Import {
-        /**
-         * Bucket name where your backup is stored
-         */
         bucketName: string;
-        /**
-         * Can be blank, but is the path to your backup
-         */
         bucketPrefix?: string;
-        /**
-         * Role applied to load the data.
-         */
         ingestionRole: string;
-        /**
-         * Source engine for the backup
-         */
         sourceEngine: string;
-        /**
-         * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-         */
         sourceEngineVersion: string;
     }
 
@@ -66409,11 +62355,11 @@ export namespace rds {
 
     export interface ClusterServerlessv2ScalingConfiguration {
         /**
-         * Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
          */
         maxCapacity: number;
         /**
-         * Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
          */
         minCapacity: number;
     }
@@ -66567,27 +62513,10 @@ export namespace rds {
     }
 
     export interface InstanceS3Import {
-        /**
-         * The bucket name where your backup is stored
-         */
         bucketName: string;
-        /**
-         * Can be blank, but is the path to your backup
-         */
         bucketPrefix?: string;
-        /**
-         * Role applied to load the data.
-         */
         ingestionRole: string;
-        /**
-         * Source engine for the backup
-         */
         sourceEngine: string;
-        /**
-         * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-         */
         sourceEngineVersion: string;
     }
 
@@ -67377,9 +63306,6 @@ export namespace route53 {
          * Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
          */
         primary?: outputs.route53.GetTrafficPolicyDocumentRulePrimary;
-        /**
-         * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         */
         regions?: outputs.route53.GetTrafficPolicyDocumentRuleRegion[];
         /**
          * Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
@@ -67427,13 +63353,7 @@ export namespace route53 {
     }
 
     export interface GetTrafficPolicyDocumentRuleItem {
-        /**
-         * References to an endpoint.
-         */
         endpointReference?: string;
-        /**
-         * If you want to associate a health check with the endpoint or rule.
-         */
         healthCheck?: string;
     }
 
@@ -67515,21 +63435,9 @@ export namespace route53 {
     }
 
     export interface GetTrafficPolicyDocumentRuleSecondary {
-        /**
-         * References to an endpoint.
-         */
         endpointReference?: string;
-        /**
-         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         */
         evaluateTargetHealth?: boolean;
-        /**
-         * If you want to associate a health check with the endpoint or rule.
-         */
         healthCheck?: string;
-        /**
-         * References to a rule.
-         */
         ruleReference?: string;
     }
 
@@ -67582,21 +63490,9 @@ export namespace route53 {
     }
 
     export interface RecordGeoproximityRoutingPolicy {
-        /**
-         * A AWS region where the resource is present.
-         */
         awsRegion?: string;
-        /**
-         * Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-         */
         bias?: number;
-        /**
-         * Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-         */
         coordinates?: outputs.route53.RecordGeoproximityRoutingPolicyCoordinate[];
-        /**
-         * A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-         */
         localZoneGroup?: string;
     }
 
@@ -67746,61 +63642,19 @@ export namespace route53domains {
     }
 
     export interface RegisteredDomainBillingContact {
-        /**
-         * First line of the contact's address.
-         */
         addressLine1: string;
-        /**
-         * Second line of contact's address, if any.
-         */
         addressLine2: string;
-        /**
-         * The city of the contact's address.
-         */
         city: string;
-        /**
-         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-         */
         contactType: string;
-        /**
-         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-         */
         countryCode: string;
-        /**
-         * Email address of the contact.
-         */
         email: string;
-        /**
-         * A key-value map of parameters required by certain top-level domains.
-         */
         extraParams: {[key: string]: string};
-        /**
-         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-         */
         fax: string;
-        /**
-         * First name of contact.
-         */
         firstName: string;
-        /**
-         * Last name of contact.
-         */
         lastName: string;
-        /**
-         * Name of the organization for contact types other than `PERSON`.
-         */
         organizationName: string;
-        /**
-         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-         */
         phoneNumber: string;
-        /**
-         * The state or province of the contact's city.
-         */
         state: string;
-        /**
-         * The zip or postal code of the contact's address.
-         */
         zipCode: string;
     }
 
@@ -68024,11 +63878,11 @@ export namespace route53recoveryreadiness {
 
     export interface ResourceSetResourceDnsTargetResourceTargetResourceR53Resource {
         /**
-         * DNS Name that acts as the ingress point to a portion of application.
+         * Domain name that is targeted.
          */
         domainName?: string;
         /**
-         * Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
+         * Resource record set ID that is targeted.
          */
         recordSetId?: string;
     }
@@ -68149,8 +64003,6 @@ export namespace s3 {
     export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
         /**
          * Analytics data export currently only supports an S3 bucket destination (documented below).
-         *
-         * The `s3BucketDestination` configuration supports the following:
          */
         s3BucketDestination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination;
     }
@@ -68197,9 +64049,6 @@ export namespace s3 {
     }
 
     export interface BucketAclV2AccessControlPolicyGrantGrantee {
-        /**
-         * Display name of the owner.
-         */
         displayName: string;
         /**
          * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -68258,25 +64107,10 @@ export namespace s3 {
     }
 
     export interface BucketCorsRule {
-        /**
-         * Specifies which headers are allowed.
-         */
         allowedHeaders?: string[];
-        /**
-         * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-         */
         allowedMethods: string[];
-        /**
-         * Specifies which origins are allowed.
-         */
         allowedOrigins: string[];
-        /**
-         * Specifies expose header in the response.
-         */
         exposeHeaders?: string[];
-        /**
-         * Specifies time in seconds that browser can cache the response for a preflight request.
-         */
         maxAgeSeconds?: number;
     }
 
@@ -68995,13 +64829,7 @@ export namespace s3 {
     }
 
     export interface BucketReplicationConfiguration {
-        /**
-         * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-         */
         role: string;
-        /**
-         * Specifies the rules managing the replication (documented below).
-         */
         rules: outputs.s3.BucketReplicationConfigurationRule[];
     }
 
@@ -69814,35 +65642,17 @@ export namespace s3control {
     }
 
     export interface BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
-        /**
-         * Number of days after which Amazon S3 aborts an incomplete multipart upload.
-         */
         daysAfterInitiation: number;
     }
 
     export interface BucketLifecycleConfigurationRuleExpiration {
-        /**
-         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-         */
         date?: string;
-        /**
-         * Number of days before the object is to be deleted.
-         */
         days?: number;
-        /**
-         * Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-         */
         expiredObjectDeleteMarker?: boolean;
     }
 
     export interface BucketLifecycleConfigurationRuleFilter {
-        /**
-         * Object prefix for rule filtering.
-         */
         prefix?: string;
-        /**
-         * Key-value map of object tags for rule filtering.
-         */
         tags?: {[key: string]: string};
     }
 
@@ -70155,11 +65965,11 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
         /**
-         * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * The account ID of the owner of the S3 Storage Lens metrics export bucket.
          */
         accountId: string;
         /**
-         * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * The Amazon Resource Name (ARN) of the bucket.
          */
         arn: string;
         /**
@@ -70477,7 +66287,7 @@ export namespace sagemaker {
 
     export interface DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output {
         /**
-         * Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+         * The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
          */
         localPath?: string;
         /**
@@ -70485,7 +66295,7 @@ export namespace sagemaker {
          */
         s3UploadMode: string;
         /**
-         * The Amazon S3 URI for the constraints resource.
+         * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
         s3Uri: string;
     }
@@ -71446,57 +67256,18 @@ export namespace sagemaker {
     }
 
     export interface EndpointConfigurationShadowProductionVariant {
-        /**
-         * The size of the Elastic Inference (EI) instance to use for the production variant.
-         */
         acceleratorType?: string;
-        /**
-         * The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-         */
         containerStartupHealthCheckTimeoutInSeconds?: number;
-        /**
-         * Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-         */
         coreDumpConfig?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantCoreDumpConfig;
-        /**
-         * You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-         */
         enableSsmAccess?: boolean;
-        /**
-         * Initial number of instances used for auto-scaling.
-         */
         initialInstanceCount?: number;
-        /**
-         * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-         */
         initialVariantWeight?: number;
-        /**
-         * The type of instance to start.
-         */
         instanceType?: string;
-        /**
-         * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-         */
         modelDataDownloadTimeoutInSeconds?: number;
-        /**
-         * The name of the model to use.
-         */
         modelName: string;
-        /**
-         * Sets how the endpoint routes incoming traffic. See routingConfig below.
-         */
         routingConfigs?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantRoutingConfig[];
-        /**
-         * Specifies configuration for how an endpoint performs asynchronous inference.
-         */
         serverlessConfig?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantServerlessConfig;
-        /**
-         * The name of the variant. If omitted, this provider will assign a random, unique name.
-         */
         variantName: string;
-        /**
-         * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-         */
         volumeSizeInGb?: number;
     }
 
@@ -71563,17 +67334,8 @@ export namespace sagemaker {
     }
 
     export interface EndpointDeploymentConfigBlueGreenUpdatePolicy {
-        /**
-         * Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
-         */
         maximumExecutionTimeoutInSeconds?: number;
-        /**
-         * Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-         */
         terminationWaitInSeconds?: number;
-        /**
-         * Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-         */
         trafficRoutingConfiguration: outputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration;
     }
 
@@ -71675,9 +67437,6 @@ export namespace sagemaker {
          * The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
          */
         dataCatalogConfig: outputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig;
-        /**
-         * Set to `true` to turn Online Store On.
-         */
         disableGlueTableCreation?: boolean;
         /**
          * The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
@@ -71720,9 +67479,6 @@ export namespace sagemaker {
     }
 
     export interface FeatureGroupOnlineStoreConfig {
-        /**
-         * Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-         */
         enableOnlineStore?: boolean;
         /**
          * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
@@ -71941,45 +67697,17 @@ export namespace sagemaker {
     }
 
     export interface ModelInferenceExecutionConfig {
-        /**
-         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-         */
         mode: string;
     }
 
     export interface ModelPrimaryContainer {
-        /**
-         * The DNS host name for the container.
-         */
         containerHostname?: string;
-        /**
-         * Environment variables for the Docker container.
-         * A list of key value pairs.
-         */
         environment?: {[key: string]: string};
-        /**
-         * The registry path where the inference code image is stored in Amazon ECR.
-         */
         image?: string;
-        /**
-         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-         */
         imageConfig?: outputs.sagemaker.ModelPrimaryContainerImageConfig;
-        /**
-         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-         */
         mode?: string;
-        /**
-         * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
-         */
         modelDataSource: outputs.sagemaker.ModelPrimaryContainerModelDataSource;
-        /**
-         * The URL for the S3 location where model artifacts are stored.
-         */
         modelDataUrl?: string;
-        /**
-         * The Amazon Resource Name (ARN) of the model package to use to create the model.
-         */
         modelPackageName?: string;
     }
 
@@ -72566,9 +68294,6 @@ export namespace sagemaker {
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          */
         codeRepositories?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository[];
-        /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-         */
         customImages?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCustomImage[];
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -73498,100 +69223,46 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaAwsAccountId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaAwsAccountName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaCompanyName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaComplianceAssociatedStandardsId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaComplianceSecurityControlId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaComplianceStatus {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaConfidence {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: number;
         gt?: number;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: number;
         lt?: number;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: number;
     }
 
     export interface AutomationRuleCriteriaCreatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.AutomationRuleCriteriaCreatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -73607,45 +69278,21 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaCriticality {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: number;
         gt?: number;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: number;
         lt?: number;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: number;
     }
 
     export interface AutomationRuleCriteriaDescription {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaFirstObservedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.AutomationRuleCriteriaFirstObservedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -73661,39 +69308,18 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaGeneratorId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaLastObservedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.AutomationRuleCriteriaLastObservedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -73709,28 +69335,13 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaNoteText {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaNoteUpdatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.AutomationRuleCriteriaNoteUpdatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -73746,223 +69357,100 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaNoteUpdatedBy {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaProductArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaProductName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaRecordState {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaRelatedFindingsId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaRelatedFindingsProductArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceApplicationArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceApplicationName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceDetailsOther {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourcePartition {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceRegion {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceTag {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaResourceType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaSeverityLabel {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaSourceUrl {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaTitle {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaUpdatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.AutomationRuleCriteriaUpdatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -73978,39 +69466,18 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaUserDefinedField {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaVerificationState {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface AutomationRuleCriteriaWorkflowStatus {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
@@ -74486,65 +69953,29 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersAwsAccountId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersCompanyName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersComplianceStatus {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersConfidence {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersCreatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersCreatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -74560,128 +69991,56 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersCriticality {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersDescription {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsConfidence {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsCriticality {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsRelatedFindingsId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsRelatedFindingsProductArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsSeverityLabel {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsSeverityOriginal {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFindingProviderFieldsType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersFirstObservedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersFirstObservedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -74697,24 +70056,12 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersGeneratorId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
@@ -74726,17 +70073,8 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersLastObservedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersLastObservedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -74752,185 +70090,86 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersMalwareName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersMalwarePath {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersMalwareState {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersMalwareType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkDestinationDomain {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkDestinationIpv4 {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersNetworkDestinationIpv6 {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersNetworkDestinationPort {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersNetworkDirection {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkProtocol {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkSourceDomain {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkSourceIpv4 {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersNetworkSourceIpv6 {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersNetworkSourceMac {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNetworkSourcePort {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersNoteText {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersNoteUpdatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersNoteUpdatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -74946,28 +70185,13 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersNoteUpdatedBy {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersProcessLaunchedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersProcessLaunchedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -74983,69 +70207,30 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersProcessName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersProcessParentPid {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersProcessPath {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersProcessPid {
-        /**
-         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         */
         eq?: string;
-        /**
-         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         gte?: string;
-        /**
-         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         */
         lte?: string;
     }
 
     export interface InsightFiltersProcessTerminatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersProcessTerminatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75061,145 +70246,67 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersProductArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersProductField {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersProductName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersRecommendationText {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersRecordState {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersRelatedFindingsId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersRelatedFindingsProductArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceImageId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceIpv4Address {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceIpv6Address {
-        /**
-         * A finding's CIDR value.
-         */
         cidr: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceKeyName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceLaunchedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75215,50 +70322,23 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceSubnetId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceVpcId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsIamAccessKeyCreatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75274,83 +70354,38 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceAwsIamAccessKeyStatus {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsIamAccessKeyUserName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsS3BucketOwnerId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceAwsS3BucketOwnerName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceContainerImageId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceContainerImageName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceContainerLaunchedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersResourceContainerLaunchedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75366,135 +70401,60 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceContainerName {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceDetailsOther {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceId {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourcePartition {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceRegion {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceTag {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersResourceType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersSeverityLabel {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersSourceUrl {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersThreatIntelIndicatorCategory {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersThreatIntelIndicatorLastObservedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersThreatIntelIndicatorLastObservedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75510,83 +70470,38 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersThreatIntelIndicatorSource {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersThreatIntelIndicatorSourceUrl {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersThreatIntelIndicatorType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersThreatIntelIndicatorValue {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersTitle {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersType {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersUpdatedAt {
-        /**
-         * A configuration block of the date range for the date filter. See dateRange below for more details.
-         */
         dateRange?: outputs.securityhub.InsightFiltersUpdatedAtDateRange;
-        /**
-         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
-         */
         end?: string;
-        /**
-         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
-         */
         start?: string;
     }
 
@@ -75602,39 +70517,18 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersUserDefinedValue {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-         */
         key: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersVerificationState {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
     export interface InsightFiltersWorkflowStatus {
-        /**
-         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         */
         comparison: string;
-        /**
-         * A date range value for the date filter, provided as an Integer.
-         */
         value: string;
     }
 
@@ -75695,19 +70589,13 @@ export namespace securitylake {
 
     export interface CustomLogSourceConfigurationCrawlerConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
          */
         roleArn: string;
     }
 
     export interface CustomLogSourceConfigurationProviderIdentity {
-        /**
-         * The external ID used to estalish trust relationship with the AWS identity.
-         */
         externalId: string;
-        /**
-         * The AWS identity principal.
-         */
         principal: string;
     }
 
@@ -75717,7 +70605,7 @@ export namespace securitylake {
          */
         location: string;
         /**
-         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
          */
         roleArn: string;
     }
@@ -76053,11 +70941,11 @@ export namespace servicecatalog {
          */
         description: string;
         /**
-         * Parameter key.
+         * The output key.
          */
         key: string;
         /**
-         * Parameter value.
+         * The output value.
          */
         value: string;
     }
@@ -76909,17 +71797,8 @@ export namespace shield {
     }
 
     export interface ProactiveEngagementEmergencyContact {
-        /**
-         * Additional notes regarding the contact.
-         */
         contactNotes?: string;
-        /**
-         * A valid email address that will be used for this contact.
-         */
         emailAddress: string;
-        /**
-         * A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-         */
         phoneNumber?: string;
     }
 
@@ -76970,13 +71849,7 @@ export namespace signer {
     }
 
     export interface SigningJobDestinationS3 {
-        /**
-         * Name of the S3 bucket.
-         */
         bucket: string;
-        /**
-         * An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-         */
         prefix?: string;
     }
 
@@ -76987,20 +71860,11 @@ export namespace signer {
     }
 
     export interface SigningJobSignedObject {
-        /**
-         * A configuration block describing the S3 Destination object: See S3 Destination below for details.
-         */
         s3s: outputs.signer.SigningJobSignedObjectS3[];
     }
 
     export interface SigningJobSignedObjectS3 {
-        /**
-         * Name of the S3 bucket.
-         */
         bucket: string;
-        /**
-         * Key name of the object that contains your unsigned code.
-         */
         key: string;
     }
 
@@ -77012,17 +71876,8 @@ export namespace signer {
     }
 
     export interface SigningJobSourceS3 {
-        /**
-         * Name of the S3 bucket.
-         */
         bucket: string;
-        /**
-         * Key name of the object that contains your unsigned code.
-         */
         key: string;
-        /**
-         * Version of your source image in your version enabled S3 bucket.
-         */
         version: string;
     }
 
@@ -77239,7 +72094,7 @@ export namespace ssm {
          */
         name: string;
         /**
-         * The permission type for the document. The permission type can be `Share`.
+         * The type of parameter. Valid values: `String`, `StringList`.
          */
         type: string;
     }
@@ -77342,9 +72197,6 @@ export namespace ssm {
 
     export interface MaintenanceWindowTaskTarget {
         key: string;
-        /**
-         * The array of strings.
-         */
         values: string[];
     }
 
@@ -77421,9 +72273,6 @@ export namespace ssm {
          * SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
          */
         documentHashType?: string;
-        /**
-         * The version of an Automation document to use during task execution.
-         */
         documentVersion?: string;
         /**
          * Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
@@ -77798,36 +72647,15 @@ export namespace ssmincidents {
     }
 
     export interface ResponsePlanAction {
-        /**
-         * The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-         */
         ssmAutomations?: outputs.ssmincidents.ResponsePlanActionSsmAutomation[];
     }
 
     export interface ResponsePlanActionSsmAutomation {
-        /**
-         * The automation document's name.
-         */
         documentName: string;
-        /**
-         * The version of the automation document to use at runtime.
-         */
         documentVersion?: string;
-        /**
-         * The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-         */
         dynamicParameters?: {[key: string]: string};
-        /**
-         * The key-value pair parameters to use when the automation document runs. The following values are supported:
-         */
         parameters?: outputs.ssmincidents.ResponsePlanActionSsmAutomationParameter[];
-        /**
-         * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-         */
         roleArn: string;
-        /**
-         * The account that the automation document runs in. This can be in either the management account or an application account.
-         */
         targetAccount?: string;
     }
 
@@ -77836,9 +72664,6 @@ export namespace ssmincidents {
          * The name of the response plan.
          */
         name: string;
-        /**
-         * The values for the associated parameter name.
-         */
         values: string[];
     }
 
@@ -77879,9 +72704,6 @@ export namespace ssmincidents {
     }
 
     export interface ResponsePlanIntegration {
-        /**
-         * Details about the PagerDuty configuration for a response plan. The following values are supported:
-         */
         pagerduties?: outputs.ssmincidents.ResponsePlanIntegrationPagerduty[];
     }
 
@@ -77890,15 +72712,7 @@ export namespace ssmincidents {
          * The name of the response plan.
          */
         name: string;
-        /**
-         * The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-         *
-         * For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-         */
         secretId: string;
-        /**
-         * The ID of the PagerDuty service that the response plan associated with the incident at launch.
-         */
         serviceId: string;
     }
 
@@ -78012,20 +72826,11 @@ export namespace ssoadmin {
     }
 
     export interface InstanceAccessControlAttributesAttribute {
-        /**
-         * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-         */
         key: string;
-        /**
-         * The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-         */
         values: outputs.ssoadmin.InstanceAccessControlAttributesAttributeValue[];
     }
 
     export interface InstanceAccessControlAttributesAttributeValue {
-        /**
-         * The identity source to use when mapping a specified attribute to AWS SSO.
-         */
         sources: string[];
     }
 
@@ -78390,48 +73195,18 @@ export namespace transfer {
     }
 
     export interface ConnectorAs2Config {
-        /**
-         * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
-         */
         compression: string;
-        /**
-         * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
-         */
         encryptionAlgorithm: string;
-        /**
-         * The unique identifier for the AS2 local profile.
-         */
         localProfileId: string;
-        /**
-         * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
-         */
         mdnResponse: string;
-        /**
-         * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
-         */
         mdnSigningAlgorithm?: string;
-        /**
-         * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
-         */
         messageSubject?: string;
-        /**
-         * The unique identifier for the AS2 partner profile.
-         */
         partnerProfileId: string;
-        /**
-         * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
-         */
         signingAlgorithm: string;
     }
 
     export interface ConnectorSftpConfig {
-        /**
-         * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-         */
         trustedHostKeys?: string[];
-        /**
-         * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-         */
         userSecretId?: string;
     }
 
@@ -78555,29 +73330,11 @@ export namespace transfer {
     }
 
     export interface WorkflowOnExceptionStep {
-        /**
-         * Details for a step that performs a file copy. See Copy Step Details below.
-         */
         copyStepDetails?: outputs.transfer.WorkflowOnExceptionStepCopyStepDetails;
-        /**
-         * Details for a step that invokes a lambda function.
-         */
         customStepDetails?: outputs.transfer.WorkflowOnExceptionStepCustomStepDetails;
-        /**
-         * Details for a step that decrypts the file.
-         */
         decryptStepDetails?: outputs.transfer.WorkflowOnExceptionStepDecryptStepDetails;
-        /**
-         * Details for a step that deletes the file.
-         */
         deleteStepDetails?: outputs.transfer.WorkflowOnExceptionStepDeleteStepDetails;
-        /**
-         * Details for a step that creates one or more tags.
-         */
         tagStepDetails?: outputs.transfer.WorkflowOnExceptionStepTagStepDetails;
-        /**
-         * The type of encryption used. Currently, this value must be `"PGP"`.
-         */
         type: string;
     }
 
@@ -78628,7 +73385,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the tag that you create.
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: string;
     }
@@ -78703,7 +73460,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the tag that you create.
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: string;
     }
@@ -78735,40 +73492,16 @@ export namespace transfer {
     }
 
     export interface WorkflowOnExceptionStepTagStepDetailsTag {
-        /**
-         * The name assigned to the tag that you create.
-         */
         key: string;
-        /**
-         * The value that corresponds to the key.
-         */
         value: string;
     }
 
     export interface WorkflowStep {
-        /**
-         * Details for a step that performs a file copy. See Copy Step Details below.
-         */
         copyStepDetails?: outputs.transfer.WorkflowStepCopyStepDetails;
-        /**
-         * Details for a step that invokes a lambda function.
-         */
         customStepDetails?: outputs.transfer.WorkflowStepCustomStepDetails;
-        /**
-         * Details for a step that decrypts the file.
-         */
         decryptStepDetails?: outputs.transfer.WorkflowStepDecryptStepDetails;
-        /**
-         * Details for a step that deletes the file.
-         */
         deleteStepDetails?: outputs.transfer.WorkflowStepDeleteStepDetails;
-        /**
-         * Details for a step that creates one or more tags.
-         */
         tagStepDetails?: outputs.transfer.WorkflowStepTagStepDetails;
-        /**
-         * The type of encryption used. Currently, this value must be `"PGP"`.
-         */
         type: string;
     }
 
@@ -78819,7 +73552,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the tag that you create.
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: string;
     }
@@ -78894,7 +73627,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the tag that you create.
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: string;
     }
@@ -78926,13 +73659,7 @@ export namespace transfer {
     }
 
     export interface WorkflowStepTagStepDetailsTag {
-        /**
-         * The name assigned to the tag that you create.
-         */
         key: string;
-        /**
-         * The value that corresponds to the key.
-         */
         value: string;
     }
 
@@ -79167,14 +73894,7 @@ export namespace vpclattice {
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
-        /**
-         * ID or Amazon Resource Name (ARN) of the target group.
-         */
         targetGroupIdentifier?: string;
-        /**
-         * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-         * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-         */
         weight?: number;
     }
 
@@ -79394,88 +74114,30 @@ export namespace vpclattice {
 
 export namespace waf {
     export interface ByteMatchSetByteMatchTuple {
-        /**
-         * The part of a web request that you want to search, such as a specified header or a query string.
-         */
         fieldToMatch: outputs.waf.ByteMatchSetByteMatchTupleFieldToMatch;
-        /**
-         * Within the portion of a web request that you want to search
-         * (for example, in the query string, if any), specify where you want to search.
-         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-         * for all supported values.
-         */
         positionalConstraint: string;
-        /**
-         * The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
-         * for all supported values.
-         */
         targetString?: string;
-        /**
-         * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-         * for all supported values.
-         */
         textTransformation: string;
     }
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
-        /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
-         */
         data?: string;
-        /**
-         * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
-         */
         type: string;
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
-        /**
-         * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-         */
         type: string;
-        /**
-         * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-         */
         value: string;
     }
 
     export interface IpSetIpSetDescriptor {
-        /**
-         * Type of the IP address - `IPV4` or `IPV6`.
-         */
         type: string;
-        /**
-         * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-         */
         value: string;
     }
 
     export interface RateBasedRulePredicate {
-        /**
-         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-         */
         dataId: string;
-        /**
-         * Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
-         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
-         */
         negated: boolean;
-        /**
-         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-         */
         type: string;
     }
 
@@ -79513,77 +74175,31 @@ export namespace waf {
     }
 
     export interface RuleGroupActivatedRule {
-        /**
-         * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-         */
         action: outputs.waf.RuleGroupActivatedRuleAction;
-        /**
-         * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-         */
         priority: number;
-        /**
-         * The ID of a rule
-         */
         ruleId: string;
-        /**
-         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-         */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
-        /**
-         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-         */
         type: string;
     }
 
     export interface RulePredicate {
-        /**
-         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-         */
         dataId: string;
-        /**
-         * Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
-         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
-         */
         negated: boolean;
-        /**
-         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-         */
         type: string;
     }
 
     export interface SizeConstraintSetSizeConstraint {
-        /**
-         * Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
-         */
         comparisonOperator: string;
-        /**
-         * Parameter that specifies where in a web request to look for the size constraint.
-         */
         fieldToMatch: outputs.waf.SizeConstraintSetSizeConstraintFieldToMatch;
-        /**
-         * Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
-         */
         size: number;
-        /**
-         * Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
-         * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
-         */
         textTransformation: string;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
-        /**
-         * When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
-         */
         data?: string;
-        /**
-         * Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
-         */
         type: string;
     }
 
@@ -79603,17 +74219,7 @@ export namespace waf {
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
-        /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
-         */
         data?: string;
-        /**
-         * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
-         */
         type: string;
     }
 
@@ -79680,16 +74286,14 @@ export namespace waf {
 
     export interface WebAclRuleAction {
         /**
-         * Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * valid values are: `BLOCK`, `ALLOW`, or `COUNT`
          */
         type: string;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * valid values are: `NONE` or `COUNT`
          */
         type: string;
     }
@@ -79710,17 +74314,7 @@ export namespace waf {
     }
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
-        /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
-         */
         data?: string;
-        /**
-         * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
-         */
         type: string;
     }
 
@@ -79760,44 +74354,18 @@ export namespace wafregional {
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
-        /**
-         * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-         */
         type: string;
-        /**
-         * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-         */
         value: string;
     }
 
     export interface IpSetIpSetDescriptor {
-        /**
-         * The string like IPV4 or IPV6.
-         */
         type: string;
-        /**
-         * The CIDR notation.
-         */
         value: string;
     }
 
     export interface RateBasedRulePredicate {
-        /**
-         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-         */
         dataId: string;
-        /**
-         * Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
-         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
-         */
         negated: boolean;
-        /**
-         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-         */
         type: string;
     }
 
@@ -79835,28 +74403,13 @@ export namespace wafregional {
     }
 
     export interface RuleGroupActivatedRule {
-        /**
-         * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-         */
         action: outputs.wafregional.RuleGroupActivatedRuleAction;
-        /**
-         * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-         */
         priority: number;
-        /**
-         * The ID of a rule
-         */
         ruleId: string;
-        /**
-         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-         */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
-        /**
-         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-         */
         type: string;
     }
 
@@ -79867,44 +74420,14 @@ export namespace wafregional {
     }
 
     export interface SizeConstraintSetSizeConstraint {
-        /**
-         * The type of comparison you want to perform.
-         * e.g., `EQ`, `NE`, `LT`, `GT`.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
-         */
         comparisonOperator: string;
-        /**
-         * Specifies where in a web request to look for the size constraint.
-         */
         fieldToMatch: outputs.wafregional.SizeConstraintSetSizeConstraintFieldToMatch;
-        /**
-         * The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
-         * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
-         */
         size: number;
-        /**
-         * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
-         * for all supported values.
-         * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
-         */
         textTransformation: string;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
-        /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
-         */
         data?: string;
-        /**
-         * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
-         */
         type: string;
     }
 
@@ -80006,9 +74529,6 @@ export namespace wafregional {
     }
 
     export interface WebAclRuleOverrideAction {
-        /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-         */
         type: string;
     }
 
@@ -80139,9 +74659,6 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: string;
-        /**
-         * The value of the custom header.
-         */
         value: string;
     }
 
@@ -80172,9 +74689,6 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: string;
-        /**
-         * The value of the custom header.
-         */
         value: string;
     }
 
@@ -80197,9 +74711,6 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: string;
-        /**
-         * The value of the custom header.
-         */
         value: string;
     }
 
@@ -80222,9 +74733,6 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: string;
-        /**
-         * The value of the custom header.
-         */
         value: string;
     }
 
@@ -80247,9 +74755,6 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: string;
-        /**
-         * The value of the custom header.
-         */
         value: string;
     }
 
@@ -80409,9 +74914,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -80431,9 +74933,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -80483,9 +74982,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -80509,9 +75005,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -80685,11 +75178,11 @@ export namespace wafv2 {
          */
         queryArgument?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument;
         /**
-         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
          */
         queryString?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString;
         /**
-         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
          */
         uriPath?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath;
     }
@@ -80700,9 +75193,7 @@ export namespace wafv2 {
          */
         name: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation[];
     }
@@ -80727,9 +75218,7 @@ export namespace wafv2 {
          */
         name: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation[];
     }
@@ -80764,9 +75253,7 @@ export namespace wafv2 {
          */
         name: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation[];
     }
@@ -80784,9 +75271,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString {
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation[];
     }
@@ -80804,9 +75289,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation[];
     }
@@ -80834,53 +75317,17 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
-        /**
-         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-         */
         andStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement;
-        /**
-         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-         */
         byteMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
-        /**
-         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-         */
         geoMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
-        /**
-         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-         */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
-        /**
-         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-         */
         labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement;
-        /**
-         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-         */
         notStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement;
-        /**
-         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-         */
         orStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement;
-        /**
-         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-         */
         regexMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement;
-        /**
-         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-         */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement;
-        /**
-         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-         */
         sizeConstraintStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement;
-        /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-         */
         sqliMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement;
-        /**
-         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
-         */
         xssMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement;
     }
 
@@ -80964,9 +75411,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -80986,9 +75430,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -81038,9 +75479,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -81064,9 +75502,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -81250,9 +75685,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -81272,9 +75704,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -81324,9 +75753,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -81350,9 +75776,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -81463,9 +75886,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -81485,9 +75905,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -81537,9 +75954,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -81563,9 +75977,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -81680,9 +76091,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -81702,9 +76110,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -81754,9 +76159,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -81780,9 +76182,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -81889,9 +76288,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -81911,9 +76307,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -81963,9 +76356,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -81989,9 +76379,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -82098,9 +76485,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -82120,9 +76504,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -82172,9 +76553,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -82198,9 +76576,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -82311,9 +76686,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -82333,9 +76705,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -82385,9 +76754,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -82411,9 +76777,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -82524,9 +76887,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -82546,9 +76906,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -82598,9 +76955,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -82624,9 +76978,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -82741,9 +77092,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -82763,9 +77111,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -82815,9 +77160,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -82841,9 +77183,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -82950,9 +77289,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -82972,9 +77308,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -83024,9 +77357,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -83050,9 +77380,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -83159,9 +77486,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
-        /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
-         */
         oversizeHandling?: string;
     }
 
@@ -83181,9 +77505,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -83233,9 +77554,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
         fallbackBehavior: string;
     }
 
@@ -83259,9 +77577,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -83947,9 +78262,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -84000,7 +78312,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -84025,9 +78337,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -84311,17 +78620,11 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson {
-        /**
-         * Values in the response header with the specified name that indicate a failed login attempt.
-         */
         failureValues: string[];
         /**
          * The identifier for the value to match against in the JSON.
          */
         identifier: string;
-        /**
-         * Values in the response header with the specified name that indicate a successful login attempt.
-         */
         successValues: string[];
     }
 
@@ -84430,17 +78733,11 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson {
-        /**
-         * Values in the response header with the specified name that indicate a failed login attempt.
-         */
         failureValues: string[];
         /**
          * The identifier for the value to match against in the JSON.
          */
         identifier: string;
-        /**
-         * Values in the response header with the specified name that indicate a successful login attempt.
-         */
         successValues: string[];
     }
 
@@ -84488,25 +78785,10 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
-        /**
-         * Instructs AWS WAF to allow the web request. See `allow` below for details.
-         */
         allow?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow;
-        /**
-         * Instructs AWS WAF to block the web request. See `block` below for details.
-         */
         block?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock;
-        /**
-         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         */
         captcha?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha;
-        /**
-         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         */
         challenge?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge;
-        /**
-         * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         */
         count?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount;
     }
 
@@ -84644,53 +78926,17 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
-        /**
-         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
-         */
         andStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement;
-        /**
-         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
-         */
         byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement;
-        /**
-         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
-         */
         geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement;
-        /**
-         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
-         */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement;
-        /**
-         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
-         */
         labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement;
-        /**
-         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
-         */
         notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement;
-        /**
-         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
-         */
         orStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement;
-        /**
-         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
-         */
         regexMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement;
-        /**
-         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
-         */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement;
-        /**
-         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
-         */
         sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement;
-        /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
-         */
         sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement;
-        /**
-         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
-         */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement;
     }
 
@@ -84797,9 +79043,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -84850,7 +79093,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -84875,9 +79118,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -85084,9 +79324,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -85137,7 +79374,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -85162,9 +79399,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -85298,9 +79532,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -85351,7 +79582,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -85376,9 +79607,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -85516,9 +79744,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -85569,7 +79794,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -85594,9 +79819,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -85726,9 +79948,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -85779,7 +79998,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -85804,9 +80023,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -85936,9 +80152,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -85989,7 +80202,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -86014,9 +80227,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -86270,53 +80480,17 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatement {
-        /**
-         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
-         */
         andStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement;
-        /**
-         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
-         */
         byteMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
-        /**
-         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
-         */
         geoMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
-        /**
-         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
-         */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
-        /**
-         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
-         */
         labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement;
-        /**
-         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
-         */
         notStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement;
-        /**
-         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
-         */
         orStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement;
-        /**
-         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
-         */
         regexMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement;
-        /**
-         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
-         */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement;
-        /**
-         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
-         */
         sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement;
-        /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
-         */
         sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement;
-        /**
-         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
-         */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement;
     }
 
@@ -86423,9 +80597,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -86476,7 +80647,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -86501,9 +80672,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -86710,9 +80878,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -86763,7 +80928,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -86788,9 +80953,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -86924,9 +81086,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -86977,7 +81136,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -87002,9 +81161,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -87142,9 +81298,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -87195,7 +81348,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -87220,9 +81373,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -87352,9 +81502,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -87405,7 +81552,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -87430,9 +81577,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -87562,9 +81706,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -87615,7 +81756,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -87640,9 +81781,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -87776,9 +81914,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -87829,7 +81964,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -87854,9 +81989,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -87990,9 +82122,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -88043,7 +82172,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -88068,9 +82197,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -88135,25 +82261,10 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
-        /**
-         * Instructs AWS WAF to allow the web request. See `allow` below for details.
-         */
         allow?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow;
-        /**
-         * Instructs AWS WAF to block the web request. See `block` below for details.
-         */
         block?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock;
-        /**
-         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         */
         captcha?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha;
-        /**
-         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         */
         challenge?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge;
-        /**
-         * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         */
         count?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount;
     }
 
@@ -88386,9 +82497,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -88439,7 +82547,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -88464,9 +82572,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -88596,9 +82701,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -88649,7 +82751,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -88674,9 +82776,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -88806,9 +82905,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
         includedCookies?: string[];
@@ -88859,7 +82955,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -88884,9 +82980,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-        /**
-         * An empty configuration block that is used for inspecting all headers.
-         */
         all?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
     }
@@ -89220,9 +83313,6 @@ export namespace workspaces {
          * The description of the IP group.
          */
         description?: string;
-        /**
-         * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-         */
         source: string;
     }
 

@@ -120,14 +120,12 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_quicksight_group(group_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.
@@ -167,14 +165,12 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[s
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_quicksight_group(group_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.

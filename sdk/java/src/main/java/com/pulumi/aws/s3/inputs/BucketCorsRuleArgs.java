@@ -18,77 +18,37 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final BucketCorsRuleArgs Empty = new BucketCorsRuleArgs();
 
-    /**
-     * Specifies which headers are allowed.
-     * 
-     */
     @Import(name="allowedHeaders")
     private @Nullable Output<List<String>> allowedHeaders;
 
-    /**
-     * @return Specifies which headers are allowed.
-     * 
-     */
     public Optional<Output<List<String>>> allowedHeaders() {
         return Optional.ofNullable(this.allowedHeaders);
     }
 
-    /**
-     * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-     * 
-     */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
-    /**
-     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-     * 
-     */
     public Output<List<String>> allowedMethods() {
         return this.allowedMethods;
     }
 
-    /**
-     * Specifies which origins are allowed.
-     * 
-     */
     @Import(name="allowedOrigins", required=true)
     private Output<List<String>> allowedOrigins;
 
-    /**
-     * @return Specifies which origins are allowed.
-     * 
-     */
     public Output<List<String>> allowedOrigins() {
         return this.allowedOrigins;
     }
 
-    /**
-     * Specifies expose header in the response.
-     * 
-     */
     @Import(name="exposeHeaders")
     private @Nullable Output<List<String>> exposeHeaders;
 
-    /**
-     * @return Specifies expose header in the response.
-     * 
-     */
     public Optional<Output<List<String>>> exposeHeaders() {
         return Optional.ofNullable(this.exposeHeaders);
     }
 
-    /**
-     * Specifies time in seconds that browser can cache the response for a preflight request.
-     * 
-     */
     @Import(name="maxAgeSeconds")
     private @Nullable Output<Integer> maxAgeSeconds;
 
-    /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
-     * 
-     */
     public Optional<Output<Integer>> maxAgeSeconds() {
         return Optional.ofNullable(this.maxAgeSeconds);
     }
@@ -121,147 +81,63 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
             $ = new BucketCorsRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedHeaders Specifies which headers are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedHeaders(@Nullable Output<List<String>> allowedHeaders) {
             $.allowedHeaders = allowedHeaders;
             return this;
         }
 
-        /**
-         * @param allowedHeaders Specifies which headers are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedHeaders(List<String> allowedHeaders) {
             return allowedHeaders(Output.of(allowedHeaders));
         }
 
-        /**
-         * @param allowedHeaders Specifies which headers are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
 
-        /**
-         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(Output<List<String>> allowedMethods) {
             $.allowedMethods = allowedMethods;
             return this;
         }
 
-        /**
-         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(List<String> allowedMethods) {
             return allowedMethods(Output.of(allowedMethods));
         }
 
-        /**
-         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
 
-        /**
-         * @param allowedOrigins Specifies which origins are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedOrigins(Output<List<String>> allowedOrigins) {
             $.allowedOrigins = allowedOrigins;
             return this;
         }
 
-        /**
-         * @param allowedOrigins Specifies which origins are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedOrigins(List<String> allowedOrigins) {
             return allowedOrigins(Output.of(allowedOrigins));
         }
 
-        /**
-         * @param allowedOrigins Specifies which origins are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
 
-        /**
-         * @param exposeHeaders Specifies expose header in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exposeHeaders(@Nullable Output<List<String>> exposeHeaders) {
             $.exposeHeaders = exposeHeaders;
             return this;
         }
 
-        /**
-         * @param exposeHeaders Specifies expose header in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exposeHeaders(List<String> exposeHeaders) {
             return exposeHeaders(Output.of(exposeHeaders));
         }
 
-        /**
-         * @param exposeHeaders Specifies expose header in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exposeHeaders(String... exposeHeaders) {
             return exposeHeaders(List.of(exposeHeaders));
         }
 
-        /**
-         * @param maxAgeSeconds Specifies time in seconds that browser can cache the response for a preflight request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAgeSeconds(@Nullable Output<Integer> maxAgeSeconds) {
             $.maxAgeSeconds = maxAgeSeconds;
             return this;
         }
 
-        /**
-         * @param maxAgeSeconds Specifies time in seconds that browser can cache the response for a preflight request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAgeSeconds(Integer maxAgeSeconds) {
             return maxAgeSeconds(Output.of(maxAgeSeconds));
         }

@@ -18,7 +18,6 @@ import (
 //
 // ### Self-Signed Root Certificate Authority Certificate
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,13 +76,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Certificate for Subordinate Certificate Authority
 //
 // Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,7 +151,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type CertificateAuthorityCertificate struct {
 	pulumi.CustomResourceState
 

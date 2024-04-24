@@ -880,9 +880,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStr
 type EventConnectionAuthParametersInvocationHttpParametersBody struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -900,9 +900,9 @@ type EventConnectionAuthParametersInvocationHttpParametersBodyInput interface {
 type EventConnectionAuthParametersInvocationHttpParametersBodyArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -962,12 +962,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) IsValue
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -995,9 +995,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) In
 type EventConnectionAuthParametersInvocationHttpParametersHeader struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1015,9 +1015,9 @@ type EventConnectionAuthParametersInvocationHttpParametersHeaderInput interface 
 type EventConnectionAuthParametersInvocationHttpParametersHeaderArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1077,12 +1077,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) IsVal
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1110,9 +1110,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) 
 type EventConnectionAuthParametersInvocationHttpParametersQueryString struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1130,9 +1130,9 @@ type EventConnectionAuthParametersInvocationHttpParametersQueryStringInput inter
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1192,12 +1192,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) 
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1760,9 +1760,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStr
 type EventConnectionAuthParametersOauthOauthHttpParametersBody struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1780,9 +1780,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersBodyInput interface {
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1842,12 +1842,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) IsValue
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1875,9 +1875,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) In
 type EventConnectionAuthParametersOauthOauthHttpParametersHeader struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1895,9 +1895,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput interface 
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1957,12 +1957,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) IsVal
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1990,9 +1990,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) 
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryString struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -2010,9 +2010,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput inter
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2072,12 +2072,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) 
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6962,10 +6962,8 @@ func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamStatisticsConfiguration struct {
-	// The additional statistics to stream for the metrics listed in `includeMetrics`.
-	AdditionalStatistics []string `pulumi:"additionalStatistics"`
-	// An array that defines the metrics that are to have additional statistics streamed. See details below.
-	IncludeMetrics []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
+	AdditionalStatistics []string                                           `pulumi:"additionalStatistics"`
+	IncludeMetrics       []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
 }
 
 // MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
@@ -6980,10 +6978,8 @@ type MetricStreamStatisticsConfigurationInput interface {
 }
 
 type MetricStreamStatisticsConfigurationArgs struct {
-	// The additional statistics to stream for the metrics listed in `includeMetrics`.
-	AdditionalStatistics pulumi.StringArrayInput `pulumi:"additionalStatistics"`
-	// An array that defines the metrics that are to have additional statistics streamed. See details below.
-	IncludeMetrics MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
+	AdditionalStatistics pulumi.StringArrayInput                                    `pulumi:"additionalStatistics"`
+	IncludeMetrics       MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
 }
 
 func (MetricStreamStatisticsConfigurationArgs) ElementType() reflect.Type {
@@ -7037,12 +7033,10 @@ func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfi
 	return o
 }
 
-// The additional statistics to stream for the metrics listed in `includeMetrics`.
 func (o MetricStreamStatisticsConfigurationOutput) AdditionalStatistics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []string { return v.AdditionalStatistics }).(pulumi.StringArrayOutput)
 }
 
-// An array that defines the metrics that are to have additional statistics streamed. See details below.
 func (o MetricStreamStatisticsConfigurationOutput) IncludeMetrics() MetricStreamStatisticsConfigurationIncludeMetricArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []MetricStreamStatisticsConfigurationIncludeMetric {
 		return v.IncludeMetrics
@@ -7070,10 +7064,8 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetric struct {
-	// The name of the metric.
 	MetricName string `pulumi:"metricName"`
-	// Name of the metric namespace in the filter.
-	Namespace string `pulumi:"namespace"`
+	Namespace  string `pulumi:"namespace"`
 }
 
 // MetricStreamStatisticsConfigurationIncludeMetricInput is an input type that accepts MetricStreamStatisticsConfigurationIncludeMetricArgs and MetricStreamStatisticsConfigurationIncludeMetricOutput values.
@@ -7088,10 +7080,8 @@ type MetricStreamStatisticsConfigurationIncludeMetricInput interface {
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetricArgs struct {
-	// The name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Name of the metric namespace in the filter.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Namespace  pulumi.StringInput `pulumi:"namespace"`
 }
 
 func (MetricStreamStatisticsConfigurationIncludeMetricArgs) ElementType() reflect.Type {
@@ -7145,12 +7135,10 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToMetricStreamSt
 	return o
 }
 
-// The name of the metric.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Name of the metric namespace in the filter.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.Namespace }).(pulumi.StringOutput)
 }

@@ -273,7 +273,6 @@ class RateBasedRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +295,6 @@ class RateBasedRule(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -326,7 +324,6 @@ class RateBasedRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,7 +346,6 @@ class RateBasedRule(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

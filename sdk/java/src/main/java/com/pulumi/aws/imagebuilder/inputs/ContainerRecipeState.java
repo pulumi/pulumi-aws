@@ -127,14 +127,14 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * A flag that indicates if the target container is encrypted.
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * @return A flag that indicates if the target container is encrypted.
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -534,7 +534,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encrypted Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+         * @param encrypted A flag that indicates if the target container is encrypted.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encrypted Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+         * @param encrypted A flag that indicates if the target container is encrypted.
          * 
          * @return builder
          * 

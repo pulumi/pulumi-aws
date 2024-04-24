@@ -229,7 +229,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,7 +237,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             "Name": "Default DHCP Option Set",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,7 +281,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             "Name": "Default DHCP Option Set",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

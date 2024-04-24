@@ -16,32 +16,16 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpcArgs extends
 
     public static final PipeSourceParametersSelfManagedKafkaParametersVpcArgs Empty = new PipeSourceParametersSelfManagedKafkaParametersVpcArgs();
 
-    /**
-     * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
-    /**
-     * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-     * 
-     */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
-    /**
-     * @return List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-     * 
-     */
     public Optional<Output<List<String>>> subnets() {
         return Optional.ofNullable(this.subnets);
     }
@@ -71,64 +55,28 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpcArgs extends
             $ = new PipeSourceParametersSelfManagedKafkaParametersVpcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroups List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnets List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(@Nullable Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

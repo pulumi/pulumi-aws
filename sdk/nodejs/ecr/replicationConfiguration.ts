@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Multiple Region Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +51,9 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Repository Filter Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +73,6 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -117,7 +111,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The account ID of the destination registry to replicate to.
+     * The registry ID where the replication configuration was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
@@ -155,7 +149,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  */
 export interface ReplicationConfigurationState {
     /**
-     * The account ID of the destination registry to replicate to.
+     * The registry ID where the replication configuration was created.
      */
     registryId?: pulumi.Input<string>;
     /**

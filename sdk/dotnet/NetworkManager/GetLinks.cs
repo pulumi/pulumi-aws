@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLinksResult> InvokeAsync(GetLinksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLinksResult> Invoke(GetLinksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksInvokeArgs(), options.WithDefaults());

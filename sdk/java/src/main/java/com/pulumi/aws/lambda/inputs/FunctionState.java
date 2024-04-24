@@ -47,14 +47,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * Amazon Resource Name (ARN) identifying your Lambda Function.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * @return Amazon Resource Name (ARN) identifying your Lambda Function.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -802,7 +802,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * @param arn Amazon Resource Name (ARN) identifying your Lambda Function.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * @param arn Amazon Resource Name (ARN) identifying your Lambda Function.
          * 
          * @return builder
          * 

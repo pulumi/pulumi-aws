@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ### Create protection
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

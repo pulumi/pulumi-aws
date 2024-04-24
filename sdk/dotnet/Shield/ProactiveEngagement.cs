@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,13 +88,12 @@ namespace Pulumi.Aws.Shield
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAwsShieldDrtAccessRoleArnAssociation, 
+    ///             testAwsShieldDrtAccessRoleArnAssociation,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

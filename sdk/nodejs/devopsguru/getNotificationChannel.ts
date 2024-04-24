@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     id: "channel-1234",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
 
@@ -74,7 +72,6 @@ export interface GetNotificationChannelResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetNotificationChannelResult {
  *     id: "channel-1234",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
     return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))

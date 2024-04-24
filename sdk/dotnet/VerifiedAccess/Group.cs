@@ -16,7 +16,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

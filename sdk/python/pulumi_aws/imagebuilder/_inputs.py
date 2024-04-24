@@ -1166,7 +1166,7 @@ class ImageOutputResourceAmiArgs:
         :param pulumi.Input[str] account_id: Account identifier of the AMI.
         :param pulumi.Input[str] description: Description of the AMI.
         :param pulumi.Input[str] image: Identifier of the AMI.
-        :param pulumi.Input[str] name: The name of the Workflow parameter.
+        :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] region: Region of the container image.
         """
         if account_id is not None:
@@ -1220,7 +1220,7 @@ class ImageOutputResourceAmiArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Workflow parameter.
+        Name of the AMI.
         """
         return pulumi.get(self, "name")
 

@@ -22,7 +22,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,13 +53,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example With User Data
 //
 // Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +85,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enable Auto Snapshots
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,7 +122,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,13 +63,11 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,11 +93,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example IAM Role for EKS Node Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -164,11 +159,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Subnets for EKS Node Group
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -216,7 +209,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

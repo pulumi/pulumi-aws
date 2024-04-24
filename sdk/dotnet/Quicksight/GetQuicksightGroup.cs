@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQuicksightGroupResult> InvokeAsync(GetQuicksightGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());

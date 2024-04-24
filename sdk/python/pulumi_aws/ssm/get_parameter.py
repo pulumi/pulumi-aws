@@ -115,14 +115,12 @@ def get_parameter(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.ssm.get_parameter(name="foo")
     ```
-    <!--End PulumiCodeChooser -->
 
     > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 
@@ -158,14 +156,12 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.ssm.get_parameter(name="foo")
     ```
-    <!--End PulumiCodeChooser -->
 
     > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 

@@ -432,7 +432,6 @@ class Permission(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -470,11 +469,9 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SNS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -511,11 +508,9 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With API Gateway REST API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,11 +525,9 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With CloudWatch Log Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,11 +562,9 @@ class Permission(pulumi.CustomResource):
             name="logging_default",
             opts=pulumi.ResourceOptions(depends_on=[logging]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Cross-Account Invocation Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,7 +579,6 @@ class Permission(pulumi.CustomResource):
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -636,7 +626,6 @@ class Permission(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -674,11 +663,9 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SNS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -715,11 +702,9 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With API Gateway REST API
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -734,11 +719,9 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With CloudWatch Log Group
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -773,11 +756,9 @@ class Permission(pulumi.CustomResource):
             name="logging_default",
             opts=pulumi.ResourceOptions(depends_on=[logging]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Cross-Account Invocation Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -792,7 +773,6 @@ class Permission(pulumi.CustomResource):
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

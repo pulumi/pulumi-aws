@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3Control
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.S3Control
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMultiRegionAccessPointResult> InvokeAsync(GetMultiRegionAccessPointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointResult>("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.S3Control
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.S3Control
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());

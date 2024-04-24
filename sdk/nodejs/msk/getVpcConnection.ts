@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     arn: exampleAwsMskVpcConnection.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
 
@@ -82,7 +80,6 @@ export interface GetVpcConnectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,7 +88,6 @@ export interface GetVpcConnectionResult {
  *     arn: exampleAwsMskVpcConnection.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpcConnection(a, opts))

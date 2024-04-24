@@ -218,7 +218,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,7 +229,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                 lambda_arn=test["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -262,7 +260,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +271,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                 lambda_arn=test["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

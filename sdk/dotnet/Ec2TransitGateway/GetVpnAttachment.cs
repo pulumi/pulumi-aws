@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,11 +36,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,7 +64,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentArgs(), options.WithDefaults());
@@ -81,7 +77,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,11 +93,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -128,7 +121,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpnAttachmentResult> Invoke(GetVpnAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentInvokeArgs(), options.WithDefaults());

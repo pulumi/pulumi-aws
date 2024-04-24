@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const updateSmsPrefs = new aws.sns.SmsPreferences("update_sms_prefs", {});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

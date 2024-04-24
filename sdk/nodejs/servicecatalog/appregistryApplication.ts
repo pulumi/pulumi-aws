@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.AppregistryApplication("example", {name: "example-app"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Connecting Resources
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +32,6 @@ import * as utilities from "../utilities";
  *     tags: example.applicationTag,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

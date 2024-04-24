@@ -29,17 +29,9 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         return this.name;
     }
 
-    /**
-     * The value of the environment variable.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the environment variable.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -90,23 +82,11 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

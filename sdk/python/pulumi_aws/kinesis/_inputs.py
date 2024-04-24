@@ -1067,7 +1067,7 @@ class AnalyticsApplicationReferenceDataSourcesS3Args:
         """
         :param pulumi.Input[str] bucket_arn: The S3 Bucket ARN.
         :param pulumi.Input[str] file_key: The File Key name containing reference data.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM Role used to send application messages.
+        :param pulumi.Input[str] role_arn: The IAM Role ARN to read the data.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "file_key", file_key)
@@ -1101,7 +1101,7 @@ class AnalyticsApplicationReferenceDataSourcesS3Args:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the IAM Role used to send application messages.
+        The IAM Role ARN to read the data.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1778,9 +1778,10 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -1821,7 +1822,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1833,7 +1834,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -1845,7 +1846,8 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 
@@ -2054,23 +2056,13 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
                  s3_backup_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] custom_time_zone: The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs'] data_format_conversion_configuration: Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs'] dynamic_partitioning_configuration: The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
-        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         :param pulumi.Input[str] file_extension: The file extension to override the default file extension (for example, `.json`).
-        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-               be used.
-        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  See `processing_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2106,9 +2098,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the S3 bucket
-        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -2118,9 +2107,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the role used to access the Amazon MSK cluster.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -2130,9 +2116,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        """
         return pulumi.get(self, "buffering_interval")
 
     @buffering_interval.setter
@@ -2142,9 +2125,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        """
         return pulumi.get(self, "buffering_size")
 
     @buffering_size.setter
@@ -2154,9 +2134,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs']]:
-        """
-        The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
@@ -2166,9 +2143,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -2214,9 +2188,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -2238,10 +2209,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        be used.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -2251,9 +2218,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -2288,7 +2252,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         """
         return pulumi.get(self, "s3_backup_mode")
 
@@ -3163,18 +3127,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-               be used.
-        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -3195,9 +3147,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the S3 bucket
-        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -3207,9 +3156,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the role used to access the Amazon MSK cluster.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -3219,9 +3165,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        """
         return pulumi.get(self, "buffering_interval")
 
     @buffering_interval.setter
@@ -3231,9 +3174,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        """
         return pulumi.get(self, "buffering_size")
 
     @buffering_size.setter
@@ -3243,9 +3183,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']]:
-        """
-        The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
@@ -3255,9 +3192,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -3267,9 +3201,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -3279,10 +3210,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        be used.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -3292,9 +3219,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -3817,9 +3741,10 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -3860,7 +3785,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -3872,7 +3797,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -3884,7 +3809,8 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 
@@ -4588,9 +4514,10 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -4631,7 +4558,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -4643,7 +4570,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -4655,7 +4582,8 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 
@@ -5210,9 +5138,10 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -5253,7 +5182,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -5265,7 +5194,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -5277,7 +5206,8 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 
@@ -5860,18 +5790,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-               be used.
-        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -5892,9 +5810,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the S3 bucket
-        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -5904,9 +5819,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the role used to access the Amazon MSK cluster.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -5916,9 +5828,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        """
         return pulumi.get(self, "buffering_interval")
 
     @buffering_interval.setter
@@ -5928,9 +5837,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        """
         return pulumi.get(self, "buffering_size")
 
     @buffering_size.setter
@@ -5940,9 +5846,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']]:
-        """
-        The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
@@ -5952,9 +5855,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
-        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -5964,9 +5864,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -5976,10 +5873,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        be used.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -5989,9 +5882,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -6068,9 +5958,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -6111,7 +6002,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -6123,7 +6014,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -6135,7 +6026,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 
@@ -6682,9 +6574,10 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS credentials.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -6725,7 +6618,7 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role used to access the Amazon MSK cluster.
+        The ARN of the AWS credentials.
         """
         return pulumi.get(self, "role_arn")
 
@@ -6737,7 +6630,7 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -6749,7 +6642,8 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingSize")
     def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
         return pulumi.get(self, "buffering_size")
 

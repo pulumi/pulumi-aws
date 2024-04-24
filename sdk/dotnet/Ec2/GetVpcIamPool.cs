@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Ec2
         /// via RAM, and using that pool id to create a VPC with a CIDR derived from
         /// AWS IPAM.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,7 +64,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcIamPoolResult> InvokeAsync(GetVpcIamPoolArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolResult>("aws:ec2/getVpcIamPool:getVpcIamPool", args ?? new GetVpcIamPoolArgs(), options.WithDefaults());
@@ -83,7 +81,6 @@ namespace Pulumi.Aws.Ec2
         /// via RAM, and using that pool id to create a VPC with a CIDR derived from
         /// AWS IPAM.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -123,7 +120,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcIamPoolResult> Invoke(GetVpcIamPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolResult>("aws:ec2/getVpcIamPool:getVpcIamPool", args ?? new GetVpcIamPoolInvokeArgs(), options.WithDefaults());

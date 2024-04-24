@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Memcached Serverless
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,11 +37,9 @@ import * as utilities from "../utilities";
  *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Redis Serverless
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,7 +65,6 @@ import * as utilities from "../utilities";
  *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

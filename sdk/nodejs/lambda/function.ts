@@ -24,7 +24,6 @@ import {ARN} from "..";
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as archive from "@pulumi/archive";
@@ -63,11 +62,9 @@ import {ARN} from "..";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda Layers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,13 +72,11 @@ import {ARN} from "..";
  * const example = new aws.lambda.LayerVersion("example", {});
  * const exampleFunction = new aws.lambda.Function("example", {layers: [example.arn]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda Ephemeral Storage
  *
  * Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,13 +106,11 @@ import {ARN} from "..";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda File Systems
  *
  * Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -162,7 +155,6 @@ import {ARN} from "..";
  *     dependsOn: [alpha],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda retries
  *
@@ -172,7 +164,6 @@ import {ARN} from "..";
  *
  * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -219,7 +210,6 @@ import {ARN} from "..";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Specifying the Deployment Package
  *
@@ -270,7 +260,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly architectures!: pulumi.Output<string[]>;
     /**
-     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * Amazon Resource Name (ARN) identifying your Lambda Function.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -565,7 +555,7 @@ export interface FunctionState {
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * Amazon Resource Name (ARN) identifying your Lambda Function.
      */
     arn?: pulumi.Input<string>;
     /**

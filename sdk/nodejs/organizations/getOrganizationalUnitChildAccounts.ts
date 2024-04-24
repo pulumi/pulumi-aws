@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     parentId: org.roots?.[0]?.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationalUnitChildAccounts(args: GetOrganizationalUnitChildAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitChildAccountsResult> {
 
@@ -61,7 +59,6 @@ export interface GetOrganizationalUnitChildAccountsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetOrganizationalUnitChildAccountsResult {
  *     parentId: org.roots?.[0]?.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationalUnitChildAccountsOutput(args: GetOrganizationalUnitChildAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitChildAccountsResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationalUnitChildAccounts(a, opts))

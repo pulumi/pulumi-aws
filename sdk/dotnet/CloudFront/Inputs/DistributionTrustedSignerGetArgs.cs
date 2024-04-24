@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionTrustedSignerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

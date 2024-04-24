@@ -109,14 +109,12 @@ def get_vault(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_vault(name="example_backup_vault")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the backup vault.
@@ -146,14 +144,12 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_vault(name="example_backup_vault")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the backup vault.

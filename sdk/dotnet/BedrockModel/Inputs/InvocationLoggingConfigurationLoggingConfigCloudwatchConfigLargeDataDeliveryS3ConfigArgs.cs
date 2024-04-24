@@ -12,15 +12,9 @@ namespace Pulumi.Aws.BedrockModel.Inputs
 
     public sealed class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 bucket name.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// S3 prefix.
-        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 

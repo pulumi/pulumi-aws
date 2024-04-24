@@ -629,7 +629,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -664,11 +663,9 @@ class Integration(pulumi.CustomResource):
         \"\"\",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Lambda integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -722,11 +719,9 @@ class Integration(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## VPC Link
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -776,7 +771,6 @@ class Integration(pulumi.CustomResource):
             connection_type="VPC_LINK",
             connection_id=test_vpc_link.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -825,7 +819,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -860,11 +853,9 @@ class Integration(pulumi.CustomResource):
         \"\"\",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Lambda integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -918,11 +909,9 @@ class Integration(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## VPC Link
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -972,7 +961,6 @@ class Integration(pulumi.CustomResource):
             connection_type="VPC_LINK",
             connection_id=test_vpc_link.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

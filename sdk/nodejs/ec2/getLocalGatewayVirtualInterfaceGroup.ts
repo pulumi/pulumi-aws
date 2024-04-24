@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     localGatewayId: exampleAwsEc2LocalGateway.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtualInterfaceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupResult> {
     args = args || {};
@@ -75,7 +73,6 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +81,6 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
  *     localGatewayId: exampleAwsEc2LocalGateway.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewayVirtualInterfaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroup(a, opts))

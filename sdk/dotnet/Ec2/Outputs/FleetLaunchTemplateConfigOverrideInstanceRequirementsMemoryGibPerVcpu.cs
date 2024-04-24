@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         /// </summary>
         public readonly double? Max;
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         /// </summary>
         public readonly double? Min;
 

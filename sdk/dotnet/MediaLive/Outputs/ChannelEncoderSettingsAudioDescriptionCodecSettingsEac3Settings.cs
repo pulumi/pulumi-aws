@@ -26,34 +26,19 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? BitstreamMode;
         /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
+        /// Dolby Digital Plus coding mode.
         /// </summary>
         public readonly string? CodingMode;
         public readonly string? DcFilter;
-        /// <summary>
-        /// Sets the dialnorm of the output.
-        /// </summary>
         public readonly int? Dialnorm;
-        /// <summary>
-        /// Sets the Dolby dynamic range compression profile.
-        /// </summary>
         public readonly string? DrcLine;
-        /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
-        /// </summary>
         public readonly string? DrcRf;
         public readonly string? LfeControl;
-        /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-        /// </summary>
         public readonly string? LfeFilter;
         public readonly double? LoRoCenterMixLevel;
         public readonly double? LoRoSurroundMixLevel;
         public readonly double? LtRtCenterMixLevel;
         public readonly double? LtRtSurroundMixLevel;
-        /// <summary>
-        /// Metadata control.
-        /// </summary>
         public readonly string? MetadataControl;
         public readonly string? PassthroughControl;
         public readonly string? PhaseControl;

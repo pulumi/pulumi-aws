@@ -63,8 +63,6 @@ class DetectorDatasources(dict):
                See Kubernetes and Kubernetes Audit Logs below for more details.
         :param 'DetectorDatasourcesMalwareProtectionArgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
                See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-               
-               The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
@@ -90,8 +88,6 @@ class DetectorDatasources(dict):
         """
         Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-
-        The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         """
         return pulumi.get(self, "malware_protection")
 
@@ -261,7 +257,8 @@ class DetectorDatasourcesS3Logs(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
-        :param bool enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param bool enable: If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+               Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -269,7 +266,8 @@ class DetectorDatasourcesS3Logs(dict):
     @pulumi.getter
     def enable(self) -> bool:
         """
-        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -682,7 +680,7 @@ class OrganizationConfigurationDatasourcesS3Logs(dict):
     def __init__(__self__, *,
                  auto_enable: bool):
         """
-        :param bool auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param bool auto_enable: Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
 
@@ -690,7 +688,7 @@ class OrganizationConfigurationDatasourcesS3Logs(dict):
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> bool:
         """
-        *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
         """
         return pulumi.get(self, "auto_enable")
 

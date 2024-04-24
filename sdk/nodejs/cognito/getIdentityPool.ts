@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     identityPoolName: "test pool",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
 
@@ -101,7 +99,6 @@ export interface GetIdentityPoolResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,7 +107,6 @@ export interface GetIdentityPoolResult {
  *     identityPoolName: "test pool",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
     return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))

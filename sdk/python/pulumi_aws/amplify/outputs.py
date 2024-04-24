@@ -258,7 +258,7 @@ class AppProductionBranch(dict):
         """
         :param str branch_name: Branch name for the production branch.
         :param str last_deploy_time: Last deploy time of the production branch.
-        :param str status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        :param str status: Status of the production branch.
         :param str thumbnail_url: Thumbnail URL for the production branch.
         """
         if branch_name is not None:
@@ -290,7 +290,7 @@ class AppProductionBranch(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        Status of the production branch.
         """
         return pulumi.get(self, "status")
 

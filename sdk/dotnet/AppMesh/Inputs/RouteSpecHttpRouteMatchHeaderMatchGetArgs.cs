@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttpRouteMatchHeaderMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The exact path to match on.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecHttpRouteMatchHeaderMatchRangeGetArgs>? Range { get; set; }
 
         /// <summary>
-        /// The regex used to match the path.
+        /// Header value sent by the client must include the specified characters.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

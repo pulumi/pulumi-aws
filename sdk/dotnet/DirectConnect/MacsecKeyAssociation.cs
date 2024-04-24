@@ -21,7 +21,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ### Create MACSec key with CKN and CAK
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,11 +43,9 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create MACSec key with existing Secrets Manager secret
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +72,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")]
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource

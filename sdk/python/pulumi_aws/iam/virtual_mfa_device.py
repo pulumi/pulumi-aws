@@ -245,14 +245,12 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,14 +284,12 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

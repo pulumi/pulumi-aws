@@ -142,14 +142,12 @@ def get_certificate(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.rds.get_certificate(latest_valid_till=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Certificate identifier. For example, `rds-ca-2019`.
@@ -182,14 +180,12 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.rds.get_certificate(latest_valid_till=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Certificate identifier. For example, `rds-ca-2019`.

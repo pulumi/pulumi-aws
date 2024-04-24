@@ -135,7 +135,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,7 +156,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +203,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

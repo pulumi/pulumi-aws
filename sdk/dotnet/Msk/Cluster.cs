@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ### Basic
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -210,11 +209,9 @@ namespace Pulumi.Aws.Msk
     ///     };
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With volume_throughput argument
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -258,7 +255,6 @@ namespace Pulumi.Aws.Msk
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -272,7 +268,7 @@ namespace Pulumi.Aws.Msk
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -572,7 +568,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -194,7 +194,6 @@ class SharedDirectory(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +214,6 @@ class SharedDirectory(pulumi.CustomResource):
                 id=receiver["accountId"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,7 +243,6 @@ class SharedDirectory(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +263,6 @@ class SharedDirectory(pulumi.CustomResource):
                 id=receiver["accountId"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

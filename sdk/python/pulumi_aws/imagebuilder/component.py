@@ -519,7 +519,6 @@ class Component(pulumi.CustomResource):
 
         ### URI Document
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,7 +529,6 @@ class Component(pulumi.CustomResource):
             uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -572,7 +570,6 @@ class Component(pulumi.CustomResource):
 
         ### URI Document
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,7 +580,6 @@ class Component(pulumi.CustomResource):
             uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     thesaurusId: "87654321-1234-4321-4321-321987654321",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions): Promise<GetThesaurusResult> {
 
@@ -120,7 +118,6 @@ export interface GetThesaurusResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,7 +127,6 @@ export interface GetThesaurusResult {
  *     thesaurusId: "87654321-1234-4321-4321-321987654321",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThesaurusResult> {
     return pulumi.output(args).apply((a: any) => getThesaurus(a, opts))

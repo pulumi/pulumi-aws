@@ -20,7 +20,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,11 +35,9 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Retrieve Specific Secret Version
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +54,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionArgs(), options.WithDefaults());
@@ -71,7 +67,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,11 +82,9 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Retrieve Specific Secret Version
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,7 +101,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());

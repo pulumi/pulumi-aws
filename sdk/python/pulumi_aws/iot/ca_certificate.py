@@ -358,7 +358,6 @@ class CaCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +400,6 @@ class CaCertificate(pulumi.CustomResource):
             verification_certificate_pem=verification_locally_signed_cert.cert_pem,
             allow_auto_registration=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -425,7 +423,6 @@ class CaCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,7 +465,6 @@ class CaCertificate(pulumi.CustomResource):
             verification_certificate_pem=verification_locally_signed_cert.cert_pem,
             allow_auto_registration=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.

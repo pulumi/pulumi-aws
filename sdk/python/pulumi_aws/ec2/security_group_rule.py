@@ -445,7 +445,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,7 +458,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With Prefix List IDs
 
@@ -469,7 +467,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,12 +481,10 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             security_group_id="sg-123456")
         ```
-        <!--End PulumiCodeChooser -->
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list`
         or `ec2_managed_prefix_list` data sources:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,7 +500,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             protocol=aws.ec2.ProtocolType.TCP,
             prefix_list_ids=[s3.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -603,7 +597,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -617,7 +610,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With Prefix List IDs
 
@@ -627,7 +619,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,12 +633,10 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             security_group_id="sg-123456")
         ```
-        <!--End PulumiCodeChooser -->
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list`
         or `ec2_managed_prefix_list` data sources:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -663,7 +652,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             protocol=aws.ec2.ProtocolType.TCP,
             prefix_list_ids=[s3.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

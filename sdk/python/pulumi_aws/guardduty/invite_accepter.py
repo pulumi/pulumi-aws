@@ -102,7 +102,6 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +118,6 @@ class InviteAccepter(pulumi.CustomResource):
             master_account_id=primary.account_id,
             opts=pulumi.ResourceOptions(depends_on=[member_member]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +159,6 @@ class InviteAccepter(pulumi.CustomResource):
             master_account_id=primary.account_id,
             opts=pulumi.ResourceOptions(depends_on=[member_member]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

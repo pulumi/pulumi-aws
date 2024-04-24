@@ -20,7 +20,6 @@ import (
 //
 // ### UI customization settings for a single client
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,11 +73,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### UI customization settings for all clients
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,7 +121,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

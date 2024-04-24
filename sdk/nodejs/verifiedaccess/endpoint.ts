@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### ALB Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Network Interface Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,7 +58,6 @@ import * as utilities from "../utilities";
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

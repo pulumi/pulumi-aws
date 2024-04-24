@@ -21,7 +21,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ### Kinesis Stream Input
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,11 +78,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Starting An Application
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -187,7 +184,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -109,7 +109,6 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -122,7 +121,6 @@ class DelegationSet(pulumi.CustomResource):
             name="coolcompany.io",
             delegation_set_id=main.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,7 +146,6 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,7 +158,6 @@ class DelegationSet(pulumi.CustomResource):
             name="coolcompany.io",
             delegation_set_id=main.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

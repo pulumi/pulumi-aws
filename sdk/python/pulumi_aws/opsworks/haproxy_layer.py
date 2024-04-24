@@ -993,7 +993,6 @@ class HaproxyLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1002,7 +1001,6 @@ class HaproxyLayer(pulumi.CustomResource):
             stack_id=main["id"],
             stats_password="foobarbaz")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1044,7 +1042,6 @@ class HaproxyLayer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,7 +1050,6 @@ class HaproxyLayer(pulumi.CustomResource):
             stack_id=main["id"],
             stats_password="foobarbaz")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param HaproxyLayerArgs args: The arguments to use to populate this resource's properties.

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ### By ARN
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +31,6 @@ import * as utilities from "../utilities";
  *     name: "test_policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     args = args || {};
@@ -121,7 +117,6 @@ export interface GetPolicyResult {
  *
  * ### By ARN
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,11 +125,9 @@ export interface GetPolicyResult {
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -143,7 +136,6 @@ export interface GetPolicyResult {
  *     name: "test_policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecTcpRouteMatchArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The port number to match from the request.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,13 +40,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
 //
 // `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,7 +71,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example add-on usage with custom configurationValues
 //
@@ -87,7 +83,6 @@ import (
 //
 // Example to create a `coredns` managed addon with custom `configurationValues`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,11 +129,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -235,7 +228,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

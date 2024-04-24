@@ -67,14 +67,12 @@ def get_data_shares(data_shares: Optional[Sequence[pulumi.InputType['GetDataShar
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshift.get_data_shares()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetDataSharesDataShareArgs']] data_shares: An array of all data shares in the current region. See `data_shares` below.
@@ -99,14 +97,12 @@ def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshift.get_data_shares()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetDataSharesDataShareArgs']] data_shares: An array of all data shares in the current region. See `data_shares` below.

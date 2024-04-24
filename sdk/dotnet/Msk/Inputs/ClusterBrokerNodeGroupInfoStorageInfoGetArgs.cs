@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoStorageInfoGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that contains EBS volume information. See below.
-        /// </summary>
         [Input("ebsStorageInfo")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoGetArgs>? EbsStorageInfo { get; set; }
 

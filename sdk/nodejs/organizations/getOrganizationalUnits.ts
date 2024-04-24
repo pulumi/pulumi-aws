@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     parentId: org.roots?.[0]?.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitsResult> {
 
@@ -61,7 +59,6 @@ export interface GetOrganizationalUnitsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetOrganizationalUnitsResult {
  *     parentId: org.roots?.[0]?.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationalUnitsOutput(args: GetOrganizationalUnitsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitsResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationalUnits(a, opts))

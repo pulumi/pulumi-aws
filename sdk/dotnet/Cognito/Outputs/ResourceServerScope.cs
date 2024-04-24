@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class ResourceServerScope
     {
-        /// <summary>
-        /// The scope description.
-        /// </summary>
         public readonly string ScopeDescription;
-        /// <summary>
-        /// The scope name.
-        /// </summary>
         public readonly string ScopeName;
 
         [OutputConstructor]

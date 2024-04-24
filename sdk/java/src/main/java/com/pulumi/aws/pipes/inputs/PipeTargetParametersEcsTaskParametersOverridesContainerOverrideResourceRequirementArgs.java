@@ -14,32 +14,16 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
 
     public static final PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs Empty = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs();
 
-    /**
-     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
             $ = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

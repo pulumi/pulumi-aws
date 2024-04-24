@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     version: "$LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -122,7 +120,6 @@ export interface GetBotResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,7 +129,6 @@ export interface GetBotResult {
  *     version: "$LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

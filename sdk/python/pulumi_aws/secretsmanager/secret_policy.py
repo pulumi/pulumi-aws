@@ -145,7 +145,6 @@ class SecretPolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class SecretPolicy(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -196,7 +194,6 @@ class SecretPolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +213,6 @@ class SecretPolicy(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

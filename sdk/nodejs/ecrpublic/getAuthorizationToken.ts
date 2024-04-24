@@ -11,14 +11,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const token = aws.ecrpublic.getAuthorizationToken({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationToken(opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
 
@@ -59,14 +57,12 @@ export interface GetAuthorizationTokenResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const token = aws.ecrpublic.getAuthorizationToken({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
     return pulumi.output(getAuthorizationToken(opts))

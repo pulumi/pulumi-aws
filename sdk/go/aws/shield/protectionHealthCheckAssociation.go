@@ -21,7 +21,6 @@ import (
 //
 // ### Create an association between a protected EIP and a Route53 Health Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,7 +94,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

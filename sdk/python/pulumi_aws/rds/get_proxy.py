@@ -193,14 +193,12 @@ def get_proxy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     proxy = aws.rds.get_proxy(name="my-test-db-proxy")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the DB proxy.
@@ -234,14 +232,12 @@ def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     proxy = aws.rds.get_proxy(name="my-test-db-proxy")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the DB proxy.

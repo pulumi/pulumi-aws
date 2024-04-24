@@ -250,7 +250,6 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +259,6 @@ class EndpointAccess(pulumi.CustomResource):
             subnet_group_name=example_aws_redshift_subnet_group["id"],
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +296,6 @@ class EndpointAccess(pulumi.CustomResource):
             subnet_group_name=example_aws_redshift_subnet_group["id"],
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

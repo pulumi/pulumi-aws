@@ -118,7 +118,6 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
 
     ### Basic Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -186,7 +185,6 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 
@@ -231,7 +229,6 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
 
     ### Basic Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -299,7 +296,6 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 

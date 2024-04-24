@@ -22,14 +22,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     public static final RuleGroupState Empty = new RuleGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF rule group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return The ARN of the WAF rule group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -229,7 +229,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn The ARN of the WAF rule group.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn The ARN of the WAF rule group.
          * 
          * @return builder
          * 

@@ -243,18 +243,15 @@ class ContactList(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example", contact_list_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Extended Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +266,6 @@ class ContactList(pulumi.CustomResource):
                 topic_name="example-topic",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -301,18 +297,15 @@ class ContactList(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example", contact_list_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Extended Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +320,6 @@ class ContactList(pulumi.CustomResource):
                 topic_name="example-topic",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

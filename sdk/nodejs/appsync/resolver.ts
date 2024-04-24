@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,21 +20,21 @@ import * as utilities from "../utilities";
  *     authenticationType: "API_KEY",
  *     name: "tf-example",
  *     schema: `type Mutation {
- * 	putPost(id: ID!, title: String!): Post
+ * \x09putPost(id: ID!, title: String!): Post
  * }
  *
  * type Post {
- * 	id: ID!
- * 	title: String!
+ * \x09id: ID!
+ * \x09title: String!
  * }
  *
  * type Query {
- * 	singlePost(id: ID!): Post
+ * \x09singlePost(id: ID!): Post
  * }
  *
  * schema {
- * 	query: Query
- * 	mutation: Mutation
+ * \x09query: Query
+ * \x09mutation: Mutation
  * }
  * `,
  * });
@@ -58,14 +57,14 @@ import * as utilities from "../utilities";
  *     "method": "GET",
  *     "resourcePath": "/",
  *     "params":{
- *         "headers": $utils.http.copyheaders($ctx.request.headers)
+ *         "headers": utils.http.copyheaders(ctx.request.headers)
  *     }
  * }
  * `,
- *     responseTemplate: `#if($ctx.result.statusCode == 200)
- *     $ctx.result.body
+ *     responseTemplate: `#if(ctx.result.statusCode == 200)
+ *     ctx.result.body
  * #else
- *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+ *     utils.appendError(ctx.result.body, ctx.result.statusCode)
  * #end
  * `,
  *     cachingConfig: {
@@ -93,11 +92,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### JS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -120,7 +117,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -150,7 +150,6 @@ class ResourceCollection(pulumi.CustomResource):
 
         ### All Account Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,11 +160,9 @@ class ResourceCollection(pulumi.CustomResource):
                 stack_names=["*"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudFormation Stacks
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,11 +173,9 @@ class ResourceCollection(pulumi.CustomResource):
                 stack_names=["ExampleStack"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,13 +187,11 @@ class ResourceCollection(pulumi.CustomResource):
                 tag_values=["Example-Value"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tags All Resources
 
         To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `["*"]`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,7 +203,6 @@ class ResourceCollection(pulumi.CustomResource):
                 tag_values=["*"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,7 +235,6 @@ class ResourceCollection(pulumi.CustomResource):
 
         ### All Account Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,11 +245,9 @@ class ResourceCollection(pulumi.CustomResource):
                 stack_names=["*"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudFormation Stacks
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,11 +258,9 @@ class ResourceCollection(pulumi.CustomResource):
                 stack_names=["ExampleStack"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,13 +272,11 @@ class ResourceCollection(pulumi.CustomResource):
                 tag_values=["Example-Value"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tags All Resources
 
         To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `["*"]`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +288,6 @@ class ResourceCollection(pulumi.CustomResource):
                 tag_values=["*"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -185,14 +185,12 @@ def get_rest_api(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
@@ -231,14 +229,12 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.

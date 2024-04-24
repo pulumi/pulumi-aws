@@ -106,7 +106,6 @@ class Plan(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,11 +116,9 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with SSM Contact
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,11 +132,9 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +174,6 @@ class Plan(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,7 +201,6 @@ class Plan(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,11 +211,9 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with SSM Contact
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,11 +227,9 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +269,6 @@ class Plan(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -111,7 +111,7 @@ class _ListenerRuleState:
         """
         Input properties used for looking up and filtering ListenerRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[str] arn: The ARN of the rule (matches `id`)
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
@@ -152,7 +152,7 @@ class _ListenerRuleState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the target group.
+        The ARN of the rule (matches `id`)
         """
         return pulumi.get(self, "arn")
 
@@ -242,7 +242,6 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +388,6 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -420,7 +418,6 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -567,7 +564,6 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -646,7 +642,7 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[str] arn: The ARN of the rule (matches `id`)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
@@ -678,7 +674,7 @@ class ListenerRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the target group.
+        The ARN of the rule (matches `id`)
         """
         return pulumi.get(self, "arn")
 

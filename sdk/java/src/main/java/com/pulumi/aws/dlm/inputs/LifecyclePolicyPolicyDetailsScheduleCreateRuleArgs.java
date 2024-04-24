@@ -16,77 +16,37 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
 
     public static final LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs();
 
-    /**
-     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
-     * 
-     */
     @Import(name="cronExpression")
     private @Nullable Output<String> cronExpression;
 
-    /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
-     * 
-     */
     public Optional<Output<String>> cronExpression() {
         return Optional.ofNullable(this.cronExpression);
     }
 
-    /**
-     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
-    /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
-    /**
-     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
-    /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     public Optional<Output<String>> intervalUnit() {
         return Optional.ofNullable(this.intervalUnit);
     }
 
-    /**
-     * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     @Import(name="times")
     private @Nullable Output<String> times;
 
-    /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     public Optional<Output<String>> times() {
         return Optional.ofNullable(this.times);
     }
@@ -119,107 +79,47 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
             $ = new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cronExpression(@Nullable Output<String> cronExpression) {
             $.cronExpression = cronExpression;
             return this;
         }
 
-        /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cronExpression(String cronExpression) {
             return cronExpression(Output.of(cronExpression));
         }
 
-        /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(@Nullable Output<String> intervalUnit) {
             $.intervalUnit = intervalUnit;
             return this;
         }
 
-        /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(String intervalUnit) {
             return intervalUnit(Output.of(intervalUnit));
         }
 
-        /**
-         * @param location Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder times(@Nullable Output<String> times) {
             $.times = times;
             return this;
         }
 
-        /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder times(String times) {
             return times(Output.of(times));
         }

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +38,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -115,10 +113,6 @@ export class Ami extends pulumi.CustomResource {
      * Hypervisor type of the image.
      */
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
-    /**
-     * Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     */
     public readonly imageLocation!: pulumi.Output<string>;
     /**
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
@@ -132,10 +126,6 @@ export class Ami extends pulumi.CustomResource {
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
     public readonly imdsSupport!: pulumi.Output<string | undefined>;
-    /**
-     * ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     */
     public readonly kernelId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
     /**
@@ -158,10 +148,6 @@ export class Ami extends pulumi.CustomResource {
      * Whether the image has public launch permissions.
      */
     public /*out*/ readonly public!: pulumi.Output<boolean>;
-    /**
-     * ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     */
     public readonly ramdiskId!: pulumi.Output<string | undefined>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
@@ -171,10 +157,6 @@ export class Ami extends pulumi.CustomResource {
      * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
     public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
-    /**
-     * When set to "simple" (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     */
     public readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -322,10 +304,6 @@ export interface AmiState {
      * Hypervisor type of the image.
      */
     hypervisor?: pulumi.Input<string>;
-    /**
-     * Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     */
     imageLocation?: pulumi.Input<string>;
     /**
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
@@ -339,10 +317,6 @@ export interface AmiState {
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
     imdsSupport?: pulumi.Input<string>;
-    /**
-     * ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     */
     kernelId?: pulumi.Input<string>;
     manageEbsSnapshots?: pulumi.Input<boolean>;
     /**
@@ -365,10 +339,6 @@ export interface AmiState {
      * Whether the image has public launch permissions.
      */
     public?: pulumi.Input<boolean>;
-    /**
-     * ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     */
     ramdiskId?: pulumi.Input<string>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
@@ -378,10 +348,6 @@ export interface AmiState {
      * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
     rootSnapshotId?: pulumi.Input<string>;
-    /**
-     * When set to "simple" (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     */
     sriovNetSupport?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -443,37 +409,21 @@ export interface AmiArgs {
      * should be attached to created instances. The structure of this block is described below.
      */
     ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
-    /**
-     * Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     */
     imageLocation?: pulumi.Input<string>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
     imdsSupport?: pulumi.Input<string>;
-    /**
-     * ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     */
     kernelId?: pulumi.Input<string>;
     /**
      * Region-unique name for the AMI.
      */
     name?: pulumi.Input<string>;
-    /**
-     * ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     */
     ramdiskId?: pulumi.Input<string>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
-    /**
-     * When set to "simple" (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     */
     sriovNetSupport?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

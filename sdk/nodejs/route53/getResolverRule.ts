@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     ruleType: "SYSTEM",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     args = args || {};
@@ -105,7 +103,6 @@ export interface GetResolverRuleResult {
  *
  * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,7 +112,6 @@ export interface GetResolverRuleResult {
  *     ruleType: "SYSTEM",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverRuleOutput(args?: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
     return pulumi.output(args).apply((a: any) => getResolverRule(a, opts))

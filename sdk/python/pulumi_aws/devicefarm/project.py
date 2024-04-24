@@ -180,14 +180,12 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         awesome_devices = aws.devicefarm.Project("awesome_devices", name="my-device-farm")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,14 +217,12 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         awesome_devices = aws.devicefarm.Project("awesome_devices", name="my-device-farm")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

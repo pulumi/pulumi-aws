@@ -232,7 +232,6 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +243,6 @@ class AlternativeContact(pulumi.CustomResource):
             email_address="test@example.com",
             phone_number="+1234567890")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +292,6 @@ class AlternativeContact(pulumi.CustomResource):
             email_address="test@example.com",
             phone_number="+1234567890")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -242,7 +242,6 @@ class Domain(pulumi.CustomResource):
 
         To register a basic SWF domain:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,7 +251,6 @@ class Domain(pulumi.CustomResource):
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class Domain(pulumi.CustomResource):
 
         To register a basic SWF domain:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +290,6 @@ class Domain(pulumi.CustomResource):
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

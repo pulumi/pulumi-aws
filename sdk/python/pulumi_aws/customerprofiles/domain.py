@@ -316,18 +316,15 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.customerprofiles.Domain("example", domain_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SQS DLQ and KMS set
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -380,7 +377,6 @@ class Domain(pulumi.CustomResource):
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -414,18 +410,15 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.customerprofiles.Domain("example", domain_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With SQS DLQ and KMS set
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -478,7 +471,6 @@ class Domain(pulumi.CustomResource):
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

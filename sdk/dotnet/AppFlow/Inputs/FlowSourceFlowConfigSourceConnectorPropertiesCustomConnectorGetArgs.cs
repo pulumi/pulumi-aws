@@ -14,19 +14,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("customProperties")]
         private InputMap<string>? _customProperties;
-
-        /// <summary>
-        /// Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-        /// </summary>
         public InputMap<string> CustomProperties
         {
             get => _customProperties ?? (_customProperties = new InputMap<string>());
             set => _customProperties = value;
         }
 
-        /// <summary>
-        /// Entity specified in the custom connector as a destination in the flow.
-        /// </summary>
         [Input("entityName", required: true)]
         public Input<string> EntityName { get; set; } = null!;
 

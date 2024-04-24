@@ -479,7 +479,6 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,7 +487,6 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -525,7 +523,6 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,7 +531,6 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

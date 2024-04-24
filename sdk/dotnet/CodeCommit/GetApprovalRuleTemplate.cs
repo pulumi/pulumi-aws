@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApprovalRuleTemplateResult> InvokeAsync(GetApprovalRuleTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApprovalRuleTemplateResult> Invoke(GetApprovalRuleTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithDefaults());

@@ -17,62 +17,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs();
 
-    /**
-     * Amazon S3 bucket prefix.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs> errorHandlingConfig;
 
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
-    /**
-     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-     * 
-     */
     @Import(name="intermediateBucketName", required=true)
     private Output<String> intermediateBucketName;
 
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-     * 
-     */
     public Output<String> intermediateBucketName() {
         return this.intermediateBucketName;
     }
 
-    /**
-     * Object specified in the flow destination.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
@@ -104,86 +72,38 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketPrefix Amazon S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Amazon S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
-        /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateBucketName(Output<String> intermediateBucketName) {
             $.intermediateBucketName = intermediateBucketName;
             return this;
         }
 
-        /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateBucketName(String intermediateBucketName) {
             return intermediateBucketName(Output.of(intermediateBucketName));
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the flow destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

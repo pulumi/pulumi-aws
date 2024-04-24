@@ -17,14 +17,12 @@ import * as utilities from "./utilities";
  * The following example shows how the resource might be used to obtain
  * the name of the AWS region configured on the provider.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
@@ -83,14 +81,12 @@ export interface GetRegionResult {
  * The following example shows how the resource might be used to obtain
  * the name of the AWS region configured on the provider.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegionOutput(args?: GetRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
     return pulumi.output(args).apply((a: any) => getRegion(a, opts))

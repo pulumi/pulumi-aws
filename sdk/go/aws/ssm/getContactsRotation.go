@@ -15,7 +15,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArgs, opts ...pulumi.InvokeOption) (*LookupContactsRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactsRotationResult

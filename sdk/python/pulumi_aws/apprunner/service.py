@@ -431,7 +431,6 @@ class Service(pulumi.CustomResource):
 
         ### Service with a Code Repository Source
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,11 +468,9 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service with an Image Repository Source
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,11 +491,9 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service with Observability Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,7 +523,6 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -565,7 +559,6 @@ class Service(pulumi.CustomResource):
 
         ### Service with a Code Repository Source
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -603,11 +596,9 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service with an Image Repository Source
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -628,11 +619,9 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Service with Observability Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -662,7 +651,6 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

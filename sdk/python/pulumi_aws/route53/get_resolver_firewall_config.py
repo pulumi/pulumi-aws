@@ -82,14 +82,12 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
 
     The following example shows how to get a firewall config using the VPC ID.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_config(resource_id="vpc-exampleid")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
@@ -120,14 +118,12 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]]
 
     The following example shows how to get a firewall config using the VPC ID.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_config(resource_id="vpc-exampleid")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.

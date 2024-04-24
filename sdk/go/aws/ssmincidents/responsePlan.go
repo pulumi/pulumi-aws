@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage With All Fields
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,7 +143,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -158,22 +154,16 @@ import (
 type ResponsePlan struct {
 	pulumi.CustomResourceState
 
-	// The actions that the response plan starts at the beginning of an incident.
 	Action ResponsePlanActionPtrOutput `pulumi:"action"`
 	// The ARN of the response plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels pulumi.StringArrayOutput `pulumi:"chatChannels"`
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	Arn              pulumi.StringOutput                `pulumi:"arn"`
+	ChatChannels     pulumi.StringArrayOutput           `pulumi:"chatChannels"`
+	DisplayName      pulumi.StringPtrOutput             `pulumi:"displayName"`
 	Engagements      pulumi.StringArrayOutput           `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integration ResponsePlanIntegrationPtrOutput `pulumi:"integration"`
+	Integration      ResponsePlanIntegrationPtrOutput   `pulumi:"integration"`
 	// The name of the response plan.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tags applied to the response plan.
+	Name pulumi.StringOutput    `pulumi:"name"`
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -214,22 +204,16 @@ func GetResponsePlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResponsePlan resources.
 type responsePlanState struct {
-	// The actions that the response plan starts at the beginning of an incident.
 	Action *ResponsePlanAction `pulumi:"action"`
 	// The ARN of the response plan.
-	Arn *string `pulumi:"arn"`
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels []string `pulumi:"chatChannels"`
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	Arn              *string                       `pulumi:"arn"`
+	ChatChannels     []string                      `pulumi:"chatChannels"`
+	DisplayName      *string                       `pulumi:"displayName"`
 	Engagements      []string                      `pulumi:"engagements"`
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integration *ResponsePlanIntegration `pulumi:"integration"`
+	Integration      *ResponsePlanIntegration      `pulumi:"integration"`
 	// The name of the response plan.
-	Name *string `pulumi:"name"`
-	// The tags applied to the response plan.
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -238,22 +222,16 @@ type responsePlanState struct {
 }
 
 type ResponsePlanState struct {
-	// The actions that the response plan starts at the beginning of an incident.
 	Action ResponsePlanActionPtrInput
 	// The ARN of the response plan.
-	Arn pulumi.StringPtrInput
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels pulumi.StringArrayInput
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	Arn              pulumi.StringPtrInput
+	ChatChannels     pulumi.StringArrayInput
+	DisplayName      pulumi.StringPtrInput
 	Engagements      pulumi.StringArrayInput
 	IncidentTemplate ResponsePlanIncidentTemplatePtrInput
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integration ResponsePlanIntegrationPtrInput
+	Integration      ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
-	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -266,39 +244,27 @@ func (ResponsePlanState) ElementType() reflect.Type {
 }
 
 type responsePlanArgs struct {
-	// The actions that the response plan starts at the beginning of an incident.
-	Action *ResponsePlanAction `pulumi:"action"`
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels []string `pulumi:"chatChannels"`
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	Action           *ResponsePlanAction          `pulumi:"action"`
+	ChatChannels     []string                     `pulumi:"chatChannels"`
+	DisplayName      *string                      `pulumi:"displayName"`
 	Engagements      []string                     `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integration *ResponsePlanIntegration `pulumi:"integration"`
+	Integration      *ResponsePlanIntegration     `pulumi:"integration"`
 	// The name of the response plan.
-	Name *string `pulumi:"name"`
-	// The tags applied to the response plan.
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
 type ResponsePlanArgs struct {
-	// The actions that the response plan starts at the beginning of an incident.
-	Action ResponsePlanActionPtrInput
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels pulumi.StringArrayInput
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	Action           ResponsePlanActionPtrInput
+	ChatChannels     pulumi.StringArrayInput
+	DisplayName      pulumi.StringPtrInput
 	Engagements      pulumi.StringArrayInput
 	IncidentTemplate ResponsePlanIncidentTemplateInput
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integration ResponsePlanIntegrationPtrInput
+	Integration      ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
-	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput
 }
 
@@ -389,7 +355,6 @@ func (o ResponsePlanOutput) ToResponsePlanOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The actions that the response plan starts at the beginning of an incident.
 func (o ResponsePlanOutput) Action() ResponsePlanActionPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanActionPtrOutput { return v.Action }).(ResponsePlanActionPtrOutput)
 }
@@ -399,17 +364,14 @@ func (o ResponsePlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Chatbot chat channel used for collaboration during an incident.
 func (o ResponsePlanOutput) ChatChannels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.ChatChannels }).(pulumi.StringArrayOutput)
 }
 
-// The long format of the response plan name. This field can contain spaces.
 func (o ResponsePlanOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.Engagements }).(pulumi.StringArrayOutput)
 }
@@ -418,7 +380,6 @@ func (o ResponsePlanOutput) IncidentTemplate() ResponsePlanIncidentTemplateOutpu
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIncidentTemplateOutput { return v.IncidentTemplate }).(ResponsePlanIncidentTemplateOutput)
 }
 
-// Information about third-party services integrated into the response plan. The following values are supported:
 func (o ResponsePlanOutput) Integration() ResponsePlanIntegrationPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIntegrationPtrOutput { return v.Integration }).(ResponsePlanIntegrationPtrOutput)
 }
@@ -428,7 +389,6 @@ func (o ResponsePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tags applied to the response plan.
 func (o ResponsePlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -270,7 +270,6 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,7 +278,6 @@ class PlacementGroup(pulumi.CustomResource):
             name="hunky-dory-pg",
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -312,7 +310,6 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,7 +318,6 @@ class PlacementGroup(pulumi.CustomResource):
             name="hunky-dory-pg",
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

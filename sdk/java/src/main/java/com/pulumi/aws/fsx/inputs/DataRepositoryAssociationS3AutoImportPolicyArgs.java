@@ -16,17 +16,9 @@ public final class DataRepositoryAssociationS3AutoImportPolicyArgs extends com.p
 
     public static final DataRepositoryAssociationS3AutoImportPolicyArgs Empty = new DataRepositoryAssociationS3AutoImportPolicyArgs();
 
-    /**
-     * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-     * 
-     */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
-    /**
-     * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-     * 
-     */
     public Optional<Output<List<String>>> events() {
         return Optional.ofNullable(this.events);
     }
@@ -55,33 +47,15 @@ public final class DataRepositoryAssociationS3AutoImportPolicyArgs extends com.p
             $ = new DataRepositoryAssociationS3AutoImportPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(@Nullable Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }

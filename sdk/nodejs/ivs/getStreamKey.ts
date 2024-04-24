@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     channelArn: "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreamKey(args: GetStreamKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamKeyResult> {
 
@@ -74,7 +72,6 @@ export interface GetStreamKeyResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetStreamKeyResult {
  *     channelArn: "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
     return pulumi.output(args).apply((a: any) => getStreamKey(a, opts))

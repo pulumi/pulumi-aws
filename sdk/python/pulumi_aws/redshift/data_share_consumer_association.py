@@ -244,7 +244,6 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,11 +252,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             associate_entire_account=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Consumer Region
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +263,6 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             consumer_region="us-west-2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -299,7 +295,6 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,11 +303,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             associate_entire_account=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Consumer Region
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,7 +314,6 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             consumer_region="us-west-2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

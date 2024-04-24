@@ -245,7 +245,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +253,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             service_network_identifier=example_aws_vpclattice_service_network["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +290,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             service_network_identifier=example_aws_vpclattice_service_network["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

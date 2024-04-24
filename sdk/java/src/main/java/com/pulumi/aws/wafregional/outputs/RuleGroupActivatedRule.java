@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupActivatedRule {
-    /**
-     * @return Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-     * 
-     */
     private RuleGroupActivatedRuleAction action;
-    /**
-     * @return Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return The ID of a rule
-     * 
-     */
     private String ruleId;
-    /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-     * 
-     */
     private @Nullable String type;
 
     private RuleGroupActivatedRule() {}
-    /**
-     * @return Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-     * 
-     */
     public RuleGroupActivatedRuleAction action() {
         return this.action;
     }
-    /**
-     * @return Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return The ID of a rule
-     * 
-     */
     public String ruleId() {
         return this.ruleId;
     }
-    /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -101,14 +101,12 @@ def get_alias(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.kms.get_alias(name="alias/aws/s3")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -136,14 +134,12 @@ def get_alias_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.kms.get_alias(name="alias/aws/s3")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)

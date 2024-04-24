@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings
     {
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly double? Bitrate;
-        /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
-        /// </summary>
         public readonly string? CodingMode;
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         public readonly double? SampleRate;
 
         [OutputConstructor]

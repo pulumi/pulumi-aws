@@ -173,14 +173,12 @@ class RouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -206,14 +204,12 @@ class RouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

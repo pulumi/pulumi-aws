@@ -244,7 +244,6 @@ def get_bot(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -252,7 +251,6 @@ def get_bot(name: Optional[str] = None,
     order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
         version="$LATEST")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the bot. The name is case sensitive.
@@ -293,7 +291,6 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -301,7 +298,6 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
     order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
         version="$LATEST")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the bot. The name is case sensitive.

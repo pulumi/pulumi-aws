@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Simple routing policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,13 +26,11 @@ import * as utilities from "../utilities";
  *     records: [lb.publicIp],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Weighted routing policy
  *
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,11 +58,9 @@ import * as utilities from "../utilities";
  *     records: ["live.example.com"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Geoproximity routing policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,7 +80,6 @@ import * as utilities from "../utilities";
  *     records: ["dev.example.com"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Alias record
  *
@@ -95,7 +89,6 @@ import * as utilities from "../utilities";
  * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
  * you cannot change this, therefore `ttl` has to be omitted in alias records.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,13 +114,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### NS and SOA Record Management
  *
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,7 +138,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

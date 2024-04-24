@@ -212,7 +212,6 @@ class TestGridProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +224,6 @@ class TestGridProject(pulumi.CustomResource):
                 security_group_ids=[__item["id"] for __item in example_aws_security_group],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -255,7 +253,6 @@ class TestGridProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,7 +265,6 @@ class TestGridProject(pulumi.CustomResource):
                 security_group_ids=[__item["id"] for __item in example_aws_security_group],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

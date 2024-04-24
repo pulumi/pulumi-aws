@@ -344,8 +344,6 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs:
                  s3_bucket_destination: pulumi.Input['AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs']):
         """
         :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs'] s3_bucket_destination: Analytics data export currently only supports an S3 bucket destination (documented below).
-               
-               The `s3_bucket_destination` configuration supports the following:
         """
         pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
@@ -354,8 +352,6 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs:
     def s3_bucket_destination(self) -> pulumi.Input['AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs']:
         """
         Analytics data export currently only supports an S3 bucket destination (documented below).
-
-        The `s3_bucket_destination` configuration supports the following:
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -520,7 +516,6 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-        :param pulumi.Input[str] display_name: Display name of the owner.
         :param pulumi.Input[str] email_address: Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
         :param pulumi.Input[str] id: Canonical user ID of the grantee.
         :param pulumi.Input[str] uri: URI of the grantee group.
@@ -550,9 +545,6 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the owner.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -743,13 +735,6 @@ class BucketCorsRuleArgs:
                  allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_age_seconds: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies which origins are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: Specifies which headers are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Specifies expose header in the response.
-        :param pulumi.Input[int] max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
-        """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -762,9 +747,6 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-        """
         return pulumi.get(self, "allowed_methods")
 
     @allowed_methods.setter
@@ -774,9 +756,6 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies which origins are allowed.
-        """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
@@ -786,9 +765,6 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedHeaders")
     def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies which headers are allowed.
-        """
         return pulumi.get(self, "allowed_headers")
 
     @allowed_headers.setter
@@ -798,9 +774,6 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies expose header in the response.
-        """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
@@ -810,9 +783,6 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="maxAgeSeconds")
     def max_age_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies time in seconds that browser can cache the response for a preflight request.
-        """
         return pulumi.get(self, "max_age_seconds")
 
     @max_age_seconds.setter
@@ -3369,19 +3339,12 @@ class BucketReplicationConfigurationArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]]):
-        """
-        :param pulumi.Input[str] role: The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]] rules: Specifies the rules managing the replication (documented below).
-        """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
-        """
-        The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -3391,9 +3354,6 @@ class BucketReplicationConfigurationArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]]:
-        """
-        Specifies the rules managing the replication (documented below).
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter

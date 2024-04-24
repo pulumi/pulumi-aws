@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-        /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
-        /// <summary>
-        /// The API secret key required for API key authentication.
-        /// </summary>
         [Input("apiSecretKey")]
         public Input<string>? ApiSecretKey { get; set; }
 

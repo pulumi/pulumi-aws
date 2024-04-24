@@ -227,7 +227,6 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,7 +248,6 @@ class MedicalVocabulary(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[object]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +279,6 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +300,6 @@ class MedicalVocabulary(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[object]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

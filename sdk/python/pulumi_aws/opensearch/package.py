@@ -199,7 +199,6 @@ class Package(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +218,6 @@ class Package(pulumi.CustomResource):
             ),
             package_type="TXT-DICTIONARY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +247,6 @@ class Package(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +266,6 @@ class Package(pulumi.CustomResource):
             ),
             package_type="TXT-DICTIONARY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

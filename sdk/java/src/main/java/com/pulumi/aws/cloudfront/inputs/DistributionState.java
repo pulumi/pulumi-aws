@@ -29,17 +29,9 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
     public static final DistributionState Empty = new DistributionState();
 
-    /**
-     * Extra CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     @Import(name="aliases")
     private @Nullable Output<List<String>> aliases;
 
-    /**
-     * @return Extra CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     public Optional<Output<List<String>>> aliases() {
         return Optional.ofNullable(this.aliases);
     }
@@ -74,90 +66,50 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.callerReference);
     }
 
-    /**
-     * Any comments you want to include about the distribution.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Any comments you want to include about the distribution.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-     * 
-     */
     @Import(name="continuousDeploymentPolicyId")
     private @Nullable Output<String> continuousDeploymentPolicyId;
 
-    /**
-     * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-     * 
-     */
     public Optional<Output<String>> continuousDeploymentPolicyId() {
         return Optional.ofNullable(this.continuousDeploymentPolicyId);
     }
 
-    /**
-     * One or more custom error response elements (multiples allowed).
-     * 
-     */
     @Import(name="customErrorResponses")
     private @Nullable Output<List<DistributionCustomErrorResponseArgs>> customErrorResponses;
 
-    /**
-     * @return One or more custom error response elements (multiples allowed).
-     * 
-     */
     public Optional<Output<List<DistributionCustomErrorResponseArgs>>> customErrorResponses() {
         return Optional.ofNullable(this.customErrorResponses);
     }
 
-    /**
-     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-     * 
-     */
     @Import(name="defaultCacheBehavior")
     private @Nullable Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
-    /**
-     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-     * 
-     */
     public Optional<Output<DistributionDefaultCacheBehaviorArgs>> defaultCacheBehavior() {
         return Optional.ofNullable(this.defaultCacheBehavior);
     }
 
-    /**
-     * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-     * 
-     */
     @Import(name="defaultRootObject")
     private @Nullable Output<String> defaultRootObject;
 
-    /**
-     * @return Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-     * 
-     */
     public Optional<Output<String>> defaultRootObject() {
         return Optional.ofNullable(this.defaultRootObject);
     }
 
     /**
-     * DNS domain name of either the S3 bucket, or web site of your custom origin.
+     * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
+     * @return Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -165,14 +117,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Origin Shield is enabled.
+     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -209,17 +161,9 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.hostedZoneId);
     }
 
-    /**
-     * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-     * 
-     */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
-    /**
-     * @return Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-     * 
-     */
     public Optional<Output<String>> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
     }
@@ -239,17 +183,9 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.inProgressValidationBatches);
     }
 
-    /**
-     * Whether the IPv6 is enabled for the distribution.
-     * 
-     */
     @Import(name="isIpv6Enabled")
     private @Nullable Output<Boolean> isIpv6Enabled;
 
-    /**
-     * @return Whether the IPv6 is enabled for the distribution.
-     * 
-     */
     public Optional<Output<Boolean>> isIpv6Enabled() {
         return Optional.ofNullable(this.isIpv6Enabled);
     }
@@ -269,122 +205,58 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lastModifiedTime);
     }
 
-    /**
-     * The logging configuration that controls how logs are written to your distribution (maximum one).
-     * 
-     */
     @Import(name="loggingConfig")
     private @Nullable Output<DistributionLoggingConfigArgs> loggingConfig;
 
-    /**
-     * @return The logging configuration that controls how logs are written to your distribution (maximum one).
-     * 
-     */
     public Optional<Output<DistributionLoggingConfigArgs>> loggingConfig() {
         return Optional.ofNullable(this.loggingConfig);
     }
 
-    /**
-     * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-     * 
-     */
     @Import(name="orderedCacheBehaviors")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorArgs>> orderedCacheBehaviors;
 
-    /**
-     * @return Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-     * 
-     */
     public Optional<Output<List<DistributionOrderedCacheBehaviorArgs>>> orderedCacheBehaviors() {
         return Optional.ofNullable(this.orderedCacheBehaviors);
     }
 
-    /**
-     * One or more origin_group for this distribution (multiples allowed).
-     * 
-     */
     @Import(name="originGroups")
     private @Nullable Output<List<DistributionOriginGroupArgs>> originGroups;
 
-    /**
-     * @return One or more origin_group for this distribution (multiples allowed).
-     * 
-     */
     public Optional<Output<List<DistributionOriginGroupArgs>>> originGroups() {
         return Optional.ofNullable(this.originGroups);
     }
 
-    /**
-     * One or more origins for this distribution (multiples allowed).
-     * 
-     */
     @Import(name="origins")
     private @Nullable Output<List<DistributionOriginArgs>> origins;
 
-    /**
-     * @return One or more origins for this distribution (multiples allowed).
-     * 
-     */
     public Optional<Output<List<DistributionOriginArgs>>> origins() {
         return Optional.ofNullable(this.origins);
     }
 
-    /**
-     * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-     * 
-     */
     @Import(name="priceClass")
     private @Nullable Output<String> priceClass;
 
-    /**
-     * @return Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-     * 
-     */
     public Optional<Output<String>> priceClass() {
         return Optional.ofNullable(this.priceClass);
     }
 
-    /**
-     * The restriction configuration for this distribution (maximum one).
-     * 
-     */
     @Import(name="restrictions")
     private @Nullable Output<DistributionRestrictionsArgs> restrictions;
 
-    /**
-     * @return The restriction configuration for this distribution (maximum one).
-     * 
-     */
     public Optional<Output<DistributionRestrictionsArgs>> restrictions() {
         return Optional.ofNullable(this.restrictions);
     }
 
-    /**
-     * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-     * 
-     */
     @Import(name="retainOnDelete")
     private @Nullable Output<Boolean> retainOnDelete;
 
-    /**
-     * @return Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> retainOnDelete() {
         return Optional.ofNullable(this.retainOnDelete);
     }
 
-    /**
-     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-     * 
-     */
     @Import(name="staging")
     private @Nullable Output<Boolean> staging;
 
-    /**
-     * @return A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> staging() {
         return Optional.ofNullable(this.staging);
     }
@@ -404,17 +276,9 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -443,14 +307,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Import(name="trustedKeyGroups")
     private @Nullable Output<List<DistributionTrustedKeyGroupArgs>> trustedKeyGroups;
 
     /**
-     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Optional<Output<List<DistributionTrustedKeyGroupArgs>>> trustedKeyGroups() {
@@ -458,61 +322,37 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Import(name="trustedSigners")
     private @Nullable Output<List<DistributionTrustedSignerArgs>> trustedSigners;
 
     /**
-     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Optional<Output<List<DistributionTrustedSignerArgs>>> trustedSigners() {
         return Optional.ofNullable(this.trustedSigners);
     }
 
-    /**
-     * The SSL configuration for this distribution (maximum one).
-     * 
-     */
     @Import(name="viewerCertificate")
     private @Nullable Output<DistributionViewerCertificateArgs> viewerCertificate;
 
-    /**
-     * @return The SSL configuration for this distribution (maximum one).
-     * 
-     */
     public Optional<Output<DistributionViewerCertificateArgs>> viewerCertificate() {
         return Optional.ofNullable(this.viewerCertificate);
     }
 
-    /**
-     * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-     * 
-     */
     @Import(name="waitForDeployment")
     private @Nullable Output<Boolean> waitForDeployment;
 
-    /**
-     * @return If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> waitForDeployment() {
         return Optional.ofNullable(this.waitForDeployment);
     }
 
-    /**
-     * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-     * 
-     */
     @Import(name="webAclId")
     private @Nullable Output<String> webAclId;
 
-    /**
-     * @return Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-     * 
-     */
     public Optional<Output<String>> webAclId() {
         return Optional.ofNullable(this.webAclId);
     }
@@ -572,33 +412,15 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             $ = new DistributionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliases(@Nullable Output<List<String>> aliases) {
             $.aliases = aliases;
             return this;
         }
 
-        /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliases(List<String> aliases) {
             return aliases(Output.of(aliases));
         }
 
-        /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
         }
@@ -645,123 +467,57 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return callerReference(Output.of(callerReference));
         }
 
-        /**
-         * @param comment Any comments you want to include about the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Any comments you want to include about the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param continuousDeploymentPolicyId Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continuousDeploymentPolicyId(@Nullable Output<String> continuousDeploymentPolicyId) {
             $.continuousDeploymentPolicyId = continuousDeploymentPolicyId;
             return this;
         }
 
-        /**
-         * @param continuousDeploymentPolicyId Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continuousDeploymentPolicyId(String continuousDeploymentPolicyId) {
             return continuousDeploymentPolicyId(Output.of(continuousDeploymentPolicyId));
         }
 
-        /**
-         * @param customErrorResponses One or more custom error response elements (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customErrorResponses(@Nullable Output<List<DistributionCustomErrorResponseArgs>> customErrorResponses) {
             $.customErrorResponses = customErrorResponses;
             return this;
         }
 
-        /**
-         * @param customErrorResponses One or more custom error response elements (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customErrorResponses(List<DistributionCustomErrorResponseArgs> customErrorResponses) {
             return customErrorResponses(Output.of(customErrorResponses));
         }
 
-        /**
-         * @param customErrorResponses One or more custom error response elements (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customErrorResponses(DistributionCustomErrorResponseArgs... customErrorResponses) {
             return customErrorResponses(List.of(customErrorResponses));
         }
 
-        /**
-         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCacheBehavior(@Nullable Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior) {
             $.defaultCacheBehavior = defaultCacheBehavior;
             return this;
         }
 
-        /**
-         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs defaultCacheBehavior) {
             return defaultCacheBehavior(Output.of(defaultCacheBehavior));
         }
 
-        /**
-         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRootObject(@Nullable Output<String> defaultRootObject) {
             $.defaultRootObject = defaultRootObject;
             return this;
         }
 
-        /**
-         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRootObject(String defaultRootObject) {
             return defaultRootObject(Output.of(defaultRootObject));
         }
 
         /**
-         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
+         * @param domainName Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
          * 
          * @return builder
          * 
@@ -772,7 +528,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
+         * @param domainName Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
          * 
          * @return builder
          * 
@@ -782,7 +538,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 
@@ -793,7 +549,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 
@@ -844,23 +600,11 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return hostedZoneId(Output.of(hostedZoneId));
         }
 
-        /**
-         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpVersion(@Nullable Output<String> httpVersion) {
             $.httpVersion = httpVersion;
             return this;
         }
 
-        /**
-         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpVersion(String httpVersion) {
             return httpVersion(Output.of(httpVersion));
         }
@@ -886,23 +630,11 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return inProgressValidationBatches(Output.of(inProgressValidationBatches));
         }
 
-        /**
-         * @param isIpv6Enabled Whether the IPv6 is enabled for the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isIpv6Enabled(@Nullable Output<Boolean> isIpv6Enabled) {
             $.isIpv6Enabled = isIpv6Enabled;
             return this;
         }
 
-        /**
-         * @param isIpv6Enabled Whether the IPv6 is enabled for the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isIpv6Enabled(Boolean isIpv6Enabled) {
             return isIpv6Enabled(Output.of(isIpv6Enabled));
         }
@@ -928,200 +660,86 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return lastModifiedTime(Output.of(lastModifiedTime));
         }
 
-        /**
-         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(@Nullable Output<DistributionLoggingConfigArgs> loggingConfig) {
             $.loggingConfig = loggingConfig;
             return this;
         }
 
-        /**
-         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(DistributionLoggingConfigArgs loggingConfig) {
             return loggingConfig(Output.of(loggingConfig));
         }
 
-        /**
-         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orderedCacheBehaviors(@Nullable Output<List<DistributionOrderedCacheBehaviorArgs>> orderedCacheBehaviors) {
             $.orderedCacheBehaviors = orderedCacheBehaviors;
             return this;
         }
 
-        /**
-         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orderedCacheBehaviors(List<DistributionOrderedCacheBehaviorArgs> orderedCacheBehaviors) {
             return orderedCacheBehaviors(Output.of(orderedCacheBehaviors));
         }
 
-        /**
-         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orderedCacheBehaviors(DistributionOrderedCacheBehaviorArgs... orderedCacheBehaviors) {
             return orderedCacheBehaviors(List.of(orderedCacheBehaviors));
         }
 
-        /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder originGroups(@Nullable Output<List<DistributionOriginGroupArgs>> originGroups) {
             $.originGroups = originGroups;
             return this;
         }
 
-        /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder originGroups(List<DistributionOriginGroupArgs> originGroups) {
             return originGroups(Output.of(originGroups));
         }
 
-        /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder originGroups(DistributionOriginGroupArgs... originGroups) {
             return originGroups(List.of(originGroups));
         }
 
-        /**
-         * @param origins One or more origins for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder origins(@Nullable Output<List<DistributionOriginArgs>> origins) {
             $.origins = origins;
             return this;
         }
 
-        /**
-         * @param origins One or more origins for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder origins(List<DistributionOriginArgs> origins) {
             return origins(Output.of(origins));
         }
 
-        /**
-         * @param origins One or more origins for this distribution (multiples allowed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder origins(DistributionOriginArgs... origins) {
             return origins(List.of(origins));
         }
 
-        /**
-         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priceClass(@Nullable Output<String> priceClass) {
             $.priceClass = priceClass;
             return this;
         }
 
-        /**
-         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priceClass(String priceClass) {
             return priceClass(Output.of(priceClass));
         }
 
-        /**
-         * @param restrictions The restriction configuration for this distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictions(@Nullable Output<DistributionRestrictionsArgs> restrictions) {
             $.restrictions = restrictions;
             return this;
         }
 
-        /**
-         * @param restrictions The restriction configuration for this distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictions(DistributionRestrictionsArgs restrictions) {
             return restrictions(Output.of(restrictions));
         }
 
-        /**
-         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainOnDelete(@Nullable Output<Boolean> retainOnDelete) {
             $.retainOnDelete = retainOnDelete;
             return this;
         }
 
-        /**
-         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainOnDelete(Boolean retainOnDelete) {
             return retainOnDelete(Output.of(retainOnDelete));
         }
 
-        /**
-         * @param staging A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staging(@Nullable Output<Boolean> staging) {
             $.staging = staging;
             return this;
         }
 
-        /**
-         * @param staging A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staging(Boolean staging) {
             return staging(Output.of(staging));
         }
@@ -1147,23 +765,11 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -1198,7 +804,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1209,7 +815,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1219,7 +825,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1229,7 +835,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1240,7 +846,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1250,7 +856,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -1259,65 +865,29 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return trustedSigners(List.of(trustedSigners));
         }
 
-        /**
-         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder viewerCertificate(@Nullable Output<DistributionViewerCertificateArgs> viewerCertificate) {
             $.viewerCertificate = viewerCertificate;
             return this;
         }
 
-        /**
-         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder viewerCertificate(DistributionViewerCertificateArgs viewerCertificate) {
             return viewerCertificate(Output.of(viewerCertificate));
         }
 
-        /**
-         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForDeployment(@Nullable Output<Boolean> waitForDeployment) {
             $.waitForDeployment = waitForDeployment;
             return this;
         }
 
-        /**
-         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForDeployment(Boolean waitForDeployment) {
             return waitForDeployment(Output.of(waitForDeployment));
         }
 
-        /**
-         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAclId(@Nullable Output<String> webAclId) {
             $.webAclId = webAclId;
             return this;
         }
 
-        /**
-         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAclId(String webAclId) {
             return webAclId(Output.of(webAclId));
         }

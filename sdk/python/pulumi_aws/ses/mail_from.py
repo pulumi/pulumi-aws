@@ -147,7 +147,6 @@ class MailFrom(pulumi.CustomResource):
 
         ### Domain Identity MAIL FROM
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,11 +171,9 @@ class MailFrom(pulumi.CustomResource):
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Email Identity MAIL FROM
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +184,6 @@ class MailFrom(pulumi.CustomResource):
             domain=example.email,
             mail_from_domain="mail.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +216,6 @@ class MailFrom(pulumi.CustomResource):
 
         ### Domain Identity MAIL FROM
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,11 +240,9 @@ class MailFrom(pulumi.CustomResource):
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Email Identity MAIL FROM
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +253,6 @@ class MailFrom(pulumi.CustomResource):
             domain=example.email,
             mail_from_domain="mail.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

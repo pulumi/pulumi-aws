@@ -102,7 +102,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,7 +115,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             principal=cert.arn,
             thing=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +132,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,7 +145,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             principal=cert.arn,
             thing=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ThingPrincipalAttachmentArgs args: The arguments to use to populate this resource's properties.

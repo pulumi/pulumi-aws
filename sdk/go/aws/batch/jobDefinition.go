@@ -18,7 +18,6 @@ import (
 //
 // ### Job definition of type container
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,11 +94,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Job definition of type multinode
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +158,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Job Definitionn of type EKS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,11 +208,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Fargate Platform Capability
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -312,7 +305,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

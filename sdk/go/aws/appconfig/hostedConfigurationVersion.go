@@ -18,7 +18,6 @@ import (
 //
 // ### Freeform
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Feature Flags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,7 +134,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

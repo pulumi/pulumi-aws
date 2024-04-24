@@ -254,7 +254,6 @@ class RegexPatternSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class RegexPatternSet(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -305,7 +303,6 @@ class RegexPatternSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +324,6 @@ class RegexPatternSet(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

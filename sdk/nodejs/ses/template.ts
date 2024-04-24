@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,11 +17,10 @@ import * as utilities from "../utilities";
  *     name: "MyTemplate",
  *     subject: "Greetings, {{name}}!",
  *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
- *     text: `Hello {{name}},
+ *     text: `Hello {{name}},\x0d
  * Your favorite animal is {{favoriteanimal}}.`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

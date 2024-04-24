@@ -818,7 +818,6 @@ class UserPoolClient(pulumi.CustomResource):
 
         ### Create a basic user pool client
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -828,11 +827,9 @@ class UserPoolClient(pulumi.CustomResource):
             name="client",
             user_pool_id=pool.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with no SRP authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -844,11 +841,9 @@ class UserPoolClient(pulumi.CustomResource):
             generate_secret=True,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with pinpoint analytics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -889,11 +884,9 @@ class UserPoolClient(pulumi.CustomResource):
             role=test_role.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with Cognito as the identity provider
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -914,7 +907,6 @@ class UserPoolClient(pulumi.CustomResource):
             ],
             supported_identity_providers=["COGNITO"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -973,7 +965,6 @@ class UserPoolClient(pulumi.CustomResource):
 
         ### Create a basic user pool client
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -983,11 +974,9 @@ class UserPoolClient(pulumi.CustomResource):
             name="client",
             user_pool_id=pool.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with no SRP authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,11 +988,9 @@ class UserPoolClient(pulumi.CustomResource):
             generate_secret=True,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with pinpoint analytics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1044,11 +1031,9 @@ class UserPoolClient(pulumi.CustomResource):
             role=test_role.id,
             policy=test.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create a user pool client with Cognito as the identity provider
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1069,7 +1054,6 @@ class UserPoolClient(pulumi.CustomResource):
             ],
             supported_identity_providers=["COGNITO"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

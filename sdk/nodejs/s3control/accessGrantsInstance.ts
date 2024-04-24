@@ -12,25 +12,21 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.AccessGrantsInstance("example", {});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS IAM Identity Center
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.AccessGrantsInstance("example", {identityCenterArn: "arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

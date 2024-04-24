@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -72,7 +70,6 @@ export class InternetGateway extends pulumi.CustomResource {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -82,7 +79,6 @@ export class InternetGateway extends pulumi.CustomResource {
      *     dependsOn: [gw],
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -144,7 +140,6 @@ export interface InternetGatewayState {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -154,7 +149,6 @@ export interface InternetGatewayState {
      *     dependsOn: [gw],
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -178,7 +172,6 @@ export interface InternetGatewayArgs {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -188,7 +181,6 @@ export interface InternetGatewayArgs {
      *     dependsOn: [gw],
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

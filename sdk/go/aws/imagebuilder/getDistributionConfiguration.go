@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDistributionConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionConfigurationResult

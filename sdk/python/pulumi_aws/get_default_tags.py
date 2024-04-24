@@ -64,18 +64,15 @@ def get_default_tags(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.get_default_tags()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Dynamically Apply Default Tags to Auto Scaling Group
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -87,7 +84,6 @@ def get_default_tags(id: Optional[str] = None,
         propagate_at_launch=True,
     ) for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['id'] = id
@@ -111,18 +107,15 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.get_default_tags()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Dynamically Apply Default Tags to Auto Scaling Group
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -134,6 +127,5 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         propagate_at_launch=True,
     ) for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

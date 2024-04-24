@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());

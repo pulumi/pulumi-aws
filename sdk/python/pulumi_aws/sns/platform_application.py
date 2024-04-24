@@ -491,7 +491,6 @@ class PlatformApplication(pulumi.CustomResource):
 
         ### Apple Push Notification Service (APNS) using certificate-based authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,11 +501,9 @@ class PlatformApplication(pulumi.CustomResource):
             platform_credential="<APNS PRIVATE KEY>",
             platform_principal="<APNS CERTIFICATE>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Apple Push Notification Service (APNS) using token-based authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -519,11 +516,9 @@ class PlatformApplication(pulumi.CustomResource):
             apple_platform_team_id="<APPLE TEAM ID>",
             apple_platform_bundle_id="<APPLE BUNDLE ID>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Google Cloud Messaging (GCM)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -533,7 +528,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform="GCM",
             platform_credential="<GCM API KEY>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -574,7 +568,6 @@ class PlatformApplication(pulumi.CustomResource):
 
         ### Apple Push Notification Service (APNS) using certificate-based authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,11 +578,9 @@ class PlatformApplication(pulumi.CustomResource):
             platform_credential="<APNS PRIVATE KEY>",
             platform_principal="<APNS CERTIFICATE>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Apple Push Notification Service (APNS) using token-based authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,11 +593,9 @@ class PlatformApplication(pulumi.CustomResource):
             apple_platform_team_id="<APPLE TEAM ID>",
             apple_platform_bundle_id="<APPLE BUNDLE ID>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Google Cloud Messaging (GCM)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,7 +605,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform="GCM",
             platform_credential="<GCM API KEY>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

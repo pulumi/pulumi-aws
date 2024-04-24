@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsEventSource {
-    /**
-     * @return Information about the event. See the `parameters` configuration block.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsEventSourceParameters parameters;
-    /**
-     * @return The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-     * 
-     */
     private String type;
 
     private LifecyclePolicyPolicyDetailsEventSource() {}
-    /**
-     * @return Information about the event. See the `parameters` configuration block.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsEventSourceParameters parameters() {
         return this.parameters;
     }
-    /**
-     * @return The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

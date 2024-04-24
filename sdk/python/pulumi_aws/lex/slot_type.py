@@ -299,7 +299,6 @@ class SlotType(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +325,6 @@ class SlotType(pulumi.CustomResource):
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class SlotType(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,7 +387,6 @@ class SlotType(pulumi.CustomResource):
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

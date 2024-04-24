@@ -388,7 +388,6 @@ class ServerCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -399,11 +398,9 @@ class ServerCertificate(pulumi.CustomResource):
             certificate_body=std.file(input="self-ca-cert.pem").result,
             private_key=std.file(input="test-key.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +416,6 @@ class ServerCertificate(pulumi.CustomResource):
         -----END RSA PRIVATE KEY-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         **Use in combination with an AWS ELB resource:**
 
@@ -480,7 +476,6 @@ class ServerCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,11 +486,9 @@ class ServerCertificate(pulumi.CustomResource):
             certificate_body=std.file(input="self-ca-cert.pem").result,
             private_key=std.file(input="test-key.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,7 +504,6 @@ class ServerCertificate(pulumi.CustomResource):
         -----END RSA PRIVATE KEY-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         **Use in combination with an AWS ELB resource:**
 

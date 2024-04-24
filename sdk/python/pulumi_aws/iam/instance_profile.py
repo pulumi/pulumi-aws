@@ -275,7 +275,6 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +295,6 @@ class InstanceProfile(pulumi.CustomResource):
             name="test_profile",
             role=role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -327,7 +325,6 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +345,6 @@ class InstanceProfile(pulumi.CustomResource):
             name="test_profile",
             role=role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

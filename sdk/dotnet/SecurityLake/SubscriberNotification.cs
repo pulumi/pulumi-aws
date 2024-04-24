@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:securitylake/subscriberNotification:SubscriberNotification")]
     public partial class SubscriberNotification : global::Pulumi.CustomResource

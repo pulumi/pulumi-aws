@@ -16,7 +16,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ### Basic configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,7 +95,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.MskConnect
     public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom plugin.
+        /// The Amazon Resource Name (ARN) of the connector.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -332,7 +330,7 @@ namespace Pulumi.Aws.MskConnect
     public sealed class ConnectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom plugin.
+        /// The Amazon Resource Name (ARN) of the connector.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

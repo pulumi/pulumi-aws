@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +38,6 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage With Prefix List IDs
  *
@@ -49,7 +47,6 @@ import * as utilities from "../utilities";
  *
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,12 +62,10 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
  * or `ec2ManagedPrefixList` data sources:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,7 +84,6 @@ import * as utilities from "../utilities";
  *     prefixListIds: [s3.then(s3 => s3.id)],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

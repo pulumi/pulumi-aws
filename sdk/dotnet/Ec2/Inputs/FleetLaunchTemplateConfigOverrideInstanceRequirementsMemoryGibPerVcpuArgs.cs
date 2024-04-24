@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }

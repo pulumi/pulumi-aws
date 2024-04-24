@@ -36,14 +36,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the target group.
+     * The ARN of the rule (matches `id`)
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target group.
+     * @return The ARN of the rule (matches `id`)
      * 
      */
     public Optional<Output<String>> arn() {
@@ -195,7 +195,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the target group.
+         * @param arn The ARN of the rule (matches `id`)
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the target group.
+         * @param arn The ARN of the rule (matches `id`)
          * 
          * @return builder
          * 

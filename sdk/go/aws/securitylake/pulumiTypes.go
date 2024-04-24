@@ -483,7 +483,7 @@ func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourc
 }
 
 type CustomLogSourceConfigurationCrawlerConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -499,7 +499,7 @@ type CustomLogSourceConfigurationCrawlerConfigurationInput interface {
 }
 
 type CustomLogSourceConfigurationCrawlerConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -580,7 +580,7 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourc
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationCrawlerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -609,7 +609,7 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) Elem() Custom
 	}).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -620,10 +620,8 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pul
 }
 
 type CustomLogSourceConfigurationProviderIdentity struct {
-	// The external ID used to estalish trust relationship with the AWS identity.
 	ExternalId string `pulumi:"externalId"`
-	// The AWS identity principal.
-	Principal string `pulumi:"principal"`
+	Principal  string `pulumi:"principal"`
 }
 
 // CustomLogSourceConfigurationProviderIdentityInput is an input type that accepts CustomLogSourceConfigurationProviderIdentityArgs and CustomLogSourceConfigurationProviderIdentityOutput values.
@@ -638,10 +636,8 @@ type CustomLogSourceConfigurationProviderIdentityInput interface {
 }
 
 type CustomLogSourceConfigurationProviderIdentityArgs struct {
-	// The external ID used to estalish trust relationship with the AWS identity.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// The AWS identity principal.
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Principal  pulumi.StringInput `pulumi:"principal"`
 }
 
 func (CustomLogSourceConfigurationProviderIdentityArgs) ElementType() reflect.Type {
@@ -721,12 +717,10 @@ func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceCon
 	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
 }
 
-// The external ID used to estalish trust relationship with the AWS identity.
 func (o CustomLogSourceConfigurationProviderIdentityOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// The AWS identity principal.
 func (o CustomLogSourceConfigurationProviderIdentityOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -755,7 +749,6 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Elem() CustomLogS
 	}).(CustomLogSourceConfigurationProviderIdentityOutput)
 }
 
-// The external ID used to estalish trust relationship with the AWS identity.
 func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
 		if v == nil {
@@ -765,7 +758,6 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ExternalId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS identity principal.
 func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
 		if v == nil {
@@ -778,7 +770,7 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Principal() pulum
 type CustomLogSourceProviderDetail struct {
 	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location string `pulumi:"location"`
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -796,7 +788,7 @@ type CustomLogSourceProviderDetailInput interface {
 type CustomLogSourceProviderDetailArgs struct {
 	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -856,7 +848,7 @@ func (o CustomLogSourceProviderDetailOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 func (o CustomLogSourceProviderDetailOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.RoleArn }).(pulumi.StringOutput)
 }

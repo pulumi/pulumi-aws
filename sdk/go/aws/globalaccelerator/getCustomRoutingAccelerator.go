@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupCustomRoutingAccelerator(ctx *pulumi.Context, args *LookupCustomRoutingAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupCustomRoutingAcceleratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomRoutingAcceleratorResult

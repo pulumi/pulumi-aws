@@ -185,14 +185,12 @@ def get_distribution(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.cloudfront.get_distribution(id="EDFDVBD632BHDS5")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -227,14 +225,12 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.cloudfront.get_distribution(id="EDFDVBD632BHDS5")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.

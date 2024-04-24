@@ -165,7 +165,6 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +177,6 @@ class InputSecurityGroup(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +218,6 @@ class InputSecurityGroup(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

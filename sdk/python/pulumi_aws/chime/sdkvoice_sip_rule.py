@@ -212,7 +212,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +226,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
                 aws_region="us-east-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,7 +258,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +272,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
                 aws_region="us-east-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -878,12 +878,9 @@ func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbs
 }
 
 type CustomLayerLoadBasedAutoScaling struct {
-	// The downscaling settings, as defined below, used for load-based autoscaling
 	Downscaling *CustomLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
-	// Whether load-based auto scaling is enabled for the layer.
-	Enable *bool `pulumi:"enable"`
-	// The upscaling settings, as defined below, used for load-based autoscaling
-	Upscaling *CustomLayerLoadBasedAutoScalingUpscaling `pulumi:"upscaling"`
+	Enable      *bool                                       `pulumi:"enable"`
+	Upscaling   *CustomLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
 }
 
 // CustomLayerLoadBasedAutoScalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingArgs and CustomLayerLoadBasedAutoScalingOutput values.
@@ -898,12 +895,9 @@ type CustomLayerLoadBasedAutoScalingInput interface {
 }
 
 type CustomLayerLoadBasedAutoScalingArgs struct {
-	// The downscaling settings, as defined below, used for load-based autoscaling
 	Downscaling CustomLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
-	// Whether load-based auto scaling is enabled for the layer.
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
-	// The upscaling settings, as defined below, used for load-based autoscaling
-	Upscaling CustomLayerLoadBasedAutoScalingUpscalingPtrInput `pulumi:"upscaling"`
+	Enable      pulumi.BoolPtrInput                                `pulumi:"enable"`
+	Upscaling   CustomLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
 }
 
 func (CustomLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
@@ -983,19 +977,16 @@ func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScaling
 	}).(CustomLayerLoadBasedAutoScalingPtrOutput)
 }
 
-// The downscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
 		return v.Downscaling
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
-// Whether load-based auto scaling is enabled for the layer.
 func (o CustomLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// The upscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling { return v.Upscaling }).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
@@ -1024,7 +1015,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Elem() CustomLayerLoadBasedAut
 	}).(CustomLayerLoadBasedAutoScalingOutput)
 }
 
-// The downscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
 		if v == nil {
@@ -1034,7 +1024,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Downscaling() CustomLayerLoadB
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
-// Whether load-based auto scaling is enabled for the layer.
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *bool {
 		if v == nil {
@@ -1044,7 +1033,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The upscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling {
 		if v == nil {

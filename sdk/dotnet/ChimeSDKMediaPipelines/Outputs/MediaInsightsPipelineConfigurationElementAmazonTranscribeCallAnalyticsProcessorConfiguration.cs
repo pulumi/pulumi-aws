@@ -18,15 +18,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CallAnalyticsStreamCategories;
         /// <summary>
-        /// Labels all personally identifiable information (PII) identified in Transcript events.
+        /// Labels all personally identifiable information (PII) identified in Utterance events.
         /// </summary>
         public readonly string? ContentIdentificationType;
         /// <summary>
-        /// Redacts all personally identifiable information (PII) identified in Transcript events.
+        /// Redacts all personally identifiable information (PII) identified in Utterance events.
         /// </summary>
         public readonly string? ContentRedactionType;
         /// <summary>
-        /// Enables partial result stabilization in Transcript events.
+        /// Enables partial result stabilization in Utterance events.
         /// </summary>
         public readonly bool? EnablePartialResultsStabilization;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
         /// </summary>
         public readonly string? PartialResultsStability;
         /// <summary>
-        /// Types of personally identifiable information (PII) to redact from a Transcript event.
+        /// Types of personally identifiable information (PII) to redact from an Utterance event.
         /// </summary>
         public readonly string? PiiEntityTypes;
         /// <summary>
@@ -54,15 +54,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
         /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings? PostCallAnalyticsSettings;
         /// <summary>
-        /// Method for applying a vocabulary filter to Transcript events.
+        /// Method for applying a vocabulary filter to Utterance events.
         /// </summary>
         public readonly string? VocabularyFilterMethod;
         /// <summary>
-        /// Name of the custom vocabulary filter to use when processing Transcript events.
+        /// Name of the custom vocabulary filter to use when processing Utterance events.
         /// </summary>
         public readonly string? VocabularyFilterName;
         /// <summary>
-        /// Name of the custom vocabulary to use when processing Transcript events.
+        /// Name of the custom vocabulary to use when processing Utterance events.
         /// </summary>
         public readonly string? VocabularyName;
 

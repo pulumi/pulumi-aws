@@ -344,7 +344,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +353,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
             destination=destination["id"],
             protocol="tcp")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -387,7 +385,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,7 +394,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
             destination=destination["id"],
             protocol="tcp")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

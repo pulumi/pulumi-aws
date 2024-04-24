@@ -228,7 +228,6 @@ def get_thesaurus(index_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -236,7 +235,6 @@ def get_thesaurus(index_id: Optional[str] = None,
     example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
         thesaurus_id="87654321-1234-4321-4321-321987654321")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str index_id: Identifier of the index that contains the Thesaurus.
@@ -279,7 +277,6 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -287,7 +284,6 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
     example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
         thesaurus_id="87654321-1234-4321-4321-321987654321")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str index_id: Identifier of the index that contains the Thesaurus.

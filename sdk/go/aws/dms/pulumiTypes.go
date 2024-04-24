@@ -2096,9 +2096,9 @@ func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringP
 type EndpointS3Settings struct {
 	// Whether to add column name information to the .csv output file. Default is `false`.
 	AddColumnName *bool `pulumi:"addColumnName"`
-	// Custom S3 Bucket Object prefix for intermediate storage.
+	// S3 object prefix.
 	BucketFolder *string `pulumi:"bucketFolder"`
-	// Custom S3 Bucket name for intermediate storage.
+	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
 	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects *string `pulumi:"cannedAclForObjects"`
@@ -2138,7 +2138,7 @@ type EndpointS3Settings struct {
 	EnableStatistics *bool `pulumi:"enableStatistics"`
 	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. Default is `rleDictionary`.
 	EncodingType *string `pulumi:"encodingType"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
@@ -2148,7 +2148,7 @@ type EndpointS3Settings struct {
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
@@ -2162,7 +2162,7 @@ type EndpointS3Settings struct {
 	RowGroupLength *int `pulumi:"rowGroupLength"`
 	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName *string `pulumi:"timestampColumnName"`
@@ -2186,9 +2186,9 @@ type EndpointS3SettingsInput interface {
 type EndpointS3SettingsArgs struct {
 	// Whether to add column name information to the .csv output file. Default is `false`.
 	AddColumnName pulumi.BoolPtrInput `pulumi:"addColumnName"`
-	// Custom S3 Bucket Object prefix for intermediate storage.
+	// S3 object prefix.
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	// Custom S3 Bucket name for intermediate storage.
+	// S3 bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
@@ -2228,7 +2228,7 @@ type EndpointS3SettingsArgs struct {
 	EnableStatistics pulumi.BoolPtrInput `pulumi:"enableStatistics"`
 	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. Default is `rleDictionary`.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
@@ -2238,7 +2238,7 @@ type EndpointS3SettingsArgs struct {
 	IgnoreHeaderRows pulumi.IntPtrInput `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput `pulumi:"includeOpForFullLoad"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
 	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond pulumi.BoolPtrInput `pulumi:"parquetTimestampInMillisecond"`
@@ -2252,7 +2252,7 @@ type EndpointS3SettingsArgs struct {
 	RowGroupLength pulumi.IntPtrInput `pulumi:"rowGroupLength"`
 	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName pulumi.StringPtrInput `pulumi:"timestampColumnName"`
@@ -2344,12 +2344,12 @@ func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.AddColumnName }).(pulumi.BoolPtrOutput)
 }
 
-// Custom S3 Bucket Object prefix for intermediate storage.
+// S3 object prefix.
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-// Custom S3 Bucket name for intermediate storage.
+// S3 bucket name.
 func (o EndpointS3SettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
@@ -2449,7 +2449,7 @@ func (o EndpointS3SettingsOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
 func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
@@ -2474,7 +2474,7 @@ func (o EndpointS3SettingsOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.IncludeOpForFullLoad }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 func (o EndpointS3SettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
@@ -2509,7 +2509,7 @@ func (o EndpointS3SettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPt
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
 func (o EndpointS3SettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2563,7 +2563,7 @@ func (o EndpointS3SettingsPtrOutput) AddColumnName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Custom S3 Bucket Object prefix for intermediate storage.
+// S3 object prefix.
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2573,7 +2573,7 @@ func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom S3 Bucket name for intermediate storage.
+// S3 bucket name.
 func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2773,7 +2773,7 @@ func (o EndpointS3SettingsPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
 func (o EndpointS3SettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2823,7 +2823,7 @@ func (o EndpointS3SettingsPtrOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 func (o EndpointS3SettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *int {
 		if v == nil {
@@ -2893,7 +2893,7 @@ func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
 func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {

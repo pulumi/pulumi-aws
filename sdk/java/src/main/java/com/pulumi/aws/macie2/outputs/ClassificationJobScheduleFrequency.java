@@ -21,8 +21,6 @@ public final class ClassificationJobScheduleFrequency {
     /**
      * @return Specifies a monthly recurrence pattern for running the job.
      * 
-     * The `s3_job_definition` object supports the following:
-     * 
      */
     private @Nullable Integer monthlySchedule;
     /**
@@ -41,8 +39,6 @@ public final class ClassificationJobScheduleFrequency {
     }
     /**
      * @return Specifies a monthly recurrence pattern for running the job.
-     * 
-     * The `s3_job_definition` object supports the following:
      * 
      */
     public Optional<Integer> monthlySchedule() {

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationalUnitResult> InvokeAsync(GetOrganizationalUnitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitResult>("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", args ?? new GetOrganizationalUnitArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationalUnitResult> Invoke(GetOrganizationalUnitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitResult>("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", args ?? new GetOrganizationalUnitInvokeArgs(), options.WithDefaults());

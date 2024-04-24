@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  *     secretId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieve Specific Secret Version
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +33,6 @@ import * as utilities from "../utilities";
  *     versionStage: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
 
@@ -107,7 +103,6 @@ export interface GetSecretVersionResult {
  *
  * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,11 +111,9 @@ export interface GetSecretVersionResult {
  *     secretId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieve Specific Secret Version
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,7 +123,6 @@ export interface GetSecretVersionResult {
  *     versionStage: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionResult> {
     return pulumi.output(args).apply((a: any) => getSecretVersion(a, opts))

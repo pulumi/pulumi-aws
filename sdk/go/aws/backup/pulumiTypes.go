@@ -1660,9 +1660,7 @@ func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditi
 }
 
 type SelectionConditionStringEqual struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -1678,9 +1676,7 @@ type SelectionConditionStringEqualInput interface {
 }
 
 type SelectionConditionStringEqualArgs struct {
-	// The key in a key-value pair.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1735,12 +1731,10 @@ func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutp
 	return o
 }
 
-// The key in a key-value pair.
 func (o SelectionConditionStringEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
 func (o SelectionConditionStringEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1766,9 +1760,7 @@ func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) Selec
 }
 
 type SelectionConditionStringLike struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -1784,9 +1776,7 @@ type SelectionConditionStringLikeInput interface {
 }
 
 type SelectionConditionStringLikeArgs struct {
-	// The key in a key-value pair.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1841,12 +1831,10 @@ func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput
 	return o
 }
 
-// The key in a key-value pair.
 func (o SelectionConditionStringLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
 func (o SelectionConditionStringLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1872,9 +1860,7 @@ func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) Select
 }
 
 type SelectionConditionStringNotEqual struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -1890,9 +1876,7 @@ type SelectionConditionStringNotEqualInput interface {
 }
 
 type SelectionConditionStringNotEqualArgs struct {
-	// The key in a key-value pair.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1947,12 +1931,10 @@ func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqu
 	return o
 }
 
-// The key in a key-value pair.
 func (o SelectionConditionStringNotEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
 func (o SelectionConditionStringNotEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1978,9 +1960,7 @@ func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 type SelectionConditionStringNotLike struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -1996,9 +1976,7 @@ type SelectionConditionStringNotLikeInput interface {
 }
 
 type SelectionConditionStringNotLikeArgs struct {
-	// The key in a key-value pair.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2053,12 +2031,10 @@ func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLike
 	return o
 }
 
-// The key in a key-value pair.
 func (o SelectionConditionStringNotLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
 func (o SelectionConditionStringNotLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Value }).(pulumi.StringOutput)
 }

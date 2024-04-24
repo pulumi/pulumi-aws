@@ -22,7 +22,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example IAM Setup in Target Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,11 +121,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Deployment across Organizations account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,7 +153,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

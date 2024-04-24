@@ -111,14 +111,12 @@ def get_group(group_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_group(group_name="an_example_group_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str group_name: Friendly IAM group name to match.
@@ -147,14 +145,12 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_group(group_name="an_example_group_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str group_name: Friendly IAM group name to match.

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +42,12 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             memberMember, 
+    ///             memberMember,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

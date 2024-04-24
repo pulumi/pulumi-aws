@@ -14,17 +14,9 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
 
     public static final ModelInferenceExecutionConfigArgs Empty = new ModelInferenceExecutionConfigArgs();
 
-    /**
-     * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
@@ -53,23 +45,11 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
             $ = new ModelInferenceExecutionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

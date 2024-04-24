@@ -18,7 +18,6 @@ import (
 //
 // ### CloudWatch Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,11 +108,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### S3 Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,11 +144,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### S3 Logging in Apache Parquet format with per-hour partitions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,7 +184,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

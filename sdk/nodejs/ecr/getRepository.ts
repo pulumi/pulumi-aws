@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "ecr-repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
 
@@ -95,7 +93,6 @@ export interface GetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +101,6 @@ export interface GetRepositoryResult {
  *     name: "ecr-repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))

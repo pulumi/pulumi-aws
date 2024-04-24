@@ -310,7 +310,6 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,7 +336,6 @@ class NotificationRule(pulumi.CustomResource):
                 address=notif.arn,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,7 +367,6 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,7 +393,6 @@ class NotificationRule(pulumi.CustomResource):
                 address=notif.arn,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

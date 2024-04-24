@@ -175,7 +175,6 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class HumanTaskUI(pulumi.CustomResource):
                 content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +223,6 @@ class HumanTaskUI(pulumi.CustomResource):
                 content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

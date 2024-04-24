@@ -253,7 +253,6 @@ class FunctionUrl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +279,6 @@ class FunctionUrl(pulumi.CustomResource):
                 max_age=86400,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +309,6 @@ class FunctionUrl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,7 +335,6 @@ class FunctionUrl(pulumi.CustomResource):
                 max_age=86400,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

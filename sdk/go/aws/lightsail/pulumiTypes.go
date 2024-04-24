@@ -2200,7 +2200,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Behavior() pulumi.StringPtrOu
 type DistributionLocation struct {
 	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The AWS Region name of the origin resource.
+	// The AWS Region name.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -2218,7 +2218,7 @@ type DistributionLocationInput interface {
 type DistributionLocationArgs struct {
 	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	// The AWS Region name of the origin resource.
+	// The AWS Region name.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -2278,7 +2278,7 @@ func (o DistributionLocationOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLocation) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The AWS Region name of the origin resource.
+// The AWS Region name.
 func (o DistributionLocationOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLocation) string { return v.RegionName }).(pulumi.StringOutput)
 }

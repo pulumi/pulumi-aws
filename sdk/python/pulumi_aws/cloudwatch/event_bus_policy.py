@@ -113,7 +113,6 @@ class EventBusPolicy(pulumi.CustomResource):
 
         ### Account Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -132,11 +131,9 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,11 +165,9 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple Statements
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +211,6 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +243,6 @@ class EventBusPolicy(pulumi.CustomResource):
 
         ### Account Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,11 +261,9 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,11 +295,9 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple Statements
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,7 +341,6 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

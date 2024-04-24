@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.RouteTable("example", {transitGatewayId: exampleAwsEc2TransitGateway.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

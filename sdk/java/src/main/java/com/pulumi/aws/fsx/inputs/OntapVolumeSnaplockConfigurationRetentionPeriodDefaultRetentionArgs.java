@@ -16,32 +16,16 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
 
     public static final OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs Empty = new OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs();
 
-    /**
-     * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
-    /**
-     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-     * 
-     */
     public Optional<Output<Integer>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -71,44 +55,20 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
             $ = new OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

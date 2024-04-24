@@ -26,13 +26,7 @@ class ResponsePlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
-        :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
-        :param pulumi.Input[str] display_name: The long format of the response plan name. This field can contain spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        :param pulumi.Input['ResponsePlanIntegrationArgs'] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         """
         pulumi.set(__self__, "incident_template", incident_template)
         if action is not None:
@@ -62,9 +56,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['ResponsePlanActionArgs']]:
-        """
-        The actions that the response plan starts at the beginning of an incident.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -74,9 +65,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The Chatbot chat channel used for collaboration during an incident.
-        """
         return pulumi.get(self, "chat_channels")
 
     @chat_channels.setter
@@ -86,9 +74,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The long format of the response plan name. This field can contain spaces.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -98,9 +83,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        """
         return pulumi.get(self, "engagements")
 
     @engagements.setter
@@ -110,9 +92,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['ResponsePlanIntegrationArgs']]:
-        """
-        Information about third-party services integrated into the response plan. The following values are supported:
-        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -134,9 +113,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The tags applied to the response plan.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -159,14 +135,8 @@ class _ResponsePlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResponsePlan resources.
-        :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[str] arn: The ARN of the response plan.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
-        :param pulumi.Input[str] display_name: The long format of the response plan name. This field can contain spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        :param pulumi.Input['ResponsePlanIntegrationArgs'] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if action is not None:
@@ -196,9 +166,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['ResponsePlanActionArgs']]:
-        """
-        The actions that the response plan starts at the beginning of an incident.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -220,9 +187,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The Chatbot chat channel used for collaboration during an incident.
-        """
         return pulumi.get(self, "chat_channels")
 
     @chat_channels.setter
@@ -232,9 +196,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The long format of the response plan name. This field can contain spaces.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -244,9 +205,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        """
         return pulumi.get(self, "engagements")
 
     @engagements.setter
@@ -265,9 +223,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['ResponsePlanIntegrationArgs']]:
-        """
-        Information about third-party services integrated into the response plan. The following values are supported:
-        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -289,9 +244,6 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The tags applied to the response plan.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -335,7 +287,6 @@ class ResponsePlan(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,11 +302,9 @@ class ResponsePlan(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +368,6 @@ class ResponsePlan(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -431,13 +379,7 @@ class ResponsePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResponsePlanActionArgs']] action: The actions that the response plan starts at the beginning of an incident.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
-        :param pulumi.Input[str] display_name: The long format of the response plan name. This field can contain spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        :param pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         """
         ...
     @overload
@@ -452,7 +394,6 @@ class ResponsePlan(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,11 +409,9 @@ class ResponsePlan(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -536,7 +475,6 @@ class ResponsePlan(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -617,14 +555,8 @@ class ResponsePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResponsePlanActionArgs']] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[str] arn: The ARN of the response plan.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
-        :param pulumi.Input[str] display_name: The long format of the response plan name. This field can contain spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        :param pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[str] name: The name of the response plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -646,9 +578,6 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional['outputs.ResponsePlanAction']]:
-        """
-        The actions that the response plan starts at the beginning of an incident.
-        """
         return pulumi.get(self, "action")
 
     @property
@@ -662,25 +591,16 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The Chatbot chat channel used for collaboration during an incident.
-        """
         return pulumi.get(self, "chat_channels")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The long format of the response plan name. This field can contain spaces.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def engagements(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        """
         return pulumi.get(self, "engagements")
 
     @property
@@ -691,9 +611,6 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def integration(self) -> pulumi.Output[Optional['outputs.ResponsePlanIntegration']]:
-        """
-        Information about third-party services integrated into the response plan. The following values are supported:
-        """
         return pulumi.get(self, "integration")
 
     @property
@@ -707,9 +624,6 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        The tags applied to the response plan.
-        """
         return pulumi.get(self, "tags")
 
     @property

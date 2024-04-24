@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings frameCaptureCdnSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings() {}
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination() {
         return this.destination;
     }

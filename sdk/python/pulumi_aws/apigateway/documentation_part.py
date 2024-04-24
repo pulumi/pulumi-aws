@@ -152,7 +152,6 @@ class DocumentationPart(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,7 +166,6 @@ class DocumentationPart(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example description\\"}",
             rest_api_id=example_rest_api.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +192,6 @@ class DocumentationPart(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +206,6 @@ class DocumentationPart(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example description\\"}",
             rest_api_id=example_rest_api.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

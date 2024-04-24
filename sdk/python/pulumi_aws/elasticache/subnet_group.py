@@ -223,7 +223,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +243,6 @@ class SubnetGroup(pulumi.CustomResource):
             name="tf-test-cache-subnet",
             subnet_ids=[foo_subnet.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -272,7 +270,6 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +290,6 @@ class SubnetGroup(pulumi.CustomResource):
             name="tf-test-cache-subnet",
             subnet_ids=[foo_subnet.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

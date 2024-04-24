@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyDocumentResult> {
     args = args || {};
@@ -75,7 +73,6 @@ export interface GetLifecyclePolicyDocumentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,7 +94,6 @@ export interface GetLifecyclePolicyDocumentResult {
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getLifecyclePolicyDocument(a, opts))

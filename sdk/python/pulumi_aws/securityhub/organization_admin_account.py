@@ -70,7 +70,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -84,7 +83,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         # Auto enable security hub in organization member accounts
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -109,7 +107,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,7 +120,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         # Auto enable security hub in organization member accounts
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

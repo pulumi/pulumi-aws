@@ -16,107 +16,51 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs();
 
-    /**
-     * A name for the associated Amazon S3 bucket.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return A name for the associated Amazon S3 bucket.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The object key for the destination bucket in which Amazon AppFlow places the files.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-     * 
-     */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
-    /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-     * 
-     */
     public Optional<Output<String>> clusterIdentifier() {
         return Optional.ofNullable(this.clusterIdentifier);
     }
 
-    /**
-     * ARN of the IAM role that permits AppFlow to access the database through Data API.
-     * 
-     */
     @Import(name="dataApiRoleArn")
     private @Nullable Output<String> dataApiRoleArn;
 
-    /**
-     * @return ARN of the IAM role that permits AppFlow to access the database through Data API.
-     * 
-     */
     public Optional<Output<String>> dataApiRoleArn() {
         return Optional.ofNullable(this.dataApiRoleArn);
     }
 
-    /**
-     * The name of an Amazon Redshift database.
-     * 
-     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
-    /**
-     * @return The name of an Amazon Redshift database.
-     * 
-     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
-    /**
-     * The JDBC URL of the Amazon Redshift cluster.
-     * 
-     */
     @Import(name="databaseUrl")
     private @Nullable Output<String> databaseUrl;
 
-    /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
-     * 
-     */
     public Optional<Output<String>> databaseUrl() {
         return Optional.ofNullable(this.databaseUrl);
     }
 
-    /**
-     * ARN of the IAM role.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -151,149 +95,65 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName A name for the associated Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName A name for the associated Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix The object key for the destination bucket in which Amazon AppFlow places the files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix The object key for the destination bucket in which Amazon AppFlow places the files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param clusterIdentifier The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(@Nullable Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param dataApiRoleArn ARN of the IAM role that permits AppFlow to access the database through Data API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataApiRoleArn(@Nullable Output<String> dataApiRoleArn) {
             $.dataApiRoleArn = dataApiRoleArn;
             return this;
         }
 
-        /**
-         * @param dataApiRoleArn ARN of the IAM role that permits AppFlow to access the database through Data API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataApiRoleArn(String dataApiRoleArn) {
             return dataApiRoleArn(Output.of(dataApiRoleArn));
         }
 
-        /**
-         * @param databaseName The name of an Amazon Redshift database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of an Amazon Redshift database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param databaseUrl The JDBC URL of the Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseUrl(@Nullable Output<String> databaseUrl) {
             $.databaseUrl = databaseUrl;
             return this;
         }
 
-        /**
-         * @param databaseUrl The JDBC URL of the Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseUrl(String databaseUrl) {
             return databaseUrl(Output.of(databaseUrl));
         }
 
-        /**
-         * @param roleArn ARN of the IAM role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

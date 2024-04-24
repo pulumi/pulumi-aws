@@ -220,7 +220,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ### Account Based Aggregation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,11 +231,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
                 regions=["us-west-2"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Based Aggregation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +260,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,7 +291,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ### Account Based Aggregation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,11 +302,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
                 regions=["us-west-2"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Based Aggregation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,7 +331,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Description
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,11 +42,9 @@ import * as utilities from "../utilities";
  *     description: "example description",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Prefix to filter phone numbers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,7 +56,6 @@ import * as utilities from "../utilities";
  *     prefix: "+18005",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
