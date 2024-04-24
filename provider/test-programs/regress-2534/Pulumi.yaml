@@ -3,7 +3,7 @@ runtime:
   name: python
   options:
     virtualenv: venv
-description: Provision a simple aws.lb.TargetGroup to test impoirting it back
+description: Provision a simple aws.lb.TargetGroup to test importing it back
 config:
   pulumi:tags:
     value:
