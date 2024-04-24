@@ -865,6 +865,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					Value: true,
 				},
 			},
+			"access_key": {
+				Secret: tfbridge.True(),
+			},
+			"secret_key": {
+				Secret: tfbridge.True(),
+			},
+			"token": {
+				Secret: tfbridge.True(),
+			},
 		},
 		PreConfigureCallback: preConfigureCallback(&credentialsValidationRun),
 		Resources: map[string]*tfbridge.ResourceInfo{
