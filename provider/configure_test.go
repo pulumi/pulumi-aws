@@ -104,11 +104,11 @@ func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	  },
 	  "response": {
 	    "inputs": {
-	      "accessKey": "test",
+	      "accessKey": "*",
 	      "endpoints": "[{\"accessanalyzer\":\"http://localhost:4566\"},{\"account\":\"http://localhost:4566\"},{\"acm\":\"http://localhost:4566\"},{\"acmpca\":\"http://localhost:4566\"},{\"amg\":\"http://localhost:4566\"},{\"amp\":\"http://localhost:4566\"},{\"amplify\":\"http://localhost:4566\"},{\"apigateway\":\"http://localhost:4566\"},{\"apigatewayv2\":\"http://localhost:4566\"},{\"appautoscaling\":\"http://localhost:4566\"},{\"appconfig\":\"http://localhost:4566\"},{\"appflow\":\"http://localhost:4566\"}]",
 	      "region": "us-east-1",
 	      "s3UsePathStyle": "true",
-	      "secretKey": "test",
+	      "secretKey": "*",
 	      "skipCredentialsValidation": "true",
 	      "skipMetadataApiCheck": "true",
 	      "skipRegionValidation": "true",
