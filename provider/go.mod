@@ -27,10 +27,6 @@ require (
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
 replace (
-	// NOTE: this is currently tracking upstream-v1.6.1 branch in the Pulumi fork. Upgrading
-	// this dependency is sensitive and is worth doing carefully (such as reading release notes)
-	// and not simply rely on passing tests for the upgrade.
-	github.com/hashicorp/terraform-plugin-framework => github.com/pulumi/terraform-plugin-framework v0.0.0-20240312214231-4d4aedf99afb
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
