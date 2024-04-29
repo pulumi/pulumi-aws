@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 29 Apr 2024 11:24:39 -0400
+Subject: [PATCH] Patch tags ComputedOnly on bedrockagent and other modules
+
+
+diff --git a/internal/service/bcmdataexports/export.go b/internal/service/bcmdataexports/export.go
+index da0f65bd61..4190f7697b 100644
+--- a/internal/service/bcmdataexports/export.go
++++ b/internal/service/bcmdataexports/export.go
+@@ -147,7 +147,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
+ 		Attributes: map[string]schema.Attribute{
+ 			"id":              framework.IDAttribute(),
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"export": schema.ListNestedBlock{
+diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
+index 4d0e40931e..8b9bbc9e03 100644
+--- a/internal/service/bedrockagent/agent.go
++++ b/internal/service/bedrockagent/agent.go
+@@ -144,7 +144,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"timeouts": timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/bedrockagent/agent_alias.go b/internal/service/bedrockagent/agent_alias.go
+index 2af0e6ce90..8b9b75bf95 100644
+--- a/internal/service/bedrockagent/agent_alias.go
++++ b/internal/service/bedrockagent/agent_alias.go
+@@ -97,7 +97,7 @@ func (r *agentAliasResource) Schema(ctx context.Context, request resource.Schema
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"timeouts": timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/bedrockagent/knowledge_base.go b/internal/service/bedrockagent/knowledge_base.go
+index 1ac723842f..b790c8598f 100644
+--- a/internal/service/bedrockagent/knowledge_base.go
++++ b/internal/service/bedrockagent/knowledge_base.go
+@@ -93,7 +93,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"updated_at": schema.StringAttribute{
+ 				CustomType: timetypes.RFC3339Type{},
+ 				Computed:   true,
+diff --git a/internal/service/globalaccelerator/cross_account_attachment.go b/internal/service/globalaccelerator/cross_account_attachment.go
+index 5bc7b2eaa4..bb8df48612 100644
+--- a/internal/service/globalaccelerator/cross_account_attachment.go
++++ b/internal/service/globalaccelerator/cross_account_attachment.go
+@@ -72,7 +72,7 @@ func (r *crossAccountAttachmentResource) Schema(ctx context.Context, request res
+ 				ElementType: types.StringType,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"resource": schema.SetNestedBlock{
