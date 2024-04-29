@@ -77,6 +77,7 @@ const (
 	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
 	bedrockModelMod             = "BedrockModel"             // BedrockModel
 	bedrockMod                  = "Bedrock"                  // Bedrock
+	bcmDataMod                  = "BcmData"                  // Billing and Cost Management Data
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
@@ -287,6 +288,7 @@ var moduleMap = map[string]string{
 	"bedrock_foundation":              bedrockFoundationMod,
 	"bedrock_model":                   bedrockModelMod,
 	"bedrock":                         bedrockMod,
+	"bcmdataexports":                  bcmDataMod,
 	"budgets":                         budgetsMod,
 	"ce":                              costExplorerMod,
 	"chime":                           chimeMod,
