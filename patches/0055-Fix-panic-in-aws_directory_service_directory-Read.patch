@@ -45,7 +45,7 @@ index 33252ddb7d..9d283612cb 100644
  	d.Set("size", dir.Size)
 diff --git a/internal/service/ds/directory_internal_test.go b/internal/service/ds/directory_internal_test.go
 new file mode 100644
-index 0000000000..3651319f90
+index 0000000000..91a06d96b5
 --- /dev/null
 +++ b/internal/service/ds/directory_internal_test.go
 @@ -0,0 +1,22 @@
