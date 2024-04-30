@@ -26,7 +26,7 @@ namespace Pulumi.Aws.BcmData
     /// {
     ///     var test = new Aws.BcmData.Export("test", new()
     ///     {
-    ///         Export = new Aws.BcmData.Inputs.ExportExportArgs
+    ///         ExportDetails = new Aws.BcmData.Inputs.ExportExportArgs
     ///         {
     ///             Name = "testexample",
     ///             DataQueries = new[]
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.BcmData
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
         [Output("export")]
-        public Output<Outputs.ExportExport?> Export { get; private set; } = null!;
+        public Output<Outputs.ExportExport?> ExportDetails { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.BcmData
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
         [Input("export")]
-        public Input<Inputs.ExportExportArgs>? Export { get; set; }
+        public Input<Inputs.ExportExportArgs>? ExportDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.BcmData
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
         [Input("export")]
-        public Input<Inputs.ExportExportGetArgs>? Export { get; set; }
+        public Input<Inputs.ExportExportGetArgs>? ExportDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
