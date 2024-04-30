@@ -323,6 +323,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     * 
+     */
+    @Import(name="dedicatedLogVolume")
+    private @Nullable Output<Boolean> dedicatedLogVolume;
+
+    /**
+     * @return Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     * 
+     */
+    public Optional<Output<Boolean>> dedicatedLogVolume() {
+        return Optional.ofNullable(this.dedicatedLogVolume);
+    }
+
+    /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      * 
      */
@@ -1203,6 +1218,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.customerOwnedIpEnabled = $.customerOwnedIpEnabled;
         this.dbName = $.dbName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
+        this.dedicatedLogVolume = $.dedicatedLogVolume;
         this.deleteAutomatedBackups = $.deleteAutomatedBackups;
         this.deletionProtection = $.deletionProtection;
         this.domain = $.domain;
@@ -1663,6 +1679,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dbSubnetGroupName(String dbSubnetGroupName) {
             return dbSubnetGroupName(Output.of(dbSubnetGroupName));
+        }
+
+        /**
+         * @param dedicatedLogVolume Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedLogVolume(@Nullable Output<Boolean> dedicatedLogVolume) {
+            $.dedicatedLogVolume = dedicatedLogVolume;
+            return this;
+        }
+
+        /**
+         * @param dedicatedLogVolume Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedLogVolume(Boolean dedicatedLogVolume) {
+            return dedicatedLogVolume(Output.of(dedicatedLogVolume));
         }
 
         /**

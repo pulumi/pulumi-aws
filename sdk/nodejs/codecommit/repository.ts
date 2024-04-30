@@ -93,7 +93,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export interface RepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface RepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**

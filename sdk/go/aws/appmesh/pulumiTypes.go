@@ -5948,6 +5948,8 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Exact() pulu
 type MeshSpec struct {
 	// Egress filter rules for the service mesh.
 	EgressFilter *MeshSpecEgressFilter `pulumi:"egressFilter"`
+	// The service discovery information for the service mesh.
+	ServiceDiscovery *MeshSpecServiceDiscovery `pulumi:"serviceDiscovery"`
 }
 
 // MeshSpecInput is an input type that accepts MeshSpecArgs and MeshSpecOutput values.
@@ -5964,6 +5966,8 @@ type MeshSpecInput interface {
 type MeshSpecArgs struct {
 	// Egress filter rules for the service mesh.
 	EgressFilter MeshSpecEgressFilterPtrInput `pulumi:"egressFilter"`
+	// The service discovery information for the service mesh.
+	ServiceDiscovery MeshSpecServiceDiscoveryPtrInput `pulumi:"serviceDiscovery"`
 }
 
 func (MeshSpecArgs) ElementType() reflect.Type {
@@ -6048,6 +6052,11 @@ func (o MeshSpecOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
 	return o.ApplyT(func(v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
 }
 
+// The service discovery information for the service mesh.
+func (o MeshSpecOutput) ServiceDiscovery() MeshSpecServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v MeshSpec) *MeshSpecServiceDiscovery { return v.ServiceDiscovery }).(MeshSpecServiceDiscoveryPtrOutput)
+}
+
 type MeshSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecPtrOutput) ElementType() reflect.Type {
@@ -6082,9 +6091,17 @@ func (o MeshSpecPtrOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
 	}).(MeshSpecEgressFilterPtrOutput)
 }
 
+// The service discovery information for the service mesh.
+func (o MeshSpecPtrOutput) ServiceDiscovery() MeshSpecServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v *MeshSpec) *MeshSpecServiceDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDiscovery
+	}).(MeshSpecServiceDiscoveryPtrOutput)
+}
+
 type MeshSpecEgressFilter struct {
-	// Egress filter type. By default, the type is `DROP_ALL`.
-	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type *string `pulumi:"type"`
 }
 
@@ -6100,8 +6117,6 @@ type MeshSpecEgressFilterInput interface {
 }
 
 type MeshSpecEgressFilterArgs struct {
-	// Egress filter type. By default, the type is `DROP_ALL`.
-	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6182,8 +6197,6 @@ func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutputWithContext(c
 	}).(MeshSpecEgressFilterPtrOutput)
 }
 
-// Egress filter type. By default, the type is `DROP_ALL`.
-// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6212,14 +6225,145 @@ func (o MeshSpecEgressFilterPtrOutput) Elem() MeshSpecEgressFilterOutput {
 	}).(MeshSpecEgressFilterOutput)
 }
 
-// Egress filter type. By default, the type is `DROP_ALL`.
-// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeshSpecEgressFilter) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type MeshSpecServiceDiscovery struct {
+	IpPreference *string `pulumi:"ipPreference"`
+}
+
+// MeshSpecServiceDiscoveryInput is an input type that accepts MeshSpecServiceDiscoveryArgs and MeshSpecServiceDiscoveryOutput values.
+// You can construct a concrete instance of `MeshSpecServiceDiscoveryInput` via:
+//
+//	MeshSpecServiceDiscoveryArgs{...}
+type MeshSpecServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToMeshSpecServiceDiscoveryOutput() MeshSpecServiceDiscoveryOutput
+	ToMeshSpecServiceDiscoveryOutputWithContext(context.Context) MeshSpecServiceDiscoveryOutput
+}
+
+type MeshSpecServiceDiscoveryArgs struct {
+	IpPreference pulumi.StringPtrInput `pulumi:"ipPreference"`
+}
+
+func (MeshSpecServiceDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (i MeshSpecServiceDiscoveryArgs) ToMeshSpecServiceDiscoveryOutput() MeshSpecServiceDiscoveryOutput {
+	return i.ToMeshSpecServiceDiscoveryOutputWithContext(context.Background())
+}
+
+func (i MeshSpecServiceDiscoveryArgs) ToMeshSpecServiceDiscoveryOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecServiceDiscoveryOutput)
+}
+
+func (i MeshSpecServiceDiscoveryArgs) ToMeshSpecServiceDiscoveryPtrOutput() MeshSpecServiceDiscoveryPtrOutput {
+	return i.ToMeshSpecServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i MeshSpecServiceDiscoveryArgs) ToMeshSpecServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecServiceDiscoveryOutput).ToMeshSpecServiceDiscoveryPtrOutputWithContext(ctx)
+}
+
+// MeshSpecServiceDiscoveryPtrInput is an input type that accepts MeshSpecServiceDiscoveryArgs, MeshSpecServiceDiscoveryPtr and MeshSpecServiceDiscoveryPtrOutput values.
+// You can construct a concrete instance of `MeshSpecServiceDiscoveryPtrInput` via:
+//
+//	        MeshSpecServiceDiscoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type MeshSpecServiceDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToMeshSpecServiceDiscoveryPtrOutput() MeshSpecServiceDiscoveryPtrOutput
+	ToMeshSpecServiceDiscoveryPtrOutputWithContext(context.Context) MeshSpecServiceDiscoveryPtrOutput
+}
+
+type meshSpecServiceDiscoveryPtrType MeshSpecServiceDiscoveryArgs
+
+func MeshSpecServiceDiscoveryPtr(v *MeshSpecServiceDiscoveryArgs) MeshSpecServiceDiscoveryPtrInput {
+	return (*meshSpecServiceDiscoveryPtrType)(v)
+}
+
+func (*meshSpecServiceDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (i *meshSpecServiceDiscoveryPtrType) ToMeshSpecServiceDiscoveryPtrOutput() MeshSpecServiceDiscoveryPtrOutput {
+	return i.ToMeshSpecServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *meshSpecServiceDiscoveryPtrType) ToMeshSpecServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecServiceDiscoveryPtrOutput)
+}
+
+type MeshSpecServiceDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (MeshSpecServiceDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (o MeshSpecServiceDiscoveryOutput) ToMeshSpecServiceDiscoveryOutput() MeshSpecServiceDiscoveryOutput {
+	return o
+}
+
+func (o MeshSpecServiceDiscoveryOutput) ToMeshSpecServiceDiscoveryOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryOutput {
+	return o
+}
+
+func (o MeshSpecServiceDiscoveryOutput) ToMeshSpecServiceDiscoveryPtrOutput() MeshSpecServiceDiscoveryPtrOutput {
+	return o.ToMeshSpecServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o MeshSpecServiceDiscoveryOutput) ToMeshSpecServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSpecServiceDiscovery) *MeshSpecServiceDiscovery {
+		return &v
+	}).(MeshSpecServiceDiscoveryPtrOutput)
+}
+
+func (o MeshSpecServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeshSpecServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
+}
+
+type MeshSpecServiceDiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (MeshSpecServiceDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (o MeshSpecServiceDiscoveryPtrOutput) ToMeshSpecServiceDiscoveryPtrOutput() MeshSpecServiceDiscoveryPtrOutput {
+	return o
+}
+
+func (o MeshSpecServiceDiscoveryPtrOutput) ToMeshSpecServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshSpecServiceDiscoveryPtrOutput {
+	return o
+}
+
+func (o MeshSpecServiceDiscoveryPtrOutput) Elem() MeshSpecServiceDiscoveryOutput {
+	return o.ApplyT(func(v *MeshSpecServiceDiscovery) MeshSpecServiceDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret MeshSpecServiceDiscovery
+		return ret
+	}).(MeshSpecServiceDiscoveryOutput)
+}
+
+func (o MeshSpecServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeshSpecServiceDiscovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpPreference
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -34983,7 +35127,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArrayOutput) Index(i
 }
 
 type GetMeshSpec struct {
-	EgressFilters []GetMeshSpecEgressFilter `pulumi:"egressFilters"`
+	EgressFilters      []GetMeshSpecEgressFilter     `pulumi:"egressFilters"`
+	ServiceDiscoveries []GetMeshSpecServiceDiscovery `pulumi:"serviceDiscoveries"`
 }
 
 // GetMeshSpecInput is an input type that accepts GetMeshSpecArgs and GetMeshSpecOutput values.
@@ -34998,7 +35143,8 @@ type GetMeshSpecInput interface {
 }
 
 type GetMeshSpecArgs struct {
-	EgressFilters GetMeshSpecEgressFilterArrayInput `pulumi:"egressFilters"`
+	EgressFilters      GetMeshSpecEgressFilterArrayInput     `pulumi:"egressFilters"`
+	ServiceDiscoveries GetMeshSpecServiceDiscoveryArrayInput `pulumi:"serviceDiscoveries"`
 }
 
 func (GetMeshSpecArgs) ElementType() reflect.Type {
@@ -35054,6 +35200,10 @@ func (o GetMeshSpecOutput) ToGetMeshSpecOutputWithContext(ctx context.Context) G
 
 func (o GetMeshSpecOutput) EgressFilters() GetMeshSpecEgressFilterArrayOutput {
 	return o.ApplyT(func(v GetMeshSpec) []GetMeshSpecEgressFilter { return v.EgressFilters }).(GetMeshSpecEgressFilterArrayOutput)
+}
+
+func (o GetMeshSpecOutput) ServiceDiscoveries() GetMeshSpecServiceDiscoveryArrayOutput {
+	return o.ApplyT(func(v GetMeshSpec) []GetMeshSpecServiceDiscovery { return v.ServiceDiscoveries }).(GetMeshSpecServiceDiscoveryArrayOutput)
 }
 
 type GetMeshSpecArrayOutput struct{ *pulumi.OutputState }
@@ -35168,6 +35318,100 @@ func (o GetMeshSpecEgressFilterArrayOutput) Index(i pulumi.IntInput) GetMeshSpec
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMeshSpecEgressFilter {
 		return vs[0].([]GetMeshSpecEgressFilter)[vs[1].(int)]
 	}).(GetMeshSpecEgressFilterOutput)
+}
+
+type GetMeshSpecServiceDiscovery struct {
+	IpPreference string `pulumi:"ipPreference"`
+}
+
+// GetMeshSpecServiceDiscoveryInput is an input type that accepts GetMeshSpecServiceDiscoveryArgs and GetMeshSpecServiceDiscoveryOutput values.
+// You can construct a concrete instance of `GetMeshSpecServiceDiscoveryInput` via:
+//
+//	GetMeshSpecServiceDiscoveryArgs{...}
+type GetMeshSpecServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecServiceDiscoveryOutput() GetMeshSpecServiceDiscoveryOutput
+	ToGetMeshSpecServiceDiscoveryOutputWithContext(context.Context) GetMeshSpecServiceDiscoveryOutput
+}
+
+type GetMeshSpecServiceDiscoveryArgs struct {
+	IpPreference pulumi.StringInput `pulumi:"ipPreference"`
+}
+
+func (GetMeshSpecServiceDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (i GetMeshSpecServiceDiscoveryArgs) ToGetMeshSpecServiceDiscoveryOutput() GetMeshSpecServiceDiscoveryOutput {
+	return i.ToGetMeshSpecServiceDiscoveryOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecServiceDiscoveryArgs) ToGetMeshSpecServiceDiscoveryOutputWithContext(ctx context.Context) GetMeshSpecServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecServiceDiscoveryOutput)
+}
+
+// GetMeshSpecServiceDiscoveryArrayInput is an input type that accepts GetMeshSpecServiceDiscoveryArray and GetMeshSpecServiceDiscoveryArrayOutput values.
+// You can construct a concrete instance of `GetMeshSpecServiceDiscoveryArrayInput` via:
+//
+//	GetMeshSpecServiceDiscoveryArray{ GetMeshSpecServiceDiscoveryArgs{...} }
+type GetMeshSpecServiceDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecServiceDiscoveryArrayOutput() GetMeshSpecServiceDiscoveryArrayOutput
+	ToGetMeshSpecServiceDiscoveryArrayOutputWithContext(context.Context) GetMeshSpecServiceDiscoveryArrayOutput
+}
+
+type GetMeshSpecServiceDiscoveryArray []GetMeshSpecServiceDiscoveryInput
+
+func (GetMeshSpecServiceDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (i GetMeshSpecServiceDiscoveryArray) ToGetMeshSpecServiceDiscoveryArrayOutput() GetMeshSpecServiceDiscoveryArrayOutput {
+	return i.ToGetMeshSpecServiceDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecServiceDiscoveryArray) ToGetMeshSpecServiceDiscoveryArrayOutputWithContext(ctx context.Context) GetMeshSpecServiceDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecServiceDiscoveryArrayOutput)
+}
+
+type GetMeshSpecServiceDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecServiceDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (o GetMeshSpecServiceDiscoveryOutput) ToGetMeshSpecServiceDiscoveryOutput() GetMeshSpecServiceDiscoveryOutput {
+	return o
+}
+
+func (o GetMeshSpecServiceDiscoveryOutput) ToGetMeshSpecServiceDiscoveryOutputWithContext(ctx context.Context) GetMeshSpecServiceDiscoveryOutput {
+	return o
+}
+
+func (o GetMeshSpecServiceDiscoveryOutput) IpPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMeshSpecServiceDiscovery) string { return v.IpPreference }).(pulumi.StringOutput)
+}
+
+type GetMeshSpecServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecServiceDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpecServiceDiscovery)(nil)).Elem()
+}
+
+func (o GetMeshSpecServiceDiscoveryArrayOutput) ToGetMeshSpecServiceDiscoveryArrayOutput() GetMeshSpecServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecServiceDiscoveryArrayOutput) ToGetMeshSpecServiceDiscoveryArrayOutputWithContext(ctx context.Context) GetMeshSpecServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) GetMeshSpecServiceDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMeshSpecServiceDiscovery {
+		return vs[0].([]GetMeshSpecServiceDiscovery)[vs[1].(int)]
+	}).(GetMeshSpecServiceDiscoveryOutput)
 }
 
 type GetRouteSpec struct {
@@ -51962,6 +52206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecPtrInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecEgressFilterInput)(nil)).Elem(), MeshSpecEgressFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecEgressFilterPtrInput)(nil)).Elem(), MeshSpecEgressFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecServiceDiscoveryInput)(nil)).Elem(), MeshSpecServiceDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecServiceDiscoveryPtrInput)(nil)).Elem(), MeshSpecServiceDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecInput)(nil)).Elem(), RouteSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecPtrInput)(nil)).Elem(), RouteSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecGrpcRouteInput)(nil)).Elem(), RouteSpecGrpcRouteArgs{})
@@ -52364,6 +52610,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecArrayInput)(nil)).Elem(), GetMeshSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecEgressFilterInput)(nil)).Elem(), GetMeshSpecEgressFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecEgressFilterArrayInput)(nil)).Elem(), GetMeshSpecEgressFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecServiceDiscoveryInput)(nil)).Elem(), GetMeshSpecServiceDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecServiceDiscoveryArrayInput)(nil)).Elem(), GetMeshSpecServiceDiscoveryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecInput)(nil)).Elem(), GetRouteSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecArrayInput)(nil)).Elem(), GetRouteSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteInput)(nil)).Elem(), GetRouteSpecGrpcRouteArgs{})
@@ -52770,6 +53018,8 @@ func init() {
 	pulumi.RegisterOutputType(MeshSpecPtrOutput{})
 	pulumi.RegisterOutputType(MeshSpecEgressFilterOutput{})
 	pulumi.RegisterOutputType(MeshSpecEgressFilterPtrOutput{})
+	pulumi.RegisterOutputType(MeshSpecServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(MeshSpecServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecOutput{})
 	pulumi.RegisterOutputType(RouteSpecPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecGrpcRouteOutput{})
@@ -53172,6 +53422,8 @@ func init() {
 	pulumi.RegisterOutputType(GetMeshSpecArrayOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecServiceDiscoveryArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteSpecOutput{})
 	pulumi.RegisterOutputType(GetRouteSpecArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteOutput{})

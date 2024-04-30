@@ -99,6 +99,7 @@ export interface GetElasticIpArgs {
  * A collection of values returned by getElasticIp.
  */
 export interface GetElasticIpResult {
+    readonly arn: string;
     /**
      * ID representing the association of the address with an instance in a VPC.
      */

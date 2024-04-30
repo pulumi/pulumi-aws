@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -30,10 +31,26 @@ public final class AppImageConfigJupyterLabImageConfigArgs extends com.pulumi.re
         return Optional.ofNullable(this.containerConfig);
     }
 
+    /**
+     * The URL where the Git repository is located. See File System Config details below.
+     * 
+     */
+    @Import(name="fileSystemConfig")
+    private @Nullable Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> fileSystemConfig;
+
+    /**
+     * @return The URL where the Git repository is located. See File System Config details below.
+     * 
+     */
+    public Optional<Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs>> fileSystemConfig() {
+        return Optional.ofNullable(this.fileSystemConfig);
+    }
+
     private AppImageConfigJupyterLabImageConfigArgs() {}
 
     private AppImageConfigJupyterLabImageConfigArgs(AppImageConfigJupyterLabImageConfigArgs $) {
         this.containerConfig = $.containerConfig;
+        this.fileSystemConfig = $.fileSystemConfig;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class AppImageConfigJupyterLabImageConfigArgs extends com.pulumi.re
          */
         public Builder containerConfig(AppImageConfigJupyterLabImageConfigContainerConfigArgs containerConfig) {
             return containerConfig(Output.of(containerConfig));
+        }
+
+        /**
+         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> fileSystemConfig) {
+            $.fileSystemConfig = fileSystemConfig;
+            return this;
+        }
+
+        /**
+         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemConfig(AppImageConfigJupyterLabImageConfigFileSystemConfigArgs fileSystemConfig) {
+            return fileSystemConfig(Output.of(fileSystemConfig));
         }
 
         public AppImageConfigJupyterLabImageConfigArgs build() {

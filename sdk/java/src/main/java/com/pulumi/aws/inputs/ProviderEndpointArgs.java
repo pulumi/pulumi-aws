@@ -3379,6 +3379,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="route53profiles")
+    private @Nullable Output<String> route53profiles;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> route53profiles() {
+        return Optional.ofNullable(this.route53profiles);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="route53recoverycontrolconfig")
     private @Nullable Output<String> route53recoverycontrolconfig;
 
@@ -4412,6 +4427,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.rolesanywhere = $.rolesanywhere;
         this.route53 = $.route53;
         this.route53domains = $.route53domains;
+        this.route53profiles = $.route53profiles;
         this.route53recoverycontrolconfig = $.route53recoverycontrolconfig;
         this.route53recoveryreadiness = $.route53recoveryreadiness;
         this.route53resolver = $.route53resolver;
@@ -9188,6 +9204,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder route53domains(String route53domains) {
             return route53domains(Output.of(route53domains));
+        }
+
+        /**
+         * @param route53profiles Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53profiles(@Nullable Output<String> route53profiles) {
+            $.route53profiles = route53profiles;
+            return this;
+        }
+
+        /**
+         * @param route53profiles Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53profiles(String route53profiles) {
+            return route53profiles(Output.of(route53profiles));
         }
 
         /**

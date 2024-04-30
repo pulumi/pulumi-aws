@@ -22,6 +22,7 @@ __all__ = [
     'GetGroupAlternateIdentifierUniqueAttributeResult',
     'GetGroupExternalIdResult',
     'GetGroupFilterResult',
+    'GetGroupsGroupResult',
     'GetUserAddressResult',
     'GetUserAlternateIdentifierResult',
     'GetUserAlternateIdentifierExternalIdResult',
@@ -558,6 +559,68 @@ class GetGroupFilterResult(dict):
         Value for an attribute.
         """
         return pulumi.get(self, "attribute_value")
+
+
+@pulumi.output_type
+class GetGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 display_name: str,
+                 external_ids: Sequence[Any],
+                 group_id: str,
+                 identity_store_id: str):
+        """
+        :param str description: Description of the specified group.
+        :param str display_name: Group's display name.
+        :param Sequence[Any] external_ids: List of identifiers issued to this resource by an external identity provider.
+        :param str group_id: Identifier of the group in the Identity Store.
+        :param str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "external_ids", external_ids)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "identity_store_id", identity_store_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the specified group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Group's display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Sequence[Any]:
+        """
+        List of identifiers issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "external_ids")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        Identifier of the group in the Identity Store.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="identityStoreId")
+    def identity_store_id(self) -> str:
+        """
+        Identity Store ID associated with the Single Sign-On (SSO) Instance.
+        """
+        return pulumi.get(self, "identity_store_id")
 
 
 @pulumi.output_type

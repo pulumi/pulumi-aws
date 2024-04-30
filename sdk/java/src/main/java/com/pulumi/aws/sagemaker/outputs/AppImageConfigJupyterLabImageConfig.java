@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfigContainerConfig;
+import com.pulumi.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfigFileSystemConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class AppImageConfigJupyterLabImageConfig {
      * 
      */
     private @Nullable AppImageConfigJupyterLabImageConfigContainerConfig containerConfig;
+    /**
+     * @return The URL where the Git repository is located. See File System Config details below.
+     * 
+     */
+    private @Nullable AppImageConfigJupyterLabImageConfigFileSystemConfig fileSystemConfig;
 
     private AppImageConfigJupyterLabImageConfig() {}
     /**
@@ -24,6 +30,13 @@ public final class AppImageConfigJupyterLabImageConfig {
      */
     public Optional<AppImageConfigJupyterLabImageConfigContainerConfig> containerConfig() {
         return Optional.ofNullable(this.containerConfig);
+    }
+    /**
+     * @return The URL where the Git repository is located. See File System Config details below.
+     * 
+     */
+    public Optional<AppImageConfigJupyterLabImageConfigFileSystemConfig> fileSystemConfig() {
+        return Optional.ofNullable(this.fileSystemConfig);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class AppImageConfigJupyterLabImageConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AppImageConfigJupyterLabImageConfigContainerConfig containerConfig;
+        private @Nullable AppImageConfigJupyterLabImageConfigFileSystemConfig fileSystemConfig;
         public Builder() {}
         public Builder(AppImageConfigJupyterLabImageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerConfig = defaults.containerConfig;
+    	      this.fileSystemConfig = defaults.fileSystemConfig;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class AppImageConfigJupyterLabImageConfig {
             this.containerConfig = containerConfig;
             return this;
         }
+        @CustomType.Setter
+        public Builder fileSystemConfig(@Nullable AppImageConfigJupyterLabImageConfigFileSystemConfig fileSystemConfig) {
+
+            this.fileSystemConfig = fileSystemConfig;
+            return this;
+        }
         public AppImageConfigJupyterLabImageConfig build() {
             final var _resultValue = new AppImageConfigJupyterLabImageConfig();
             _resultValue.containerConfig = containerConfig;
+            _resultValue.fileSystemConfig = fileSystemConfig;
             return _resultValue;
         }
     }

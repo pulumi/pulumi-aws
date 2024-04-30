@@ -17,11 +17,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// Egress filter rules for the service mesh.
         /// </summary>
         public readonly Outputs.MeshSpecEgressFilter? EgressFilter;
+        /// <summary>
+        /// The service discovery information for the service mesh.
+        /// </summary>
+        public readonly Outputs.MeshSpecServiceDiscovery? ServiceDiscovery;
 
         [OutputConstructor]
-        private MeshSpec(Outputs.MeshSpecEgressFilter? egressFilter)
+        private MeshSpec(
+            Outputs.MeshSpecEgressFilter? egressFilter,
+
+            Outputs.MeshSpecServiceDiscovery? serviceDiscovery)
         {
             EgressFilter = egressFilter;
+            ServiceDiscovery = serviceDiscovery;
         }
     }
 }

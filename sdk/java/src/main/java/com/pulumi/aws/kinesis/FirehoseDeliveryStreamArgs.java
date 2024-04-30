@@ -12,6 +12,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurati
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamServerSideEncryptionArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -43,14 +44,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     public Output<String> destination() {
@@ -219,6 +220,21 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+     * 
+     */
+    @Import(name="snowflakeConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs> snowflakeConfiguration;
+
+    /**
+     * @return Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs>> snowflakeConfiguration() {
+        return Optional.ofNullable(this.snowflakeConfiguration);
+    }
+
+    /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
@@ -271,6 +287,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         this.opensearchserverlessConfiguration = $.opensearchserverlessConfiguration;
         this.redshiftConfiguration = $.redshiftConfiguration;
         this.serverSideEncryption = $.serverSideEncryption;
+        this.snowflakeConfiguration = $.snowflakeConfiguration;
         this.splunkConfiguration = $.splunkConfiguration;
         this.tags = $.tags;
         this.versionId = $.versionId;
@@ -316,7 +333,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
          * 
          * @return builder
          * 
@@ -327,7 +344,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
          * 
          * @return builder
          * 
@@ -557,6 +574,27 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
          */
         public Builder serverSideEncryption(FirehoseDeliveryStreamServerSideEncryptionArgs serverSideEncryption) {
             return serverSideEncryption(Output.of(serverSideEncryption));
+        }
+
+        /**
+         * @param snowflakeConfiguration Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snowflakeConfiguration(@Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs> snowflakeConfiguration) {
+            $.snowflakeConfiguration = snowflakeConfiguration;
+            return this;
+        }
+
+        /**
+         * @param snowflakeConfiguration Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snowflakeConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationArgs snowflakeConfiguration) {
+            return snowflakeConfiguration(Output.of(snowflakeConfiguration));
         }
 
         /**

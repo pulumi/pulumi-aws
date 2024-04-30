@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
+// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
 //
 // For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 //
@@ -868,6 +868,49 @@ import (
 //
 // ```
 //
+// ### Snowflake Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "example_snowflake_destination", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("example-snowflake-destination"),
+//				Destination: pulumi.String("snowflake"),
+//				SnowflakeConfiguration: &kinesis.FirehoseDeliveryStreamSnowflakeConfigurationArgs{
+//					AccountUrl: pulumi.String("https://example.snowflakecomputing.com"),
+//					Database:   pulumi.String("example-db"),
+//					PrivateKey: pulumi.String("..."),
+//					RoleArn:    pulumi.Any(firehose.Arn),
+//					Schema:     pulumi.String("example-schema"),
+//					Table:      pulumi.String("example-table"),
+//					User:       pulumi.String("example-usr"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(firehose.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
@@ -881,7 +924,7 @@ type FirehoseDeliveryStream struct {
 
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringOutput `pulumi:"destination"`
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
@@ -906,6 +949,8 @@ type FirehoseDeliveryStream struct {
 	//
 	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
+	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -952,7 +997,7 @@ func GetFirehoseDeliveryStream(ctx *pulumi.Context,
 type firehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   *string `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
@@ -977,6 +1022,8 @@ type firehoseDeliveryStreamState struct {
 	//
 	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
+	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+	SnowflakeConfiguration *FirehoseDeliveryStreamSnowflakeConfiguration `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -991,7 +1038,7 @@ type firehoseDeliveryStreamState struct {
 type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringPtrInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
@@ -1016,6 +1063,8 @@ type FirehoseDeliveryStreamState struct {
 	//
 	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
+	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrInput
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1034,7 +1083,7 @@ func (FirehoseDeliveryStreamState) ElementType() reflect.Type {
 type firehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   string  `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
@@ -1059,6 +1108,8 @@ type firehoseDeliveryStreamArgs struct {
 	//
 	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
+	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+	SnowflakeConfiguration *FirehoseDeliveryStreamSnowflakeConfiguration `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1070,7 +1121,7 @@ type firehoseDeliveryStreamArgs struct {
 type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
@@ -1095,6 +1146,8 @@ type FirehoseDeliveryStreamArgs struct {
 	//
 	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
+	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrInput
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1194,7 +1247,7 @@ func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 func (o FirehoseDeliveryStreamOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
@@ -1271,6 +1324,13 @@ func (o FirehoseDeliveryStreamOutput) ServerSideEncryption() FirehoseDeliveryStr
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 		return v.ServerSideEncryption
 	}).(FirehoseDeliveryStreamServerSideEncryptionPtrOutput)
+}
+
+// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+func (o FirehoseDeliveryStreamOutput) SnowflakeConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+		return v.SnowflakeConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput)
 }
 
 // Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.

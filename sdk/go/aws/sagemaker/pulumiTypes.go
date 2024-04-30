@@ -13,9 +13,531 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AppImageConfigCodeEditorAppImageConfig struct {
+	// The configuration used to run the application image container. See Container Config details below.
+	ContainerConfig *AppImageConfigCodeEditorAppImageConfigContainerConfig `pulumi:"containerConfig"`
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig *AppImageConfigCodeEditorAppImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
+}
+
+// AppImageConfigCodeEditorAppImageConfigInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigArgs and AppImageConfigCodeEditorAppImageConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigInput` via:
+//
+//	AppImageConfigCodeEditorAppImageConfigArgs{...}
+type AppImageConfigCodeEditorAppImageConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput
+	ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigOutput
+}
+
+type AppImageConfigCodeEditorAppImageConfigArgs struct {
+	// The configuration used to run the application image container. See Container Config details below.
+	ContainerConfig AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput `pulumi:"containerConfig"`
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
+}
+
+func (AppImageConfigCodeEditorAppImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigOutput)
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigOutput).ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigCodeEditorAppImageConfigPtrInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigArgs, AppImageConfigCodeEditorAppImageConfigPtr and AppImageConfigCodeEditorAppImageConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigPtrInput` via:
+//
+//	        AppImageConfigCodeEditorAppImageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigCodeEditorAppImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput
+	ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput
+}
+
+type appImageConfigCodeEditorAppImageConfigPtrType AppImageConfigCodeEditorAppImageConfigArgs
+
+func AppImageConfigCodeEditorAppImageConfigPtr(v *AppImageConfigCodeEditorAppImageConfigArgs) AppImageConfigCodeEditorAppImageConfigPtrInput {
+	return (*appImageConfigCodeEditorAppImageConfigPtrType)(v)
+}
+
+func (*appImageConfigCodeEditorAppImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfig {
+		return &v
+	}).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
+}
+
+// The configuration used to run the application image container. See Container Config details below.
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ContainerConfig() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfigContainerConfig {
+		return v.ContainerConfig
+	}).(AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput)
+}
+
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigCodeEditorAppImageConfigOutput) FileSystemConfig() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
+		return v.FileSystemConfig
+	}).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) Elem() AppImageConfigCodeEditorAppImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfig) AppImageConfigCodeEditorAppImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigCodeEditorAppImageConfig
+		return ret
+	}).(AppImageConfigCodeEditorAppImageConfigOutput)
+}
+
+// The configuration used to run the application image container. See Container Config details below.
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ContainerConfig() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfigContainerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfig
+	}).(AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput)
+}
+
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) FileSystemConfig() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemConfig
+	}).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigContainerConfig struct {
+	// The arguments for the container when you're running the application.
+	ContainerArguments []string `pulumi:"containerArguments"`
+	// The entrypoint used to run the application in the container.
+	ContainerEntrypoints []string `pulumi:"containerEntrypoints"`
+	// The environment variables to set in the container.
+	ContainerEnvironmentVariables map[string]string `pulumi:"containerEnvironmentVariables"`
+}
+
+// AppImageConfigCodeEditorAppImageConfigContainerConfigInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigContainerConfigArgs and AppImageConfigCodeEditorAppImageConfigContainerConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigContainerConfigInput` via:
+//
+//	AppImageConfigCodeEditorAppImageConfigContainerConfigArgs{...}
+type AppImageConfigCodeEditorAppImageConfigContainerConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigOutput
+	ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigOutput
+}
+
+type AppImageConfigCodeEditorAppImageConfigContainerConfigArgs struct {
+	// The arguments for the container when you're running the application.
+	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
+	// The entrypoint used to run the application in the container.
+	ContainerEntrypoints pulumi.StringArrayInput `pulumi:"containerEntrypoints"`
+	// The environment variables to set in the container.
+	ContainerEnvironmentVariables pulumi.StringMapInput `pulumi:"containerEnvironmentVariables"`
+}
+
+func (AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput)
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput).ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigContainerConfigArgs, AppImageConfigCodeEditorAppImageConfigContainerConfigPtr and AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput` via:
+//
+//	        AppImageConfigCodeEditorAppImageConfigContainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput
+	ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput
+}
+
+type appImageConfigCodeEditorAppImageConfigContainerConfigPtrType AppImageConfigCodeEditorAppImageConfigContainerConfigArgs
+
+func AppImageConfigCodeEditorAppImageConfigContainerConfigPtr(v *AppImageConfigCodeEditorAppImageConfigContainerConfigArgs) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput {
+	return (*appImageConfigCodeEditorAppImageConfigContainerConfigPtrType)(v)
+}
+
+func (*appImageConfigCodeEditorAppImageConfigContainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigContainerConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigContainerConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigContainerConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o.ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigCodeEditorAppImageConfigContainerConfig) *AppImageConfigCodeEditorAppImageConfigContainerConfig {
+		return &v
+	}).(AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput)
+}
+
+// The arguments for the container when you're running the application.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigContainerConfig) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
+}
+
+// The entrypoint used to run the application in the container.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigContainerConfig) []string { return v.ContainerEntrypoints }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigOutput) ContainerEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigContainerConfig) map[string]string {
+		return v.ContainerEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) Elem() AppImageConfigCodeEditorAppImageConfigContainerConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigContainerConfig) AppImageConfigCodeEditorAppImageConfigContainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigCodeEditorAppImageConfigContainerConfig
+		return ret
+	}).(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput)
+}
+
+// The arguments for the container when you're running the application.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// The entrypoint used to run the application in the container.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEntrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container.
+func (o AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput) ContainerEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigContainerConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfig struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid *int `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid *int `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+	MountPath *string `pulumi:"mountPath"`
+}
+
+// AppImageConfigCodeEditorAppImageConfigFileSystemConfigInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs and AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigFileSystemConfigInput` via:
+//
+//	AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs{...}
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput
+	ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput
+}
+
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+}
+
+func (AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput)
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput).ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs, AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtr and AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput` via:
+//
+//	        AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput
+	ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput
+}
+
+type appImageConfigCodeEditorAppImageConfigFileSystemConfigPtrType AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs
+
+func AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtr(v *AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput {
+	return (*appImageConfigCodeEditorAppImageConfigFileSystemConfigPtrType)(v)
+}
+
+func (*appImageConfigCodeEditorAppImageConfigFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigFileSystemConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigFileSystemConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o.ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
+		return &v
+	}).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigFileSystemConfig) AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigCodeEditorAppImageConfigFileSystemConfig
+		return ret
+	}).(AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultUid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+func (o AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfigFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
 type AppImageConfigJupyterLabImageConfig struct {
 	// The configuration used to run the application image container. See Container Config details below.
 	ContainerConfig *AppImageConfigJupyterLabImageConfigContainerConfig `pulumi:"containerConfig"`
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig *AppImageConfigJupyterLabImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
 }
 
 // AppImageConfigJupyterLabImageConfigInput is an input type that accepts AppImageConfigJupyterLabImageConfigArgs and AppImageConfigJupyterLabImageConfigOutput values.
@@ -32,6 +554,8 @@ type AppImageConfigJupyterLabImageConfigInput interface {
 type AppImageConfigJupyterLabImageConfigArgs struct {
 	// The configuration used to run the application image container. See Container Config details below.
 	ContainerConfig AppImageConfigJupyterLabImageConfigContainerConfigPtrInput `pulumi:"containerConfig"`
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
 }
 
 func (AppImageConfigJupyterLabImageConfigArgs) ElementType() reflect.Type {
@@ -118,6 +642,13 @@ func (o AppImageConfigJupyterLabImageConfigOutput) ContainerConfig() AppImageCon
 	}).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
 }
 
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigJupyterLabImageConfigOutput) FileSystemConfig() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfig) *AppImageConfigJupyterLabImageConfigFileSystemConfig {
+		return v.FileSystemConfig
+	}).(AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput)
+}
+
 type AppImageConfigJupyterLabImageConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigJupyterLabImageConfigPtrOutput) ElementType() reflect.Type {
@@ -150,6 +681,16 @@ func (o AppImageConfigJupyterLabImageConfigPtrOutput) ContainerConfig() AppImage
 		}
 		return v.ContainerConfig
 	}).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
+}
+
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigJupyterLabImageConfigPtrOutput) FileSystemConfig() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfig) *AppImageConfigJupyterLabImageConfigFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemConfig
+	}).(AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput)
 }
 
 type AppImageConfigJupyterLabImageConfigContainerConfig struct {
@@ -327,6 +868,189 @@ func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ContainerEn
 		}
 		return v.ContainerEnvironmentVariables
 	}).(pulumi.StringMapOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigFileSystemConfig struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid *int `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid *int `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+	MountPath *string `pulumi:"mountPath"`
+}
+
+// AppImageConfigJupyterLabImageConfigFileSystemConfigInput is an input type that accepts AppImageConfigJupyterLabImageConfigFileSystemConfigArgs and AppImageConfigJupyterLabImageConfigFileSystemConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigFileSystemConfigInput` via:
+//
+//	AppImageConfigJupyterLabImageConfigFileSystemConfigArgs{...}
+type AppImageConfigJupyterLabImageConfigFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigOutput
+	ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigOutput
+}
+
+type AppImageConfigJupyterLabImageConfigFileSystemConfigArgs struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+}
+
+func (AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigFileSystemConfigOutput)
+}
+
+func (i AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigFileSystemConfigOutput).ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput is an input type that accepts AppImageConfigJupyterLabImageConfigFileSystemConfigArgs, AppImageConfigJupyterLabImageConfigFileSystemConfigPtr and AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput` via:
+//
+//	        AppImageConfigJupyterLabImageConfigFileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput
+	ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput
+}
+
+type appImageConfigJupyterLabImageConfigFileSystemConfigPtrType AppImageConfigJupyterLabImageConfigFileSystemConfigArgs
+
+func AppImageConfigJupyterLabImageConfigFileSystemConfigPtr(v *AppImageConfigJupyterLabImageConfigFileSystemConfigArgs) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput {
+	return (*appImageConfigJupyterLabImageConfigFileSystemConfigPtrType)(v)
+}
+
+func (*appImageConfigJupyterLabImageConfigFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigJupyterLabImageConfigFileSystemConfigPtrType) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigJupyterLabImageConfigFileSystemConfigPtrType) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o.ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigJupyterLabImageConfigFileSystemConfig) *AppImageConfigJupyterLabImageConfigFileSystemConfig {
+		return &v
+	}).(AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput() AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigJupyterLabImageConfigFileSystemConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigFileSystemConfig) AppImageConfigJupyterLabImageConfigFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigJupyterLabImageConfigFileSystemConfig
+		return ret
+	}).(AppImageConfigJupyterLabImageConfigFileSystemConfigOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultUid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+func (o AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
 }
 
 type AppImageConfigKernelGatewayImageConfig struct {
@@ -30818,10 +31542,18 @@ func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigContainerConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigFileSystemConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigPtrInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigContainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfigPtrInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigFileSystemConfigInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigFileSystemConfigPtrInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigPtrInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfigInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{})
@@ -31191,10 +31923,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionOidcMemberDefinitionPtrInput)(nil)).Elem(), WorkteamMemberDefinitionOidcMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationPtrInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigContainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigContainerConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput{})

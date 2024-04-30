@@ -533,6 +533,7 @@ class ProviderEndpointArgs:
                  rolesanywhere: Optional[pulumi.Input[str]] = None,
                  route53: Optional[pulumi.Input[str]] = None,
                  route53domains: Optional[pulumi.Input[str]] = None,
+                 route53profiles: Optional[pulumi.Input[str]] = None,
                  route53recoverycontrolconfig: Optional[pulumi.Input[str]] = None,
                  route53recoveryreadiness: Optional[pulumi.Input[str]] = None,
                  route53resolver: Optional[pulumi.Input[str]] = None,
@@ -812,6 +813,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] rolesanywhere: Use this to override the default service endpoint URL
         :param pulumi.Input[str] route53: Use this to override the default service endpoint URL
         :param pulumi.Input[str] route53domains: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] route53profiles: Use this to override the default service endpoint URL
         :param pulumi.Input[str] route53recoverycontrolconfig: Use this to override the default service endpoint URL
         :param pulumi.Input[str] route53recoveryreadiness: Use this to override the default service endpoint URL
         :param pulumi.Input[str] route53resolver: Use this to override the default service endpoint URL
@@ -1315,6 +1317,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "route53", route53)
         if route53domains is not None:
             pulumi.set(__self__, "route53domains", route53domains)
+        if route53profiles is not None:
+            pulumi.set(__self__, "route53profiles", route53profiles)
         if route53recoverycontrolconfig is not None:
             pulumi.set(__self__, "route53recoverycontrolconfig", route53recoverycontrolconfig)
         if route53recoveryreadiness is not None:
@@ -4111,6 +4115,18 @@ class ProviderEndpointArgs:
     @route53domains.setter
     def route53domains(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "route53domains", value)
+
+    @property
+    @pulumi.getter
+    def route53profiles(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "route53profiles")
+
+    @route53profiles.setter
+    def route53profiles(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route53profiles", value)
 
     @property
     @pulumi.getter

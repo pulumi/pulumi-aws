@@ -235,8 +235,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly arnPrefix!: pulumi.Output<string>;
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     public readonly containerProperties!: pulumi.Output<string | undefined>;
     /**
@@ -252,8 +251,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      */
     public readonly nodeProperties!: pulumi.Output<string | undefined>;
     /**
@@ -269,8 +267,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retryStrategy` is `1`.  Defined below.
+     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
     /**
@@ -373,8 +370,7 @@ export interface JobDefinitionState {
      */
     arnPrefix?: pulumi.Input<string>;
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
     /**
@@ -390,8 +386,7 @@ export interface JobDefinitionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      */
     nodeProperties?: pulumi.Input<string>;
     /**
@@ -407,8 +402,7 @@ export interface JobDefinitionState {
      */
     propagateTags?: pulumi.Input<boolean>;
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retryStrategy` is `1`.  Defined below.
+     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
     /**
@@ -446,8 +440,7 @@ export interface JobDefinitionState {
  */
 export interface JobDefinitionArgs {
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
     /**
@@ -463,8 +456,7 @@ export interface JobDefinitionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      */
     nodeProperties?: pulumi.Input<string>;
     /**
@@ -480,8 +472,7 @@ export interface JobDefinitionArgs {
      */
     propagateTags?: pulumi.Input<boolean>;
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retryStrategy` is `1`.  Defined below.
+     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
     /**

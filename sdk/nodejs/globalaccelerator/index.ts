@@ -10,6 +10,11 @@ export type Accelerator = import("./accelerator").Accelerator;
 export const Accelerator: typeof import("./accelerator").Accelerator = null as any;
 utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
 
+export { CrossAccountAttachmentArgs, CrossAccountAttachmentState } from "./crossAccountAttachment";
+export type CrossAccountAttachment = import("./crossAccountAttachment").CrossAccountAttachment;
+export const CrossAccountAttachment: typeof import("./crossAccountAttachment").CrossAccountAttachment = null as any;
+utilities.lazyLoad(exports, ["CrossAccountAttachment"], () => require("./crossAccountAttachment"));
+
 export { CustomRoutingAcceleratorArgs, CustomRoutingAcceleratorState } from "./customRoutingAccelerator";
 export type CustomRoutingAccelerator = import("./customRoutingAccelerator").CustomRoutingAccelerator;
 export const CustomRoutingAccelerator: typeof import("./customRoutingAccelerator").CustomRoutingAccelerator = null as any;
@@ -52,6 +57,8 @@ const _module = {
         switch (type) {
             case "aws:globalaccelerator/accelerator:Accelerator":
                 return new Accelerator(name, <any>undefined, { urn })
+            case "aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment":
+                return new CrossAccountAttachment(name, <any>undefined, { urn })
             case "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator":
                 return new CustomRoutingAccelerator(name, <any>undefined, { urn })
             case "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup":
@@ -68,6 +75,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/accelerator", _module)
+pulumi.runtime.registerResourceModule("aws", "globalaccelerator/crossAccountAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingAccelerator", _module)
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingEndpointGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingListener", _module)

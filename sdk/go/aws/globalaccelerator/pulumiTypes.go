@@ -294,6 +294,112 @@ func (o AcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetOu
 	}).(AcceleratorIpSetOutput)
 }
 
+type CrossAccountAttachmentResource struct {
+	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	EndpointId *string `pulumi:"endpointId"`
+	// The AWS Region where a shared endpoint resource is located.
+	Region *string `pulumi:"region"`
+}
+
+// CrossAccountAttachmentResourceInput is an input type that accepts CrossAccountAttachmentResourceArgs and CrossAccountAttachmentResourceOutput values.
+// You can construct a concrete instance of `CrossAccountAttachmentResourceInput` via:
+//
+//	CrossAccountAttachmentResourceArgs{...}
+type CrossAccountAttachmentResourceInput interface {
+	pulumi.Input
+
+	ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput
+	ToCrossAccountAttachmentResourceOutputWithContext(context.Context) CrossAccountAttachmentResourceOutput
+}
+
+type CrossAccountAttachmentResourceArgs struct {
+	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
+	// The AWS Region where a shared endpoint resource is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (CrossAccountAttachmentResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (i CrossAccountAttachmentResourceArgs) ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput {
+	return i.ToCrossAccountAttachmentResourceOutputWithContext(context.Background())
+}
+
+func (i CrossAccountAttachmentResourceArgs) ToCrossAccountAttachmentResourceOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossAccountAttachmentResourceOutput)
+}
+
+// CrossAccountAttachmentResourceArrayInput is an input type that accepts CrossAccountAttachmentResourceArray and CrossAccountAttachmentResourceArrayOutput values.
+// You can construct a concrete instance of `CrossAccountAttachmentResourceArrayInput` via:
+//
+//	CrossAccountAttachmentResourceArray{ CrossAccountAttachmentResourceArgs{...} }
+type CrossAccountAttachmentResourceArrayInput interface {
+	pulumi.Input
+
+	ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput
+	ToCrossAccountAttachmentResourceArrayOutputWithContext(context.Context) CrossAccountAttachmentResourceArrayOutput
+}
+
+type CrossAccountAttachmentResourceArray []CrossAccountAttachmentResourceInput
+
+func (CrossAccountAttachmentResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (i CrossAccountAttachmentResourceArray) ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput {
+	return i.ToCrossAccountAttachmentResourceArrayOutputWithContext(context.Background())
+}
+
+func (i CrossAccountAttachmentResourceArray) ToCrossAccountAttachmentResourceArrayOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossAccountAttachmentResourceArrayOutput)
+}
+
+type CrossAccountAttachmentResourceOutput struct{ *pulumi.OutputState }
+
+func (CrossAccountAttachmentResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceOutput {
+	return o
+}
+
+// The endpoint ID for the endpoint that is specified as a AWS resource.
+func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where a shared endpoint resource is located.
+func (o CrossAccountAttachmentResourceOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type CrossAccountAttachmentResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (CrossAccountAttachmentResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) ToCrossAccountAttachmentResourceArrayOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceArrayOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) Index(i pulumi.IntInput) CrossAccountAttachmentResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrossAccountAttachmentResource {
+		return vs[0].([]CrossAccountAttachmentResource)[vs[1].(int)]
+	}).(CrossAccountAttachmentResourceOutput)
+}
+
 type CustomRoutingAcceleratorAttributes struct {
 	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
@@ -1640,6 +1746,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesPtrInput)(nil)).Elem(), AcceleratorAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetInput)(nil)).Elem(), AcceleratorIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetArrayInput)(nil)).Elem(), AcceleratorIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrossAccountAttachmentResourceInput)(nil)).Elem(), CrossAccountAttachmentResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrossAccountAttachmentResourceArrayInput)(nil)).Elem(), CrossAccountAttachmentResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorAttributesInput)(nil)).Elem(), CustomRoutingAcceleratorAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorAttributesPtrInput)(nil)).Elem(), CustomRoutingAcceleratorAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorIpSetInput)(nil)).Elem(), CustomRoutingAcceleratorIpSetArgs{})
@@ -1668,6 +1776,8 @@ func init() {
 	pulumi.RegisterOutputType(AcceleratorAttributesPtrOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetArrayOutput{})
+	pulumi.RegisterOutputType(CrossAccountAttachmentResourceOutput{})
+	pulumi.RegisterOutputType(CrossAccountAttachmentResourceArrayOutput{})
 	pulumi.RegisterOutputType(CustomRoutingAcceleratorAttributesOutput{})
 	pulumi.RegisterOutputType(CustomRoutingAcceleratorAttributesPtrOutput{})
 	pulumi.RegisterOutputType(CustomRoutingAcceleratorIpSetOutput{})

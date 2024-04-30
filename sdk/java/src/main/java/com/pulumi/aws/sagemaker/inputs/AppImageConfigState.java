@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.AppImageConfigCodeEditorAppImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
 import com.pulumi.core.Output;
@@ -48,9 +49,32 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * 
+     */
+    @Import(name="codeEditorAppImageConfig")
+    private @Nullable Output<AppImageConfigCodeEditorAppImageConfigArgs> codeEditorAppImageConfig;
+
+    /**
+     * @return The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * 
+     */
+    public Optional<Output<AppImageConfigCodeEditorAppImageConfigArgs>> codeEditorAppImageConfig() {
+        return Optional.ofNullable(this.codeEditorAppImageConfig);
+    }
+
+    /**
+     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * 
+     */
     @Import(name="jupyterLabImageConfig")
     private @Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig;
 
+    /**
+     * @return The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * 
+     */
     public Optional<Output<AppImageConfigJupyterLabImageConfigArgs>> jupyterLabImageConfig() {
         return Optional.ofNullable(this.jupyterLabImageConfig);
     }
@@ -113,6 +137,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     private AppImageConfigState(AppImageConfigState $) {
         this.appImageConfigName = $.appImageConfigName;
         this.arn = $.arn;
+        this.codeEditorAppImageConfig = $.codeEditorAppImageConfig;
         this.jupyterLabImageConfig = $.jupyterLabImageConfig;
         this.kernelGatewayImageConfig = $.kernelGatewayImageConfig;
         this.tags = $.tags;
@@ -179,11 +204,44 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeEditorAppImageConfig(@Nullable Output<AppImageConfigCodeEditorAppImageConfigArgs> codeEditorAppImageConfig) {
+            $.codeEditorAppImageConfig = codeEditorAppImageConfig;
+            return this;
+        }
+
+        /**
+         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeEditorAppImageConfig(AppImageConfigCodeEditorAppImageConfigArgs codeEditorAppImageConfig) {
+            return codeEditorAppImageConfig(Output.of(codeEditorAppImageConfig));
+        }
+
+        /**
+         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterLabImageConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig) {
             $.jupyterLabImageConfig = jupyterLabImageConfig;
             return this;
         }
 
+        /**
+         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterLabImageConfig(AppImageConfigJupyterLabImageConfigArgs jupyterLabImageConfig) {
             return jupyterLabImageConfig(Output.of(jupyterLabImageConfig));
         }

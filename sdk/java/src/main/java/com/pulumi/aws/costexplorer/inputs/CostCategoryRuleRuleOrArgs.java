@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.costexplorer.inputs;
 
+import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrAndArgs;
 import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrCostCategoryArgs;
 import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrDimensionArgs;
+import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrNotArgs;
+import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrOrArgs;
 import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleOrTagsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +20,13 @@ import javax.annotation.Nullable;
 public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CostCategoryRuleRuleOrArgs Empty = new CostCategoryRuleRuleOrArgs();
+
+    @Import(name="ands")
+    private @Nullable Output<List<CostCategoryRuleRuleOrAndArgs>> ands;
+
+    public Optional<Output<List<CostCategoryRuleRuleOrAndArgs>>> ands() {
+        return Optional.ofNullable(this.ands);
+    }
 
     @Import(name="costCategory")
     private @Nullable Output<CostCategoryRuleRuleOrCostCategoryArgs> costCategory;
@@ -29,6 +40,20 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
 
     public Optional<Output<CostCategoryRuleRuleOrDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
+    }
+
+    @Import(name="not")
+    private @Nullable Output<CostCategoryRuleRuleOrNotArgs> not;
+
+    public Optional<Output<CostCategoryRuleRuleOrNotArgs>> not() {
+        return Optional.ofNullable(this.not);
+    }
+
+    @Import(name="ors")
+    private @Nullable Output<List<CostCategoryRuleRuleOrOrArgs>> ors;
+
+    public Optional<Output<List<CostCategoryRuleRuleOrOrArgs>>> ors() {
+        return Optional.ofNullable(this.ors);
     }
 
     /**
@@ -49,8 +74,11 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
     private CostCategoryRuleRuleOrArgs() {}
 
     private CostCategoryRuleRuleOrArgs(CostCategoryRuleRuleOrArgs $) {
+        this.ands = $.ands;
         this.costCategory = $.costCategory;
         this.dimension = $.dimension;
+        this.not = $.not;
+        this.ors = $.ors;
         this.tags = $.tags;
     }
 
@@ -72,6 +100,19 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
             $ = new CostCategoryRuleRuleOrArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder ands(@Nullable Output<List<CostCategoryRuleRuleOrAndArgs>> ands) {
+            $.ands = ands;
+            return this;
+        }
+
+        public Builder ands(List<CostCategoryRuleRuleOrAndArgs> ands) {
+            return ands(Output.of(ands));
+        }
+
+        public Builder ands(CostCategoryRuleRuleOrAndArgs... ands) {
+            return ands(List.of(ands));
+        }
+
         public Builder costCategory(@Nullable Output<CostCategoryRuleRuleOrCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
@@ -88,6 +129,28 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
 
         public Builder dimension(CostCategoryRuleRuleOrDimensionArgs dimension) {
             return dimension(Output.of(dimension));
+        }
+
+        public Builder not(@Nullable Output<CostCategoryRuleRuleOrNotArgs> not) {
+            $.not = not;
+            return this;
+        }
+
+        public Builder not(CostCategoryRuleRuleOrNotArgs not) {
+            return not(Output.of(not));
+        }
+
+        public Builder ors(@Nullable Output<List<CostCategoryRuleRuleOrOrArgs>> ors) {
+            $.ors = ors;
+            return this;
+        }
+
+        public Builder ors(List<CostCategoryRuleRuleOrOrArgs> ors) {
+            return ors(Output.of(ors));
+        }
+
+        public Builder ors(CostCategoryRuleRuleOrOrArgs... ors) {
+            return ors(List.of(ors));
         }
 
         /**

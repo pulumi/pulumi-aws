@@ -1359,6 +1359,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("route53profiles")]
+        public Input<string>? Route53profiles { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53recoverycontrolconfig")]
         public Input<string>? Route53recoverycontrolconfig { get; set; }
 

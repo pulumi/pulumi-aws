@@ -69,11 +69,11 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      */
     public readonly accessString!: pulumi.Output<string>;
     /**
-     * The ARN of the user.
+     * ARN of the user.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly authenticationMode!: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
     /**
-     * The minimum engine version supported for the user.
+     * Minimum engine version supported for the user.
      */
     public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
     /**
@@ -150,11 +150,11 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      */
     accessString?: pulumi.Input<string>;
     /**
-     * The ARN of the user.
+     * ARN of the user.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface UserState {
      */
     authenticationMode?: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
     /**
-     * The minimum engine version supported for the user.
+     * Minimum engine version supported for the user.
      */
     minimumEngineVersion?: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      */
     accessString: pulumi.Input<string>;
     /**

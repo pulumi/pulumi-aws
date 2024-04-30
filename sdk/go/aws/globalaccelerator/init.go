@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:globalaccelerator/accelerator:Accelerator":
 		r = &Accelerator{}
+	case "aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment":
+		r = &CrossAccountAttachment{}
 	case "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator":
 		r = &CustomRoutingAccelerator{}
 	case "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup":
@@ -49,6 +51,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"globalaccelerator/accelerator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"globalaccelerator/crossAccountAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

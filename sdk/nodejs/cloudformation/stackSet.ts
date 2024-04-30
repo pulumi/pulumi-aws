@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
  *
+ * > **NOTE:** When using a delegated administrator account, ensure that your IAM User or Role has the `organizations:ListDelegatedAdministrators` permission. Otherwise, you may get an error like `ValidationError: Account used is not a delegated administrator`.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -17,14 +17,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * Map of tags assigned to the subnet group.
+     * Map of tags assigned to the user.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the user.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -72,7 +72,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the subnet group.
+         * @param tags Map of tags assigned to the user.
          * 
          * @return builder
          * 

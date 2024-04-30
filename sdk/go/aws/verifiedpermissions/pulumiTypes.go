@@ -13,6 +13,805 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PolicyDefinition struct {
+	// The static policy statement. See Static below.
+	Static *PolicyDefinitionStatic `pulumi:"static"`
+	// The template linked policy. See Template Linked below.
+	TemplateLinked *PolicyDefinitionTemplateLinked `pulumi:"templateLinked"`
+}
+
+// PolicyDefinitionInput is an input type that accepts PolicyDefinitionArgs and PolicyDefinitionOutput values.
+// You can construct a concrete instance of `PolicyDefinitionInput` via:
+//
+//	PolicyDefinitionArgs{...}
+type PolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionOutput() PolicyDefinitionOutput
+	ToPolicyDefinitionOutputWithContext(context.Context) PolicyDefinitionOutput
+}
+
+type PolicyDefinitionArgs struct {
+	// The static policy statement. See Static below.
+	Static PolicyDefinitionStaticPtrInput `pulumi:"static"`
+	// The template linked policy. See Template Linked below.
+	TemplateLinked PolicyDefinitionTemplateLinkedPtrInput `pulumi:"templateLinked"`
+}
+
+func (PolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return i.ToPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
+	return i.ToPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput).ToPolicyDefinitionPtrOutputWithContext(ctx)
+}
+
+// PolicyDefinitionPtrInput is an input type that accepts PolicyDefinitionArgs, PolicyDefinitionPtr and PolicyDefinitionPtrOutput values.
+// You can construct a concrete instance of `PolicyDefinitionPtrInput` via:
+//
+//	        PolicyDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput
+	ToPolicyDefinitionPtrOutputWithContext(context.Context) PolicyDefinitionPtrOutput
+}
+
+type policyDefinitionPtrType PolicyDefinitionArgs
+
+func PolicyDefinitionPtr(v *PolicyDefinitionArgs) PolicyDefinitionPtrInput {
+	return (*policyDefinitionPtrType)(v)
+}
+
+func (*policyDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
+}
+
+func (i *policyDefinitionPtrType) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
+	return i.ToPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDefinitionPtrType) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionPtrOutput)
+}
+
+type PolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return o
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return o
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
+	return o.ToPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDefinition) *PolicyDefinition {
+		return &v
+	}).(PolicyDefinitionPtrOutput)
+}
+
+// The static policy statement. See Static below.
+func (o PolicyDefinitionOutput) Static() PolicyDefinitionStaticPtrOutput {
+	return o.ApplyT(func(v PolicyDefinition) *PolicyDefinitionStatic { return v.Static }).(PolicyDefinitionStaticPtrOutput)
+}
+
+// The template linked policy. See Template Linked below.
+func (o PolicyDefinitionOutput) TemplateLinked() PolicyDefinitionTemplateLinkedPtrOutput {
+	return o.ApplyT(func(v PolicyDefinition) *PolicyDefinitionTemplateLinked { return v.TemplateLinked }).(PolicyDefinitionTemplateLinkedPtrOutput)
+}
+
+type PolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
+}
+
+func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionPtrOutput) Elem() PolicyDefinitionOutput {
+	return o.ApplyT(func(v *PolicyDefinition) PolicyDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinition
+		return ret
+	}).(PolicyDefinitionOutput)
+}
+
+// The static policy statement. See Static below.
+func (o PolicyDefinitionPtrOutput) Static() PolicyDefinitionStaticPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) *PolicyDefinitionStatic {
+		if v == nil {
+			return nil
+		}
+		return v.Static
+	}).(PolicyDefinitionStaticPtrOutput)
+}
+
+// The template linked policy. See Template Linked below.
+func (o PolicyDefinitionPtrOutput) TemplateLinked() PolicyDefinitionTemplateLinkedPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) *PolicyDefinitionTemplateLinked {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateLinked
+	}).(PolicyDefinitionTemplateLinkedPtrOutput)
+}
+
+type PolicyDefinitionStatic struct {
+	// The description of the static policy.
+	Description *string `pulumi:"description"`
+	// The statement of the static policy.
+	Statement string `pulumi:"statement"`
+}
+
+// PolicyDefinitionStaticInput is an input type that accepts PolicyDefinitionStaticArgs and PolicyDefinitionStaticOutput values.
+// You can construct a concrete instance of `PolicyDefinitionStaticInput` via:
+//
+//	PolicyDefinitionStaticArgs{...}
+type PolicyDefinitionStaticInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionStaticOutput() PolicyDefinitionStaticOutput
+	ToPolicyDefinitionStaticOutputWithContext(context.Context) PolicyDefinitionStaticOutput
+}
+
+type PolicyDefinitionStaticArgs struct {
+	// The description of the static policy.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The statement of the static policy.
+	Statement pulumi.StringInput `pulumi:"statement"`
+}
+
+func (PolicyDefinitionStaticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionStatic)(nil)).Elem()
+}
+
+func (i PolicyDefinitionStaticArgs) ToPolicyDefinitionStaticOutput() PolicyDefinitionStaticOutput {
+	return i.ToPolicyDefinitionStaticOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionStaticArgs) ToPolicyDefinitionStaticOutputWithContext(ctx context.Context) PolicyDefinitionStaticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionStaticOutput)
+}
+
+func (i PolicyDefinitionStaticArgs) ToPolicyDefinitionStaticPtrOutput() PolicyDefinitionStaticPtrOutput {
+	return i.ToPolicyDefinitionStaticPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionStaticArgs) ToPolicyDefinitionStaticPtrOutputWithContext(ctx context.Context) PolicyDefinitionStaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionStaticOutput).ToPolicyDefinitionStaticPtrOutputWithContext(ctx)
+}
+
+// PolicyDefinitionStaticPtrInput is an input type that accepts PolicyDefinitionStaticArgs, PolicyDefinitionStaticPtr and PolicyDefinitionStaticPtrOutput values.
+// You can construct a concrete instance of `PolicyDefinitionStaticPtrInput` via:
+//
+//	        PolicyDefinitionStaticArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDefinitionStaticPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionStaticPtrOutput() PolicyDefinitionStaticPtrOutput
+	ToPolicyDefinitionStaticPtrOutputWithContext(context.Context) PolicyDefinitionStaticPtrOutput
+}
+
+type policyDefinitionStaticPtrType PolicyDefinitionStaticArgs
+
+func PolicyDefinitionStaticPtr(v *PolicyDefinitionStaticArgs) PolicyDefinitionStaticPtrInput {
+	return (*policyDefinitionStaticPtrType)(v)
+}
+
+func (*policyDefinitionStaticPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionStatic)(nil)).Elem()
+}
+
+func (i *policyDefinitionStaticPtrType) ToPolicyDefinitionStaticPtrOutput() PolicyDefinitionStaticPtrOutput {
+	return i.ToPolicyDefinitionStaticPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDefinitionStaticPtrType) ToPolicyDefinitionStaticPtrOutputWithContext(ctx context.Context) PolicyDefinitionStaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionStaticPtrOutput)
+}
+
+type PolicyDefinitionStaticOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionStaticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionStatic)(nil)).Elem()
+}
+
+func (o PolicyDefinitionStaticOutput) ToPolicyDefinitionStaticOutput() PolicyDefinitionStaticOutput {
+	return o
+}
+
+func (o PolicyDefinitionStaticOutput) ToPolicyDefinitionStaticOutputWithContext(ctx context.Context) PolicyDefinitionStaticOutput {
+	return o
+}
+
+func (o PolicyDefinitionStaticOutput) ToPolicyDefinitionStaticPtrOutput() PolicyDefinitionStaticPtrOutput {
+	return o.ToPolicyDefinitionStaticPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDefinitionStaticOutput) ToPolicyDefinitionStaticPtrOutputWithContext(ctx context.Context) PolicyDefinitionStaticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDefinitionStatic) *PolicyDefinitionStatic {
+		return &v
+	}).(PolicyDefinitionStaticPtrOutput)
+}
+
+// The description of the static policy.
+func (o PolicyDefinitionStaticOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyDefinitionStatic) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The statement of the static policy.
+func (o PolicyDefinitionStaticOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionStatic) string { return v.Statement }).(pulumi.StringOutput)
+}
+
+type PolicyDefinitionStaticPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionStaticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionStatic)(nil)).Elem()
+}
+
+func (o PolicyDefinitionStaticPtrOutput) ToPolicyDefinitionStaticPtrOutput() PolicyDefinitionStaticPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionStaticPtrOutput) ToPolicyDefinitionStaticPtrOutputWithContext(ctx context.Context) PolicyDefinitionStaticPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionStaticPtrOutput) Elem() PolicyDefinitionStaticOutput {
+	return o.ApplyT(func(v *PolicyDefinitionStatic) PolicyDefinitionStatic {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinitionStatic
+		return ret
+	}).(PolicyDefinitionStaticOutput)
+}
+
+// The description of the static policy.
+func (o PolicyDefinitionStaticPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionStatic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The statement of the static policy.
+func (o PolicyDefinitionStaticPtrOutput) Statement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionStatic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Statement
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyDefinitionTemplateLinked struct {
+	// The ID of the template.
+	PolicyTemplateId string `pulumi:"policyTemplateId"`
+	// The principal of the template linked policy.
+	Principal *PolicyDefinitionTemplateLinkedPrincipal `pulumi:"principal"`
+	// The resource of the template linked policy.
+	Resource *PolicyDefinitionTemplateLinkedResource `pulumi:"resource"`
+}
+
+// PolicyDefinitionTemplateLinkedInput is an input type that accepts PolicyDefinitionTemplateLinkedArgs and PolicyDefinitionTemplateLinkedOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedInput` via:
+//
+//	PolicyDefinitionTemplateLinkedArgs{...}
+type PolicyDefinitionTemplateLinkedInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedOutput() PolicyDefinitionTemplateLinkedOutput
+	ToPolicyDefinitionTemplateLinkedOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedOutput
+}
+
+type PolicyDefinitionTemplateLinkedArgs struct {
+	// The ID of the template.
+	PolicyTemplateId pulumi.StringInput `pulumi:"policyTemplateId"`
+	// The principal of the template linked policy.
+	Principal PolicyDefinitionTemplateLinkedPrincipalPtrInput `pulumi:"principal"`
+	// The resource of the template linked policy.
+	Resource PolicyDefinitionTemplateLinkedResourcePtrInput `pulumi:"resource"`
+}
+
+func (PolicyDefinitionTemplateLinkedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinked)(nil)).Elem()
+}
+
+func (i PolicyDefinitionTemplateLinkedArgs) ToPolicyDefinitionTemplateLinkedOutput() PolicyDefinitionTemplateLinkedOutput {
+	return i.ToPolicyDefinitionTemplateLinkedOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedArgs) ToPolicyDefinitionTemplateLinkedOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedOutput)
+}
+
+func (i PolicyDefinitionTemplateLinkedArgs) ToPolicyDefinitionTemplateLinkedPtrOutput() PolicyDefinitionTemplateLinkedPtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedArgs) ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedOutput).ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(ctx)
+}
+
+// PolicyDefinitionTemplateLinkedPtrInput is an input type that accepts PolicyDefinitionTemplateLinkedArgs, PolicyDefinitionTemplateLinkedPtr and PolicyDefinitionTemplateLinkedPtrOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedPtrInput` via:
+//
+//	        PolicyDefinitionTemplateLinkedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDefinitionTemplateLinkedPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedPtrOutput() PolicyDefinitionTemplateLinkedPtrOutput
+	ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedPtrOutput
+}
+
+type policyDefinitionTemplateLinkedPtrType PolicyDefinitionTemplateLinkedArgs
+
+func PolicyDefinitionTemplateLinkedPtr(v *PolicyDefinitionTemplateLinkedArgs) PolicyDefinitionTemplateLinkedPtrInput {
+	return (*policyDefinitionTemplateLinkedPtrType)(v)
+}
+
+func (*policyDefinitionTemplateLinkedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinked)(nil)).Elem()
+}
+
+func (i *policyDefinitionTemplateLinkedPtrType) ToPolicyDefinitionTemplateLinkedPtrOutput() PolicyDefinitionTemplateLinkedPtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDefinitionTemplateLinkedPtrType) ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedPtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinked)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedOutput) ToPolicyDefinitionTemplateLinkedOutput() PolicyDefinitionTemplateLinkedOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedOutput) ToPolicyDefinitionTemplateLinkedOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedOutput) ToPolicyDefinitionTemplateLinkedPtrOutput() PolicyDefinitionTemplateLinkedPtrOutput {
+	return o.ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDefinitionTemplateLinkedOutput) ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinked {
+		return &v
+	}).(PolicyDefinitionTemplateLinkedPtrOutput)
+}
+
+// The ID of the template.
+func (o PolicyDefinitionTemplateLinkedOutput) PolicyTemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) string { return v.PolicyTemplateId }).(pulumi.StringOutput)
+}
+
+// The principal of the template linked policy.
+func (o PolicyDefinitionTemplateLinkedOutput) Principal() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedPrincipal { return v.Principal }).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
+}
+
+// The resource of the template linked policy.
+func (o PolicyDefinitionTemplateLinkedOutput) Resource() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedResource { return v.Resource }).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinked)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedPtrOutput) ToPolicyDefinitionTemplateLinkedPtrOutput() PolicyDefinitionTemplateLinkedPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPtrOutput) ToPolicyDefinitionTemplateLinkedPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPtrOutput) Elem() PolicyDefinitionTemplateLinkedOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) PolicyDefinitionTemplateLinked {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinitionTemplateLinked
+		return ret
+	}).(PolicyDefinitionTemplateLinkedOutput)
+}
+
+// The ID of the template.
+func (o PolicyDefinitionTemplateLinkedPtrOutput) PolicyTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The principal of the template linked policy.
+func (o PolicyDefinitionTemplateLinkedPtrOutput) Principal() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedPrincipal {
+		if v == nil {
+			return nil
+		}
+		return v.Principal
+	}).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
+}
+
+// The resource of the template linked policy.
+func (o PolicyDefinitionTemplateLinkedPtrOutput) Resource() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedPrincipal struct {
+	// The entity ID of the principal.
+	EntityId string `pulumi:"entityId"`
+	// The entity type of the principal.
+	EntityType string `pulumi:"entityType"`
+}
+
+// PolicyDefinitionTemplateLinkedPrincipalInput is an input type that accepts PolicyDefinitionTemplateLinkedPrincipalArgs and PolicyDefinitionTemplateLinkedPrincipalOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedPrincipalInput` via:
+//
+//	PolicyDefinitionTemplateLinkedPrincipalArgs{...}
+type PolicyDefinitionTemplateLinkedPrincipalInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedPrincipalOutput() PolicyDefinitionTemplateLinkedPrincipalOutput
+	ToPolicyDefinitionTemplateLinkedPrincipalOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedPrincipalOutput
+}
+
+type PolicyDefinitionTemplateLinkedPrincipalArgs struct {
+	// The entity ID of the principal.
+	EntityId pulumi.StringInput `pulumi:"entityId"`
+	// The entity type of the principal.
+	EntityType pulumi.StringInput `pulumi:"entityType"`
+}
+
+func (PolicyDefinitionTemplateLinkedPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinkedPrincipal)(nil)).Elem()
+}
+
+func (i PolicyDefinitionTemplateLinkedPrincipalArgs) ToPolicyDefinitionTemplateLinkedPrincipalOutput() PolicyDefinitionTemplateLinkedPrincipalOutput {
+	return i.ToPolicyDefinitionTemplateLinkedPrincipalOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedPrincipalArgs) ToPolicyDefinitionTemplateLinkedPrincipalOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedPrincipalOutput)
+}
+
+func (i PolicyDefinitionTemplateLinkedPrincipalArgs) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutput() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedPrincipalArgs) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedPrincipalOutput).ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(ctx)
+}
+
+// PolicyDefinitionTemplateLinkedPrincipalPtrInput is an input type that accepts PolicyDefinitionTemplateLinkedPrincipalArgs, PolicyDefinitionTemplateLinkedPrincipalPtr and PolicyDefinitionTemplateLinkedPrincipalPtrOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedPrincipalPtrInput` via:
+//
+//	        PolicyDefinitionTemplateLinkedPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDefinitionTemplateLinkedPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedPrincipalPtrOutput() PolicyDefinitionTemplateLinkedPrincipalPtrOutput
+	ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedPrincipalPtrOutput
+}
+
+type policyDefinitionTemplateLinkedPrincipalPtrType PolicyDefinitionTemplateLinkedPrincipalArgs
+
+func PolicyDefinitionTemplateLinkedPrincipalPtr(v *PolicyDefinitionTemplateLinkedPrincipalArgs) PolicyDefinitionTemplateLinkedPrincipalPtrInput {
+	return (*policyDefinitionTemplateLinkedPrincipalPtrType)(v)
+}
+
+func (*policyDefinitionTemplateLinkedPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinkedPrincipal)(nil)).Elem()
+}
+
+func (i *policyDefinitionTemplateLinkedPrincipalPtrType) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutput() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDefinitionTemplateLinkedPrincipalPtrType) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedPrincipalOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinkedPrincipal)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) ToPolicyDefinitionTemplateLinkedPrincipalOutput() PolicyDefinitionTemplateLinkedPrincipalOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) ToPolicyDefinitionTemplateLinkedPrincipalOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutput() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o.ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDefinitionTemplateLinkedPrincipal) *PolicyDefinitionTemplateLinkedPrincipal {
+		return &v
+	}).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
+}
+
+// The entity ID of the principal.
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedPrincipal) string { return v.EntityId }).(pulumi.StringOutput)
+}
+
+// The entity type of the principal.
+func (o PolicyDefinitionTemplateLinkedPrincipalOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedPrincipal) string { return v.EntityType }).(pulumi.StringOutput)
+}
+
+type PolicyDefinitionTemplateLinkedPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinkedPrincipal)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutput() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) ToPolicyDefinitionTemplateLinkedPrincipalPtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) Elem() PolicyDefinitionTemplateLinkedPrincipalOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedPrincipal) PolicyDefinitionTemplateLinkedPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinitionTemplateLinkedPrincipal
+		return ret
+	}).(PolicyDefinitionTemplateLinkedPrincipalOutput)
+}
+
+// The entity ID of the principal.
+func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The entity type of the principal.
+func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedResource struct {
+	// The entity ID of the resource.
+	EntityId string `pulumi:"entityId"`
+	// The entity type of the resource.
+	EntityType string `pulumi:"entityType"`
+}
+
+// PolicyDefinitionTemplateLinkedResourceInput is an input type that accepts PolicyDefinitionTemplateLinkedResourceArgs and PolicyDefinitionTemplateLinkedResourceOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedResourceInput` via:
+//
+//	PolicyDefinitionTemplateLinkedResourceArgs{...}
+type PolicyDefinitionTemplateLinkedResourceInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedResourceOutput() PolicyDefinitionTemplateLinkedResourceOutput
+	ToPolicyDefinitionTemplateLinkedResourceOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedResourceOutput
+}
+
+type PolicyDefinitionTemplateLinkedResourceArgs struct {
+	// The entity ID of the resource.
+	EntityId pulumi.StringInput `pulumi:"entityId"`
+	// The entity type of the resource.
+	EntityType pulumi.StringInput `pulumi:"entityType"`
+}
+
+func (PolicyDefinitionTemplateLinkedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinkedResource)(nil)).Elem()
+}
+
+func (i PolicyDefinitionTemplateLinkedResourceArgs) ToPolicyDefinitionTemplateLinkedResourceOutput() PolicyDefinitionTemplateLinkedResourceOutput {
+	return i.ToPolicyDefinitionTemplateLinkedResourceOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedResourceArgs) ToPolicyDefinitionTemplateLinkedResourceOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedResourceOutput)
+}
+
+func (i PolicyDefinitionTemplateLinkedResourceArgs) ToPolicyDefinitionTemplateLinkedResourcePtrOutput() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionTemplateLinkedResourceArgs) ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedResourceOutput).ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(ctx)
+}
+
+// PolicyDefinitionTemplateLinkedResourcePtrInput is an input type that accepts PolicyDefinitionTemplateLinkedResourceArgs, PolicyDefinitionTemplateLinkedResourcePtr and PolicyDefinitionTemplateLinkedResourcePtrOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTemplateLinkedResourcePtrInput` via:
+//
+//	        PolicyDefinitionTemplateLinkedResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDefinitionTemplateLinkedResourcePtrInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionTemplateLinkedResourcePtrOutput() PolicyDefinitionTemplateLinkedResourcePtrOutput
+	ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(context.Context) PolicyDefinitionTemplateLinkedResourcePtrOutput
+}
+
+type policyDefinitionTemplateLinkedResourcePtrType PolicyDefinitionTemplateLinkedResourceArgs
+
+func PolicyDefinitionTemplateLinkedResourcePtr(v *PolicyDefinitionTemplateLinkedResourceArgs) PolicyDefinitionTemplateLinkedResourcePtrInput {
+	return (*policyDefinitionTemplateLinkedResourcePtrType)(v)
+}
+
+func (*policyDefinitionTemplateLinkedResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinkedResource)(nil)).Elem()
+}
+
+func (i *policyDefinitionTemplateLinkedResourcePtrType) ToPolicyDefinitionTemplateLinkedResourcePtrOutput() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return i.ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *policyDefinitionTemplateLinkedResourcePtrType) ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
+}
+
+type PolicyDefinitionTemplateLinkedResourceOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionTemplateLinkedResource)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedResourceOutput) ToPolicyDefinitionTemplateLinkedResourceOutput() PolicyDefinitionTemplateLinkedResourceOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedResourceOutput) ToPolicyDefinitionTemplateLinkedResourceOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourceOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedResourceOutput) ToPolicyDefinitionTemplateLinkedResourcePtrOutput() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o.ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDefinitionTemplateLinkedResourceOutput) ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDefinitionTemplateLinkedResource) *PolicyDefinitionTemplateLinkedResource {
+		return &v
+	}).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
+}
+
+// The entity ID of the resource.
+func (o PolicyDefinitionTemplateLinkedResourceOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedResource) string { return v.EntityId }).(pulumi.StringOutput)
+}
+
+// The entity type of the resource.
+func (o PolicyDefinitionTemplateLinkedResourceOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedResource) string { return v.EntityType }).(pulumi.StringOutput)
+}
+
+type PolicyDefinitionTemplateLinkedResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionTemplateLinkedResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinitionTemplateLinkedResource)(nil)).Elem()
+}
+
+func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) ToPolicyDefinitionTemplateLinkedResourcePtrOutput() PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) ToPolicyDefinitionTemplateLinkedResourcePtrOutputWithContext(ctx context.Context) PolicyDefinitionTemplateLinkedResourcePtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) Elem() PolicyDefinitionTemplateLinkedResourceOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedResource) PolicyDefinitionTemplateLinkedResource {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinitionTemplateLinkedResource
+		return ret
+	}).(PolicyDefinitionTemplateLinkedResourceOutput)
+}
+
+// The entity ID of the resource.
+func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The entity type of the resource.
+func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityType
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyStoreValidationSettings struct {
 	// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
 	//
@@ -390,12 +1189,32 @@ func (o GetPolicyStoreValidationSettingArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionPtrInput)(nil)).Elem(), PolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionStaticInput)(nil)).Elem(), PolicyDefinitionStaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionStaticPtrInput)(nil)).Elem(), PolicyDefinitionStaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedPtrInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedPrincipalInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedPrincipalPtrInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedResourceInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionTemplateLinkedResourcePtrInput)(nil)).Elem(), PolicyDefinitionTemplateLinkedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsPtrInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDefinitionInput)(nil)).Elem(), SchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDefinitionPtrInput)(nil)).Elem(), SchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingInput)(nil)).Elem(), GetPolicyStoreValidationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingArrayInput)(nil)).Elem(), GetPolicyStoreValidationSettingArray{})
+	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionStaticOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionStaticPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedPrincipalOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedResourceOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTemplateLinkedResourcePtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDefinitionOutput{})

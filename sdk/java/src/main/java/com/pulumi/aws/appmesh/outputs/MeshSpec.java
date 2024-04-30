@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.MeshSpecEgressFilter;
+import com.pulumi.aws.appmesh.outputs.MeshSpecServiceDiscovery;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class MeshSpec {
      * 
      */
     private @Nullable MeshSpecEgressFilter egressFilter;
+    /**
+     * @return The service discovery information for the service mesh.
+     * 
+     */
+    private @Nullable MeshSpecServiceDiscovery serviceDiscovery;
 
     private MeshSpec() {}
     /**
@@ -24,6 +30,13 @@ public final class MeshSpec {
      */
     public Optional<MeshSpecEgressFilter> egressFilter() {
         return Optional.ofNullable(this.egressFilter);
+    }
+    /**
+     * @return The service discovery information for the service mesh.
+     * 
+     */
+    public Optional<MeshSpecServiceDiscovery> serviceDiscovery() {
+        return Optional.ofNullable(this.serviceDiscovery);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class MeshSpec {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable MeshSpecEgressFilter egressFilter;
+        private @Nullable MeshSpecServiceDiscovery serviceDiscovery;
         public Builder() {}
         public Builder(MeshSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressFilter = defaults.egressFilter;
+    	      this.serviceDiscovery = defaults.serviceDiscovery;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class MeshSpec {
             this.egressFilter = egressFilter;
             return this;
         }
+        @CustomType.Setter
+        public Builder serviceDiscovery(@Nullable MeshSpecServiceDiscovery serviceDiscovery) {
+
+            this.serviceDiscovery = serviceDiscovery;
+            return this;
+        }
         public MeshSpec build() {
             final var _resultValue = new MeshSpec();
             _resultValue.egressFilter = egressFilter;
+            _resultValue.serviceDiscovery = serviceDiscovery;
             return _resultValue;
         }
     }

@@ -34,6 +34,7 @@ class InstanceArgs:
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -130,6 +131,7 @@ class InstanceArgs:
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
                for additional read replica constraints.
+        :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
@@ -266,6 +268,8 @@ class InstanceArgs:
             pulumi.set(__self__, "db_name", db_name)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if dedicated_log_volume is not None:
+            pulumi.set(__self__, "dedicated_log_volume", dedicated_log_volume)
         if delete_automated_backups is not None:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
@@ -599,6 +603,18 @@ class InstanceArgs:
     @db_subnet_group_name.setter
     def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
+
+    @dedicated_log_volume.setter
+    def dedicated_log_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dedicated_log_volume", value)
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -1264,6 +1280,7 @@ class _InstanceState:
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1372,6 +1389,7 @@ class _InstanceState:
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
                for additional read replica constraints.
+        :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
@@ -1521,6 +1539,8 @@ class _InstanceState:
             pulumi.set(__self__, "db_name", db_name)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if dedicated_log_volume is not None:
+            pulumi.set(__self__, "dedicated_log_volume", dedicated_log_volume)
         if delete_automated_backups is not None:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
@@ -1891,6 +1911,18 @@ class _InstanceState:
     @db_subnet_group_name.setter
     def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
+
+    @dedicated_log_volume.setter
+    def dedicated_log_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dedicated_log_volume", value)
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -2688,6 +2720,7 @@ class Instance(pulumi.CustomResource):
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -3038,6 +3071,7 @@ class Instance(pulumi.CustomResource):
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
                for additional read replica constraints.
+        :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
@@ -3432,6 +3466,7 @@ class Instance(pulumi.CustomResource):
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -3507,6 +3542,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
             __props__.__dict__["db_name"] = db_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+            __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
@@ -3601,6 +3637,7 @@ class Instance(pulumi.CustomResource):
             customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
             db_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+            dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             domain: Optional[pulumi.Input[str]] = None,
@@ -3714,6 +3751,7 @@ class Instance(pulumi.CustomResource):
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
                for additional read replica constraints.
+        :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
@@ -3849,6 +3887,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
         __props__.__dict__["db_name"] = db_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+        __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
         __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["domain"] = domain
@@ -4082,6 +4121,14 @@ class Instance(pulumi.CustomResource):
         for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")

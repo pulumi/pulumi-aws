@@ -19,14 +19,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserArgs Empty = new UserArgs();
 
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      * 
      */
     @Import(name="accessString", required=true)
     private Output<String> accessString;
 
     /**
-     * @return The access permissions string used for this user.
+     * @return Access permissions string used for this user.
      * 
      */
     public Output<String> accessString() {
@@ -110,7 +110,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessString The access permissions string used for this user.
+         * @param accessString Access permissions string used for this user.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessString The access permissions string used for this user.
+         * @param accessString Access permissions string used for this user.
          * 
          * @return builder
          * 

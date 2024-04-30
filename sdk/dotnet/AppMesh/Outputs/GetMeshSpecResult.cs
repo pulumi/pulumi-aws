@@ -14,11 +14,16 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetMeshSpecResult
     {
         public readonly ImmutableArray<Outputs.GetMeshSpecEgressFilterResult> EgressFilters;
+        public readonly ImmutableArray<Outputs.GetMeshSpecServiceDiscoveryResult> ServiceDiscoveries;
 
         [OutputConstructor]
-        private GetMeshSpecResult(ImmutableArray<Outputs.GetMeshSpecEgressFilterResult> egressFilters)
+        private GetMeshSpecResult(
+            ImmutableArray<Outputs.GetMeshSpecEgressFilterResult> egressFilters,
+
+            ImmutableArray<Outputs.GetMeshSpecServiceDiscoveryResult> serviceDiscoveries)
         {
             EgressFilters = egressFilters;
+            ServiceDiscoveries = serviceDiscoveries;
         }
     }
 }

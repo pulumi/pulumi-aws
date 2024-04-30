@@ -3,18 +3,25 @@
 
 package com.pulumi.aws.costexplorer.outputs;
 
+import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrAnd;
 import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrCostCategory;
 import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrDimension;
+import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrNot;
+import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrOr;
 import com.pulumi.aws.costexplorer.outputs.CostCategoryRuleRuleOrTags;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRuleRuleOr {
+    private @Nullable List<CostCategoryRuleRuleOrAnd> ands;
     private @Nullable CostCategoryRuleRuleOrCostCategory costCategory;
     private @Nullable CostCategoryRuleRuleOrDimension dimension;
+    private @Nullable CostCategoryRuleRuleOrNot not;
+    private @Nullable List<CostCategoryRuleRuleOrOr> ors;
     /**
      * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -22,11 +29,20 @@ public final class CostCategoryRuleRuleOr {
     private @Nullable CostCategoryRuleRuleOrTags tags;
 
     private CostCategoryRuleRuleOr() {}
+    public List<CostCategoryRuleRuleOrAnd> ands() {
+        return this.ands == null ? List.of() : this.ands;
+    }
     public Optional<CostCategoryRuleRuleOrCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
     public Optional<CostCategoryRuleRuleOrDimension> dimension() {
         return Optional.ofNullable(this.dimension);
+    }
+    public Optional<CostCategoryRuleRuleOrNot> not() {
+        return Optional.ofNullable(this.not);
+    }
+    public List<CostCategoryRuleRuleOrOr> ors() {
+        return this.ors == null ? List.of() : this.ors;
     }
     /**
      * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -45,17 +61,32 @@ public final class CostCategoryRuleRuleOr {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<CostCategoryRuleRuleOrAnd> ands;
         private @Nullable CostCategoryRuleRuleOrCostCategory costCategory;
         private @Nullable CostCategoryRuleRuleOrDimension dimension;
+        private @Nullable CostCategoryRuleRuleOrNot not;
+        private @Nullable List<CostCategoryRuleRuleOrOr> ors;
         private @Nullable CostCategoryRuleRuleOrTags tags;
         public Builder() {}
         public Builder(CostCategoryRuleRuleOr defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ands = defaults.ands;
     	      this.costCategory = defaults.costCategory;
     	      this.dimension = defaults.dimension;
+    	      this.not = defaults.not;
+    	      this.ors = defaults.ors;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder ands(@Nullable List<CostCategoryRuleRuleOrAnd> ands) {
+
+            this.ands = ands;
+            return this;
+        }
+        public Builder ands(CostCategoryRuleRuleOrAnd... ands) {
+            return ands(List.of(ands));
+        }
         @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleOrCostCategory costCategory) {
 
@@ -69,6 +100,21 @@ public final class CostCategoryRuleRuleOr {
             return this;
         }
         @CustomType.Setter
+        public Builder not(@Nullable CostCategoryRuleRuleOrNot not) {
+
+            this.not = not;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ors(@Nullable List<CostCategoryRuleRuleOrOr> ors) {
+
+            this.ors = ors;
+            return this;
+        }
+        public Builder ors(CostCategoryRuleRuleOrOr... ors) {
+            return ors(List.of(ors));
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleOrTags tags) {
 
             this.tags = tags;
@@ -76,8 +122,11 @@ public final class CostCategoryRuleRuleOr {
         }
         public CostCategoryRuleRuleOr build() {
             final var _resultValue = new CostCategoryRuleRuleOr();
+            _resultValue.ands = ands;
             _resultValue.costCategory = costCategory;
             _resultValue.dimension = dimension;
+            _resultValue.not = not;
+            _resultValue.ors = ors;
             _resultValue.tags = tags;
             return _resultValue;
         }

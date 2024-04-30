@@ -3,8 +3,11 @@
 
 package com.pulumi.aws.costexplorer.outputs;
 
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotAnd;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotCostCategory;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotDimension;
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotNot;
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotOr;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotTag;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -13,6 +16,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleNot {
+    /**
+     * @return Return results that match both `Dimension` objects.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleNotAnd> ands;
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -24,12 +32,29 @@ public final class GetCostCategoryRuleRuleNot {
      */
     private List<GetCostCategoryRuleRuleNotDimension> dimensions;
     /**
+     * @return Return results that do not match the `Dimension` object.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleNotNot> nots;
+    /**
+     * @return Return results that match either `Dimension` object.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleNotOr> ors;
+    /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     private List<GetCostCategoryRuleRuleNotTag> tags;
 
     private GetCostCategoryRuleRuleNot() {}
+    /**
+     * @return Return results that match both `Dimension` objects.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleNotAnd> ands() {
+        return this.ands;
+    }
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -43,6 +68,20 @@ public final class GetCostCategoryRuleRuleNot {
      */
     public List<GetCostCategoryRuleRuleNotDimension> dimensions() {
         return this.dimensions;
+    }
+    /**
+     * @return Return results that do not match the `Dimension` object.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleNotNot> nots() {
+        return this.nots;
+    }
+    /**
+     * @return Return results that match either `Dimension` object.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleNotOr> ors() {
+        return this.ors;
     }
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -61,17 +100,34 @@ public final class GetCostCategoryRuleRuleNot {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetCostCategoryRuleRuleNotAnd> ands;
         private List<GetCostCategoryRuleRuleNotCostCategory> costCategories;
         private List<GetCostCategoryRuleRuleNotDimension> dimensions;
+        private List<GetCostCategoryRuleRuleNotNot> nots;
+        private List<GetCostCategoryRuleRuleNotOr> ors;
         private List<GetCostCategoryRuleRuleNotTag> tags;
         public Builder() {}
         public Builder(GetCostCategoryRuleRuleNot defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ands = defaults.ands;
     	      this.costCategories = defaults.costCategories;
     	      this.dimensions = defaults.dimensions;
+    	      this.nots = defaults.nots;
+    	      this.ors = defaults.ors;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder ands(List<GetCostCategoryRuleRuleNotAnd> ands) {
+            if (ands == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "ands");
+            }
+            this.ands = ands;
+            return this;
+        }
+        public Builder ands(GetCostCategoryRuleRuleNotAnd... ands) {
+            return ands(List.of(ands));
+        }
         @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleNotCostCategory> costCategories) {
             if (costCategories == null) {
@@ -95,6 +151,28 @@ public final class GetCostCategoryRuleRuleNot {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
+        public Builder nots(List<GetCostCategoryRuleRuleNotNot> nots) {
+            if (nots == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "nots");
+            }
+            this.nots = nots;
+            return this;
+        }
+        public Builder nots(GetCostCategoryRuleRuleNotNot... nots) {
+            return nots(List.of(nots));
+        }
+        @CustomType.Setter
+        public Builder ors(List<GetCostCategoryRuleRuleNotOr> ors) {
+            if (ors == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "ors");
+            }
+            this.ors = ors;
+            return this;
+        }
+        public Builder ors(GetCostCategoryRuleRuleNotOr... ors) {
+            return ors(List.of(ors));
+        }
+        @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleNotTag> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "tags");
@@ -107,8 +185,11 @@ public final class GetCostCategoryRuleRuleNot {
         }
         public GetCostCategoryRuleRuleNot build() {
             final var _resultValue = new GetCostCategoryRuleRuleNot();
+            _resultValue.ands = ands;
             _resultValue.costCategories = costCategories;
             _resultValue.dimensions = dimensions;
+            _resultValue.nots = nots;
+            _resultValue.ors = ors;
             _resultValue.tags = tags;
             return _resultValue;
         }

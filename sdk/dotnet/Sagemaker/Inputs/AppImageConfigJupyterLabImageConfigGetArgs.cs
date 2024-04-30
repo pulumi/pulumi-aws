@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("containerConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigContainerConfigGetArgs>? ContainerConfig { get; set; }
 
+        /// <summary>
+        /// The URL where the Git repository is located. See File System Config details below.
+        /// </summary>
+        [Input("fileSystemConfig")]
+        public Input<Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
+
         public AppImageConfigJupyterLabImageConfigGetArgs()
         {
         }

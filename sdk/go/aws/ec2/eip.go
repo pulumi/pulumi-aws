@@ -195,6 +195,7 @@ type Eip struct {
 	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
 	// ID representing the association of the address with an instance in a VPC.
@@ -278,6 +279,7 @@ type eipState struct {
 	Address *string `pulumi:"address"`
 	// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 	AllocationId *string `pulumi:"allocationId"`
+	Arn          *string `pulumi:"arn"`
 	// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
 	// ID representing the association of the address with an instance in a VPC.
@@ -332,6 +334,7 @@ type EipState struct {
 	Address pulumi.StringPtrInput
 	// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 	AllocationId pulumi.StringPtrInput
+	Arn          pulumi.StringPtrInput
 	// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
 	// ID representing the association of the address with an instance in a VPC.
@@ -545,6 +548,10 @@ func (o EipOutput) Address() pulumi.StringPtrOutput {
 // ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 func (o EipOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+func (o EipOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.

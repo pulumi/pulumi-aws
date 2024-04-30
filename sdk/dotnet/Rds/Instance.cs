@@ -498,6 +498,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        /// </summary>
+        [Output("dedicatedLogVolume")]
+        public Output<bool?> DedicatedLogVolume { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         /// </summary>
         [Output("deleteAutomatedBackups")]
@@ -1080,6 +1086,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
+        /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        /// </summary>
+        [Input("dedicatedLogVolume")]
+        public Input<bool>? DedicatedLogVolume { get; set; }
+
+        /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         /// </summary>
         [Input("deleteAutomatedBackups")]
@@ -1607,6 +1619,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        /// </summary>
+        [Input("dedicatedLogVolume")]
+        public Input<bool>? DedicatedLogVolume { get; set; }
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.

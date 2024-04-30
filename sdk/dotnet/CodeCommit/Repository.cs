@@ -99,7 +99,7 @@ namespace Pulumi.Aws.CodeCommit
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

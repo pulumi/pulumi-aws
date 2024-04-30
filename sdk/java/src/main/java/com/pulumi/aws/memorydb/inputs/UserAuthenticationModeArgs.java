@@ -19,14 +19,14 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
     public static final UserAuthenticationModeArgs Empty = new UserAuthenticationModeArgs();
 
     /**
-     * The number of passwords belonging to the user.
+     * Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     @Import(name="passwordCount")
     private @Nullable Output<Integer> passwordCount;
 
     /**
-     * @return The number of passwords belonging to the user.
+     * @return Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     public Optional<Output<Integer>> passwordCount() {
@@ -34,29 +34,29 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The set of passwords used for authentication. You can create up to two passwords for each user.
+     * Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
      * 
      */
-    @Import(name="passwords", required=true)
-    private Output<List<String>> passwords;
+    @Import(name="passwords")
+    private @Nullable Output<List<String>> passwords;
 
     /**
-     * @return The set of passwords used for authentication. You can create up to two passwords for each user.
+     * @return Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
      * 
      */
-    public Output<List<String>> passwords() {
-        return this.passwords;
+    public Optional<Output<List<String>>> passwords() {
+        return Optional.ofNullable(this.passwords);
     }
 
     /**
-     * Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * Specifies the authentication type. Valid values are: `password` or `iam`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
      * 
      */
     public Output<String> type() {
@@ -90,7 +90,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordCount The number of passwords belonging to the user.
+         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordCount The number of passwords belonging to the user.
+         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
          * 
          * @return builder
          * 
@@ -111,18 +111,18 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
          * 
          * @return builder
          * 
          */
-        public Builder passwords(Output<List<String>> passwords) {
+        public Builder passwords(@Nullable Output<List<String>> passwords) {
             $.passwords = passwords;
             return this;
         }
 
         /**
-         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
          * 
          * @return builder
          * 
@@ -163,9 +163,6 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         public UserAuthenticationModeArgs build() {
-            if ($.passwords == null) {
-                throw new MissingRequiredPropertyException("UserAuthenticationModeArgs", "passwords");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("UserAuthenticationModeArgs", "type");
             }

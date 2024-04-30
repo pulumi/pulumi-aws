@@ -17,14 +17,14 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
     public static final JobDefinitionRetryStrategyEvaluateOnExitArgs Empty = new JobDefinitionRetryStrategyEvaluateOnExitArgs();
 
     /**
-     * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+     * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     public Output<String> action() {
@@ -104,7 +104,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          * 
          * @return builder
          * 

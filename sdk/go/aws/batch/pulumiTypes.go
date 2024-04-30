@@ -3122,7 +3122,7 @@ func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExits() JobDefinitionRetr
 }
 
 type JobDefinitionRetryStrategyEvaluateOnExit struct {
-	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
 	Action string `pulumi:"action"`
 	// A glob pattern to match against the decimal representation of the exit code returned for a job.
 	OnExitCode *string `pulumi:"onExitCode"`
@@ -3144,7 +3144,7 @@ type JobDefinitionRetryStrategyEvaluateOnExitInput interface {
 }
 
 type JobDefinitionRetryStrategyEvaluateOnExitArgs struct {
-	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// A glob pattern to match against the decimal representation of the exit code returned for a job.
 	OnExitCode pulumi.StringPtrInput `pulumi:"onExitCode"`
@@ -3205,7 +3205,7 @@ func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStra
 	return o
 }
 
-// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
 }

@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'AcceleratorAttributesArgs',
     'AcceleratorIpSetArgs',
+    'CrossAccountAttachmentResourceArgs',
     'CustomRoutingAcceleratorAttributesArgs',
     'CustomRoutingAcceleratorIpSetArgs',
     'CustomRoutingEndpointGroupDestinationConfigurationArgs',
@@ -114,6 +115,45 @@ class AcceleratorIpSetArgs:
     @ip_family.setter
     def ip_family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_family", value)
+
+
+@pulumi.input_type
+class CrossAccountAttachmentResourceArgs:
+    def __init__(__self__, *,
+                 endpoint_id: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
+        :param pulumi.Input[str] region: The AWS Region where a shared endpoint resource is located.
+        """
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint ID for the endpoint that is specified as a AWS resource.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @endpoint_id.setter
+    def endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region where a shared endpoint resource is located.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type

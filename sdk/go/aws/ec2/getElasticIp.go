@@ -151,6 +151,7 @@ type GetElasticIpArgs struct {
 
 // A collection of values returned by getElasticIp.
 type GetElasticIpResult struct {
+	Arn string `pulumi:"arn"`
 	// ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
 	// Carrier IP address.
@@ -228,6 +229,10 @@ func (o GetElasticIpResultOutput) ToGetElasticIpResultOutput() GetElasticIpResul
 
 func (o GetElasticIpResultOutput) ToGetElasticIpResultOutputWithContext(ctx context.Context) GetElasticIpResultOutput {
 	return o
+}
+
+func (o GetElasticIpResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticIpResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // ID representing the association of the address with an instance in a VPC.

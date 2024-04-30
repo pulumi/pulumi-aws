@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetElasticIpResult {
+    private String arn;
     /**
      * @return ID representing the association of the address with an instance in a VPC.
      * 
@@ -97,6 +98,9 @@ public final class GetElasticIpResult {
     private Map<String,String> tags;
 
     private GetElasticIpResult() {}
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return ID representing the association of the address with an instance in a VPC.
      * 
@@ -222,6 +226,7 @@ public final class GetElasticIpResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String associationId;
         private String carrierIp;
         private String customerOwnedIp;
@@ -242,6 +247,7 @@ public final class GetElasticIpResult {
         public Builder() {}
         public Builder(GetElasticIpResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.associationId = defaults.associationId;
     	      this.carrierIp = defaults.carrierIp;
     	      this.customerOwnedIp = defaults.customerOwnedIp;
@@ -261,6 +267,14 @@ public final class GetElasticIpResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder associationId(String associationId) {
             if (associationId == null) {
@@ -400,6 +414,7 @@ public final class GetElasticIpResult {
         }
         public GetElasticIpResult build() {
             final var _resultValue = new GetElasticIpResult();
+            _resultValue.arn = arn;
             _resultValue.associationId = associationId;
             _resultValue.carrierIp = carrierIp;
             _resultValue.customerOwnedIp = customerOwnedIp;

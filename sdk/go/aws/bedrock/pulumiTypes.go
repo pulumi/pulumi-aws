@@ -13,6 +13,3233 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AgentAgentActionGroupActionGroupExecutor struct {
+	// ARN of the Lambda that defines the business logic for the action group.
+	Lambda *string `pulumi:"lambda"`
+}
+
+// AgentAgentActionGroupActionGroupExecutorInput is an input type that accepts AgentAgentActionGroupActionGroupExecutorArgs and AgentAgentActionGroupActionGroupExecutorOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupActionGroupExecutorInput` via:
+//
+//	AgentAgentActionGroupActionGroupExecutorArgs{...}
+type AgentAgentActionGroupActionGroupExecutorInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupActionGroupExecutorOutput() AgentAgentActionGroupActionGroupExecutorOutput
+	ToAgentAgentActionGroupActionGroupExecutorOutputWithContext(context.Context) AgentAgentActionGroupActionGroupExecutorOutput
+}
+
+type AgentAgentActionGroupActionGroupExecutorArgs struct {
+	// ARN of the Lambda that defines the business logic for the action group.
+	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
+}
+
+func (AgentAgentActionGroupActionGroupExecutorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutor)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupActionGroupExecutorArgs) ToAgentAgentActionGroupActionGroupExecutorOutput() AgentAgentActionGroupActionGroupExecutorOutput {
+	return i.ToAgentAgentActionGroupActionGroupExecutorOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupActionGroupExecutorArgs) ToAgentAgentActionGroupActionGroupExecutorOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupActionGroupExecutorOutput)
+}
+
+func (i AgentAgentActionGroupActionGroupExecutorArgs) ToAgentAgentActionGroupActionGroupExecutorPtrOutput() AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return i.ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupActionGroupExecutorArgs) ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupActionGroupExecutorOutput).ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupActionGroupExecutorPtrInput is an input type that accepts AgentAgentActionGroupActionGroupExecutorArgs, AgentAgentActionGroupActionGroupExecutorPtr and AgentAgentActionGroupActionGroupExecutorPtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupActionGroupExecutorPtrInput` via:
+//
+//	        AgentAgentActionGroupActionGroupExecutorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupActionGroupExecutorPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupActionGroupExecutorPtrOutput() AgentAgentActionGroupActionGroupExecutorPtrOutput
+	ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(context.Context) AgentAgentActionGroupActionGroupExecutorPtrOutput
+}
+
+type agentAgentActionGroupActionGroupExecutorPtrType AgentAgentActionGroupActionGroupExecutorArgs
+
+func AgentAgentActionGroupActionGroupExecutorPtr(v *AgentAgentActionGroupActionGroupExecutorArgs) AgentAgentActionGroupActionGroupExecutorPtrInput {
+	return (*agentAgentActionGroupActionGroupExecutorPtrType)(v)
+}
+
+func (*agentAgentActionGroupActionGroupExecutorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupActionGroupExecutor)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupActionGroupExecutorPtrType) ToAgentAgentActionGroupActionGroupExecutorPtrOutput() AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return i.ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupActionGroupExecutorPtrType) ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
+}
+
+type AgentAgentActionGroupActionGroupExecutorOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupActionGroupExecutorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutor)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupActionGroupExecutorOutput() AgentAgentActionGroupActionGroupExecutorOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupActionGroupExecutorOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupActionGroupExecutorPtrOutput() AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return o.ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupActionGroupExecutor) *AgentAgentActionGroupActionGroupExecutor {
+		return &v
+	}).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
+}
+
+// ARN of the Lambda that defines the business logic for the action group.
+func (o AgentAgentActionGroupActionGroupExecutorOutput) Lambda() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.Lambda }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentActionGroupActionGroupExecutorPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupActionGroupExecutorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupActionGroupExecutor)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) ToAgentAgentActionGroupActionGroupExecutorPtrOutput() AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) ToAgentAgentActionGroupActionGroupExecutorPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupActionGroupExecutorPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Elem() AgentAgentActionGroupActionGroupExecutorOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) AgentAgentActionGroupActionGroupExecutor {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupActionGroupExecutor
+		return ret
+	}).(AgentAgentActionGroupActionGroupExecutorOutput)
+}
+
+// ARN of the Lambda that defines the business logic for the action group.
+func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentActionGroupApiSchema struct {
+	// YAML or JSON OpenAPI Schema.
+	Payload *string `pulumi:"payload"`
+	// Configuration of S3 schema location
+	S3 *AgentAgentActionGroupApiSchemaS3 `pulumi:"s3"`
+}
+
+// AgentAgentActionGroupApiSchemaInput is an input type that accepts AgentAgentActionGroupApiSchemaArgs and AgentAgentActionGroupApiSchemaOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupApiSchemaInput` via:
+//
+//	AgentAgentActionGroupApiSchemaArgs{...}
+type AgentAgentActionGroupApiSchemaInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupApiSchemaOutput() AgentAgentActionGroupApiSchemaOutput
+	ToAgentAgentActionGroupApiSchemaOutputWithContext(context.Context) AgentAgentActionGroupApiSchemaOutput
+}
+
+type AgentAgentActionGroupApiSchemaArgs struct {
+	// YAML or JSON OpenAPI Schema.
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Configuration of S3 schema location
+	S3 AgentAgentActionGroupApiSchemaS3PtrInput `pulumi:"s3"`
+}
+
+func (AgentAgentActionGroupApiSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupApiSchema)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupApiSchemaArgs) ToAgentAgentActionGroupApiSchemaOutput() AgentAgentActionGroupApiSchemaOutput {
+	return i.ToAgentAgentActionGroupApiSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupApiSchemaArgs) ToAgentAgentActionGroupApiSchemaOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaOutput)
+}
+
+func (i AgentAgentActionGroupApiSchemaArgs) ToAgentAgentActionGroupApiSchemaPtrOutput() AgentAgentActionGroupApiSchemaPtrOutput {
+	return i.ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupApiSchemaArgs) ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaOutput).ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupApiSchemaPtrInput is an input type that accepts AgentAgentActionGroupApiSchemaArgs, AgentAgentActionGroupApiSchemaPtr and AgentAgentActionGroupApiSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupApiSchemaPtrInput` via:
+//
+//	        AgentAgentActionGroupApiSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupApiSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupApiSchemaPtrOutput() AgentAgentActionGroupApiSchemaPtrOutput
+	ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(context.Context) AgentAgentActionGroupApiSchemaPtrOutput
+}
+
+type agentAgentActionGroupApiSchemaPtrType AgentAgentActionGroupApiSchemaArgs
+
+func AgentAgentActionGroupApiSchemaPtr(v *AgentAgentActionGroupApiSchemaArgs) AgentAgentActionGroupApiSchemaPtrInput {
+	return (*agentAgentActionGroupApiSchemaPtrType)(v)
+}
+
+func (*agentAgentActionGroupApiSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupApiSchema)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupApiSchemaPtrType) ToAgentAgentActionGroupApiSchemaPtrOutput() AgentAgentActionGroupApiSchemaPtrOutput {
+	return i.ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupApiSchemaPtrType) ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaPtrOutput)
+}
+
+type AgentAgentActionGroupApiSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupApiSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupApiSchema)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaOutput() AgentAgentActionGroupApiSchemaOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaPtrOutput() AgentAgentActionGroupApiSchemaPtrOutput {
+	return o.ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchema {
+		return &v
+	}).(AgentAgentActionGroupApiSchemaPtrOutput)
+}
+
+// YAML or JSON OpenAPI Schema.
+func (o AgentAgentActionGroupApiSchemaOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of S3 schema location
+func (o AgentAgentActionGroupApiSchemaOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 { return v.S3 }).(AgentAgentActionGroupApiSchemaS3PtrOutput)
+}
+
+type AgentAgentActionGroupApiSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupApiSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupApiSchema)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupApiSchemaPtrOutput) ToAgentAgentActionGroupApiSchemaPtrOutput() AgentAgentActionGroupApiSchemaPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaPtrOutput) ToAgentAgentActionGroupApiSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaPtrOutput) Elem() AgentAgentActionGroupApiSchemaOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) AgentAgentActionGroupApiSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupApiSchema
+		return ret
+	}).(AgentAgentActionGroupApiSchemaOutput)
+}
+
+// YAML or JSON OpenAPI Schema.
+func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration of S3 schema location
+func (o AgentAgentActionGroupApiSchemaPtrOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentAgentActionGroupApiSchemaS3PtrOutput)
+}
+
+type AgentAgentActionGroupApiSchemaS3 struct {
+	// The S3 bucket name that contains the OpenAPI Schema.
+	S3BucketName *string `pulumi:"s3BucketName"`
+	// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+	//
+	// The following arguments are optional:
+	S3ObjectKey *string `pulumi:"s3ObjectKey"`
+}
+
+// AgentAgentActionGroupApiSchemaS3Input is an input type that accepts AgentAgentActionGroupApiSchemaS3Args and AgentAgentActionGroupApiSchemaS3Output values.
+// You can construct a concrete instance of `AgentAgentActionGroupApiSchemaS3Input` via:
+//
+//	AgentAgentActionGroupApiSchemaS3Args{...}
+type AgentAgentActionGroupApiSchemaS3Input interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupApiSchemaS3Output() AgentAgentActionGroupApiSchemaS3Output
+	ToAgentAgentActionGroupApiSchemaS3OutputWithContext(context.Context) AgentAgentActionGroupApiSchemaS3Output
+}
+
+type AgentAgentActionGroupApiSchemaS3Args struct {
+	// The S3 bucket name that contains the OpenAPI Schema.
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+	//
+	// The following arguments are optional:
+	S3ObjectKey pulumi.StringPtrInput `pulumi:"s3ObjectKey"`
+}
+
+func (AgentAgentActionGroupApiSchemaS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupApiSchemaS3Args) ToAgentAgentActionGroupApiSchemaS3Output() AgentAgentActionGroupApiSchemaS3Output {
+	return i.ToAgentAgentActionGroupApiSchemaS3OutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupApiSchemaS3Args) ToAgentAgentActionGroupApiSchemaS3OutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaS3Output)
+}
+
+func (i AgentAgentActionGroupApiSchemaS3Args) ToAgentAgentActionGroupApiSchemaS3PtrOutput() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return i.ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupApiSchemaS3Args) ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaS3Output).ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupApiSchemaS3PtrInput is an input type that accepts AgentAgentActionGroupApiSchemaS3Args, AgentAgentActionGroupApiSchemaS3Ptr and AgentAgentActionGroupApiSchemaS3PtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupApiSchemaS3PtrInput` via:
+//
+//	        AgentAgentActionGroupApiSchemaS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupApiSchemaS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupApiSchemaS3PtrOutput() AgentAgentActionGroupApiSchemaS3PtrOutput
+	ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(context.Context) AgentAgentActionGroupApiSchemaS3PtrOutput
+}
+
+type agentAgentActionGroupApiSchemaS3PtrType AgentAgentActionGroupApiSchemaS3Args
+
+func AgentAgentActionGroupApiSchemaS3Ptr(v *AgentAgentActionGroupApiSchemaS3Args) AgentAgentActionGroupApiSchemaS3PtrInput {
+	return (*agentAgentActionGroupApiSchemaS3PtrType)(v)
+}
+
+func (*agentAgentActionGroupApiSchemaS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupApiSchemaS3)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupApiSchemaS3PtrType) ToAgentAgentActionGroupApiSchemaS3PtrOutput() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return i.ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupApiSchemaS3PtrType) ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupApiSchemaS3PtrOutput)
+}
+
+type AgentAgentActionGroupApiSchemaS3Output struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupApiSchemaS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupApiSchemaS3Output) ToAgentAgentActionGroupApiSchemaS3Output() AgentAgentActionGroupApiSchemaS3Output {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaS3Output) ToAgentAgentActionGroupApiSchemaS3OutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3Output {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaS3Output) ToAgentAgentActionGroupApiSchemaS3PtrOutput() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o.ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupApiSchemaS3Output) ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupApiSchemaS3) *AgentAgentActionGroupApiSchemaS3 {
+		return &v
+	}).(AgentAgentActionGroupApiSchemaS3PtrOutput)
+}
+
+// The S3 bucket name that contains the OpenAPI Schema.
+func (o AgentAgentActionGroupApiSchemaS3Output) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupApiSchemaS3) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+}
+
+// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+//
+// The following arguments are optional:
+func (o AgentAgentActionGroupApiSchemaS3Output) S3ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupApiSchemaS3) *string { return v.S3ObjectKey }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentActionGroupApiSchemaS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupApiSchemaS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupApiSchemaS3)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupApiSchemaS3PtrOutput) ToAgentAgentActionGroupApiSchemaS3PtrOutput() AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaS3PtrOutput) ToAgentAgentActionGroupApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentAgentActionGroupApiSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupApiSchemaS3PtrOutput) Elem() AgentAgentActionGroupApiSchemaS3Output {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchemaS3) AgentAgentActionGroupApiSchemaS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupApiSchemaS3
+		return ret
+	}).(AgentAgentActionGroupApiSchemaS3Output)
+}
+
+// The S3 bucket name that contains the OpenAPI Schema.
+func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+//
+// The following arguments are optional:
+func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupApiSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentAliasRoutingConfiguration struct {
+	// Version of the agent the alias routes to.
+	AgentVersion string `pulumi:"agentVersion"`
+}
+
+// AgentAgentAliasRoutingConfigurationInput is an input type that accepts AgentAgentAliasRoutingConfigurationArgs and AgentAgentAliasRoutingConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentAliasRoutingConfigurationInput` via:
+//
+//	AgentAgentAliasRoutingConfigurationArgs{...}
+type AgentAgentAliasRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentAliasRoutingConfigurationOutput() AgentAgentAliasRoutingConfigurationOutput
+	ToAgentAgentAliasRoutingConfigurationOutputWithContext(context.Context) AgentAgentAliasRoutingConfigurationOutput
+}
+
+type AgentAgentAliasRoutingConfigurationArgs struct {
+	// Version of the agent the alias routes to.
+	AgentVersion pulumi.StringInput `pulumi:"agentVersion"`
+}
+
+func (AgentAgentAliasRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentAliasRoutingConfigurationArgs) ToAgentAgentAliasRoutingConfigurationOutput() AgentAgentAliasRoutingConfigurationOutput {
+	return i.ToAgentAgentAliasRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentAliasRoutingConfigurationArgs) ToAgentAgentAliasRoutingConfigurationOutputWithContext(ctx context.Context) AgentAgentAliasRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentAliasRoutingConfigurationOutput)
+}
+
+// AgentAgentAliasRoutingConfigurationArrayInput is an input type that accepts AgentAgentAliasRoutingConfigurationArray and AgentAgentAliasRoutingConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentAliasRoutingConfigurationArrayInput` via:
+//
+//	AgentAgentAliasRoutingConfigurationArray{ AgentAgentAliasRoutingConfigurationArgs{...} }
+type AgentAgentAliasRoutingConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentAliasRoutingConfigurationArrayOutput() AgentAgentAliasRoutingConfigurationArrayOutput
+	ToAgentAgentAliasRoutingConfigurationArrayOutputWithContext(context.Context) AgentAgentAliasRoutingConfigurationArrayOutput
+}
+
+type AgentAgentAliasRoutingConfigurationArray []AgentAgentAliasRoutingConfigurationInput
+
+func (AgentAgentAliasRoutingConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentAliasRoutingConfigurationArray) ToAgentAgentAliasRoutingConfigurationArrayOutput() AgentAgentAliasRoutingConfigurationArrayOutput {
+	return i.ToAgentAgentAliasRoutingConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentAliasRoutingConfigurationArray) ToAgentAgentAliasRoutingConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentAliasRoutingConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentAliasRoutingConfigurationArrayOutput)
+}
+
+type AgentAgentAliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentAliasRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentAliasRoutingConfigurationOutput) ToAgentAgentAliasRoutingConfigurationOutput() AgentAgentAliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentAliasRoutingConfigurationOutput) ToAgentAgentAliasRoutingConfigurationOutputWithContext(ctx context.Context) AgentAgentAliasRoutingConfigurationOutput {
+	return o
+}
+
+// Version of the agent the alias routes to.
+func (o AgentAgentAliasRoutingConfigurationOutput) AgentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentAliasRoutingConfiguration) string { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+type AgentAgentAliasRoutingConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentAliasRoutingConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentAliasRoutingConfigurationArrayOutput) ToAgentAgentAliasRoutingConfigurationArrayOutput() AgentAgentAliasRoutingConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentAliasRoutingConfigurationArrayOutput) ToAgentAgentAliasRoutingConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentAliasRoutingConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentAliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentAliasRoutingConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentAliasRoutingConfiguration {
+		return vs[0].([]AgentAgentAliasRoutingConfiguration)[vs[1].(int)]
+	}).(AgentAgentAliasRoutingConfigurationOutput)
+}
+
+type AgentAgentAliasTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentAgentAliasTimeoutsInput is an input type that accepts AgentAgentAliasTimeoutsArgs and AgentAgentAliasTimeoutsOutput values.
+// You can construct a concrete instance of `AgentAgentAliasTimeoutsInput` via:
+//
+//	AgentAgentAliasTimeoutsArgs{...}
+type AgentAgentAliasTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentAgentAliasTimeoutsOutput() AgentAgentAliasTimeoutsOutput
+	ToAgentAgentAliasTimeoutsOutputWithContext(context.Context) AgentAgentAliasTimeoutsOutput
+}
+
+type AgentAgentAliasTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentAgentAliasTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentAliasTimeouts)(nil)).Elem()
+}
+
+func (i AgentAgentAliasTimeoutsArgs) ToAgentAgentAliasTimeoutsOutput() AgentAgentAliasTimeoutsOutput {
+	return i.ToAgentAgentAliasTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentAgentAliasTimeoutsArgs) ToAgentAgentAliasTimeoutsOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentAliasTimeoutsOutput)
+}
+
+func (i AgentAgentAliasTimeoutsArgs) ToAgentAgentAliasTimeoutsPtrOutput() AgentAgentAliasTimeoutsPtrOutput {
+	return i.ToAgentAgentAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentAliasTimeoutsArgs) ToAgentAgentAliasTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentAliasTimeoutsOutput).ToAgentAgentAliasTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentAgentAliasTimeoutsPtrInput is an input type that accepts AgentAgentAliasTimeoutsArgs, AgentAgentAliasTimeoutsPtr and AgentAgentAliasTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentAgentAliasTimeoutsPtrInput` via:
+//
+//	        AgentAgentAliasTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentAliasTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentAliasTimeoutsPtrOutput() AgentAgentAliasTimeoutsPtrOutput
+	ToAgentAgentAliasTimeoutsPtrOutputWithContext(context.Context) AgentAgentAliasTimeoutsPtrOutput
+}
+
+type agentAgentAliasTimeoutsPtrType AgentAgentAliasTimeoutsArgs
+
+func AgentAgentAliasTimeoutsPtr(v *AgentAgentAliasTimeoutsArgs) AgentAgentAliasTimeoutsPtrInput {
+	return (*agentAgentAliasTimeoutsPtrType)(v)
+}
+
+func (*agentAgentAliasTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentAliasTimeouts)(nil)).Elem()
+}
+
+func (i *agentAgentAliasTimeoutsPtrType) ToAgentAgentAliasTimeoutsPtrOutput() AgentAgentAliasTimeoutsPtrOutput {
+	return i.ToAgentAgentAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentAliasTimeoutsPtrType) ToAgentAgentAliasTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentAliasTimeoutsPtrOutput)
+}
+
+type AgentAgentAliasTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentAliasTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentAliasTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentAliasTimeoutsOutput) ToAgentAgentAliasTimeoutsOutput() AgentAgentAliasTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentAliasTimeoutsOutput) ToAgentAgentAliasTimeoutsOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentAliasTimeoutsOutput) ToAgentAgentAliasTimeoutsPtrOutput() AgentAgentAliasTimeoutsPtrOutput {
+	return o.ToAgentAgentAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentAliasTimeoutsOutput) ToAgentAgentAliasTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentAliasTimeouts) *AgentAgentAliasTimeouts {
+		return &v
+	}).(AgentAgentAliasTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentAliasTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentAliasTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentAliasTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentAliasTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentAliasTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentAliasTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentAliasTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentAliasTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentAliasTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentAliasTimeoutsPtrOutput) ToAgentAgentAliasTimeoutsPtrOutput() AgentAgentAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentAliasTimeoutsPtrOutput) ToAgentAgentAliasTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentAliasTimeoutsPtrOutput) Elem() AgentAgentAliasTimeoutsOutput {
+	return o.ApplyT(func(v *AgentAgentAliasTimeouts) AgentAgentAliasTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentAliasTimeouts
+		return ret
+	}).(AgentAgentAliasTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentAliasTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentPromptOverrideConfiguration struct {
+	// ARN of Lambda to use when parsing the raw foundation model output.
+	OverrideLambda string `pulumi:"overrideLambda"`
+	// List of prompt configurations.
+	//
+	// The following arguments are optional:
+	PromptConfigurations []interface{} `pulumi:"promptConfigurations"`
+}
+
+// AgentAgentPromptOverrideConfigurationInput is an input type that accepts AgentAgentPromptOverrideConfigurationArgs and AgentAgentPromptOverrideConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationArgs{...}
+type AgentAgentPromptOverrideConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationOutput() AgentAgentPromptOverrideConfigurationOutput
+	ToAgentAgentPromptOverrideConfigurationOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationOutput
+}
+
+type AgentAgentPromptOverrideConfigurationArgs struct {
+	// ARN of Lambda to use when parsing the raw foundation model output.
+	OverrideLambda pulumi.StringInput `pulumi:"overrideLambda"`
+	// List of prompt configurations.
+	//
+	// The following arguments are optional:
+	PromptConfigurations pulumi.ArrayInput `pulumi:"promptConfigurations"`
+}
+
+func (AgentAgentPromptOverrideConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationArgs) ToAgentAgentPromptOverrideConfigurationOutput() AgentAgentPromptOverrideConfigurationOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationArgs) ToAgentAgentPromptOverrideConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationOutput)
+}
+
+// AgentAgentPromptOverrideConfigurationArrayInput is an input type that accepts AgentAgentPromptOverrideConfigurationArray and AgentAgentPromptOverrideConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationArrayInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationArray{ AgentAgentPromptOverrideConfigurationArgs{...} }
+type AgentAgentPromptOverrideConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationArrayOutput
+	ToAgentAgentPromptOverrideConfigurationArrayOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationArrayOutput
+}
+
+type AgentAgentPromptOverrideConfigurationArray []AgentAgentPromptOverrideConfigurationInput
+
+func (AgentAgentPromptOverrideConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationArray) ToAgentAgentPromptOverrideConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationArrayOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationArray) ToAgentAgentPromptOverrideConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationArrayOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationOutput) ToAgentAgentPromptOverrideConfigurationOutput() AgentAgentPromptOverrideConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationOutput) ToAgentAgentPromptOverrideConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationOutput {
+	return o
+}
+
+// ARN of Lambda to use when parsing the raw foundation model output.
+func (o AgentAgentPromptOverrideConfigurationOutput) OverrideLambda() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) string { return v.OverrideLambda }).(pulumi.StringOutput)
+}
+
+// List of prompt configurations.
+//
+// The following arguments are optional:
+func (o AgentAgentPromptOverrideConfigurationOutput) PromptConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) []interface{} { return v.PromptConfigurations }).(pulumi.ArrayOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentPromptOverrideConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentPromptOverrideConfiguration {
+		return vs[0].([]AgentAgentPromptOverrideConfiguration)[vs[1].(int)]
+	}).(AgentAgentPromptOverrideConfigurationOutput)
+}
+
+type AgentAgentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentAgentTimeoutsInput is an input type that accepts AgentAgentTimeoutsArgs and AgentAgentTimeoutsOutput values.
+// You can construct a concrete instance of `AgentAgentTimeoutsInput` via:
+//
+//	AgentAgentTimeoutsArgs{...}
+type AgentAgentTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentAgentTimeoutsOutput() AgentAgentTimeoutsOutput
+	ToAgentAgentTimeoutsOutputWithContext(context.Context) AgentAgentTimeoutsOutput
+}
+
+type AgentAgentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentAgentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentTimeouts)(nil)).Elem()
+}
+
+func (i AgentAgentTimeoutsArgs) ToAgentAgentTimeoutsOutput() AgentAgentTimeoutsOutput {
+	return i.ToAgentAgentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentAgentTimeoutsArgs) ToAgentAgentTimeoutsOutputWithContext(ctx context.Context) AgentAgentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentTimeoutsOutput)
+}
+
+func (i AgentAgentTimeoutsArgs) ToAgentAgentTimeoutsPtrOutput() AgentAgentTimeoutsPtrOutput {
+	return i.ToAgentAgentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentTimeoutsArgs) ToAgentAgentTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentTimeoutsOutput).ToAgentAgentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentAgentTimeoutsPtrInput is an input type that accepts AgentAgentTimeoutsArgs, AgentAgentTimeoutsPtr and AgentAgentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentAgentTimeoutsPtrInput` via:
+//
+//	        AgentAgentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentTimeoutsPtrOutput() AgentAgentTimeoutsPtrOutput
+	ToAgentAgentTimeoutsPtrOutputWithContext(context.Context) AgentAgentTimeoutsPtrOutput
+}
+
+type agentAgentTimeoutsPtrType AgentAgentTimeoutsArgs
+
+func AgentAgentTimeoutsPtr(v *AgentAgentTimeoutsArgs) AgentAgentTimeoutsPtrInput {
+	return (*agentAgentTimeoutsPtrType)(v)
+}
+
+func (*agentAgentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentTimeouts)(nil)).Elem()
+}
+
+func (i *agentAgentTimeoutsPtrType) ToAgentAgentTimeoutsPtrOutput() AgentAgentTimeoutsPtrOutput {
+	return i.ToAgentAgentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentTimeoutsPtrType) ToAgentAgentTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentTimeoutsPtrOutput)
+}
+
+type AgentAgentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentTimeoutsOutput) ToAgentAgentTimeoutsOutput() AgentAgentTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentTimeoutsOutput) ToAgentAgentTimeoutsOutputWithContext(ctx context.Context) AgentAgentTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentTimeoutsOutput) ToAgentAgentTimeoutsPtrOutput() AgentAgentTimeoutsPtrOutput {
+	return o.ToAgentAgentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentTimeoutsOutput) ToAgentAgentTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentTimeouts) *AgentAgentTimeouts {
+		return &v
+	}).(AgentAgentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentTimeoutsPtrOutput) ToAgentAgentTimeoutsPtrOutput() AgentAgentTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentTimeoutsPtrOutput) ToAgentAgentTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentTimeoutsPtrOutput) Elem() AgentAgentTimeoutsOutput {
+	return o.ApplyT(func(v *AgentAgentTimeouts) AgentAgentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentTimeouts
+		return ret
+	}).(AgentAgentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
+	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	Type string `pulumi:"type"`
+	// Contains details about the embeddings model that'sused to   convert the data source.
+	VectorKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationArgs struct {
+	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	Type pulumi.StringInput `pulumi:"type"`
+	// Contains details about the embeddings model that'sused to   convert the data source.
+	VectorKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput `pulumi:"vectorKnowledgeBaseConfiguration"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
+}
+
+// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contains details about the embeddings model that'sused to   convert the data source.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
+		return v.VectorKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) AgentKnowledgeBaseKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
+}
+
+// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains details about the embeddings model that'sused to   convert the data source.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VectorKnowledgeBaseConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration struct {
+	// The ARN of the model used to create vector embeddings for the knowledge base.
+	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs struct {
+	// The ARN of the model used to create vector embeddings for the knowledge base.
+	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
+// The ARN of the model used to create vector embeddings for the knowledge base.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) string {
+		return v.EmbeddingModelArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput)
+}
+
+// The ARN of the model used to create vector embeddings for the knowledge base.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EmbeddingModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfiguration struct {
+	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+	OpensearchServerlessConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
+	// Contains the storage configuration of the knowledge base in Pinecone.
+	PineconeConfiguration *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration `pulumi:"pineconeConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+	RdsConfiguration *AgentKnowledgeBaseStorageConfigurationRdsConfiguration `pulumi:"rdsConfiguration"`
+	// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+	RedisEnterpriseCloudConfiguration *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration `pulumi:"redisEnterpriseCloudConfiguration"`
+	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	Type string `pulumi:"type"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationArgs and AgentKnowledgeBaseStorageConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationArgs struct {
+	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+	OpensearchServerlessConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
+	// Contains the storage configuration of the knowledge base in Pinecone.
+	PineconeConfiguration AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+	RdsConfiguration AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
+	// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+	RedisEnterpriseCloudConfiguration AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput `pulumi:"redisEnterpriseCloudConfiguration"`
+	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationArgs, AgentKnowledgeBaseStorageConfigurationPtr and AgentKnowledgeBaseStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationPtrType AgentKnowledgeBaseStorageConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationArgs) AgentKnowledgeBaseStorageConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
+		return v.OpensearchServerlessConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Pinecone.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
+		return v.PineconeConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
+}
+
+// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
+		return v.RdsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+func (o AgentKnowledgeBaseStorageConfigurationOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
+		return v.RedisEnterpriseCloudConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
+}
+
+// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+func (o AgentKnowledgeBaseStorageConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) AgentKnowledgeBaseStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpensearchServerlessConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Pinecone.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PineconeConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
+}
+
+// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RdsConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RedisEnterpriseCloudConfiguration
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
+}
+
+// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration struct {
+	// The ARN of the OpenSearch Service vector store.
+	CollectionArn string `pulumi:"collectionArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs and AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs struct {
+	// The ARN of the OpenSearch Service vector store.
+	CollectionArn pulumi.StringInput `pulumi:"collectionArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs, AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtr and AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrType AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
+}
+
+// The ARN of the OpenSearch Service vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) CollectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) string {
+		return v.CollectionArn
+	}).(pulumi.StringOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) string {
+		return v.VectorIndexName
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput)
+}
+
+// The ARN of the OpenSearch Service vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) CollectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField *string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField *string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField *string `pulumi:"vectorField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringPtrInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringPtrInput `pulumi:"vectorField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		return v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfiguration struct {
+	// The endpoint URL for your index management page.
+	ConnectionString string `pulumi:"connectionString"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// The namespace to be used to write new data to your database.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationPineconeConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs and AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationPineconeConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs struct {
+	// The endpoint URL for your index management page.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// The namespace to be used to write new data to your database.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs, AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtr and AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrType AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationPineconeConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
+}
+
+// The endpoint URL for your index management page.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
+}
+
+// The namespace to be used to write new data to your database.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationPineconeConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationPineconeConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput)
+}
+
+// The endpoint URL for your index management page.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
+}
+
+// The namespace to be used to write new data to your database.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField *string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField *string `pulumi:"textField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringPtrInput `pulumi:"textField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfiguration struct {
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The name of your Amazon RDS database.
+	DatabaseName string `pulumi:"databaseName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// The namespace to be used to write new data to your database.
+	ResourceArn string `pulumi:"resourceArn"`
+	// The name of the table in the database.
+	TableName string `pulumi:"tableName"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationRdsConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs and AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRdsConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs struct {
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The name of your Amazon RDS database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// The namespace to be used to write new data to your database.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The name of the table in the database.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs, AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtr and AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationRdsConfigurationPtrType AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationRdsConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationRdsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRdsConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRdsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRdsConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
+}
+
+// The name of your Amazon RDS database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
+}
+
+// The namespace to be used to write new data to your database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The name of the table in the database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRdsConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationRdsConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of your Amazon RDS database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
+}
+
+// The namespace to be used to write new data to your database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the table in the database.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the ID for each entry.
+	PrimaryKeyField string `pulumi:"primaryKeyField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField string `pulumi:"vectorField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the ID for each entry.
+	PrimaryKeyField pulumi.StringInput `pulumi:"primaryKeyField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
+		return v.MetadataField
+	}).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the ID for each entry.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) PrimaryKeyField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
+		return v.PrimaryKeyField
+	}).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string { return v.TextField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
+		return v.VectorField
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the ID for each entry.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) PrimaryKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKeyField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration struct {
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The endpoint URL of the Redis Enterprise Cloud database.
+	Endpoint string `pulumi:"endpoint"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs and AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs{...}
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs struct {
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The endpoint URL of the Redis Enterprise Cloud database.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput).ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs, AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtr and AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrType AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs
+
+func AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtr(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrType) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// The endpoint URL of the Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
+		return v.Endpoint
+	}).(pulumi.StringOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
+		return v.VectorIndexName
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL of the Redis Enterprise Cloud database.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMapping
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField *string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField *string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField *string `pulumi:"vectorField"`
+}
+
+// AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs and AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput` via:
+//
+//	AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{...}
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringPtrInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringPtrInput `pulumi:"vectorField"`
+}
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput)
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput).ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput is an input type that accepts AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs, AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtr and AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput` via:
+//
+//	        AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput
+	ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput
+}
+
+type agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrType AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs
+
+func AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtr(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput {
+	return (*agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrType)(v)
+}
+
+func (*agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return i.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrType) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o.ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+		return &v
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		return v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) ToAgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) Elem() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping
+		return ret
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentKnowledgeBaseTimeoutsInput is an input type that accepts AgentKnowledgeBaseTimeoutsArgs and AgentKnowledgeBaseTimeoutsOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseTimeoutsInput` via:
+//
+//	AgentKnowledgeBaseTimeoutsArgs{...}
+type AgentKnowledgeBaseTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseTimeoutsOutput() AgentKnowledgeBaseTimeoutsOutput
+	ToAgentKnowledgeBaseTimeoutsOutputWithContext(context.Context) AgentKnowledgeBaseTimeoutsOutput
+}
+
+type AgentKnowledgeBaseTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentKnowledgeBaseTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseTimeouts)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseTimeoutsArgs) ToAgentKnowledgeBaseTimeoutsOutput() AgentKnowledgeBaseTimeoutsOutput {
+	return i.ToAgentKnowledgeBaseTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseTimeoutsArgs) ToAgentKnowledgeBaseTimeoutsOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseTimeoutsOutput)
+}
+
+func (i AgentKnowledgeBaseTimeoutsArgs) ToAgentKnowledgeBaseTimeoutsPtrOutput() AgentKnowledgeBaseTimeoutsPtrOutput {
+	return i.ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseTimeoutsArgs) ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseTimeoutsOutput).ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseTimeoutsPtrInput is an input type that accepts AgentKnowledgeBaseTimeoutsArgs, AgentKnowledgeBaseTimeoutsPtr and AgentKnowledgeBaseTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseTimeoutsPtrInput` via:
+//
+//	        AgentKnowledgeBaseTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseTimeoutsPtrOutput() AgentKnowledgeBaseTimeoutsPtrOutput
+	ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(context.Context) AgentKnowledgeBaseTimeoutsPtrOutput
+}
+
+type agentKnowledgeBaseTimeoutsPtrType AgentKnowledgeBaseTimeoutsArgs
+
+func AgentKnowledgeBaseTimeoutsPtr(v *AgentKnowledgeBaseTimeoutsArgs) AgentKnowledgeBaseTimeoutsPtrInput {
+	return (*agentKnowledgeBaseTimeoutsPtrType)(v)
+}
+
+func (*agentKnowledgeBaseTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseTimeouts)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseTimeoutsPtrType) ToAgentKnowledgeBaseTimeoutsPtrOutput() AgentKnowledgeBaseTimeoutsPtrOutput {
+	return i.ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseTimeoutsPtrType) ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseTimeoutsPtrOutput)
+}
+
+type AgentKnowledgeBaseTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseTimeouts)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseTimeoutsOutput) ToAgentKnowledgeBaseTimeoutsOutput() AgentKnowledgeBaseTimeoutsOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseTimeoutsOutput) ToAgentKnowledgeBaseTimeoutsOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseTimeoutsOutput) ToAgentKnowledgeBaseTimeoutsPtrOutput() AgentKnowledgeBaseTimeoutsPtrOutput {
+	return o.ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseTimeoutsOutput) ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseTimeouts) *AgentKnowledgeBaseTimeouts {
+		return &v
+	}).(AgentKnowledgeBaseTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentKnowledgeBaseTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentKnowledgeBaseTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentKnowledgeBaseTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseTimeouts)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) ToAgentKnowledgeBaseTimeoutsPtrOutput() AgentKnowledgeBaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) ToAgentKnowledgeBaseTimeoutsPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) Elem() AgentKnowledgeBaseTimeoutsOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseTimeouts) AgentKnowledgeBaseTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseTimeouts
+		return ret
+	}).(AgentKnowledgeBaseTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentKnowledgeBaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomModelOutputDataConfig struct {
 	// The S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
@@ -1764,6 +4991,44 @@ func (o GetCustomModelsModelSummaryArrayOutput) Index(i pulumi.IntInput) GetCust
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaInput)(nil)).Elem(), AgentAgentActionGroupApiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaPtrInput)(nil)).Elem(), AgentAgentActionGroupApiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3Input)(nil)).Elem(), AgentAgentActionGroupApiSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3PtrInput)(nil)).Elem(), AgentAgentActionGroupApiSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationArrayInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsPtrInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentTimeoutsInput)(nil)).Elem(), AgentAgentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentTimeoutsPtrInput)(nil)).Elem(), AgentAgentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsPtrInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigPtrInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
@@ -1794,6 +5059,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationMetricArrayInput)(nil)).Elem(), GetCustomModelValidationMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelsModelSummaryInput)(nil)).Elem(), GetCustomModelsModelSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelsModelSummaryArrayInput)(nil)).Elem(), GetCustomModelsModelSummaryArray{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaS3Output{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentAgentTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelTimeoutsOutput{})

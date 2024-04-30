@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
+ * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
  *
  * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
  *
@@ -557,6 +557,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Snowflake Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleSnowflakeDestination = new aws.kinesis.FirehoseDeliveryStream("example_snowflake_destination", {
+ *     name: "example-snowflake-destination",
+ *     destination: "snowflake",
+ *     snowflakeConfiguration: {
+ *         accountUrl: "https://example.snowflakecomputing.com",
+ *         database: "example-db",
+ *         privateKey: "...",
+ *         roleArn: firehose.arn,
+ *         schema: "example-schema",
+ *         table: "example-table",
+ *         user: "example-usr",
+ *         s3Configuration: {
+ *             roleArn: firehose.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
@@ -599,7 +627,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
@@ -646,6 +674,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     /**
+     * Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+     */
+    public readonly snowflakeConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration | undefined>;
+    /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
@@ -687,6 +719,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchserverlessConfiguration"] = state ? state.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["snowflakeConfiguration"] = state ? state.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -709,6 +742,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchserverlessConfiguration"] = args ? args.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["snowflakeConfiguration"] = args ? args.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["versionId"] = args ? args.versionId : undefined;
@@ -728,7 +762,7 @@ export interface FirehoseDeliveryStreamState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      */
     destination?: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -775,6 +809,10 @@ export interface FirehoseDeliveryStreamState {
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
+     * Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+     */
+    snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
+    /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
@@ -800,7 +838,7 @@ export interface FirehoseDeliveryStreamArgs {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      */
     destination: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -846,6 +884,10 @@ export interface FirehoseDeliveryStreamArgs {
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
+    /**
+     * Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
+     */
+    snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      */

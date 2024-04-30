@@ -16,69 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
-//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-//						Name: pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Default File System Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
-//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-//						Name: pulumi.String("example"),
-//					},
-//					FileSystemConfig: nil,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
@@ -92,7 +29,10 @@ type AppImageConfig struct {
 	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringOutput `pulumi:"appImageConfigName"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-	Arn                   pulumi.StringOutput                          `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrOutput `pulumi:"codeEditorAppImageConfig"`
+	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrOutput `pulumi:"jupyterLabImageConfig"`
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
@@ -140,7 +80,10 @@ type appImageConfigState struct {
 	// The name of the App Image Config.
 	AppImageConfigName *string `pulumi:"appImageConfigName"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-	Arn                   *string                              `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
+	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig *AppImageConfigJupyterLabImageConfig `pulumi:"jupyterLabImageConfig"`
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
@@ -156,7 +99,10 @@ type AppImageConfigState struct {
 	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-	Arn                   pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
+	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrInput
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
@@ -174,7 +120,10 @@ func (AppImageConfigState) ElementType() reflect.Type {
 
 type appImageConfigArgs struct {
 	// The name of the App Image Config.
-	AppImageConfigName    string                               `pulumi:"appImageConfigName"`
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
+	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig *AppImageConfigJupyterLabImageConfig `pulumi:"jupyterLabImageConfig"`
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
@@ -185,7 +134,10 @@ type appImageConfigArgs struct {
 // The set of arguments for constructing a AppImageConfig resource.
 type AppImageConfigArgs struct {
 	// The name of the App Image Config.
-	AppImageConfigName    pulumi.StringInput
+	AppImageConfigName pulumi.StringInput
+	// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
+	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrInput
 	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
@@ -290,6 +242,14 @@ func (o AppImageConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+func (o AppImageConfigOutput) CodeEditorAppImageConfig() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfig) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+		return v.CodeEditorAppImageConfig
+	}).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
+}
+
+// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 func (o AppImageConfigOutput) JupyterLabImageConfig() AppImageConfigJupyterLabImageConfigPtrOutput {
 	return o.ApplyT(func(v *AppImageConfig) AppImageConfigJupyterLabImageConfigPtrOutput { return v.JupyterLabImageConfig }).(AppImageConfigJupyterLabImageConfigPtrOutput)
 }

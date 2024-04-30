@@ -3,8 +3,11 @@
 
 package com.pulumi.aws.costexplorer.outputs;
 
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrAnd;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrCostCategory;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrDimension;
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrNot;
+import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrOr;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrTag;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -13,6 +16,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleOr {
+    /**
+     * @return Return results that match both `Dimension` objects.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleOrAnd> ands;
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -24,12 +32,29 @@ public final class GetCostCategoryRuleRuleOr {
      */
     private List<GetCostCategoryRuleRuleOrDimension> dimensions;
     /**
+     * @return Return results that do not match the `Dimension` object.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleOrNot> nots;
+    /**
+     * @return Return results that match either `Dimension` object.
+     * 
+     */
+    private List<GetCostCategoryRuleRuleOrOr> ors;
+    /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     private List<GetCostCategoryRuleRuleOrTag> tags;
 
     private GetCostCategoryRuleRuleOr() {}
+    /**
+     * @return Return results that match both `Dimension` objects.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleOrAnd> ands() {
+        return this.ands;
+    }
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -43,6 +68,20 @@ public final class GetCostCategoryRuleRuleOr {
      */
     public List<GetCostCategoryRuleRuleOrDimension> dimensions() {
         return this.dimensions;
+    }
+    /**
+     * @return Return results that do not match the `Dimension` object.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleOrNot> nots() {
+        return this.nots;
+    }
+    /**
+     * @return Return results that match either `Dimension` object.
+     * 
+     */
+    public List<GetCostCategoryRuleRuleOrOr> ors() {
+        return this.ors;
     }
     /**
      * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -61,17 +100,34 @@ public final class GetCostCategoryRuleRuleOr {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetCostCategoryRuleRuleOrAnd> ands;
         private List<GetCostCategoryRuleRuleOrCostCategory> costCategories;
         private List<GetCostCategoryRuleRuleOrDimension> dimensions;
+        private List<GetCostCategoryRuleRuleOrNot> nots;
+        private List<GetCostCategoryRuleRuleOrOr> ors;
         private List<GetCostCategoryRuleRuleOrTag> tags;
         public Builder() {}
         public Builder(GetCostCategoryRuleRuleOr defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ands = defaults.ands;
     	      this.costCategories = defaults.costCategories;
     	      this.dimensions = defaults.dimensions;
+    	      this.nots = defaults.nots;
+    	      this.ors = defaults.ors;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder ands(List<GetCostCategoryRuleRuleOrAnd> ands) {
+            if (ands == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "ands");
+            }
+            this.ands = ands;
+            return this;
+        }
+        public Builder ands(GetCostCategoryRuleRuleOrAnd... ands) {
+            return ands(List.of(ands));
+        }
         @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleOrCostCategory> costCategories) {
             if (costCategories == null) {
@@ -95,6 +151,28 @@ public final class GetCostCategoryRuleRuleOr {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
+        public Builder nots(List<GetCostCategoryRuleRuleOrNot> nots) {
+            if (nots == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "nots");
+            }
+            this.nots = nots;
+            return this;
+        }
+        public Builder nots(GetCostCategoryRuleRuleOrNot... nots) {
+            return nots(List.of(nots));
+        }
+        @CustomType.Setter
+        public Builder ors(List<GetCostCategoryRuleRuleOrOr> ors) {
+            if (ors == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "ors");
+            }
+            this.ors = ors;
+            return this;
+        }
+        public Builder ors(GetCostCategoryRuleRuleOrOr... ors) {
+            return ors(List.of(ors));
+        }
+        @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleOrTag> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "tags");
@@ -107,8 +185,11 @@ public final class GetCostCategoryRuleRuleOr {
         }
         public GetCostCategoryRuleRuleOr build() {
             final var _resultValue = new GetCostCategoryRuleRuleOr();
+            _resultValue.ands = ands;
             _resultValue.costCategories = costCategories;
             _resultValue.dimensions = dimensions;
+            _resultValue.nots = nots;
+            _resultValue.ors = ors;
             _resultValue.tags = tags;
             return _resultValue;
         }

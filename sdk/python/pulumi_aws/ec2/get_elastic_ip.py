@@ -23,7 +23,10 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, arn=None, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
@@ -75,6 +78,11 @@ class GetElasticIpResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associationId")
@@ -216,6 +224,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
         if False:
             yield self
         return GetElasticIpResult(
+            arn=self.arn,
             association_id=self.association_id,
             carrier_ip=self.carrier_ip,
             customer_owned_ip=self.customer_owned_ip,
@@ -301,6 +310,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     __ret__ = pulumi.runtime.invoke('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult).value
 
     return AwaitableGetElasticIpResult(
+        arn=pulumi.get(__ret__, 'arn'),
         association_id=pulumi.get(__ret__, 'association_id'),
         carrier_ip=pulumi.get(__ret__, 'carrier_ip'),
         customer_owned_ip=pulumi.get(__ret__, 'customer_owned_ip'),

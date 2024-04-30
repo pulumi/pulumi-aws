@@ -14,57 +14,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
-    ///     {
-    ///         AppImageConfigName = "example",
-    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
-    ///         {
-    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
-    ///             {
-    ///                 Name = "example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Default File System Config
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
-    ///     {
-    ///         AppImageConfigName = "example",
-    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
-    ///         {
-    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
-    ///             {
-    ///                 Name = "example",
-    ///             },
-    ///             FileSystemConfig = null,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
@@ -88,6 +37,15 @@ namespace Pulumi.Aws.Sagemaker
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// </summary>
+        [Output("codeEditorAppImageConfig")]
+        public Output<Outputs.AppImageConfigCodeEditorAppImageConfig?> CodeEditorAppImageConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// </summary>
         [Output("jupyterLabImageConfig")]
         public Output<Outputs.AppImageConfigJupyterLabImageConfig?> JupyterLabImageConfig { get; private set; } = null!;
 
@@ -161,6 +119,15 @@ namespace Pulumi.Aws.Sagemaker
         [Input("appImageConfigName", required: true)]
         public Input<string> AppImageConfigName { get; set; } = null!;
 
+        /// <summary>
+        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// </summary>
+        [Input("codeEditorAppImageConfig")]
+        public Input<Inputs.AppImageConfigCodeEditorAppImageConfigArgs>? CodeEditorAppImageConfig { get; set; }
+
+        /// <summary>
+        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// </summary>
         [Input("jupyterLabImageConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigArgs>? JupyterLabImageConfig { get; set; }
 
@@ -202,6 +169,15 @@ namespace Pulumi.Aws.Sagemaker
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// </summary>
+        [Input("codeEditorAppImageConfig")]
+        public Input<Inputs.AppImageConfigCodeEditorAppImageConfigGetArgs>? CodeEditorAppImageConfig { get; set; }
+
+        /// <summary>
+        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// </summary>
         [Input("jupyterLabImageConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigGetArgs>? JupyterLabImageConfig { get; set; }
 

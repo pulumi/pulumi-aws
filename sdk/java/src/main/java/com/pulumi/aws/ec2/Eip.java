@@ -252,6 +252,12 @@ public class Eip extends com.pulumi.resources.CustomResource {
     public Output<String> allocationId() {
         return this.allocationId;
     }
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    public Output<String> arn() {
+        return this.arn;
+    }
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 

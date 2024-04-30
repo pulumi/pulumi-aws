@@ -103,6 +103,15 @@ __all__ = [
     'FirehoseDeliveryStreamRedshiftConfigurationS3Configuration',
     'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamServerSideEncryption',
+    'FirehoseDeliveryStreamSnowflakeConfiguration',
+    'FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions',
+    'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration',
+    'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor',
+    'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter',
+    'FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration',
+    'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions',
+    'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration',
+    'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration',
     'FirehoseDeliveryStreamSplunkConfiguration',
     'FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration',
@@ -6457,6 +6466,732 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
         Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         return pulumi.get(self, "key_type")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountUrl":
+            suggest = "account_url"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "contentColumnName":
+            suggest = "content_column_name"
+        elif key == "dataLoadingOption":
+            suggest = "data_loading_option"
+        elif key == "keyPassphrase":
+            suggest = "key_passphrase"
+        elif key == "metadataColumnName":
+            suggest = "metadata_column_name"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryDuration":
+            suggest = "retry_duration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+        elif key == "snowflakeRoleConfiguration":
+            suggest = "snowflake_role_configuration"
+        elif key == "snowflakeVpcConfiguration":
+            suggest = "snowflake_vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_url: str,
+                 database: str,
+                 private_key: str,
+                 role_arn: str,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration',
+                 schema: str,
+                 table: str,
+                 user: str,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions'] = None,
+                 content_column_name: Optional[str] = None,
+                 data_loading_option: Optional[str] = None,
+                 key_passphrase: Optional[str] = None,
+                 metadata_column_name: Optional[str] = None,
+                 processing_configuration: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration'] = None,
+                 retry_duration: Optional[int] = None,
+                 s3_backup_mode: Optional[str] = None,
+                 snowflake_role_configuration: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration'] = None,
+                 snowflake_vpc_configuration: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration'] = None):
+        """
+        :param str account_url: The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
+        :param str database: The Snowflake database name.
+        :param str private_key: The private key for authentication.
+        :param str role_arn: The ARN of the IAM role.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs' s3_configuration: The S3 configuration. See `s3_configuration` block below for details.
+        :param str schema: The Snowflake schema name.
+        :param str table: The Snowflake table name.
+        :param str user: The user for authentication.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        :param str content_column_name: The name of the content column.
+        :param str data_loading_option: The data loading option.
+        :param str key_passphrase: The passphrase for the private key.
+        :param str metadata_column_name: The name of the metadata column.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs' processing_configuration: The processing configuration. See `processing_configuration` block below for details.
+        :param int retry_duration: After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        :param str s3_backup_mode: The S3 backup mode.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs' snowflake_role_configuration: The configuration for Snowflake role.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs' snowflake_vpc_configuration: The VPC configuration for Snowflake.
+        """
+        pulumi.set(__self__, "account_url", account_url)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "table", table)
+        pulumi.set(__self__, "user", user)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if content_column_name is not None:
+            pulumi.set(__self__, "content_column_name", content_column_name)
+        if data_loading_option is not None:
+            pulumi.set(__self__, "data_loading_option", data_loading_option)
+        if key_passphrase is not None:
+            pulumi.set(__self__, "key_passphrase", key_passphrase)
+        if metadata_column_name is not None:
+            pulumi.set(__self__, "metadata_column_name", metadata_column_name)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if retry_duration is not None:
+            pulumi.set(__self__, "retry_duration", retry_duration)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if snowflake_role_configuration is not None:
+            pulumi.set(__self__, "snowflake_role_configuration", snowflake_role_configuration)
+        if snowflake_vpc_configuration is not None:
+            pulumi.set(__self__, "snowflake_vpc_configuration", snowflake_vpc_configuration)
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> str:
+        """
+        The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
+        """
+        return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The Snowflake database name.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for authentication.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the IAM role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration':
+        """
+        The S3 configuration. See `s3_configuration` block below for details.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The Snowflake schema name.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def table(self) -> str:
+        """
+        The Snowflake table name.
+        """
+        return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        """
+        The user for authentication.
+        """
+        return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="contentColumnName")
+    def content_column_name(self) -> Optional[str]:
+        """
+        The name of the content column.
+        """
+        return pulumi.get(self, "content_column_name")
+
+    @property
+    @pulumi.getter(name="dataLoadingOption")
+    def data_loading_option(self) -> Optional[str]:
+        """
+        The data loading option.
+        """
+        return pulumi.get(self, "data_loading_option")
+
+    @property
+    @pulumi.getter(name="keyPassphrase")
+    def key_passphrase(self) -> Optional[str]:
+        """
+        The passphrase for the private key.
+        """
+        return pulumi.get(self, "key_passphrase")
+
+    @property
+    @pulumi.getter(name="metadataColumnName")
+    def metadata_column_name(self) -> Optional[str]:
+        """
+        The name of the metadata column.
+        """
+        return pulumi.get(self, "metadata_column_name")
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration']:
+        """
+        The processing configuration. See `processing_configuration` block below for details.
+        """
+        return pulumi.get(self, "processing_configuration")
+
+    @property
+    @pulumi.getter(name="retryDuration")
+    def retry_duration(self) -> Optional[int]:
+        """
+        After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        """
+        return pulumi.get(self, "retry_duration")
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional[str]:
+        """
+        The S3 backup mode.
+        """
+        return pulumi.get(self, "s3_backup_mode")
+
+    @property
+    @pulumi.getter(name="snowflakeRoleConfiguration")
+    def snowflake_role_configuration(self) -> Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration']:
+        """
+        The configuration for Snowflake role.
+        """
+        return pulumi.get(self, "snowflake_role_configuration")
+
+    @property
+    @pulumi.getter(name="snowflakeVpcConfiguration")
+    def snowflake_vpc_configuration(self) -> Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration']:
+        """
+        The VPC configuration for Snowflake.
+        """
+        return pulumi.get(self, "snowflake_vpc_configuration")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 processors: Optional[Sequence['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor']] = None):
+        """
+        :param bool enabled: Enables or disables data processing.
+        :param Sequence['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs'] processors: Specifies the data processors as multiple blocks. See `processors` block below for details.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables data processing.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[Sequence['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor']]:
+        """
+        Specifies the data processors as multiple blocks. See `processors` block below for details.
+        """
+        return pulumi.get(self, "processors")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter']] = None):
+        """
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param Sequence['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter']]:
+        """
+        Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: str,
+                 parameter_value: str):
+        """
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> str:
+        """
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> str:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 role_arn: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 compression_format: Optional[str] = None,
+                 error_output_prefix: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_arn: The ARN of the S3 bucket
+        :param str role_arn: The ARN of the AWS credentials.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        :param 'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param str prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if compression_format is not None:
+            pulumi.set(__self__, "compression_format", compression_format)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the AWS credentials.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="compressionFormat")
+    def compression_format(self) -> Optional[str]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
+        return pulumi.get(self, "compression_format")
+
+    @property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[str]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snowflakeRole":
+            suggest = "snowflake_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 snowflake_role: Optional[str] = None):
+        """
+        :param bool enabled: Whether the Snowflake role is enabled.
+        :param str snowflake_role: The Snowflake role.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if snowflake_role is not None:
+            pulumi.set(__self__, "snowflake_role", snowflake_role)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the Snowflake role is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="snowflakeRole")
+    def snowflake_role(self) -> Optional[str]:
+        """
+        The Snowflake role.
+        """
+        return pulumi.get(self, "snowflake_role")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkVpceId":
+            suggest = "private_link_vpce_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link_vpce_id: str):
+        """
+        :param str private_link_vpce_id: The VPCE ID for Firehose to privately connect with Snowflake.
+        """
+        pulumi.set(__self__, "private_link_vpce_id", private_link_vpce_id)
+
+    @property
+    @pulumi.getter(name="privateLinkVpceId")
+    def private_link_vpce_id(self) -> str:
+        """
+        The VPCE ID for Firehose to privately connect with Snowflake.
+        """
+        return pulumi.get(self, "private_link_vpce_id")
 
 
 @pulumi.output_type

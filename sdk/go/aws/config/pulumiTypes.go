@@ -739,6 +739,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Route53domains *string `pulumi:"route53domains"`
 	// Use this to override the default service endpoint URL
+	Route53profiles *string `pulumi:"route53profiles"`
+	// Use this to override the default service endpoint URL
 	Route53recoverycontrolconfig *string `pulumi:"route53recoverycontrolconfig"`
 	// Use this to override the default service endpoint URL
 	Route53recoveryreadiness *string `pulumi:"route53recoveryreadiness"`
@@ -1308,6 +1310,8 @@ type EndpointsArgs struct {
 	Route53 pulumi.StringPtrInput `pulumi:"route53"`
 	// Use this to override the default service endpoint URL
 	Route53domains pulumi.StringPtrInput `pulumi:"route53domains"`
+	// Use this to override the default service endpoint URL
+	Route53profiles pulumi.StringPtrInput `pulumi:"route53profiles"`
 	// Use this to override the default service endpoint URL
 	Route53recoverycontrolconfig pulumi.StringPtrInput `pulumi:"route53recoverycontrolconfig"`
 	// Use this to override the default service endpoint URL
@@ -2587,6 +2591,11 @@ func (o EndpointsOutput) Route53() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53domains() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53domains }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Route53profiles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Route53profiles }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

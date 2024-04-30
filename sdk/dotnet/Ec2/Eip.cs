@@ -174,6 +174,9 @@ namespace Pulumi.Aws.Ec2
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
@@ -427,6 +430,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
+
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.

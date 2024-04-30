@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws.batch as __batch
     batch = __batch
+    import pulumi_aws.bcmdata as __bcmdata
+    bcmdata = __bcmdata
     import pulumi_aws.bedrock as __bedrock
     bedrock = __bedrock
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
@@ -454,6 +456,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
+    bcmdata = _utilities.lazy_import('pulumi_aws.bcmdata')
     bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
@@ -1811,6 +1814,46 @@ _utilities.register(
   "fqn": "pulumi_aws.batch",
   "classes": {
    "aws:batch/schedulingPolicy:SchedulingPolicy": "SchedulingPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bcmdata/export",
+  "fqn": "pulumi_aws.bcmdata",
+  "classes": {
+   "aws:bcmdata/export:Export": "Export"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentAgent",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentAgent:AgentAgent": "AgentAgent"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentAgentActionGroup",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup": "AgentAgentActionGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentAgentAlias",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentAgentAlias:AgentAgentAlias": "AgentAgentAlias"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentKnowledgeBase",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase": "AgentKnowledgeBase"
   }
  },
  {
@@ -5579,6 +5622,14 @@ _utilities.register(
   "fqn": "pulumi_aws.globalaccelerator",
   "classes": {
    "aws:globalaccelerator/accelerator:Accelerator": "Accelerator"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/crossAccountAttachment",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment": "CrossAccountAttachment"
   }
  },
  {
@@ -11083,6 +11134,14 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/policy",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/policy:Policy": "Policy"
   }
  },
  {

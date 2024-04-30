@@ -571,6 +571,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Whether to enable encryption in transit.
+     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
     @Import(name="transitEncryptionEnabled")
@@ -578,10 +580,33 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Whether to enable encryption in transit.
+     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
     public Optional<Output<Boolean>> transitEncryptionEnabled() {
         return Optional.ofNullable(this.transitEncryptionEnabled);
+    }
+
+    /**
+     * A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     * 
+     */
+    @Import(name="transitEncryptionMode")
+    private @Nullable Output<String> transitEncryptionMode;
+
+    /**
+     * @return A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     * 
+     */
+    public Optional<Output<String>> transitEncryptionMode() {
+        return Optional.ofNullable(this.transitEncryptionMode);
     }
 
     /**
@@ -638,6 +663,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         this.subnetGroupName = $.subnetGroupName;
         this.tags = $.tags;
         this.transitEncryptionEnabled = $.transitEncryptionEnabled;
+        this.transitEncryptionMode = $.transitEncryptionMode;
         this.userGroupIds = $.userGroupIds;
     }
 
@@ -1470,6 +1496,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param transitEncryptionEnabled Whether to enable encryption in transit.
+         * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+         * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
          * 
          * @return builder
          * 
@@ -1481,12 +1509,41 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param transitEncryptionEnabled Whether to enable encryption in transit.
+         * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+         * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
          * 
          * @return builder
          * 
          */
         public Builder transitEncryptionEnabled(Boolean transitEncryptionEnabled) {
             return transitEncryptionEnabled(Output.of(transitEncryptionEnabled));
+        }
+
+        /**
+         * @param transitEncryptionMode A setting that enables clients to migrate to in-transit encryption with no downtime.
+         * Valid values are `preferred` and `required`.
+         * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+         * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionMode(@Nullable Output<String> transitEncryptionMode) {
+            $.transitEncryptionMode = transitEncryptionMode;
+            return this;
+        }
+
+        /**
+         * @param transitEncryptionMode A setting that enables clients to migrate to in-transit encryption with no downtime.
+         * Valid values are `preferred` and `required`.
+         * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+         * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionMode(String transitEncryptionMode) {
+            return transitEncryptionMode(Output.of(transitEncryptionMode));
         }
 
         /**

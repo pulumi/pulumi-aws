@@ -13,16 +13,16 @@ namespace Pulumi.Aws.MemoryDb.Inputs
     public sealed class UserAuthenticationModeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of passwords belonging to the user.
+        /// Number of passwords belonging to the user if `type` is set to `password`.
         /// </summary>
         [Input("passwordCount")]
         public Input<int>? PasswordCount { get; set; }
 
-        [Input("passwords", required: true)]
+        [Input("passwords")]
         private InputList<string>? _passwords;
 
         /// <summary>
-        /// The set of passwords used for authentication. You can create up to two passwords for each user.
+        /// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
         /// </summary>
         public InputList<string> Passwords
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         }
 
         /// <summary>
-        /// Indicates whether the user requires a password to authenticate. Must be set to `password`.
+        /// Specifies the authentication type. Valid values are: `password` or `iam`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

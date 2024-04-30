@@ -256,6 +256,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
+     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     */
+    public readonly sftpAuthenticationMethods!: pulumi.Output<string>;
+    /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */
     public readonly structuredLogDestinations!: pulumi.Output<string[] | undefined>;
@@ -311,6 +315,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocols"] = state ? state.protocols : undefined;
             resourceInputs["s3StorageOptions"] = state ? state.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
+            resourceInputs["sftpAuthenticationMethods"] = state ? state.sftpAuthenticationMethods : undefined;
             resourceInputs["structuredLogDestinations"] = state ? state.structuredLogDestinations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -335,6 +340,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["s3StorageOptions"] = args ? args.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["sftpAuthenticationMethods"] = args ? args.sftpAuthenticationMethods : undefined;
             resourceInputs["structuredLogDestinations"] = args ? args.structuredLogDestinations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
@@ -446,6 +452,10 @@ export interface ServerState {
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
+     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     */
+    sftpAuthenticationMethods?: pulumi.Input<string>;
+    /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */
     structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
@@ -551,6 +561,10 @@ export interface ServerArgs {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     securityPolicyName?: pulumi.Input<string>;
+    /**
+     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     */
+    sftpAuthenticationMethods?: pulumi.Input<string>;
     /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */

@@ -488,6 +488,8 @@ type Instance struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+	DedicatedLogVolume pulumi.BoolPtrOutput `pulumi:"dedicatedLogVolume"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -769,6 +771,8 @@ type instanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica constraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1011,6 +1015,8 @@ type InstanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+	DedicatedLogVolume pulumi.BoolPtrInput
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1253,6 +1259,8 @@ type instanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica constraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1471,6 +1479,8 @@ type InstanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+	DedicatedLogVolume pulumi.BoolPtrInput
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1830,6 +1840,11 @@ func (o InstanceOutput) DbName() pulumi.StringOutput {
 // for additional read replica constraints.
 func (o InstanceOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+}
+
+// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+func (o InstanceOutput) DedicatedLogVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.DedicatedLogVolume }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.

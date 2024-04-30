@@ -461,6 +461,7 @@ class Endpoints(dict):
                  rolesanywhere: Optional[str] = None,
                  route53: Optional[str] = None,
                  route53domains: Optional[str] = None,
+                 route53profiles: Optional[str] = None,
                  route53recoverycontrolconfig: Optional[str] = None,
                  route53recoveryreadiness: Optional[str] = None,
                  route53resolver: Optional[str] = None,
@@ -740,6 +741,7 @@ class Endpoints(dict):
         :param str rolesanywhere: Use this to override the default service endpoint URL
         :param str route53: Use this to override the default service endpoint URL
         :param str route53domains: Use this to override the default service endpoint URL
+        :param str route53profiles: Use this to override the default service endpoint URL
         :param str route53recoverycontrolconfig: Use this to override the default service endpoint URL
         :param str route53recoveryreadiness: Use this to override the default service endpoint URL
         :param str route53resolver: Use this to override the default service endpoint URL
@@ -1243,6 +1245,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "route53", route53)
         if route53domains is not None:
             pulumi.set(__self__, "route53domains", route53domains)
+        if route53profiles is not None:
+            pulumi.set(__self__, "route53profiles", route53profiles)
         if route53recoverycontrolconfig is not None:
             pulumi.set(__self__, "route53recoverycontrolconfig", route53recoverycontrolconfig)
         if route53recoveryreadiness is not None:
@@ -3143,6 +3147,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "route53domains")
+
+    @property
+    @pulumi.getter
+    def route53profiles(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "route53profiles")
 
     @property
     @pulumi.getter

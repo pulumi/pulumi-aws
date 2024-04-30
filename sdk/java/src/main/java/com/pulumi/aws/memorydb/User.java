@@ -80,28 +80,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      * 
      */
     @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
     /**
-     * @return The access permissions string used for this user.
+     * @return Access permissions string used for this user.
      * 
      */
     public Output<String> accessString() {
         return this.accessString;
     }
     /**
-     * The ARN of the user.
+     * ARN of the user.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the user.
+     * @return ARN of the user.
      * 
      */
     public Output<String> arn() {
@@ -122,14 +122,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.authenticationMode;
     }
     /**
-     * The minimum engine version supported for the user.
+     * Minimum engine version supported for the user.
      * 
      */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> minimumEngineVersion;
 
     /**
-     * @return The minimum engine version supported for the user.
+     * @return Minimum engine version supported for the user.
      * 
      */
     public Output<String> minimumEngineVersion() {

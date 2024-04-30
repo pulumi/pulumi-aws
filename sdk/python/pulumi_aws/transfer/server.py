@@ -33,6 +33,7 @@ class ServerArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,7 @@ class ServerArgs:
                * `TransferSecurityPolicy-FIPS-2020-06`
                * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
                * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+        :param pulumi.Input[str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -105,6 +107,8 @@ class ServerArgs:
             pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
+        if sftp_authentication_methods is not None:
+            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
         if structured_log_destinations is not None:
             pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
@@ -329,6 +333,18 @@ class ServerArgs:
         pulumi.set(self, "security_policy_name", value)
 
     @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        """
+        return pulumi.get(self, "sftp_authentication_methods")
+
+    @sftp_authentication_methods.setter
+    def sftp_authentication_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sftp_authentication_methods", value)
+
+    @property
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -400,6 +416,7 @@ class _ServerState:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -437,6 +454,7 @@ class _ServerState:
                * `TransferSecurityPolicy-FIPS-2020-06`
                * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
                * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+        :param pulumi.Input[str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -483,6 +501,8 @@ class _ServerState:
             pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
+        if sftp_authentication_methods is not None:
+            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
         if structured_log_destinations is not None:
             pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
@@ -748,6 +768,18 @@ class _ServerState:
         pulumi.set(self, "security_policy_name", value)
 
     @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        """
+        return pulumi.get(self, "sftp_authentication_methods")
+
+    @sftp_authentication_methods.setter
+    def sftp_authentication_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sftp_authentication_methods", value)
+
+    @property
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -833,6 +865,7 @@ class Server(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -989,6 +1022,7 @@ class Server(pulumi.CustomResource):
                * `TransferSecurityPolicy-FIPS-2020-06`
                * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
                * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+        :param pulumi.Input[str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -1154,6 +1188,7 @@ class Server(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -1184,6 +1219,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["s3_storage_options"] = s3_storage_options
             __props__.__dict__["security_policy_name"] = security_policy_name
+            __props__.__dict__["sftp_authentication_methods"] = sftp_authentication_methods
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
@@ -1224,6 +1260,7 @@ class Server(pulumi.CustomResource):
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
             security_policy_name: Optional[pulumi.Input[str]] = None,
+            sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1266,6 +1303,7 @@ class Server(pulumi.CustomResource):
                * `TransferSecurityPolicy-FIPS-2020-06`
                * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
                * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+        :param pulumi.Input[str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1296,6 +1334,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["protocols"] = protocols
         __props__.__dict__["s3_storage_options"] = s3_storage_options
         __props__.__dict__["security_policy_name"] = security_policy_name
+        __props__.__dict__["sftp_authentication_methods"] = sftp_authentication_methods
         __props__.__dict__["structured_log_destinations"] = structured_log_destinations
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1472,6 +1511,14 @@ class Server(pulumi.CustomResource):
         * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         """
         return pulumi.get(self, "security_policy_name")
+
+    @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> pulumi.Output[str]:
+        """
+        For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        """
+        return pulumi.get(self, "sftp_authentication_methods")
 
     @property
     @pulumi.getter(name="structuredLogDestinations")

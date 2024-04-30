@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgentAgentArgs, AgentAgentState } from "./agentAgent";
+export type AgentAgent = import("./agentAgent").AgentAgent;
+export const AgentAgent: typeof import("./agentAgent").AgentAgent = null as any;
+utilities.lazyLoad(exports, ["AgentAgent"], () => require("./agentAgent"));
+
+export { AgentAgentActionGroupArgs, AgentAgentActionGroupState } from "./agentAgentActionGroup";
+export type AgentAgentActionGroup = import("./agentAgentActionGroup").AgentAgentActionGroup;
+export const AgentAgentActionGroup: typeof import("./agentAgentActionGroup").AgentAgentActionGroup = null as any;
+utilities.lazyLoad(exports, ["AgentAgentActionGroup"], () => require("./agentAgentActionGroup"));
+
+export { AgentAgentAliasArgs, AgentAgentAliasState } from "./agentAgentAlias";
+export type AgentAgentAlias = import("./agentAgentAlias").AgentAgentAlias;
+export const AgentAgentAlias: typeof import("./agentAgentAlias").AgentAgentAlias = null as any;
+utilities.lazyLoad(exports, ["AgentAgentAlias"], () => require("./agentAgentAlias"));
+
+export { AgentKnowledgeBaseArgs, AgentKnowledgeBaseState } from "./agentKnowledgeBase";
+export type AgentKnowledgeBase = import("./agentKnowledgeBase").AgentKnowledgeBase;
+export const AgentKnowledgeBase: typeof import("./agentKnowledgeBase").AgentKnowledgeBase = null as any;
+utilities.lazyLoad(exports, ["AgentKnowledgeBase"], () => require("./agentKnowledgeBase"));
+
 export { CustomModelArgs, CustomModelState } from "./customModel";
 export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
@@ -30,6 +50,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:bedrock/agentAgent:AgentAgent":
+                return new AgentAgent(name, <any>undefined, { urn })
+            case "aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup":
+                return new AgentAgentActionGroup(name, <any>undefined, { urn })
+            case "aws:bedrock/agentAgentAlias:AgentAgentAlias":
+                return new AgentAgentAlias(name, <any>undefined, { urn })
+            case "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase":
+                return new AgentKnowledgeBase(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
             case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
@@ -39,5 +67,9 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgent", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentActionGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentAlias", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

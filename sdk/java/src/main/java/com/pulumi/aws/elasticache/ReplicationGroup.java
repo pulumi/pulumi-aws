@@ -988,6 +988,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to enable encryption in transit.
+     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -995,10 +997,32 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to enable encryption in transit.
+     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
     public Output<Boolean> transitEncryptionEnabled() {
         return this.transitEncryptionEnabled;
+    }
+    /**
+     * A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     * 
+     */
+    @Export(name="transitEncryptionMode", refs={String.class}, tree="[0]")
+    private Output<String> transitEncryptionMode;
+
+    /**
+     * @return A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     * 
+     */
+    public Output<String> transitEncryptionMode() {
+        return this.transitEncryptionMode;
     }
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.

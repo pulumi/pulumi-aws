@@ -15,6 +15,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurat
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamServerSideEncryption;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -26,7 +27,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
+ * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
  * 
  * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
  * 
@@ -907,6 +908,58 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Snowflake Destination
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleSnowflakeDestination = new FirehoseDeliveryStream(&#34;exampleSnowflakeDestination&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;example-snowflake-destination&#34;)
+ *             .destination(&#34;snowflake&#34;)
+ *             .snowflakeConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationArgs.builder()
+ *                 .accountUrl(&#34;https://example.snowflakecomputing.com&#34;)
+ *                 .database(&#34;example-db&#34;)
+ *                 .privateKey(&#34;...&#34;)
+ *                 .roleArn(firehose.arn())
+ *                 .schema(&#34;example-schema&#34;)
+ *                 .table(&#34;example-table&#34;)
+ *                 .user(&#34;example-usr&#34;)
+ *                 .s3Configuration(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs.builder()
+ *                     .roleArn(firehose.arn())
+ *                     .bucketArn(bucket.arn())
+ *                     .bufferingSize(10)
+ *                     .bufferingInterval(400)
+ *                     .compressionFormat(&#34;GZIP&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
@@ -934,14 +987,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     public Output<String> destination() {
@@ -1096,6 +1149,20 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<FirehoseDeliveryStreamServerSideEncryption>> serverSideEncryption() {
         return Codegen.optional(this.serverSideEncryption);
+    }
+    /**
+     * Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+     * 
+     */
+    @Export(name="snowflakeConfiguration", refs={FirehoseDeliveryStreamSnowflakeConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirehoseDeliveryStreamSnowflakeConfiguration> snowflakeConfiguration;
+
+    /**
+     * @return Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+     * 
+     */
+    public Output<Optional<FirehoseDeliveryStreamSnowflakeConfiguration>> snowflakeConfiguration() {
+        return Codegen.optional(this.snowflakeConfiguration);
     }
     /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.

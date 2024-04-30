@@ -314,8 +314,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> ArnPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("containerProperties")]
         public Output<string?> ContainerProperties { get; private set; } = null!;
@@ -339,8 +338,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Output("nodeProperties")]
         public Output<string?> NodeProperties { get; private set; } = null!;
@@ -364,8 +362,7 @@ namespace Pulumi.Aws.Batch
         public Output<bool?> PropagateTags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-        /// Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
@@ -455,8 +452,7 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
@@ -480,8 +476,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -517,8 +512,7 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-        /// Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
@@ -576,8 +570,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? ArnPrefix { get; set; }
 
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
@@ -601,8 +594,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -638,8 +630,7 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-        /// Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyGetArgs>? RetryStrategy { get; set; }
