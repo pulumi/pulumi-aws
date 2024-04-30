@@ -50,8 +50,6 @@ jobs:
     - id: run-url
       name: Create URL to the run output
       run:  echo "run-url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> "$GITHUB_OUTPUT"
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v5
       with:
