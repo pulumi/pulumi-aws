@@ -7,12 +7,17 @@ PROVIDER_PATH := provider/v6
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 TFGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
-VERSION := $(shell pulumictl get version)
 JAVA_GEN := pulumi-java-gen
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
 PULUMI_CONVERT := 1
+
+# Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
+# Local & branch builds will just used this fixed default version unless specified
+PROVIDER_VERSION ?= 6.0.0-alpha.0+dev
+# Use this normalised version everywhere rather than the raw input to ensure consistency.
+VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 
 development: install_plugins provider build_sdks install_sdks
 
@@ -30,16 +35,15 @@ install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_j
 
 only_build: build
 
-build_dotnet: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet: DOTNET_VERSION := $(shell pulumictl convert-version --language dotnet -v "$(VERSION_GENERIC)")
 build_dotnet: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_dotnet: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_dotnet: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 build_dotnet: upstream
-	pulumictl get version --language dotnet
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
-		echo "$(DOTNET_VERSION)" >version.txt && \
+		echo "$(VERSION_GENERIC)" >version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 
 build_go: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
@@ -49,7 +53,7 @@ build_go: upstream
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) go --out sdk/go/
 	cd sdk && go list "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..." | xargs -I {} bash -c 'go build {} && go clean -i {}'
 
-build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java: PACKAGE_VERSION := $(VERSION_GENERIC)
 build_java: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_java: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_java: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
@@ -60,7 +64,7 @@ build_java: bin/pulumi-java-gen upstream
 		gradle --console=plain build && \
 		gradle --console=plain javadoc
 
-build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_nodejs: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_nodejs: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
@@ -71,9 +75,9 @@ build_nodejs: upstream
 		yarn install && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE* package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+		sed -i.bak -e "s/\$${VERSION}/$(NODE_VERSION)/g" ./bin/package.json
 
-build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python: PYPI_VERSION := $(shell pulumictl convert-version --language python -v "$(VERSION_GENERIC)")
 build_python: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_python: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 build_python: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
@@ -134,7 +138,7 @@ lint_provider.fix:
 # `cmd/pulumi-resource-aws/schema.json` is valid and up to date.
 # To create a release ready binary, you should use `make provider`.
 provider_no_deps:
-	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
+	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION_GENERIC) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION_GENERIC)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
 
 provider: tfgen provider_no_deps
 
@@ -157,10 +161,10 @@ tfgen_no_deps: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulum
 tfgen_no_deps: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 tfgen_no_deps: tfgen_build_only
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
-	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
+	(cd provider && VERSION=$(VERSION_GENERIC) go generate cmd/$(PROVIDER)/main.go)
 
 tfgen_build_only:
-	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
+	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION_GENERIC)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 
 upstream:
 ifneq ("$(wildcard upstream)","")
