@@ -1247,6 +1247,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
+			// BCM
+			"aws_bcmdataexports_export": {
+				Tok: awsResource(bcmDataMod, "Export"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"export": {
+						CSharpName: "ExportDetails",
+					},
+				},
+			},
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
 			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
