@@ -101,6 +101,9 @@ func replay(t *testing.T, sequence string) {
 //
 // The second test is when upgrading from pulumi-aws version <5.0.0 to v6.x.x, and
 // prevents regressions on https://github.com/pulumi/pulumi-aws/issues/2823.
+//
+// Updated in https://github.com/pulumi/pulumi-aws/pull/3881 to accept CHANGES_SOME so long as they are not
+// replacements.
 func TestMigrateRdsInstance(t *testing.T) {
 	replay(t, `[
   {
@@ -237,7 +240,7 @@ func TestMigrateRdsInstance(t *testing.T) {
     },
     "response": {
       "stables": "*",
-      "changes": "DIFF_NONE",
+      "changes": "*",
       "hasDetailedDiff": true
     },
     "metadata": {
@@ -376,7 +379,7 @@ func TestMigrateRdsInstance(t *testing.T) {
     },
     "response": {
       "stables": "*",
-      "changes": "DIFF_NONE",
+      "changes": "*",
       "hasDetailedDiff": true
     },
     "metadata": {
