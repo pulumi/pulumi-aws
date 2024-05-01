@@ -340,6 +340,8 @@ type Server struct {
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
+	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+	SftpAuthenticationMethods pulumi.StringOutput `pulumi:"sftpAuthenticationMethods"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayOutput `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -449,6 +451,8 @@ type serverState struct {
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
+	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+	SftpAuthenticationMethods *string `pulumi:"sftpAuthenticationMethods"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -514,6 +518,8 @@ type ServerState struct {
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrInput
+	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+	SftpAuthenticationMethods pulumi.StringPtrInput
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -577,6 +583,8 @@ type serverArgs struct {
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
+	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+	SftpAuthenticationMethods *string `pulumi:"sftpAuthenticationMethods"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -633,6 +641,8 @@ type ServerArgs struct {
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrInput
+	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+	SftpAuthenticationMethods pulumi.StringPtrInput
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -838,6 +848,11 @@ func (o ServerOutput) S3StorageOptions() ServerS3StorageOptionsOutput {
 // * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+func (o ServerOutput) SftpAuthenticationMethods() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.SftpAuthenticationMethods }).(pulumi.StringOutput)
 }
 
 // A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.

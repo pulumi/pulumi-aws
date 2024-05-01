@@ -537,9 +537,20 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A setting that enables clients to migrate to in-transit encryption with no downtime.
+        /// Valid values are `preferred` and `required`.
+        /// When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        /// See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        /// </summary>
+        [Output("transitEncryptionMode")]
+        public Output<string> TransitEncryptionMode { get; private set; } = null!;
 
         /// <summary>
         /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
@@ -867,9 +878,20 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// A setting that enables clients to migrate to in-transit encryption with no downtime.
+        /// Valid values are `preferred` and `required`.
+        /// When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        /// See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        /// </summary>
+        [Input("transitEncryptionMode")]
+        public Input<string>? TransitEncryptionMode { get; set; }
 
         [Input("userGroupIds")]
         private InputList<string>? _userGroupIds;
@@ -1222,9 +1244,20 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// A setting that enables clients to migrate to in-transit encryption with no downtime.
+        /// Valid values are `preferred` and `required`.
+        /// When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        /// See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        /// </summary>
+        [Input("transitEncryptionMode")]
+        public Input<string>? TransitEncryptionMode { get; set; }
 
         [Input("userGroupIds")]
         private InputList<string>? _userGroupIds;

@@ -67,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the subnet group.
+        /// Map of tags assigned to the user.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the subnet group.
+        /// Map of tags assigned to the user.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -134,11 +134,11 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The minimum engine version supported for the user.
+        /// Minimum engine version supported for the user.
         /// </summary>
         public readonly string MinimumEngineVersion;
         /// <summary>
-        /// Map of tags assigned to the subnet group.
+        /// Map of tags assigned to the user.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserName;

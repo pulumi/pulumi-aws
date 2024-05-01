@@ -92,14 +92,14 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -313,7 +313,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
          * 
          * @return builder
          * 

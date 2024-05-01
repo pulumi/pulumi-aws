@@ -51,6 +51,7 @@ __all__ = [
     'GatewayRouteSpecHttpRouteMatchQueryParameterMatch',
     'MeshSpec',
     'MeshSpecEgressFilter',
+    'MeshSpecServiceDiscovery',
     'RouteSpec',
     'RouteSpecGrpcRoute',
     'RouteSpecGrpcRouteAction',
@@ -254,6 +255,7 @@ __all__ = [
     'GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult',
     'GetMeshSpecResult',
     'GetMeshSpecEgressFilterResult',
+    'GetMeshSpecServiceDiscoveryResult',
     'GetRouteSpecResult',
     'GetRouteSpecGrpcRouteResult',
     'GetRouteSpecGrpcRouteActionResult',
@@ -1938,6 +1940,8 @@ class MeshSpec(dict):
         suggest = None
         if key == "egressFilter":
             suggest = "egress_filter"
+        elif key == "serviceDiscovery":
+            suggest = "service_discovery"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MeshSpec. Access the value via the '{suggest}' property getter instead.")
@@ -1951,12 +1955,16 @@ class MeshSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None):
+                 egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None,
+                 service_discovery: Optional['outputs.MeshSpecServiceDiscovery'] = None):
         """
         :param 'MeshSpecEgressFilterArgs' egress_filter: Egress filter rules for the service mesh.
+        :param 'MeshSpecServiceDiscoveryArgs' service_discovery: The service discovery information for the service mesh.
         """
         if egress_filter is not None:
             pulumi.set(__self__, "egress_filter", egress_filter)
+        if service_discovery is not None:
+            pulumi.set(__self__, "service_discovery", service_discovery)
 
     @property
     @pulumi.getter(name="egressFilter")
@@ -1966,26 +1974,56 @@ class MeshSpec(dict):
         """
         return pulumi.get(self, "egress_filter")
 
+    @property
+    @pulumi.getter(name="serviceDiscovery")
+    def service_discovery(self) -> Optional['outputs.MeshSpecServiceDiscovery']:
+        """
+        The service discovery information for the service mesh.
+        """
+        return pulumi.get(self, "service_discovery")
+
 
 @pulumi.output_type
 class MeshSpecEgressFilter(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
-        """
-        :param str type: Egress filter type. By default, the type is `DROP_ALL`.
-               Valid values are `ALLOW_ALL` and `DROP_ALL`.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Egress filter type. By default, the type is `DROP_ALL`.
-        Valid values are `ALLOW_ALL` and `DROP_ALL`.
-        """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MeshSpecServiceDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipPreference":
+            suggest = "ip_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshSpecServiceDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshSpecServiceDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshSpecServiceDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_preference: Optional[str] = None):
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[str]:
+        return pulumi.get(self, "ip_preference")
 
 
 @pulumi.output_type
@@ -9516,13 +9554,20 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
 @pulumi.output_type
 class GetMeshSpecResult(dict):
     def __init__(__self__, *,
-                 egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
+                 egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult'],
+                 service_discoveries: Sequence['outputs.GetMeshSpecServiceDiscoveryResult']):
         pulumi.set(__self__, "egress_filters", egress_filters)
+        pulumi.set(__self__, "service_discoveries", service_discoveries)
 
     @property
     @pulumi.getter(name="egressFilters")
     def egress_filters(self) -> Sequence['outputs.GetMeshSpecEgressFilterResult']:
         return pulumi.get(self, "egress_filters")
+
+    @property
+    @pulumi.getter(name="serviceDiscoveries")
+    def service_discoveries(self) -> Sequence['outputs.GetMeshSpecServiceDiscoveryResult']:
+        return pulumi.get(self, "service_discoveries")
 
 
 @pulumi.output_type
@@ -9535,6 +9580,18 @@ class GetMeshSpecEgressFilterResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetMeshSpecServiceDiscoveryResult(dict):
+    def __init__(__self__, *,
+                 ip_preference: str):
+        pulumi.set(__self__, "ip_preference", ip_preference)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> str:
+        return pulumi.get(self, "ip_preference")
 
 
 @pulumi.output_type

@@ -34,12 +34,12 @@ public final class GetUserResult {
      */
     private String id;
     /**
-     * @return The minimum engine version supported for the user.
+     * @return Minimum engine version supported for the user.
      * 
      */
     private String minimumEngineVersion;
     /**
-     * @return Map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the user.
      * 
      */
     private Map<String,String> tags;
@@ -75,14 +75,14 @@ public final class GetUserResult {
         return this.id;
     }
     /**
-     * @return The minimum engine version supported for the user.
+     * @return Minimum engine version supported for the user.
      * 
      */
     public String minimumEngineVersion() {
         return this.minimumEngineVersion;
     }
     /**
-     * @return Map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the user.
      * 
      */
     public Map<String,String> tags() {

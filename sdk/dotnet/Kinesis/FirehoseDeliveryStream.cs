@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis
 {
     /// <summary>
-    /// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
+    /// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
     /// 
     /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
     /// 
@@ -839,6 +839,43 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// 
+    /// ### Snowflake Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleSnowflakeDestination = new Aws.Kinesis.FirehoseDeliveryStream("example_snowflake_destination", new()
+    ///     {
+    ///         Name = "example-snowflake-destination",
+    ///         Destination = "snowflake",
+    ///         SnowflakeConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs
+    ///         {
+    ///             AccountUrl = "https://example.snowflakecomputing.com",
+    ///             Database = "example-db",
+    ///             PrivateKey = "...",
+    ///             RoleArn = firehose.Arn,
+    ///             Schema = "example-schema",
+    ///             Table = "example-table",
+    ///             User = "example-usr",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehose.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
@@ -858,7 +895,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -927,6 +964,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// </summary>
+        [Output("snowflakeConfiguration")]
+        public Output<Outputs.FirehoseDeliveryStreamSnowflakeConfiguration?> SnowflakeConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
@@ -1002,7 +1045,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -1073,6 +1116,12 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
 
         /// <summary>
+        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// </summary>
+        [Input("snowflakeConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs>? SnowflakeConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         /// </summary>
         [Input("splunkConfiguration")]
@@ -1108,7 +1157,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -1177,6 +1226,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
+
+        /// <summary>
+        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// </summary>
+        [Input("snowflakeConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationGetArgs>? SnowflakeConfiguration { get; set; }
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.

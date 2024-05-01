@@ -410,6 +410,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
+     * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     */
+    public readonly dedicatedLogVolume!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      */
     public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
@@ -734,6 +738,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpEnabled"] = state ? state.customerOwnedIpEnabled : undefined;
             resourceInputs["dbName"] = state ? state.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            resourceInputs["dedicatedLogVolume"] = state ? state.dedicatedLogVolume : undefined;
             resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
@@ -815,6 +820,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpEnabled"] = args ? args.customerOwnedIpEnabled : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            resourceInputs["dedicatedLogVolume"] = args ? args.dedicatedLogVolume : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
@@ -989,6 +995,10 @@ export interface InstanceState {
      * for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     */
+    dedicatedLogVolume?: pulumi.Input<boolean>;
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      */
@@ -1380,6 +1390,10 @@ export interface InstanceArgs {
      * for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     */
+    dedicatedLogVolume?: pulumi.Input<boolean>;
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      */

@@ -61,13 +61,13 @@ namespace Pulumi.Aws.MemoryDb
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The access permissions string used for this user.
+        /// Access permissions string used for this user.
         /// </summary>
         [Output("accessString")]
         public Output<string> AccessString { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the user.
+        /// ARN of the user.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum engine version supported for the user.
+        /// Minimum engine version supported for the user.
         /// </summary>
         [Output("minimumEngineVersion")]
         public Output<string> MinimumEngineVersion { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access permissions string used for this user.
+        /// Access permissions string used for this user.
         /// </summary>
         [Input("accessString", required: true)]
         public Input<string> AccessString { get; set; } = null!;
@@ -191,13 +191,13 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access permissions string used for this user.
+        /// Access permissions string used for this user.
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
         /// <summary>
-        /// The ARN of the user.
+        /// ARN of the user.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// The minimum engine version supported for the user.
+        /// Minimum engine version supported for the user.
         /// </summary>
         [Input("minimumEngineVersion")]
         public Input<string>? MinimumEngineVersion { get; set; }

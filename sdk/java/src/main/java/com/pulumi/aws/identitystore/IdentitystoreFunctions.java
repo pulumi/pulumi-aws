@@ -6,9 +6,12 @@ package com.pulumi.aws.identitystore;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
 import com.pulumi.aws.identitystore.inputs.GetGroupPlainArgs;
+import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
+import com.pulumi.aws.identitystore.inputs.GetGroupsPlainArgs;
 import com.pulumi.aws.identitystore.inputs.GetUserArgs;
 import com.pulumi.aws.identitystore.inputs.GetUserPlainArgs;
 import com.pulumi.aws.identitystore.outputs.GetGroupResult;
+import com.pulumi.aws.identitystore.outputs.GetGroupsResult;
 import com.pulumi.aws.identitystore.outputs.GetUserResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -44,6 +47,186 @@ public final class IdentitystoreFunctions {
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:identitystore/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SSO Identity Store Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(GetGroupsArgs args) {
+        return getGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SSO Identity Store Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args) {
+        return getGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SSO Identity Store Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(GetGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:identitystore/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SSO Identity Store Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:identitystore/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get an Identity Store User.

@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'AcceleratorAttributes',
     'AcceleratorIpSet',
+    'CrossAccountAttachmentResource',
     'CustomRoutingAcceleratorAttributes',
     'CustomRoutingAcceleratorIpSet',
     'CustomRoutingEndpointGroupDestinationConfiguration',
@@ -138,6 +139,54 @@ class AcceleratorIpSet(dict):
         The type of IP addresses included in this IP set.
         """
         return pulumi.get(self, "ip_family")
+
+
+@pulumi.output_type
+class CrossAccountAttachmentResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointId":
+            suggest = "endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrossAccountAttachmentResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrossAccountAttachmentResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrossAccountAttachmentResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_id: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        :param str endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
+        :param str region: The AWS Region where a shared endpoint resource is located.
+        """
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> Optional[str]:
+        """
+        The endpoint ID for the endpoint that is specified as a AWS resource.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The AWS Region where a shared endpoint resource is located.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

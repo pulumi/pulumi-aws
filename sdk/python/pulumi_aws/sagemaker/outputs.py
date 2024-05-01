@@ -11,8 +11,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AppImageConfigCodeEditorAppImageConfig',
+    'AppImageConfigCodeEditorAppImageConfigContainerConfig',
+    'AppImageConfigCodeEditorAppImageConfigFileSystemConfig',
     'AppImageConfigJupyterLabImageConfig',
     'AppImageConfigJupyterLabImageConfigContainerConfig',
+    'AppImageConfigJupyterLabImageConfigFileSystemConfig',
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelGatewayImageConfigFileSystemConfig',
     'AppImageConfigKernelGatewayImageConfigKernelSpec',
@@ -201,12 +205,196 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AppImageConfigCodeEditorAppImageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerConfig":
+            suggest = "container_config"
+        elif key == "fileSystemConfig":
+            suggest = "file_system_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigCodeEditorAppImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigCodeEditorAppImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigCodeEditorAppImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_config: Optional['outputs.AppImageConfigCodeEditorAppImageConfigContainerConfig'] = None,
+                 file_system_config: Optional['outputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfig'] = None):
+        """
+        :param 'AppImageConfigCodeEditorAppImageConfigContainerConfigArgs' container_config: The configuration used to run the application image container. See Container Config details below.
+        :param 'AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs' file_system_config: The URL where the Git repository is located. See File System Config details below.
+        """
+        if container_config is not None:
+            pulumi.set(__self__, "container_config", container_config)
+        if file_system_config is not None:
+            pulumi.set(__self__, "file_system_config", file_system_config)
+
+    @property
+    @pulumi.getter(name="containerConfig")
+    def container_config(self) -> Optional['outputs.AppImageConfigCodeEditorAppImageConfigContainerConfig']:
+        """
+        The configuration used to run the application image container. See Container Config details below.
+        """
+        return pulumi.get(self, "container_config")
+
+    @property
+    @pulumi.getter(name="fileSystemConfig")
+    def file_system_config(self) -> Optional['outputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfig']:
+        """
+        The URL where the Git repository is located. See File System Config details below.
+        """
+        return pulumi.get(self, "file_system_config")
+
+
+@pulumi.output_type
+class AppImageConfigCodeEditorAppImageConfigContainerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoints":
+            suggest = "container_entrypoints"
+        elif key == "containerEnvironmentVariables":
+            suggest = "container_environment_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigCodeEditorAppImageConfigContainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigCodeEditorAppImageConfigContainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigCodeEditorAppImageConfigContainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_arguments: Optional[Sequence[str]] = None,
+                 container_entrypoints: Optional[Sequence[str]] = None,
+                 container_environment_variables: Optional[Mapping[str, str]] = None):
+        """
+        :param Sequence[str] container_arguments: The arguments for the container when you're running the application.
+        :param Sequence[str] container_entrypoints: The entrypoint used to run the application in the container.
+        :param Mapping[str, str] container_environment_variables: The environment variables to set in the container.
+        """
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoints is not None:
+            pulumi.set(__self__, "container_entrypoints", container_entrypoints)
+        if container_environment_variables is not None:
+            pulumi.set(__self__, "container_environment_variables", container_environment_variables)
+
+    @property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[Sequence[str]]:
+        """
+        The arguments for the container when you're running the application.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @property
+    @pulumi.getter(name="containerEntrypoints")
+    def container_entrypoints(self) -> Optional[Sequence[str]]:
+        """
+        The entrypoint used to run the application in the container.
+        """
+        return pulumi.get(self, "container_entrypoints")
+
+    @property
+    @pulumi.getter(name="containerEnvironmentVariables")
+    def container_environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        The environment variables to set in the container.
+        """
+        return pulumi.get(self, "container_environment_variables")
+
+
+@pulumi.output_type
+class AppImageConfigCodeEditorAppImageConfigFileSystemConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultGid":
+            suggest = "default_gid"
+        elif key == "defaultUid":
+            suggest = "default_uid"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigCodeEditorAppImageConfigFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigCodeEditorAppImageConfigFileSystemConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigCodeEditorAppImageConfigFileSystemConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_gid: Optional[int] = None,
+                 default_uid: Optional[int] = None,
+                 mount_path: Optional[str] = None):
+        """
+        :param int default_gid: The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        :param int default_uid: The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        :param str mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+               
+               > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+        """
+        if default_gid is not None:
+            pulumi.set(__self__, "default_gid", default_gid)
+        if default_uid is not None:
+            pulumi.set(__self__, "default_uid", default_uid)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="defaultGid")
+    def default_gid(self) -> Optional[int]:
+        """
+        The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        """
+        return pulumi.get(self, "default_gid")
+
+    @property
+    @pulumi.getter(name="defaultUid")
+    def default_uid(self) -> Optional[int]:
+        """
+        The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        """
+        return pulumi.get(self, "default_uid")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        """
+        The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+
+        > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
 class AppImageConfigJupyterLabImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "containerConfig":
             suggest = "container_config"
+        elif key == "fileSystemConfig":
+            suggest = "file_system_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppImageConfigJupyterLabImageConfig. Access the value via the '{suggest}' property getter instead.")
@@ -220,12 +408,16 @@ class AppImageConfigJupyterLabImageConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 container_config: Optional['outputs.AppImageConfigJupyterLabImageConfigContainerConfig'] = None):
+                 container_config: Optional['outputs.AppImageConfigJupyterLabImageConfigContainerConfig'] = None,
+                 file_system_config: Optional['outputs.AppImageConfigJupyterLabImageConfigFileSystemConfig'] = None):
         """
         :param 'AppImageConfigJupyterLabImageConfigContainerConfigArgs' container_config: The configuration used to run the application image container. See Container Config details below.
+        :param 'AppImageConfigJupyterLabImageConfigFileSystemConfigArgs' file_system_config: The URL where the Git repository is located. See File System Config details below.
         """
         if container_config is not None:
             pulumi.set(__self__, "container_config", container_config)
+        if file_system_config is not None:
+            pulumi.set(__self__, "file_system_config", file_system_config)
 
     @property
     @pulumi.getter(name="containerConfig")
@@ -234,6 +426,14 @@ class AppImageConfigJupyterLabImageConfig(dict):
         The configuration used to run the application image container. See Container Config details below.
         """
         return pulumi.get(self, "container_config")
+
+    @property
+    @pulumi.getter(name="fileSystemConfig")
+    def file_system_config(self) -> Optional['outputs.AppImageConfigJupyterLabImageConfigFileSystemConfig']:
+        """
+        The URL where the Git repository is located. See File System Config details below.
+        """
+        return pulumi.get(self, "file_system_config")
 
 
 @pulumi.output_type
@@ -298,6 +498,74 @@ class AppImageConfigJupyterLabImageConfigContainerConfig(dict):
         The environment variables to set in the container.
         """
         return pulumi.get(self, "container_environment_variables")
+
+
+@pulumi.output_type
+class AppImageConfigJupyterLabImageConfigFileSystemConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultGid":
+            suggest = "default_gid"
+        elif key == "defaultUid":
+            suggest = "default_uid"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigJupyterLabImageConfigFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigJupyterLabImageConfigFileSystemConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigJupyterLabImageConfigFileSystemConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_gid: Optional[int] = None,
+                 default_uid: Optional[int] = None,
+                 mount_path: Optional[str] = None):
+        """
+        :param int default_gid: The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        :param int default_uid: The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        :param str mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+               
+               > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+        """
+        if default_gid is not None:
+            pulumi.set(__self__, "default_gid", default_gid)
+        if default_uid is not None:
+            pulumi.set(__self__, "default_uid", default_uid)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="defaultGid")
+    def default_gid(self) -> Optional[int]:
+        """
+        The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        """
+        return pulumi.get(self, "default_gid")
+
+    @property
+    @pulumi.getter(name="defaultUid")
+    def default_uid(self) -> Optional[int]:
+        """
+        The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        """
+        return pulumi.get(self, "default_uid")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        """
+        The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+
+        > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+        """
+        return pulumi.get(self, "mount_path")
 
 
 @pulumi.output_type

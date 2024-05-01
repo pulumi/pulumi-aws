@@ -782,11 +782,11 @@ func (o SnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) Snapsh
 }
 
 type UserAuthenticationMode struct {
-	// The number of passwords belonging to the user.
+	// Number of passwords belonging to the user if `type` is set to `password`.
 	PasswordCount *int `pulumi:"passwordCount"`
-	// The set of passwords used for authentication. You can create up to two passwords for each user.
+	// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
-	// Indicates whether the user requires a password to authenticate. Must be set to `password`.
+	// Specifies the authentication type. Valid values are: `password` or `iam`.
 	Type string `pulumi:"type"`
 }
 
@@ -802,11 +802,11 @@ type UserAuthenticationModeInput interface {
 }
 
 type UserAuthenticationModeArgs struct {
-	// The number of passwords belonging to the user.
+	// Number of passwords belonging to the user if `type` is set to `password`.
 	PasswordCount pulumi.IntPtrInput `pulumi:"passwordCount"`
-	// The set of passwords used for authentication. You can create up to two passwords for each user.
+	// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
-	// Indicates whether the user requires a password to authenticate. Must be set to `password`.
+	// Specifies the authentication type. Valid values are: `password` or `iam`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -887,17 +887,17 @@ func (o UserAuthenticationModeOutput) ToUserAuthenticationModePtrOutputWithConte
 	}).(UserAuthenticationModePtrOutput)
 }
 
-// The number of passwords belonging to the user.
+// Number of passwords belonging to the user if `type` is set to `password`.
 func (o UserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
 }
 
-// The set of passwords used for authentication. You can create up to two passwords for each user.
+// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 func (o UserAuthenticationModeOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) []string { return v.Passwords }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether the user requires a password to authenticate. Must be set to `password`.
+// Specifies the authentication type. Valid values are: `password` or `iam`.
 func (o UserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -926,7 +926,7 @@ func (o UserAuthenticationModePtrOutput) Elem() UserAuthenticationModeOutput {
 	}).(UserAuthenticationModeOutput)
 }
 
-// The number of passwords belonging to the user.
+// Number of passwords belonging to the user if `type` is set to `password`.
 func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) *int {
 		if v == nil {
@@ -936,7 +936,7 @@ func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The set of passwords used for authentication. You can create up to two passwords for each user.
+// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) []string {
 		if v == nil {
@@ -946,7 +946,7 @@ func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether the user requires a password to authenticate. Must be set to `password`.
+// Specifies the authentication type. Valid values are: `password` or `iam`.
 func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) *string {
 		if v == nil {
@@ -1725,9 +1725,9 @@ func (o GetSnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetUserAuthenticationMode struct {
-	// The number of passwords belonging to the user.
+	// Number of passwords belonging to the user if `type` is set to `password`.
 	PasswordCount int `pulumi:"passwordCount"`
-	// Whether the user requires a password to authenticate.
+	// Type of authentication configured.
 	Type string `pulumi:"type"`
 }
 
@@ -1743,9 +1743,9 @@ type GetUserAuthenticationModeInput interface {
 }
 
 type GetUserAuthenticationModeArgs struct {
-	// The number of passwords belonging to the user.
+	// Number of passwords belonging to the user if `type` is set to `password`.
 	PasswordCount pulumi.IntInput `pulumi:"passwordCount"`
-	// Whether the user requires a password to authenticate.
+	// Type of authentication configured.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1800,12 +1800,12 @@ func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutputWithCo
 	return o
 }
 
-// The number of passwords belonging to the user.
+// Number of passwords belonging to the user if `type` is set to `password`.
 func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) int { return v.PasswordCount }).(pulumi.IntOutput)
 }
 
-// Whether the user requires a password to authenticate.
+// Type of authentication configured.
 func (o GetUserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -24,16 +24,14 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobDefinitionArgs Empty = new JobDefinitionArgs();
 
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Import(name="containerProperties")
     private @Nullable Output<String> containerProperties;
 
     /**
-     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Optional<Output<String>> containerProperties() {
@@ -86,16 +84,14 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     @Import(name="nodeProperties")
     private @Nullable Output<String> nodeProperties;
 
     /**
-     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     public Optional<Output<String>> nodeProperties() {
@@ -148,16 +144,14 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     @Import(name="retryStrategy")
     private @Nullable Output<JobDefinitionRetryStrategyArgs> retryStrategy;
 
     /**
-     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     public Optional<Output<JobDefinitionRetryStrategyArgs>> retryStrategy() {
@@ -265,8 +259,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -277,8 +270,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -351,8 +343,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
          * 
          * @return builder
          * 
@@ -363,8 +354,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
          * 
          * @return builder
          * 
@@ -447,8 +437,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-         * Maximum number of `retry_strategy` is `1`.  Defined below.
+         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
          * 
          * @return builder
          * 
@@ -459,8 +448,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-         * Maximum number of `retry_strategy` is `1`.  Defined below.
+         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
          * 
          * @return builder
          * 

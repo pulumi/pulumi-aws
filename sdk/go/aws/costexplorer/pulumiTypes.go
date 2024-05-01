@@ -3379,8 +3379,11 @@ func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput 
 }
 
 type CostCategoryRuleRuleAnd struct {
+	Ands         []CostCategoryRuleRuleAndAnd         `pulumi:"ands"`
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
 	Dimension    *CostCategoryRuleRuleAndDimension    `pulumi:"dimension"`
+	Not          *CostCategoryRuleRuleAndNot          `pulumi:"not"`
+	Ors          []CostCategoryRuleRuleAndOr          `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
 }
@@ -3397,8 +3400,11 @@ type CostCategoryRuleRuleAndInput interface {
 }
 
 type CostCategoryRuleRuleAndArgs struct {
+	Ands         CostCategoryRuleRuleAndAndArrayInput        `pulumi:"ands"`
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
 	Dimension    CostCategoryRuleRuleAndDimensionPtrInput    `pulumi:"dimension"`
+	Not          CostCategoryRuleRuleAndNotPtrInput          `pulumi:"not"`
+	Ors          CostCategoryRuleRuleAndOrArrayInput         `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
 }
@@ -3454,12 +3460,24 @@ func (o CostCategoryRuleRuleAndOutput) ToCostCategoryRuleRuleAndOutputWithContex
 	return o
 }
 
+func (o CostCategoryRuleRuleAndOutput) Ands() CostCategoryRuleRuleAndAndArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAnd) []CostCategoryRuleRuleAndAnd { return v.Ands }).(CostCategoryRuleRuleAndAndArrayOutput)
+}
+
 func (o CostCategoryRuleRuleAndOutput) CostCategory() CostCategoryRuleRuleAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndCostCategoryPtrOutput)
 }
 
 func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndOutput) Not() CostCategoryRuleRuleAndNotPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndNot { return v.Not }).(CostCategoryRuleRuleAndNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndOutput) Ors() CostCategoryRuleRuleAndOrArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAnd) []CostCategoryRuleRuleAndOr { return v.Ors }).(CostCategoryRuleRuleAndOrArrayOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -3485,6 +3503,640 @@ func (o CostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) CostCategor
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleAnd {
 		return vs[0].([]CostCategoryRuleRuleAnd)[vs[1].(int)]
 	}).(CostCategoryRuleRuleAndOutput)
+}
+
+type CostCategoryRuleRuleAndAnd struct {
+	CostCategory *CostCategoryRuleRuleAndAndCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleAndAndDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleAndAndTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleAndAndInput is an input type that accepts CostCategoryRuleRuleAndAndArgs and CostCategoryRuleRuleAndAndOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndInput` via:
+//
+//	CostCategoryRuleRuleAndAndArgs{...}
+type CostCategoryRuleRuleAndAndInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndOutput() CostCategoryRuleRuleAndAndOutput
+	ToCostCategoryRuleRuleAndAndOutputWithContext(context.Context) CostCategoryRuleRuleAndAndOutput
+}
+
+type CostCategoryRuleRuleAndAndArgs struct {
+	CostCategory CostCategoryRuleRuleAndAndCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleAndAndDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleAndAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleAndAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndAndArgs) ToCostCategoryRuleRuleAndAndOutput() CostCategoryRuleRuleAndAndOutput {
+	return i.ToCostCategoryRuleRuleAndAndOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndArgs) ToCostCategoryRuleRuleAndAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndOutput)
+}
+
+// CostCategoryRuleRuleAndAndArrayInput is an input type that accepts CostCategoryRuleRuleAndAndArray and CostCategoryRuleRuleAndAndArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndArrayInput` via:
+//
+//	CostCategoryRuleRuleAndAndArray{ CostCategoryRuleRuleAndAndArgs{...} }
+type CostCategoryRuleRuleAndAndArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndArrayOutput() CostCategoryRuleRuleAndAndArrayOutput
+	ToCostCategoryRuleRuleAndAndArrayOutputWithContext(context.Context) CostCategoryRuleRuleAndAndArrayOutput
+}
+
+type CostCategoryRuleRuleAndAndArray []CostCategoryRuleRuleAndAndInput
+
+func (CostCategoryRuleRuleAndAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndAndArray) ToCostCategoryRuleRuleAndAndArrayOutput() CostCategoryRuleRuleAndAndArrayOutput {
+	return i.ToCostCategoryRuleRuleAndAndArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndArray) ToCostCategoryRuleRuleAndAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndOutput) ToCostCategoryRuleRuleAndAndOutput() CostCategoryRuleRuleAndAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndOutput) ToCostCategoryRuleRuleAndAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndOutput) CostCategory() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAnd) *CostCategoryRuleRuleAndAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndAndCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndAndOutput) Dimension() CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAnd) *CostCategoryRuleRuleAndAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndAndDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleAndAndOutput) Tags() CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAnd) *CostCategoryRuleRuleAndAndTags { return v.Tags }).(CostCategoryRuleRuleAndAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndAndArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndArrayOutput) ToCostCategoryRuleRuleAndAndArrayOutput() CostCategoryRuleRuleAndAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndArrayOutput) ToCostCategoryRuleRuleAndAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleAndAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleAndAnd {
+		return vs[0].([]CostCategoryRuleRuleAndAnd)[vs[1].(int)]
+	}).(CostCategoryRuleRuleAndAndOutput)
+}
+
+type CostCategoryRuleRuleAndAndCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndAndCostCategoryInput is an input type that accepts CostCategoryRuleRuleAndAndCostCategoryArgs and CostCategoryRuleRuleAndAndCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleAndAndCostCategoryArgs{...}
+type CostCategoryRuleRuleAndAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndCostCategoryOutput() CostCategoryRuleRuleAndAndCostCategoryOutput
+	ToCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleAndAndCostCategoryOutput
+}
+
+type CostCategoryRuleRuleAndAndCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndAndCostCategoryArgs) ToCostCategoryRuleRuleAndAndCostCategoryOutput() CostCategoryRuleRuleAndAndCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndCostCategoryArgs) ToCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleAndAndCostCategoryArgs) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutput() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndCostCategoryArgs) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndCostCategoryOutput).ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndAndCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleAndAndCostCategoryArgs, CostCategoryRuleRuleAndAndCostCategoryPtr and CostCategoryRuleRuleAndAndCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndAndCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndAndCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndCostCategoryPtrOutput() CostCategoryRuleRuleAndAndCostCategoryPtrOutput
+	ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndAndCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleAndAndCostCategoryPtrType CostCategoryRuleRuleAndAndCostCategoryArgs
+
+func CostCategoryRuleRuleAndAndCostCategoryPtr(v *CostCategoryRuleRuleAndAndCostCategoryArgs) CostCategoryRuleRuleAndAndCostCategoryPtrInput {
+	return (*costCategoryRuleRuleAndAndCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndAndCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndAndCostCategoryPtrType) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutput() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndAndCostCategoryPtrType) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleAndAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) ToCostCategoryRuleRuleAndAndCostCategoryOutput() CostCategoryRuleRuleAndAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) ToCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutput() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndAndCostCategory) *CostCategoryRuleRuleAndAndCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleAndAndCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutput() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) ToCostCategoryRuleRuleAndAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) Elem() CostCategoryRuleRuleAndAndCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndCostCategory) CostCategoryRuleRuleAndAndCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndAndCostCategory
+		return ret
+	}).(CostCategoryRuleRuleAndAndCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndAndDimensionInput is an input type that accepts CostCategoryRuleRuleAndAndDimensionArgs and CostCategoryRuleRuleAndAndDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndDimensionInput` via:
+//
+//	CostCategoryRuleRuleAndAndDimensionArgs{...}
+type CostCategoryRuleRuleAndAndDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndDimensionOutput() CostCategoryRuleRuleAndAndDimensionOutput
+	ToCostCategoryRuleRuleAndAndDimensionOutputWithContext(context.Context) CostCategoryRuleRuleAndAndDimensionOutput
+}
+
+type CostCategoryRuleRuleAndAndDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndAndDimensionArgs) ToCostCategoryRuleRuleAndAndDimensionOutput() CostCategoryRuleRuleAndAndDimensionOutput {
+	return i.ToCostCategoryRuleRuleAndAndDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndDimensionArgs) ToCostCategoryRuleRuleAndAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleAndAndDimensionArgs) ToCostCategoryRuleRuleAndAndDimensionPtrOutput() CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndDimensionArgs) ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndDimensionOutput).ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndAndDimensionPtrInput is an input type that accepts CostCategoryRuleRuleAndAndDimensionArgs, CostCategoryRuleRuleAndAndDimensionPtr and CostCategoryRuleRuleAndAndDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndAndDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndAndDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndDimensionPtrOutput() CostCategoryRuleRuleAndAndDimensionPtrOutput
+	ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndAndDimensionPtrOutput
+}
+
+type costCategoryRuleRuleAndAndDimensionPtrType CostCategoryRuleRuleAndAndDimensionArgs
+
+func CostCategoryRuleRuleAndAndDimensionPtr(v *CostCategoryRuleRuleAndAndDimensionArgs) CostCategoryRuleRuleAndAndDimensionPtrInput {
+	return (*costCategoryRuleRuleAndAndDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndAndDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndAndDimensionPtrType) ToCostCategoryRuleRuleAndAndDimensionPtrOutput() CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndAndDimensionPtrType) ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleAndAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionOutput) ToCostCategoryRuleRuleAndAndDimensionOutput() CostCategoryRuleRuleAndAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionOutput) ToCostCategoryRuleRuleAndAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionOutput) ToCostCategoryRuleRuleAndAndDimensionPtrOutput() CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionOutput) ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndAndDimension) *CostCategoryRuleRuleAndAndDimension {
+		return &v
+	}).(CostCategoryRuleRuleAndAndDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndAndDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) ToCostCategoryRuleRuleAndAndDimensionPtrOutput() CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) ToCostCategoryRuleRuleAndAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) Elem() CostCategoryRuleRuleAndAndDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndDimension) CostCategoryRuleRuleAndAndDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndAndDimension
+		return ret
+	}).(CostCategoryRuleRuleAndAndDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndAndTagsInput is an input type that accepts CostCategoryRuleRuleAndAndTagsArgs and CostCategoryRuleRuleAndAndTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndTagsInput` via:
+//
+//	CostCategoryRuleRuleAndAndTagsArgs{...}
+type CostCategoryRuleRuleAndAndTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndTagsOutput() CostCategoryRuleRuleAndAndTagsOutput
+	ToCostCategoryRuleRuleAndAndTagsOutputWithContext(context.Context) CostCategoryRuleRuleAndAndTagsOutput
+}
+
+type CostCategoryRuleRuleAndAndTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndAndTagsArgs) ToCostCategoryRuleRuleAndAndTagsOutput() CostCategoryRuleRuleAndAndTagsOutput {
+	return i.ToCostCategoryRuleRuleAndAndTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndTagsArgs) ToCostCategoryRuleRuleAndAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndTagsOutput)
+}
+
+func (i CostCategoryRuleRuleAndAndTagsArgs) ToCostCategoryRuleRuleAndAndTagsPtrOutput() CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndAndTagsArgs) ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndTagsOutput).ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndAndTagsPtrInput is an input type that accepts CostCategoryRuleRuleAndAndTagsArgs, CostCategoryRuleRuleAndAndTagsPtr and CostCategoryRuleRuleAndAndTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndAndTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndAndTagsPtrOutput() CostCategoryRuleRuleAndAndTagsPtrOutput
+	ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndAndTagsPtrOutput
+}
+
+type costCategoryRuleRuleAndAndTagsPtrType CostCategoryRuleRuleAndAndTagsArgs
+
+func CostCategoryRuleRuleAndAndTagsPtr(v *CostCategoryRuleRuleAndAndTagsArgs) CostCategoryRuleRuleAndAndTagsPtrInput {
+	return (*costCategoryRuleRuleAndAndTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndAndTagsPtrType) ToCostCategoryRuleRuleAndAndTagsPtrOutput() CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndAndTagsPtrType) ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndAndTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndTagsOutput) ToCostCategoryRuleRuleAndAndTagsOutput() CostCategoryRuleRuleAndAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndTagsOutput) ToCostCategoryRuleRuleAndAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndTagsOutput) ToCostCategoryRuleRuleAndAndTagsPtrOutput() CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndAndTagsOutput) ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndAndTags) *CostCategoryRuleRuleAndAndTags {
+		return &v
+	}).(CostCategoryRuleRuleAndAndTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) ToCostCategoryRuleRuleAndAndTagsPtrOutput() CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) ToCostCategoryRuleRuleAndAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) Elem() CostCategoryRuleRuleAndAndTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndTags) CostCategoryRuleRuleAndAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndAndTags
+		return ret
+	}).(CostCategoryRuleRuleAndAndTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type CostCategoryRuleRuleAndCostCategory struct {
@@ -3830,6 +4482,1332 @@ func (o CostCategoryRuleRuleAndDimensionPtrOutput) MatchOptions() pulumi.StringA
 // Specific value of the Cost Category.
 func (o CostCategoryRuleRuleAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNot struct {
+	CostCategory *CostCategoryRuleRuleAndNotCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleAndNotDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleAndNotTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleAndNotInput is an input type that accepts CostCategoryRuleRuleAndNotArgs and CostCategoryRuleRuleAndNotOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotInput` via:
+//
+//	CostCategoryRuleRuleAndNotArgs{...}
+type CostCategoryRuleRuleAndNotInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotOutput() CostCategoryRuleRuleAndNotOutput
+	ToCostCategoryRuleRuleAndNotOutputWithContext(context.Context) CostCategoryRuleRuleAndNotOutput
+}
+
+type CostCategoryRuleRuleAndNotArgs struct {
+	CostCategory CostCategoryRuleRuleAndNotCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleAndNotDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleAndNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleAndNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndNotArgs) ToCostCategoryRuleRuleAndNotOutput() CostCategoryRuleRuleAndNotOutput {
+	return i.ToCostCategoryRuleRuleAndNotOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotArgs) ToCostCategoryRuleRuleAndNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotOutput)
+}
+
+func (i CostCategoryRuleRuleAndNotArgs) ToCostCategoryRuleRuleAndNotPtrOutput() CostCategoryRuleRuleAndNotPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotArgs) ToCostCategoryRuleRuleAndNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotOutput).ToCostCategoryRuleRuleAndNotPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndNotPtrInput is an input type that accepts CostCategoryRuleRuleAndNotArgs, CostCategoryRuleRuleAndNotPtr and CostCategoryRuleRuleAndNotPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndNotPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotPtrOutput() CostCategoryRuleRuleAndNotPtrOutput
+	ToCostCategoryRuleRuleAndNotPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndNotPtrOutput
+}
+
+type costCategoryRuleRuleAndNotPtrType CostCategoryRuleRuleAndNotArgs
+
+func CostCategoryRuleRuleAndNotPtr(v *CostCategoryRuleRuleAndNotArgs) CostCategoryRuleRuleAndNotPtrInput {
+	return (*costCategoryRuleRuleAndNotPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndNotPtrType) ToCostCategoryRuleRuleAndNotPtrOutput() CostCategoryRuleRuleAndNotPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndNotPtrType) ToCostCategoryRuleRuleAndNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) ToCostCategoryRuleRuleAndNotOutput() CostCategoryRuleRuleAndNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) ToCostCategoryRuleRuleAndNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) ToCostCategoryRuleRuleAndNotPtrOutput() CostCategoryRuleRuleAndNotPtrOutput {
+	return o.ToCostCategoryRuleRuleAndNotPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) ToCostCategoryRuleRuleAndNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNot {
+		return &v
+	}).(CostCategoryRuleRuleAndNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) CostCategory() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndNotOutput) Dimension() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotDimension { return v.Dimension }).(CostCategoryRuleRuleAndNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleAndNotOutput) Tags() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotTags { return v.Tags }).(CostCategoryRuleRuleAndNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotPtrOutput) ToCostCategoryRuleRuleAndNotPtrOutput() CostCategoryRuleRuleAndNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotPtrOutput) ToCostCategoryRuleRuleAndNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotPtrOutput) Elem() CostCategoryRuleRuleAndNotOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) CostCategoryRuleRuleAndNot {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndNot
+		return ret
+	}).(CostCategoryRuleRuleAndNotOutput)
+}
+
+func (o CostCategoryRuleRuleAndNotPtrOutput) CostCategory() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotCostCategory {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategory
+	}).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndNotPtrOutput) Dimension() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(CostCategoryRuleRuleAndNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleAndNotPtrOutput) Tags() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(CostCategoryRuleRuleAndNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndNotCostCategoryInput is an input type that accepts CostCategoryRuleRuleAndNotCostCategoryArgs and CostCategoryRuleRuleAndNotCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleAndNotCostCategoryArgs{...}
+type CostCategoryRuleRuleAndNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotCostCategoryOutput() CostCategoryRuleRuleAndNotCostCategoryOutput
+	ToCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleAndNotCostCategoryOutput
+}
+
+type CostCategoryRuleRuleAndNotCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndNotCostCategoryArgs) ToCostCategoryRuleRuleAndNotCostCategoryOutput() CostCategoryRuleRuleAndNotCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotCostCategoryArgs) ToCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleAndNotCostCategoryArgs) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutput() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotCostCategoryArgs) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotCostCategoryOutput).ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndNotCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleAndNotCostCategoryArgs, CostCategoryRuleRuleAndNotCostCategoryPtr and CostCategoryRuleRuleAndNotCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndNotCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndNotCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotCostCategoryPtrOutput() CostCategoryRuleRuleAndNotCostCategoryPtrOutput
+	ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndNotCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleAndNotCostCategoryPtrType CostCategoryRuleRuleAndNotCostCategoryArgs
+
+func CostCategoryRuleRuleAndNotCostCategoryPtr(v *CostCategoryRuleRuleAndNotCostCategoryArgs) CostCategoryRuleRuleAndNotCostCategoryPtrInput {
+	return (*costCategoryRuleRuleAndNotCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndNotCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndNotCostCategoryPtrType) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutput() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndNotCostCategoryPtrType) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) ToCostCategoryRuleRuleAndNotCostCategoryOutput() CostCategoryRuleRuleAndNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) ToCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutput() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndNotCostCategory) *CostCategoryRuleRuleAndNotCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNotCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutput() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) ToCostCategoryRuleRuleAndNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) Elem() CostCategoryRuleRuleAndNotCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotCostCategory) CostCategoryRuleRuleAndNotCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndNotCostCategory
+		return ret
+	}).(CostCategoryRuleRuleAndNotCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNotDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndNotDimensionInput is an input type that accepts CostCategoryRuleRuleAndNotDimensionArgs and CostCategoryRuleRuleAndNotDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotDimensionInput` via:
+//
+//	CostCategoryRuleRuleAndNotDimensionArgs{...}
+type CostCategoryRuleRuleAndNotDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotDimensionOutput() CostCategoryRuleRuleAndNotDimensionOutput
+	ToCostCategoryRuleRuleAndNotDimensionOutputWithContext(context.Context) CostCategoryRuleRuleAndNotDimensionOutput
+}
+
+type CostCategoryRuleRuleAndNotDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndNotDimensionArgs) ToCostCategoryRuleRuleAndNotDimensionOutput() CostCategoryRuleRuleAndNotDimensionOutput {
+	return i.ToCostCategoryRuleRuleAndNotDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotDimensionArgs) ToCostCategoryRuleRuleAndNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleAndNotDimensionArgs) ToCostCategoryRuleRuleAndNotDimensionPtrOutput() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotDimensionArgs) ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotDimensionOutput).ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndNotDimensionPtrInput is an input type that accepts CostCategoryRuleRuleAndNotDimensionArgs, CostCategoryRuleRuleAndNotDimensionPtr and CostCategoryRuleRuleAndNotDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndNotDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndNotDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotDimensionPtrOutput() CostCategoryRuleRuleAndNotDimensionPtrOutput
+	ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndNotDimensionPtrOutput
+}
+
+type costCategoryRuleRuleAndNotDimensionPtrType CostCategoryRuleRuleAndNotDimensionArgs
+
+func CostCategoryRuleRuleAndNotDimensionPtr(v *CostCategoryRuleRuleAndNotDimensionArgs) CostCategoryRuleRuleAndNotDimensionPtrInput {
+	return (*costCategoryRuleRuleAndNotDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndNotDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndNotDimensionPtrType) ToCostCategoryRuleRuleAndNotDimensionPtrOutput() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndNotDimensionPtrType) ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionOutput) ToCostCategoryRuleRuleAndNotDimensionOutput() CostCategoryRuleRuleAndNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionOutput) ToCostCategoryRuleRuleAndNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionOutput) ToCostCategoryRuleRuleAndNotDimensionPtrOutput() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionOutput) ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndNotDimension) *CostCategoryRuleRuleAndNotDimension {
+		return &v
+	}).(CostCategoryRuleRuleAndNotDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndNotDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNotDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) ToCostCategoryRuleRuleAndNotDimensionPtrOutput() CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) ToCostCategoryRuleRuleAndNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) Elem() CostCategoryRuleRuleAndNotDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotDimension) CostCategoryRuleRuleAndNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndNotDimension
+		return ret
+	}).(CostCategoryRuleRuleAndNotDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNotTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndNotTagsInput is an input type that accepts CostCategoryRuleRuleAndNotTagsArgs and CostCategoryRuleRuleAndNotTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotTagsInput` via:
+//
+//	CostCategoryRuleRuleAndNotTagsArgs{...}
+type CostCategoryRuleRuleAndNotTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotTagsOutput() CostCategoryRuleRuleAndNotTagsOutput
+	ToCostCategoryRuleRuleAndNotTagsOutputWithContext(context.Context) CostCategoryRuleRuleAndNotTagsOutput
+}
+
+type CostCategoryRuleRuleAndNotTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndNotTagsArgs) ToCostCategoryRuleRuleAndNotTagsOutput() CostCategoryRuleRuleAndNotTagsOutput {
+	return i.ToCostCategoryRuleRuleAndNotTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotTagsArgs) ToCostCategoryRuleRuleAndNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotTagsOutput)
+}
+
+func (i CostCategoryRuleRuleAndNotTagsArgs) ToCostCategoryRuleRuleAndNotTagsPtrOutput() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndNotTagsArgs) ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotTagsOutput).ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndNotTagsPtrInput is an input type that accepts CostCategoryRuleRuleAndNotTagsArgs, CostCategoryRuleRuleAndNotTagsPtr and CostCategoryRuleRuleAndNotTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndNotTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndNotTagsPtrOutput() CostCategoryRuleRuleAndNotTagsPtrOutput
+	ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndNotTagsPtrOutput
+}
+
+type costCategoryRuleRuleAndNotTagsPtrType CostCategoryRuleRuleAndNotTagsArgs
+
+func CostCategoryRuleRuleAndNotTagsPtr(v *CostCategoryRuleRuleAndNotTagsArgs) CostCategoryRuleRuleAndNotTagsPtrInput {
+	return (*costCategoryRuleRuleAndNotTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndNotTagsPtrType) ToCostCategoryRuleRuleAndNotTagsPtrOutput() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndNotTagsPtrType) ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndNotTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotTagsOutput) ToCostCategoryRuleRuleAndNotTagsOutput() CostCategoryRuleRuleAndNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotTagsOutput) ToCostCategoryRuleRuleAndNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotTagsOutput) ToCostCategoryRuleRuleAndNotTagsPtrOutput() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndNotTagsOutput) ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndNotTags) *CostCategoryRuleRuleAndNotTags {
+		return &v
+	}).(CostCategoryRuleRuleAndNotTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) ToCostCategoryRuleRuleAndNotTagsPtrOutput() CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) ToCostCategoryRuleRuleAndNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) Elem() CostCategoryRuleRuleAndNotTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotTags) CostCategoryRuleRuleAndNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndNotTags
+		return ret
+	}).(CostCategoryRuleRuleAndNotTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOr struct {
+	CostCategory *CostCategoryRuleRuleAndOrCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleAndOrDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleAndOrTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleAndOrInput is an input type that accepts CostCategoryRuleRuleAndOrArgs and CostCategoryRuleRuleAndOrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrInput` via:
+//
+//	CostCategoryRuleRuleAndOrArgs{...}
+type CostCategoryRuleRuleAndOrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrOutput() CostCategoryRuleRuleAndOrOutput
+	ToCostCategoryRuleRuleAndOrOutputWithContext(context.Context) CostCategoryRuleRuleAndOrOutput
+}
+
+type CostCategoryRuleRuleAndOrArgs struct {
+	CostCategory CostCategoryRuleRuleAndOrCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleAndOrDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleAndOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleAndOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndOrArgs) ToCostCategoryRuleRuleAndOrOutput() CostCategoryRuleRuleAndOrOutput {
+	return i.ToCostCategoryRuleRuleAndOrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrArgs) ToCostCategoryRuleRuleAndOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrOutput)
+}
+
+// CostCategoryRuleRuleAndOrArrayInput is an input type that accepts CostCategoryRuleRuleAndOrArray and CostCategoryRuleRuleAndOrArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrArrayInput` via:
+//
+//	CostCategoryRuleRuleAndOrArray{ CostCategoryRuleRuleAndOrArgs{...} }
+type CostCategoryRuleRuleAndOrArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrArrayOutput() CostCategoryRuleRuleAndOrArrayOutput
+	ToCostCategoryRuleRuleAndOrArrayOutputWithContext(context.Context) CostCategoryRuleRuleAndOrArrayOutput
+}
+
+type CostCategoryRuleRuleAndOrArray []CostCategoryRuleRuleAndOrInput
+
+func (CostCategoryRuleRuleAndOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndOrArray) ToCostCategoryRuleRuleAndOrArrayOutput() CostCategoryRuleRuleAndOrArrayOutput {
+	return i.ToCostCategoryRuleRuleAndOrArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrArray) ToCostCategoryRuleRuleAndOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrOutput) ToCostCategoryRuleRuleAndOrOutput() CostCategoryRuleRuleAndOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrOutput) ToCostCategoryRuleRuleAndOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrOutput) CostCategory() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOr) *CostCategoryRuleRuleAndOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndOrCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleAndOrOutput) Dimension() CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOr) *CostCategoryRuleRuleAndOrDimension { return v.Dimension }).(CostCategoryRuleRuleAndOrDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleAndOrOutput) Tags() CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOr) *CostCategoryRuleRuleAndOrTags { return v.Tags }).(CostCategoryRuleRuleAndOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndOrArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrArrayOutput) ToCostCategoryRuleRuleAndOrArrayOutput() CostCategoryRuleRuleAndOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrArrayOutput) ToCostCategoryRuleRuleAndOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleAndOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleAndOr {
+		return vs[0].([]CostCategoryRuleRuleAndOr)[vs[1].(int)]
+	}).(CostCategoryRuleRuleAndOrOutput)
+}
+
+type CostCategoryRuleRuleAndOrCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndOrCostCategoryInput is an input type that accepts CostCategoryRuleRuleAndOrCostCategoryArgs and CostCategoryRuleRuleAndOrCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleAndOrCostCategoryArgs{...}
+type CostCategoryRuleRuleAndOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrCostCategoryOutput() CostCategoryRuleRuleAndOrCostCategoryOutput
+	ToCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleAndOrCostCategoryOutput
+}
+
+type CostCategoryRuleRuleAndOrCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndOrCostCategoryArgs) ToCostCategoryRuleRuleAndOrCostCategoryOutput() CostCategoryRuleRuleAndOrCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrCostCategoryArgs) ToCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleAndOrCostCategoryArgs) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutput() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrCostCategoryArgs) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrCostCategoryOutput).ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndOrCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleAndOrCostCategoryArgs, CostCategoryRuleRuleAndOrCostCategoryPtr and CostCategoryRuleRuleAndOrCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndOrCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndOrCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrCostCategoryPtrOutput() CostCategoryRuleRuleAndOrCostCategoryPtrOutput
+	ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndOrCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleAndOrCostCategoryPtrType CostCategoryRuleRuleAndOrCostCategoryArgs
+
+func CostCategoryRuleRuleAndOrCostCategoryPtr(v *CostCategoryRuleRuleAndOrCostCategoryArgs) CostCategoryRuleRuleAndOrCostCategoryPtrInput {
+	return (*costCategoryRuleRuleAndOrCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndOrCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndOrCostCategoryPtrType) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutput() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndOrCostCategoryPtrType) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleAndOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) ToCostCategoryRuleRuleAndOrCostCategoryOutput() CostCategoryRuleRuleAndOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) ToCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutput() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndOrCostCategory) *CostCategoryRuleRuleAndOrCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleAndOrCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutput() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) ToCostCategoryRuleRuleAndOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) Elem() CostCategoryRuleRuleAndOrCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrCostCategory) CostCategoryRuleRuleAndOrCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndOrCostCategory
+		return ret
+	}).(CostCategoryRuleRuleAndOrCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndOrDimensionInput is an input type that accepts CostCategoryRuleRuleAndOrDimensionArgs and CostCategoryRuleRuleAndOrDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrDimensionInput` via:
+//
+//	CostCategoryRuleRuleAndOrDimensionArgs{...}
+type CostCategoryRuleRuleAndOrDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrDimensionOutput() CostCategoryRuleRuleAndOrDimensionOutput
+	ToCostCategoryRuleRuleAndOrDimensionOutputWithContext(context.Context) CostCategoryRuleRuleAndOrDimensionOutput
+}
+
+type CostCategoryRuleRuleAndOrDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndOrDimensionArgs) ToCostCategoryRuleRuleAndOrDimensionOutput() CostCategoryRuleRuleAndOrDimensionOutput {
+	return i.ToCostCategoryRuleRuleAndOrDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrDimensionArgs) ToCostCategoryRuleRuleAndOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleAndOrDimensionArgs) ToCostCategoryRuleRuleAndOrDimensionPtrOutput() CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrDimensionArgs) ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrDimensionOutput).ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndOrDimensionPtrInput is an input type that accepts CostCategoryRuleRuleAndOrDimensionArgs, CostCategoryRuleRuleAndOrDimensionPtr and CostCategoryRuleRuleAndOrDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndOrDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndOrDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrDimensionPtrOutput() CostCategoryRuleRuleAndOrDimensionPtrOutput
+	ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndOrDimensionPtrOutput
+}
+
+type costCategoryRuleRuleAndOrDimensionPtrType CostCategoryRuleRuleAndOrDimensionArgs
+
+func CostCategoryRuleRuleAndOrDimensionPtr(v *CostCategoryRuleRuleAndOrDimensionArgs) CostCategoryRuleRuleAndOrDimensionPtrInput {
+	return (*costCategoryRuleRuleAndOrDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndOrDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndOrDimensionPtrType) ToCostCategoryRuleRuleAndOrDimensionPtrOutput() CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndOrDimensionPtrType) ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleAndOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionOutput) ToCostCategoryRuleRuleAndOrDimensionOutput() CostCategoryRuleRuleAndOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionOutput) ToCostCategoryRuleRuleAndOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionOutput) ToCostCategoryRuleRuleAndOrDimensionPtrOutput() CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionOutput) ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndOrDimension) *CostCategoryRuleRuleAndOrDimension {
+		return &v
+	}).(CostCategoryRuleRuleAndOrDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndOrDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) ToCostCategoryRuleRuleAndOrDimensionPtrOutput() CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) ToCostCategoryRuleRuleAndOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) Elem() CostCategoryRuleRuleAndOrDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrDimension) CostCategoryRuleRuleAndOrDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndOrDimension
+		return ret
+	}).(CostCategoryRuleRuleAndOrDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleAndOrTagsInput is an input type that accepts CostCategoryRuleRuleAndOrTagsArgs and CostCategoryRuleRuleAndOrTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrTagsInput` via:
+//
+//	CostCategoryRuleRuleAndOrTagsArgs{...}
+type CostCategoryRuleRuleAndOrTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrTagsOutput() CostCategoryRuleRuleAndOrTagsOutput
+	ToCostCategoryRuleRuleAndOrTagsOutputWithContext(context.Context) CostCategoryRuleRuleAndOrTagsOutput
+}
+
+type CostCategoryRuleRuleAndOrTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleAndOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleAndOrTagsArgs) ToCostCategoryRuleRuleAndOrTagsOutput() CostCategoryRuleRuleAndOrTagsOutput {
+	return i.ToCostCategoryRuleRuleAndOrTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrTagsArgs) ToCostCategoryRuleRuleAndOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrTagsOutput)
+}
+
+func (i CostCategoryRuleRuleAndOrTagsArgs) ToCostCategoryRuleRuleAndOrTagsPtrOutput() CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleAndOrTagsArgs) ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrTagsOutput).ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleAndOrTagsPtrInput is an input type that accepts CostCategoryRuleRuleAndOrTagsArgs, CostCategoryRuleRuleAndOrTagsPtr and CostCategoryRuleRuleAndOrTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleAndOrTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleAndOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleAndOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleAndOrTagsPtrOutput() CostCategoryRuleRuleAndOrTagsPtrOutput
+	ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleAndOrTagsPtrOutput
+}
+
+type costCategoryRuleRuleAndOrTagsPtrType CostCategoryRuleRuleAndOrTagsArgs
+
+func CostCategoryRuleRuleAndOrTagsPtr(v *CostCategoryRuleRuleAndOrTagsArgs) CostCategoryRuleRuleAndOrTagsPtrInput {
+	return (*costCategoryRuleRuleAndOrTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleAndOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleAndOrTagsPtrType) ToCostCategoryRuleRuleAndOrTagsPtrOutput() CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleAndOrTagsPtrType) ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleAndOrTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleAndOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrTagsOutput) ToCostCategoryRuleRuleAndOrTagsOutput() CostCategoryRuleRuleAndOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrTagsOutput) ToCostCategoryRuleRuleAndOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrTagsOutput) ToCostCategoryRuleRuleAndOrTagsPtrOutput() CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleAndOrTagsOutput) ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndOrTags) *CostCategoryRuleRuleAndOrTags {
+		return &v
+	}).(CostCategoryRuleRuleAndOrTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleAndOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleAndOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleAndOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleAndOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) ToCostCategoryRuleRuleAndOrTagsPtrOutput() CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) ToCostCategoryRuleRuleAndOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) Elem() CostCategoryRuleRuleAndOrTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrTags) CostCategoryRuleRuleAndOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleAndOrTags
+		return ret
+	}).(CostCategoryRuleRuleAndOrTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleAndOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleAndOrTags) []string {
 		if v == nil {
 			return nil
 		}
@@ -4363,8 +6341,11 @@ func (o CostCategoryRuleRuleDimensionPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type CostCategoryRuleRuleNot struct {
+	Ands         []CostCategoryRuleRuleNotAnd         `pulumi:"ands"`
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
 	Dimension    *CostCategoryRuleRuleNotDimension    `pulumi:"dimension"`
+	Not          *CostCategoryRuleRuleNotNot          `pulumi:"not"`
+	Ors          []CostCategoryRuleRuleNotOr          `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
 }
@@ -4381,8 +6362,11 @@ type CostCategoryRuleRuleNotInput interface {
 }
 
 type CostCategoryRuleRuleNotArgs struct {
+	Ands         CostCategoryRuleRuleNotAndArrayInput        `pulumi:"ands"`
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
 	Dimension    CostCategoryRuleRuleNotDimensionPtrInput    `pulumi:"dimension"`
+	Not          CostCategoryRuleRuleNotNotPtrInput          `pulumi:"not"`
+	Ors          CostCategoryRuleRuleNotOrArrayInput         `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
 }
@@ -4464,12 +6448,24 @@ func (o CostCategoryRuleRuleNotOutput) ToCostCategoryRuleRuleNotPtrOutputWithCon
 	}).(CostCategoryRuleRuleNotPtrOutput)
 }
 
+func (o CostCategoryRuleRuleNotOutput) Ands() CostCategoryRuleRuleNotAndArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotAnd { return v.Ands }).(CostCategoryRuleRuleNotAndArrayOutput)
+}
+
 func (o CostCategoryRuleRuleNotOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
 func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotOutput) Not() CostCategoryRuleRuleNotNotPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotNot { return v.Not }).(CostCategoryRuleRuleNotNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotOutput) Ors() CostCategoryRuleRuleNotOrArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotOr { return v.Ors }).(CostCategoryRuleRuleNotOrArrayOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -4501,6 +6497,15 @@ func (o CostCategoryRuleRuleNotPtrOutput) Elem() CostCategoryRuleRuleNotOutput {
 	}).(CostCategoryRuleRuleNotOutput)
 }
 
+func (o CostCategoryRuleRuleNotPtrOutput) Ands() CostCategoryRuleRuleNotAndArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotAnd {
+		if v == nil {
+			return nil
+		}
+		return v.Ands
+	}).(CostCategoryRuleRuleNotAndArrayOutput)
+}
+
 func (o CostCategoryRuleRuleNotPtrOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory {
 		if v == nil {
@@ -4519,6 +6524,24 @@ func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDim
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+func (o CostCategoryRuleRuleNotPtrOutput) Not() CostCategoryRuleRuleNotNotPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotNot {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(CostCategoryRuleRuleNotNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotPtrOutput) Ors() CostCategoryRuleRuleNotOrArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotOr {
+		if v == nil {
+			return nil
+		}
+		return v.Ors
+	}).(CostCategoryRuleRuleNotOrArrayOutput)
+}
+
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags {
@@ -4527,6 +6550,640 @@ func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrO
 		}
 		return v.Tags
 	}).(CostCategoryRuleRuleNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotAnd struct {
+	CostCategory *CostCategoryRuleRuleNotAndCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleNotAndDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleNotAndTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleNotAndInput is an input type that accepts CostCategoryRuleRuleNotAndArgs and CostCategoryRuleRuleNotAndOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndInput` via:
+//
+//	CostCategoryRuleRuleNotAndArgs{...}
+type CostCategoryRuleRuleNotAndInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndOutput() CostCategoryRuleRuleNotAndOutput
+	ToCostCategoryRuleRuleNotAndOutputWithContext(context.Context) CostCategoryRuleRuleNotAndOutput
+}
+
+type CostCategoryRuleRuleNotAndArgs struct {
+	CostCategory CostCategoryRuleRuleNotAndCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleNotAndDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleNotAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleNotAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotAndArgs) ToCostCategoryRuleRuleNotAndOutput() CostCategoryRuleRuleNotAndOutput {
+	return i.ToCostCategoryRuleRuleNotAndOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndArgs) ToCostCategoryRuleRuleNotAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndOutput)
+}
+
+// CostCategoryRuleRuleNotAndArrayInput is an input type that accepts CostCategoryRuleRuleNotAndArray and CostCategoryRuleRuleNotAndArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndArrayInput` via:
+//
+//	CostCategoryRuleRuleNotAndArray{ CostCategoryRuleRuleNotAndArgs{...} }
+type CostCategoryRuleRuleNotAndArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndArrayOutput() CostCategoryRuleRuleNotAndArrayOutput
+	ToCostCategoryRuleRuleNotAndArrayOutputWithContext(context.Context) CostCategoryRuleRuleNotAndArrayOutput
+}
+
+type CostCategoryRuleRuleNotAndArray []CostCategoryRuleRuleNotAndInput
+
+func (CostCategoryRuleRuleNotAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotAndArray) ToCostCategoryRuleRuleNotAndArrayOutput() CostCategoryRuleRuleNotAndArrayOutput {
+	return i.ToCostCategoryRuleRuleNotAndArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndArray) ToCostCategoryRuleRuleNotAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndOutput) ToCostCategoryRuleRuleNotAndOutput() CostCategoryRuleRuleNotAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndOutput) ToCostCategoryRuleRuleNotAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndOutput) CostCategory() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAnd) *CostCategoryRuleRuleNotAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotAndCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotAndOutput) Dimension() CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAnd) *CostCategoryRuleRuleNotAndDimension { return v.Dimension }).(CostCategoryRuleRuleNotAndDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleNotAndOutput) Tags() CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAnd) *CostCategoryRuleRuleNotAndTags { return v.Tags }).(CostCategoryRuleRuleNotAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotAndArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndArrayOutput) ToCostCategoryRuleRuleNotAndArrayOutput() CostCategoryRuleRuleNotAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndArrayOutput) ToCostCategoryRuleRuleNotAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleNotAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleNotAnd {
+		return vs[0].([]CostCategoryRuleRuleNotAnd)[vs[1].(int)]
+	}).(CostCategoryRuleRuleNotAndOutput)
+}
+
+type CostCategoryRuleRuleNotAndCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotAndCostCategoryInput is an input type that accepts CostCategoryRuleRuleNotAndCostCategoryArgs and CostCategoryRuleRuleNotAndCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleNotAndCostCategoryArgs{...}
+type CostCategoryRuleRuleNotAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndCostCategoryOutput() CostCategoryRuleRuleNotAndCostCategoryOutput
+	ToCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleNotAndCostCategoryOutput
+}
+
+type CostCategoryRuleRuleNotAndCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotAndCostCategoryArgs) ToCostCategoryRuleRuleNotAndCostCategoryOutput() CostCategoryRuleRuleNotAndCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndCostCategoryArgs) ToCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleNotAndCostCategoryArgs) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutput() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndCostCategoryArgs) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndCostCategoryOutput).ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotAndCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleNotAndCostCategoryArgs, CostCategoryRuleRuleNotAndCostCategoryPtr and CostCategoryRuleRuleNotAndCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotAndCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotAndCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndCostCategoryPtrOutput() CostCategoryRuleRuleNotAndCostCategoryPtrOutput
+	ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotAndCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleNotAndCostCategoryPtrType CostCategoryRuleRuleNotAndCostCategoryArgs
+
+func CostCategoryRuleRuleNotAndCostCategoryPtr(v *CostCategoryRuleRuleNotAndCostCategoryArgs) CostCategoryRuleRuleNotAndCostCategoryPtrInput {
+	return (*costCategoryRuleRuleNotAndCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotAndCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotAndCostCategoryPtrType) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutput() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotAndCostCategoryPtrType) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleNotAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) ToCostCategoryRuleRuleNotAndCostCategoryOutput() CostCategoryRuleRuleNotAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) ToCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutput() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotAndCostCategory) *CostCategoryRuleRuleNotAndCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleNotAndCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutput() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) ToCostCategoryRuleRuleNotAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) Elem() CostCategoryRuleRuleNotAndCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndCostCategory) CostCategoryRuleRuleNotAndCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotAndCostCategory
+		return ret
+	}).(CostCategoryRuleRuleNotAndCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotAndDimensionInput is an input type that accepts CostCategoryRuleRuleNotAndDimensionArgs and CostCategoryRuleRuleNotAndDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndDimensionInput` via:
+//
+//	CostCategoryRuleRuleNotAndDimensionArgs{...}
+type CostCategoryRuleRuleNotAndDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndDimensionOutput() CostCategoryRuleRuleNotAndDimensionOutput
+	ToCostCategoryRuleRuleNotAndDimensionOutputWithContext(context.Context) CostCategoryRuleRuleNotAndDimensionOutput
+}
+
+type CostCategoryRuleRuleNotAndDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotAndDimensionArgs) ToCostCategoryRuleRuleNotAndDimensionOutput() CostCategoryRuleRuleNotAndDimensionOutput {
+	return i.ToCostCategoryRuleRuleNotAndDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndDimensionArgs) ToCostCategoryRuleRuleNotAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleNotAndDimensionArgs) ToCostCategoryRuleRuleNotAndDimensionPtrOutput() CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndDimensionArgs) ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndDimensionOutput).ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotAndDimensionPtrInput is an input type that accepts CostCategoryRuleRuleNotAndDimensionArgs, CostCategoryRuleRuleNotAndDimensionPtr and CostCategoryRuleRuleNotAndDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotAndDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotAndDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndDimensionPtrOutput() CostCategoryRuleRuleNotAndDimensionPtrOutput
+	ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotAndDimensionPtrOutput
+}
+
+type costCategoryRuleRuleNotAndDimensionPtrType CostCategoryRuleRuleNotAndDimensionArgs
+
+func CostCategoryRuleRuleNotAndDimensionPtr(v *CostCategoryRuleRuleNotAndDimensionArgs) CostCategoryRuleRuleNotAndDimensionPtrInput {
+	return (*costCategoryRuleRuleNotAndDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotAndDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotAndDimensionPtrType) ToCostCategoryRuleRuleNotAndDimensionPtrOutput() CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotAndDimensionPtrType) ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleNotAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionOutput) ToCostCategoryRuleRuleNotAndDimensionOutput() CostCategoryRuleRuleNotAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionOutput) ToCostCategoryRuleRuleNotAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionOutput) ToCostCategoryRuleRuleNotAndDimensionPtrOutput() CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionOutput) ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotAndDimension) *CostCategoryRuleRuleNotAndDimension {
+		return &v
+	}).(CostCategoryRuleRuleNotAndDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotAndDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) ToCostCategoryRuleRuleNotAndDimensionPtrOutput() CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) ToCostCategoryRuleRuleNotAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) Elem() CostCategoryRuleRuleNotAndDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndDimension) CostCategoryRuleRuleNotAndDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotAndDimension
+		return ret
+	}).(CostCategoryRuleRuleNotAndDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotAndTagsInput is an input type that accepts CostCategoryRuleRuleNotAndTagsArgs and CostCategoryRuleRuleNotAndTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndTagsInput` via:
+//
+//	CostCategoryRuleRuleNotAndTagsArgs{...}
+type CostCategoryRuleRuleNotAndTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndTagsOutput() CostCategoryRuleRuleNotAndTagsOutput
+	ToCostCategoryRuleRuleNotAndTagsOutputWithContext(context.Context) CostCategoryRuleRuleNotAndTagsOutput
+}
+
+type CostCategoryRuleRuleNotAndTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotAndTagsArgs) ToCostCategoryRuleRuleNotAndTagsOutput() CostCategoryRuleRuleNotAndTagsOutput {
+	return i.ToCostCategoryRuleRuleNotAndTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndTagsArgs) ToCostCategoryRuleRuleNotAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndTagsOutput)
+}
+
+func (i CostCategoryRuleRuleNotAndTagsArgs) ToCostCategoryRuleRuleNotAndTagsPtrOutput() CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotAndTagsArgs) ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndTagsOutput).ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotAndTagsPtrInput is an input type that accepts CostCategoryRuleRuleNotAndTagsArgs, CostCategoryRuleRuleNotAndTagsPtr and CostCategoryRuleRuleNotAndTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotAndTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotAndTagsPtrOutput() CostCategoryRuleRuleNotAndTagsPtrOutput
+	ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotAndTagsPtrOutput
+}
+
+type costCategoryRuleRuleNotAndTagsPtrType CostCategoryRuleRuleNotAndTagsArgs
+
+func CostCategoryRuleRuleNotAndTagsPtr(v *CostCategoryRuleRuleNotAndTagsArgs) CostCategoryRuleRuleNotAndTagsPtrInput {
+	return (*costCategoryRuleRuleNotAndTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotAndTagsPtrType) ToCostCategoryRuleRuleNotAndTagsPtrOutput() CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotAndTagsPtrType) ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotAndTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndTagsOutput) ToCostCategoryRuleRuleNotAndTagsOutput() CostCategoryRuleRuleNotAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndTagsOutput) ToCostCategoryRuleRuleNotAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndTagsOutput) ToCostCategoryRuleRuleNotAndTagsPtrOutput() CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotAndTagsOutput) ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotAndTags) *CostCategoryRuleRuleNotAndTags {
+		return &v
+	}).(CostCategoryRuleRuleNotAndTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) ToCostCategoryRuleRuleNotAndTagsPtrOutput() CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) ToCostCategoryRuleRuleNotAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) Elem() CostCategoryRuleRuleNotAndTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndTags) CostCategoryRuleRuleNotAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotAndTags
+		return ret
+	}).(CostCategoryRuleRuleNotAndTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type CostCategoryRuleRuleNotCostCategory struct {
@@ -4879,6 +7536,1332 @@ func (o CostCategoryRuleRuleNotDimensionPtrOutput) Values() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+type CostCategoryRuleRuleNotNot struct {
+	CostCategory *CostCategoryRuleRuleNotNotCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleNotNotDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleNotNotTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleNotNotInput is an input type that accepts CostCategoryRuleRuleNotNotArgs and CostCategoryRuleRuleNotNotOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotInput` via:
+//
+//	CostCategoryRuleRuleNotNotArgs{...}
+type CostCategoryRuleRuleNotNotInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotOutput() CostCategoryRuleRuleNotNotOutput
+	ToCostCategoryRuleRuleNotNotOutputWithContext(context.Context) CostCategoryRuleRuleNotNotOutput
+}
+
+type CostCategoryRuleRuleNotNotArgs struct {
+	CostCategory CostCategoryRuleRuleNotNotCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleNotNotDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleNotNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleNotNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotNotArgs) ToCostCategoryRuleRuleNotNotOutput() CostCategoryRuleRuleNotNotOutput {
+	return i.ToCostCategoryRuleRuleNotNotOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotArgs) ToCostCategoryRuleRuleNotNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotOutput)
+}
+
+func (i CostCategoryRuleRuleNotNotArgs) ToCostCategoryRuleRuleNotNotPtrOutput() CostCategoryRuleRuleNotNotPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotArgs) ToCostCategoryRuleRuleNotNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotOutput).ToCostCategoryRuleRuleNotNotPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotNotPtrInput is an input type that accepts CostCategoryRuleRuleNotNotArgs, CostCategoryRuleRuleNotNotPtr and CostCategoryRuleRuleNotNotPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotNotPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotPtrOutput() CostCategoryRuleRuleNotNotPtrOutput
+	ToCostCategoryRuleRuleNotNotPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotNotPtrOutput
+}
+
+type costCategoryRuleRuleNotNotPtrType CostCategoryRuleRuleNotNotArgs
+
+func CostCategoryRuleRuleNotNotPtr(v *CostCategoryRuleRuleNotNotArgs) CostCategoryRuleRuleNotNotPtrInput {
+	return (*costCategoryRuleRuleNotNotPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotNotPtrType) ToCostCategoryRuleRuleNotNotPtrOutput() CostCategoryRuleRuleNotNotPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotNotPtrType) ToCostCategoryRuleRuleNotNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) ToCostCategoryRuleRuleNotNotOutput() CostCategoryRuleRuleNotNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) ToCostCategoryRuleRuleNotNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) ToCostCategoryRuleRuleNotNotPtrOutput() CostCategoryRuleRuleNotNotPtrOutput {
+	return o.ToCostCategoryRuleRuleNotNotPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) ToCostCategoryRuleRuleNotNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNot {
+		return &v
+	}).(CostCategoryRuleRuleNotNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) CostCategory() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotNotOutput) Dimension() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleNotNotOutput) Tags() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotTags { return v.Tags }).(CostCategoryRuleRuleNotNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotPtrOutput) ToCostCategoryRuleRuleNotNotPtrOutput() CostCategoryRuleRuleNotNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotPtrOutput) ToCostCategoryRuleRuleNotNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotPtrOutput) Elem() CostCategoryRuleRuleNotNotOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) CostCategoryRuleRuleNotNot {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotNot
+		return ret
+	}).(CostCategoryRuleRuleNotNotOutput)
+}
+
+func (o CostCategoryRuleRuleNotNotPtrOutput) CostCategory() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotCostCategory {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategory
+	}).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotNotPtrOutput) Dimension() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(CostCategoryRuleRuleNotNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleNotNotPtrOutput) Tags() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(CostCategoryRuleRuleNotNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotNotCostCategoryInput is an input type that accepts CostCategoryRuleRuleNotNotCostCategoryArgs and CostCategoryRuleRuleNotNotCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleNotNotCostCategoryArgs{...}
+type CostCategoryRuleRuleNotNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotCostCategoryOutput() CostCategoryRuleRuleNotNotCostCategoryOutput
+	ToCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleNotNotCostCategoryOutput
+}
+
+type CostCategoryRuleRuleNotNotCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotNotCostCategoryArgs) ToCostCategoryRuleRuleNotNotCostCategoryOutput() CostCategoryRuleRuleNotNotCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotCostCategoryArgs) ToCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleNotNotCostCategoryArgs) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutput() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotCostCategoryArgs) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotCostCategoryOutput).ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotNotCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleNotNotCostCategoryArgs, CostCategoryRuleRuleNotNotCostCategoryPtr and CostCategoryRuleRuleNotNotCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotNotCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotNotCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotCostCategoryPtrOutput() CostCategoryRuleRuleNotNotCostCategoryPtrOutput
+	ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotNotCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleNotNotCostCategoryPtrType CostCategoryRuleRuleNotNotCostCategoryArgs
+
+func CostCategoryRuleRuleNotNotCostCategoryPtr(v *CostCategoryRuleRuleNotNotCostCategoryArgs) CostCategoryRuleRuleNotNotCostCategoryPtrInput {
+	return (*costCategoryRuleRuleNotNotCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotNotCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotNotCostCategoryPtrType) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutput() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotNotCostCategoryPtrType) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) ToCostCategoryRuleRuleNotNotCostCategoryOutput() CostCategoryRuleRuleNotNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) ToCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutput() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotNotCostCategory) *CostCategoryRuleRuleNotNotCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotNotCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutput() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) ToCostCategoryRuleRuleNotNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) Elem() CostCategoryRuleRuleNotNotCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotCostCategory) CostCategoryRuleRuleNotNotCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotNotCostCategory
+		return ret
+	}).(CostCategoryRuleRuleNotNotCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotNotDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotNotDimensionInput is an input type that accepts CostCategoryRuleRuleNotNotDimensionArgs and CostCategoryRuleRuleNotNotDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotDimensionInput` via:
+//
+//	CostCategoryRuleRuleNotNotDimensionArgs{...}
+type CostCategoryRuleRuleNotNotDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotDimensionOutput() CostCategoryRuleRuleNotNotDimensionOutput
+	ToCostCategoryRuleRuleNotNotDimensionOutputWithContext(context.Context) CostCategoryRuleRuleNotNotDimensionOutput
+}
+
+type CostCategoryRuleRuleNotNotDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotNotDimensionArgs) ToCostCategoryRuleRuleNotNotDimensionOutput() CostCategoryRuleRuleNotNotDimensionOutput {
+	return i.ToCostCategoryRuleRuleNotNotDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotDimensionArgs) ToCostCategoryRuleRuleNotNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleNotNotDimensionArgs) ToCostCategoryRuleRuleNotNotDimensionPtrOutput() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotDimensionArgs) ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotDimensionOutput).ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotNotDimensionPtrInput is an input type that accepts CostCategoryRuleRuleNotNotDimensionArgs, CostCategoryRuleRuleNotNotDimensionPtr and CostCategoryRuleRuleNotNotDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotNotDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotNotDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotDimensionPtrOutput() CostCategoryRuleRuleNotNotDimensionPtrOutput
+	ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotNotDimensionPtrOutput
+}
+
+type costCategoryRuleRuleNotNotDimensionPtrType CostCategoryRuleRuleNotNotDimensionArgs
+
+func CostCategoryRuleRuleNotNotDimensionPtr(v *CostCategoryRuleRuleNotNotDimensionArgs) CostCategoryRuleRuleNotNotDimensionPtrInput {
+	return (*costCategoryRuleRuleNotNotDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotNotDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotNotDimensionPtrType) ToCostCategoryRuleRuleNotNotDimensionPtrOutput() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotNotDimensionPtrType) ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionOutput) ToCostCategoryRuleRuleNotNotDimensionOutput() CostCategoryRuleRuleNotNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionOutput) ToCostCategoryRuleRuleNotNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionOutput) ToCostCategoryRuleRuleNotNotDimensionPtrOutput() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionOutput) ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotNotDimension) *CostCategoryRuleRuleNotNotDimension {
+		return &v
+	}).(CostCategoryRuleRuleNotNotDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotNotDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotNotDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) ToCostCategoryRuleRuleNotNotDimensionPtrOutput() CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) ToCostCategoryRuleRuleNotNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) Elem() CostCategoryRuleRuleNotNotDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotDimension) CostCategoryRuleRuleNotNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotNotDimension
+		return ret
+	}).(CostCategoryRuleRuleNotNotDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotNotTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotNotTagsInput is an input type that accepts CostCategoryRuleRuleNotNotTagsArgs and CostCategoryRuleRuleNotNotTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotTagsInput` via:
+//
+//	CostCategoryRuleRuleNotNotTagsArgs{...}
+type CostCategoryRuleRuleNotNotTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotTagsOutput() CostCategoryRuleRuleNotNotTagsOutput
+	ToCostCategoryRuleRuleNotNotTagsOutputWithContext(context.Context) CostCategoryRuleRuleNotNotTagsOutput
+}
+
+type CostCategoryRuleRuleNotNotTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotNotTagsArgs) ToCostCategoryRuleRuleNotNotTagsOutput() CostCategoryRuleRuleNotNotTagsOutput {
+	return i.ToCostCategoryRuleRuleNotNotTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotTagsArgs) ToCostCategoryRuleRuleNotNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotTagsOutput)
+}
+
+func (i CostCategoryRuleRuleNotNotTagsArgs) ToCostCategoryRuleRuleNotNotTagsPtrOutput() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotNotTagsArgs) ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotTagsOutput).ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotNotTagsPtrInput is an input type that accepts CostCategoryRuleRuleNotNotTagsArgs, CostCategoryRuleRuleNotNotTagsPtr and CostCategoryRuleRuleNotNotTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotNotTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotNotTagsPtrOutput() CostCategoryRuleRuleNotNotTagsPtrOutput
+	ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotNotTagsPtrOutput
+}
+
+type costCategoryRuleRuleNotNotTagsPtrType CostCategoryRuleRuleNotNotTagsArgs
+
+func CostCategoryRuleRuleNotNotTagsPtr(v *CostCategoryRuleRuleNotNotTagsArgs) CostCategoryRuleRuleNotNotTagsPtrInput {
+	return (*costCategoryRuleRuleNotNotTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotNotTagsPtrType) ToCostCategoryRuleRuleNotNotTagsPtrOutput() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotNotTagsPtrType) ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotNotTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotTagsOutput) ToCostCategoryRuleRuleNotNotTagsOutput() CostCategoryRuleRuleNotNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotTagsOutput) ToCostCategoryRuleRuleNotNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotTagsOutput) ToCostCategoryRuleRuleNotNotTagsPtrOutput() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotNotTagsOutput) ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotNotTags) *CostCategoryRuleRuleNotNotTags {
+		return &v
+	}).(CostCategoryRuleRuleNotNotTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) ToCostCategoryRuleRuleNotNotTagsPtrOutput() CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) ToCostCategoryRuleRuleNotNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) Elem() CostCategoryRuleRuleNotNotTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotTags) CostCategoryRuleRuleNotNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotNotTags
+		return ret
+	}).(CostCategoryRuleRuleNotNotTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOr struct {
+	CostCategory *CostCategoryRuleRuleNotOrCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleNotOrDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleNotOrTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleNotOrInput is an input type that accepts CostCategoryRuleRuleNotOrArgs and CostCategoryRuleRuleNotOrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrInput` via:
+//
+//	CostCategoryRuleRuleNotOrArgs{...}
+type CostCategoryRuleRuleNotOrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrOutput() CostCategoryRuleRuleNotOrOutput
+	ToCostCategoryRuleRuleNotOrOutputWithContext(context.Context) CostCategoryRuleRuleNotOrOutput
+}
+
+type CostCategoryRuleRuleNotOrArgs struct {
+	CostCategory CostCategoryRuleRuleNotOrCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleNotOrDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleNotOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleNotOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotOrArgs) ToCostCategoryRuleRuleNotOrOutput() CostCategoryRuleRuleNotOrOutput {
+	return i.ToCostCategoryRuleRuleNotOrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrArgs) ToCostCategoryRuleRuleNotOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrOutput)
+}
+
+// CostCategoryRuleRuleNotOrArrayInput is an input type that accepts CostCategoryRuleRuleNotOrArray and CostCategoryRuleRuleNotOrArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrArrayInput` via:
+//
+//	CostCategoryRuleRuleNotOrArray{ CostCategoryRuleRuleNotOrArgs{...} }
+type CostCategoryRuleRuleNotOrArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrArrayOutput() CostCategoryRuleRuleNotOrArrayOutput
+	ToCostCategoryRuleRuleNotOrArrayOutputWithContext(context.Context) CostCategoryRuleRuleNotOrArrayOutput
+}
+
+type CostCategoryRuleRuleNotOrArray []CostCategoryRuleRuleNotOrInput
+
+func (CostCategoryRuleRuleNotOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotOrArray) ToCostCategoryRuleRuleNotOrArrayOutput() CostCategoryRuleRuleNotOrArrayOutput {
+	return i.ToCostCategoryRuleRuleNotOrArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrArray) ToCostCategoryRuleRuleNotOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrOutput) ToCostCategoryRuleRuleNotOrOutput() CostCategoryRuleRuleNotOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrOutput) ToCostCategoryRuleRuleNotOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrOutput) CostCategory() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOr) *CostCategoryRuleRuleNotOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotOrCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleNotOrOutput) Dimension() CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOr) *CostCategoryRuleRuleNotOrDimension { return v.Dimension }).(CostCategoryRuleRuleNotOrDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleNotOrOutput) Tags() CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOr) *CostCategoryRuleRuleNotOrTags { return v.Tags }).(CostCategoryRuleRuleNotOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotOrArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrArrayOutput) ToCostCategoryRuleRuleNotOrArrayOutput() CostCategoryRuleRuleNotOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrArrayOutput) ToCostCategoryRuleRuleNotOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleNotOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleNotOr {
+		return vs[0].([]CostCategoryRuleRuleNotOr)[vs[1].(int)]
+	}).(CostCategoryRuleRuleNotOrOutput)
+}
+
+type CostCategoryRuleRuleNotOrCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotOrCostCategoryInput is an input type that accepts CostCategoryRuleRuleNotOrCostCategoryArgs and CostCategoryRuleRuleNotOrCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleNotOrCostCategoryArgs{...}
+type CostCategoryRuleRuleNotOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrCostCategoryOutput() CostCategoryRuleRuleNotOrCostCategoryOutput
+	ToCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleNotOrCostCategoryOutput
+}
+
+type CostCategoryRuleRuleNotOrCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotOrCostCategoryArgs) ToCostCategoryRuleRuleNotOrCostCategoryOutput() CostCategoryRuleRuleNotOrCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrCostCategoryArgs) ToCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleNotOrCostCategoryArgs) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutput() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrCostCategoryArgs) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrCostCategoryOutput).ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotOrCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleNotOrCostCategoryArgs, CostCategoryRuleRuleNotOrCostCategoryPtr and CostCategoryRuleRuleNotOrCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotOrCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotOrCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrCostCategoryPtrOutput() CostCategoryRuleRuleNotOrCostCategoryPtrOutput
+	ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotOrCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleNotOrCostCategoryPtrType CostCategoryRuleRuleNotOrCostCategoryArgs
+
+func CostCategoryRuleRuleNotOrCostCategoryPtr(v *CostCategoryRuleRuleNotOrCostCategoryArgs) CostCategoryRuleRuleNotOrCostCategoryPtrInput {
+	return (*costCategoryRuleRuleNotOrCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotOrCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotOrCostCategoryPtrType) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutput() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotOrCostCategoryPtrType) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleNotOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) ToCostCategoryRuleRuleNotOrCostCategoryOutput() CostCategoryRuleRuleNotOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) ToCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutput() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotOrCostCategory) *CostCategoryRuleRuleNotOrCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleNotOrCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutput() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) ToCostCategoryRuleRuleNotOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) Elem() CostCategoryRuleRuleNotOrCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrCostCategory) CostCategoryRuleRuleNotOrCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotOrCostCategory
+		return ret
+	}).(CostCategoryRuleRuleNotOrCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotOrDimensionInput is an input type that accepts CostCategoryRuleRuleNotOrDimensionArgs and CostCategoryRuleRuleNotOrDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrDimensionInput` via:
+//
+//	CostCategoryRuleRuleNotOrDimensionArgs{...}
+type CostCategoryRuleRuleNotOrDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrDimensionOutput() CostCategoryRuleRuleNotOrDimensionOutput
+	ToCostCategoryRuleRuleNotOrDimensionOutputWithContext(context.Context) CostCategoryRuleRuleNotOrDimensionOutput
+}
+
+type CostCategoryRuleRuleNotOrDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotOrDimensionArgs) ToCostCategoryRuleRuleNotOrDimensionOutput() CostCategoryRuleRuleNotOrDimensionOutput {
+	return i.ToCostCategoryRuleRuleNotOrDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrDimensionArgs) ToCostCategoryRuleRuleNotOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleNotOrDimensionArgs) ToCostCategoryRuleRuleNotOrDimensionPtrOutput() CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrDimensionArgs) ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrDimensionOutput).ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotOrDimensionPtrInput is an input type that accepts CostCategoryRuleRuleNotOrDimensionArgs, CostCategoryRuleRuleNotOrDimensionPtr and CostCategoryRuleRuleNotOrDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotOrDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotOrDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrDimensionPtrOutput() CostCategoryRuleRuleNotOrDimensionPtrOutput
+	ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotOrDimensionPtrOutput
+}
+
+type costCategoryRuleRuleNotOrDimensionPtrType CostCategoryRuleRuleNotOrDimensionArgs
+
+func CostCategoryRuleRuleNotOrDimensionPtr(v *CostCategoryRuleRuleNotOrDimensionArgs) CostCategoryRuleRuleNotOrDimensionPtrInput {
+	return (*costCategoryRuleRuleNotOrDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotOrDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotOrDimensionPtrType) ToCostCategoryRuleRuleNotOrDimensionPtrOutput() CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotOrDimensionPtrType) ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleNotOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionOutput) ToCostCategoryRuleRuleNotOrDimensionOutput() CostCategoryRuleRuleNotOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionOutput) ToCostCategoryRuleRuleNotOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionOutput) ToCostCategoryRuleRuleNotOrDimensionPtrOutput() CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionOutput) ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotOrDimension) *CostCategoryRuleRuleNotOrDimension {
+		return &v
+	}).(CostCategoryRuleRuleNotOrDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotOrDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) ToCostCategoryRuleRuleNotOrDimensionPtrOutput() CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) ToCostCategoryRuleRuleNotOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) Elem() CostCategoryRuleRuleNotOrDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrDimension) CostCategoryRuleRuleNotOrDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotOrDimension
+		return ret
+	}).(CostCategoryRuleRuleNotOrDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleNotOrTagsInput is an input type that accepts CostCategoryRuleRuleNotOrTagsArgs and CostCategoryRuleRuleNotOrTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrTagsInput` via:
+//
+//	CostCategoryRuleRuleNotOrTagsArgs{...}
+type CostCategoryRuleRuleNotOrTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrTagsOutput() CostCategoryRuleRuleNotOrTagsOutput
+	ToCostCategoryRuleRuleNotOrTagsOutputWithContext(context.Context) CostCategoryRuleRuleNotOrTagsOutput
+}
+
+type CostCategoryRuleRuleNotOrTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleNotOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleNotOrTagsArgs) ToCostCategoryRuleRuleNotOrTagsOutput() CostCategoryRuleRuleNotOrTagsOutput {
+	return i.ToCostCategoryRuleRuleNotOrTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrTagsArgs) ToCostCategoryRuleRuleNotOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrTagsOutput)
+}
+
+func (i CostCategoryRuleRuleNotOrTagsArgs) ToCostCategoryRuleRuleNotOrTagsPtrOutput() CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleNotOrTagsArgs) ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrTagsOutput).ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleNotOrTagsPtrInput is an input type that accepts CostCategoryRuleRuleNotOrTagsArgs, CostCategoryRuleRuleNotOrTagsPtr and CostCategoryRuleRuleNotOrTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleNotOrTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleNotOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleNotOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleNotOrTagsPtrOutput() CostCategoryRuleRuleNotOrTagsPtrOutput
+	ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleNotOrTagsPtrOutput
+}
+
+type costCategoryRuleRuleNotOrTagsPtrType CostCategoryRuleRuleNotOrTagsArgs
+
+func CostCategoryRuleRuleNotOrTagsPtr(v *CostCategoryRuleRuleNotOrTagsArgs) CostCategoryRuleRuleNotOrTagsPtrInput {
+	return (*costCategoryRuleRuleNotOrTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleNotOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleNotOrTagsPtrType) ToCostCategoryRuleRuleNotOrTagsPtrOutput() CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleNotOrTagsPtrType) ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleNotOrTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleNotOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrTagsOutput) ToCostCategoryRuleRuleNotOrTagsOutput() CostCategoryRuleRuleNotOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrTagsOutput) ToCostCategoryRuleRuleNotOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrTagsOutput) ToCostCategoryRuleRuleNotOrTagsPtrOutput() CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleNotOrTagsOutput) ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotOrTags) *CostCategoryRuleRuleNotOrTags {
+		return &v
+	}).(CostCategoryRuleRuleNotOrTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleNotOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleNotOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleNotOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleNotOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) ToCostCategoryRuleRuleNotOrTagsPtrOutput() CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) ToCostCategoryRuleRuleNotOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) Elem() CostCategoryRuleRuleNotOrTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrTags) CostCategoryRuleRuleNotOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleNotOrTags
+		return ret
+	}).(CostCategoryRuleRuleNotOrTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleNotOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleNotOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 type CostCategoryRuleRuleNotTags struct {
 	// Key for the tag.
 	Key *string `pulumi:"key"`
@@ -5055,8 +9038,11 @@ func (o CostCategoryRuleRuleNotTagsPtrOutput) Values() pulumi.StringArrayOutput 
 }
 
 type CostCategoryRuleRuleOr struct {
+	Ands         []CostCategoryRuleRuleOrAnd         `pulumi:"ands"`
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
 	Dimension    *CostCategoryRuleRuleOrDimension    `pulumi:"dimension"`
+	Not          *CostCategoryRuleRuleOrNot          `pulumi:"not"`
+	Ors          []CostCategoryRuleRuleOrOr          `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
 }
@@ -5073,8 +9059,11 @@ type CostCategoryRuleRuleOrInput interface {
 }
 
 type CostCategoryRuleRuleOrArgs struct {
+	Ands         CostCategoryRuleRuleOrAndArrayInput        `pulumi:"ands"`
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
 	Dimension    CostCategoryRuleRuleOrDimensionPtrInput    `pulumi:"dimension"`
+	Not          CostCategoryRuleRuleOrNotPtrInput          `pulumi:"not"`
+	Ors          CostCategoryRuleRuleOrOrArrayInput         `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
 }
@@ -5130,12 +9119,24 @@ func (o CostCategoryRuleRuleOrOutput) ToCostCategoryRuleRuleOrOutputWithContext(
 	return o
 }
 
+func (o CostCategoryRuleRuleOrOutput) Ands() CostCategoryRuleRuleOrAndArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOr) []CostCategoryRuleRuleOrAnd { return v.Ands }).(CostCategoryRuleRuleOrAndArrayOutput)
+}
+
 func (o CostCategoryRuleRuleOrOutput) CostCategory() CostCategoryRuleRuleOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrCostCategoryPtrOutput)
 }
 
 func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrOutput) Not() CostCategoryRuleRuleOrNotPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrNot { return v.Not }).(CostCategoryRuleRuleOrNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrOutput) Ors() CostCategoryRuleRuleOrOrArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOr) []CostCategoryRuleRuleOrOr { return v.Ors }).(CostCategoryRuleRuleOrOrArrayOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -5161,6 +9162,640 @@ func (o CostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) CostCategory
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleOr {
 		return vs[0].([]CostCategoryRuleRuleOr)[vs[1].(int)]
 	}).(CostCategoryRuleRuleOrOutput)
+}
+
+type CostCategoryRuleRuleOrAnd struct {
+	CostCategory *CostCategoryRuleRuleOrAndCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleOrAndDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleOrAndTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleOrAndInput is an input type that accepts CostCategoryRuleRuleOrAndArgs and CostCategoryRuleRuleOrAndOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndInput` via:
+//
+//	CostCategoryRuleRuleOrAndArgs{...}
+type CostCategoryRuleRuleOrAndInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndOutput() CostCategoryRuleRuleOrAndOutput
+	ToCostCategoryRuleRuleOrAndOutputWithContext(context.Context) CostCategoryRuleRuleOrAndOutput
+}
+
+type CostCategoryRuleRuleOrAndArgs struct {
+	CostCategory CostCategoryRuleRuleOrAndCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleOrAndDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleOrAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleOrAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrAndArgs) ToCostCategoryRuleRuleOrAndOutput() CostCategoryRuleRuleOrAndOutput {
+	return i.ToCostCategoryRuleRuleOrAndOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndArgs) ToCostCategoryRuleRuleOrAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndOutput)
+}
+
+// CostCategoryRuleRuleOrAndArrayInput is an input type that accepts CostCategoryRuleRuleOrAndArray and CostCategoryRuleRuleOrAndArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndArrayInput` via:
+//
+//	CostCategoryRuleRuleOrAndArray{ CostCategoryRuleRuleOrAndArgs{...} }
+type CostCategoryRuleRuleOrAndArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndArrayOutput() CostCategoryRuleRuleOrAndArrayOutput
+	ToCostCategoryRuleRuleOrAndArrayOutputWithContext(context.Context) CostCategoryRuleRuleOrAndArrayOutput
+}
+
+type CostCategoryRuleRuleOrAndArray []CostCategoryRuleRuleOrAndInput
+
+func (CostCategoryRuleRuleOrAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrAndArray) ToCostCategoryRuleRuleOrAndArrayOutput() CostCategoryRuleRuleOrAndArrayOutput {
+	return i.ToCostCategoryRuleRuleOrAndArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndArray) ToCostCategoryRuleRuleOrAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndOutput) ToCostCategoryRuleRuleOrAndOutput() CostCategoryRuleRuleOrAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndOutput) ToCostCategoryRuleRuleOrAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndOutput) CostCategory() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAnd) *CostCategoryRuleRuleOrAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrAndCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrAndOutput) Dimension() CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAnd) *CostCategoryRuleRuleOrAndDimension { return v.Dimension }).(CostCategoryRuleRuleOrAndDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleOrAndOutput) Tags() CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAnd) *CostCategoryRuleRuleOrAndTags { return v.Tags }).(CostCategoryRuleRuleOrAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrAndArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndArrayOutput) ToCostCategoryRuleRuleOrAndArrayOutput() CostCategoryRuleRuleOrAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndArrayOutput) ToCostCategoryRuleRuleOrAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleOrAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleOrAnd {
+		return vs[0].([]CostCategoryRuleRuleOrAnd)[vs[1].(int)]
+	}).(CostCategoryRuleRuleOrAndOutput)
+}
+
+type CostCategoryRuleRuleOrAndCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrAndCostCategoryInput is an input type that accepts CostCategoryRuleRuleOrAndCostCategoryArgs and CostCategoryRuleRuleOrAndCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleOrAndCostCategoryArgs{...}
+type CostCategoryRuleRuleOrAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndCostCategoryOutput() CostCategoryRuleRuleOrAndCostCategoryOutput
+	ToCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleOrAndCostCategoryOutput
+}
+
+type CostCategoryRuleRuleOrAndCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrAndCostCategoryArgs) ToCostCategoryRuleRuleOrAndCostCategoryOutput() CostCategoryRuleRuleOrAndCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndCostCategoryArgs) ToCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleOrAndCostCategoryArgs) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutput() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndCostCategoryArgs) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndCostCategoryOutput).ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrAndCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleOrAndCostCategoryArgs, CostCategoryRuleRuleOrAndCostCategoryPtr and CostCategoryRuleRuleOrAndCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrAndCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrAndCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndCostCategoryPtrOutput() CostCategoryRuleRuleOrAndCostCategoryPtrOutput
+	ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrAndCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleOrAndCostCategoryPtrType CostCategoryRuleRuleOrAndCostCategoryArgs
+
+func CostCategoryRuleRuleOrAndCostCategoryPtr(v *CostCategoryRuleRuleOrAndCostCategoryArgs) CostCategoryRuleRuleOrAndCostCategoryPtrInput {
+	return (*costCategoryRuleRuleOrAndCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrAndCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrAndCostCategoryPtrType) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutput() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrAndCostCategoryPtrType) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleOrAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) ToCostCategoryRuleRuleOrAndCostCategoryOutput() CostCategoryRuleRuleOrAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) ToCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutput() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrAndCostCategory) *CostCategoryRuleRuleOrAndCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleOrAndCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutput() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) ToCostCategoryRuleRuleOrAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) Elem() CostCategoryRuleRuleOrAndCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndCostCategory) CostCategoryRuleRuleOrAndCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrAndCostCategory
+		return ret
+	}).(CostCategoryRuleRuleOrAndCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrAndDimensionInput is an input type that accepts CostCategoryRuleRuleOrAndDimensionArgs and CostCategoryRuleRuleOrAndDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndDimensionInput` via:
+//
+//	CostCategoryRuleRuleOrAndDimensionArgs{...}
+type CostCategoryRuleRuleOrAndDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndDimensionOutput() CostCategoryRuleRuleOrAndDimensionOutput
+	ToCostCategoryRuleRuleOrAndDimensionOutputWithContext(context.Context) CostCategoryRuleRuleOrAndDimensionOutput
+}
+
+type CostCategoryRuleRuleOrAndDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrAndDimensionArgs) ToCostCategoryRuleRuleOrAndDimensionOutput() CostCategoryRuleRuleOrAndDimensionOutput {
+	return i.ToCostCategoryRuleRuleOrAndDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndDimensionArgs) ToCostCategoryRuleRuleOrAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleOrAndDimensionArgs) ToCostCategoryRuleRuleOrAndDimensionPtrOutput() CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndDimensionArgs) ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndDimensionOutput).ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrAndDimensionPtrInput is an input type that accepts CostCategoryRuleRuleOrAndDimensionArgs, CostCategoryRuleRuleOrAndDimensionPtr and CostCategoryRuleRuleOrAndDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrAndDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrAndDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndDimensionPtrOutput() CostCategoryRuleRuleOrAndDimensionPtrOutput
+	ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrAndDimensionPtrOutput
+}
+
+type costCategoryRuleRuleOrAndDimensionPtrType CostCategoryRuleRuleOrAndDimensionArgs
+
+func CostCategoryRuleRuleOrAndDimensionPtr(v *CostCategoryRuleRuleOrAndDimensionArgs) CostCategoryRuleRuleOrAndDimensionPtrInput {
+	return (*costCategoryRuleRuleOrAndDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrAndDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrAndDimensionPtrType) ToCostCategoryRuleRuleOrAndDimensionPtrOutput() CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrAndDimensionPtrType) ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleOrAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionOutput) ToCostCategoryRuleRuleOrAndDimensionOutput() CostCategoryRuleRuleOrAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionOutput) ToCostCategoryRuleRuleOrAndDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionOutput) ToCostCategoryRuleRuleOrAndDimensionPtrOutput() CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionOutput) ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrAndDimension) *CostCategoryRuleRuleOrAndDimension {
+		return &v
+	}).(CostCategoryRuleRuleOrAndDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrAndDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) ToCostCategoryRuleRuleOrAndDimensionPtrOutput() CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) ToCostCategoryRuleRuleOrAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) Elem() CostCategoryRuleRuleOrAndDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndDimension) CostCategoryRuleRuleOrAndDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrAndDimension
+		return ret
+	}).(CostCategoryRuleRuleOrAndDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrAndTagsInput is an input type that accepts CostCategoryRuleRuleOrAndTagsArgs and CostCategoryRuleRuleOrAndTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndTagsInput` via:
+//
+//	CostCategoryRuleRuleOrAndTagsArgs{...}
+type CostCategoryRuleRuleOrAndTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndTagsOutput() CostCategoryRuleRuleOrAndTagsOutput
+	ToCostCategoryRuleRuleOrAndTagsOutputWithContext(context.Context) CostCategoryRuleRuleOrAndTagsOutput
+}
+
+type CostCategoryRuleRuleOrAndTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrAndTagsArgs) ToCostCategoryRuleRuleOrAndTagsOutput() CostCategoryRuleRuleOrAndTagsOutput {
+	return i.ToCostCategoryRuleRuleOrAndTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndTagsArgs) ToCostCategoryRuleRuleOrAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndTagsOutput)
+}
+
+func (i CostCategoryRuleRuleOrAndTagsArgs) ToCostCategoryRuleRuleOrAndTagsPtrOutput() CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrAndTagsArgs) ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndTagsOutput).ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrAndTagsPtrInput is an input type that accepts CostCategoryRuleRuleOrAndTagsArgs, CostCategoryRuleRuleOrAndTagsPtr and CostCategoryRuleRuleOrAndTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrAndTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrAndTagsPtrOutput() CostCategoryRuleRuleOrAndTagsPtrOutput
+	ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrAndTagsPtrOutput
+}
+
+type costCategoryRuleRuleOrAndTagsPtrType CostCategoryRuleRuleOrAndTagsArgs
+
+func CostCategoryRuleRuleOrAndTagsPtr(v *CostCategoryRuleRuleOrAndTagsArgs) CostCategoryRuleRuleOrAndTagsPtrInput {
+	return (*costCategoryRuleRuleOrAndTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrAndTagsPtrType) ToCostCategoryRuleRuleOrAndTagsPtrOutput() CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrAndTagsPtrType) ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrAndTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrAndTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndTagsOutput) ToCostCategoryRuleRuleOrAndTagsOutput() CostCategoryRuleRuleOrAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndTagsOutput) ToCostCategoryRuleRuleOrAndTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndTagsOutput) ToCostCategoryRuleRuleOrAndTagsPtrOutput() CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrAndTagsOutput) ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrAndTags) *CostCategoryRuleRuleOrAndTags {
+		return &v
+	}).(CostCategoryRuleRuleOrAndTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrAndTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) ToCostCategoryRuleRuleOrAndTagsPtrOutput() CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) ToCostCategoryRuleRuleOrAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrAndTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) Elem() CostCategoryRuleRuleOrAndTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndTags) CostCategoryRuleRuleOrAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrAndTags
+		return ret
+	}).(CostCategoryRuleRuleOrAndTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type CostCategoryRuleRuleOrCostCategory struct {
@@ -5506,6 +10141,1332 @@ func (o CostCategoryRuleRuleOrDimensionPtrOutput) MatchOptions() pulumi.StringAr
 // Specific value of the Cost Category.
 func (o CostCategoryRuleRuleOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNot struct {
+	CostCategory *CostCategoryRuleRuleOrNotCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleOrNotDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleOrNotTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleOrNotInput is an input type that accepts CostCategoryRuleRuleOrNotArgs and CostCategoryRuleRuleOrNotOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotInput` via:
+//
+//	CostCategoryRuleRuleOrNotArgs{...}
+type CostCategoryRuleRuleOrNotInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotOutput() CostCategoryRuleRuleOrNotOutput
+	ToCostCategoryRuleRuleOrNotOutputWithContext(context.Context) CostCategoryRuleRuleOrNotOutput
+}
+
+type CostCategoryRuleRuleOrNotArgs struct {
+	CostCategory CostCategoryRuleRuleOrNotCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleOrNotDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleOrNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleOrNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrNotArgs) ToCostCategoryRuleRuleOrNotOutput() CostCategoryRuleRuleOrNotOutput {
+	return i.ToCostCategoryRuleRuleOrNotOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotArgs) ToCostCategoryRuleRuleOrNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotOutput)
+}
+
+func (i CostCategoryRuleRuleOrNotArgs) ToCostCategoryRuleRuleOrNotPtrOutput() CostCategoryRuleRuleOrNotPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotArgs) ToCostCategoryRuleRuleOrNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotOutput).ToCostCategoryRuleRuleOrNotPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrNotPtrInput is an input type that accepts CostCategoryRuleRuleOrNotArgs, CostCategoryRuleRuleOrNotPtr and CostCategoryRuleRuleOrNotPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrNotPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotPtrOutput() CostCategoryRuleRuleOrNotPtrOutput
+	ToCostCategoryRuleRuleOrNotPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrNotPtrOutput
+}
+
+type costCategoryRuleRuleOrNotPtrType CostCategoryRuleRuleOrNotArgs
+
+func CostCategoryRuleRuleOrNotPtr(v *CostCategoryRuleRuleOrNotArgs) CostCategoryRuleRuleOrNotPtrInput {
+	return (*costCategoryRuleRuleOrNotPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrNotPtrType) ToCostCategoryRuleRuleOrNotPtrOutput() CostCategoryRuleRuleOrNotPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrNotPtrType) ToCostCategoryRuleRuleOrNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) ToCostCategoryRuleRuleOrNotOutput() CostCategoryRuleRuleOrNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) ToCostCategoryRuleRuleOrNotOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) ToCostCategoryRuleRuleOrNotPtrOutput() CostCategoryRuleRuleOrNotPtrOutput {
+	return o.ToCostCategoryRuleRuleOrNotPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) ToCostCategoryRuleRuleOrNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNot {
+		return &v
+	}).(CostCategoryRuleRuleOrNotPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) CostCategory() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrNotOutput) Dimension() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotDimension { return v.Dimension }).(CostCategoryRuleRuleOrNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleOrNotOutput) Tags() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotTags { return v.Tags }).(CostCategoryRuleRuleOrNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotPtrOutput) ToCostCategoryRuleRuleOrNotPtrOutput() CostCategoryRuleRuleOrNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotPtrOutput) ToCostCategoryRuleRuleOrNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotPtrOutput) Elem() CostCategoryRuleRuleOrNotOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) CostCategoryRuleRuleOrNot {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrNot
+		return ret
+	}).(CostCategoryRuleRuleOrNotOutput)
+}
+
+func (o CostCategoryRuleRuleOrNotPtrOutput) CostCategory() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotCostCategory {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategory
+	}).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrNotPtrOutput) Dimension() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(CostCategoryRuleRuleOrNotDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleOrNotPtrOutput) Tags() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(CostCategoryRuleRuleOrNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrNotCostCategoryInput is an input type that accepts CostCategoryRuleRuleOrNotCostCategoryArgs and CostCategoryRuleRuleOrNotCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleOrNotCostCategoryArgs{...}
+type CostCategoryRuleRuleOrNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotCostCategoryOutput() CostCategoryRuleRuleOrNotCostCategoryOutput
+	ToCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleOrNotCostCategoryOutput
+}
+
+type CostCategoryRuleRuleOrNotCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrNotCostCategoryArgs) ToCostCategoryRuleRuleOrNotCostCategoryOutput() CostCategoryRuleRuleOrNotCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotCostCategoryArgs) ToCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleOrNotCostCategoryArgs) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutput() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotCostCategoryArgs) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotCostCategoryOutput).ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrNotCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleOrNotCostCategoryArgs, CostCategoryRuleRuleOrNotCostCategoryPtr and CostCategoryRuleRuleOrNotCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrNotCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrNotCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotCostCategoryPtrOutput() CostCategoryRuleRuleOrNotCostCategoryPtrOutput
+	ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrNotCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleOrNotCostCategoryPtrType CostCategoryRuleRuleOrNotCostCategoryArgs
+
+func CostCategoryRuleRuleOrNotCostCategoryPtr(v *CostCategoryRuleRuleOrNotCostCategoryArgs) CostCategoryRuleRuleOrNotCostCategoryPtrInput {
+	return (*costCategoryRuleRuleOrNotCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrNotCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrNotCostCategoryPtrType) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutput() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrNotCostCategoryPtrType) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) ToCostCategoryRuleRuleOrNotCostCategoryOutput() CostCategoryRuleRuleOrNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) ToCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutput() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrNotCostCategory) *CostCategoryRuleRuleOrNotCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNotCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutput() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) ToCostCategoryRuleRuleOrNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) Elem() CostCategoryRuleRuleOrNotCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotCostCategory) CostCategoryRuleRuleOrNotCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrNotCostCategory
+		return ret
+	}).(CostCategoryRuleRuleOrNotCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNotDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrNotDimensionInput is an input type that accepts CostCategoryRuleRuleOrNotDimensionArgs and CostCategoryRuleRuleOrNotDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotDimensionInput` via:
+//
+//	CostCategoryRuleRuleOrNotDimensionArgs{...}
+type CostCategoryRuleRuleOrNotDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotDimensionOutput() CostCategoryRuleRuleOrNotDimensionOutput
+	ToCostCategoryRuleRuleOrNotDimensionOutputWithContext(context.Context) CostCategoryRuleRuleOrNotDimensionOutput
+}
+
+type CostCategoryRuleRuleOrNotDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrNotDimensionArgs) ToCostCategoryRuleRuleOrNotDimensionOutput() CostCategoryRuleRuleOrNotDimensionOutput {
+	return i.ToCostCategoryRuleRuleOrNotDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotDimensionArgs) ToCostCategoryRuleRuleOrNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleOrNotDimensionArgs) ToCostCategoryRuleRuleOrNotDimensionPtrOutput() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotDimensionArgs) ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotDimensionOutput).ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrNotDimensionPtrInput is an input type that accepts CostCategoryRuleRuleOrNotDimensionArgs, CostCategoryRuleRuleOrNotDimensionPtr and CostCategoryRuleRuleOrNotDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrNotDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrNotDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotDimensionPtrOutput() CostCategoryRuleRuleOrNotDimensionPtrOutput
+	ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrNotDimensionPtrOutput
+}
+
+type costCategoryRuleRuleOrNotDimensionPtrType CostCategoryRuleRuleOrNotDimensionArgs
+
+func CostCategoryRuleRuleOrNotDimensionPtr(v *CostCategoryRuleRuleOrNotDimensionArgs) CostCategoryRuleRuleOrNotDimensionPtrInput {
+	return (*costCategoryRuleRuleOrNotDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrNotDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrNotDimensionPtrType) ToCostCategoryRuleRuleOrNotDimensionPtrOutput() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrNotDimensionPtrType) ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionOutput) ToCostCategoryRuleRuleOrNotDimensionOutput() CostCategoryRuleRuleOrNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionOutput) ToCostCategoryRuleRuleOrNotDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionOutput) ToCostCategoryRuleRuleOrNotDimensionPtrOutput() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionOutput) ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrNotDimension) *CostCategoryRuleRuleOrNotDimension {
+		return &v
+	}).(CostCategoryRuleRuleOrNotDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrNotDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNotDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) ToCostCategoryRuleRuleOrNotDimensionPtrOutput() CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) ToCostCategoryRuleRuleOrNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) Elem() CostCategoryRuleRuleOrNotDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotDimension) CostCategoryRuleRuleOrNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrNotDimension
+		return ret
+	}).(CostCategoryRuleRuleOrNotDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNotTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrNotTagsInput is an input type that accepts CostCategoryRuleRuleOrNotTagsArgs and CostCategoryRuleRuleOrNotTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotTagsInput` via:
+//
+//	CostCategoryRuleRuleOrNotTagsArgs{...}
+type CostCategoryRuleRuleOrNotTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotTagsOutput() CostCategoryRuleRuleOrNotTagsOutput
+	ToCostCategoryRuleRuleOrNotTagsOutputWithContext(context.Context) CostCategoryRuleRuleOrNotTagsOutput
+}
+
+type CostCategoryRuleRuleOrNotTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrNotTagsArgs) ToCostCategoryRuleRuleOrNotTagsOutput() CostCategoryRuleRuleOrNotTagsOutput {
+	return i.ToCostCategoryRuleRuleOrNotTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotTagsArgs) ToCostCategoryRuleRuleOrNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotTagsOutput)
+}
+
+func (i CostCategoryRuleRuleOrNotTagsArgs) ToCostCategoryRuleRuleOrNotTagsPtrOutput() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrNotTagsArgs) ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotTagsOutput).ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrNotTagsPtrInput is an input type that accepts CostCategoryRuleRuleOrNotTagsArgs, CostCategoryRuleRuleOrNotTagsPtr and CostCategoryRuleRuleOrNotTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrNotTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrNotTagsPtrOutput() CostCategoryRuleRuleOrNotTagsPtrOutput
+	ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrNotTagsPtrOutput
+}
+
+type costCategoryRuleRuleOrNotTagsPtrType CostCategoryRuleRuleOrNotTagsArgs
+
+func CostCategoryRuleRuleOrNotTagsPtr(v *CostCategoryRuleRuleOrNotTagsArgs) CostCategoryRuleRuleOrNotTagsPtrInput {
+	return (*costCategoryRuleRuleOrNotTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrNotTagsPtrType) ToCostCategoryRuleRuleOrNotTagsPtrOutput() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrNotTagsPtrType) ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrNotTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrNotTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotTagsOutput) ToCostCategoryRuleRuleOrNotTagsOutput() CostCategoryRuleRuleOrNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotTagsOutput) ToCostCategoryRuleRuleOrNotTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotTagsOutput) ToCostCategoryRuleRuleOrNotTagsPtrOutput() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrNotTagsOutput) ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrNotTags) *CostCategoryRuleRuleOrNotTags {
+		return &v
+	}).(CostCategoryRuleRuleOrNotTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrNotTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) ToCostCategoryRuleRuleOrNotTagsPtrOutput() CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) ToCostCategoryRuleRuleOrNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrNotTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) Elem() CostCategoryRuleRuleOrNotTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotTags) CostCategoryRuleRuleOrNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrNotTags
+		return ret
+	}).(CostCategoryRuleRuleOrNotTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOr struct {
+	CostCategory *CostCategoryRuleRuleOrOrCostCategory `pulumi:"costCategory"`
+	Dimension    *CostCategoryRuleRuleOrOrDimension    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleOrOrTags `pulumi:"tags"`
+}
+
+// CostCategoryRuleRuleOrOrInput is an input type that accepts CostCategoryRuleRuleOrOrArgs and CostCategoryRuleRuleOrOrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrInput` via:
+//
+//	CostCategoryRuleRuleOrOrArgs{...}
+type CostCategoryRuleRuleOrOrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrOutput() CostCategoryRuleRuleOrOrOutput
+	ToCostCategoryRuleRuleOrOrOutputWithContext(context.Context) CostCategoryRuleRuleOrOrOutput
+}
+
+type CostCategoryRuleRuleOrOrArgs struct {
+	CostCategory CostCategoryRuleRuleOrOrCostCategoryPtrInput `pulumi:"costCategory"`
+	Dimension    CostCategoryRuleRuleOrOrDimensionPtrInput    `pulumi:"dimension"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleOrOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (CostCategoryRuleRuleOrOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrOrArgs) ToCostCategoryRuleRuleOrOrOutput() CostCategoryRuleRuleOrOrOutput {
+	return i.ToCostCategoryRuleRuleOrOrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrArgs) ToCostCategoryRuleRuleOrOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrOutput)
+}
+
+// CostCategoryRuleRuleOrOrArrayInput is an input type that accepts CostCategoryRuleRuleOrOrArray and CostCategoryRuleRuleOrOrArrayOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrArrayInput` via:
+//
+//	CostCategoryRuleRuleOrOrArray{ CostCategoryRuleRuleOrOrArgs{...} }
+type CostCategoryRuleRuleOrOrArrayInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrArrayOutput() CostCategoryRuleRuleOrOrArrayOutput
+	ToCostCategoryRuleRuleOrOrArrayOutputWithContext(context.Context) CostCategoryRuleRuleOrOrArrayOutput
+}
+
+type CostCategoryRuleRuleOrOrArray []CostCategoryRuleRuleOrOrInput
+
+func (CostCategoryRuleRuleOrOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrOrArray) ToCostCategoryRuleRuleOrOrArrayOutput() CostCategoryRuleRuleOrOrArrayOutput {
+	return i.ToCostCategoryRuleRuleOrOrArrayOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrArray) ToCostCategoryRuleRuleOrOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrOutput) ToCostCategoryRuleRuleOrOrOutput() CostCategoryRuleRuleOrOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrOutput) ToCostCategoryRuleRuleOrOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrOutput) CostCategory() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOr) *CostCategoryRuleRuleOrOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrOrCostCategoryPtrOutput)
+}
+
+func (o CostCategoryRuleRuleOrOrOutput) Dimension() CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOr) *CostCategoryRuleRuleOrOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrOrDimensionPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryRuleRuleOrOrOutput) Tags() CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOr) *CostCategoryRuleRuleOrOrTags { return v.Tags }).(CostCategoryRuleRuleOrOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrOrArrayOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrArrayOutput) ToCostCategoryRuleRuleOrOrArrayOutput() CostCategoryRuleRuleOrOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrArrayOutput) ToCostCategoryRuleRuleOrOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrArrayOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleOrOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostCategoryRuleRuleOrOr {
+		return vs[0].([]CostCategoryRuleRuleOrOr)[vs[1].(int)]
+	}).(CostCategoryRuleRuleOrOrOutput)
+}
+
+type CostCategoryRuleRuleOrOrCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrOrCostCategoryInput is an input type that accepts CostCategoryRuleRuleOrOrCostCategoryArgs and CostCategoryRuleRuleOrOrCostCategoryOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrCostCategoryInput` via:
+//
+//	CostCategoryRuleRuleOrOrCostCategoryArgs{...}
+type CostCategoryRuleRuleOrOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrCostCategoryOutput() CostCategoryRuleRuleOrOrCostCategoryOutput
+	ToCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(context.Context) CostCategoryRuleRuleOrOrCostCategoryOutput
+}
+
+type CostCategoryRuleRuleOrOrCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrOrCostCategoryArgs) ToCostCategoryRuleRuleOrOrCostCategoryOutput() CostCategoryRuleRuleOrOrCostCategoryOutput {
+	return i.ToCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrCostCategoryArgs) ToCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrCostCategoryOutput)
+}
+
+func (i CostCategoryRuleRuleOrOrCostCategoryArgs) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutput() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrCostCategoryArgs) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrCostCategoryOutput).ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrOrCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleOrOrCostCategoryArgs, CostCategoryRuleRuleOrOrCostCategoryPtr and CostCategoryRuleRuleOrOrCostCategoryPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrCostCategoryPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrOrCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrOrCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrCostCategoryPtrOutput() CostCategoryRuleRuleOrOrCostCategoryPtrOutput
+	ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrOrCostCategoryPtrOutput
+}
+
+type costCategoryRuleRuleOrOrCostCategoryPtrType CostCategoryRuleRuleOrOrCostCategoryArgs
+
+func CostCategoryRuleRuleOrOrCostCategoryPtr(v *CostCategoryRuleRuleOrOrCostCategoryArgs) CostCategoryRuleRuleOrOrCostCategoryPtrInput {
+	return (*costCategoryRuleRuleOrOrCostCategoryPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrOrCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrOrCostCategoryPtrType) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutput() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrOrCostCategoryPtrType) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrCostCategoryPtrOutput)
+}
+
+type CostCategoryRuleRuleOrOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) ToCostCategoryRuleRuleOrOrCostCategoryOutput() CostCategoryRuleRuleOrOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) ToCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutput() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return o.ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrOrCostCategory) *CostCategoryRuleRuleOrOrCostCategory {
+		return &v
+	}).(CostCategoryRuleRuleOrOrCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutput() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) ToCostCategoryRuleRuleOrOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) Elem() CostCategoryRuleRuleOrOrCostCategoryOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrCostCategory) CostCategoryRuleRuleOrOrCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrOrCostCategory
+		return ret
+	}).(CostCategoryRuleRuleOrOrCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrOrDimensionInput is an input type that accepts CostCategoryRuleRuleOrOrDimensionArgs and CostCategoryRuleRuleOrOrDimensionOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrDimensionInput` via:
+//
+//	CostCategoryRuleRuleOrOrDimensionArgs{...}
+type CostCategoryRuleRuleOrOrDimensionInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrDimensionOutput() CostCategoryRuleRuleOrOrDimensionOutput
+	ToCostCategoryRuleRuleOrOrDimensionOutputWithContext(context.Context) CostCategoryRuleRuleOrOrDimensionOutput
+}
+
+type CostCategoryRuleRuleOrOrDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrOrDimensionArgs) ToCostCategoryRuleRuleOrOrDimensionOutput() CostCategoryRuleRuleOrOrDimensionOutput {
+	return i.ToCostCategoryRuleRuleOrOrDimensionOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrDimensionArgs) ToCostCategoryRuleRuleOrOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrDimensionOutput)
+}
+
+func (i CostCategoryRuleRuleOrOrDimensionArgs) ToCostCategoryRuleRuleOrOrDimensionPtrOutput() CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrDimensionArgs) ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrDimensionOutput).ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrOrDimensionPtrInput is an input type that accepts CostCategoryRuleRuleOrOrDimensionArgs, CostCategoryRuleRuleOrOrDimensionPtr and CostCategoryRuleRuleOrOrDimensionPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrDimensionPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrOrDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrOrDimensionPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrDimensionPtrOutput() CostCategoryRuleRuleOrOrDimensionPtrOutput
+	ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrOrDimensionPtrOutput
+}
+
+type costCategoryRuleRuleOrOrDimensionPtrType CostCategoryRuleRuleOrOrDimensionArgs
+
+func CostCategoryRuleRuleOrOrDimensionPtr(v *CostCategoryRuleRuleOrOrDimensionArgs) CostCategoryRuleRuleOrOrDimensionPtrInput {
+	return (*costCategoryRuleRuleOrOrDimensionPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrOrDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrOrDimensionPtrType) ToCostCategoryRuleRuleOrOrDimensionPtrOutput() CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrOrDimensionPtrType) ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrDimensionPtrOutput)
+}
+
+type CostCategoryRuleRuleOrOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionOutput) ToCostCategoryRuleRuleOrOrDimensionOutput() CostCategoryRuleRuleOrOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionOutput) ToCostCategoryRuleRuleOrOrDimensionOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionOutput) ToCostCategoryRuleRuleOrOrDimensionPtrOutput() CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return o.ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionOutput) ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrOrDimension) *CostCategoryRuleRuleOrOrDimension {
+		return &v
+	}).(CostCategoryRuleRuleOrOrDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrOrDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) ToCostCategoryRuleRuleOrOrDimensionPtrOutput() CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) ToCostCategoryRuleRuleOrOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrDimensionPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) Elem() CostCategoryRuleRuleOrOrDimensionOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrDimension) CostCategoryRuleRuleOrOrDimension {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrOrDimension
+		return ret
+	}).(CostCategoryRuleRuleOrOrDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// CostCategoryRuleRuleOrOrTagsInput is an input type that accepts CostCategoryRuleRuleOrOrTagsArgs and CostCategoryRuleRuleOrOrTagsOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrTagsInput` via:
+//
+//	CostCategoryRuleRuleOrOrTagsArgs{...}
+type CostCategoryRuleRuleOrOrTagsInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrTagsOutput() CostCategoryRuleRuleOrOrTagsOutput
+	ToCostCategoryRuleRuleOrOrTagsOutputWithContext(context.Context) CostCategoryRuleRuleOrOrTagsOutput
+}
+
+type CostCategoryRuleRuleOrOrTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CostCategoryRuleRuleOrOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrTags)(nil)).Elem()
+}
+
+func (i CostCategoryRuleRuleOrOrTagsArgs) ToCostCategoryRuleRuleOrOrTagsOutput() CostCategoryRuleRuleOrOrTagsOutput {
+	return i.ToCostCategoryRuleRuleOrOrTagsOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrTagsArgs) ToCostCategoryRuleRuleOrOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrTagsOutput)
+}
+
+func (i CostCategoryRuleRuleOrOrTagsArgs) ToCostCategoryRuleRuleOrOrTagsPtrOutput() CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CostCategoryRuleRuleOrOrTagsArgs) ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrTagsOutput).ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(ctx)
+}
+
+// CostCategoryRuleRuleOrOrTagsPtrInput is an input type that accepts CostCategoryRuleRuleOrOrTagsArgs, CostCategoryRuleRuleOrOrTagsPtr and CostCategoryRuleRuleOrOrTagsPtrOutput values.
+// You can construct a concrete instance of `CostCategoryRuleRuleOrOrTagsPtrInput` via:
+//
+//	        CostCategoryRuleRuleOrOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CostCategoryRuleRuleOrOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToCostCategoryRuleRuleOrOrTagsPtrOutput() CostCategoryRuleRuleOrOrTagsPtrOutput
+	ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(context.Context) CostCategoryRuleRuleOrOrTagsPtrOutput
+}
+
+type costCategoryRuleRuleOrOrTagsPtrType CostCategoryRuleRuleOrOrTagsArgs
+
+func CostCategoryRuleRuleOrOrTagsPtr(v *CostCategoryRuleRuleOrOrTagsArgs) CostCategoryRuleRuleOrOrTagsPtrInput {
+	return (*costCategoryRuleRuleOrOrTagsPtrType)(v)
+}
+
+func (*costCategoryRuleRuleOrOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrTags)(nil)).Elem()
+}
+
+func (i *costCategoryRuleRuleOrOrTagsPtrType) ToCostCategoryRuleRuleOrOrTagsPtrOutput() CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return i.ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *costCategoryRuleRuleOrOrTagsPtrType) ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOrTagsPtrOutput)
+}
+
+type CostCategoryRuleRuleOrOrTagsOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostCategoryRuleRuleOrOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrTagsOutput) ToCostCategoryRuleRuleOrOrTagsOutput() CostCategoryRuleRuleOrOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrTagsOutput) ToCostCategoryRuleRuleOrOrTagsOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrTagsOutput) ToCostCategoryRuleRuleOrOrTagsPtrOutput() CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return o.ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CostCategoryRuleRuleOrOrTagsOutput) ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrOrTags) *CostCategoryRuleRuleOrOrTags {
+		return &v
+	}).(CostCategoryRuleRuleOrOrTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CostCategoryRuleRuleOrOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CostCategoryRuleRuleOrOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CostCategoryRuleRuleOrOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CostCategoryRuleRuleOrOrTags)(nil)).Elem()
+}
+
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) ToCostCategoryRuleRuleOrOrTagsPtrOutput() CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) ToCostCategoryRuleRuleOrOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOrTagsPtrOutput {
+	return o
+}
+
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) Elem() CostCategoryRuleRuleOrOrTagsOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrTags) CostCategoryRuleRuleOrOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret CostCategoryRuleRuleOrOrTags
+		return ret
+	}).(CostCategoryRuleRuleOrOrTagsOutput)
+}
+
+// Key for the tag.
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o CostCategoryRuleRuleOrOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CostCategoryRuleRuleOrOrTags) []string {
 		if v == nil {
 			return nil
 		}
@@ -6466,10 +12427,16 @@ func (o GetCostCategoryRuleRuleArrayOutput) Index(i pulumi.IntInput) GetCostCate
 }
 
 type GetCostCategoryRuleRuleAnd struct {
+	// Return results that match both `Dimension` objects.
+	Ands []GetCostCategoryRuleRuleAndAnd `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories []GetCostCategoryRuleRuleAndCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleAndDimension `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots []GetCostCategoryRuleRuleAndNot `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors []GetCostCategoryRuleRuleAndOr `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleAndTag `pulumi:"tags"`
 }
@@ -6486,10 +12453,16 @@ type GetCostCategoryRuleRuleAndInput interface {
 }
 
 type GetCostCategoryRuleRuleAndArgs struct {
+	// Return results that match both `Dimension` objects.
+	Ands GetCostCategoryRuleRuleAndAndArrayInput `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories GetCostCategoryRuleRuleAndCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleAndDimensionArrayInput `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots GetCostCategoryRuleRuleAndNotArrayInput `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors GetCostCategoryRuleRuleAndOrArrayInput `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleAndTagArrayInput `pulumi:"tags"`
 }
@@ -6545,6 +12518,11 @@ func (o GetCostCategoryRuleRuleAndOutput) ToGetCostCategoryRuleRuleAndOutputWith
 	return o
 }
 
+// Return results that match both `Dimension` objects.
+func (o GetCostCategoryRuleRuleAndOutput) Ands() GetCostCategoryRuleRuleAndAndArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndAnd { return v.Ands }).(GetCostCategoryRuleRuleAndAndArrayOutput)
+}
+
 // Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o GetCostCategoryRuleRuleAndOutput) CostCategories() GetCostCategoryRuleRuleAndCostCategoryArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndCostCategory { return v.CostCategories }).(GetCostCategoryRuleRuleAndCostCategoryArrayOutput)
@@ -6553,6 +12531,16 @@ func (o GetCostCategoryRuleRuleAndOutput) CostCategories() GetCostCategoryRuleRu
 // Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleAndOutput) Dimensions() GetCostCategoryRuleRuleAndDimensionArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndDimensionArrayOutput)
+}
+
+// Return results that do not match the `Dimension` object.
+func (o GetCostCategoryRuleRuleAndOutput) Nots() GetCostCategoryRuleRuleAndNotArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndNot { return v.Nots }).(GetCostCategoryRuleRuleAndNotArrayOutput)
+}
+
+// Return results that match either `Dimension` object.
+func (o GetCostCategoryRuleRuleAndOutput) Ors() GetCostCategoryRuleRuleAndOrArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndOr { return v.Ors }).(GetCostCategoryRuleRuleAndOrArrayOutput)
 }
 
 // Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -6578,6 +12566,468 @@ func (o GetCostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) GetCostC
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAnd {
 		return vs[0].([]GetCostCategoryRuleRuleAnd)[vs[1].(int)]
 	}).(GetCostCategoryRuleRuleAndOutput)
+}
+
+type GetCostCategoryRuleRuleAndAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleAndAndCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleAndAndDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleAndAndTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleAndAndInput is an input type that accepts GetCostCategoryRuleRuleAndAndArgs and GetCostCategoryRuleRuleAndAndOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndArgs{...}
+type GetCostCategoryRuleRuleAndAndInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndOutput() GetCostCategoryRuleRuleAndAndOutput
+	ToGetCostCategoryRuleRuleAndAndOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndOutput
+}
+
+type GetCostCategoryRuleRuleAndAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleAndAndCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleAndAndDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleAndAndTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleAndAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndArgs) ToGetCostCategoryRuleRuleAndAndOutput() GetCostCategoryRuleRuleAndAndOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndArgs) ToGetCostCategoryRuleRuleAndAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndOutput)
+}
+
+// GetCostCategoryRuleRuleAndAndArrayInput is an input type that accepts GetCostCategoryRuleRuleAndAndArray and GetCostCategoryRuleRuleAndAndArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndArray{ GetCostCategoryRuleRuleAndAndArgs{...} }
+type GetCostCategoryRuleRuleAndAndArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndArrayOutput() GetCostCategoryRuleRuleAndAndArrayOutput
+	ToGetCostCategoryRuleRuleAndAndArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndAndArray []GetCostCategoryRuleRuleAndAndInput
+
+func (GetCostCategoryRuleRuleAndAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndArray) ToGetCostCategoryRuleRuleAndAndArrayOutput() GetCostCategoryRuleRuleAndAndArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndArray) ToGetCostCategoryRuleRuleAndAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndOutput) ToGetCostCategoryRuleRuleAndAndOutput() GetCostCategoryRuleRuleAndAndOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndOutput) ToGetCostCategoryRuleRuleAndAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleAndAndOutput) CostCategories() GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAnd) []GetCostCategoryRuleRuleAndAndCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndAndOutput) Dimensions() GetCostCategoryRuleRuleAndAndDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAnd) []GetCostCategoryRuleRuleAndAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndAndDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndAndOutput) Tags() GetCostCategoryRuleRuleAndAndTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAnd) []GetCostCategoryRuleRuleAndAndTag { return v.Tags }).(GetCostCategoryRuleRuleAndAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndArrayOutput) ToGetCostCategoryRuleRuleAndAndArrayOutput() GetCostCategoryRuleRuleAndAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndArrayOutput) ToGetCostCategoryRuleRuleAndAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndAnd {
+		return vs[0].([]GetCostCategoryRuleRuleAndAnd)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndAndOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndAndCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleAndAndCostCategoryArgs and GetCostCategoryRuleRuleAndAndCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndCostCategoryArgs{...}
+type GetCostCategoryRuleRuleAndAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndCostCategoryOutput() GetCostCategoryRuleRuleAndAndCostCategoryOutput
+	ToGetCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleAndAndCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndCostCategoryArgs) ToGetCostCategoryRuleRuleAndAndCostCategoryOutput() GetCostCategoryRuleRuleAndAndCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndCostCategoryArgs) ToGetCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleAndAndCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleAndAndCostCategoryArray and GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndCostCategoryArray{ GetCostCategoryRuleRuleAndAndCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleAndAndCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutput() GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndAndCostCategoryArray []GetCostCategoryRuleRuleAndAndCostCategoryInput
+
+func (GetCostCategoryRuleRuleAndAndCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndCostCategoryArray) ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutput() GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndCostCategoryArray) ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndCostCategoryOutput) ToGetCostCategoryRuleRuleAndAndCostCategoryOutput() GetCostCategoryRuleRuleAndAndCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndCostCategoryOutput) ToGetCostCategoryRuleRuleAndAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndAndCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutput() GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndAndCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndAndCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleAndAndCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndAndCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndAndDimensionInput is an input type that accepts GetCostCategoryRuleRuleAndAndDimensionArgs and GetCostCategoryRuleRuleAndAndDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndDimensionArgs{...}
+type GetCostCategoryRuleRuleAndAndDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndDimensionOutput() GetCostCategoryRuleRuleAndAndDimensionOutput
+	ToGetCostCategoryRuleRuleAndAndDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndDimensionOutput
+}
+
+type GetCostCategoryRuleRuleAndAndDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndDimensionArgs) ToGetCostCategoryRuleRuleAndAndDimensionOutput() GetCostCategoryRuleRuleAndAndDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndDimensionArgs) ToGetCostCategoryRuleRuleAndAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleAndAndDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleAndAndDimensionArray and GetCostCategoryRuleRuleAndAndDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndDimensionArray{ GetCostCategoryRuleRuleAndAndDimensionArgs{...} }
+type GetCostCategoryRuleRuleAndAndDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndDimensionArrayOutput() GetCostCategoryRuleRuleAndAndDimensionArrayOutput
+	ToGetCostCategoryRuleRuleAndAndDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndAndDimensionArray []GetCostCategoryRuleRuleAndAndDimensionInput
+
+func (GetCostCategoryRuleRuleAndAndDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndDimensionArray) ToGetCostCategoryRuleRuleAndAndDimensionArrayOutput() GetCostCategoryRuleRuleAndAndDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndDimensionArray) ToGetCostCategoryRuleRuleAndAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndDimensionOutput) ToGetCostCategoryRuleRuleAndAndDimensionOutput() GetCostCategoryRuleRuleAndAndDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndDimensionOutput) ToGetCostCategoryRuleRuleAndAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndAndDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndDimensionArrayOutput) ToGetCostCategoryRuleRuleAndAndDimensionArrayOutput() GetCostCategoryRuleRuleAndAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndDimensionArrayOutput) ToGetCostCategoryRuleRuleAndAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndAndDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndAndDimension {
+		return vs[0].([]GetCostCategoryRuleRuleAndAndDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndAndDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndAndTagInput is an input type that accepts GetCostCategoryRuleRuleAndAndTagArgs and GetCostCategoryRuleRuleAndAndTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndTagInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndTagArgs{...}
+type GetCostCategoryRuleRuleAndAndTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndTagOutput() GetCostCategoryRuleRuleAndAndTagOutput
+	ToGetCostCategoryRuleRuleAndAndTagOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndTagOutput
+}
+
+type GetCostCategoryRuleRuleAndAndTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndAndTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndTagArgs) ToGetCostCategoryRuleRuleAndAndTagOutput() GetCostCategoryRuleRuleAndAndTagOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndTagArgs) ToGetCostCategoryRuleRuleAndAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndTagOutput)
+}
+
+// GetCostCategoryRuleRuleAndAndTagArrayInput is an input type that accepts GetCostCategoryRuleRuleAndAndTagArray and GetCostCategoryRuleRuleAndAndTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndAndTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndAndTagArray{ GetCostCategoryRuleRuleAndAndTagArgs{...} }
+type GetCostCategoryRuleRuleAndAndTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndAndTagArrayOutput() GetCostCategoryRuleRuleAndAndTagArrayOutput
+	ToGetCostCategoryRuleRuleAndAndTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndAndTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndAndTagArray []GetCostCategoryRuleRuleAndAndTagInput
+
+func (GetCostCategoryRuleRuleAndAndTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndAndTagArray) ToGetCostCategoryRuleRuleAndAndTagArrayOutput() GetCostCategoryRuleRuleAndAndTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndAndTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndAndTagArray) ToGetCostCategoryRuleRuleAndAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndTagOutput) ToGetCostCategoryRuleRuleAndAndTagOutput() GetCostCategoryRuleRuleAndAndTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndTagOutput) ToGetCostCategoryRuleRuleAndAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndAndTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndAndTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndAndTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndAndTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndAndTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndAndTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndAndTagArrayOutput) ToGetCostCategoryRuleRuleAndAndTagArrayOutput() GetCostCategoryRuleRuleAndAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndTagArrayOutput) ToGetCostCategoryRuleRuleAndAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndAndTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndAndTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndAndTag {
+		return vs[0].([]GetCostCategoryRuleRuleAndAndTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndAndTagOutput)
 }
 
 type GetCostCategoryRuleRuleAndCostCategory struct {
@@ -6808,6 +13258,930 @@ func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndDimension {
 		return vs[0].([]GetCostCategoryRuleRuleAndDimension)[vs[1].(int)]
 	}).(GetCostCategoryRuleRuleAndDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleAndNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleAndNotCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleAndNotDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleAndNotTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleAndNotInput is an input type that accepts GetCostCategoryRuleRuleAndNotArgs and GetCostCategoryRuleRuleAndNotOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotArgs{...}
+type GetCostCategoryRuleRuleAndNotInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotOutput() GetCostCategoryRuleRuleAndNotOutput
+	ToGetCostCategoryRuleRuleAndNotOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotOutput
+}
+
+type GetCostCategoryRuleRuleAndNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleAndNotCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleAndNotDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleAndNotTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleAndNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotArgs) ToGetCostCategoryRuleRuleAndNotOutput() GetCostCategoryRuleRuleAndNotOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotArgs) ToGetCostCategoryRuleRuleAndNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotOutput)
+}
+
+// GetCostCategoryRuleRuleAndNotArrayInput is an input type that accepts GetCostCategoryRuleRuleAndNotArray and GetCostCategoryRuleRuleAndNotArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotArray{ GetCostCategoryRuleRuleAndNotArgs{...} }
+type GetCostCategoryRuleRuleAndNotArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotArrayOutput() GetCostCategoryRuleRuleAndNotArrayOutput
+	ToGetCostCategoryRuleRuleAndNotArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndNotArray []GetCostCategoryRuleRuleAndNotInput
+
+func (GetCostCategoryRuleRuleAndNotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotArray) ToGetCostCategoryRuleRuleAndNotArrayOutput() GetCostCategoryRuleRuleAndNotArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotArray) ToGetCostCategoryRuleRuleAndNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotOutput) ToGetCostCategoryRuleRuleAndNotOutput() GetCostCategoryRuleRuleAndNotOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotOutput) ToGetCostCategoryRuleRuleAndNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleAndNotOutput) CostCategories() GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNot) []GetCostCategoryRuleRuleAndNotCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndNotOutput) Dimensions() GetCostCategoryRuleRuleAndNotDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNot) []GetCostCategoryRuleRuleAndNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndNotDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndNotOutput) Tags() GetCostCategoryRuleRuleAndNotTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNot) []GetCostCategoryRuleRuleAndNotTag { return v.Tags }).(GetCostCategoryRuleRuleAndNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotArrayOutput) ToGetCostCategoryRuleRuleAndNotArrayOutput() GetCostCategoryRuleRuleAndNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotArrayOutput) ToGetCostCategoryRuleRuleAndNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndNotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndNot {
+		return vs[0].([]GetCostCategoryRuleRuleAndNot)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndNotOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndNotCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleAndNotCostCategoryArgs and GetCostCategoryRuleRuleAndNotCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotCostCategoryArgs{...}
+type GetCostCategoryRuleRuleAndNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotCostCategoryOutput() GetCostCategoryRuleRuleAndNotCostCategoryOutput
+	ToGetCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleAndNotCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotCostCategoryArgs) ToGetCostCategoryRuleRuleAndNotCostCategoryOutput() GetCostCategoryRuleRuleAndNotCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotCostCategoryArgs) ToGetCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleAndNotCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleAndNotCostCategoryArray and GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotCostCategoryArray{ GetCostCategoryRuleRuleAndNotCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleAndNotCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutput() GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndNotCostCategoryArray []GetCostCategoryRuleRuleAndNotCostCategoryInput
+
+func (GetCostCategoryRuleRuleAndNotCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotCostCategoryArray) ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutput() GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotCostCategoryArray) ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotCostCategoryOutput) ToGetCostCategoryRuleRuleAndNotCostCategoryOutput() GetCostCategoryRuleRuleAndNotCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotCostCategoryOutput) ToGetCostCategoryRuleRuleAndNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndNotCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutput() GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndNotCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndNotCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleAndNotCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndNotCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndNotDimensionInput is an input type that accepts GetCostCategoryRuleRuleAndNotDimensionArgs and GetCostCategoryRuleRuleAndNotDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotDimensionArgs{...}
+type GetCostCategoryRuleRuleAndNotDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotDimensionOutput() GetCostCategoryRuleRuleAndNotDimensionOutput
+	ToGetCostCategoryRuleRuleAndNotDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotDimensionOutput
+}
+
+type GetCostCategoryRuleRuleAndNotDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotDimensionArgs) ToGetCostCategoryRuleRuleAndNotDimensionOutput() GetCostCategoryRuleRuleAndNotDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotDimensionArgs) ToGetCostCategoryRuleRuleAndNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleAndNotDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleAndNotDimensionArray and GetCostCategoryRuleRuleAndNotDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotDimensionArray{ GetCostCategoryRuleRuleAndNotDimensionArgs{...} }
+type GetCostCategoryRuleRuleAndNotDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotDimensionArrayOutput() GetCostCategoryRuleRuleAndNotDimensionArrayOutput
+	ToGetCostCategoryRuleRuleAndNotDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndNotDimensionArray []GetCostCategoryRuleRuleAndNotDimensionInput
+
+func (GetCostCategoryRuleRuleAndNotDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotDimensionArray) ToGetCostCategoryRuleRuleAndNotDimensionArrayOutput() GetCostCategoryRuleRuleAndNotDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotDimensionArray) ToGetCostCategoryRuleRuleAndNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotDimensionOutput) ToGetCostCategoryRuleRuleAndNotDimensionOutput() GetCostCategoryRuleRuleAndNotDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotDimensionOutput) ToGetCostCategoryRuleRuleAndNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndNotDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotDimensionArrayOutput) ToGetCostCategoryRuleRuleAndNotDimensionArrayOutput() GetCostCategoryRuleRuleAndNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotDimensionArrayOutput) ToGetCostCategoryRuleRuleAndNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndNotDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndNotDimension {
+		return vs[0].([]GetCostCategoryRuleRuleAndNotDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndNotDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndNotTagInput is an input type that accepts GetCostCategoryRuleRuleAndNotTagArgs and GetCostCategoryRuleRuleAndNotTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotTagInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotTagArgs{...}
+type GetCostCategoryRuleRuleAndNotTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotTagOutput() GetCostCategoryRuleRuleAndNotTagOutput
+	ToGetCostCategoryRuleRuleAndNotTagOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotTagOutput
+}
+
+type GetCostCategoryRuleRuleAndNotTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotTagArgs) ToGetCostCategoryRuleRuleAndNotTagOutput() GetCostCategoryRuleRuleAndNotTagOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotTagArgs) ToGetCostCategoryRuleRuleAndNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotTagOutput)
+}
+
+// GetCostCategoryRuleRuleAndNotTagArrayInput is an input type that accepts GetCostCategoryRuleRuleAndNotTagArray and GetCostCategoryRuleRuleAndNotTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndNotTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndNotTagArray{ GetCostCategoryRuleRuleAndNotTagArgs{...} }
+type GetCostCategoryRuleRuleAndNotTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndNotTagArrayOutput() GetCostCategoryRuleRuleAndNotTagArrayOutput
+	ToGetCostCategoryRuleRuleAndNotTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndNotTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndNotTagArray []GetCostCategoryRuleRuleAndNotTagInput
+
+func (GetCostCategoryRuleRuleAndNotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndNotTagArray) ToGetCostCategoryRuleRuleAndNotTagArrayOutput() GetCostCategoryRuleRuleAndNotTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndNotTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndNotTagArray) ToGetCostCategoryRuleRuleAndNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotTagOutput) ToGetCostCategoryRuleRuleAndNotTagOutput() GetCostCategoryRuleRuleAndNotTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotTagOutput) ToGetCostCategoryRuleRuleAndNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndNotTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndNotTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndNotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndNotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndNotTagArrayOutput) ToGetCostCategoryRuleRuleAndNotTagArrayOutput() GetCostCategoryRuleRuleAndNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotTagArrayOutput) ToGetCostCategoryRuleRuleAndNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndNotTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndNotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndNotTag {
+		return vs[0].([]GetCostCategoryRuleRuleAndNotTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndNotTagOutput)
+}
+
+type GetCostCategoryRuleRuleAndOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleAndOrCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleAndOrDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleAndOrTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleAndOrInput is an input type that accepts GetCostCategoryRuleRuleAndOrArgs and GetCostCategoryRuleRuleAndOrOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrArgs{...}
+type GetCostCategoryRuleRuleAndOrInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrOutput() GetCostCategoryRuleRuleAndOrOutput
+	ToGetCostCategoryRuleRuleAndOrOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrOutput
+}
+
+type GetCostCategoryRuleRuleAndOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleAndOrCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleAndOrDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleAndOrTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleAndOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrArgs) ToGetCostCategoryRuleRuleAndOrOutput() GetCostCategoryRuleRuleAndOrOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrArgs) ToGetCostCategoryRuleRuleAndOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrOutput)
+}
+
+// GetCostCategoryRuleRuleAndOrArrayInput is an input type that accepts GetCostCategoryRuleRuleAndOrArray and GetCostCategoryRuleRuleAndOrArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrArray{ GetCostCategoryRuleRuleAndOrArgs{...} }
+type GetCostCategoryRuleRuleAndOrArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrArrayOutput() GetCostCategoryRuleRuleAndOrArrayOutput
+	ToGetCostCategoryRuleRuleAndOrArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndOrArray []GetCostCategoryRuleRuleAndOrInput
+
+func (GetCostCategoryRuleRuleAndOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrArray) ToGetCostCategoryRuleRuleAndOrArrayOutput() GetCostCategoryRuleRuleAndOrArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrArray) ToGetCostCategoryRuleRuleAndOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrOutput) ToGetCostCategoryRuleRuleAndOrOutput() GetCostCategoryRuleRuleAndOrOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrOutput) ToGetCostCategoryRuleRuleAndOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleAndOrOutput) CostCategories() GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOr) []GetCostCategoryRuleRuleAndOrCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndOrOutput) Dimensions() GetCostCategoryRuleRuleAndOrDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOr) []GetCostCategoryRuleRuleAndOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndOrDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleAndOrOutput) Tags() GetCostCategoryRuleRuleAndOrTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOr) []GetCostCategoryRuleRuleAndOrTag { return v.Tags }).(GetCostCategoryRuleRuleAndOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrArrayOutput) ToGetCostCategoryRuleRuleAndOrArrayOutput() GetCostCategoryRuleRuleAndOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrArrayOutput) ToGetCostCategoryRuleRuleAndOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndOr {
+		return vs[0].([]GetCostCategoryRuleRuleAndOr)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndOrOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndOrCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleAndOrCostCategoryArgs and GetCostCategoryRuleRuleAndOrCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrCostCategoryArgs{...}
+type GetCostCategoryRuleRuleAndOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrCostCategoryOutput() GetCostCategoryRuleRuleAndOrCostCategoryOutput
+	ToGetCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleAndOrCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrCostCategoryArgs) ToGetCostCategoryRuleRuleAndOrCostCategoryOutput() GetCostCategoryRuleRuleAndOrCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrCostCategoryArgs) ToGetCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleAndOrCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleAndOrCostCategoryArray and GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrCostCategoryArray{ GetCostCategoryRuleRuleAndOrCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleAndOrCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutput() GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndOrCostCategoryArray []GetCostCategoryRuleRuleAndOrCostCategoryInput
+
+func (GetCostCategoryRuleRuleAndOrCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrCostCategoryArray) ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutput() GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrCostCategoryArray) ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrCostCategoryOutput) ToGetCostCategoryRuleRuleAndOrCostCategoryOutput() GetCostCategoryRuleRuleAndOrCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrCostCategoryOutput) ToGetCostCategoryRuleRuleAndOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndOrCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutput() GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndOrCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndOrCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleAndOrCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndOrCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndOrDimensionInput is an input type that accepts GetCostCategoryRuleRuleAndOrDimensionArgs and GetCostCategoryRuleRuleAndOrDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrDimensionArgs{...}
+type GetCostCategoryRuleRuleAndOrDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrDimensionOutput() GetCostCategoryRuleRuleAndOrDimensionOutput
+	ToGetCostCategoryRuleRuleAndOrDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrDimensionOutput
+}
+
+type GetCostCategoryRuleRuleAndOrDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrDimensionArgs) ToGetCostCategoryRuleRuleAndOrDimensionOutput() GetCostCategoryRuleRuleAndOrDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrDimensionArgs) ToGetCostCategoryRuleRuleAndOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleAndOrDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleAndOrDimensionArray and GetCostCategoryRuleRuleAndOrDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrDimensionArray{ GetCostCategoryRuleRuleAndOrDimensionArgs{...} }
+type GetCostCategoryRuleRuleAndOrDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrDimensionArrayOutput() GetCostCategoryRuleRuleAndOrDimensionArrayOutput
+	ToGetCostCategoryRuleRuleAndOrDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndOrDimensionArray []GetCostCategoryRuleRuleAndOrDimensionInput
+
+func (GetCostCategoryRuleRuleAndOrDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrDimensionArray) ToGetCostCategoryRuleRuleAndOrDimensionArrayOutput() GetCostCategoryRuleRuleAndOrDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrDimensionArray) ToGetCostCategoryRuleRuleAndOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrDimensionOutput) ToGetCostCategoryRuleRuleAndOrDimensionOutput() GetCostCategoryRuleRuleAndOrDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrDimensionOutput) ToGetCostCategoryRuleRuleAndOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndOrDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrDimensionArrayOutput) ToGetCostCategoryRuleRuleAndOrDimensionArrayOutput() GetCostCategoryRuleRuleAndOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrDimensionArrayOutput) ToGetCostCategoryRuleRuleAndOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndOrDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndOrDimension {
+		return vs[0].([]GetCostCategoryRuleRuleAndOrDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndOrDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleAndOrTagInput is an input type that accepts GetCostCategoryRuleRuleAndOrTagArgs and GetCostCategoryRuleRuleAndOrTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrTagInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrTagArgs{...}
+type GetCostCategoryRuleRuleAndOrTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrTagOutput() GetCostCategoryRuleRuleAndOrTagOutput
+	ToGetCostCategoryRuleRuleAndOrTagOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrTagOutput
+}
+
+type GetCostCategoryRuleRuleAndOrTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleAndOrTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrTagArgs) ToGetCostCategoryRuleRuleAndOrTagOutput() GetCostCategoryRuleRuleAndOrTagOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrTagArgs) ToGetCostCategoryRuleRuleAndOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrTagOutput)
+}
+
+// GetCostCategoryRuleRuleAndOrTagArrayInput is an input type that accepts GetCostCategoryRuleRuleAndOrTagArray and GetCostCategoryRuleRuleAndOrTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleAndOrTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleAndOrTagArray{ GetCostCategoryRuleRuleAndOrTagArgs{...} }
+type GetCostCategoryRuleRuleAndOrTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleAndOrTagArrayOutput() GetCostCategoryRuleRuleAndOrTagArrayOutput
+	ToGetCostCategoryRuleRuleAndOrTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleAndOrTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleAndOrTagArray []GetCostCategoryRuleRuleAndOrTagInput
+
+func (GetCostCategoryRuleRuleAndOrTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleAndOrTagArray) ToGetCostCategoryRuleRuleAndOrTagArrayOutput() GetCostCategoryRuleRuleAndOrTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleAndOrTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleAndOrTagArray) ToGetCostCategoryRuleRuleAndOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleAndOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrTagOutput) ToGetCostCategoryRuleRuleAndOrTagOutput() GetCostCategoryRuleRuleAndOrTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrTagOutput) ToGetCostCategoryRuleRuleAndOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleAndOrTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleAndOrTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleAndOrTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleAndOrTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleAndOrTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleAndOrTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleAndOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleAndOrTagArrayOutput) ToGetCostCategoryRuleRuleAndOrTagArrayOutput() GetCostCategoryRuleRuleAndOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrTagArrayOutput) ToGetCostCategoryRuleRuleAndOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleAndOrTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndOrTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleAndOrTag {
+		return vs[0].([]GetCostCategoryRuleRuleAndOrTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleAndOrTagOutput)
 }
 
 type GetCostCategoryRuleRuleAndTag struct {
@@ -7156,10 +14530,16 @@ func (o GetCostCategoryRuleRuleDimensionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetCostCategoryRuleRuleNot struct {
+	// Return results that match both `Dimension` objects.
+	Ands []GetCostCategoryRuleRuleNotAnd `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories []GetCostCategoryRuleRuleNotCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleNotDimension `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots []GetCostCategoryRuleRuleNotNot `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors []GetCostCategoryRuleRuleNotOr `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleNotTag `pulumi:"tags"`
 }
@@ -7176,10 +14556,16 @@ type GetCostCategoryRuleRuleNotInput interface {
 }
 
 type GetCostCategoryRuleRuleNotArgs struct {
+	// Return results that match both `Dimension` objects.
+	Ands GetCostCategoryRuleRuleNotAndArrayInput `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories GetCostCategoryRuleRuleNotCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleNotDimensionArrayInput `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots GetCostCategoryRuleRuleNotNotArrayInput `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors GetCostCategoryRuleRuleNotOrArrayInput `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleNotTagArrayInput `pulumi:"tags"`
 }
@@ -7235,6 +14621,11 @@ func (o GetCostCategoryRuleRuleNotOutput) ToGetCostCategoryRuleRuleNotOutputWith
 	return o
 }
 
+// Return results that match both `Dimension` objects.
+func (o GetCostCategoryRuleRuleNotOutput) Ands() GetCostCategoryRuleRuleNotAndArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotAnd { return v.Ands }).(GetCostCategoryRuleRuleNotAndArrayOutput)
+}
+
 // Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o GetCostCategoryRuleRuleNotOutput) CostCategories() GetCostCategoryRuleRuleNotCostCategoryArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotCostCategory { return v.CostCategories }).(GetCostCategoryRuleRuleNotCostCategoryArrayOutput)
@@ -7243,6 +14634,16 @@ func (o GetCostCategoryRuleRuleNotOutput) CostCategories() GetCostCategoryRuleRu
 // Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleNotOutput) Dimensions() GetCostCategoryRuleRuleNotDimensionArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotDimensionArrayOutput)
+}
+
+// Return results that do not match the `Dimension` object.
+func (o GetCostCategoryRuleRuleNotOutput) Nots() GetCostCategoryRuleRuleNotNotArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotNot { return v.Nots }).(GetCostCategoryRuleRuleNotNotArrayOutput)
+}
+
+// Return results that match either `Dimension` object.
+func (o GetCostCategoryRuleRuleNotOutput) Ors() GetCostCategoryRuleRuleNotOrArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotOr { return v.Ors }).(GetCostCategoryRuleRuleNotOrArrayOutput)
 }
 
 // Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -7268,6 +14669,468 @@ func (o GetCostCategoryRuleRuleNotArrayOutput) Index(i pulumi.IntInput) GetCostC
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNot {
 		return vs[0].([]GetCostCategoryRuleRuleNot)[vs[1].(int)]
 	}).(GetCostCategoryRuleRuleNotOutput)
+}
+
+type GetCostCategoryRuleRuleNotAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleNotAndCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleNotAndDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleNotAndTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleNotAndInput is an input type that accepts GetCostCategoryRuleRuleNotAndArgs and GetCostCategoryRuleRuleNotAndOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndArgs{...}
+type GetCostCategoryRuleRuleNotAndInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndOutput() GetCostCategoryRuleRuleNotAndOutput
+	ToGetCostCategoryRuleRuleNotAndOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndOutput
+}
+
+type GetCostCategoryRuleRuleNotAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleNotAndCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleNotAndDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleNotAndTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleNotAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndArgs) ToGetCostCategoryRuleRuleNotAndOutput() GetCostCategoryRuleRuleNotAndOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndArgs) ToGetCostCategoryRuleRuleNotAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndOutput)
+}
+
+// GetCostCategoryRuleRuleNotAndArrayInput is an input type that accepts GetCostCategoryRuleRuleNotAndArray and GetCostCategoryRuleRuleNotAndArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndArray{ GetCostCategoryRuleRuleNotAndArgs{...} }
+type GetCostCategoryRuleRuleNotAndArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndArrayOutput() GetCostCategoryRuleRuleNotAndArrayOutput
+	ToGetCostCategoryRuleRuleNotAndArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotAndArray []GetCostCategoryRuleRuleNotAndInput
+
+func (GetCostCategoryRuleRuleNotAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndArray) ToGetCostCategoryRuleRuleNotAndArrayOutput() GetCostCategoryRuleRuleNotAndArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndArray) ToGetCostCategoryRuleRuleNotAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndOutput) ToGetCostCategoryRuleRuleNotAndOutput() GetCostCategoryRuleRuleNotAndOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndOutput) ToGetCostCategoryRuleRuleNotAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleNotAndOutput) CostCategories() GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAnd) []GetCostCategoryRuleRuleNotAndCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotAndOutput) Dimensions() GetCostCategoryRuleRuleNotAndDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAnd) []GetCostCategoryRuleRuleNotAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotAndDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotAndOutput) Tags() GetCostCategoryRuleRuleNotAndTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAnd) []GetCostCategoryRuleRuleNotAndTag { return v.Tags }).(GetCostCategoryRuleRuleNotAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndArrayOutput) ToGetCostCategoryRuleRuleNotAndArrayOutput() GetCostCategoryRuleRuleNotAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndArrayOutput) ToGetCostCategoryRuleRuleNotAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotAnd {
+		return vs[0].([]GetCostCategoryRuleRuleNotAnd)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotAndOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotAndCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleNotAndCostCategoryArgs and GetCostCategoryRuleRuleNotAndCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndCostCategoryArgs{...}
+type GetCostCategoryRuleRuleNotAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndCostCategoryOutput() GetCostCategoryRuleRuleNotAndCostCategoryOutput
+	ToGetCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleNotAndCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndCostCategoryArgs) ToGetCostCategoryRuleRuleNotAndCostCategoryOutput() GetCostCategoryRuleRuleNotAndCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndCostCategoryArgs) ToGetCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleNotAndCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleNotAndCostCategoryArray and GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndCostCategoryArray{ GetCostCategoryRuleRuleNotAndCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleNotAndCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutput() GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotAndCostCategoryArray []GetCostCategoryRuleRuleNotAndCostCategoryInput
+
+func (GetCostCategoryRuleRuleNotAndCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndCostCategoryArray) ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutput() GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndCostCategoryArray) ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndCostCategoryOutput) ToGetCostCategoryRuleRuleNotAndCostCategoryOutput() GetCostCategoryRuleRuleNotAndCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndCostCategoryOutput) ToGetCostCategoryRuleRuleNotAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotAndCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutput() GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotAndCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotAndCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleNotAndCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotAndCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotAndDimensionInput is an input type that accepts GetCostCategoryRuleRuleNotAndDimensionArgs and GetCostCategoryRuleRuleNotAndDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndDimensionArgs{...}
+type GetCostCategoryRuleRuleNotAndDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndDimensionOutput() GetCostCategoryRuleRuleNotAndDimensionOutput
+	ToGetCostCategoryRuleRuleNotAndDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndDimensionOutput
+}
+
+type GetCostCategoryRuleRuleNotAndDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndDimensionArgs) ToGetCostCategoryRuleRuleNotAndDimensionOutput() GetCostCategoryRuleRuleNotAndDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndDimensionArgs) ToGetCostCategoryRuleRuleNotAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleNotAndDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleNotAndDimensionArray and GetCostCategoryRuleRuleNotAndDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndDimensionArray{ GetCostCategoryRuleRuleNotAndDimensionArgs{...} }
+type GetCostCategoryRuleRuleNotAndDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndDimensionArrayOutput() GetCostCategoryRuleRuleNotAndDimensionArrayOutput
+	ToGetCostCategoryRuleRuleNotAndDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotAndDimensionArray []GetCostCategoryRuleRuleNotAndDimensionInput
+
+func (GetCostCategoryRuleRuleNotAndDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndDimensionArray) ToGetCostCategoryRuleRuleNotAndDimensionArrayOutput() GetCostCategoryRuleRuleNotAndDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndDimensionArray) ToGetCostCategoryRuleRuleNotAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndDimensionOutput) ToGetCostCategoryRuleRuleNotAndDimensionOutput() GetCostCategoryRuleRuleNotAndDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndDimensionOutput) ToGetCostCategoryRuleRuleNotAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotAndDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndDimensionArrayOutput) ToGetCostCategoryRuleRuleNotAndDimensionArrayOutput() GetCostCategoryRuleRuleNotAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndDimensionArrayOutput) ToGetCostCategoryRuleRuleNotAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotAndDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotAndDimension {
+		return vs[0].([]GetCostCategoryRuleRuleNotAndDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotAndDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotAndTagInput is an input type that accepts GetCostCategoryRuleRuleNotAndTagArgs and GetCostCategoryRuleRuleNotAndTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndTagInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndTagArgs{...}
+type GetCostCategoryRuleRuleNotAndTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndTagOutput() GetCostCategoryRuleRuleNotAndTagOutput
+	ToGetCostCategoryRuleRuleNotAndTagOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndTagOutput
+}
+
+type GetCostCategoryRuleRuleNotAndTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotAndTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndTagArgs) ToGetCostCategoryRuleRuleNotAndTagOutput() GetCostCategoryRuleRuleNotAndTagOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndTagArgs) ToGetCostCategoryRuleRuleNotAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndTagOutput)
+}
+
+// GetCostCategoryRuleRuleNotAndTagArrayInput is an input type that accepts GetCostCategoryRuleRuleNotAndTagArray and GetCostCategoryRuleRuleNotAndTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotAndTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotAndTagArray{ GetCostCategoryRuleRuleNotAndTagArgs{...} }
+type GetCostCategoryRuleRuleNotAndTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotAndTagArrayOutput() GetCostCategoryRuleRuleNotAndTagArrayOutput
+	ToGetCostCategoryRuleRuleNotAndTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotAndTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotAndTagArray []GetCostCategoryRuleRuleNotAndTagInput
+
+func (GetCostCategoryRuleRuleNotAndTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotAndTagArray) ToGetCostCategoryRuleRuleNotAndTagArrayOutput() GetCostCategoryRuleRuleNotAndTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotAndTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotAndTagArray) ToGetCostCategoryRuleRuleNotAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndTagOutput) ToGetCostCategoryRuleRuleNotAndTagOutput() GetCostCategoryRuleRuleNotAndTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndTagOutput) ToGetCostCategoryRuleRuleNotAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotAndTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotAndTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotAndTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotAndTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotAndTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotAndTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotAndTagArrayOutput) ToGetCostCategoryRuleRuleNotAndTagArrayOutput() GetCostCategoryRuleRuleNotAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndTagArrayOutput) ToGetCostCategoryRuleRuleNotAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotAndTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotAndTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotAndTag {
+		return vs[0].([]GetCostCategoryRuleRuleNotAndTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotAndTagOutput)
 }
 
 type GetCostCategoryRuleRuleNotCostCategory struct {
@@ -7500,6 +15363,930 @@ func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) Index(i pulumi.IntInput)
 	}).(GetCostCategoryRuleRuleNotDimensionOutput)
 }
 
+type GetCostCategoryRuleRuleNotNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleNotNotCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleNotNotDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleNotNotTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleNotNotInput is an input type that accepts GetCostCategoryRuleRuleNotNotArgs and GetCostCategoryRuleRuleNotNotOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotArgs{...}
+type GetCostCategoryRuleRuleNotNotInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotOutput() GetCostCategoryRuleRuleNotNotOutput
+	ToGetCostCategoryRuleRuleNotNotOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotOutput
+}
+
+type GetCostCategoryRuleRuleNotNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleNotNotCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleNotNotDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleNotNotTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleNotNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotArgs) ToGetCostCategoryRuleRuleNotNotOutput() GetCostCategoryRuleRuleNotNotOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotArgs) ToGetCostCategoryRuleRuleNotNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotOutput)
+}
+
+// GetCostCategoryRuleRuleNotNotArrayInput is an input type that accepts GetCostCategoryRuleRuleNotNotArray and GetCostCategoryRuleRuleNotNotArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotArray{ GetCostCategoryRuleRuleNotNotArgs{...} }
+type GetCostCategoryRuleRuleNotNotArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotArrayOutput() GetCostCategoryRuleRuleNotNotArrayOutput
+	ToGetCostCategoryRuleRuleNotNotArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotNotArray []GetCostCategoryRuleRuleNotNotInput
+
+func (GetCostCategoryRuleRuleNotNotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotArray) ToGetCostCategoryRuleRuleNotNotArrayOutput() GetCostCategoryRuleRuleNotNotArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotArray) ToGetCostCategoryRuleRuleNotNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotOutput) ToGetCostCategoryRuleRuleNotNotOutput() GetCostCategoryRuleRuleNotNotOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotOutput) ToGetCostCategoryRuleRuleNotNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleNotNotOutput) CostCategories() GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNot) []GetCostCategoryRuleRuleNotNotCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotNotOutput) Dimensions() GetCostCategoryRuleRuleNotNotDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNot) []GetCostCategoryRuleRuleNotNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotNotDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotNotOutput) Tags() GetCostCategoryRuleRuleNotNotTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNot) []GetCostCategoryRuleRuleNotNotTag { return v.Tags }).(GetCostCategoryRuleRuleNotNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotArrayOutput) ToGetCostCategoryRuleRuleNotNotArrayOutput() GetCostCategoryRuleRuleNotNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotArrayOutput) ToGetCostCategoryRuleRuleNotNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotNotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotNot {
+		return vs[0].([]GetCostCategoryRuleRuleNotNot)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotNotOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotNotCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleNotNotCostCategoryArgs and GetCostCategoryRuleRuleNotNotCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotCostCategoryArgs{...}
+type GetCostCategoryRuleRuleNotNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotCostCategoryOutput() GetCostCategoryRuleRuleNotNotCostCategoryOutput
+	ToGetCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleNotNotCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotCostCategoryArgs) ToGetCostCategoryRuleRuleNotNotCostCategoryOutput() GetCostCategoryRuleRuleNotNotCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotCostCategoryArgs) ToGetCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleNotNotCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleNotNotCostCategoryArray and GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotCostCategoryArray{ GetCostCategoryRuleRuleNotNotCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleNotNotCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutput() GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotNotCostCategoryArray []GetCostCategoryRuleRuleNotNotCostCategoryInput
+
+func (GetCostCategoryRuleRuleNotNotCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotCostCategoryArray) ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutput() GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotCostCategoryArray) ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotCostCategoryOutput) ToGetCostCategoryRuleRuleNotNotCostCategoryOutput() GetCostCategoryRuleRuleNotNotCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotCostCategoryOutput) ToGetCostCategoryRuleRuleNotNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotNotCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutput() GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotNotCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotNotCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleNotNotCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotNotCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotNotDimensionInput is an input type that accepts GetCostCategoryRuleRuleNotNotDimensionArgs and GetCostCategoryRuleRuleNotNotDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotDimensionArgs{...}
+type GetCostCategoryRuleRuleNotNotDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotDimensionOutput() GetCostCategoryRuleRuleNotNotDimensionOutput
+	ToGetCostCategoryRuleRuleNotNotDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotDimensionOutput
+}
+
+type GetCostCategoryRuleRuleNotNotDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotDimensionArgs) ToGetCostCategoryRuleRuleNotNotDimensionOutput() GetCostCategoryRuleRuleNotNotDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotDimensionArgs) ToGetCostCategoryRuleRuleNotNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleNotNotDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleNotNotDimensionArray and GetCostCategoryRuleRuleNotNotDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotDimensionArray{ GetCostCategoryRuleRuleNotNotDimensionArgs{...} }
+type GetCostCategoryRuleRuleNotNotDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotDimensionArrayOutput() GetCostCategoryRuleRuleNotNotDimensionArrayOutput
+	ToGetCostCategoryRuleRuleNotNotDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotNotDimensionArray []GetCostCategoryRuleRuleNotNotDimensionInput
+
+func (GetCostCategoryRuleRuleNotNotDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotDimensionArray) ToGetCostCategoryRuleRuleNotNotDimensionArrayOutput() GetCostCategoryRuleRuleNotNotDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotDimensionArray) ToGetCostCategoryRuleRuleNotNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotDimensionOutput) ToGetCostCategoryRuleRuleNotNotDimensionOutput() GetCostCategoryRuleRuleNotNotDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotDimensionOutput) ToGetCostCategoryRuleRuleNotNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotNotDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotDimensionArrayOutput) ToGetCostCategoryRuleRuleNotNotDimensionArrayOutput() GetCostCategoryRuleRuleNotNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotDimensionArrayOutput) ToGetCostCategoryRuleRuleNotNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotNotDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotNotDimension {
+		return vs[0].([]GetCostCategoryRuleRuleNotNotDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotNotDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotNotTagInput is an input type that accepts GetCostCategoryRuleRuleNotNotTagArgs and GetCostCategoryRuleRuleNotNotTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotTagInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotTagArgs{...}
+type GetCostCategoryRuleRuleNotNotTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotTagOutput() GetCostCategoryRuleRuleNotNotTagOutput
+	ToGetCostCategoryRuleRuleNotNotTagOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotTagOutput
+}
+
+type GetCostCategoryRuleRuleNotNotTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotTagArgs) ToGetCostCategoryRuleRuleNotNotTagOutput() GetCostCategoryRuleRuleNotNotTagOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotTagArgs) ToGetCostCategoryRuleRuleNotNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotTagOutput)
+}
+
+// GetCostCategoryRuleRuleNotNotTagArrayInput is an input type that accepts GetCostCategoryRuleRuleNotNotTagArray and GetCostCategoryRuleRuleNotNotTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotNotTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotNotTagArray{ GetCostCategoryRuleRuleNotNotTagArgs{...} }
+type GetCostCategoryRuleRuleNotNotTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotNotTagArrayOutput() GetCostCategoryRuleRuleNotNotTagArrayOutput
+	ToGetCostCategoryRuleRuleNotNotTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotNotTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotNotTagArray []GetCostCategoryRuleRuleNotNotTagInput
+
+func (GetCostCategoryRuleRuleNotNotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotNotTagArray) ToGetCostCategoryRuleRuleNotNotTagArrayOutput() GetCostCategoryRuleRuleNotNotTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotNotTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotNotTagArray) ToGetCostCategoryRuleRuleNotNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotTagOutput) ToGetCostCategoryRuleRuleNotNotTagOutput() GetCostCategoryRuleRuleNotNotTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotTagOutput) ToGetCostCategoryRuleRuleNotNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotNotTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotNotTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotNotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotNotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotNotTagArrayOutput) ToGetCostCategoryRuleRuleNotNotTagArrayOutput() GetCostCategoryRuleRuleNotNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotTagArrayOutput) ToGetCostCategoryRuleRuleNotNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotNotTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotNotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotNotTag {
+		return vs[0].([]GetCostCategoryRuleRuleNotNotTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotNotTagOutput)
+}
+
+type GetCostCategoryRuleRuleNotOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleNotOrCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleNotOrDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleNotOrTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleNotOrInput is an input type that accepts GetCostCategoryRuleRuleNotOrArgs and GetCostCategoryRuleRuleNotOrOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrArgs{...}
+type GetCostCategoryRuleRuleNotOrInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrOutput() GetCostCategoryRuleRuleNotOrOutput
+	ToGetCostCategoryRuleRuleNotOrOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrOutput
+}
+
+type GetCostCategoryRuleRuleNotOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleNotOrCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleNotOrDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleNotOrTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleNotOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrArgs) ToGetCostCategoryRuleRuleNotOrOutput() GetCostCategoryRuleRuleNotOrOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrArgs) ToGetCostCategoryRuleRuleNotOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrOutput)
+}
+
+// GetCostCategoryRuleRuleNotOrArrayInput is an input type that accepts GetCostCategoryRuleRuleNotOrArray and GetCostCategoryRuleRuleNotOrArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrArray{ GetCostCategoryRuleRuleNotOrArgs{...} }
+type GetCostCategoryRuleRuleNotOrArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrArrayOutput() GetCostCategoryRuleRuleNotOrArrayOutput
+	ToGetCostCategoryRuleRuleNotOrArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotOrArray []GetCostCategoryRuleRuleNotOrInput
+
+func (GetCostCategoryRuleRuleNotOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrArray) ToGetCostCategoryRuleRuleNotOrArrayOutput() GetCostCategoryRuleRuleNotOrArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrArray) ToGetCostCategoryRuleRuleNotOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrOutput) ToGetCostCategoryRuleRuleNotOrOutput() GetCostCategoryRuleRuleNotOrOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrOutput) ToGetCostCategoryRuleRuleNotOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleNotOrOutput) CostCategories() GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOr) []GetCostCategoryRuleRuleNotOrCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotOrOutput) Dimensions() GetCostCategoryRuleRuleNotOrDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOr) []GetCostCategoryRuleRuleNotOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotOrDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleNotOrOutput) Tags() GetCostCategoryRuleRuleNotOrTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOr) []GetCostCategoryRuleRuleNotOrTag { return v.Tags }).(GetCostCategoryRuleRuleNotOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrArrayOutput) ToGetCostCategoryRuleRuleNotOrArrayOutput() GetCostCategoryRuleRuleNotOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrArrayOutput) ToGetCostCategoryRuleRuleNotOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotOr {
+		return vs[0].([]GetCostCategoryRuleRuleNotOr)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotOrOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotOrCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleNotOrCostCategoryArgs and GetCostCategoryRuleRuleNotOrCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrCostCategoryArgs{...}
+type GetCostCategoryRuleRuleNotOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrCostCategoryOutput() GetCostCategoryRuleRuleNotOrCostCategoryOutput
+	ToGetCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleNotOrCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrCostCategoryArgs) ToGetCostCategoryRuleRuleNotOrCostCategoryOutput() GetCostCategoryRuleRuleNotOrCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrCostCategoryArgs) ToGetCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleNotOrCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleNotOrCostCategoryArray and GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrCostCategoryArray{ GetCostCategoryRuleRuleNotOrCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleNotOrCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutput() GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotOrCostCategoryArray []GetCostCategoryRuleRuleNotOrCostCategoryInput
+
+func (GetCostCategoryRuleRuleNotOrCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrCostCategoryArray) ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutput() GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrCostCategoryArray) ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrCostCategoryOutput) ToGetCostCategoryRuleRuleNotOrCostCategoryOutput() GetCostCategoryRuleRuleNotOrCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrCostCategoryOutput) ToGetCostCategoryRuleRuleNotOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotOrCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutput() GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotOrCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotOrCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleNotOrCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotOrCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotOrDimensionInput is an input type that accepts GetCostCategoryRuleRuleNotOrDimensionArgs and GetCostCategoryRuleRuleNotOrDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrDimensionArgs{...}
+type GetCostCategoryRuleRuleNotOrDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrDimensionOutput() GetCostCategoryRuleRuleNotOrDimensionOutput
+	ToGetCostCategoryRuleRuleNotOrDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrDimensionOutput
+}
+
+type GetCostCategoryRuleRuleNotOrDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrDimensionArgs) ToGetCostCategoryRuleRuleNotOrDimensionOutput() GetCostCategoryRuleRuleNotOrDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrDimensionArgs) ToGetCostCategoryRuleRuleNotOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleNotOrDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleNotOrDimensionArray and GetCostCategoryRuleRuleNotOrDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrDimensionArray{ GetCostCategoryRuleRuleNotOrDimensionArgs{...} }
+type GetCostCategoryRuleRuleNotOrDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrDimensionArrayOutput() GetCostCategoryRuleRuleNotOrDimensionArrayOutput
+	ToGetCostCategoryRuleRuleNotOrDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotOrDimensionArray []GetCostCategoryRuleRuleNotOrDimensionInput
+
+func (GetCostCategoryRuleRuleNotOrDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrDimensionArray) ToGetCostCategoryRuleRuleNotOrDimensionArrayOutput() GetCostCategoryRuleRuleNotOrDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrDimensionArray) ToGetCostCategoryRuleRuleNotOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrDimensionOutput) ToGetCostCategoryRuleRuleNotOrDimensionOutput() GetCostCategoryRuleRuleNotOrDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrDimensionOutput) ToGetCostCategoryRuleRuleNotOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotOrDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrDimensionArrayOutput) ToGetCostCategoryRuleRuleNotOrDimensionArrayOutput() GetCostCategoryRuleRuleNotOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrDimensionArrayOutput) ToGetCostCategoryRuleRuleNotOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotOrDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotOrDimension {
+		return vs[0].([]GetCostCategoryRuleRuleNotOrDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotOrDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleNotOrTagInput is an input type that accepts GetCostCategoryRuleRuleNotOrTagArgs and GetCostCategoryRuleRuleNotOrTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrTagInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrTagArgs{...}
+type GetCostCategoryRuleRuleNotOrTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrTagOutput() GetCostCategoryRuleRuleNotOrTagOutput
+	ToGetCostCategoryRuleRuleNotOrTagOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrTagOutput
+}
+
+type GetCostCategoryRuleRuleNotOrTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleNotOrTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrTagArgs) ToGetCostCategoryRuleRuleNotOrTagOutput() GetCostCategoryRuleRuleNotOrTagOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrTagArgs) ToGetCostCategoryRuleRuleNotOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrTagOutput)
+}
+
+// GetCostCategoryRuleRuleNotOrTagArrayInput is an input type that accepts GetCostCategoryRuleRuleNotOrTagArray and GetCostCategoryRuleRuleNotOrTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleNotOrTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleNotOrTagArray{ GetCostCategoryRuleRuleNotOrTagArgs{...} }
+type GetCostCategoryRuleRuleNotOrTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleNotOrTagArrayOutput() GetCostCategoryRuleRuleNotOrTagArrayOutput
+	ToGetCostCategoryRuleRuleNotOrTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleNotOrTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleNotOrTagArray []GetCostCategoryRuleRuleNotOrTagInput
+
+func (GetCostCategoryRuleRuleNotOrTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleNotOrTagArray) ToGetCostCategoryRuleRuleNotOrTagArrayOutput() GetCostCategoryRuleRuleNotOrTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleNotOrTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleNotOrTagArray) ToGetCostCategoryRuleRuleNotOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleNotOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrTagOutput) ToGetCostCategoryRuleRuleNotOrTagOutput() GetCostCategoryRuleRuleNotOrTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrTagOutput) ToGetCostCategoryRuleRuleNotOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleNotOrTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleNotOrTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleNotOrTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleNotOrTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleNotOrTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleNotOrTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleNotOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleNotOrTagArrayOutput) ToGetCostCategoryRuleRuleNotOrTagArrayOutput() GetCostCategoryRuleRuleNotOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrTagArrayOutput) ToGetCostCategoryRuleRuleNotOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleNotOrTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotOrTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleNotOrTag {
+		return vs[0].([]GetCostCategoryRuleRuleNotOrTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleNotOrTagOutput)
+}
+
 type GetCostCategoryRuleRuleNotTag struct {
 	// Key for the tag.
 	Key string `pulumi:"key"`
@@ -7616,10 +16403,16 @@ func (o GetCostCategoryRuleRuleNotTagArrayOutput) Index(i pulumi.IntInput) GetCo
 }
 
 type GetCostCategoryRuleRuleOr struct {
+	// Return results that match both `Dimension` objects.
+	Ands []GetCostCategoryRuleRuleOrAnd `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories []GetCostCategoryRuleRuleOrCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleOrDimension `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots []GetCostCategoryRuleRuleOrNot `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors []GetCostCategoryRuleRuleOrOr `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleOrTag `pulumi:"tags"`
 }
@@ -7636,10 +16429,16 @@ type GetCostCategoryRuleRuleOrInput interface {
 }
 
 type GetCostCategoryRuleRuleOrArgs struct {
+	// Return results that match both `Dimension` objects.
+	Ands GetCostCategoryRuleRuleOrAndArrayInput `pulumi:"ands"`
 	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategories GetCostCategoryRuleRuleOrCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleOrDimensionArrayInput `pulumi:"dimensions"`
+	// Return results that do not match the `Dimension` object.
+	Nots GetCostCategoryRuleRuleOrNotArrayInput `pulumi:"nots"`
+	// Return results that match either `Dimension` object.
+	Ors GetCostCategoryRuleRuleOrOrArrayInput `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleOrTagArrayInput `pulumi:"tags"`
 }
@@ -7695,6 +16494,11 @@ func (o GetCostCategoryRuleRuleOrOutput) ToGetCostCategoryRuleRuleOrOutputWithCo
 	return o
 }
 
+// Return results that match both `Dimension` objects.
+func (o GetCostCategoryRuleRuleOrOutput) Ands() GetCostCategoryRuleRuleOrAndArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrAnd { return v.Ands }).(GetCostCategoryRuleRuleOrAndArrayOutput)
+}
+
 // Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o GetCostCategoryRuleRuleOrOutput) CostCategories() GetCostCategoryRuleRuleOrCostCategoryArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrCostCategory { return v.CostCategories }).(GetCostCategoryRuleRuleOrCostCategoryArrayOutput)
@@ -7703,6 +16507,16 @@ func (o GetCostCategoryRuleRuleOrOutput) CostCategories() GetCostCategoryRuleRul
 // Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleOrOutput) Dimensions() GetCostCategoryRuleRuleOrDimensionArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrDimensionArrayOutput)
+}
+
+// Return results that do not match the `Dimension` object.
+func (o GetCostCategoryRuleRuleOrOutput) Nots() GetCostCategoryRuleRuleOrNotArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrNot { return v.Nots }).(GetCostCategoryRuleRuleOrNotArrayOutput)
+}
+
+// Return results that match either `Dimension` object.
+func (o GetCostCategoryRuleRuleOrOutput) Ors() GetCostCategoryRuleRuleOrOrArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrOr { return v.Ors }).(GetCostCategoryRuleRuleOrOrArrayOutput)
 }
 
 // Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -7728,6 +16542,468 @@ func (o GetCostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) GetCostCa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOr {
 		return vs[0].([]GetCostCategoryRuleRuleOr)[vs[1].(int)]
 	}).(GetCostCategoryRuleRuleOrOutput)
+}
+
+type GetCostCategoryRuleRuleOrAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleOrAndCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleOrAndDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleOrAndTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleOrAndInput is an input type that accepts GetCostCategoryRuleRuleOrAndArgs and GetCostCategoryRuleRuleOrAndOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndArgs{...}
+type GetCostCategoryRuleRuleOrAndInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndOutput() GetCostCategoryRuleRuleOrAndOutput
+	ToGetCostCategoryRuleRuleOrAndOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndOutput
+}
+
+type GetCostCategoryRuleRuleOrAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleOrAndCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleOrAndDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleOrAndTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleOrAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndArgs) ToGetCostCategoryRuleRuleOrAndOutput() GetCostCategoryRuleRuleOrAndOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndArgs) ToGetCostCategoryRuleRuleOrAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndOutput)
+}
+
+// GetCostCategoryRuleRuleOrAndArrayInput is an input type that accepts GetCostCategoryRuleRuleOrAndArray and GetCostCategoryRuleRuleOrAndArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndArray{ GetCostCategoryRuleRuleOrAndArgs{...} }
+type GetCostCategoryRuleRuleOrAndArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndArrayOutput() GetCostCategoryRuleRuleOrAndArrayOutput
+	ToGetCostCategoryRuleRuleOrAndArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrAndArray []GetCostCategoryRuleRuleOrAndInput
+
+func (GetCostCategoryRuleRuleOrAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndArray) ToGetCostCategoryRuleRuleOrAndArrayOutput() GetCostCategoryRuleRuleOrAndArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndArray) ToGetCostCategoryRuleRuleOrAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndOutput) ToGetCostCategoryRuleRuleOrAndOutput() GetCostCategoryRuleRuleOrAndOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndOutput) ToGetCostCategoryRuleRuleOrAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleOrAndOutput) CostCategories() GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAnd) []GetCostCategoryRuleRuleOrAndCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrAndOutput) Dimensions() GetCostCategoryRuleRuleOrAndDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAnd) []GetCostCategoryRuleRuleOrAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrAndDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrAndOutput) Tags() GetCostCategoryRuleRuleOrAndTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAnd) []GetCostCategoryRuleRuleOrAndTag { return v.Tags }).(GetCostCategoryRuleRuleOrAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAnd)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndArrayOutput) ToGetCostCategoryRuleRuleOrAndArrayOutput() GetCostCategoryRuleRuleOrAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndArrayOutput) ToGetCostCategoryRuleRuleOrAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrAnd {
+		return vs[0].([]GetCostCategoryRuleRuleOrAnd)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrAndOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrAndCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleOrAndCostCategoryArgs and GetCostCategoryRuleRuleOrAndCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndCostCategoryArgs{...}
+type GetCostCategoryRuleRuleOrAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndCostCategoryOutput() GetCostCategoryRuleRuleOrAndCostCategoryOutput
+	ToGetCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleOrAndCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndCostCategoryArgs) ToGetCostCategoryRuleRuleOrAndCostCategoryOutput() GetCostCategoryRuleRuleOrAndCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndCostCategoryArgs) ToGetCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleOrAndCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleOrAndCostCategoryArray and GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndCostCategoryArray{ GetCostCategoryRuleRuleOrAndCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleOrAndCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutput() GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrAndCostCategoryArray []GetCostCategoryRuleRuleOrAndCostCategoryInput
+
+func (GetCostCategoryRuleRuleOrAndCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndCostCategoryArray) ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutput() GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndCostCategoryArray) ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndCostCategoryOutput) ToGetCostCategoryRuleRuleOrAndCostCategoryOutput() GetCostCategoryRuleRuleOrAndCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndCostCategoryOutput) ToGetCostCategoryRuleRuleOrAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrAndCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutput() GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrAndCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrAndCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleOrAndCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrAndCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrAndDimensionInput is an input type that accepts GetCostCategoryRuleRuleOrAndDimensionArgs and GetCostCategoryRuleRuleOrAndDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndDimensionArgs{...}
+type GetCostCategoryRuleRuleOrAndDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndDimensionOutput() GetCostCategoryRuleRuleOrAndDimensionOutput
+	ToGetCostCategoryRuleRuleOrAndDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndDimensionOutput
+}
+
+type GetCostCategoryRuleRuleOrAndDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndDimensionArgs) ToGetCostCategoryRuleRuleOrAndDimensionOutput() GetCostCategoryRuleRuleOrAndDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndDimensionArgs) ToGetCostCategoryRuleRuleOrAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleOrAndDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleOrAndDimensionArray and GetCostCategoryRuleRuleOrAndDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndDimensionArray{ GetCostCategoryRuleRuleOrAndDimensionArgs{...} }
+type GetCostCategoryRuleRuleOrAndDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndDimensionArrayOutput() GetCostCategoryRuleRuleOrAndDimensionArrayOutput
+	ToGetCostCategoryRuleRuleOrAndDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrAndDimensionArray []GetCostCategoryRuleRuleOrAndDimensionInput
+
+func (GetCostCategoryRuleRuleOrAndDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndDimensionArray) ToGetCostCategoryRuleRuleOrAndDimensionArrayOutput() GetCostCategoryRuleRuleOrAndDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndDimensionArray) ToGetCostCategoryRuleRuleOrAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndDimensionOutput) ToGetCostCategoryRuleRuleOrAndDimensionOutput() GetCostCategoryRuleRuleOrAndDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndDimensionOutput) ToGetCostCategoryRuleRuleOrAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrAndDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndDimensionArrayOutput) ToGetCostCategoryRuleRuleOrAndDimensionArrayOutput() GetCostCategoryRuleRuleOrAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndDimensionArrayOutput) ToGetCostCategoryRuleRuleOrAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrAndDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrAndDimension {
+		return vs[0].([]GetCostCategoryRuleRuleOrAndDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrAndDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrAndTagInput is an input type that accepts GetCostCategoryRuleRuleOrAndTagArgs and GetCostCategoryRuleRuleOrAndTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndTagInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndTagArgs{...}
+type GetCostCategoryRuleRuleOrAndTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndTagOutput() GetCostCategoryRuleRuleOrAndTagOutput
+	ToGetCostCategoryRuleRuleOrAndTagOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndTagOutput
+}
+
+type GetCostCategoryRuleRuleOrAndTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrAndTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndTagArgs) ToGetCostCategoryRuleRuleOrAndTagOutput() GetCostCategoryRuleRuleOrAndTagOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndTagArgs) ToGetCostCategoryRuleRuleOrAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndTagOutput)
+}
+
+// GetCostCategoryRuleRuleOrAndTagArrayInput is an input type that accepts GetCostCategoryRuleRuleOrAndTagArray and GetCostCategoryRuleRuleOrAndTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrAndTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrAndTagArray{ GetCostCategoryRuleRuleOrAndTagArgs{...} }
+type GetCostCategoryRuleRuleOrAndTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrAndTagArrayOutput() GetCostCategoryRuleRuleOrAndTagArrayOutput
+	ToGetCostCategoryRuleRuleOrAndTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrAndTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrAndTagArray []GetCostCategoryRuleRuleOrAndTagInput
+
+func (GetCostCategoryRuleRuleOrAndTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrAndTagArray) ToGetCostCategoryRuleRuleOrAndTagArrayOutput() GetCostCategoryRuleRuleOrAndTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrAndTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrAndTagArray) ToGetCostCategoryRuleRuleOrAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrAndTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndTagOutput) ToGetCostCategoryRuleRuleOrAndTagOutput() GetCostCategoryRuleRuleOrAndTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndTagOutput) ToGetCostCategoryRuleRuleOrAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrAndTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrAndTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrAndTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrAndTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrAndTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrAndTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrAndTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrAndTagArrayOutput) ToGetCostCategoryRuleRuleOrAndTagArrayOutput() GetCostCategoryRuleRuleOrAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndTagArrayOutput) ToGetCostCategoryRuleRuleOrAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrAndTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrAndTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrAndTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrAndTag {
+		return vs[0].([]GetCostCategoryRuleRuleOrAndTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrAndTagOutput)
 }
 
 type GetCostCategoryRuleRuleOrCostCategory struct {
@@ -7958,6 +17234,928 @@ func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrDimension {
 		return vs[0].([]GetCostCategoryRuleRuleOrDimension)[vs[1].(int)]
 	}).(GetCostCategoryRuleRuleOrDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleOrNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleOrNotCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleOrNotDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleOrNotTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleOrNotInput is an input type that accepts GetCostCategoryRuleRuleOrNotArgs and GetCostCategoryRuleRuleOrNotOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotArgs{...}
+type GetCostCategoryRuleRuleOrNotInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotOutput() GetCostCategoryRuleRuleOrNotOutput
+	ToGetCostCategoryRuleRuleOrNotOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotOutput
+}
+
+type GetCostCategoryRuleRuleOrNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleOrNotCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleOrNotDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleOrNotTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleOrNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotArgs) ToGetCostCategoryRuleRuleOrNotOutput() GetCostCategoryRuleRuleOrNotOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotArgs) ToGetCostCategoryRuleRuleOrNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotOutput)
+}
+
+// GetCostCategoryRuleRuleOrNotArrayInput is an input type that accepts GetCostCategoryRuleRuleOrNotArray and GetCostCategoryRuleRuleOrNotArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotArray{ GetCostCategoryRuleRuleOrNotArgs{...} }
+type GetCostCategoryRuleRuleOrNotArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotArrayOutput() GetCostCategoryRuleRuleOrNotArrayOutput
+	ToGetCostCategoryRuleRuleOrNotArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrNotArray []GetCostCategoryRuleRuleOrNotInput
+
+func (GetCostCategoryRuleRuleOrNotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotArray) ToGetCostCategoryRuleRuleOrNotArrayOutput() GetCostCategoryRuleRuleOrNotArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotArray) ToGetCostCategoryRuleRuleOrNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotOutput) ToGetCostCategoryRuleRuleOrNotOutput() GetCostCategoryRuleRuleOrNotOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotOutput) ToGetCostCategoryRuleRuleOrNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleOrNotOutput) CostCategories() GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNot) []GetCostCategoryRuleRuleOrNotCostCategory {
+		return v.CostCategories
+	}).(GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrNotOutput) Dimensions() GetCostCategoryRuleRuleOrNotDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNot) []GetCostCategoryRuleRuleOrNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrNotDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrNotOutput) Tags() GetCostCategoryRuleRuleOrNotTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNot) []GetCostCategoryRuleRuleOrNotTag { return v.Tags }).(GetCostCategoryRuleRuleOrNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNot)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotArrayOutput) ToGetCostCategoryRuleRuleOrNotArrayOutput() GetCostCategoryRuleRuleOrNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotArrayOutput) ToGetCostCategoryRuleRuleOrNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrNotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrNot {
+		return vs[0].([]GetCostCategoryRuleRuleOrNot)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrNotOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrNotCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleOrNotCostCategoryArgs and GetCostCategoryRuleRuleOrNotCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotCostCategoryArgs{...}
+type GetCostCategoryRuleRuleOrNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotCostCategoryOutput() GetCostCategoryRuleRuleOrNotCostCategoryOutput
+	ToGetCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleOrNotCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotCostCategoryArgs) ToGetCostCategoryRuleRuleOrNotCostCategoryOutput() GetCostCategoryRuleRuleOrNotCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotCostCategoryArgs) ToGetCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleOrNotCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleOrNotCostCategoryArray and GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotCostCategoryArray{ GetCostCategoryRuleRuleOrNotCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleOrNotCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutput() GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrNotCostCategoryArray []GetCostCategoryRuleRuleOrNotCostCategoryInput
+
+func (GetCostCategoryRuleRuleOrNotCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotCostCategoryArray) ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutput() GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotCostCategoryArray) ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotCostCategoryOutput) ToGetCostCategoryRuleRuleOrNotCostCategoryOutput() GetCostCategoryRuleRuleOrNotCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotCostCategoryOutput) ToGetCostCategoryRuleRuleOrNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrNotCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutput() GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrNotCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrNotCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleOrNotCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrNotCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrNotDimensionInput is an input type that accepts GetCostCategoryRuleRuleOrNotDimensionArgs and GetCostCategoryRuleRuleOrNotDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotDimensionArgs{...}
+type GetCostCategoryRuleRuleOrNotDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotDimensionOutput() GetCostCategoryRuleRuleOrNotDimensionOutput
+	ToGetCostCategoryRuleRuleOrNotDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotDimensionOutput
+}
+
+type GetCostCategoryRuleRuleOrNotDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotDimensionArgs) ToGetCostCategoryRuleRuleOrNotDimensionOutput() GetCostCategoryRuleRuleOrNotDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotDimensionArgs) ToGetCostCategoryRuleRuleOrNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleOrNotDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleOrNotDimensionArray and GetCostCategoryRuleRuleOrNotDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotDimensionArray{ GetCostCategoryRuleRuleOrNotDimensionArgs{...} }
+type GetCostCategoryRuleRuleOrNotDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotDimensionArrayOutput() GetCostCategoryRuleRuleOrNotDimensionArrayOutput
+	ToGetCostCategoryRuleRuleOrNotDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrNotDimensionArray []GetCostCategoryRuleRuleOrNotDimensionInput
+
+func (GetCostCategoryRuleRuleOrNotDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotDimensionArray) ToGetCostCategoryRuleRuleOrNotDimensionArrayOutput() GetCostCategoryRuleRuleOrNotDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotDimensionArray) ToGetCostCategoryRuleRuleOrNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotDimensionOutput) ToGetCostCategoryRuleRuleOrNotDimensionOutput() GetCostCategoryRuleRuleOrNotDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotDimensionOutput) ToGetCostCategoryRuleRuleOrNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrNotDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotDimensionArrayOutput) ToGetCostCategoryRuleRuleOrNotDimensionArrayOutput() GetCostCategoryRuleRuleOrNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotDimensionArrayOutput) ToGetCostCategoryRuleRuleOrNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrNotDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrNotDimension {
+		return vs[0].([]GetCostCategoryRuleRuleOrNotDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrNotDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrNotTagInput is an input type that accepts GetCostCategoryRuleRuleOrNotTagArgs and GetCostCategoryRuleRuleOrNotTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotTagInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotTagArgs{...}
+type GetCostCategoryRuleRuleOrNotTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotTagOutput() GetCostCategoryRuleRuleOrNotTagOutput
+	ToGetCostCategoryRuleRuleOrNotTagOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotTagOutput
+}
+
+type GetCostCategoryRuleRuleOrNotTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotTagArgs) ToGetCostCategoryRuleRuleOrNotTagOutput() GetCostCategoryRuleRuleOrNotTagOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotTagArgs) ToGetCostCategoryRuleRuleOrNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotTagOutput)
+}
+
+// GetCostCategoryRuleRuleOrNotTagArrayInput is an input type that accepts GetCostCategoryRuleRuleOrNotTagArray and GetCostCategoryRuleRuleOrNotTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrNotTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrNotTagArray{ GetCostCategoryRuleRuleOrNotTagArgs{...} }
+type GetCostCategoryRuleRuleOrNotTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrNotTagArrayOutput() GetCostCategoryRuleRuleOrNotTagArrayOutput
+	ToGetCostCategoryRuleRuleOrNotTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrNotTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrNotTagArray []GetCostCategoryRuleRuleOrNotTagInput
+
+func (GetCostCategoryRuleRuleOrNotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrNotTagArray) ToGetCostCategoryRuleRuleOrNotTagArrayOutput() GetCostCategoryRuleRuleOrNotTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrNotTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrNotTagArray) ToGetCostCategoryRuleRuleOrNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrNotTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotTagOutput) ToGetCostCategoryRuleRuleOrNotTagOutput() GetCostCategoryRuleRuleOrNotTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotTagOutput) ToGetCostCategoryRuleRuleOrNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrNotTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrNotTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrNotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrNotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrNotTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrNotTagArrayOutput) ToGetCostCategoryRuleRuleOrNotTagArrayOutput() GetCostCategoryRuleRuleOrNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotTagArrayOutput) ToGetCostCategoryRuleRuleOrNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrNotTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrNotTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrNotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrNotTag {
+		return vs[0].([]GetCostCategoryRuleRuleOrNotTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrNotTagOutput)
+}
+
+type GetCostCategoryRuleRuleOrOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories []GetCostCategoryRuleRuleOrOrCostCategory `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions []GetCostCategoryRuleRuleOrOrDimension `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags []GetCostCategoryRuleRuleOrOrTag `pulumi:"tags"`
+}
+
+// GetCostCategoryRuleRuleOrOrInput is an input type that accepts GetCostCategoryRuleRuleOrOrArgs and GetCostCategoryRuleRuleOrOrOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrArgs{...}
+type GetCostCategoryRuleRuleOrOrInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrOutput() GetCostCategoryRuleRuleOrOrOutput
+	ToGetCostCategoryRuleRuleOrOrOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrOutput
+}
+
+type GetCostCategoryRuleRuleOrOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	CostCategories GetCostCategoryRuleRuleOrOrCostCategoryArrayInput `pulumi:"costCategories"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimensions GetCostCategoryRuleRuleOrOrDimensionArrayInput `pulumi:"dimensions"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags GetCostCategoryRuleRuleOrOrTagArrayInput `pulumi:"tags"`
+}
+
+func (GetCostCategoryRuleRuleOrOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrArgs) ToGetCostCategoryRuleRuleOrOrOutput() GetCostCategoryRuleRuleOrOrOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrArgs) ToGetCostCategoryRuleRuleOrOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrOutput)
+}
+
+// GetCostCategoryRuleRuleOrOrArrayInput is an input type that accepts GetCostCategoryRuleRuleOrOrArray and GetCostCategoryRuleRuleOrOrArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrArray{ GetCostCategoryRuleRuleOrOrArgs{...} }
+type GetCostCategoryRuleRuleOrOrArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrArrayOutput() GetCostCategoryRuleRuleOrOrArrayOutput
+	ToGetCostCategoryRuleRuleOrOrArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrOrArray []GetCostCategoryRuleRuleOrOrInput
+
+func (GetCostCategoryRuleRuleOrOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrArray) ToGetCostCategoryRuleRuleOrOrArrayOutput() GetCostCategoryRuleRuleOrOrArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrArray) ToGetCostCategoryRuleRuleOrOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrOutput) ToGetCostCategoryRuleRuleOrOrOutput() GetCostCategoryRuleRuleOrOrOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrOutput) ToGetCostCategoryRuleRuleOrOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on `CostCategory` values. See below.
+func (o GetCostCategoryRuleRuleOrOrOutput) CostCategories() GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOr) []GetCostCategoryRuleRuleOrOrCostCategory { return v.CostCategories }).(GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput)
+}
+
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrOrOutput) Dimensions() GetCostCategoryRuleRuleOrOrDimensionArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOr) []GetCostCategoryRuleRuleOrOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrOrDimensionArrayOutput)
+}
+
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
+func (o GetCostCategoryRuleRuleOrOrOutput) Tags() GetCostCategoryRuleRuleOrOrTagArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOr) []GetCostCategoryRuleRuleOrOrTag { return v.Tags }).(GetCostCategoryRuleRuleOrOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOr)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrArrayOutput) ToGetCostCategoryRuleRuleOrOrArrayOutput() GetCostCategoryRuleRuleOrOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrArrayOutput) ToGetCostCategoryRuleRuleOrOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrOr {
+		return vs[0].([]GetCostCategoryRuleRuleOrOr)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrOrOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrCostCategory struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrOrCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleOrOrCostCategoryArgs and GetCostCategoryRuleRuleOrOrCostCategoryOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrCostCategoryInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrCostCategoryArgs{...}
+type GetCostCategoryRuleRuleOrOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrCostCategoryOutput() GetCostCategoryRuleRuleOrOrCostCategoryOutput
+	ToGetCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrCostCategoryOutput
+}
+
+type GetCostCategoryRuleRuleOrOrCostCategoryArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrCostCategoryArgs) ToGetCostCategoryRuleRuleOrOrCostCategoryOutput() GetCostCategoryRuleRuleOrOrCostCategoryOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrCostCategoryArgs) ToGetCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrCostCategoryOutput)
+}
+
+// GetCostCategoryRuleRuleOrOrCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleOrOrCostCategoryArray and GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrCostCategoryArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrCostCategoryArray{ GetCostCategoryRuleRuleOrOrCostCategoryArgs{...} }
+type GetCostCategoryRuleRuleOrOrCostCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutput() GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput
+	ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrOrCostCategoryArray []GetCostCategoryRuleRuleOrOrCostCategoryInput
+
+func (GetCostCategoryRuleRuleOrOrCostCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrCostCategoryArray) ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutput() GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrCostCategoryArray) ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrCostCategoryOutput) ToGetCostCategoryRuleRuleOrOrCostCategoryOutput() GetCostCategoryRuleRuleOrOrCostCategoryOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrCostCategoryOutput) ToGetCostCategoryRuleRuleOrOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrCostCategoryOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrOrCostCategoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrCostCategory) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrCostCategory)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutput() GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrOrCostCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrOrCostCategory {
+		return vs[0].([]GetCostCategoryRuleRuleOrOrCostCategory)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrOrCostCategoryOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrDimension struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrOrDimensionInput is an input type that accepts GetCostCategoryRuleRuleOrOrDimensionArgs and GetCostCategoryRuleRuleOrOrDimensionOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrDimensionInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrDimensionArgs{...}
+type GetCostCategoryRuleRuleOrOrDimensionInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrDimensionOutput() GetCostCategoryRuleRuleOrOrDimensionOutput
+	ToGetCostCategoryRuleRuleOrOrDimensionOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrDimensionOutput
+}
+
+type GetCostCategoryRuleRuleOrOrDimensionArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrDimensionArgs) ToGetCostCategoryRuleRuleOrOrDimensionOutput() GetCostCategoryRuleRuleOrOrDimensionOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrDimensionOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrDimensionArgs) ToGetCostCategoryRuleRuleOrOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrDimensionOutput)
+}
+
+// GetCostCategoryRuleRuleOrOrDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleOrOrDimensionArray and GetCostCategoryRuleRuleOrOrDimensionArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrDimensionArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrDimensionArray{ GetCostCategoryRuleRuleOrOrDimensionArgs{...} }
+type GetCostCategoryRuleRuleOrOrDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrDimensionArrayOutput() GetCostCategoryRuleRuleOrOrDimensionArrayOutput
+	ToGetCostCategoryRuleRuleOrOrDimensionArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrDimensionArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrOrDimensionArray []GetCostCategoryRuleRuleOrOrDimensionInput
+
+func (GetCostCategoryRuleRuleOrOrDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrDimensionArray) ToGetCostCategoryRuleRuleOrOrDimensionArrayOutput() GetCostCategoryRuleRuleOrOrDimensionArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrDimensionArray) ToGetCostCategoryRuleRuleOrOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrDimensionArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrDimensionOutput) ToGetCostCategoryRuleRuleOrOrDimensionOutput() GetCostCategoryRuleRuleOrOrDimensionOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrDimensionOutput) ToGetCostCategoryRuleRuleOrOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrDimensionOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrOrDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrDimension)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrDimensionArrayOutput) ToGetCostCategoryRuleRuleOrOrDimensionArrayOutput() GetCostCategoryRuleRuleOrOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrDimensionArrayOutput) ToGetCostCategoryRuleRuleOrOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrDimensionArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrOrDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrOrDimension {
+		return vs[0].([]GetCostCategoryRuleRuleOrOrDimension)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrOrDimensionOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrTag struct {
+	// Key for the tag.
+	Key string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Parameter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetCostCategoryRuleRuleOrOrTagInput is an input type that accepts GetCostCategoryRuleRuleOrOrTagArgs and GetCostCategoryRuleRuleOrOrTagOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrTagInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrTagArgs{...}
+type GetCostCategoryRuleRuleOrOrTagInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrTagOutput() GetCostCategoryRuleRuleOrOrTagOutput
+	ToGetCostCategoryRuleRuleOrOrTagOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrTagOutput
+}
+
+type GetCostCategoryRuleRuleOrOrTagArgs struct {
+	// Key for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Parameter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCostCategoryRuleRuleOrOrTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrTagArgs) ToGetCostCategoryRuleRuleOrOrTagOutput() GetCostCategoryRuleRuleOrOrTagOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrTagOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrTagArgs) ToGetCostCategoryRuleRuleOrOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrTagOutput)
+}
+
+// GetCostCategoryRuleRuleOrOrTagArrayInput is an input type that accepts GetCostCategoryRuleRuleOrOrTagArray and GetCostCategoryRuleRuleOrOrTagArrayOutput values.
+// You can construct a concrete instance of `GetCostCategoryRuleRuleOrOrTagArrayInput` via:
+//
+//	GetCostCategoryRuleRuleOrOrTagArray{ GetCostCategoryRuleRuleOrOrTagArgs{...} }
+type GetCostCategoryRuleRuleOrOrTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCostCategoryRuleRuleOrOrTagArrayOutput() GetCostCategoryRuleRuleOrOrTagArrayOutput
+	ToGetCostCategoryRuleRuleOrOrTagArrayOutputWithContext(context.Context) GetCostCategoryRuleRuleOrOrTagArrayOutput
+}
+
+type GetCostCategoryRuleRuleOrOrTagArray []GetCostCategoryRuleRuleOrOrTagInput
+
+func (GetCostCategoryRuleRuleOrOrTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrTag)(nil)).Elem()
+}
+
+func (i GetCostCategoryRuleRuleOrOrTagArray) ToGetCostCategoryRuleRuleOrOrTagArrayOutput() GetCostCategoryRuleRuleOrOrTagArrayOutput {
+	return i.ToGetCostCategoryRuleRuleOrOrTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostCategoryRuleRuleOrOrTagArray) ToGetCostCategoryRuleRuleOrOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOrTagArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrTagOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostCategoryRuleRuleOrOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrTagOutput) ToGetCostCategoryRuleRuleOrOrTagOutput() GetCostCategoryRuleRuleOrOrTagOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrTagOutput) ToGetCostCategoryRuleRuleOrOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrTagOutput {
+	return o
+}
+
+// Key for the tag.
+func (o GetCostCategoryRuleRuleOrOrTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o GetCostCategoryRuleRuleOrOrTagOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrTag) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Parameter values.
+func (o GetCostCategoryRuleRuleOrOrTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCostCategoryRuleRuleOrOrTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCostCategoryRuleRuleOrOrTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostCategoryRuleRuleOrOrTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostCategoryRuleRuleOrOrTag)(nil)).Elem()
+}
+
+func (o GetCostCategoryRuleRuleOrOrTagArrayOutput) ToGetCostCategoryRuleRuleOrOrTagArrayOutput() GetCostCategoryRuleRuleOrOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrTagArrayOutput) ToGetCostCategoryRuleRuleOrOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOrTagArrayOutput {
+	return o
+}
+
+func (o GetCostCategoryRuleRuleOrOrTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrOrTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostCategoryRuleRuleOrOrTag {
+		return vs[0].([]GetCostCategoryRuleRuleOrOrTag)[vs[1].(int)]
+	}).(GetCostCategoryRuleRuleOrOrTagOutput)
 }
 
 type GetCostCategoryRuleRuleOrTag struct {
@@ -11299,10 +21497,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRulePtrInput)(nil)).Elem(), CostCategoryRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndInput)(nil)).Elem(), CostCategoryRuleRuleAndArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndArrayInput)(nil)).Elem(), CostCategoryRuleRuleAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndInput)(nil)).Elem(), CostCategoryRuleRuleAndAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndArrayInput)(nil)).Elem(), CostCategoryRuleRuleAndAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleAndAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndDimensionInput)(nil)).Elem(), CostCategoryRuleRuleAndAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndTagsInput)(nil)).Elem(), CostCategoryRuleRuleAndAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndAndTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndAndTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleAndCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndDimensionInput)(nil)).Elem(), CostCategoryRuleRuleAndDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotInput)(nil)).Elem(), CostCategoryRuleRuleAndNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleAndNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotDimensionInput)(nil)).Elem(), CostCategoryRuleRuleAndNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotTagsInput)(nil)).Elem(), CostCategoryRuleRuleAndNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndNotTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrInput)(nil)).Elem(), CostCategoryRuleRuleAndOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrArrayInput)(nil)).Elem(), CostCategoryRuleRuleAndOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleAndOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrDimensionInput)(nil)).Elem(), CostCategoryRuleRuleAndOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrTagsInput)(nil)).Elem(), CostCategoryRuleRuleAndOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndOrTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndOrTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndTagsInput)(nil)).Elem(), CostCategoryRuleRuleAndTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleAndTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleAndTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleCostCategoryArgs{})
@@ -11311,18 +21533,66 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotInput)(nil)).Elem(), CostCategoryRuleRuleNotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndInput)(nil)).Elem(), CostCategoryRuleRuleNotAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndArrayInput)(nil)).Elem(), CostCategoryRuleRuleNotAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleNotAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndDimensionInput)(nil)).Elem(), CostCategoryRuleRuleNotAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndTagsInput)(nil)).Elem(), CostCategoryRuleRuleNotAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotAndTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotAndTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleNotCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotDimensionInput)(nil)).Elem(), CostCategoryRuleRuleNotDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotInput)(nil)).Elem(), CostCategoryRuleRuleNotNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleNotNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotDimensionInput)(nil)).Elem(), CostCategoryRuleRuleNotNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotTagsInput)(nil)).Elem(), CostCategoryRuleRuleNotNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotNotTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrInput)(nil)).Elem(), CostCategoryRuleRuleNotOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrArrayInput)(nil)).Elem(), CostCategoryRuleRuleNotOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleNotOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrDimensionInput)(nil)).Elem(), CostCategoryRuleRuleNotOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrTagsInput)(nil)).Elem(), CostCategoryRuleRuleNotOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotOrTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotOrTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotTagsInput)(nil)).Elem(), CostCategoryRuleRuleNotTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleNotTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleNotTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrInput)(nil)).Elem(), CostCategoryRuleRuleOrArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrArrayInput)(nil)).Elem(), CostCategoryRuleRuleOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndInput)(nil)).Elem(), CostCategoryRuleRuleOrAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndArrayInput)(nil)).Elem(), CostCategoryRuleRuleOrAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleOrAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndDimensionInput)(nil)).Elem(), CostCategoryRuleRuleOrAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndTagsInput)(nil)).Elem(), CostCategoryRuleRuleOrAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrAndTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrAndTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleOrCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrDimensionInput)(nil)).Elem(), CostCategoryRuleRuleOrDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotInput)(nil)).Elem(), CostCategoryRuleRuleOrNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleOrNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotDimensionInput)(nil)).Elem(), CostCategoryRuleRuleOrNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotTagsInput)(nil)).Elem(), CostCategoryRuleRuleOrNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrNotTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrInput)(nil)).Elem(), CostCategoryRuleRuleOrOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrArrayInput)(nil)).Elem(), CostCategoryRuleRuleOrOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrCostCategoryInput)(nil)).Elem(), CostCategoryRuleRuleOrOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrCostCategoryPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrDimensionInput)(nil)).Elem(), CostCategoryRuleRuleOrOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrDimensionPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrTagsInput)(nil)).Elem(), CostCategoryRuleRuleOrOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrOrTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrOrTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrTagsInput)(nil)).Elem(), CostCategoryRuleRuleOrTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleOrTagsPtrInput)(nil)).Elem(), CostCategoryRuleRuleOrTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleRuleTagsInput)(nil)).Elem(), CostCategoryRuleRuleTagsArgs{})
@@ -11339,10 +21609,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndInput)(nil)).Elem(), GetCostCategoryRuleRuleAndArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndTagInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndAndTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndAndTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleAndCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndCostCategoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleAndDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotTagInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndNotTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndNotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrTagInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndOrTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndOrTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndTagInput)(nil)).Elem(), GetCostCategoryRuleRuleAndTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleAndTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleAndTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleCostCategoryArgs{})
@@ -11351,18 +21645,66 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotInput)(nil)).Elem(), GetCostCategoryRuleRuleNotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndTagInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotAndTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotAndTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleNotCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotCostCategoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleNotDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotTagInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotNotTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotNotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrTagInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotOrTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotOrTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotTagInput)(nil)).Elem(), GetCostCategoryRuleRuleNotTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleNotTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleNotTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrInput)(nil)).Elem(), GetCostCategoryRuleRuleOrArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndTagInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrAndTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrAndTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleOrCostCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrCostCategoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleOrDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotTagInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrNotTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrNotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrCostCategoryInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrCostCategoryArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrCostCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrDimensionInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrDimensionArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrTagInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrOrTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrOrTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrTagInput)(nil)).Elem(), GetCostCategoryRuleRuleOrTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleOrTagArrayInput)(nil)).Elem(), GetCostCategoryRuleRuleOrTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCostCategoryRuleRuleTagInput)(nil)).Elem(), GetCostCategoryRuleRuleTagArgs{})
@@ -11448,10 +21790,34 @@ func init() {
 	pulumi.RegisterOutputType(CostCategoryRuleRulePtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndAndTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndCostCategoryOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndCostCategoryPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndDimensionOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleAndOrTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndTagsOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleAndTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleCostCategoryOutput{})
@@ -11460,18 +21826,66 @@ func init() {
 	pulumi.RegisterOutputType(CostCategoryRuleRuleDimensionPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotAndTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotCostCategoryOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotCostCategoryPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotDimensionOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleNotOrTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotTagsOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleNotTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrAndTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrCostCategoryOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrCostCategoryPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrDimensionOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrArrayOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrDimensionOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrTagsOutput{})
+	pulumi.RegisterOutputType(CostCategoryRuleRuleOrOrTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrTagsOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleOrTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleRuleTagsOutput{})
@@ -11488,10 +21902,34 @@ func init() {
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndAndTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndCostCategoryOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndCostCategoryArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndDimensionOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndNotTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndOrTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndTagOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleAndTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleCostCategoryOutput{})
@@ -11500,18 +21938,66 @@ func init() {
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleDimensionArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotAndTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotCostCategoryOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotCostCategoryArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotDimensionOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotNotTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotOrTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotTagOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleNotTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrAndTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrCostCategoryOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrCostCategoryArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrDimensionOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrNotTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrCostCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrDimensionOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrTagOutput{})
+	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrOrTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrTagOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleOrTagArrayOutput{})
 	pulumi.RegisterOutputType(GetCostCategoryRuleRuleTagOutput{})

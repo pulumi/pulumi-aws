@@ -43,45 +43,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Using Custom Images
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Image("example", {
- *     imageName: "example",
- *     roleArn: exampleAwsIamRole.arn,
- * });
- * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("example", {
- *     appImageConfigName: "example",
- *     kernelGatewayImageConfig: {
- *         kernelSpec: {
- *             name: "example",
- *         },
- *     },
- * });
- * const exampleImageVersion = new aws.sagemaker.ImageVersion("example", {
- *     imageName: example.id,
- *     baseImage: "base-image",
- * });
- * const exampleDomain = new aws.sagemaker.Domain("example", {
- *     domainName: "example",
- *     authMode: "IAM",
- *     vpcId: exampleAwsVpc.id,
- *     subnetIds: [exampleAwsSubnet.id],
- *     defaultUserSettings: {
- *         executionRole: exampleAwsIamRole.arn,
- *         kernelGatewayAppSettings: {
- *             customImages: [{
- *                 appImageConfigName: exampleAppImageConfig.appImageConfigName,
- *                 imageName: exampleImageVersion.imageName,
- *             }],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Domains using the `id`. For example:

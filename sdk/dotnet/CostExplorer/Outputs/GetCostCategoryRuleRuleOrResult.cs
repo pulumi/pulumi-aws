@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     public sealed class GetCostCategoryRuleRuleOrResult
     {
         /// <summary>
+        /// Return results that match both `Dimension` objects.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrAndResult> Ands;
+        /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrCostCategoryResult> CostCategories;
@@ -22,20 +26,37 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrDimensionResult> Dimensions;
         /// <summary>
+        /// Return results that do not match the `Dimension` object.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrNotResult> Nots;
+        /// <summary>
+        /// Return results that match either `Dimension` object.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrOrResult> Ors;
+        /// <summary>
         /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrTagResult> Tags;
 
         [OutputConstructor]
         private GetCostCategoryRuleRuleOrResult(
+            ImmutableArray<Outputs.GetCostCategoryRuleRuleOrAndResult> ands,
+
             ImmutableArray<Outputs.GetCostCategoryRuleRuleOrCostCategoryResult> costCategories,
 
             ImmutableArray<Outputs.GetCostCategoryRuleRuleOrDimensionResult> dimensions,
 
+            ImmutableArray<Outputs.GetCostCategoryRuleRuleOrNotResult> nots,
+
+            ImmutableArray<Outputs.GetCostCategoryRuleRuleOrOrResult> ors,
+
             ImmutableArray<Outputs.GetCostCategoryRuleRuleOrTagResult> tags)
         {
+            Ands = ands;
             CostCategories = costCategories;
             Dimensions = dimensions;
+            Nots = nots;
+            Ors = ors;
             Tags = tags;
         }
     }

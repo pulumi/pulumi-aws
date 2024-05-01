@@ -291,6 +291,7 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetElasticIpResult
     {
+        public readonly string Arn;
         /// <summary>
         /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
@@ -359,6 +360,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetElasticIpResult(
+            string arn,
+
             string associationId,
 
             string carrierIp,
@@ -393,6 +396,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableDictionary<string, string> tags)
         {
+            Arn = arn;
             AssociationId = associationId;
             CarrierIp = carrierIp;
             CustomerOwnedIp = customerOwnedIp;

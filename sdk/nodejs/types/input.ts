@@ -1047,6 +1047,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    route53profiles?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53recoverycontrolconfig?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -4521,14 +4525,18 @@ export namespace appmesh {
          * Egress filter rules for the service mesh.
          */
         egressFilter?: pulumi.Input<inputs.appmesh.MeshSpecEgressFilter>;
+        /**
+         * The service discovery information for the service mesh.
+         */
+        serviceDiscovery?: pulumi.Input<inputs.appmesh.MeshSpecServiceDiscovery>;
     }
 
     export interface MeshSpecEgressFilter {
-        /**
-         * Egress filter type. By default, the type is `DROP_ALL`.
-         * Valid values are `ALLOW_ALL` and `DROP_ALL`.
-         */
         type?: pulumi.Input<string>;
+    }
+
+    export interface MeshSpecServiceDiscovery {
+        ipPreference?: pulumi.Input<string>;
     }
 
     export interface RouteSpec {
@@ -8982,7 +8990,7 @@ export namespace batch {
 
     export interface JobDefinitionRetryStrategyEvaluateOnExit {
         /**
-         * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+         * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          */
         action: pulumi.Input<string>;
         /**
@@ -9050,7 +9058,387 @@ export namespace batch {
     }
 }
 
+export namespace bcmdata {
+    export interface ExportExport {
+        /**
+         * Data query for this specific data export. See the `dataQuery` argument reference below.
+         */
+        dataQueries?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDataQuery>[]>;
+        /**
+         * Description for this specific data export.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         */
+        destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfiguration>[]>;
+        /**
+         * Amazon Resource Name (ARN) for this export.
+         */
+        exportArn?: pulumi.Input<string>;
+        /**
+         * Name of this specific data export.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         */
+        refreshCadences?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportRefreshCadence>[]>;
+    }
+
+    export interface ExportExportDataQuery {
+        /**
+         * Query statement.
+         */
+        queryStatement: pulumi.Input<string>;
+        /**
+         * Table configuration.
+         */
+        tableConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    }
+
+    export interface ExportExportDestinationConfiguration {
+        /**
+         * Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
+         */
+        s3Destinations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfigurationS3Destination>[]>;
+    }
+
+    export interface ExportExportDestinationConfigurationS3Destination {
+        /**
+         * Name of the Amazon S3 bucket used as the destination of a data export file.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
+         */
+        s3OutputConfigurations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>[]>;
+        /**
+         * S3 path prefix you want prepended to the name of your data export.
+         */
+        s3Prefix: pulumi.Input<string>;
+        /**
+         * S3 bucket region.
+         */
+        s3Region: pulumi.Input<string>;
+    }
+
+    export interface ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration {
+        /**
+         * Compression type for the data export. Valid values `GZIP`, `PARQUET`.
+         */
+        compression: pulumi.Input<string>;
+        /**
+         * File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
+         */
+        format: pulumi.Input<string>;
+        /**
+         * Output type for the data export. Valid value `CUSTOM`.
+         */
+        outputType: pulumi.Input<string>;
+        /**
+         * The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
+         */
+        overwrite: pulumi.Input<string>;
+    }
+
+    export interface ExportExportRefreshCadence {
+        /**
+         * Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
+         */
+        frequency: pulumi.Input<string>;
+    }
+
+    export interface ExportTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace bedrock {
+    export interface AgentAgentActionGroupActionGroupExecutor {
+        /**
+         * ARN of the Lambda that defines the business logic for the action group.
+         */
+        lambda?: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentActionGroupApiSchema {
+        /**
+         * YAML or JSON OpenAPI Schema.
+         */
+        payload?: pulumi.Input<string>;
+        /**
+         * Configuration of S3 schema location
+         */
+        s3?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchemaS3>;
+    }
+
+    export interface AgentAgentActionGroupApiSchemaS3 {
+        /**
+         * The S3 bucket name that contains the OpenAPI Schema.
+         */
+        s3BucketName?: pulumi.Input<string>;
+        /**
+         * The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+         *
+         * The following arguments are optional:
+         */
+        s3ObjectKey?: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentAliasRoutingConfiguration {
+        /**
+         * Version of the agent the alias routes to.
+         */
+        agentVersion: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentAliasTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentPromptOverrideConfiguration {
+        /**
+         * ARN of Lambda to use when parsing the raw foundation model output.
+         */
+        overrideLambda: pulumi.Input<string>;
+        /**
+         * List of prompt configurations.
+         *
+         * The following arguments are optional:
+         */
+        promptConfigurations: pulumi.Input<any[]>;
+    }
+
+    export interface AgentAgentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
+        /**
+         * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Contains details about the embeddings model that'sused to   convert the data source.
+         */
+        vectorKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration>;
+    }
+
+    export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
+        /**
+         * The ARN of the model used to create vector embeddings for the knowledge base.
+         */
+        embeddingModelArn: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfiguration {
+        /**
+         * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+         */
+        opensearchServerlessConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration>;
+        /**
+         * Contains the storage configuration of the knowledge base in Pinecone.
+         */
+        pineconeConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration>;
+        /**
+         * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+         */
+        rdsConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfiguration>;
+        /**
+         * Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+         */
+        redisEnterpriseCloudConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration>;
+        /**
+         * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
+        /**
+         * The ARN of the OpenSearch Service vector store.
+         */
+        collectionArn: pulumi.Input<string>;
+        /**
+         * Contains the names of the fields to which to map information about the vector store.
+         */
+        fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping>;
+        /**
+         * The name of the vector store.
+         */
+        vectorIndexName: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField?: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField?: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField?: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
+        /**
+         * The endpoint URL for your index management page.
+         */
+        connectionString: pulumi.Input<string>;
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         */
+        credentialsSecretArn: pulumi.Input<string>;
+        /**
+         * Contains the names of the fields to which to map information about the vector store.
+         */
+        fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping>;
+        /**
+         * The namespace to be used to write new data to your database.
+         */
+        namespace?: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField?: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField?: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         */
+        credentialsSecretArn: pulumi.Input<string>;
+        /**
+         * The name of your Amazon RDS database.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * Contains the names of the fields to which to map information about the vector store.
+         */
+        fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping>;
+        /**
+         * The namespace to be used to write new data to your database.
+         */
+        resourceArn: pulumi.Input<string>;
+        /**
+         * The name of the table in the database.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the ID for each entry.
+         */
+        primaryKeyField: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         */
+        credentialsSecretArn: pulumi.Input<string>;
+        /**
+         * The endpoint URL of the Redis Enterprise Cloud database.
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * Contains the names of the fields to which to map information about the vector store.
+         */
+        fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping>;
+        /**
+         * The name of the vector store.
+         */
+        vectorIndexName: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField?: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField?: pulumi.Input<string>;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField?: pulumi.Input<string>;
+    }
+
+    export interface AgentKnowledgeBaseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
     export interface CustomModelOutputDataConfig {
         /**
          * The S3 URI where the output data is stored.
@@ -14630,12 +15018,69 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAnd {
+        ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAnd>[]>;
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndCostCategory>;
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndDimension>;
+        not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNot>;
+        ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndTags>;
+    }
+
+    export interface CostCategoryRuleRuleAndAnd {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAndCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAndDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAndTags>;
+    }
+
+    export interface CostCategoryRuleRuleAndAndCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndAndDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndAndTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CostCategoryRuleRuleAndCostCategory {
@@ -14656,6 +15101,114 @@ export namespace costexplorer {
     export interface CostCategoryRuleRuleAndDimension {
         /**
          * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndNot {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNotCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNotDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNotTags>;
+    }
+
+    export interface CostCategoryRuleRuleAndNotCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndNotDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndNotTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndOr {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOrCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOrDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOrTags>;
+    }
+
+    export interface CostCategoryRuleRuleAndOrCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndOrDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleAndOrTags {
+        /**
+         * Key for the tag.
          */
         key?: pulumi.Input<string>;
         /**
@@ -14714,12 +15267,69 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNot {
+        ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAnd>[]>;
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotCostCategory>;
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotDimension>;
+        not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNot>;
+        ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotTags>;
+    }
+
+    export interface CostCategoryRuleRuleNotAnd {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAndCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAndDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAndTags>;
+    }
+
+    export interface CostCategoryRuleRuleNotAndCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotAndDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotAndTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CostCategoryRuleRuleNotCostCategory {
@@ -14752,6 +15362,114 @@ export namespace costexplorer {
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface CostCategoryRuleRuleNotNot {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNotCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNotDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNotTags>;
+    }
+
+    export interface CostCategoryRuleRuleNotNotCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotNotDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotNotTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotOr {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOrCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOrDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOrTags>;
+    }
+
+    export interface CostCategoryRuleRuleNotOrCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotOrDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleNotOrTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface CostCategoryRuleRuleNotTags {
         /**
          * Key for the tag.
@@ -14768,12 +15486,69 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOr {
+        ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAnd>[]>;
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrCostCategory>;
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrDimension>;
+        not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNot>;
+        ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrTags>;
+    }
+
+    export interface CostCategoryRuleRuleOrAnd {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAndCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAndDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAndTags>;
+    }
+
+    export interface CostCategoryRuleRuleOrAndCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrAndDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrAndTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CostCategoryRuleRuleOrCostCategory {
@@ -14794,6 +15569,114 @@ export namespace costexplorer {
     export interface CostCategoryRuleRuleOrDimension {
         /**
          * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrNot {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNotCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNotDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNotTags>;
+    }
+
+    export interface CostCategoryRuleRuleOrNotCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrNotDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrNotTags {
+        /**
+         * Key for the tag.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrOr {
+        costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOrCostCategory>;
+        dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOrDimension>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOrTags>;
+    }
+
+    export interface CostCategoryRuleRuleOrOrCostCategory {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrOrDimension {
+        /**
+         * Unique name of the Cost Category.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CostCategoryRuleRuleOrOrTags {
+        /**
+         * Key for the tag.
          */
         key?: pulumi.Input<string>;
         /**
@@ -27259,6 +28142,17 @@ export namespace globalaccelerator {
         ipFamily?: pulumi.Input<string>;
     }
 
+    export interface CrossAccountAttachmentResource {
+        /**
+         * The endpoint ID for the endpoint that is specified as a AWS resource.
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * The AWS Region where a shared endpoint resource is located.
+         */
+        region?: pulumi.Input<string>;
+    }
+
     export interface CustomRoutingAcceleratorAttributes {
         /**
          * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
@@ -33232,6 +34126,205 @@ export namespace kinesis {
          * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
          */
         keyType?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfiguration {
+        /**
+         * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+         */
+        accountUrl: pulumi.Input<string>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The name of the content column.
+         */
+        contentColumnName?: pulumi.Input<string>;
+        /**
+         * The data loading option.
+         */
+        dataLoadingOption?: pulumi.Input<string>;
+        /**
+         * The Snowflake database name.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The passphrase for the private key.
+         */
+        keyPassphrase?: pulumi.Input<string>;
+        /**
+         * The name of the metadata column.
+         */
+        metadataColumnName?: pulumi.Input<string>;
+        /**
+         * The private key for authentication.
+         */
+        privateKey: pulumi.Input<string>;
+        /**
+         * The processing configuration. See `processingConfiguration` block below for details.
+         */
+        processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration>;
+        /**
+         * After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+         */
+        retryDuration?: pulumi.Input<number>;
+        /**
+         * The ARN of the IAM role.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The S3 backup mode.
+         */
+        s3BackupMode?: pulumi.Input<string>;
+        /**
+         * The S3 configuration. See `s3Configuration` block below for details.
+         */
+        s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration>;
+        /**
+         * The Snowflake schema name.
+         */
+        schema: pulumi.Input<string>;
+        /**
+         * The configuration for Snowflake role.
+         */
+        snowflakeRoleConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration>;
+        /**
+         * The VPC configuration for Snowflake.
+         */
+        snowflakeVpcConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration>;
+        /**
+         * The Snowflake table name.
+         */
+        table: pulumi.Input<string>;
+        /**
+         * The user for authentication.
+         */
+        user: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         */
+        processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>[]>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
+        /**
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter>[]>;
+        /**
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        parameterName: pulumi.Input<string>;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         *
+         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         */
+        parameterValue: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
+        compressionFormat?: pulumi.Input<string>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS credentials.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
+        /**
+         * Whether the Snowflake role is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The Snowflake role.
+         */
+        snowflakeRole?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
+        /**
+         * The VPCE ID for Firehose to privately connect with Snowflake.
+         */
+        privateLinkVpceId: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {
@@ -50086,15 +51179,15 @@ export namespace memorydb {
 
     export interface UserAuthenticationMode {
         /**
-         * The number of passwords belonging to the user.
+         * Number of passwords belonging to the user if `type` is set to `password`.
          */
         passwordCount?: pulumi.Input<number>;
         /**
-         * The set of passwords used for authentication. You can create up to two passwords for each user.
+         * Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
          */
-        passwords: pulumi.Input<pulumi.Input<string>[]>;
+        passwords?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         * Specifies the authentication type. Valid values are: `password` or `iam`.
          */
         type: pulumi.Input<string>;
     }
@@ -59617,11 +60710,58 @@ export namespace s3outposts {
 }
 
 export namespace sagemaker {
+    export interface AppImageConfigCodeEditorAppImageConfig {
+        /**
+         * The configuration used to run the application image container. See Container Config details below.
+         */
+        containerConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfigContainerConfig>;
+        /**
+         * The URL where the Git repository is located. See File System Config details below.
+         */
+        fileSystemConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfigFileSystemConfig>;
+    }
+
+    export interface AppImageConfigCodeEditorAppImageConfigContainerConfig {
+        /**
+         * The arguments for the container when you're running the application.
+         */
+        containerArguments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The entrypoint used to run the application in the container.
+         */
+        containerEntrypoints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The environment variables to set in the container.
+         */
+        containerEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
+        /**
+         * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         */
+        defaultGid?: pulumi.Input<number>;
+        /**
+         * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         */
+        defaultUid?: pulumi.Input<number>;
+        /**
+         * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         *
+         * > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+         */
+        mountPath?: pulumi.Input<string>;
+    }
+
     export interface AppImageConfigJupyterLabImageConfig {
         /**
          * The configuration used to run the application image container. See Container Config details below.
          */
         containerConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfigContainerConfig>;
+        /**
+         * The URL where the Git repository is located. See File System Config details below.
+         */
+        fileSystemConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfigFileSystemConfig>;
     }
 
     export interface AppImageConfigJupyterLabImageConfigContainerConfig {
@@ -59637,6 +60777,23 @@ export namespace sagemaker {
          * The environment variables to set in the container.
          */
         containerEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface AppImageConfigJupyterLabImageConfigFileSystemConfig {
+        /**
+         * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         */
+        defaultGid?: pulumi.Input<number>;
+        /**
+         * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         */
+        defaultUid?: pulumi.Input<number>;
+        /**
+         * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         *
+         * > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+         */
+        mountPath?: pulumi.Input<string>;
     }
 
     export interface AppImageConfigKernelGatewayImageConfig {
@@ -66946,6 +68103,65 @@ export namespace verifiedaccess {
 }
 
 export namespace verifiedpermissions {
+    export interface PolicyDefinition {
+        /**
+         * The static policy statement. See Static below.
+         */
+        static?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionStatic>;
+        /**
+         * The template linked policy. See Template Linked below.
+         */
+        templateLinked?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinked>;
+    }
+
+    export interface PolicyDefinitionStatic {
+        /**
+         * The description of the static policy.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The statement of the static policy.
+         */
+        statement: pulumi.Input<string>;
+    }
+
+    export interface PolicyDefinitionTemplateLinked {
+        /**
+         * The ID of the template.
+         */
+        policyTemplateId: pulumi.Input<string>;
+        /**
+         * The principal of the template linked policy.
+         */
+        principal?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinkedPrincipal>;
+        /**
+         * The resource of the template linked policy.
+         */
+        resource?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinkedResource>;
+    }
+
+    export interface PolicyDefinitionTemplateLinkedPrincipal {
+        /**
+         * The entity ID of the principal.
+         */
+        entityId: pulumi.Input<string>;
+        /**
+         * The entity type of the principal.
+         */
+        entityType: pulumi.Input<string>;
+    }
+
+    export interface PolicyDefinitionTemplateLinkedResource {
+        /**
+         * The entity ID of the resource.
+         */
+        entityId: pulumi.Input<string>;
+        /**
+         * The entity type of the resource.
+         */
+        entityType: pulumi.Input<string>;
+    }
+
     export interface PolicyStoreValidationSettings {
         /**
          * The mode for the validation settings. Valid values: `OFF`, `STRICT`.

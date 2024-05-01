@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserAuthenticationMode {
     /**
-     * @return The number of passwords belonging to the user.
+     * @return Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     private @Nullable Integer passwordCount;
     /**
-     * @return The set of passwords used for authentication. You can create up to two passwords for each user.
+     * @return Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
      * 
      */
-    private List<String> passwords;
+    private @Nullable List<String> passwords;
     /**
-     * @return Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
      * 
      */
     private String type;
 
     private UserAuthenticationMode() {}
     /**
-     * @return The number of passwords belonging to the user.
+     * @return Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     public Optional<Integer> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
     /**
-     * @return The set of passwords used for authentication. You can create up to two passwords for each user.
+     * @return Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
      * 
      */
     public List<String> passwords() {
-        return this.passwords;
+        return this.passwords == null ? List.of() : this.passwords;
     }
     /**
-     * @return Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
      * 
      */
     public String type() {
@@ -63,7 +63,7 @@ public final class UserAuthenticationMode {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer passwordCount;
-        private List<String> passwords;
+        private @Nullable List<String> passwords;
         private String type;
         public Builder() {}
         public Builder(UserAuthenticationMode defaults) {
@@ -80,10 +80,8 @@ public final class UserAuthenticationMode {
             return this;
         }
         @CustomType.Setter
-        public Builder passwords(List<String> passwords) {
-            if (passwords == null) {
-              throw new MissingRequiredPropertyException("UserAuthenticationMode", "passwords");
-            }
+        public Builder passwords(@Nullable List<String> passwords) {
+
             this.passwords = passwords;
             return this;
         }

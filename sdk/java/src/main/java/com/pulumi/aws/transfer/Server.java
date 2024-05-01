@@ -623,6 +623,20 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityPolicyName);
     }
     /**
+     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * 
+     */
+    @Export(name="sftpAuthenticationMethods", refs={String.class}, tree="[0]")
+    private Output<String> sftpAuthenticationMethods;
+
+    /**
+     * @return For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * 
+     */
+    public Output<String> sftpAuthenticationMethods() {
+        return this.sftpAuthenticationMethods;
+    }
+    /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */

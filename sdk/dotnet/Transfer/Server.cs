@@ -370,6 +370,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
         /// <summary>
+        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// </summary>
+        [Output("sftpAuthenticationMethods")]
+        public Output<string> SftpAuthenticationMethods { get; private set; } = null!;
+
+        /// <summary>
         /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         [Output("structuredLogDestinations")]
@@ -599,6 +605,12 @@ namespace Pulumi.Aws.Transfer
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
 
+        /// <summary>
+        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// </summary>
+        [Input("sftpAuthenticationMethods")]
+        public Input<string>? SftpAuthenticationMethods { get; set; }
+
         [Input("structuredLogDestinations")]
         private InputList<string>? _structuredLogDestinations;
 
@@ -808,6 +820,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
+
+        /// <summary>
+        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// </summary>
+        [Input("sftpAuthenticationMethods")]
+        public Input<string>? SftpAuthenticationMethods { get; set; }
 
         [Input("structuredLogDestinations")]
         private InputList<string>? _structuredLogDestinations;

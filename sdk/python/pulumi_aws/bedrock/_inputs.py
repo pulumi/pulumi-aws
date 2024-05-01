@@ -10,6 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AgentAgentActionGroupActionGroupExecutorArgs',
+    'AgentAgentActionGroupApiSchemaArgs',
+    'AgentAgentActionGroupApiSchemaS3Args',
+    'AgentAgentAliasRoutingConfigurationArgs',
+    'AgentAgentAliasTimeoutsArgs',
+    'AgentAgentPromptOverrideConfigurationArgs',
+    'AgentAgentTimeoutsArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseTimeoutsArgs',
     'CustomModelOutputDataConfigArgs',
     'CustomModelTimeoutsArgs',
     'CustomModelTrainingDataConfigArgs',
@@ -20,6 +39,974 @@ __all__ = [
     'CustomModelVpcConfigArgs',
     'ProvisionedModelThroughputTimeoutsArgs',
 ]
+
+@pulumi.input_type
+class AgentAgentActionGroupActionGroupExecutorArgs:
+    def __init__(__self__, *,
+                 lambda_: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lambda_: ARN of the Lambda that defines the business logic for the action group.
+        """
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Lambda that defines the business logic for the action group.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_", value)
+
+
+@pulumi.input_type
+class AgentAgentActionGroupApiSchemaArgs:
+    def __init__(__self__, *,
+                 payload: Optional[pulumi.Input[str]] = None,
+                 s3: Optional[pulumi.Input['AgentAgentActionGroupApiSchemaS3Args']] = None):
+        """
+        :param pulumi.Input[str] payload: YAML or JSON OpenAPI Schema.
+        :param pulumi.Input['AgentAgentActionGroupApiSchemaS3Args'] s3: Configuration of S3 schema location
+        """
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        YAML or JSON OpenAPI Schema.
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentAgentActionGroupApiSchemaS3Args']]:
+        """
+        Configuration of S3 schema location
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentAgentActionGroupApiSchemaS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
+class AgentAgentActionGroupApiSchemaS3Args:
+    def __init__(__self__, *,
+                 s3_bucket_name: Optional[pulumi.Input[str]] = None,
+                 s3_object_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_bucket_name: The S3 bucket name that contains the OpenAPI Schema.
+        :param pulumi.Input[str] s3_object_key: The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+               
+               The following arguments are optional:
+        """
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_object_key is not None:
+            pulumi.set(__self__, "s3_object_key", s3_object_key)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 bucket name that contains the OpenAPI Schema.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3ObjectKey")
+    def s3_object_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "s3_object_key")
+
+    @s3_object_key.setter
+    def s3_object_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_object_key", value)
+
+
+@pulumi.input_type
+class AgentAgentAliasRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 agent_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] agent_version: Version of the agent the alias routes to.
+        """
+        pulumi.set(__self__, "agent_version", agent_version)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> pulumi.Input[str]:
+        """
+        Version of the agent the alias routes to.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @agent_version.setter
+    def agent_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_version", value)
+
+
+@pulumi.input_type
+class AgentAgentAliasTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class AgentAgentPromptOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 override_lambda: pulumi.Input[str],
+                 prompt_configurations: pulumi.Input[Sequence[Any]]):
+        """
+        :param pulumi.Input[str] override_lambda: ARN of Lambda to use when parsing the raw foundation model output.
+        :param pulumi.Input[Sequence[Any]] prompt_configurations: List of prompt configurations.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "override_lambda", override_lambda)
+        pulumi.set(__self__, "prompt_configurations", prompt_configurations)
+
+    @property
+    @pulumi.getter(name="overrideLambda")
+    def override_lambda(self) -> pulumi.Input[str]:
+        """
+        ARN of Lambda to use when parsing the raw foundation model output.
+        """
+        return pulumi.get(self, "override_lambda")
+
+    @override_lambda.setter
+    def override_lambda(self, value: pulumi.Input[str]):
+        pulumi.set(self, "override_lambda", value)
+
+    @property
+    @pulumi.getter(name="promptConfigurations")
+    def prompt_configurations(self) -> pulumi.Input[Sequence[Any]]:
+        """
+        List of prompt configurations.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "prompt_configurations")
+
+    @prompt_configurations.setter
+    def prompt_configurations(self, value: pulumi.Input[Sequence[Any]]):
+        pulumi.set(self, "prompt_configurations", value)
+
+
+@pulumi.input_type
+class AgentAgentTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 vector_knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] type: The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs'] vector_knowledge_base_configuration: Contains details about the embeddings model that'sused to   convert the data source.
+        """
+        pulumi.set(__self__, "type", type)
+        if vector_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
+    def vector_knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']]:
+        """
+        Contains details about the embeddings model that'sused to   convert the data source.
+        """
+        return pulumi.get(self, "vector_knowledge_base_configuration")
+
+    @vector_knowledge_base_configuration.setter
+    def vector_knowledge_base_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "vector_knowledge_base_configuration", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 embedding_model_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+
+    @property
+    @pulumi.getter(name="embeddingModelArn")
+    def embedding_model_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        return pulumi.get(self, "embedding_model_arn")
+
+    @embedding_model_arn.setter
+    def embedding_model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "embedding_model_arn", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 opensearch_serverless_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']] = None,
+                 pinecone_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs']] = None,
+                 rds_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs']] = None,
+                 redis_enterprise_cloud_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] type: The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs'] opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs'] pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs'] rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs'] redis_enterprise_cloud_configuration: Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+        """
+        pulumi.set(__self__, "type", type)
+        if opensearch_serverless_configuration is not None:
+            pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
+        if pinecone_configuration is not None:
+            pulumi.set(__self__, "pinecone_configuration", pinecone_configuration)
+        if rds_configuration is not None:
+            pulumi.set(__self__, "rds_configuration", rds_configuration)
+        if redis_enterprise_cloud_configuration is not None:
+            pulumi.set(__self__, "redis_enterprise_cloud_configuration", redis_enterprise_cloud_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="opensearchServerlessConfiguration")
+    def opensearch_serverless_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']]:
+        """
+        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+        """
+        return pulumi.get(self, "opensearch_serverless_configuration")
+
+    @opensearch_serverless_configuration.setter
+    def opensearch_serverless_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']]):
+        pulumi.set(self, "opensearch_serverless_configuration", value)
+
+    @property
+    @pulumi.getter(name="pineconeConfiguration")
+    def pinecone_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs']]:
+        """
+        Contains the storage configuration of the knowledge base in Pinecone.
+        """
+        return pulumi.get(self, "pinecone_configuration")
+
+    @pinecone_configuration.setter
+    def pinecone_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs']]):
+        pulumi.set(self, "pinecone_configuration", value)
+
+    @property
+    @pulumi.getter(name="rdsConfiguration")
+    def rds_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs']]:
+        """
+        Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+        """
+        return pulumi.get(self, "rds_configuration")
+
+    @rds_configuration.setter
+    def rds_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs']]):
+        pulumi.set(self, "rds_configuration", value)
+
+    @property
+    @pulumi.getter(name="redisEnterpriseCloudConfiguration")
+    def redis_enterprise_cloud_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']]:
+        """
+        Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+        """
+        return pulumi.get(self, "redis_enterprise_cloud_configuration")
+
+    @redis_enterprise_cloud_configuration.setter
+    def redis_enterprise_cloud_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']]):
+        pulumi.set(self, "redis_enterprise_cloud_configuration", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs:
+    def __init__(__self__, *,
+                 collection_arn: pulumi.Input[str],
+                 vector_index_name: pulumi.Input[str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']] = None):
+        """
+        :param pulumi.Input[str] collection_arn: The ARN of the OpenSearch Service vector store.
+        :param pulumi.Input[str] vector_index_name: The name of the vector store.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        """
+        pulumi.set(__self__, "collection_arn", collection_arn)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @property
+    @pulumi.getter(name="collectionArn")
+    def collection_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the OpenSearch Service vector store.
+        """
+        return pulumi.get(self, "collection_arn")
+
+    @collection_arn.setter
+    def collection_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_arn", value)
+
+    @property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vector store.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @vector_index_name.setter
+    def vector_index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vector_index_name", value)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']]:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: Optional[pulumi.Input[str]] = None,
+                 text_field: Optional[pulumi.Input[str]] = None,
+                 vector_field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        if metadata_field is not None:
+            pulumi.set(__self__, "metadata_field", metadata_field)
+        if text_field is not None:
+            pulumi.set(__self__, "text_field", text_field)
+        if vector_field is not None:
+            pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_field", value)
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vector_field", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
+    def __init__(__self__, *,
+                 connection_string: pulumi.Input[str],
+                 credentials_secret_arn: pulumi.Input[str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] connection_string: The endpoint URL for your index management page.
+        :param pulumi.Input[str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        :param pulumi.Input[str] namespace: The namespace to be used to write new data to your database.
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> pulumi.Input[str]:
+        """
+        The endpoint URL for your index management page.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']]:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace to be used to write new data to your database.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: Optional[pulumi.Input[str]] = None,
+                 text_field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        if metadata_field is not None:
+            pulumi.set(__self__, "metadata_field", metadata_field)
+        if text_field is not None:
+            pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_field", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
+    def __init__(__self__, *,
+                 credentials_secret_arn: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 resource_arn: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']] = None):
+        """
+        :param pulumi.Input[str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        :param pulumi.Input[str] database_name: The name of your Amazon RDS database.
+        :param pulumi.Input[str] resource_arn: The namespace to be used to write new data to your database.
+        :param pulumi.Input[str] table_name: The name of the table in the database.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        """
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of your Amazon RDS database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The namespace to be used to write new data to your database.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table in the database.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']]:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[str],
+                 primary_key_field: pulumi.Input[str],
+                 text_field: pulumi.Input[str],
+                 vector_field: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] primary_key_field: The name of the field in which Amazon Bedrock stores the ID for each entry.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "primary_key_field", primary_key_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="primaryKeyField")
+    def primary_key_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the ID for each entry.
+        """
+        return pulumi.get(self, "primary_key_field")
+
+    @primary_key_field.setter
+    def primary_key_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_field", value)
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vector_field", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs:
+    def __init__(__self__, *,
+                 credentials_secret_arn: pulumi.Input[str],
+                 endpoint: pulumi.Input[str],
+                 vector_index_name: pulumi.Input[str],
+                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']] = None):
+        """
+        :param pulumi.Input[str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        :param pulumi.Input[str] endpoint: The endpoint URL of the Redis Enterprise Cloud database.
+        :param pulumi.Input[str] vector_index_name: The name of the vector store.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        """
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if field_mapping is not None:
+            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint URL of the Redis Enterprise Cloud database.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vector store.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @vector_index_name.setter
+    def vector_index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vector_index_name", value)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']]:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']]):
+        pulumi.set(self, "field_mapping", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: Optional[pulumi.Input[str]] = None,
+                 text_field: Optional[pulumi.Input[str]] = None,
+                 vector_field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        if metadata_field is not None:
+            pulumi.set(__self__, "metadata_field", metadata_field)
+        if text_field is not None:
+            pulumi.set(__self__, "text_field", text_field)
+        if vector_field is not None:
+            pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_field", value)
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vector_field", value)
+
+
+@pulumi.input_type
+class AgentKnowledgeBaseTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
 
 @pulumi.input_type
 class CustomModelOutputDataConfigArgs:

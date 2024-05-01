@@ -139,6 +139,7 @@ export class Eip extends pulumi.CustomResource {
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      */
     public /*out*/ readonly allocationId!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
@@ -238,6 +239,7 @@ export class Eip extends pulumi.CustomResource {
             const state = argsOrState as EipState | undefined;
             resourceInputs["address"] = state ? state.address : undefined;
             resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["carrierIp"] = state ? state.carrierIp : undefined;
@@ -269,6 +271,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["carrierIp"] = undefined /*out*/;
             resourceInputs["customerOwnedIp"] = undefined /*out*/;
@@ -296,6 +299,7 @@ export interface EipState {
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      */
     allocationId?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */

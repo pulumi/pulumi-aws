@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_policy_store import *
+from .policy import *
 from .policy_store import *
 from .policy_template import *
 from .schema import *

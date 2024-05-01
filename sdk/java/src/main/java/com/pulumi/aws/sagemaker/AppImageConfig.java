@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.AppImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigState;
+import com.pulumi.aws.sagemaker.outputs.AppImageConfigCodeEditorAppImageConfig;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfig;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfig;
 import com.pulumi.core.Output;
@@ -34,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,9 +51,7 @@ import javax.annotation.Nullable;
  *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .build())
+ *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
@@ -74,7 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -92,9 +89,7 @@ import javax.annotation.Nullable;
  *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .build())
+ *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .fileSystemConfig()
  *                 .build())
  *             .build());
@@ -143,9 +138,31 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * 
+     */
+    @Export(name="codeEditorAppImageConfig", refs={AppImageConfigCodeEditorAppImageConfig.class}, tree="[0]")
+    private Output</* @Nullable */ AppImageConfigCodeEditorAppImageConfig> codeEditorAppImageConfig;
+
+    /**
+     * @return The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * 
+     */
+    public Output<Optional<AppImageConfigCodeEditorAppImageConfig>> codeEditorAppImageConfig() {
+        return Codegen.optional(this.codeEditorAppImageConfig);
+    }
+    /**
+     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * 
+     */
     @Export(name="jupyterLabImageConfig", refs={AppImageConfigJupyterLabImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
 
+    /**
+     * @return The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * 
+     */
     public Output<Optional<AppImageConfigJupyterLabImageConfig>> jupyterLabImageConfig() {
         return Codegen.optional(this.jupyterLabImageConfig);
     }

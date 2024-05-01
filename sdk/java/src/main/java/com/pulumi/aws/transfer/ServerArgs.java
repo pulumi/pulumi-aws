@@ -298,6 +298,21 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * 
+     */
+    @Import(name="sftpAuthenticationMethods")
+    private @Nullable Output<String> sftpAuthenticationMethods;
+
+    /**
+     * @return For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * 
+     */
+    public Optional<Output<String>> sftpAuthenticationMethods() {
+        return Optional.ofNullable(this.sftpAuthenticationMethods);
+    }
+
+    /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
@@ -377,6 +392,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.protocols = $.protocols;
         this.s3StorageOptions = $.s3StorageOptions;
         this.securityPolicyName = $.securityPolicyName;
+        this.sftpAuthenticationMethods = $.sftpAuthenticationMethods;
         this.structuredLogDestinations = $.structuredLogDestinations;
         this.tags = $.tags;
         this.url = $.url;
@@ -786,6 +802,27 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityPolicyName(String securityPolicyName) {
             return securityPolicyName(Output.of(securityPolicyName));
+        }
+
+        /**
+         * @param sftpAuthenticationMethods For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpAuthenticationMethods(@Nullable Output<String> sftpAuthenticationMethods) {
+            $.sftpAuthenticationMethods = sftpAuthenticationMethods;
+            return this;
+        }
+
+        /**
+         * @param sftpAuthenticationMethods For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpAuthenticationMethods(String sftpAuthenticationMethods) {
+            return sftpAuthenticationMethods(Output.of(sftpAuthenticationMethods));
         }
 
         /**

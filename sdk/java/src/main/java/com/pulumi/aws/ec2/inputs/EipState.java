@@ -47,6 +47,13 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.allocationId);
     }
 
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
@@ -352,6 +359,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     private EipState(EipState $) {
         this.address = $.address;
         this.allocationId = $.allocationId;
+        this.arn = $.arn;
         this.associateWithPrivateIp = $.associateWithPrivateIp;
         this.associationId = $.associationId;
         this.carrierIp = $.carrierIp;
@@ -430,6 +438,15 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
+        }
+
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

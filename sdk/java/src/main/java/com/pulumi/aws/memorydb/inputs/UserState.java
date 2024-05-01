@@ -18,14 +18,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      * 
      */
     @Import(name="accessString")
     private @Nullable Output<String> accessString;
 
     /**
-     * @return The access permissions string used for this user.
+     * @return Access permissions string used for this user.
      * 
      */
     public Optional<Output<String>> accessString() {
@@ -33,14 +33,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the user.
+     * ARN of the user.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the user.
+     * @return ARN of the user.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -63,14 +63,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum engine version supported for the user.
+     * Minimum engine version supported for the user.
      * 
      */
     @Import(name="minimumEngineVersion")
     private @Nullable Output<String> minimumEngineVersion;
 
     /**
-     * @return The minimum engine version supported for the user.
+     * @return Minimum engine version supported for the user.
      * 
      */
     public Optional<Output<String>> minimumEngineVersion() {
@@ -165,7 +165,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessString The access permissions string used for this user.
+         * @param accessString Access permissions string used for this user.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessString The access permissions string used for this user.
+         * @param accessString Access permissions string used for this user.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the user.
+         * @param arn ARN of the user.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the user.
+         * @param arn ARN of the user.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumEngineVersion The minimum engine version supported for the user.
+         * @param minimumEngineVersion Minimum engine version supported for the user.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumEngineVersion The minimum engine version supported for the user.
+         * @param minimumEngineVersion Minimum engine version supported for the user.
          * 
          * @return builder
          * 

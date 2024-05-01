@@ -18,6 +18,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("egressFilter")]
         public Input<Inputs.MeshSpecEgressFilterArgs>? EgressFilter { get; set; }
 
+        /// <summary>
+        /// The service discovery information for the service mesh.
+        /// </summary>
+        [Input("serviceDiscovery")]
+        public Input<Inputs.MeshSpecServiceDiscoveryArgs>? ServiceDiscovery { get; set; }
+
         public MeshSpecArgs()
         {
         }

@@ -13,8 +13,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class CostCategoryRuleRuleNot
     {
+        public readonly ImmutableArray<Outputs.CostCategoryRuleRuleNotAnd> Ands;
         public readonly Outputs.CostCategoryRuleRuleNotCostCategory? CostCategory;
         public readonly Outputs.CostCategoryRuleRuleNotDimension? Dimension;
+        public readonly Outputs.CostCategoryRuleRuleNotNot? Not;
+        public readonly ImmutableArray<Outputs.CostCategoryRuleRuleNotOr> Ors;
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -22,14 +25,23 @@ namespace Pulumi.Aws.CostExplorer.Outputs
 
         [OutputConstructor]
         private CostCategoryRuleRuleNot(
+            ImmutableArray<Outputs.CostCategoryRuleRuleNotAnd> ands,
+
             Outputs.CostCategoryRuleRuleNotCostCategory? costCategory,
 
             Outputs.CostCategoryRuleRuleNotDimension? dimension,
 
+            Outputs.CostCategoryRuleRuleNotNot? not,
+
+            ImmutableArray<Outputs.CostCategoryRuleRuleNotOr> ors,
+
             Outputs.CostCategoryRuleRuleNotTags? tags)
         {
+            Ands = ands;
             CostCategory = costCategory;
             Dimension = dimension;
+            Not = not;
+            Ors = ors;
             Tags = tags;
         }
     }

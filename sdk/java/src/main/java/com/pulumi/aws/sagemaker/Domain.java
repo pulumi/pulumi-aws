@@ -99,7 +99,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import com.pulumi.aws.sagemaker.ImageVersion;
  * import com.pulumi.aws.sagemaker.ImageVersionArgs;
  * import com.pulumi.aws.sagemaker.Domain;
@@ -127,9 +126,7 @@ import javax.annotation.Nullable;
  *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .build())
+ *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 

@@ -1121,7 +1121,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
                  on_reason: Optional[pulumi.Input[str]] = None,
                  on_status_reason: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+        :param pulumi.Input[str] action: Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         :param pulumi.Input[str] on_exit_code: A glob pattern to match against the decimal representation of the exit code returned for a job.
         :param pulumi.Input[str] on_reason: A glob pattern to match against the reason returned for a job.
         :param pulumi.Input[str] on_status_reason: A glob pattern to match against the status reason returned for a job.
@@ -1138,7 +1138,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         """
         return pulumi.get(self, "action")
 

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .accelerator import *
+from .cross_account_attachment import *
 from .custom_routing_accelerator import *
 from .custom_routing_endpoint_group import *
 from .custom_routing_listener import *

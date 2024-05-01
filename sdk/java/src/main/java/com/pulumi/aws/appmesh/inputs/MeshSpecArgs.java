@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.aws.appmesh.inputs.MeshSpecEgressFilterArgs;
+import com.pulumi.aws.appmesh.inputs.MeshSpecServiceDiscoveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -30,10 +31,26 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.egressFilter);
     }
 
+    /**
+     * The service discovery information for the service mesh.
+     * 
+     */
+    @Import(name="serviceDiscovery")
+    private @Nullable Output<MeshSpecServiceDiscoveryArgs> serviceDiscovery;
+
+    /**
+     * @return The service discovery information for the service mesh.
+     * 
+     */
+    public Optional<Output<MeshSpecServiceDiscoveryArgs>> serviceDiscovery() {
+        return Optional.ofNullable(this.serviceDiscovery);
+    }
+
     private MeshSpecArgs() {}
 
     private MeshSpecArgs(MeshSpecArgs $) {
         this.egressFilter = $.egressFilter;
+        this.serviceDiscovery = $.serviceDiscovery;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder egressFilter(MeshSpecEgressFilterArgs egressFilter) {
             return egressFilter(Output.of(egressFilter));
+        }
+
+        /**
+         * @param serviceDiscovery The service discovery information for the service mesh.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceDiscovery(@Nullable Output<MeshSpecServiceDiscoveryArgs> serviceDiscovery) {
+            $.serviceDiscovery = serviceDiscovery;
+            return this;
+        }
+
+        /**
+         * @param serviceDiscovery The service discovery information for the service mesh.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceDiscovery(MeshSpecServiceDiscoveryArgs serviceDiscovery) {
+            return serviceDiscovery(Output.of(serviceDiscovery));
         }
 
         public MeshSpecArgs build() {

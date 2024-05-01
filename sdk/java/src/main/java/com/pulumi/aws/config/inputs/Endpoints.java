@@ -1135,6 +1135,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String route53profiles;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53recoverycontrolconfig;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2975,6 +2980,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> route53profiles() {
+        return Optional.ofNullable(this.route53profiles);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53recoverycontrolconfig() {
         return Optional.ofNullable(this.route53recoverycontrolconfig);
     }
@@ -3583,6 +3595,7 @@ public final class Endpoints {
         private @Nullable String rolesanywhere;
         private @Nullable String route53;
         private @Nullable String route53domains;
+        private @Nullable String route53profiles;
         private @Nullable String route53recoverycontrolconfig;
         private @Nullable String route53recoveryreadiness;
         private @Nullable String route53resolver;
@@ -3864,6 +3877,7 @@ public final class Endpoints {
     	      this.rolesanywhere = defaults.rolesanywhere;
     	      this.route53 = defaults.route53;
     	      this.route53domains = defaults.route53domains;
+    	      this.route53profiles = defaults.route53profiles;
     	      this.route53recoverycontrolconfig = defaults.route53recoverycontrolconfig;
     	      this.route53recoveryreadiness = defaults.route53recoveryreadiness;
     	      this.route53resolver = defaults.route53resolver;
@@ -5265,6 +5279,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder route53profiles(@Nullable String route53profiles) {
+
+            this.route53profiles = route53profiles;
+            return this;
+        }
+        @CustomType.Setter
         public Builder route53recoverycontrolconfig(@Nullable String route53recoverycontrolconfig) {
 
             this.route53recoverycontrolconfig = route53recoverycontrolconfig;
@@ -5814,6 +5834,7 @@ public final class Endpoints {
             _resultValue.rolesanywhere = rolesanywhere;
             _resultValue.route53 = route53;
             _resultValue.route53domains = route53domains;
+            _resultValue.route53profiles = route53profiles;
             _resultValue.route53recoverycontrolconfig = route53recoverycontrolconfig;
             _resultValue.route53recoveryreadiness = route53recoveryreadiness;
             _resultValue.route53resolver = route53resolver;

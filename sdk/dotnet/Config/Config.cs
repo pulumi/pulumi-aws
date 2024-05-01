@@ -1338,6 +1338,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Route53profiles { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Route53recoverycontrolconfig { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

@@ -81,7 +81,7 @@ class GetUserResult:
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> str:
         """
-        The minimum engine version supported for the user.
+        Minimum engine version supported for the user.
         """
         return pulumi.get(self, "minimum_engine_version")
 
@@ -89,7 +89,7 @@ class GetUserResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Map of tags assigned to the subnet group.
+        Map of tags assigned to the user.
         """
         return pulumi.get(self, "tags")
 
@@ -130,7 +130,7 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     ```
 
 
-    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    :param Mapping[str, str] tags: Map of tags assigned to the user.
     :param str user_name: Name of the user.
     """
     __args__ = dict()
@@ -166,7 +166,7 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     ```
 
 
-    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    :param Mapping[str, str] tags: Map of tags assigned to the user.
     :param str user_name: Name of the user.
     """
     ...

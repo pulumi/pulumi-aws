@@ -21,6 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:bedrock/agentAgent:AgentAgent":
+		r = &AgentAgent{}
+	case "aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup":
+		r = &AgentAgentActionGroup{}
+	case "aws:bedrock/agentAgentAlias:AgentAgentAlias":
+		r = &AgentAgentAlias{}
+	case "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase":
+		r = &AgentKnowledgeBase{}
 	case "aws:bedrock/customModel:CustomModel":
 		r = &CustomModel{}
 	case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
@@ -38,6 +46,26 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentAgent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentAgentActionGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentAgentAlias",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentKnowledgeBase",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/customModel",

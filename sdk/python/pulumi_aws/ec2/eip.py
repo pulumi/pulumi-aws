@@ -204,6 +204,7 @@ class _EipState:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  association_id: Optional[pulumi.Input[str]] = None,
                  carrier_ip: Optional[pulumi.Input[str]] = None,
@@ -256,6 +257,8 @@ class _EipState:
             pulumi.set(__self__, "address", address)
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if associate_with_private_ip is not None:
             pulumi.set(__self__, "associate_with_private_ip", associate_with_private_ip)
         if association_id is not None:
@@ -322,6 +325,15 @@ class _EipState:
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="associateWithPrivateIp")
@@ -816,6 +828,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["allocation_id"] = None
+            __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
             __props__.__dict__["carrier_ip"] = None
             __props__.__dict__["customer_owned_ip"] = None
@@ -837,6 +850,7 @@ class Eip(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address: Optional[pulumi.Input[str]] = None,
             allocation_id: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             associate_with_private_ip: Optional[pulumi.Input[str]] = None,
             association_id: Optional[pulumi.Input[str]] = None,
             carrier_ip: Optional[pulumi.Input[str]] = None,
@@ -896,6 +910,7 @@ class Eip(pulumi.CustomResource):
 
         __props__.__dict__["address"] = address
         __props__.__dict__["allocation_id"] = allocation_id
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["associate_with_private_ip"] = associate_with_private_ip
         __props__.__dict__["association_id"] = association_id
         __props__.__dict__["carrier_ip"] = carrier_ip
@@ -931,6 +946,11 @@ class Eip(pulumi.CustomResource):
         ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associateWithPrivateIp")

@@ -50,7 +50,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// Map of tags assigned to the subnet group.
+	// Map of tags assigned to the user.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the user.
 	UserName string `pulumi:"userName"`
@@ -66,9 +66,9 @@ type LookupUserResult struct {
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The minimum engine version supported for the user.
+	// Minimum engine version supported for the user.
 	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
-	// Map of tags assigned to the subnet group.
+	// Map of tags assigned to the user.
 	Tags     map[string]string `pulumi:"tags"`
 	UserName string            `pulumi:"userName"`
 }
@@ -88,7 +88,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// Map of tags assigned to the subnet group.
+	// Map of tags assigned to the user.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the user.
 	UserName pulumi.StringInput `pulumi:"userName"`
@@ -133,12 +133,12 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The minimum engine version supported for the user.
+// Minimum engine version supported for the user.
 func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the subnet group.
+// Map of tags assigned to the user.
 func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -52,6 +52,7 @@ class ReplicationGroupArgs:
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationGroup resource.
@@ -103,6 +104,12 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] subnet_group_name: Name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+               Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
+        :param pulumi.Input[str] transit_encryption_mode: A setting that enables clients to migrate to in-transit encryption with no downtime.
+               Valid values are `preferred` and `required`.
+               When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+               See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
         if apply_immediately is not None:
@@ -177,6 +184,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+        if transit_encryption_mode is not None:
+            pulumi.set(__self__, "transit_encryption_mode", transit_encryption_mode)
         if user_group_ids is not None:
             pulumi.set(__self__, "user_group_ids", user_group_ids)
 
@@ -617,12 +626,29 @@ class ReplicationGroupArgs:
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
+        Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+        Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
     def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "transit_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        A setting that enables clients to migrate to in-transit encryption with no downtime.
+        Valid values are `preferred` and `required`.
+        When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        """
+        return pulumi.get(self, "transit_encryption_mode")
+
+    @transit_encryption_mode.setter
+    def transit_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_encryption_mode", value)
 
     @property
     @pulumi.getter(name="userGroupIds")
@@ -684,6 +710,7 @@ class _ReplicationGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationGroup resources.
@@ -743,6 +770,12 @@ class _ReplicationGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+               Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
+        :param pulumi.Input[str] transit_encryption_mode: A setting that enables clients to migrate to in-transit encryption with no downtime.
+               Valid values are `preferred` and `required`.
+               When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+               See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
         if apply_immediately is not None:
@@ -836,6 +869,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+        if transit_encryption_mode is not None:
+            pulumi.set(__self__, "transit_encryption_mode", transit_encryption_mode)
         if user_group_ids is not None:
             pulumi.set(__self__, "user_group_ids", user_group_ids)
 
@@ -1375,12 +1410,29 @@ class _ReplicationGroupState:
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
+        Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+        Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
     def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "transit_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        A setting that enables clients to migrate to in-transit encryption with no downtime.
+        Valid values are `preferred` and `required`.
+        When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        """
+        return pulumi.get(self, "transit_encryption_mode")
+
+    @transit_encryption_mode.setter
+    def transit_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_encryption_mode", value)
 
     @property
     @pulumi.getter(name="userGroupIds")
@@ -1436,6 +1488,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -1674,6 +1727,12 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+               Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
+        :param pulumi.Input[str] transit_encryption_mode: A setting that enables clients to migrate to in-transit encryption with no downtime.
+               Valid values are `preferred` and `required`.
+               When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+               See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
         ...
@@ -1919,6 +1978,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1965,6 +2025,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
+            __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
             __props__.__dict__["user_group_ids"] = user_group_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_enabled"] = None
@@ -2030,6 +2091,7 @@ class ReplicationGroup(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+            transit_encryption_mode: Optional[pulumi.Input[str]] = None,
             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ReplicationGroup':
         """
         Get an existing ReplicationGroup resource's state with the given name, id, and optional extra
@@ -2094,6 +2156,12 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+               Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
+        :param pulumi.Input[str] transit_encryption_mode: A setting that enables clients to migrate to in-transit encryption with no downtime.
+               Valid values are `preferred` and `required`.
+               When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+               See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2144,6 +2212,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
+        __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
         __props__.__dict__["user_group_ids"] = user_group_ids
         return ReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -2511,8 +2580,21 @@ class ReplicationGroup(pulumi.CustomResource):
     def transit_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Whether to enable encryption in transit.
+        Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
+        Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         """
         return pulumi.get(self, "transit_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> pulumi.Output[str]:
+        """
+        A setting that enables clients to migrate to in-transit encryption with no downtime.
+        Valid values are `preferred` and `required`.
+        When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+        See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+        """
+        return pulumi.get(self, "transit_encryption_mode")
 
     @property
     @pulumi.getter(name="userGroupIds")

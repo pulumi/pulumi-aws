@@ -16969,6 +16969,1820 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamSnowflakeConfiguration struct {
+	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+	AccountUrl string `pulumi:"accountUrl"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The name of the content column.
+	ContentColumnName *string `pulumi:"contentColumnName"`
+	// The data loading option.
+	DataLoadingOption *string `pulumi:"dataLoadingOption"`
+	// The Snowflake database name.
+	Database string `pulumi:"database"`
+	// The passphrase for the private key.
+	KeyPassphrase *string `pulumi:"keyPassphrase"`
+	// The name of the metadata column.
+	MetadataColumnName *string `pulumi:"metadataColumnName"`
+	// The private key for authentication.
+	PrivateKey string `pulumi:"privateKey"`
+	// The processing configuration. See `processingConfiguration` block below for details.
+	ProcessingConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+	RetryDuration *int `pulumi:"retryDuration"`
+	// The ARN of the IAM role.
+	RoleArn string `pulumi:"roleArn"`
+	// The S3 backup mode.
+	S3BackupMode *string `pulumi:"s3BackupMode"`
+	// The S3 configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// The Snowflake schema name.
+	Schema string `pulumi:"schema"`
+	// The configuration for Snowflake role.
+	SnowflakeRoleConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
+	// The VPC configuration for Snowflake.
+	SnowflakeVpcConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration `pulumi:"snowflakeVpcConfiguration"`
+	// The Snowflake table name.
+	Table string `pulumi:"table"`
+	// The user for authentication.
+	User string `pulumi:"user"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationArgs struct {
+	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The name of the content column.
+	ContentColumnName pulumi.StringPtrInput `pulumi:"contentColumnName"`
+	// The data loading option.
+	DataLoadingOption pulumi.StringPtrInput `pulumi:"dataLoadingOption"`
+	// The Snowflake database name.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The passphrase for the private key.
+	KeyPassphrase pulumi.StringPtrInput `pulumi:"keyPassphrase"`
+	// The name of the metadata column.
+	MetadataColumnName pulumi.StringPtrInput `pulumi:"metadataColumnName"`
+	// The private key for authentication.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// The processing configuration. See `processingConfiguration` block below for details.
+	ProcessingConfiguration FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
+	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
+	// The ARN of the IAM role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The S3 backup mode.
+	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
+	// The S3 configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	// The Snowflake schema name.
+	Schema pulumi.StringInput `pulumi:"schema"`
+	// The configuration for Snowflake role.
+	SnowflakeRoleConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
+	// The VPC configuration for Snowflake.
+	SnowflakeVpcConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput `pulumi:"snowflakeVpcConfiguration"`
+	// The Snowflake table name.
+	Table pulumi.StringInput `pulumi:"table"`
+	// The user for authentication.
+	User pulumi.StringInput `pulumi:"user"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput)
+}
+
+// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) AccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The name of the content column.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ContentColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.ContentColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The data loading option.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) DataLoadingOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.DataLoadingOption }).(pulumi.StringPtrOutput)
+}
+
+// The Snowflake database name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The passphrase for the private key.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) KeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.KeyPassphrase }).(pulumi.StringPtrOutput)
+}
+
+// The name of the metadata column.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) MetadataColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.MetadataColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The private key for authentication.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// The processing configuration. See `processingConfiguration` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput)
+}
+
+// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the IAM role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The S3 backup mode.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+}
+
+// The S3 configuration. See `s3Configuration` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) S3Configuration() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput)
+}
+
+// The Snowflake schema name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The configuration for Snowflake role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
+		return v.SnowflakeRoleConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
+}
+
+// The VPC configuration for Snowflake.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SnowflakeVpcConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
+		return v.SnowflakeVpcConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
+}
+
+// The Snowflake table name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Table }).(pulumi.StringOutput)
+}
+
+// The user for authentication.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.User }).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) FirehoseDeliveryStreamSnowflakeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationOutput)
+}
+
+// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) AccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The name of the content column.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ContentColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data loading option.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) DataLoadingOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLoadingOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Snowflake database name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// The passphrase for the private key.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) KeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassphrase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the metadata column.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) MetadataColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key for authentication.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The processing configuration. See `processingConfiguration` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput)
+}
+
+// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the IAM role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 backup mode.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 configuration. See `s3Configuration` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput)
+}
+
+// The Snowflake schema name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for Snowflake role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeRoleConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
+}
+
+// The VPC configuration for Snowflake.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeVpcConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeVpcConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
+}
+
+// The Snowflake table name.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user for authentication.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration struct {
+	// Enables or disables data processing.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	Processors []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs struct {
+	// Enables or disables data processing.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	Processors FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the data processors as multiple blocks. See `processors` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
+		return v.Processors
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the data processors as multiple blocks. See `processors` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
+		if v == nil {
+			return nil
+		}
+		return v.Processors
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor struct {
+	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	Parameters []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	Type string `pulumi:"type"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs struct {
+	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	Parameters FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs{...} }
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorInput
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter {
+		return v.Parameters
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
+		return vs[0].([]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterInput
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterName
+	}).(pulumi.StringOutput)
+}
+
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterValue
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter {
+		return vs[0].([]FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration struct {
+	// The ARN of the S3 bucket
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix *string `pulumi:"prefix"`
+	// The ARN of the AWS credentials.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs struct {
+	// The ARN of the S3 bucket
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The ARN of the AWS credentials.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput)
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS credentials.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput)
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS credentials.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration struct {
+	// Whether the Snowflake role is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The Snowflake role.
+	SnowflakeRole *string `pulumi:"snowflakeRole"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs struct {
+	// Whether the Snowflake role is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The Snowflake role.
+	SnowflakeRole pulumi.StringPtrInput `pulumi:"snowflakeRole"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
+}
+
+// Whether the Snowflake role is enabled.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Snowflake role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) SnowflakeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *string {
+		return v.SnowflakeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput)
+}
+
+// Whether the Snowflake role is enabled.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Snowflake role.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) SnowflakeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration struct {
+	// The VPCE ID for Firehose to privately connect with Snowflake.
+	PrivateLinkVpceId string `pulumi:"privateLinkVpceId"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs struct {
+	// The VPCE ID for Firehose to privately connect with Snowflake.
+	PrivateLinkVpceId pulumi.StringInput `pulumi:"privateLinkVpceId"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
+}
+
+// The VPCE ID for Firehose to privately connect with Snowflake.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) PrivateLinkVpceId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) string {
+		return v.PrivateLinkVpceId
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput)
+}
+
+// The VPCE ID for Firehose to privately connect with Snowflake.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) PrivateLinkVpceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateLinkVpceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirehoseDeliveryStreamSplunkConfiguration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
@@ -18763,6 +20577,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamServerSideEncryptionInput)(nil)).Elem(), FirehoseDeliveryStreamServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamServerSideEncryptionPtrInput)(nil)).Elem(), FirehoseDeliveryStreamServerSideEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs{})
@@ -18964,6 +20796,24 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamServerSideEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput{})

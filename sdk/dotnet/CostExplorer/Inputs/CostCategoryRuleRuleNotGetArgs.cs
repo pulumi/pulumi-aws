@@ -12,11 +12,30 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class CostCategoryRuleRuleNotGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ands")]
+        private InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs>? _ands;
+        public InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs> Ands
+        {
+            get => _ands ?? (_ands = new InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs>());
+            set => _ands = value;
+        }
+
         [Input("costCategory")]
         public Input<Inputs.CostCategoryRuleRuleNotCostCategoryGetArgs>? CostCategory { get; set; }
 
         [Input("dimension")]
         public Input<Inputs.CostCategoryRuleRuleNotDimensionGetArgs>? Dimension { get; set; }
+
+        [Input("not")]
+        public Input<Inputs.CostCategoryRuleRuleNotNotGetArgs>? Not { get; set; }
+
+        [Input("ors")]
+        private InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs>? _ors;
+        public InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs> Ors
+        {
+            get => _ors ?? (_ors = new InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs>());
+            set => _ors = value;
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

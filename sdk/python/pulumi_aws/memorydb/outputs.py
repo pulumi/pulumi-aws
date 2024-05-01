@@ -478,32 +478,25 @@ class UserAuthenticationMode(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 passwords: Sequence[str],
                  type: str,
-                 password_count: Optional[int] = None):
+                 password_count: Optional[int] = None,
+                 passwords: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] passwords: The set of passwords used for authentication. You can create up to two passwords for each user.
-        :param str type: Indicates whether the user requires a password to authenticate. Must be set to `password`.
-        :param int password_count: The number of passwords belonging to the user.
+        :param str type: Specifies the authentication type. Valid values are: `password` or `iam`.
+        :param int password_count: Number of passwords belonging to the user if `type` is set to `password`.
+        :param Sequence[str] passwords: Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
         """
-        pulumi.set(__self__, "passwords", passwords)
         pulumi.set(__self__, "type", type)
         if password_count is not None:
             pulumi.set(__self__, "password_count", password_count)
-
-    @property
-    @pulumi.getter
-    def passwords(self) -> Sequence[str]:
-        """
-        The set of passwords used for authentication. You can create up to two passwords for each user.
-        """
-        return pulumi.get(self, "passwords")
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Indicates whether the user requires a password to authenticate. Must be set to `password`.
+        Specifies the authentication type. Valid values are: `password` or `iam`.
         """
         return pulumi.get(self, "type")
 
@@ -511,9 +504,17 @@ class UserAuthenticationMode(dict):
     @pulumi.getter(name="passwordCount")
     def password_count(self) -> Optional[int]:
         """
-        The number of passwords belonging to the user.
+        Number of passwords belonging to the user if `type` is set to `password`.
         """
         return pulumi.get(self, "password_count")
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[Sequence[str]]:
+        """
+        Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
+        """
+        return pulumi.get(self, "passwords")
 
 
 @pulumi.output_type
@@ -857,8 +858,8 @@ class GetUserAuthenticationModeResult(dict):
                  password_count: int,
                  type: str):
         """
-        :param int password_count: The number of passwords belonging to the user.
-        :param str type: Whether the user requires a password to authenticate.
+        :param int password_count: Number of passwords belonging to the user if `type` is set to `password`.
+        :param str type: Type of authentication configured.
         """
         pulumi.set(__self__, "password_count", password_count)
         pulumi.set(__self__, "type", type)
@@ -867,7 +868,7 @@ class GetUserAuthenticationModeResult(dict):
     @pulumi.getter(name="passwordCount")
     def password_count(self) -> int:
         """
-        The number of passwords belonging to the user.
+        Number of passwords belonging to the user if `type` is set to `password`.
         """
         return pulumi.get(self, "password_count")
 
@@ -875,7 +876,7 @@ class GetUserAuthenticationModeResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Whether the user requires a password to authenticate.
+        Type of authentication configured.
         """
         return pulumi.get(self, "type")
 

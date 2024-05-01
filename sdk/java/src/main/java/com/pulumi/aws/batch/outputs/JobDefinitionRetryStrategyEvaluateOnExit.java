@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobDefinitionRetryStrategyEvaluateOnExit {
     /**
-     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     private String action;
@@ -35,7 +35,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
 
     private JobDefinitionRetryStrategyEvaluateOnExit() {}
     /**
-     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     public String action() {

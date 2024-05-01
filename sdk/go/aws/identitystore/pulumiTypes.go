@@ -1825,6 +1825,139 @@ func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetGroupsGroup struct {
+	// Description of the specified group.
+	Description string `pulumi:"description"`
+	// Group's display name.
+	DisplayName string `pulumi:"displayName"`
+	// List of identifiers issued to this resource by an external identity provider.
+	ExternalIds []interface{} `pulumi:"externalIds"`
+	// Identifier of the group in the Identity Store.
+	GroupId string `pulumi:"groupId"`
+	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
+	IdentityStoreId string `pulumi:"identityStoreId"`
+}
+
+// GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
+// You can construct a concrete instance of `GetGroupsGroupInput` via:
+//
+//	GetGroupsGroupArgs{...}
+type GetGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupOutput() GetGroupsGroupOutput
+	ToGetGroupsGroupOutputWithContext(context.Context) GetGroupsGroupOutput
+}
+
+type GetGroupsGroupArgs struct {
+	// Description of the specified group.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Group's display name.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// List of identifiers issued to this resource by an external identity provider.
+	ExternalIds pulumi.ArrayInput `pulumi:"externalIds"`
+	// Identifier of the group in the Identity Store.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
+	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+}
+
+func (GetGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroup)(nil)).Elem()
+}
+
+func (i GetGroupsGroupArgs) ToGetGroupsGroupOutput() GetGroupsGroupOutput {
+	return i.ToGetGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupArgs) ToGetGroupsGroupOutputWithContext(ctx context.Context) GetGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupOutput)
+}
+
+// GetGroupsGroupArrayInput is an input type that accepts GetGroupsGroupArray and GetGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetGroupsGroupArrayInput` via:
+//
+//	GetGroupsGroupArray{ GetGroupsGroupArgs{...} }
+type GetGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput
+	ToGetGroupsGroupArrayOutputWithContext(context.Context) GetGroupsGroupArrayOutput
+}
+
+type GetGroupsGroupArray []GetGroupsGroupInput
+
+func (GetGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroup)(nil)).Elem()
+}
+
+func (i GetGroupsGroupArray) ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput {
+	return i.ToGetGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupArray) ToGetGroupsGroupArrayOutputWithContext(ctx context.Context) GetGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupArrayOutput)
+}
+
+type GetGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroup)(nil)).Elem()
+}
+
+func (o GetGroupsGroupOutput) ToGetGroupsGroupOutput() GetGroupsGroupOutput {
+	return o
+}
+
+func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Context) GetGroupsGroupOutput {
+	return o
+}
+
+// Description of the specified group.
+func (o GetGroupsGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Group's display name.
+func (o GetGroupsGroupOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// List of identifiers issued to this resource by an external identity provider.
+func (o GetGroupsGroupOutput) ExternalIds() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetGroupsGroup) []interface{} { return v.ExternalIds }).(pulumi.ArrayOutput)
+}
+
+// Identifier of the group in the Identity Store.
+func (o GetGroupsGroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Identity Store ID associated with the Single Sign-On (SSO) Instance.
+func (o GetGroupsGroupOutput) IdentityStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.IdentityStoreId }).(pulumi.StringOutput)
+}
+
+type GetGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroup)(nil)).Elem()
+}
+
+func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutputWithContext(ctx context.Context) GetGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroup {
+		return vs[0].([]GetGroupsGroup)[vs[1].(int)]
+	}).(GetGroupsGroupOutput)
+}
+
 type GetUserAddress struct {
 	// The country that this address is in.
 	Country string `pulumi:"country"`
@@ -3120,6 +3253,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupExternalIdArrayInput)(nil)).Elem(), GetGroupExternalIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterInput)(nil)).Elem(), GetGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterPtrInput)(nil)).Elem(), GetGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressInput)(nil)).Elem(), GetUserAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressArrayInput)(nil)).Elem(), GetUserAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierInput)(nil)).Elem(), GetUserAlternateIdentifierArgs{})
@@ -3160,6 +3295,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGroupExternalIdArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAddressOutput{})
 	pulumi.RegisterOutputType(GetUserAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAlternateIdentifierOutput{})

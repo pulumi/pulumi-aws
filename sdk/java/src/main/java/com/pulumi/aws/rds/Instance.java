@@ -786,6 +786,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.dbSubnetGroupName;
     }
     /**
+     * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     * 
+     */
+    @Export(name="dedicatedLogVolume", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> dedicatedLogVolume;
+
+    /**
+     * @return Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+     * 
+     */
+    public Output<Optional<Boolean>> dedicatedLogVolume() {
+        return Codegen.optional(this.dedicatedLogVolume);
+    }
+    /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      * 
      */

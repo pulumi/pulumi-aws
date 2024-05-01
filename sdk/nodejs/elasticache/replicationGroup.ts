@@ -419,8 +419,17 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
+     * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    /**
+     * A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     */
+    public readonly transitEncryptionMode!: pulumi.Output<string>;
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      */
@@ -483,6 +492,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
+            resourceInputs["transitEncryptionMode"] = state ? state.transitEncryptionMode : undefined;
             resourceInputs["userGroupIds"] = state ? state.userGroupIds : undefined;
         } else {
             const args = argsOrState as ReplicationGroupArgs | undefined;
@@ -522,6 +532,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
+            resourceInputs["transitEncryptionMode"] = args ? args.transitEncryptionMode : undefined;
             resourceInputs["userGroupIds"] = args ? args.userGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterEnabled"] = undefined /*out*/;
@@ -731,8 +742,17 @@ export interface ReplicationGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
+     * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     */
+    transitEncryptionMode?: pulumi.Input<string>;
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      */
@@ -897,8 +917,17 @@ export interface ReplicationGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
+     * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
+     * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * A setting that enables clients to migrate to in-transit encryption with no downtime.
+     * Valid values are `preferred` and `required`.
+     * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
+     * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
+     */
+    transitEncryptionMode?: pulumi.Input<string>;
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      */
