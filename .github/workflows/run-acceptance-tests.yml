@@ -53,13 +53,6 @@ jobs:
     - uses: pulumi/provider-version-action@v1
       with:
         set-env: 'PROVIDER_VERSION'
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
-    - run: echo "ci-scripts" >> .git/info/exclude # actions/checkout#197
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -122,7 +115,7 @@ jobs:
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
-      run: ./ci-scripts/ci/check-worktree-is-clean
+      uses: pulumi/git-status-check-action@v1
     - name: Compress SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
