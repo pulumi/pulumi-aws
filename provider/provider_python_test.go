@@ -36,6 +36,30 @@ func TestRegress3196(t *testing.T) {
 	})
 }
 
+func TestRegress3887(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
+		return
+	}
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Quick:       true,
+			SkipRefresh: true,
+			Dir:         filepath.Join("test-programs", "regress-3887"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("test-programs", "regress-3887", "step-1"),
+					Additive: true,
+				},
+				{
+					Dir:      filepath.Join("test-programs", "regress-3887", "step-2"),
+					Additive: true,
+				},
+			},
+		})
+	integration.ProgramTest(t, &test)
+}
+
 func TestRegress1504(t *testing.T) {
 	if testing.Short() {
 		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
