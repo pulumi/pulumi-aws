@@ -30,8 +30,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -48,8 +50,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -75,8 +81,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -93,8 +101,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -120,8 +132,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -138,8 +152,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -165,8 +183,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -183,8 +203,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -210,8 +234,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -228,8 +254,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -255,8 +285,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -273,8 +305,12 @@ public final class IotFunctions {
      *         final var example = IotFunctions.getEndpoint();
      * 
      *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
-     *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name(&#34;my-device&#34;)
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
      *             .build());
      * 
      *     }

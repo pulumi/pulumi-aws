@@ -263,65 +263,67 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi-command/sdk/v1/go/command/local"
-//	"github.com/pulumi/pulumi-null/sdk/v1/go/null"
+//	"github.com/pulumi/pulumi-null/sdk/go/null"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _default, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
-// Name: pulumi.StringRef("default"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-// Name: pulumi.String("sg"),
-// Tags: pulumi.StringMap{
-// "workaround1": pulumi.String("tagged-name"),
-// "workaround2": pulumi.String(_default.Id),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
-// Create: "true",
-// Update: "true",
-// Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%v\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
-// }, pulumi.DependsOn([]pulumi.Resource{
-// example,
-// }))
-// if err != nil {
-// return err
-// }
-// exampleResource, err := index.NewResource(ctx, "example", &index.ResourceArgs{
-// Triggers: invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-// Separator: ",",
-// Input: exampleAwsVpcEndpoint.SecurityGroupIds,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// map[string]interface{}{
-// "rerunUponChangeOf": invokeJoin.Result,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = local.NewCommand(ctx, "exampleResourceProvisioner0", &local.CommandArgs{
-// Create: fmt.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleResource,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
+//				Name: pulumi.StringRef("default"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("sg"),
+//				Tags: pulumi.StringMap{
+//					"workaround1": pulumi.String("tagged-name"),
+//					"workaround2": pulumi.String(_default.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
+//				Create: "true",
+//				Update: "true",
+//				Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%v\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: ",",
+//				Input:     exampleAwsVpcEndpoint.SecurityGroupIds,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
+//				Triggers: pulumi.StringMap{
+//					"rerun_upon_change_of": invokeJoin.Result,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = local.NewCommand(ctx, "exampleResourceProvisioner0", &local.CommandArgs{
+//				Create: fmt.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleResource,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

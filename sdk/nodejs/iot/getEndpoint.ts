@@ -6,31 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a unique endpoint specific to the AWS account making the call.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as kubernetes from "@pulumi/kubernetes";
- *
- * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Pod("agent", {
- *     metadata: [{
- *         name: "my-device",
- *     }],
- *     spec: [{
- *         container: [{
- *             image: "gcr.io/my-project/image-name",
- *             name: "image-name",
- *             env: [{
- *                 name: "IOT_ENDPOINT",
- *                 value: example.endpointAddress,
- *             }],
- *         }],
- *     }],
- * });
- * ```
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
@@ -72,31 +47,6 @@ export interface GetEndpointResult {
 }
 /**
  * Returns a unique endpoint specific to the AWS account making the call.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as kubernetes from "@pulumi/kubernetes";
- *
- * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Pod("agent", {
- *     metadata: [{
- *         name: "my-device",
- *     }],
- *     spec: [{
- *         container: [{
- *             image: "gcr.io/my-project/image-name",
- *             name: "image-name",
- *             env: [{
- *                 name: "IOT_ENDPOINT",
- *                 value: example.endpointAddress,
- *             }],
- *         }],
- *     }],
- * });
- * ```
  */
 export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

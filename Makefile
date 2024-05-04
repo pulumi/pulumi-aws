@@ -120,7 +120,9 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource archive 0.0.1
 	.pulumi/bin/pulumi plugin install resource tls 4.10.0
 	.pulumi/bin/pulumi plugin install resource github 4.10.0
-	.pulumi/bin/pulumi plugin install resource kubernetes 3.17.0
+	.pulumi/bin/pulumi plugin install resource kubernetes 4.11.0
+	.pulumi/bin/pulumi plugin install resource null 0.0.3
+	.pulumi/bin/pulumi plugin install resource local 0.1.0
 	.pulumi/bin/pulumi plugin install resource random 4.8.2
 	.pulumi/bin/pulumi plugin install resource github 5.14.0
 	.pulumi/bin/pulumi plugin install resource std 1.6.2

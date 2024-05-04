@@ -295,7 +295,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.command.local.Command;
  * import com.pulumi.command.local.CommandArgs;
- * import com.pulumi.null.resource;
+ * import com.pulumi.null.Resource;
  * import com.pulumi.null.ResourceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -335,7 +335,10 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .triggers(Map.of(&#34;rerun_upon_change_of&#34;, StdFunctions.join(JoinArgs.builder()
+ *                 .separator(&#34;,&#34;)
+ *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
+ *                 .build()).result()))
  *             .build());
  * 
  *         var exampleResourceProvisioner0 = new Command(&#34;exampleResourceProvisioner0&#34;, CommandArgs.builder()        
