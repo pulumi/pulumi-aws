@@ -46,7 +46,6 @@ func webAclIgnoreCustomResponseInSetHash(webAcl *schema.Resource) {
 				if len(path) != 4 {
 					return
 				}
-				fmt.Println("++", path[0], path[2])
 				if path[0] != "action" || path[2] != "block" {
 					return
 				}
@@ -65,7 +64,6 @@ func webAclIgnoreCustomResponseInSetHash(webAcl *schema.Resource) {
 }
 
 func visitValue(value any, path []any, visitMap func(path []any, m map[string]any)) {
-	fmt.Println("visiting", path)
 	switch value := value.(type) {
 	case *schema.Set:
 		for i, v := range value.List() {
