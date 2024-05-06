@@ -22,9 +22,14 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     controlSets: [{
  *         name: "example",
- *         controls: [{
- *             id: testAwsAuditmanagerControl.id,
- *         }],
+ *         controls: [
+ *             {
+ *                 id: test1.id,
+ *             },
+ *             {
+ *                 id: test2.id,
+ *             },
+ *         ],
  *     }],
  * });
  * ```
@@ -75,7 +80,7 @@ export class Framework extends pulumi.CustomResource {
      */
     public readonly complianceType!: pulumi.Output<string | undefined>;
     /**
-     * Control sets that are associated with the framework. See `controlSets` below.
+     * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */
@@ -152,7 +157,7 @@ export interface FrameworkState {
      */
     complianceType?: pulumi.Input<string>;
     /**
-     * Control sets that are associated with the framework. See `controlSets` below.
+     * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */
@@ -188,7 +193,7 @@ export interface FrameworkArgs {
      */
     complianceType?: pulumi.Input<string>;
     /**
-     * Control sets that are associated with the framework. See `controlSets` below.
+     * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */

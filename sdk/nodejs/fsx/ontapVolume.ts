@@ -86,6 +86,10 @@ export class OntapVolume extends pulumi.CustomResource {
     }
 
     /**
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     */
+    public readonly aggregateConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
+    /**
      * Amazon Resource Name of the volune.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -122,7 +126,11 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public readonly securityStyle!: pulumi.Output<string>;
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     */
+    public readonly sizeInBytes!: pulumi.Output<string>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      */
     public readonly sizeInMegabytes!: pulumi.Output<number>;
     /**
@@ -164,6 +172,10 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly uuid!: pulumi.Output<string>;
     /**
+     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     */
+    public readonly volumeStyle!: pulumi.Output<string>;
+    /**
      * The type of volume, currently the only valid value is `ONTAP`.
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
@@ -181,6 +193,7 @@ export class OntapVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapVolumeState | undefined;
+            resourceInputs["aggregateConfiguration"] = state ? state.aggregateConfiguration : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bypassSnaplockEnterpriseRetention"] = state ? state.bypassSnaplockEnterpriseRetention : undefined;
             resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
@@ -190,6 +203,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
             resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
+            resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
             resourceInputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
             resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
             resourceInputs["snaplockConfiguration"] = state ? state.snaplockConfiguration : undefined;
@@ -200,21 +214,21 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tieringPolicy"] = state ? state.tieringPolicy : undefined;
             resourceInputs["uuid"] = state ? state.uuid : undefined;
+            resourceInputs["volumeStyle"] = state ? state.volumeStyle : undefined;
             resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OntapVolumeArgs | undefined;
-            if ((!args || args.sizeInMegabytes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sizeInMegabytes'");
-            }
             if ((!args || args.storageVirtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineId'");
             }
+            resourceInputs["aggregateConfiguration"] = args ? args.aggregateConfiguration : undefined;
             resourceInputs["bypassSnaplockEnterpriseRetention"] = args ? args.bypassSnaplockEnterpriseRetention : undefined;
             resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ontapVolumeType"] = args ? args.ontapVolumeType : undefined;
             resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
+            resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
             resourceInputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
             resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
             resourceInputs["snaplockConfiguration"] = args ? args.snaplockConfiguration : undefined;
@@ -223,6 +237,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
+            resourceInputs["volumeStyle"] = args ? args.volumeStyle : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
@@ -239,6 +254,10 @@ export class OntapVolume extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OntapVolume resources.
  */
 export interface OntapVolumeState {
+    /**
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     */
+    aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
     /**
      * Amazon Resource Name of the volune.
      */
@@ -276,7 +295,11 @@ export interface OntapVolumeState {
      */
     securityStyle?: pulumi.Input<string>;
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     */
+    sizeInBytes?: pulumi.Input<string>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      */
     sizeInMegabytes?: pulumi.Input<number>;
     /**
@@ -318,6 +341,10 @@ export interface OntapVolumeState {
      */
     uuid?: pulumi.Input<string>;
     /**
+     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     */
+    volumeStyle?: pulumi.Input<string>;
+    /**
      * The type of volume, currently the only valid value is `ONTAP`.
      */
     volumeType?: pulumi.Input<string>;
@@ -327,6 +354,10 @@ export interface OntapVolumeState {
  * The set of arguments for constructing a OntapVolume resource.
  */
 export interface OntapVolumeArgs {
+    /**
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     */
+    aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -352,9 +383,13 @@ export interface OntapVolumeArgs {
      */
     securityStyle?: pulumi.Input<string>;
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      */
-    sizeInMegabytes: pulumi.Input<number>;
+    sizeInBytes?: pulumi.Input<string>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     */
+    sizeInMegabytes?: pulumi.Input<number>;
     /**
      * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -383,6 +418,10 @@ export interface OntapVolumeArgs {
      * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
      */
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
+    /**
+     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     */
+    volumeStyle?: pulumi.Input<string>;
     /**
      * The type of volume, currently the only valid value is `ONTAP`.
      */

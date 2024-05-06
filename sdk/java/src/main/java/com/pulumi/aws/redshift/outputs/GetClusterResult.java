@@ -12,7 +12,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterResult {
@@ -206,7 +205,7 @@ public final class GetClusterResult {
      * @return Tags associated to the cluster
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return VPC Id associated with the cluster
      * 
@@ -486,7 +485,7 @@ public final class GetClusterResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return VPC Id associated with the cluster
@@ -550,7 +549,7 @@ public final class GetClusterResult {
         private String preferredMaintenanceWindow;
         private Boolean publiclyAccessible;
         private String s3KeyPrefix;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String vpcId;
         private List<String> vpcSecurityGroupIds;
         public Builder() {}
@@ -913,8 +912,10 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

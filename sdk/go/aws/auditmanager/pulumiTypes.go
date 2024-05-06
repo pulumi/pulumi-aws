@@ -1045,7 +1045,7 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pulumi
 }
 
 type FrameworkControlSet struct {
-	// List of controls within the control set. See `controls` below.
+	// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 	Controls []FrameworkControlSetControl `pulumi:"controls"`
 	// Unique identifier for the framework.
 	Id *string `pulumi:"id"`
@@ -1065,7 +1065,7 @@ type FrameworkControlSetInput interface {
 }
 
 type FrameworkControlSetArgs struct {
-	// List of controls within the control set. See `controls` below.
+	// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 	Controls FrameworkControlSetControlArrayInput `pulumi:"controls"`
 	// Unique identifier for the framework.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1124,7 +1124,7 @@ func (o FrameworkControlSetOutput) ToFrameworkControlSetOutputWithContext(ctx co
 	return o
 }
 
-// List of controls within the control set. See `controls` below.
+// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 func (o FrameworkControlSetOutput) Controls() FrameworkControlSetControlArrayOutput {
 	return o.ApplyT(func(v FrameworkControlSet) []FrameworkControlSetControl { return v.Controls }).(FrameworkControlSetControlArrayOutput)
 }

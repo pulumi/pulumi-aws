@@ -51,9 +51,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .controlSets(FrameworkControlSetArgs.builder()
  *                 .name(&#34;example&#34;)
- *                 .controls(FrameworkControlSetControlArgs.builder()
- *                     .id(testAwsAuditmanagerControl.id())
- *                     .build())
+ *                 .controls(                
+ *                     FrameworkControlSetControlArgs.builder()
+ *                         .id(test1.id())
+ *                         .build(),
+ *                     FrameworkControlSetControlArgs.builder()
+ *                         .id(test2.id())
+ *                         .build())
  *                 .build())
  *             .build());
  * 
@@ -104,7 +108,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.complianceType);
     }
     /**
-     * Control sets that are associated with the framework. See `control_sets` below.
+     * Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -113,7 +117,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<FrameworkControlSet>> controlSets;
 
     /**
-     * @return Control sets that are associated with the framework. See `control_sets` below.
+     * @return Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
      * 
      * The following arguments are optional:
      * 

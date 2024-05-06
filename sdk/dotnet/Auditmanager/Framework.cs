@@ -36,7 +36,11 @@ namespace Pulumi.Aws.Auditmanager
     ///                 {
     ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
     ///                     {
-    ///                         Id = testAwsAuditmanagerControl.Id,
+    ///                         Id = test1.Id,
+    ///                     },
+    ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
+    ///                     {
+    ///                         Id = test2.Id,
     ///                     },
     ///                 },
     ///             },
@@ -71,7 +75,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string?> ComplianceType { get; private set; } = null!;
 
         /// <summary>
-        /// Control sets that are associated with the framework. See `control_sets` below.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -161,7 +165,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.FrameworkControlSetArgs>? _controlSets;
 
         /// <summary>
-        /// Control sets that are associated with the framework. See `control_sets` below.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -220,7 +224,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.FrameworkControlSetGetArgs>? _controlSets;
 
         /// <summary>
-        /// Control sets that are associated with the framework. See `control_sets` below.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>

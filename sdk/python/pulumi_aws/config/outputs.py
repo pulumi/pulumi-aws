@@ -271,6 +271,7 @@ class Endpoints(dict):
                  bedrockagent: Optional[str] = None,
                  budgets: Optional[str] = None,
                  ce: Optional[str] = None,
+                 chatbot: Optional[str] = None,
                  chime: Optional[str] = None,
                  chimesdkmediapipelines: Optional[str] = None,
                  chimesdkvoice: Optional[str] = None,
@@ -551,6 +552,7 @@ class Endpoints(dict):
         :param str bedrockagent: Use this to override the default service endpoint URL
         :param str budgets: Use this to override the default service endpoint URL
         :param str ce: Use this to override the default service endpoint URL
+        :param str chatbot: Use this to override the default service endpoint URL
         :param str chime: Use this to override the default service endpoint URL
         :param str chimesdkmediapipelines: Use this to override the default service endpoint URL
         :param str chimesdkvoice: Use this to override the default service endpoint URL
@@ -865,6 +867,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
             pulumi.set(__self__, "ce", ce)
+        if chatbot is not None:
+            pulumi.set(__self__, "chatbot", chatbot)
         if chime is not None:
             pulumi.set(__self__, "chime", chime)
         if chimesdkmediapipelines is not None:
@@ -1627,6 +1631,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "ce")
+
+    @property
+    @pulumi.getter
+    def chatbot(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "chatbot")
 
     @property
     @pulumi.getter

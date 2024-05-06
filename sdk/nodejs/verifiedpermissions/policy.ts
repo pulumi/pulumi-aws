@@ -64,13 +64,17 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
+    /**
+     * The date the policy was created.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The definition of the policy. See Definition below.
-     *
-     * The following arguments are optional:
      */
     public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition | undefined>;
+    /**
+     * The Policy ID of the policy.
+     */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
     /**
      * The Policy Store ID of the policy store.
@@ -113,13 +117,17 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
+    /**
+     * The date the policy was created.
+     */
     createdDate?: pulumi.Input<string>;
     /**
      * The definition of the policy. See Definition below.
-     *
-     * The following arguments are optional:
      */
     definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
+    /**
+     * The Policy ID of the policy.
+     */
     policyId?: pulumi.Input<string>;
     /**
      * The Policy Store ID of the policy store.
@@ -133,8 +141,6 @@ export interface PolicyState {
 export interface PolicyArgs {
     /**
      * The definition of the policy. See Definition below.
-     *
-     * The following arguments are optional:
      */
     definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
     /**

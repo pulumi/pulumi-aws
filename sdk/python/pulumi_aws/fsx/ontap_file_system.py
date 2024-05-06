@@ -18,6 +18,7 @@ class OntapFileSystemArgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
                  preferred_subnet_id: pulumi.Input[str],
+                 storage_capacity: pulumi.Input[int],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,6 @@ class OntapFileSystemArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
@@ -36,27 +36,28 @@ class OntapFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OntapFileSystem resource.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         :param pulumi.Input[str] preferred_subnet_id: The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "deployment_type", deployment_type)
         pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        pulumi.set(__self__, "storage_capacity", storage_capacity)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
@@ -76,8 +77,6 @@ class OntapFileSystemArgs:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -93,7 +92,7 @@ class OntapFileSystemArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[str]:
         """
-        The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -112,6 +111,18 @@ class OntapFileSystemArgs:
     @preferred_subnet_id.setter
     def preferred_subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "preferred_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> pulumi.Input[int]:
+        """
+        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+        """
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_capacity", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -189,7 +200,7 @@ class OntapFileSystemArgs:
     @pulumi.getter(name="haPairs")
     def ha_pairs(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         """
         return pulumi.get(self, "ha_pairs")
 
@@ -234,18 +245,6 @@ class OntapFileSystemArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-        """
-        return pulumi.get(self, "storage_capacity")
-
-    @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "storage_capacity", value)
-
-    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -273,7 +272,7 @@ class OntapFileSystemArgs:
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity")
 
@@ -285,7 +284,7 @@ class OntapFileSystemArgs:
     @pulumi.getter(name="throughputCapacityPerHaPair")
     def throughput_capacity_per_ha_pair(self) -> Optional[pulumi.Input[int]]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
@@ -339,26 +338,26 @@ class _OntapFileSystemState:
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         :param pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]] endpoints: The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[str] preferred_subnet_id: The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -456,7 +455,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -528,7 +527,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="haPairs")
     def ha_pairs(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         """
         return pulumi.get(self, "ha_pairs")
 
@@ -612,7 +611,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -675,7 +674,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity")
 
@@ -687,7 +686,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="throughputCapacityPerHaPair")
     def throughput_capacity_per_ha_pair(self) -> Optional[pulumi.Input[int]]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
@@ -765,6 +764,18 @@ class OntapFileSystem(pulumi.CustomResource):
             preferred_subnet_id=test1["id"])
         ```
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        testhapairs = aws.fsx.OntapFileSystem("testhapairs",
+            storage_capacity=2048,
+            subnet_ids=[test1["id"]],
+            deployment_type="SINGLE_AZ_2",
+            throughput_capacity_per_ha_pair=3072,
+            preferred_subnet_id=test1["id"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
@@ -778,21 +789,21 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         :param pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[str] preferred_subnet_id: The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
@@ -819,6 +830,18 @@ class OntapFileSystem(pulumi.CustomResource):
             ],
             deployment_type="MULTI_AZ_1",
             throughput_capacity=512,
+            preferred_subnet_id=test1["id"])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        testhapairs = aws.fsx.OntapFileSystem("testhapairs",
+            storage_capacity=2048,
+            subnet_ids=[test1["id"]],
+            deployment_type="SINGLE_AZ_2",
+            throughput_capacity_per_ha_pair=3072,
             preferred_subnet_id=test1["id"])
         ```
 
@@ -888,6 +911,8 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
             __props__.__dict__["route_table_ids"] = route_table_ids
             __props__.__dict__["security_group_ids"] = security_group_ids
+            if storage_capacity is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_capacity'")
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
             if subnet_ids is None and not opts.urn:
@@ -951,26 +976,26 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         :param pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapFileSystemEndpointArgs']]]] endpoints: The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[str] preferred_subnet_id: The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -1033,7 +1058,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Output[str]:
         """
-        The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -1081,7 +1106,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="haPairs")
     def ha_pairs(self) -> pulumi.Output[int]:
         """
-        The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         """
         return pulumi.get(self, "ha_pairs")
 
@@ -1135,9 +1160,9 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> pulumi.Output[Optional[int]]:
+    def storage_capacity(self) -> pulumi.Output[int]:
         """
-        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -1178,17 +1203,17 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> pulumi.Output[Optional[int]]:
+    def throughput_capacity(self) -> pulumi.Output[int]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity")
 
     @property
     @pulumi.getter(name="throughputCapacityPerHaPair")
-    def throughput_capacity_per_ha_pair(self) -> pulumi.Output[Optional[int]]:
+    def throughput_capacity_per_ha_pair(self) -> pulumi.Output[int]:
         """
-        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity_per_ha_pair")
 

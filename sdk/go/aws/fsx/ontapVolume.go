@@ -93,6 +93,8 @@ import (
 type OntapVolume struct {
 	pulumi.CustomResourceState
 
+	// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+	AggregateConfiguration OntapVolumeAggregateConfigurationPtrOutput `pulumi:"aggregateConfiguration"`
 	// Amazon Resource Name of the volune.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -111,7 +113,9 @@ type OntapVolume struct {
 	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInBytes pulumi.StringOutput `pulumi:"sizeInBytes"`
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
 	SizeInMegabytes pulumi.IntOutput `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
@@ -133,6 +137,8 @@ type OntapVolume struct {
 	TieringPolicy OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
 	// The Volume's UUID (universally unique identifier).
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+	VolumeStyle pulumi.StringOutput `pulumi:"volumeStyle"`
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
@@ -144,9 +150,6 @@ func NewOntapVolume(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.SizeInMegabytes == nil {
-		return nil, errors.New("invalid value for required argument 'SizeInMegabytes'")
-	}
 	if args.StorageVirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineId'")
 	}
@@ -173,6 +176,8 @@ func GetOntapVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OntapVolume resources.
 type ontapVolumeState struct {
+	// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+	AggregateConfiguration *OntapVolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
 	// Amazon Resource Name of the volune.
 	Arn *string `pulumi:"arn"`
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -191,7 +196,9 @@ type ontapVolumeState struct {
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInBytes *string `pulumi:"sizeInBytes"`
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
 	SizeInMegabytes *int `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
@@ -213,11 +220,15 @@ type ontapVolumeState struct {
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
 	// The Volume's UUID (universally unique identifier).
 	Uuid *string `pulumi:"uuid"`
+	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+	VolumeStyle *string `pulumi:"volumeStyle"`
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
 type OntapVolumeState struct {
+	// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+	AggregateConfiguration OntapVolumeAggregateConfigurationPtrInput
 	// Amazon Resource Name of the volune.
 	Arn pulumi.StringPtrInput
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -236,7 +247,9 @@ type OntapVolumeState struct {
 	OntapVolumeType pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInBytes pulumi.StringPtrInput
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
 	SizeInMegabytes pulumi.IntPtrInput
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
@@ -258,6 +271,8 @@ type OntapVolumeState struct {
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
 	// The Volume's UUID (universally unique identifier).
 	Uuid pulumi.StringPtrInput
+	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+	VolumeStyle pulumi.StringPtrInput
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType pulumi.StringPtrInput
 }
@@ -267,6 +282,8 @@ func (OntapVolumeState) ElementType() reflect.Type {
 }
 
 type ontapVolumeArgs struct {
+	// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+	AggregateConfiguration *OntapVolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention *bool `pulumi:"bypassSnaplockEnterpriseRetention"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
@@ -279,8 +296,10 @@ type ontapVolumeArgs struct {
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes int `pulumi:"sizeInMegabytes"`
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInBytes *string `pulumi:"sizeInBytes"`
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInMegabytes *int `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
@@ -295,12 +314,16 @@ type ontapVolumeArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
+	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+	VolumeStyle *string `pulumi:"volumeStyle"`
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a OntapVolume resource.
 type OntapVolumeArgs struct {
+	// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+	AggregateConfiguration OntapVolumeAggregateConfigurationPtrInput
 	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention pulumi.BoolPtrInput
 	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
@@ -313,8 +336,10 @@ type OntapVolumeArgs struct {
 	OntapVolumeType pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes pulumi.IntInput
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInBytes pulumi.StringPtrInput
+	// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+	SizeInMegabytes pulumi.IntPtrInput
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
 	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
@@ -329,6 +354,8 @@ type OntapVolumeArgs struct {
 	Tags pulumi.StringMapInput
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
+	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+	VolumeStyle pulumi.StringPtrInput
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType pulumi.StringPtrInput
 }
@@ -420,6 +447,11 @@ func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) O
 	return o
 }
 
+// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+func (o OntapVolumeOutput) AggregateConfiguration() OntapVolumeAggregateConfigurationPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) OntapVolumeAggregateConfigurationPtrOutput { return v.AggregateConfiguration }).(OntapVolumeAggregateConfigurationPtrOutput)
+}
+
 // Amazon Resource Name of the volune.
 func (o OntapVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -465,7 +497,12 @@ func (o OntapVolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
-// Specifies the size of the volume, in megabytes (MB), that you are creating.
+// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+func (o OntapVolumeOutput) SizeInBytes() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SizeInBytes }).(pulumi.StringOutput)
+}
+
+// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
 func (o OntapVolumeOutput) SizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.IntOutput { return v.SizeInMegabytes }).(pulumi.IntOutput)
 }
@@ -515,6 +552,11 @@ func (o OntapVolumeOutput) TieringPolicy() OntapVolumeTieringPolicyPtrOutput {
 // The Volume's UUID (universally unique identifier).
 func (o OntapVolumeOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+func (o OntapVolumeOutput) VolumeStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.VolumeStyle }).(pulumi.StringOutput)
 }
 
 // The type of volume, currently the only valid value is `ONTAP`.

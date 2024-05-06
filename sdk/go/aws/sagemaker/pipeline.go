@@ -87,7 +87,7 @@ type Pipeline struct {
 	PipelineDisplayName pulumi.StringOutput `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
-	// The name of the Pipeline (must be unique).
+	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -147,7 +147,7 @@ type pipelineState struct {
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName *string `pulumi:"pipelineName"`
-	// The name of the Pipeline (must be unique).
+	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -172,7 +172,7 @@ type PipelineState struct {
 	PipelineDisplayName pulumi.StringPtrInput
 	// The name of the pipeline.
 	PipelineName pulumi.StringPtrInput
-	// The name of the Pipeline (must be unique).
+	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -199,7 +199,7 @@ type pipelineArgs struct {
 	PipelineDisplayName string `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName string `pulumi:"pipelineName"`
-	// The name of the Pipeline (must be unique).
+	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -219,7 +219,7 @@ type PipelineArgs struct {
 	PipelineDisplayName pulumi.StringInput
 	// The name of the pipeline.
 	PipelineName pulumi.StringInput
-	// The name of the Pipeline (must be unique).
+	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -347,7 +347,7 @@ func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
 }
 
-// The name of the Pipeline (must be unique).
+// The ARN of the IAM role the pipeline will execute as.
 func (o PipelineOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

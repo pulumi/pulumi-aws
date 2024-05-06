@@ -16,17 +16,23 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyState Empty = new PolicyState();
 
+    /**
+     * The date the policy was created.
+     * 
+     */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
+    /**
+     * @return The date the policy was created.
+     * 
+     */
     public Optional<Output<String>> createdDate() {
         return Optional.ofNullable(this.createdDate);
     }
 
     /**
      * The definition of the policy. See Definition below.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Import(name="definition")
@@ -35,16 +41,22 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The definition of the policy. See Definition below.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<PolicyDefinitionArgs>> definition() {
         return Optional.ofNullable(this.definition);
     }
 
+    /**
+     * The Policy ID of the policy.
+     * 
+     */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
+    /**
+     * @return The Policy ID of the policy.
+     * 
+     */
     public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
@@ -91,19 +103,29 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param createdDate The date the policy was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdDate(@Nullable Output<String> createdDate) {
             $.createdDate = createdDate;
             return this;
         }
 
+        /**
+         * @param createdDate The date the policy was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdDate(String createdDate) {
             return createdDate(Output.of(createdDate));
         }
 
         /**
          * @param definition The definition of the policy. See Definition below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -116,8 +138,6 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param definition The definition of the policy. See Definition below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -125,11 +145,23 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
             return definition(Output.of(definition));
         }
 
+        /**
+         * @param policyId The Policy ID of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
 
+        /**
+         * @param policyId The Policy ID of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }

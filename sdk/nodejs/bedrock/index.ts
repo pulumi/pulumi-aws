@@ -20,6 +20,11 @@ export type AgentAgentAlias = import("./agentAgentAlias").AgentAgentAlias;
 export const AgentAgentAlias: typeof import("./agentAgentAlias").AgentAgentAlias = null as any;
 utilities.lazyLoad(exports, ["AgentAgentAlias"], () => require("./agentAgentAlias"));
 
+export { AgentAgentKnowledgeBaseAssociationArgs, AgentAgentKnowledgeBaseAssociationState } from "./agentAgentKnowledgeBaseAssociation";
+export type AgentAgentKnowledgeBaseAssociation = import("./agentAgentKnowledgeBaseAssociation").AgentAgentKnowledgeBaseAssociation;
+export const AgentAgentKnowledgeBaseAssociation: typeof import("./agentAgentKnowledgeBaseAssociation").AgentAgentKnowledgeBaseAssociation = null as any;
+utilities.lazyLoad(exports, ["AgentAgentKnowledgeBaseAssociation"], () => require("./agentAgentKnowledgeBaseAssociation"));
+
 export { AgentKnowledgeBaseArgs, AgentKnowledgeBaseState } from "./agentKnowledgeBase";
 export type AgentKnowledgeBase = import("./agentKnowledgeBase").AgentKnowledgeBase;
 export const AgentKnowledgeBase: typeof import("./agentKnowledgeBase").AgentKnowledgeBase = null as any;
@@ -56,6 +61,8 @@ const _module = {
                 return new AgentAgentActionGroup(name, <any>undefined, { urn })
             case "aws:bedrock/agentAgentAlias:AgentAgentAlias":
                 return new AgentAgentAlias(name, <any>undefined, { urn })
+            case "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation":
+                return new AgentAgentKnowledgeBaseAssociation(name, <any>undefined, { urn })
             case "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase":
                 return new AgentKnowledgeBase(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
@@ -70,6 +77,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgent", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentActionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentAlias", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentKnowledgeBaseAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

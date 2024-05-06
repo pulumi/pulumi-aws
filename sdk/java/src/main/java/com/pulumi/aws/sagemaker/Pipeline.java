@@ -179,14 +179,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineName;
     }
     /**
-     * The name of the Pipeline (must be unique).
+     * The ARN of the IAM role the pipeline will execute as.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The name of the Pipeline (must be unique).
+     * @return The ARN of the IAM role the pipeline will execute as.
      * 
      */
     public Output<Optional<String>> roleArn() {

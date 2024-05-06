@@ -343,6 +343,7 @@ class ProviderEndpointArgs:
                  bedrockagent: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
                  ce: Optional[pulumi.Input[str]] = None,
+                 chatbot: Optional[pulumi.Input[str]] = None,
                  chime: Optional[pulumi.Input[str]] = None,
                  chimesdkmediapipelines: Optional[pulumi.Input[str]] = None,
                  chimesdkvoice: Optional[pulumi.Input[str]] = None,
@@ -623,6 +624,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] bedrockagent: Use this to override the default service endpoint URL
         :param pulumi.Input[str] budgets: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ce: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] chatbot: Use this to override the default service endpoint URL
         :param pulumi.Input[str] chime: Use this to override the default service endpoint URL
         :param pulumi.Input[str] chimesdkmediapipelines: Use this to override the default service endpoint URL
         :param pulumi.Input[str] chimesdkvoice: Use this to override the default service endpoint URL
@@ -937,6 +939,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
             pulumi.set(__self__, "ce", ce)
+        if chatbot is not None:
+            pulumi.set(__self__, "chatbot", chatbot)
         if chime is not None:
             pulumi.set(__self__, "chime", chime)
         if chimesdkmediapipelines is not None:
@@ -1835,6 +1839,18 @@ class ProviderEndpointArgs:
     @ce.setter
     def ce(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ce", value)
+
+    @property
+    @pulumi.getter
+    def chatbot(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "chatbot")
+
+    @chatbot.setter
+    def chatbot(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chatbot", value)
 
     @property
     @pulumi.getter

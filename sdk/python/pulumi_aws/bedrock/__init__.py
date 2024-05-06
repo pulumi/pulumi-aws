@@ -8,6 +8,7 @@ import typing
 from .agent_agent import *
 from .agent_agent_action_group import *
 from .agent_agent_alias import *
+from .agent_agent_knowledge_base_association import *
 from .agent_knowledge_base import *
 from .custom_model import *
 from .get_custom_model import *

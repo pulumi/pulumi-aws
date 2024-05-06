@@ -752,6 +752,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Ce *string `pulumi:"ce"`
 	// Use this to override the default service endpoint URL
+	Chatbot *string `pulumi:"chatbot"`
+	// Use this to override the default service endpoint URL
 	Chime *string `pulumi:"chime"`
 	// Use this to override the default service endpoint URL
 	Chimesdkmediapipelines *string `pulumi:"chimesdkmediapipelines"`
@@ -1323,6 +1325,8 @@ type ProviderEndpointArgs struct {
 	Budgets pulumi.StringPtrInput `pulumi:"budgets"`
 	// Use this to override the default service endpoint URL
 	Ce pulumi.StringPtrInput `pulumi:"ce"`
+	// Use this to override the default service endpoint URL
+	Chatbot pulumi.StringPtrInput `pulumi:"chatbot"`
 	// Use this to override the default service endpoint URL
 	Chime pulumi.StringPtrInput `pulumi:"chime"`
 	// Use this to override the default service endpoint URL
@@ -2034,6 +2038,11 @@ func (o ProviderEndpointOutput) Budgets() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Ce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ce }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Chatbot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Chatbot }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

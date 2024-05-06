@@ -57,12 +57,12 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
+	// The date the policy was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The definition of the policy. See Definition below.
-	//
-	// The following arguments are optional:
 	Definition PolicyDefinitionPtrOutput `pulumi:"definition"`
-	PolicyId   pulumi.StringOutput       `pulumi:"policyId"`
+	// The Policy ID of the policy.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 }
@@ -100,23 +100,23 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// The date the policy was created.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The definition of the policy. See Definition below.
-	//
-	// The following arguments are optional:
 	Definition *PolicyDefinition `pulumi:"definition"`
-	PolicyId   *string           `pulumi:"policyId"`
+	// The Policy ID of the policy.
+	PolicyId *string `pulumi:"policyId"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 }
 
 type PolicyState struct {
+	// The date the policy was created.
 	CreatedDate pulumi.StringPtrInput
 	// The definition of the policy. See Definition below.
-	//
-	// The following arguments are optional:
 	Definition PolicyDefinitionPtrInput
-	PolicyId   pulumi.StringPtrInput
+	// The Policy ID of the policy.
+	PolicyId pulumi.StringPtrInput
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringPtrInput
 }
@@ -127,8 +127,6 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	// The definition of the policy. See Definition below.
-	//
-	// The following arguments are optional:
 	Definition *PolicyDefinition `pulumi:"definition"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
@@ -137,8 +135,6 @@ type policyArgs struct {
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// The definition of the policy. See Definition below.
-	//
-	// The following arguments are optional:
 	Definition PolicyDefinitionPtrInput
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringInput
@@ -231,17 +227,17 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// The date the policy was created.
 func (o PolicyOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
 // The definition of the policy. See Definition below.
-//
-// The following arguments are optional:
 func (o PolicyOutput) Definition() PolicyDefinitionPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyDefinitionPtrOutput { return v.Definition }).(PolicyDefinitionPtrOutput)
 }
 
+// The Policy ID of the policy.
 func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }

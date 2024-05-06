@@ -11,7 +11,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionResult {
@@ -68,7 +67,7 @@ public final class GetDistributionResult {
      * 
      */
     private String status;
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return AWS WAF web ACL associated with this distribution.
      * 
@@ -150,7 +149,7 @@ public final class GetDistributionResult {
         return this.status;
     }
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return AWS WAF web ACL associated with this distribution.
@@ -179,7 +178,7 @@ public final class GetDistributionResult {
         private Integer inProgressValidationBatches;
         private String lastModifiedTime;
         private String status;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String webAclId;
         public Builder() {}
         public Builder(GetDistributionResult defaults) {
@@ -282,8 +281,10 @@ public final class GetDistributionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

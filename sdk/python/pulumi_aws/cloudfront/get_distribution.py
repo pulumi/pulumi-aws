@@ -145,7 +145,7 @@ class GetDistributionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
 
     @property

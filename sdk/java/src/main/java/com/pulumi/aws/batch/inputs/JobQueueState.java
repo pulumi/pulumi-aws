@@ -54,10 +54,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
      * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
      * 
      * @deprecated
-     * This parameter will be replaced by `compute_environments_order`.
+     * This parameter will be replaced by `compute_environment_order`.
      * 
      */
-    @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
     @Import(name="computeEnvironments")
     private @Nullable Output<List<String>> computeEnvironments;
 
@@ -65,10 +65,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
      * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
      * 
      * @deprecated
-     * This parameter will be replaced by `compute_environments_order`.
+     * This parameter will be replaced by `compute_environment_order`.
      * 
      */
-    @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
     public Optional<Output<List<String>>> computeEnvironments() {
         return Optional.ofNullable(this.computeEnvironments);
     }
@@ -271,10 +271,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This parameter will be replaced by `compute_environments_order`.
+         * This parameter will be replaced by `compute_environment_order`.
          * 
          */
-        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
         public Builder computeEnvironments(@Nullable Output<List<String>> computeEnvironments) {
             $.computeEnvironments = computeEnvironments;
             return this;
@@ -286,10 +286,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This parameter will be replaced by `compute_environments_order`.
+         * This parameter will be replaced by `compute_environment_order`.
          * 
          */
-        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
         public Builder computeEnvironments(List<String> computeEnvironments) {
             return computeEnvironments(Output.of(computeEnvironments));
         }
@@ -300,10 +300,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This parameter will be replaced by `compute_environments_order`.
+         * This parameter will be replaced by `compute_environment_order`.
          * 
          */
-        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
         public Builder computeEnvironments(String... computeEnvironments) {
             return computeEnvironments(List.of(computeEnvironments));
         }

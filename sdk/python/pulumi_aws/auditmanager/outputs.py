@@ -449,7 +449,7 @@ class FrameworkControlSet(dict):
                  id: Optional[str] = None):
         """
         :param str name: Name of the control set.
-        :param Sequence['FrameworkControlSetControlArgs'] controls: List of controls within the control set. See `controls` below.
+        :param Sequence['FrameworkControlSetControlArgs'] controls: Configuration block(s) for the controls within the control set. See `controls` Block below for details.
         :param str id: Unique identifier for the framework.
         """
         pulumi.set(__self__, "name", name)
@@ -470,7 +470,7 @@ class FrameworkControlSet(dict):
     @pulumi.getter
     def controls(self) -> Optional[Sequence['outputs.FrameworkControlSetControl']]:
         """
-        List of controls within the control set. See `controls` below.
+        Configuration block(s) for the controls within the control set. See `controls` Block below for details.
         """
         return pulumi.get(self, "controls")
 

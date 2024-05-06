@@ -20,16 +20,12 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The definition of the policy. See Definition below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="definition")
     private @Nullable Output<PolicyDefinitionArgs> definition;
 
     /**
      * @return The definition of the policy. See Definition below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<PolicyDefinitionArgs>> definition() {
@@ -79,8 +75,6 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param definition The definition of the policy. See Definition below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -91,8 +85,6 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param definition The definition of the policy. See Definition below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

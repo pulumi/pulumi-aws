@@ -1194,7 +1194,8 @@ type GetLifecyclePolicyDocumentRuleSelection struct {
 	// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType string `pulumi:"countType"`
 	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-	CountUnit       *string  `pulumi:"countUnit"`
+	CountUnit *string `pulumi:"countUnit"`
+	// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
 	TagPatternLists []string `pulumi:"tagPatternLists"`
 	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists []string `pulumi:"tagPrefixLists"`
@@ -1219,7 +1220,8 @@ type GetLifecyclePolicyDocumentRuleSelectionArgs struct {
 	// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType pulumi.StringInput `pulumi:"countType"`
 	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-	CountUnit       pulumi.StringPtrInput   `pulumi:"countUnit"`
+	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
+	// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
 	TagPatternLists pulumi.StringArrayInput `pulumi:"tagPatternLists"`
 	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists pulumi.StringArrayInput `pulumi:"tagPrefixLists"`
@@ -1319,6 +1321,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountUnit() pulumi.String
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
 }
 
+// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPatternLists }).(pulumi.StringArrayOutput)
 }
@@ -1387,6 +1390,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
 		if v == nil {

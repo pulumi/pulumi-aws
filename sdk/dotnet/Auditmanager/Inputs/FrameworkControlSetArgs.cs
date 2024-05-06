@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         private InputList<Inputs.FrameworkControlSetControlArgs>? _controls;
 
         /// <summary>
-        /// List of controls within the control set. See `controls` below.
+        /// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
         /// </summary>
         public InputList<Inputs.FrameworkControlSetControlArgs> Controls
         {

@@ -245,6 +245,7 @@
         "bedrock/agentAgent.ts",
         "bedrock/agentAgentActionGroup.ts",
         "bedrock/agentAgentAlias.ts",
+        "bedrock/agentAgentKnowledgeBaseAssociation.ts",
         "bedrock/agentKnowledgeBase.ts",
         "bedrock/customModel.ts",
         "bedrock/getCustomModel.ts",

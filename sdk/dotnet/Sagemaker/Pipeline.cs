@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Pipeline (must be unique).
+        /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Pipeline (must be unique).
+        /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PipelineName { get; set; }
 
         /// <summary>
-        /// The name of the Pipeline (must be unique).
+        /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

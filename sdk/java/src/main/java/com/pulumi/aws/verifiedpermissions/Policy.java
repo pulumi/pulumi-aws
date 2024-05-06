@@ -71,16 +71,22 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:verifiedpermissions/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
+    /**
+     * The date the policy was created.
+     * 
+     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
+    /**
+     * @return The date the policy was created.
+     * 
+     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
     /**
      * The definition of the policy. See Definition below.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Export(name="definition", refs={PolicyDefinition.class}, tree="[0]")
@@ -89,15 +95,21 @@ public class Policy extends com.pulumi.resources.CustomResource {
     /**
      * @return The definition of the policy. See Definition below.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<Optional<PolicyDefinition>> definition() {
         return Codegen.optional(this.definition);
     }
+    /**
+     * The Policy ID of the policy.
+     * 
+     */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
+    /**
+     * @return The Policy ID of the policy.
+     * 
+     */
     public Output<String> policyId() {
         return this.policyId;
     }

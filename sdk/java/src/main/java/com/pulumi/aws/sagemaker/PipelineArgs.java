@@ -110,14 +110,14 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Pipeline (must be unique).
+     * The ARN of the IAM role the pipeline will execute as.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The name of the Pipeline (must be unique).
+     * @return The ARN of the IAM role the pipeline will execute as.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -297,7 +297,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The name of the Pipeline (must be unique).
+         * @param roleArn The ARN of the IAM role the pipeline will execute as.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The name of the Pipeline (must be unique).
+         * @param roleArn The ARN of the IAM role the pipeline will execute as.
          * 
          * @return builder
          * 

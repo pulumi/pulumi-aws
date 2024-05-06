@@ -783,6 +783,8 @@ type EventTarget struct {
 	// The name or ARN of the event bus to associate with the rule.
 	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrOutput `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
@@ -860,6 +862,8 @@ type eventTargetState struct {
 	// The name or ARN of the event bus to associate with the rule.
 	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
@@ -902,6 +906,8 @@ type EventTargetState struct {
 	// The name or ARN of the event bus to associate with the rule.
 	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
@@ -948,6 +954,8 @@ type eventTargetArgs struct {
 	// The name or ARN of the event bus to associate with the rule.
 	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
@@ -991,6 +999,8 @@ type EventTargetArgs struct {
 	// The name or ARN of the event bus to associate with the rule.
 	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
@@ -1132,6 +1142,11 @@ func (o EventTargetOutput) EcsTarget() EventTargetEcsTargetPtrOutput {
 // If you omit this, the `default` event bus is used.
 func (o EventTargetOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
+}
+
+// Used to delete managed rules created by AWS. Defaults to `false`.
+func (o EventTargetOutput) ForceDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventTarget) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.

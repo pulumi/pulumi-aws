@@ -2756,6 +2756,181 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInpu
 	}).(OntapStorageVirtualMachineEndpointSmbOutput)
 }
 
+type OntapVolumeAggregateConfiguration struct {
+	// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+	Aggregates []string `pulumi:"aggregates"`
+	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+	ConstituentsPerAggregate *int `pulumi:"constituentsPerAggregate"`
+	// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+	TotalConstituents *int `pulumi:"totalConstituents"`
+}
+
+// OntapVolumeAggregateConfigurationInput is an input type that accepts OntapVolumeAggregateConfigurationArgs and OntapVolumeAggregateConfigurationOutput values.
+// You can construct a concrete instance of `OntapVolumeAggregateConfigurationInput` via:
+//
+//	OntapVolumeAggregateConfigurationArgs{...}
+type OntapVolumeAggregateConfigurationInput interface {
+	pulumi.Input
+
+	ToOntapVolumeAggregateConfigurationOutput() OntapVolumeAggregateConfigurationOutput
+	ToOntapVolumeAggregateConfigurationOutputWithContext(context.Context) OntapVolumeAggregateConfigurationOutput
+}
+
+type OntapVolumeAggregateConfigurationArgs struct {
+	// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+	Aggregates pulumi.StringArrayInput `pulumi:"aggregates"`
+	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+	ConstituentsPerAggregate pulumi.IntPtrInput `pulumi:"constituentsPerAggregate"`
+	// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+	TotalConstituents pulumi.IntPtrInput `pulumi:"totalConstituents"`
+}
+
+func (OntapVolumeAggregateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i OntapVolumeAggregateConfigurationArgs) ToOntapVolumeAggregateConfigurationOutput() OntapVolumeAggregateConfigurationOutput {
+	return i.ToOntapVolumeAggregateConfigurationOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeAggregateConfigurationArgs) ToOntapVolumeAggregateConfigurationOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeAggregateConfigurationOutput)
+}
+
+func (i OntapVolumeAggregateConfigurationArgs) ToOntapVolumeAggregateConfigurationPtrOutput() OntapVolumeAggregateConfigurationPtrOutput {
+	return i.ToOntapVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeAggregateConfigurationArgs) ToOntapVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeAggregateConfigurationOutput).ToOntapVolumeAggregateConfigurationPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeAggregateConfigurationPtrInput is an input type that accepts OntapVolumeAggregateConfigurationArgs, OntapVolumeAggregateConfigurationPtr and OntapVolumeAggregateConfigurationPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeAggregateConfigurationPtrInput` via:
+//
+//	        OntapVolumeAggregateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeAggregateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeAggregateConfigurationPtrOutput() OntapVolumeAggregateConfigurationPtrOutput
+	ToOntapVolumeAggregateConfigurationPtrOutputWithContext(context.Context) OntapVolumeAggregateConfigurationPtrOutput
+}
+
+type ontapVolumeAggregateConfigurationPtrType OntapVolumeAggregateConfigurationArgs
+
+func OntapVolumeAggregateConfigurationPtr(v *OntapVolumeAggregateConfigurationArgs) OntapVolumeAggregateConfigurationPtrInput {
+	return (*ontapVolumeAggregateConfigurationPtrType)(v)
+}
+
+func (*ontapVolumeAggregateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i *ontapVolumeAggregateConfigurationPtrType) ToOntapVolumeAggregateConfigurationPtrOutput() OntapVolumeAggregateConfigurationPtrOutput {
+	return i.ToOntapVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeAggregateConfigurationPtrType) ToOntapVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeAggregateConfigurationPtrOutput)
+}
+
+type OntapVolumeAggregateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeAggregateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o OntapVolumeAggregateConfigurationOutput) ToOntapVolumeAggregateConfigurationOutput() OntapVolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o OntapVolumeAggregateConfigurationOutput) ToOntapVolumeAggregateConfigurationOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o OntapVolumeAggregateConfigurationOutput) ToOntapVolumeAggregateConfigurationPtrOutput() OntapVolumeAggregateConfigurationPtrOutput {
+	return o.ToOntapVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeAggregateConfigurationOutput) ToOntapVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeAggregateConfiguration) *OntapVolumeAggregateConfiguration {
+		return &v
+	}).(OntapVolumeAggregateConfigurationPtrOutput)
+}
+
+// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+func (o OntapVolumeAggregateConfigurationOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) []string { return v.Aggregates }).(pulumi.StringArrayOutput)
+}
+
+// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+func (o OntapVolumeAggregateConfigurationOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) *int { return v.ConstituentsPerAggregate }).(pulumi.IntPtrOutput)
+}
+
+// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+func (o OntapVolumeAggregateConfigurationOutput) TotalConstituents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) *int { return v.TotalConstituents }).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeAggregateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeAggregateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o OntapVolumeAggregateConfigurationPtrOutput) ToOntapVolumeAggregateConfigurationPtrOutput() OntapVolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapVolumeAggregateConfigurationPtrOutput) ToOntapVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapVolumeAggregateConfigurationPtrOutput) Elem() OntapVolumeAggregateConfigurationOutput {
+	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) OntapVolumeAggregateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeAggregateConfiguration
+		return ret
+	}).(OntapVolumeAggregateConfigurationOutput)
+}
+
+// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+func (o OntapVolumeAggregateConfigurationPtrOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregates
+	}).(pulumi.StringArrayOutput)
+}
+
+// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+func (o OntapVolumeAggregateConfigurationPtrOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstituentsPerAggregate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+func (o OntapVolumeAggregateConfigurationPtrOutput) TotalConstituents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TotalConstituents
+	}).(pulumi.IntPtrOutput)
+}
+
 type OntapVolumeSnaplockConfiguration struct {
 	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 	AuditLogVolume *bool `pulumi:"auditLogVolume"`
@@ -7605,6 +7780,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointNfArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointNfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeAggregateConfigurationInput)(nil)).Elem(), OntapVolumeAggregateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeAggregateConfigurationPtrInput)(nil)).Elem(), OntapVolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationAutocommitPeriodInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationAutocommitPeriodArgs{})
@@ -7719,6 +7896,8 @@ func init() {
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointNfArrayOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbArrayOutput{})
+	pulumi.RegisterOutputType(OntapVolumeAggregateConfigurationOutput{})
+	pulumi.RegisterOutputType(OntapVolumeAggregateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationOutput{})
 	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput{})
