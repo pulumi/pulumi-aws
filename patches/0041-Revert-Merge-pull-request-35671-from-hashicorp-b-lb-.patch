@@ -200,10 +200,10 @@ index a209c9338b..c9ec31a266 100644
  	}
  	d.Set("load_balancer_arn", listener.LoadBalancerArn)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index 047ee68dee..6da74fd123 100644
+index cf2d9e9e71..3b63032c21 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
-@@ -98,11 +98,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -99,11 +99,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"forward": {
@@ -218,7 +218,7 @@ index 047ee68dee..6da74fd123 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"target_group": {
-@@ -593,9 +591,41 @@ func resourceListenerRuleRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -594,9 +592,41 @@ func resourceListenerRuleRead(ctx context.Context, d *schema.ResourceData, meta
  	sort.Slice(rule.Actions, func(i, j int) bool {
  		return aws.ToInt32(rule.Actions[i].Order) < aws.ToInt32(rule.Actions[j].Order)
  	})

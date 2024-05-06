@@ -5,10 +5,10 @@ Subject: [PATCH] Patch tags ComputedOnly on bedrockagent and other modules
 
 
 diff --git a/internal/service/bcmdataexports/export.go b/internal/service/bcmdataexports/export.go
-index da0f65bd61..4190f7697b 100644
+index b11cdf3f1e..1a3a356b14 100644
 --- a/internal/service/bcmdataexports/export.go
 +++ b/internal/service/bcmdataexports/export.go
-@@ -147,7 +147,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
+@@ -168,7 +168,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
  		Attributes: map[string]schema.Attribute{
  			"id":              framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,7 +18,7 @@ index da0f65bd61..4190f7697b 100644
  		Blocks: map[string]schema.Block{
  			"export": schema.ListNestedBlock{
 diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
-index 4d0e40931e..8b9bbc9e03 100644
+index b25cc44032..24265c2b01 100644
 --- a/internal/service/bedrockagent/agent.go
 +++ b/internal/service/bedrockagent/agent.go
 @@ -144,7 +144,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
@@ -44,10 +44,10 @@ index 2af0e6ce90..8b9b75bf95 100644
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/knowledge_base.go b/internal/service/bedrockagent/knowledge_base.go
-index 1ac723842f..b790c8598f 100644
+index a2c0e6a0c9..1a339667f9 100644
 --- a/internal/service/bedrockagent/knowledge_base.go
 +++ b/internal/service/bedrockagent/knowledge_base.go
-@@ -93,7 +93,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
+@@ -88,7 +88,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

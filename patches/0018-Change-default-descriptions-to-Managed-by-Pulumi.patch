@@ -31,10 +31,10 @@ index 154306cde7..e3c6189ab2 100644
  			"api_id": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
-index e9743af534..0400dba7fa 100644
+index 4fb70de716..03bc2ac3c7 100644
 --- a/internal/service/cloudfront/origin_access_control.go
 +++ b/internal/service/cloudfront/origin_access_control.go
-@@ -37,7 +37,7 @@ func ResourceOriginAccessControl() *schema.Resource {
+@@ -37,7 +37,7 @@ func resourceOriginAccessControl() *schema.Resource {
  			"description": {
  				Type:         schema.TypeString,
  				Optional:     true,
@@ -83,10 +83,10 @@ index 3d022369db..c88eebf5be 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index 9fe188ece7..9af5d901cc 100644
+index 5db5edf801..8cc3d84313 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
-@@ -49,7 +49,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -707,10 +707,10 @@ index 66b981fa2f..0334e3d8fd 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index 2342217bae..f523a5878e 100644
+index d12705aa23..d3231d0cb2 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
-@@ -50,7 +50,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -1017,10 +1017,10 @@ index 0000000000..47b5d7cda2
 +	return ingress
 +}
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index 0299067dea..b47d987426 100644
+index 0703821ac6..b175faacaf 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
-@@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -45,7 +45,7 @@ func resourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,

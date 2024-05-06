@@ -88,7 +88,7 @@ index 942630acae..45b72fc158 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index d9769c3e5d..049c61a1a4 100644
+index cdf43cd997..039f8d1f27 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
 @@ -109,7 +109,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
@@ -153,7 +153,7 @@ index fc553b56bc..997a513b50 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index d2e7d7dbe1..0ee4daefda 100644
+index 01941ffc56..41dd298709 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
 @@ -123,7 +123,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ

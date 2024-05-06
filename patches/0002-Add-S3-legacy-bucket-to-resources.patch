@@ -14,7 +14,7 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 068e5c092d..d2039e809c 100644
+index a459ad5da6..c1c1f3d9ee 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -13,6 +13,8 @@ import (
