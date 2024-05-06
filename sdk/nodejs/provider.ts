@@ -36,7 +36,7 @@ export class Provider extends pulumi.ProviderResource {
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
      * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * variable. (Setting `caBundle` in the shared config file is not supported.)
      */
     public readonly customCaBundle!: pulumi.Output<string | undefined>;
     /**
@@ -51,17 +51,17 @@ export class Provider extends pulumi.ProviderResource {
     public readonly ec2MetadataServiceEndpointMode!: pulumi.Output<string | undefined>;
     /**
      * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `http_proxy` environment variables.
+     * `httpProxy` environment variables.
      */
     public readonly httpProxy!: pulumi.Output<string | undefined>;
     /**
      * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `https_proxy` environment variables.
+     * `httpsProxy` environment variables.
      */
     public readonly httpsProxy!: pulumi.Output<string | undefined>;
     /**
      * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `no_proxy` environment variables.
+     * `noProxy` environment variables.
      */
     public readonly noProxy!: pulumi.Output<string | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
      * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      */
     public readonly s3UsEast1RegionalEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface ProviderArgs {
     assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity>;
     /**
      * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * variable. (Setting `caBundle` in the shared config file is not supported.)
      */
     customCaBundle?: pulumi.Input<string>;
     /**
@@ -182,12 +182,12 @@ export interface ProviderArgs {
     forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `http_proxy` environment variables.
+     * `httpProxy` environment variables.
      */
     httpProxy?: pulumi.Input<string>;
     /**
      * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `https_proxy` environment variables.
+     * `httpsProxy` environment variables.
      */
     httpsProxy?: pulumi.Input<string>;
     /**
@@ -204,7 +204,7 @@ export interface ProviderArgs {
     maxRetries?: pulumi.Input<number>;
     /**
      * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `no_proxy` environment variables.
+     * `noProxy` environment variables.
      */
     noProxy?: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface ProviderArgs {
     /**
      * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
      * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      */
     s3UsEast1RegionalEndpoint?: pulumi.Input<string>;
     /**
