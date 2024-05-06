@@ -5890,8 +5890,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 	prov.MustApplyAutoAliases()
 
-	prov.XSkipDetailedDiffForChanges = true
-
 	return &prov
 }
 
