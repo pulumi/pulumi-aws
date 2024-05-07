@@ -76,6 +76,54 @@ index deadff7071..6310023478 100644
  func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
  	config := client.S3Conn(ctx).Config
  	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index 9b4ebd5a46..0e7a94e470 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -16,7 +16,6 @@ import (
+ 
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
+ 
+ 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
+ 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+@@ -264,8 +263,6 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 		},
+ 
+ 		ResourcesMap: map[string]*schema.Resource{
+-			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),
+-
+ 			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
+ 			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
+ 		},
+@@ -278,7 +275,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 	var errs []error
+ 	servicePackageMap := make(map[string]conns.ServicePackage)
+ 
+-	for _, sp := range servicePackages(ctx) {
++	for _, sp := range servicePackagesAll(ctx) {
+ 		servicePackageName := sp.ServicePackageName()
+ 		servicePackageMap[servicePackageName] = sp
+ 
+diff --git a/internal/provider/service_packages_all.go b/internal/provider/service_packages_all.go
+new file mode 100644
+index 0000000000..51ca53f883
+--- /dev/null
++++ b/internal/provider/service_packages_all.go
+@@ -0,0 +1,12 @@
++package provider
++
++import (
++	"context"
++
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
++)
++
++func servicePackagesAll(ctx context.Context) []conns.ServicePackage {
++	return append(servicePackages(ctx), s3legacy.ServicePackage(ctx))
++}
 diff --git a/internal/service/s3/service_package_bwcompat.go b/internal/service/s3/service_package_bwcompat.go
 new file mode 100644
 index 0000000000..4278d1e70a
@@ -161,3 +209,87 @@ index 007c2f2dc1..5f64a814be 100644
  	}
  
  	arn := arn.ARN{
+diff --git a/internal/service/s3legacy/service_package.go b/internal/service/s3legacy/service_package.go
+new file mode 100644
+index 0000000000..5d2ea27364
+--- /dev/null
++++ b/internal/service/s3legacy/service_package.go
+@@ -0,0 +1,78 @@
++package s3legacy
++
++import (
++	"context"
++
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/types"
++)
++
++type servicePackage struct{}
++
++func (p *servicePackage) FrameworkDataSources(ctx context.Context) []*types.ServicePackageFrameworkDataSource {
++	return []*types.ServicePackageFrameworkDataSource{}
++}
++
++func (p *servicePackage) FrameworkResources(ctx context.Context) []*types.ServicePackageFrameworkResource {
++	return []*types.ServicePackageFrameworkResource{}
++}
++
++func (p *servicePackage) SDKDataSources(ctx context.Context) []*types.ServicePackageSDKDataSource {
++	return []*types.ServicePackageSDKDataSource{}
++}
++
++func (p *servicePackage) SDKResources(ctx context.Context) []*types.ServicePackageSDKResource {
++	return []*types.ServicePackageSDKResource{
++		{
++			Factory:  ResourceBucketLegacy,
++			TypeName: "aws_s3_bucket_legacy",
++			Name:     "BucketLegacy",
++			Tags: &types.ServicePackageResourceTags{
++				IdentifierAttribute: "bucket",
++				ResourceType:        "Bucket",
++			},
++		},
++	}
++}
++
++func (p *servicePackage) ServicePackageName() string {
++	return "s3legacy"
++}
++
++func ServicePackage(ctx context.Context) conns.ServicePackage {
++	return &servicePackage{}
++}
++
++// import (
++// 	"context"
++
++// 	"github.com/aws/aws-sdk-go-v2/aws"
++// 	"github.com/aws/aws-sdk-go-v2/aws/retry"
++// 	"github.com/aws/aws-sdk-go-v2/service/s3"
++// 	"github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
++// 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++// 	"github.com/hashicorp/terraform-provider-aws/names"
++// )
++
++// NewClient returns a new AWS SDK for Go v2 client for this service package's AWS API.
++// func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (*s3.Client, error) {
++// 	cfg := *(config["aws_sdkv2_config"].(*aws.Config))
++
++// 	return s3.NewFromConfig(cfg, func(o *s3.Options) {
++// 		if endpoint := config["endpoint"].(string); endpoint != "" {
++// 			o.BaseEndpoint = aws.String(endpoint)
++// 		} else if o.Region == names.USEast1RegionID && config["s3_us_east_1_regional_endpoint"].(string) != "regional" {
++// 			// Maintain the AWS SDK for Go v1 default of using the global endpoint in us-east-1.
++// 			// See https://github.com/hashicorp/terraform-provider-aws/issues/33028.
++// 			o.Region = names.GlobalRegionID
++// 		}
++// 		o.UsePathStyle = config["s3_use_path_style"].(bool)
++
++// 		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws.RetryerV2), retry.IsErrorRetryableFunc(func(err error) aws.Ternary {
++// 			if tfawserr.ErrMessageContains(err, errCodeOperationAborted, "A conflicting conditional operation is currently in progress against this resource. Please try again.") {
++// 				return aws.TrueTernary
++// 			}
++// 			return aws.UnknownTernary // Delegate to configured Retryer.
++// 		}))
++// 	}), nil
++// }
