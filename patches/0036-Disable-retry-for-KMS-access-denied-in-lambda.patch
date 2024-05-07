@@ -6,18 +6,20 @@ Subject: [PATCH] Disable retry for KMS access denied in lambda
 
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
 new file mode 100644
-index 0000000000..bc22020da4
+index 0000000000..6f36351b82
 --- /dev/null
 +++ b/internal/service/lambda/service_package_extra.go
-@@ -0,0 +1,26 @@
+@@ -0,0 +1,38 @@
 +package lambda
 +
 +import (
 +	"context"
 +
-+	"github.com/aws/aws-sdk-go/aws/request"
-+	lambda_sdkv1 "github.com/aws/aws-sdk-go/service/lambda"
-+	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
++	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
++	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
++	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
 +)
 +
 +// Customize lambda retries.
@@ -26,13 +28,67 @@ index 0000000000..bc22020da4
 +//
 +// https://github.com/hashicorp/terraform-provider-aws/blob/main/docs/retries-and-waiters.md
 +// https://github.com/pulumi/pulumi-aws/issues/3196
-+func (p *servicePackage) CustomizeConn(ctx context.Context, conn *lambda_sdkv1.Lambda) (*lambda_sdkv1.Lambda, error) {
-+	conn.Handlers.Retry.PushBack(func(r *request.Request) {
-+		if tfawserr.ErrMessageContains(r.Error, lambda_sdkv1.ErrCodeKMSAccessDeniedException,
-+			"Lambda was unable to decrypt the environment variables because KMS access was denied.") {
++func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (*lambda_sdkv2.Client, error) {
++	cfg := *(config["aws_sdkv2_config"].(*aws_sdkv2.Config))
++	retry := retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
++		if tfawserr_sdkv2.ErrMessageContains(
++			err,
++			"KMSAccessDeniedException",
++			"Lambda was unable to decrypt the environment variables because KMS access was denied.",
++		) {
 +			// Do not retry this condition at all.
-+			r.RetryCount = r.MaxRetries() + 1
++			return aws_sdkv2.FalseTernary
 +		}
++		return aws_sdkv2.UnknownTernary // Delegate
 +	})
-+	return conn, nil
++	return lambda_sdkv2.NewFromConfig(cfg, func(o *lambda_sdkv2.Options) {
++		if endpoint := config["endpoint"].(string); endpoint != "" {
++			o.BaseEndpoint = aws_sdkv2.String(endpoint)
++		}
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
++	}), nil
 +}
+diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
+index 9437623666..741067f98f 100644
+--- a/internal/service/lambda/service_package_gen.go
++++ b/internal/service/lambda/service_package_gen.go
+@@ -5,8 +5,6 @@ package lambda
+ import (
+ 	"context"
+ 
+-	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
+-	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/types"
+ 	"github.com/hashicorp/terraform-provider-aws/names"
+@@ -129,17 +127,6 @@ func (p *servicePackage) ServicePackageName() string {
+ 	return names.Lambda
+ }
+ 
+-// NewClient returns a new AWS SDK for Go v2 client for this service package's AWS API.
+-func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (*lambda_sdkv2.Client, error) {
+-	cfg := *(config["aws_sdkv2_config"].(*aws_sdkv2.Config))
+-
+-	return lambda_sdkv2.NewFromConfig(cfg, func(o *lambda_sdkv2.Options) {
+-		if endpoint := config["endpoint"].(string); endpoint != "" {
+-			o.BaseEndpoint = aws_sdkv2.String(endpoint)
+-		}
+-	}), nil
+-}
+-
+ func ServicePackage(ctx context.Context) conns.ServicePackage {
+ 	return &servicePackage{}
+ }
+diff --git a/names/data/names_data.csv b/names/data/names_data.csv
+index c0ee031d37..a573761b55 100644
+--- a/names/data/names_data.csv
++++ b/names/data/names_data.csv
+@@ -218,7 +218,7 @@ kinesis-video-media,kinesisvideomedia,kinesisvideomedia,kinesisvideomedia,,kines
+ kinesis-video-signaling,kinesisvideosignaling,kinesisvideosignalingchannels,kinesisvideosignaling,,kinesisvideosignaling,,kinesisvideosignalingchannels,KinesisVideoSignaling,KinesisVideoSignalingChannels,,1,,,aws_kinesisvideosignaling_,,kinesisvideosignaling_,Kinesis Video Signaling,Amazon,,x,,,,,Kinesis Video Signaling,,,
+ kms,kms,kms,kms,,kms,,,KMS,KMS,,1,,,aws_kms_,,kms_,KMS (Key Management),AWS,,,,,,,KMS,ListKeys,,
+ lakeformation,lakeformation,lakeformation,lakeformation,,lakeformation,,,LakeFormation,LakeFormation,,,2,,aws_lakeformation_,,lakeformation_,Lake Formation,AWS,,,,,,,LakeFormation,ListResources,,
+-lambda,lambda,lambda,lambda,,lambda,,,Lambda,Lambda,,,2,,aws_lambda_,,lambda_,Lambda,AWS,,,,,,,Lambda,ListFunctions,,
++lambda,lambda,lambda,lambda,,lambda,,,Lambda,Lambda,x,,2,,aws_lambda_,,lambda_,Lambda,AWS,,,,,,,Lambda,ListFunctions,,
+ launch-wizard,launchwizard,launchwizard,launchwizard,,launchwizard,,,LaunchWizard,LaunchWizard,,,2,,aws_launchwizard_,,launchwizard_,Launch Wizard,AWS,,,,,,,Launch Wizard,ListWorkloads,,
+ lex-models,lexmodels,lexmodelbuildingservice,lexmodelbuildingservice,,lexmodels,,lexmodelbuilding;lexmodelbuildingservice;lex,LexModels,LexModelBuildingService,,1,,aws_lex_,aws_lexmodels_,,lex_,Lex Model Building,Amazon,,,,,,,Lex Model Building Service,GetBots,,
+ lexv2-models,lexv2models,lexmodelsv2,lexmodelsv2,,lexv2models,,lexmodelsv2,LexV2Models,LexModelsV2,,,2,,aws_lexv2models_,,lexv2models_,Lex V2 Models,Amazon,,,,,,,Lex Models V2,ListBots,,
