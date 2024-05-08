@@ -1850,6 +1850,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentAgentKnowledgeBaseAssociation",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation": "AgentAgentKnowledgeBaseAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentKnowledgeBase",
   "fqn": "pulumi_aws.bedrock",
   "classes": {

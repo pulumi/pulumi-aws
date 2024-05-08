@@ -189,7 +189,7 @@ export interface GetClusterResult {
     /**
      * Tags associated to the cluster
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * VPC Id associated with the cluster
      */

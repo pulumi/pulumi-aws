@@ -63,9 +63,17 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
         return Optional.ofNullable(this.countUnit);
     }
 
+    /**
+     * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, [&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;] is valid but [&#34;test*1*2*3*4*5*6&#34;] is invalid.
+     * 
+     */
     @Import(name="tagPatternLists")
     private @Nullable Output<List<String>> tagPatternLists;
 
+    /**
+     * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, [&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;] is valid but [&#34;test*1*2*3*4*5*6&#34;] is invalid.
+     * 
+     */
     public Optional<Output<List<String>>> tagPatternLists() {
         return Optional.ofNullable(this.tagPatternLists);
     }
@@ -192,15 +200,33 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
             return countUnit(Output.of(countUnit));
         }
 
+        /**
+         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, [&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;] is valid but [&#34;test*1*2*3*4*5*6&#34;] is invalid.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagPatternLists(@Nullable Output<List<String>> tagPatternLists) {
             $.tagPatternLists = tagPatternLists;
             return this;
         }
 
+        /**
+         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, [&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;] is valid but [&#34;test*1*2*3*4*5*6&#34;] is invalid.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagPatternLists(List<String> tagPatternLists) {
             return tagPatternLists(Output.of(tagPatternLists));
         }
 
+        /**
+         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, [&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;] is valid but [&#34;test*1*2*3*4*5*6&#34;] is invalid.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagPatternLists(String... tagPatternLists) {
             return tagPatternLists(List.of(tagPatternLists));
         }

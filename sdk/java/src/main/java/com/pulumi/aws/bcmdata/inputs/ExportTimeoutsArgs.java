@@ -31,21 +31,6 @@ public final class ExportTimeoutsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-     * 
-     */
-    @Import(name="delete")
-    private @Nullable Output<String> delete;
-
-    /**
-     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-     * 
-     */
-    public Optional<Output<String>> delete() {
-        return Optional.ofNullable(this.delete);
-    }
-
-    /**
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
@@ -64,7 +49,6 @@ public final class ExportTimeoutsArgs extends com.pulumi.resources.ResourceArgs 
 
     private ExportTimeoutsArgs(ExportTimeoutsArgs $) {
         this.create = $.create;
-        this.delete = $.delete;
         this.update = $.update;
     }
 
@@ -105,27 +89,6 @@ public final class ExportTimeoutsArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder create(String create) {
             return create(Output.of(create));
-        }
-
-        /**
-         * @param delete A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder delete(@Nullable Output<String> delete) {
-            $.delete = delete;
-            return this;
-        }
-
-        /**
-         * @param delete A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder delete(String delete) {
-            return delete(Output.of(delete));
         }
 
         /**

@@ -219,6 +219,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("chatbot")]
+        public Input<string>? Chatbot { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("chime")]
         public Input<string>? Chime { get; set; }
 

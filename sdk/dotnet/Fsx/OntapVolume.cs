@@ -78,6 +78,12 @@ namespace Pulumi.Aws.Fsx
     public partial class OntapVolume : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// </summary>
+        [Output("aggregateConfiguration")]
+        public Output<Outputs.OntapVolumeAggregateConfiguration?> AggregateConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name of the volune.
         /// </summary>
         [Output("arn")]
@@ -132,7 +138,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> SecurityStyle { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the volume, in megabytes (MB), that you are creating.
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+        /// </summary>
+        [Output("sizeInBytes")]
+        public Output<string> SizeInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
         [Output("sizeInMegabytes")]
         public Output<int> SizeInMegabytes { get; private set; } = null!;
@@ -192,6 +204,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Uuid { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+        /// </summary>
+        [Output("volumeStyle")]
+        public Output<string> VolumeStyle { get; private set; } = null!;
+
+        /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.
         /// </summary>
         [Output("volumeType")]
@@ -244,6 +262,12 @@ namespace Pulumi.Aws.Fsx
     public sealed class OntapVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// </summary>
+        [Input("aggregateConfiguration")]
+        public Input<Inputs.OntapVolumeAggregateConfigurationArgs>? AggregateConfiguration { get; set; }
+
+        /// <summary>
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
         [Input("bypassSnaplockEnterpriseRetention")]
@@ -280,10 +304,16 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? SecurityStyle { get; set; }
 
         /// <summary>
-        /// Specifies the size of the volume, in megabytes (MB), that you are creating.
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
-        [Input("sizeInMegabytes", required: true)]
-        public Input<int> SizeInMegabytes { get; set; } = null!;
+        [Input("sizeInBytes")]
+        public Input<string>? SizeInBytes { get; set; }
+
+        /// <summary>
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+        /// </summary>
+        [Input("sizeInMegabytes")]
+        public Input<int>? SizeInMegabytes { get; set; }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -334,6 +364,12 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OntapVolumeTieringPolicyArgs>? TieringPolicy { get; set; }
 
         /// <summary>
+        /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+        /// </summary>
+        [Input("volumeStyle")]
+        public Input<string>? VolumeStyle { get; set; }
+
+        /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.
         /// </summary>
         [Input("volumeType")]
@@ -347,6 +383,12 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class OntapVolumeState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// </summary>
+        [Input("aggregateConfiguration")]
+        public Input<Inputs.OntapVolumeAggregateConfigurationGetArgs>? AggregateConfiguration { get; set; }
+
         /// <summary>
         /// Amazon Resource Name of the volune.
         /// </summary>
@@ -402,7 +444,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? SecurityStyle { get; set; }
 
         /// <summary>
-        /// Specifies the size of the volume, in megabytes (MB), that you are creating.
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+        /// </summary>
+        [Input("sizeInBytes")]
+        public Input<string>? SizeInBytes { get; set; }
+
+        /// <summary>
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
         [Input("sizeInMegabytes")]
         public Input<int>? SizeInMegabytes { get; set; }
@@ -473,6 +521,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("uuid")]
         public Input<string>? Uuid { get; set; }
+
+        /// <summary>
+        /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+        /// </summary>
+        [Input("volumeStyle")]
+        public Input<string>? VolumeStyle { get; set; }
 
         /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.

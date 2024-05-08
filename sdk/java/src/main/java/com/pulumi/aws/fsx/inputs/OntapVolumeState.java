@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fsx.inputs;
 
+import com.pulumi.aws.fsx.inputs.OntapVolumeAggregateConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeSnaplockConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeTieringPolicyArgs;
 import com.pulumi.core.Output;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
 
     public static final OntapVolumeState Empty = new OntapVolumeState();
+
+    /**
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * 
+     */
+    @Import(name="aggregateConfiguration")
+    private @Nullable Output<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration;
+
+    /**
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * 
+     */
+    public Optional<Output<OntapVolumeAggregateConfigurationArgs>> aggregateConfiguration() {
+        return Optional.ofNullable(this.aggregateConfiguration);
+    }
 
     /**
      * Amazon Resource Name of the volune.
@@ -156,14 +172,29 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * 
+     */
+    @Import(name="sizeInBytes")
+    private @Nullable Output<String> sizeInBytes;
+
+    /**
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * 
+     */
+    public Optional<Output<String>> sizeInBytes() {
+        return Optional.ofNullable(this.sizeInBytes);
+    }
+
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Import(name="sizeInMegabytes")
     private @Nullable Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Optional<Output<Integer>> sizeInMegabytes() {
@@ -314,6 +345,21 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * 
+     */
+    @Import(name="volumeStyle")
+    private @Nullable Output<String> volumeStyle;
+
+    /**
+     * @return Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * 
+     */
+    public Optional<Output<String>> volumeStyle() {
+        return Optional.ofNullable(this.volumeStyle);
+    }
+
+    /**
      * The type of volume, currently the only valid value is `ONTAP`.
      * 
      */
@@ -331,6 +377,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     private OntapVolumeState() {}
 
     private OntapVolumeState(OntapVolumeState $) {
+        this.aggregateConfiguration = $.aggregateConfiguration;
         this.arn = $.arn;
         this.bypassSnaplockEnterpriseRetention = $.bypassSnaplockEnterpriseRetention;
         this.copyTagsToBackups = $.copyTagsToBackups;
@@ -340,6 +387,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.ontapVolumeType = $.ontapVolumeType;
         this.securityStyle = $.securityStyle;
+        this.sizeInBytes = $.sizeInBytes;
         this.sizeInMegabytes = $.sizeInMegabytes;
         this.skipFinalBackup = $.skipFinalBackup;
         this.snaplockConfiguration = $.snaplockConfiguration;
@@ -350,6 +398,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         this.tagsAll = $.tagsAll;
         this.tieringPolicy = $.tieringPolicy;
         this.uuid = $.uuid;
+        this.volumeStyle = $.volumeStyle;
         this.volumeType = $.volumeType;
     }
 
@@ -369,6 +418,27 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(OntapVolumeState defaults) {
             $ = new OntapVolumeState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateConfiguration(@Nullable Output<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration) {
+            $.aggregateConfiguration = aggregateConfiguration;
+            return this;
+        }
+
+        /**
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateConfiguration(OntapVolumeAggregateConfigurationArgs aggregateConfiguration) {
+            return aggregateConfiguration(Output.of(aggregateConfiguration));
         }
 
         /**
@@ -561,7 +631,28 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sizeInBytes(@Nullable Output<String> sizeInBytes) {
+            $.sizeInBytes = sizeInBytes;
+            return this;
+        }
+
+        /**
+         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sizeInBytes(String sizeInBytes) {
+            return sizeInBytes(Output.of(sizeInBytes));
+        }
+
+        /**
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -572,7 +663,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -776,6 +867,27 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder uuid(String uuid) {
             return uuid(Output.of(uuid));
+        }
+
+        /**
+         * @param volumeStyle Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeStyle(@Nullable Output<String> volumeStyle) {
+            $.volumeStyle = volumeStyle;
+            return this;
+        }
+
+        /**
+         * @param volumeStyle Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeStyle(String volumeStyle) {
+            return volumeStyle(Output.of(volumeStyle));
         }
 
         /**

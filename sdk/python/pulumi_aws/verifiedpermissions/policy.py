@@ -22,8 +22,6 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         if definition is not None:
@@ -46,8 +44,6 @@ class PolicyArgs:
     def definition(self) -> Optional[pulumi.Input['PolicyDefinitionArgs']]:
         """
         The definition of the policy. See Definition below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "definition")
 
@@ -65,9 +61,9 @@ class _PolicyState:
                  policy_store_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+        :param pulumi.Input[str] created_date: The date the policy was created.
         :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] policy_id: The Policy ID of the policy.
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         """
         if created_date is not None:
@@ -82,6 +78,9 @@ class _PolicyState:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the policy was created.
+        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -93,8 +92,6 @@ class _PolicyState:
     def definition(self) -> Optional[pulumi.Input['PolicyDefinitionArgs']]:
         """
         The definition of the policy. See Definition below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "definition")
 
@@ -105,6 +102,9 @@ class _PolicyState:
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Policy ID of the policy.
+        """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
@@ -163,8 +163,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']] definition: The definition of the policy. See Definition below.
-               
-               The following arguments are optional:
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         """
         ...
@@ -254,9 +252,9 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] created_date: The date the policy was created.
         :param pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']] definition: The definition of the policy. See Definition below.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] policy_id: The Policy ID of the policy.
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -272,6 +270,9 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
+        """
+        The date the policy was created.
+        """
         return pulumi.get(self, "created_date")
 
     @property
@@ -279,14 +280,15 @@ class Policy(pulumi.CustomResource):
     def definition(self) -> pulumi.Output[Optional['outputs.PolicyDefinition']]:
         """
         The definition of the policy. See Definition below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
+        """
+        The Policy ID of the policy.
+        """
         return pulumi.get(self, "policy_id")
 
     @property

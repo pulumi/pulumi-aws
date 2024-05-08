@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrameworkControlSet {
     /**
-     * @return List of controls within the control set. See `controls` below.
+     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
     private @Nullable List<FrameworkControlSetControl> controls;
@@ -32,7 +32,7 @@ public final class FrameworkControlSet {
 
     private FrameworkControlSet() {}
     /**
-     * @return List of controls within the control set. See `controls` below.
+     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
     public List<FrameworkControlSetControl> controls() {

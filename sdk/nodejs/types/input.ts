@@ -287,6 +287,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    chatbot?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     chime?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -7441,7 +7445,7 @@ export namespace auditmanager {
 
     export interface FrameworkControlSet {
         /**
-         * List of controls within the control set. See `controls` below.
+         * Configuration block(s) for the controls within the control set. See `controls` Block below for details.
          */
         controls?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSetControl>[]>;
         /**
@@ -9154,10 +9158,6 @@ export namespace bcmdata {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         create?: pulumi.Input<string>;
-        /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-         */
-        delete?: pulumi.Input<string>;
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
@@ -23432,6 +23432,9 @@ export namespace ecr {
          * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
          */
         countUnit?: string;
+        /**
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         */
         tagPatternLists?: string[];
         /**
          * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
@@ -23456,6 +23459,9 @@ export namespace ecr {
          * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
          */
         countUnit?: pulumi.Input<string>;
+        /**
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         */
         tagPatternLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
@@ -27673,6 +27679,21 @@ export namespace fsx {
          * IP addresses of the storage virtual machine endpoint.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapVolumeAggregateConfiguration {
+        /**
+         * Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+         */
+        aggregates?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+         */
+        constituentsPerAggregate?: pulumi.Input<number>;
+        /**
+         * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+         */
+        totalConstituents?: pulumi.Input<number>;
     }
 
     export interface OntapVolumeSnaplockConfiguration {
@@ -58353,19 +58374,61 @@ export namespace route53domains {
     }
 
     export interface RegisteredDomainBillingContact {
+        /**
+         * First line of the contact's address.
+         */
         addressLine1?: pulumi.Input<string>;
+        /**
+         * Second line of contact's address, if any.
+         */
         addressLine2?: pulumi.Input<string>;
+        /**
+         * The city of the contact's address.
+         */
         city?: pulumi.Input<string>;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
         contactType?: pulumi.Input<string>;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
         countryCode?: pulumi.Input<string>;
+        /**
+         * Email address of the contact.
+         */
         email?: pulumi.Input<string>;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
         extraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
         fax?: pulumi.Input<string>;
+        /**
+         * First name of contact.
+         */
         firstName?: pulumi.Input<string>;
+        /**
+         * Last name of contact.
+         */
         lastName?: pulumi.Input<string>;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
         organizationName?: pulumi.Input<string>;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
         phoneNumber?: pulumi.Input<string>;
+        /**
+         * The state or province of the contact's city.
+         */
         state?: pulumi.Input<string>;
+        /**
+         * The zip or postal code of the contact's address.
+         */
         zipCode?: pulumi.Input<string>;
     }
 

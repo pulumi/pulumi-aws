@@ -233,7 +233,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Tags associated to the cluster
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// VPC Id associated with the cluster
         /// </summary>
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.RedShift
 
             string s3KeyPrefix,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string vpcId,
 

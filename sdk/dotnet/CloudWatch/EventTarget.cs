@@ -754,6 +754,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> EventBusName { get; private set; } = null!;
 
         /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         /// </summary>
         [Output("httpTarget")]
@@ -911,6 +917,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventBusName { get; set; }
 
         /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         /// </summary>
         [Input("httpTarget")]
@@ -1034,6 +1046,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CloudFront
         /// CloudFront system.
         /// </summary>
         public readonly string Status;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// AWS WAF web ACL associated with this distribution.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.CloudFront
 
             string status,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string webAclId)
         {

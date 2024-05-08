@@ -62,6 +62,41 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapFileSystem;
+ * import com.pulumi.aws.fsx.OntapFileSystemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testhapairs = new OntapFileSystem(&#34;testhapairs&#34;, OntapFileSystemArgs.builder()        
+ *             .storageCapacity(2048)
+ *             .subnetIds(test1.id())
+ *             .deploymentType(&#34;SINGLE_AZ_2&#34;)
+ *             .throughputCapacityPerHaPair(3072)
+ *             .preferredSubnetId(test1.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:
@@ -117,14 +152,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     public Output<String> deploymentType() {
@@ -201,14 +236,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fsxAdminPassword);
     }
     /**
-     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
      * 
      */
     @Export(name="haPairs", refs={Integer.class}, tree="[0]")
     private Output<Integer> haPairs;
 
     /**
-     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
      * 
      */
     public Output<Integer> haPairs() {
@@ -299,18 +334,18 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> storageCapacity;
+    private Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
      * 
      */
-    public Output<Optional<Integer>> storageCapacity() {
-        return Codegen.optional(this.storageCapacity);
+    public Output<Integer> storageCapacity() {
+        return this.storageCapacity;
     }
     /**
      * The filesystem storage type. defaults to `SSD`.
@@ -373,32 +408,32 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> throughputCapacity;
+    private Output<Integer> throughputCapacity;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Output<Optional<Integer>> throughputCapacity() {
-        return Codegen.optional(this.throughputCapacity);
+    public Output<Integer> throughputCapacity() {
+        return this.throughputCapacity;
     }
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     @Export(name="throughputCapacityPerHaPair", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> throughputCapacityPerHaPair;
+    private Output<Integer> throughputCapacityPerHaPair;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Output<Optional<Integer>> throughputCapacityPerHaPair() {
-        return Codegen.optional(this.throughputCapacityPerHaPair);
+    public Output<Integer> throughputCapacityPerHaPair() {
+        return this.throughputCapacityPerHaPair;
     }
     /**
      * Identifier of the Virtual Private Cloud for the file system.

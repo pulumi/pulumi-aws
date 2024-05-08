@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
-        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
+        [Obsolete(@"This parameter will be replaced by `compute_environment_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
-        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
+        [Obsolete(@"This parameter will be replaced by `compute_environment_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());

@@ -36,7 +36,10 @@ import (
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(testAwsAuditmanagerControl.Id),
+//								Id: pulumi.Any(test1.Id),
+//							},
+//							&auditmanager.FrameworkControlSetControlArgs{
+//								Id: pulumi.Any(test2.Id),
 //							},
 //						},
 //					},
@@ -66,7 +69,7 @@ type Framework struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType pulumi.StringPtrOutput `pulumi:"complianceType"`
-	// Control sets that are associated with the framework. See `controlSets` below.
+	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 	//
 	// The following arguments are optional:
 	ControlSets FrameworkControlSetArrayOutput `pulumi:"controlSets"`
@@ -117,7 +120,7 @@ type frameworkState struct {
 	Arn *string `pulumi:"arn"`
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType *string `pulumi:"complianceType"`
-	// Control sets that are associated with the framework. See `controlSets` below.
+	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 	//
 	// The following arguments are optional:
 	ControlSets []FrameworkControlSet `pulumi:"controlSets"`
@@ -139,7 +142,7 @@ type FrameworkState struct {
 	Arn pulumi.StringPtrInput
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType pulumi.StringPtrInput
-	// Control sets that are associated with the framework. See `controlSets` below.
+	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 	//
 	// The following arguments are optional:
 	ControlSets FrameworkControlSetArrayInput
@@ -162,7 +165,7 @@ func (FrameworkState) ElementType() reflect.Type {
 type frameworkArgs struct {
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType *string `pulumi:"complianceType"`
-	// Control sets that are associated with the framework. See `controlSets` below.
+	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 	//
 	// The following arguments are optional:
 	ControlSets []FrameworkControlSet `pulumi:"controlSets"`
@@ -178,7 +181,7 @@ type frameworkArgs struct {
 type FrameworkArgs struct {
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType pulumi.StringPtrInput
-	// Control sets that are associated with the framework. See `controlSets` below.
+	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 	//
 	// The following arguments are optional:
 	ControlSets FrameworkControlSetArrayInput
@@ -288,7 +291,7 @@ func (o FrameworkOutput) ComplianceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.ComplianceType }).(pulumi.StringPtrOutput)
 }
 
-// Control sets that are associated with the framework. See `controlSets` below.
+// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
 //
 // The following arguments are optional:
 func (o FrameworkOutput) ControlSets() FrameworkControlSetArrayOutput {

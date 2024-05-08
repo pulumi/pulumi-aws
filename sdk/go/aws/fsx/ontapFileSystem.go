@@ -48,6 +48,36 @@ import (
 //
 // ```
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOntapFileSystem(ctx, "testhapairs", &fsx.OntapFileSystemArgs{
+//				StorageCapacity: pulumi.Int(2048),
+//				SubnetIds: pulumi.StringArray{
+//					test1.Id,
+//				},
+//				DeploymentType:              pulumi.String("SINGLE_AZ_2"),
+//				ThroughputCapacityPerHaPair: pulumi.Int(3072),
+//				PreferredSubnetId:           pulumi.Any(test1.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import FSx File Systems using the `id`. For example:
@@ -65,7 +95,7 @@ type OntapFileSystem struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
-	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+	// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
@@ -77,7 +107,7 @@ type OntapFileSystem struct {
 	Endpoints OntapFileSystemEndpointArrayOutput `pulumi:"endpoints"`
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrOutput `pulumi:"fsxAdminPassword"`
-	// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+	// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 	HaPairs pulumi.IntOutput `pulumi:"haPairs"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -91,8 +121,8 @@ type OntapFileSystem struct {
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
+	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
@@ -103,10 +133,10 @@ type OntapFileSystem struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
-	ThroughputCapacity pulumi.IntPtrOutput `pulumi:"throughputCapacity"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
-	ThroughputCapacityPerHaPair pulumi.IntPtrOutput `pulumi:"throughputCapacityPerHaPair"`
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	ThroughputCapacityPerHaPair pulumi.IntOutput `pulumi:"throughputCapacityPerHaPair"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -125,6 +155,9 @@ func NewOntapFileSystem(ctx *pulumi.Context,
 	}
 	if args.PreferredSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'PreferredSubnetId'")
+	}
+	if args.StorageCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'StorageCapacity'")
 	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
@@ -165,7 +198,7 @@ type ontapFileSystemState struct {
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+	// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -177,7 +210,7 @@ type ontapFileSystemState struct {
 	Endpoints []OntapFileSystemEndpoint `pulumi:"endpoints"`
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword *string `pulumi:"fsxAdminPassword"`
-	// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+	// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 	HaPairs *int `pulumi:"haPairs"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -191,7 +224,7 @@ type ontapFileSystemState struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The filesystem storage type. defaults to `SSD`.
 	StorageType *string `pulumi:"storageType"`
@@ -203,9 +236,9 @@ type ontapFileSystemState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair *int `pulumi:"throughputCapacityPerHaPair"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId *string `pulumi:"vpcId"`
@@ -220,7 +253,7 @@ type OntapFileSystemState struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+	// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 	DeploymentType pulumi.StringPtrInput
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
@@ -232,7 +265,7 @@ type OntapFileSystemState struct {
 	Endpoints OntapFileSystemEndpointArrayInput
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrInput
-	// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+	// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 	HaPairs pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
@@ -246,7 +279,7 @@ type OntapFileSystemState struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
 	StorageCapacity pulumi.IntPtrInput
 	// The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrInput
@@ -258,9 +291,9 @@ type OntapFileSystemState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacity pulumi.IntPtrInput
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair pulumi.IntPtrInput
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringPtrInput
@@ -277,7 +310,7 @@ type ontapFileSystemArgs struct {
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+	// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 	DeploymentType string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -285,7 +318,7 @@ type ontapFileSystemArgs struct {
 	EndpointIpAddressRange *string `pulumi:"endpointIpAddressRange"`
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword *string `pulumi:"fsxAdminPassword"`
-	// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+	// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 	HaPairs *int `pulumi:"haPairs"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -295,17 +328,17 @@ type ontapFileSystemArgs struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-	StorageCapacity *int `pulumi:"storageCapacity"`
+	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+	StorageCapacity int `pulumi:"storageCapacity"`
 	// The filesystem storage type. defaults to `SSD`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair *int `pulumi:"throughputCapacityPerHaPair"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
@@ -317,7 +350,7 @@ type OntapFileSystemArgs struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+	// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 	DeploymentType pulumi.StringInput
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
@@ -325,7 +358,7 @@ type OntapFileSystemArgs struct {
 	EndpointIpAddressRange pulumi.StringPtrInput
 	// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrInput
-	// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+	// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 	HaPairs pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
@@ -335,17 +368,17 @@ type OntapFileSystemArgs struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-	StorageCapacity pulumi.IntPtrInput
+	// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+	StorageCapacity pulumi.IntInput
 	// The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacity pulumi.IntPtrInput
-	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair pulumi.IntPtrInput
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput
@@ -453,7 +486,7 @@ func (o OntapFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOutp
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
 }
 
-// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
 func (o OntapFileSystemOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.DeploymentType }).(pulumi.StringOutput)
 }
@@ -483,7 +516,7 @@ func (o OntapFileSystemOutput) FsxAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringPtrOutput { return v.FsxAdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+// The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
 func (o OntapFileSystemOutput) HaPairs() pulumi.IntOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntOutput { return v.HaPairs }).(pulumi.IntOutput)
 }
@@ -518,9 +551,9 @@ func (o OntapFileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-func (o OntapFileSystemOutput) StorageCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntPtrOutput { return v.StorageCapacity }).(pulumi.IntPtrOutput)
+// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+func (o OntapFileSystemOutput) StorageCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntOutput { return v.StorageCapacity }).(pulumi.IntOutput)
 }
 
 // The filesystem storage type. defaults to `SSD`.
@@ -545,14 +578,14 @@ func (o OntapFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
-func (o OntapFileSystemOutput) ThroughputCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntPtrOutput { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
+// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+func (o OntapFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntOutput { return v.ThroughputCapacity }).(pulumi.IntOutput)
 }
 
-// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
-func (o OntapFileSystemOutput) ThroughputCapacityPerHaPair() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntPtrOutput { return v.ThroughputCapacityPerHaPair }).(pulumi.IntPtrOutput)
+// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+func (o OntapFileSystemOutput) ThroughputCapacityPerHaPair() pulumi.IntOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntOutput { return v.ThroughputCapacityPerHaPair }).(pulumi.IntOutput)
 }
 
 // Identifier of the Virtual Private Cloud for the file system.

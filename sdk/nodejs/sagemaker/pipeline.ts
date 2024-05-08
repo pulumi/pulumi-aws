@@ -100,7 +100,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
-     * The name of the Pipeline (must be unique).
+     * The ARN of the IAM role the pipeline will execute as.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface PipelineState {
      */
     pipelineName?: pulumi.Input<string>;
     /**
-     * The name of the Pipeline (must be unique).
+     * The ARN of the IAM role the pipeline will execute as.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -238,7 +238,7 @@ export interface PipelineArgs {
      */
     pipelineName: pulumi.Input<string>;
     /**
-     * The name of the Pipeline (must be unique).
+     * The ARN of the IAM role the pipeline will execute as.
      */
     roleArn?: pulumi.Input<string>;
     /**

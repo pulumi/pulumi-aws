@@ -117,7 +117,7 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
-     * @deprecated This parameter will be replaced by `computeEnvironmentsOrder`.
+     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
      */
     public readonly computeEnvironments!: pulumi.Output<string[] | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface JobQueueState {
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
-     * @deprecated This parameter will be replaced by `computeEnvironmentsOrder`.
+     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -255,7 +255,7 @@ export interface JobQueueArgs {
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
-     * @deprecated This parameter will be replaced by `computeEnvironmentsOrder`.
+     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**

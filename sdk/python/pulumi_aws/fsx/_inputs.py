@@ -31,6 +31,7 @@ __all__ = [
     'OntapStorageVirtualMachineEndpointManagementArgs',
     'OntapStorageVirtualMachineEndpointNfArgs',
     'OntapStorageVirtualMachineEndpointSmbArgs',
+    'OntapVolumeAggregateConfigurationArgs',
     'OntapVolumeSnaplockConfigurationArgs',
     'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs',
     'OntapVolumeSnaplockConfigurationRetentionPeriodArgs',
@@ -1027,6 +1028,61 @@ class OntapStorageVirtualMachineEndpointSmbArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+
+@pulumi.input_type
+class OntapVolumeAggregateConfigurationArgs:
+    def __init__(__self__, *,
+                 aggregates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 constituents_per_aggregate: Optional[pulumi.Input[int]] = None,
+                 total_constituents: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aggregates: Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        :param pulumi.Input[int] constituents_per_aggregate: Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        :param pulumi.Input[int] total_constituents: The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        """
+        if aggregates is not None:
+            pulumi.set(__self__, "aggregates", aggregates)
+        if constituents_per_aggregate is not None:
+            pulumi.set(__self__, "constituents_per_aggregate", constituents_per_aggregate)
+        if total_constituents is not None:
+            pulumi.set(__self__, "total_constituents", total_constituents)
+
+    @property
+    @pulumi.getter
+    def aggregates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        """
+        return pulumi.get(self, "aggregates")
+
+    @aggregates.setter
+    def aggregates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aggregates", value)
+
+    @property
+    @pulumi.getter(name="constituentsPerAggregate")
+    def constituents_per_aggregate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        """
+        return pulumi.get(self, "constituents_per_aggregate")
+
+    @constituents_per_aggregate.setter
+    def constituents_per_aggregate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "constituents_per_aggregate", value)
+
+    @property
+    @pulumi.getter(name="totalConstituents")
+    def total_constituents(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        """
+        return pulumi.get(self, "total_constituents")
+
+    @total_constituents.setter
+    def total_constituents(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_constituents", value)
 
 
 @pulumi.input_type

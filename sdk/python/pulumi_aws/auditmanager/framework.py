@@ -24,7 +24,7 @@ class FrameworkArgs:
         """
         The set of arguments for constructing a Framework resource.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Control sets that are associated with the framework. See `control_sets` below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
@@ -58,7 +58,7 @@ class FrameworkArgs:
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]]:
         """
-        Control sets that are associated with the framework. See `control_sets` below.
+        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
 
         The following arguments are optional:
         """
@@ -121,7 +121,7 @@ class _FrameworkState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the framework.
                * `control_sets[*].id` - Unique identifier for the framework control set.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Control sets that are associated with the framework. See `control_sets` below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
@@ -178,7 +178,7 @@ class _FrameworkState:
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]]:
         """
-        Control sets that are associated with the framework. See `control_sets` below.
+        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
 
         The following arguments are optional:
         """
@@ -275,9 +275,14 @@ class Framework(pulumi.CustomResource):
             name="example",
             control_sets=[aws.auditmanager.FrameworkControlSetArgs(
                 name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=test_aws_auditmanager_control["id"],
-                )],
+                controls=[
+                    aws.auditmanager.FrameworkControlSetControlArgs(
+                        id=test1["id"],
+                    ),
+                    aws.auditmanager.FrameworkControlSetControlArgs(
+                        id=test2["id"],
+                    ),
+                ],
             )])
         ```
 
@@ -292,7 +297,7 @@ class Framework(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Control sets that are associated with the framework. See `control_sets` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
@@ -320,9 +325,14 @@ class Framework(pulumi.CustomResource):
             name="example",
             control_sets=[aws.auditmanager.FrameworkControlSetArgs(
                 name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=test_aws_auditmanager_control["id"],
-                )],
+                controls=[
+                    aws.auditmanager.FrameworkControlSetControlArgs(
+                        id=test1["id"],
+                    ),
+                    aws.auditmanager.FrameworkControlSetControlArgs(
+                        id=test2["id"],
+                    ),
+                ],
             )])
         ```
 
@@ -399,7 +409,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the framework.
                * `control_sets[*].id` - Unique identifier for the framework control set.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Control sets that are associated with the framework. See `control_sets` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
@@ -442,7 +452,7 @@ class Framework(pulumi.CustomResource):
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> pulumi.Output[Optional[Sequence['outputs.FrameworkControlSet']]]:
         """
-        Control sets that are associated with the framework. See `control_sets` below.
+        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
 
         The following arguments are optional:
         """

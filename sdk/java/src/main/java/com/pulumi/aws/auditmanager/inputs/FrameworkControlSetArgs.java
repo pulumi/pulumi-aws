@@ -19,14 +19,14 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
     public static final FrameworkControlSetArgs Empty = new FrameworkControlSetArgs();
 
     /**
-     * List of controls within the control set. See `controls` below.
+     * Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
     @Import(name="controls")
     private @Nullable Output<List<FrameworkControlSetControlArgs>> controls;
 
     /**
-     * @return List of controls within the control set. See `controls` below.
+     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
     public Optional<Output<List<FrameworkControlSetControlArgs>>> controls() {
@@ -90,7 +90,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param controls List of controls within the control set. See `controls` below.
+         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param controls List of controls within the control set. See `controls` below.
+         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param controls List of controls within the control set. See `controls` below.
+         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
          * 
          * @return builder
          * 

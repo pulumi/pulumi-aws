@@ -578,6 +578,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Chatbot { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Chime { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

@@ -16,6 +16,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventTargetSagemakerPipelineTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetSqsTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,6 +103,21 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> eventBusName() {
         return Optional.ofNullable(this.eventBusName);
+    }
+
+    /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
     }
 
     /**
@@ -311,6 +327,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         this.deadLetterConfig = $.deadLetterConfig;
         this.ecsTarget = $.ecsTarget;
         this.eventBusName = $.eventBusName;
+        this.forceDestroy = $.forceDestroy;
         this.httpTarget = $.httpTarget;
         this.input = $.input;
         this.inputPath = $.inputPath;
@@ -449,6 +466,27 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder eventBusName(String eventBusName) {
             return eventBusName(Output.of(eventBusName));
+        }
+
+        /**
+         * @param forceDestroy Used to delete managed rules created by AWS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy Used to delete managed rules created by AWS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

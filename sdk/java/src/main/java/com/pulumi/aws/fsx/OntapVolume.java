@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.OntapVolumeArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeState;
+import com.pulumi.aws.fsx.outputs.OntapVolumeAggregateConfiguration;
 import com.pulumi.aws.fsx.outputs.OntapVolumeSnaplockConfiguration;
 import com.pulumi.aws.fsx.outputs.OntapVolumeTieringPolicy;
 import com.pulumi.core.Output;
@@ -117,6 +118,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
 public class OntapVolume extends com.pulumi.resources.CustomResource {
+    /**
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * 
+     */
+    @Export(name="aggregateConfiguration", refs={OntapVolumeAggregateConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ OntapVolumeAggregateConfiguration> aggregateConfiguration;
+
+    /**
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * 
+     */
+    public Output<Optional<OntapVolumeAggregateConfiguration>> aggregateConfiguration() {
+        return Codegen.optional(this.aggregateConfiguration);
+    }
     /**
      * Amazon Resource Name of the volune.
      * 
@@ -244,14 +259,28 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.securityStyle;
     }
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * 
+     */
+    @Export(name="sizeInBytes", refs={String.class}, tree="[0]")
+    private Output<String> sizeInBytes;
+
+    /**
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * 
+     */
+    public Output<String> sizeInBytes() {
+        return this.sizeInBytes;
+    }
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Export(name="sizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Output<Integer> sizeInMegabytes() {
@@ -386,6 +415,20 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      */
     public Output<String> uuid() {
         return this.uuid;
+    }
+    /**
+     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * 
+     */
+    @Export(name="volumeStyle", refs={String.class}, tree="[0]")
+    private Output<String> volumeStyle;
+
+    /**
+     * @return Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * 
+     */
+    public Output<String> volumeStyle() {
+        return this.volumeStyle;
     }
     /**
      * The type of volume, currently the only valid value is `ONTAP`.

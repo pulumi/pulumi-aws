@@ -50,17 +50,21 @@ namespace Pulumi.Aws.VerifiedPermissions
     [AwsResourceType("aws:verifiedpermissions/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The date the policy was created.
+        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The definition of the policy. See Definition below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("definition")]
         public Output<Outputs.PolicyDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The Policy ID of the policy.
+        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
@@ -118,8 +122,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     {
         /// <summary>
         /// The definition of the policy. See Definition below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("definition")]
         public Input<Inputs.PolicyDefinitionArgs>? Definition { get; set; }
@@ -138,17 +140,21 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The date the policy was created.
+        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
         /// The definition of the policy. See Definition below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("definition")]
         public Input<Inputs.PolicyDefinitionGetArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// The Policy ID of the policy.
+        /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 

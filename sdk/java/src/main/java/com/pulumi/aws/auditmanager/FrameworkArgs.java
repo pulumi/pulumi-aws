@@ -34,7 +34,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Control sets that are associated with the framework. See `control_sets` below.
+     * Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -43,7 +43,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FrameworkControlSetArgs>> controlSets;
 
     /**
-     * @return Control sets that are associated with the framework. See `control_sets` below.
+     * @return Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -147,7 +147,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Control sets that are associated with the framework. See `control_sets` below.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -160,7 +160,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Control sets that are associated with the framework. See `control_sets` below.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -172,7 +172,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Control sets that are associated with the framework. See `control_sets` below.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
          * 
          * The following arguments are optional:
          * 

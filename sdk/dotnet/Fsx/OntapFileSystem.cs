@@ -39,6 +39,29 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testhapairs = new Aws.Fsx.OntapFileSystem("testhapairs", new()
+    ///     {
+    ///         StorageCapacity = 2048,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             test1.Id,
+    ///         },
+    ///         DeploymentType = "SINGLE_AZ_2",
+    ///         ThroughputCapacityPerHaPair = 3072,
+    ///         PreferredSubnetId = test1.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:
@@ -70,7 +93,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -106,7 +129,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> FsxAdminPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         /// </summary>
         [Output("haPairs")]
         public Output<int> HaPairs { get; private set; } = null!;
@@ -148,10 +171,10 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         /// </summary>
         [Output("storageCapacity")]
-        public Output<int?> StorageCapacity { get; private set; } = null!;
+        public Output<int> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The filesystem storage type. defaults to `SSD`.
@@ -178,16 +201,16 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Output("throughputCapacity")]
-        public Output<int?> ThroughputCapacity { get; private set; } = null!;
+        public Output<int> ThroughputCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Output("throughputCapacityPerHaPair")]
-        public Output<int?> ThroughputCapacityPerHaPair { get; private set; } = null!;
+        public Output<int> ThroughputCapacityPerHaPair { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
@@ -264,7 +287,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
@@ -298,7 +321,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         /// </summary>
         [Input("haPairs")]
         public Input<int>? HaPairs { get; set; }
@@ -340,10 +363,10 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         /// </summary>
-        [Input("storageCapacity")]
-        public Input<int>? StorageCapacity { get; set; }
+        [Input("storageCapacity", required: true)]
+        public Input<int> StorageCapacity { get; set; } = null!;
 
         /// <summary>
         /// The filesystem storage type. defaults to `SSD`.
@@ -376,13 +399,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacityPerHaPair")]
         public Input<int>? ThroughputCapacityPerHaPair { get; set; }
@@ -420,7 +443,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -472,7 +495,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         /// </summary>
         [Input("haPairs")]
         public Input<int>? HaPairs { get; set; }
@@ -532,7 +555,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
+        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
@@ -581,13 +604,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacityPerHaPair")]
         public Input<int>? ThroughputCapacityPerHaPair { get; set; }

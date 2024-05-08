@@ -529,6 +529,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="chatbot")
+    private @Nullable Output<String> chatbot;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> chatbot() {
+        return Optional.ofNullable(this.chatbot);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="chime")
     private @Nullable Output<String> chime;
 
@@ -4237,6 +4252,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.bedrockagent = $.bedrockagent;
         this.budgets = $.budgets;
         this.ce = $.ce;
+        this.chatbot = $.chatbot;
         this.chime = $.chime;
         this.chimesdkmediapipelines = $.chimesdkmediapipelines;
         this.chimesdkvoice = $.chimesdkvoice;
@@ -5214,6 +5230,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder ce(String ce) {
             return ce(Output.of(ce));
+        }
+
+        /**
+         * @param chatbot Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chatbot(@Nullable Output<String> chatbot) {
+            $.chatbot = chatbot;
+            return this;
+        }
+
+        /**
+         * @param chatbot Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chatbot(String chatbot) {
+            return chatbot(Output.of(chatbot));
         }
 
         /**

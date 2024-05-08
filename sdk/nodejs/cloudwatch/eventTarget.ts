@@ -462,6 +462,10 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
     public readonly httpTarget!: pulumi.Output<outputs.cloudwatch.EventTargetHttpTarget | undefined>;
@@ -534,6 +538,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             resourceInputs["ecsTarget"] = state ? state.ecsTarget : undefined;
             resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["httpTarget"] = state ? state.httpTarget : undefined;
             resourceInputs["input"] = state ? state.input : undefined;
             resourceInputs["inputPath"] = state ? state.inputPath : undefined;
@@ -560,6 +565,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             resourceInputs["ecsTarget"] = args ? args.ecsTarget : undefined;
             resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["httpTarget"] = args ? args.httpTarget : undefined;
             resourceInputs["input"] = args ? args.input : undefined;
             resourceInputs["inputPath"] = args ? args.inputPath : undefined;
@@ -604,6 +610,10 @@ export interface EventTargetState {
      * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
+    /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
@@ -685,6 +695,10 @@ export interface EventTargetArgs {
      * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
+    /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */

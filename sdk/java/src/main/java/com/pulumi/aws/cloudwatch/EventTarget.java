@@ -21,6 +21,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -788,6 +789,20 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> eventBusName() {
         return Codegen.optional(this.eventBusName);
+    }
+    /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceDestroy;
+
+    /**
+     * @return Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDestroy() {
+        return Codegen.optional(this.forceDestroy);
     }
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.

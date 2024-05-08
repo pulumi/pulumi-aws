@@ -22,6 +22,7 @@ class EventTargetArgs:
                  dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
                  ecs_target: Optional[pulumi.Input['EventTargetEcsTargetArgs']] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  http_target: Optional[pulumi.Input['EventTargetHttpTargetArgs']] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
                If you omit this, the `default` event bus is used.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -68,6 +70,8 @@ class EventTargetArgs:
             pulumi.set(__self__, "ecs_target", ecs_target)
         if event_bus_name is not None:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if http_target is not None:
             pulumi.set(__self__, "http_target", http_target)
         if input is not None:
@@ -167,6 +171,18 @@ class EventTargetArgs:
     @event_bus_name.setter
     def event_bus_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_bus_name", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @property
     @pulumi.getter(name="httpTarget")
@@ -321,6 +337,7 @@ class _EventTargetState:
                  dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
                  ecs_target: Optional[pulumi.Input['EventTargetEcsTargetArgs']] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  http_target: Optional[pulumi.Input['EventTargetHttpTargetArgs']] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
@@ -342,6 +359,7 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
                If you omit this, the `default` event bus is used.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -368,6 +386,8 @@ class _EventTargetState:
             pulumi.set(__self__, "ecs_target", ecs_target)
         if event_bus_name is not None:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if http_target is not None:
             pulumi.set(__self__, "http_target", http_target)
         if input is not None:
@@ -455,6 +475,18 @@ class _EventTargetState:
     @event_bus_name.setter
     def event_bus_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_bus_name", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @property
     @pulumi.getter(name="httpTarget")
@@ -625,6 +657,7 @@ class EventTarget(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']]] = None,
                  ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  http_target: Optional[pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']]] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
@@ -1013,6 +1046,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
                If you omit this, the `default` event bus is used.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -1421,6 +1455,7 @@ class EventTarget(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']]] = None,
                  ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  http_target: Optional[pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']]] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
@@ -1450,6 +1485,7 @@ class EventTarget(pulumi.CustomResource):
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["ecs_target"] = ecs_target
             __props__.__dict__["event_bus_name"] = event_bus_name
+            __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["http_target"] = http_target
             __props__.__dict__["input"] = input
             __props__.__dict__["input_path"] = input_path
@@ -1480,6 +1516,7 @@ class EventTarget(pulumi.CustomResource):
             dead_letter_config: Optional[pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']]] = None,
             ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
             event_bus_name: Optional[pulumi.Input[str]] = None,
+            force_destroy: Optional[pulumi.Input[bool]] = None,
             http_target: Optional[pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']]] = None,
             input: Optional[pulumi.Input[str]] = None,
             input_path: Optional[pulumi.Input[str]] = None,
@@ -1506,6 +1543,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
                If you omit this, the `default` event bus is used.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -1531,6 +1569,7 @@ class EventTarget(pulumi.CustomResource):
         __props__.__dict__["dead_letter_config"] = dead_letter_config
         __props__.__dict__["ecs_target"] = ecs_target
         __props__.__dict__["event_bus_name"] = event_bus_name
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["http_target"] = http_target
         __props__.__dict__["input"] = input
         __props__.__dict__["input_path"] = input_path
@@ -1586,6 +1625,14 @@ class EventTarget(pulumi.CustomResource):
         If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
 
     @property
     @pulumi.getter(name="httpTarget")

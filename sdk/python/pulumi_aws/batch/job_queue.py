@@ -40,8 +40,8 @@ class JobQueueArgs:
         if compute_environment_orders is not None:
             pulumi.set(__self__, "compute_environment_orders", compute_environment_orders)
         if compute_environments is not None:
-            warnings.warn("""This parameter will be replaced by `compute_environments_order`.""", DeprecationWarning)
-            pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environments_order`.""")
+            warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
+            pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
         if compute_environments is not None:
             pulumi.set(__self__, "compute_environments", compute_environments)
         if name is not None:
@@ -96,8 +96,8 @@ class JobQueueArgs:
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environments_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environments_order`.""")
+        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
+        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
 
         return pulumi.get(self, "compute_environments")
 
@@ -182,8 +182,8 @@ class _JobQueueState:
         if compute_environment_orders is not None:
             pulumi.set(__self__, "compute_environment_orders", compute_environment_orders)
         if compute_environments is not None:
-            warnings.warn("""This parameter will be replaced by `compute_environments_order`.""", DeprecationWarning)
-            pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environments_order`.""")
+            warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
+            pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
         if compute_environments is not None:
             pulumi.set(__self__, "compute_environments", compute_environments)
         if name is not None:
@@ -234,8 +234,8 @@ class _JobQueueState:
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environments_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environments_order`.""")
+        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
+        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
 
         return pulumi.get(self, "compute_environments")
 
@@ -618,8 +618,8 @@ class JobQueue(pulumi.CustomResource):
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environments_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environments_order`.""")
+        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
+        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
 
         return pulumi.get(self, "compute_environments")
 

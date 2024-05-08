@@ -185,6 +185,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String chatbot;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String chime;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1645,6 +1650,13 @@ public final class Endpoints {
      */
     public Optional<String> ce() {
         return Optional.ofNullable(this.ce);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> chatbot() {
+        return Optional.ofNullable(this.chatbot);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3405,6 +3417,7 @@ public final class Endpoints {
         private @Nullable String bedrockagent;
         private @Nullable String budgets;
         private @Nullable String ce;
+        private @Nullable String chatbot;
         private @Nullable String chime;
         private @Nullable String chimesdkmediapipelines;
         private @Nullable String chimesdkvoice;
@@ -3687,6 +3700,7 @@ public final class Endpoints {
     	      this.bedrockagent = defaults.bedrockagent;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
+    	      this.chatbot = defaults.chatbot;
     	      this.chime = defaults.chime;
     	      this.chimesdkmediapipelines = defaults.chimesdkmediapipelines;
     	      this.chimesdkvoice = defaults.chimesdkvoice;
@@ -4136,6 +4150,12 @@ public final class Endpoints {
         public Builder ce(@Nullable String ce) {
 
             this.ce = ce;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder chatbot(@Nullable String chatbot) {
+
+            this.chatbot = chatbot;
             return this;
         }
         @CustomType.Setter
@@ -5644,6 +5664,7 @@ public final class Endpoints {
             _resultValue.bedrockagent = bedrockagent;
             _resultValue.budgets = budgets;
             _resultValue.ce = ce;
+            _resultValue.chatbot = chatbot;
             _resultValue.chime = chime;
             _resultValue.chimesdkmediapipelines = chimesdkmediapipelines;
             _resultValue.chimesdkvoice = chimesdkvoice;
