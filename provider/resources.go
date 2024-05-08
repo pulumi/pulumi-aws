@@ -803,7 +803,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			switch s {
 			case "aws_ssm_document",
 				"aws_wafv2_web_acl",
-				"aws_launch_template",
 				"aws_batch_job_definition":
 				return true
 			default:
