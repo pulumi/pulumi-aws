@@ -358,7 +358,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.81.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.81.1-0.20240508204503-c0c57794d7bb // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi/sdk/v3 v3.113.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
