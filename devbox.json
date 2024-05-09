@@ -6,7 +6,8 @@
     "nodejs@20.",
     "python3@3.11.8",
     "dotnet-sdk@6.0.",
-    "gradle_7@7.6"
+    "gradle_7@7.6",
+    "curl@8"
   ],
   "shell": {
     "init_hook": [
