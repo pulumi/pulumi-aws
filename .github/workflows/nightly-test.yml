@@ -209,33 +209,6 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
-    - if: github.event_name == 'pull_request'
-      name: Check Configuration section
-      run: |
-        sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
-        jq -r '.config | select(.variables) | .variables | keys[]' < provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> keys.txt
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        {
-          echo "MISSING_CONFIG<<$EOF";
-          xargs -I {} sh -c "grep -q {} config_section.txt || echo \\\`{}\\\` not found in Configuration section" < keys.txt
-          echo "$EOF";
-        } >> "$GITHUB_ENV"
-
-    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
-      name: Comment on PR with Details of Configuration check
-      uses: thollander/actions-comment-pull-request@v2
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        comment_tag: configurationCheck
-        message: >+
-          ### Is README.md missing any configuration options?
-
-          ${{ env.MISSING_CONFIG || 'No missing config!' }}
-
-
-          ${{ env.MISSING_CONFIG && 'Please add a description for each of these options to `README.md`.' }}
-          ${{ env.MISSING_CONFIG && 'Details about them can be found in either the upstream docs or `schema.json`.' }}
-
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
