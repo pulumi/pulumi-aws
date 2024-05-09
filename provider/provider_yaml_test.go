@@ -303,13 +303,16 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 
 // Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
 func TestRegress3674(t *testing.T) {
-	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"))
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())
 	upResult := ptest.Up()
 	bucketName := upResult.Outputs["bucketName"].Value.(string)
 	deleteBucketTagging(ptest.Context(), bucketName)
 	result := ptest.Refresh()
 	t.Logf("%s", result.StdOut)
 	require.Equal(t, 1, (*result.Summary.ResourceChanges)["update"])
+	state, err := ptest.ExportStack().Deployment.MarshalJSON()
+	require.NoError(t, err)
+	require.NotContainsf(t, string(state), "MyTestTag", "Expected MyTestTag to be removed")
 }
 
 func configureS3() *s3sdk.Client {

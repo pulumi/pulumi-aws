@@ -13,4 +13,4 @@ resources:
     type: aws:s3:BucketV2
     properties:
       tags:
-        Name: my-bucket
+        MyTestTag: MyTestTag
