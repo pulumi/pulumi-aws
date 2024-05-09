@@ -14,7 +14,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as arn from "../arn";
 import * as iam from "../iam";
 import * as utils from "../utils";
 
@@ -185,7 +184,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
      */
-    role?: iam.Role | pulumi.Input<arn.ARN>;
+    role?: iam.Role | pulumi.Input<string>;
 
     /**
      * A list of IAM policy ARNs to attach to the Function.  Will be used if [role] is not provide.
@@ -221,7 +220,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
      * ```
      */
 
-    policies?: Record<string, pulumi.Input<arn.ARN>> | arn.ARN[];
+    policies?: Record<string, pulumi.Input<string>> | string[];
 
     /**
      * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
@@ -331,7 +330,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             throw new Error("One of [callback] or [callbackFactory] must be provided.");
         }
 
-        let role: iam.Role | pulumi.Input<arn.ARN>;
+        let role: iam.Role | pulumi.Input<string>;
         if (args.role) {
             role = args.role;
         } else {
@@ -358,7 +357,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             }
 
             if (args.policies) {
-                const policies: [string, pulumi.Input<arn.ARN>][] = Array.isArray(args.policies)
+                const policies: [string, pulumi.Input<string>][] = Array.isArray(args.policies)
                     ? args.policies.map(arn => [utils.sha1hash(arn), arn])
                     : Object.entries(args.policies);
 

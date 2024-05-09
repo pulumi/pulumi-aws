@@ -16,7 +16,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as iam from "../iam";
 import * as stream from "./stream";
 import * as lambda from "../lambda";
-import * as types from "../types";
 
 import * as utils from "../utils";
 
@@ -35,7 +34,7 @@ export interface StreamEventSubscriptionArgs {
     /**
      * An Amazon SQS queue or Amazon SNS topic destination for failed records.
      */
-    readonly destinationConfig?: pulumi.Input<types.input.lambda.EventSourceMappingDestinationConfig>;
+    readonly destinationConfig?: pulumi.Input<lambda.input.EventSourceMappingDestinationConfig>;
 
     /**
      * A list of current response type enums applied to the event source mapping. Where valid values are:

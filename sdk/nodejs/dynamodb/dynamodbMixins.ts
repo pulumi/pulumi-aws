@@ -15,7 +15,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
 import * as lambda from "../lambda";
-import * as types from "../types";
 
 import * as utils from "../utils";
 
@@ -37,12 +36,12 @@ export interface TableEventSubscriptionArgs {
     /**
      * An Amazon SQS queue or Amazon SNS topic destination for failed records.
      */
-    readonly destinationConfig?: pulumi.Input<types.input.lambda.EventSourceMappingDestinationConfig>;
+    readonly destinationConfig?: pulumi.Input<lambda.input.EventSourceMappingDestinationConfig>;
 
     /**
      * The criteria to use for event filtering the event source.
      */
-    readonly filterCriteria?: pulumi.Input<types.input.lambda.EventSourceMappingFilterCriteria>
+    readonly filterCriteria?: pulumi.Input<lambda.input.EventSourceMappingFilterCriteria>
 
     /**
      * A list of current response type enums applied to the event source mapping. Where valid values are:
