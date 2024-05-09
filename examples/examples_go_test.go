@@ -94,6 +94,11 @@ func TestTagsCombinationsGo(t *testing.T) {
 			tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{"x": "s", "y": ""}},
 			tagsState{DefaultTags: map[string]string{"x": ""}, ResourceTags: map[string]string{}},
 		},
+		{
+			"regress 3",
+			tagsState{DefaultTags: map[string]string{"x": "", "y": "s"}, ResourceTags: map[string]string{"x": "s", "y": "s"}},
+			tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{"x": "", "y": "s"}},
+		},
 	}
 
 	for i, tc := range testCases {
