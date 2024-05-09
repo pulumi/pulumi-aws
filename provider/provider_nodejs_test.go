@@ -78,3 +78,19 @@ func TestRegress3835(t *testing.T) {
 	result := test.Preview()
 	t.Logf("#%v", result.ChangeSummary)
 }
+
+func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
+	// pulumi/pulumi-terraform-bridge#1940
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "ec2-string-for-int")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	result := test.Preview()
+	t.Logf("#%v", result.ChangeSummary)
+}
