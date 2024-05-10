@@ -20,7 +20,7 @@ index d1b5102162..a6a9c190c8 100644
  
  		var ors, nrs *batch.RetryStrategy
 -		if len(o.([]interface{})) > 0 {
-+		if len(o.([]interface{})) > 0 && o.([]interface{})[0] != nil{
++		if len(o.([]interface{})) > 0 && o.([]interface{})[0] != nil {
  			oProps := o.([]interface{})[0].(map[string]interface{})
  			ors = expandRetryStrategy(oProps)
  		}
