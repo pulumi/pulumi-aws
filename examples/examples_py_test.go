@@ -67,6 +67,16 @@ func TestSecretManagerPy(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRegress3905(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-3905"),
+			ExpectRefreshChanges: true, // JobDefinition.retry_strategy is suffering from a perma diff if the dict is empty. This is caused by the upstream provider ignoring empty object types
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	pythonBase := integration.ProgramTestOptions{
