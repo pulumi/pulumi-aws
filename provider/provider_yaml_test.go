@@ -6,16 +6,20 @@
 package provider
 
 import (
+	"context"
 	"fmt"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"testing"
 
+	"github.com/aws/aws-sdk-go-v2/config"
+	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -295,4 +299,39 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 
 	_, err := ptest.CurrentStack().Up(ptest.Context())
 	require.ErrorContains(t, err, "already exists")
+}
+
+// Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
+func TestRegress3674(t *testing.T) {
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())
+	upResult := ptest.Up()
+	bucketName := upResult.Outputs["bucketName"].Value.(string)
+	deleteBucketTagging(ptest.Context(), bucketName)
+	result := ptest.Refresh()
+	t.Logf("%s", result.StdOut)
+	require.Equal(t, 1, (*result.Summary.ResourceChanges)["update"])
+	state, err := ptest.ExportStack().Deployment.MarshalJSON()
+	require.NoError(t, err)
+	require.NotContainsf(t, string(state), "MyTestTag", "Expected MyTestTag to be removed")
+}
+
+func configureS3() *s3sdk.Client {
+	loadOpts := []func(*config.LoadOptions) error{}
+	if p, ok := os.LookupEnv("AWS_PROFILE"); ok {
+		loadOpts = append(loadOpts, config.WithSharedConfigProfile(p))
+	}
+	if r, ok := os.LookupEnv("AWS_REGION"); ok {
+		loadOpts = append(loadOpts, config.WithRegion(r))
+	}
+	cfg, err := config.LoadDefaultConfig(context.TODO(), loadOpts...)
+	contract.AssertNoErrorf(err, "failed to load AWS config")
+	return s3sdk.NewFromConfig(cfg)
+}
+
+func deleteBucketTagging(ctx context.Context, awsBucket string) {
+	s3 := configureS3()
+	_, err := s3.DeleteBucketTagging(ctx, &s3sdk.DeleteBucketTaggingInput{
+		Bucket: &awsBucket,
+	})
+	contract.AssertNoErrorf(err, "failed to delete bucket tagging")
 }

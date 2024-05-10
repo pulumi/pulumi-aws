@@ -1,0 +1,16 @@
+name: regress-3674
+runtime: yaml
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-yaml
+outputs:
+  # Export the name of the bucket
+  bucketName: ${my-bucket.id}
+resources:
+  # Create an AWS resource (S3 Bucket)
+  my-bucket:
+    type: aws:s3:BucketV2
+    properties:
+      tags:
+        MyTestTag: MyTestTag

@@ -73,7 +73,7 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	assertpreview.HasNoReplacements(t, result)
 }
 
-func pulumiTest(t *testing.T, dir string) *pulumitest.PulumiTest {
+func pulumiTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
 		return nil
@@ -82,9 +82,7 @@ func pulumiTest(t *testing.T, dir string) *pulumitest.PulumiTest {
 	if err != nil {
 		t.Error(err)
 	}
-	ptest := pulumitest.NewPulumiTest(t, dir,
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-	)
-
+	opts = append(opts, opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")))
+	ptest := pulumitest.NewPulumiTest(t, dir, opts...)
 	return ptest
 }
