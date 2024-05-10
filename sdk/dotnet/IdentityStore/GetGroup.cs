@@ -13,76 +13,12 @@ namespace Pulumi.Aws.IdentityStore
     {
         /// <summary>
         /// Use this data source to get an Identity Store Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "DisplayName",
-        ///                 AttributeValue = "ExampleGroup",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["groupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get an Identity Store Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "DisplayName",
-        ///                 AttributeValue = "ExampleGroup",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["groupId"] = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

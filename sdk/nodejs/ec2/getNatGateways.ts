@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all NAT gateways in a specified VPC that are marked as available
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ngws = aws.ec2.getNatGateways({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "state",
- *         values: ["available"],
- *     }],
- * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
  */
 export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewaysResult> {
     args = args || {};
@@ -81,26 +61,6 @@ export interface GetNatGatewaysResult {
 }
 /**
  * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all NAT gateways in a specified VPC that are marked as available
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ngws = aws.ec2.getNatGateways({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "state",
- *         values: ["available"],
- *     }],
- * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
  */
 export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewaysResult> {
     return pulumi.output(args).apply((a: any) => getNatGateways(a, opts))

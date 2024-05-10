@@ -14,38 +14,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleTrustedTokenIssuer = new Aws.SsoAdmin.TrustedTokenIssuer("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         TrustedTokenIssuerType = "OIDC_JWT",
-    ///         TrustedTokenIssuerConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs
-    ///         {
-    ///             OidcJwtConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs
-    ///             {
-    ///                 ClaimAttributePath = "email",
-    ///                 IdentityStoreAttributePath = "emails.value",
-    ///                 IssuerUrl = "https://example.com",
-    ///                 JwksRetrievalOption = "OPEN_ID_DISCOVERY",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:

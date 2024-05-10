@@ -16,34 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewGroup(ctx, "this", &identitystore.GroupArgs{
-//				DisplayName:     pulumi.String("Example group"),
-//				Description:     pulumi.String("Example description"),
-//				IdentityStoreId: pulumi.Any(example.IdentityStoreIds[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:

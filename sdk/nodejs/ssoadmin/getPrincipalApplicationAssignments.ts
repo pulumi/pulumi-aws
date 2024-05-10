@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * Data source for viewing AWS SSO Admin Principal Application Assignments.
  *
  * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getPrincipalApplicationAssignments({
- *     instanceArn: test.arns[0],
- *     principalId: testAwsIdentitystoreUser.userId,
- *     principalType: "USER",
- * });
- * ```
  */
 export function getPrincipalApplicationAssignments(args: GetPrincipalApplicationAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalApplicationAssignmentsResult> {
 
@@ -81,19 +68,6 @@ export interface GetPrincipalApplicationAssignmentsResult {
  * Data source for viewing AWS SSO Admin Principal Application Assignments.
  *
  * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getPrincipalApplicationAssignments({
- *     instanceArn: test.arns[0],
- *     principalId: testAwsIdentitystoreUser.userId,
- *     principalType: "USER",
- * });
- * ```
  */
 export function getPrincipalApplicationAssignmentsOutput(args: GetPrincipalApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalApplicationAssignmentsResult> {
     return pulumi.output(args).apply((a: any) => getPrincipalApplicationAssignments(a, opts))

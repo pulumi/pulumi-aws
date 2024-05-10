@@ -282,27 +282,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
@@ -332,27 +311,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Trusted Token Issuer.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
 
         ## Import
 

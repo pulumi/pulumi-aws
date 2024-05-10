@@ -14,58 +14,6 @@ import (
 
 // Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewInstanceAccessControlAttributes(ctx, "example", &ssoadmin.InstanceAccessControlAttributesArgs{
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//				Attributes: ssoadmin.InstanceAccessControlAttributesAttributeArray{
-//					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
-//						Key: pulumi.String("name"),
-//						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
-//							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
-//								Sources: pulumi.StringArray{
-//									pulumi.String("${path:name.givenName}"),
-//								},
-//							},
-//						},
-//					},
-//					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
-//						Key: pulumi.String("last"),
-//						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
-//							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
-//								Sources: pulumi.StringArray{
-//									pulumi.String("${path:name.familyName}"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:

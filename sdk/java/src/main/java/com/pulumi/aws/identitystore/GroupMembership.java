@@ -16,65 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS IdentityStore Group Membership.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.identitystore.User;
- * import com.pulumi.aws.identitystore.UserArgs;
- * import com.pulumi.aws.identitystore.inputs.UserNameArgs;
- * import com.pulumi.aws.identitystore.Group;
- * import com.pulumi.aws.identitystore.GroupArgs;
- * import com.pulumi.aws.identitystore.GroupMembership;
- * import com.pulumi.aws.identitystore.GroupMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
- * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
- *             .displayName(&#34;John Doe&#34;)
- *             .userName(&#34;john.doe@example.com&#34;)
- *             .name(UserNameArgs.builder()
- *                 .familyName(&#34;Doe&#34;)
- *                 .givenName(&#34;John&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
- *             .displayName(&#34;MyGroup&#34;)
- *             .description(&#34;Some group name&#34;)
- *             .build());
- * 
- *         var exampleGroupMembership = new GroupMembership(&#34;exampleGroupMembership&#34;, GroupMembershipArgs.builder()        
- *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
- *             .groupId(exampleGroup.groupId())
- *             .memberId(exampleUser.userId())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:

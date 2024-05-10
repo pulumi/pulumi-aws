@@ -152,52 +152,6 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn)
-        ```
-
-        ### With Account Assignment
-
-        > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=sso_instance["identityStoreIds"],
-            display_name="Admin",
-            description="Admin Group")
-        account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
-            principal_id=example_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Managed Policy Attachments using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
@@ -224,52 +178,6 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn)
-        ```
-
-        ### With Account Assignment
-
-        > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=sso_instance["identityStoreIds"],
-            display_name="Admin",
-            description="Admin Group")
-        account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
-            principal_id=example_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
-        ```
 
         ## Import
 

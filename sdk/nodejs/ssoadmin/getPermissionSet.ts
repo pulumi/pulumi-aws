@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a Single Sign-On (SSO) Permission Set.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetPermissionSet = example.then(example => aws.ssoadmin.getPermissionSet({
- *     instanceArn: example.arns?.[0],
- *     name: "Example",
- * }));
- * export const arn = exampleGetPermissionSet.then(exampleGetPermissionSet => exampleGetPermissionSet.arn);
- * ```
  */
 export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetResult> {
 
@@ -85,20 +71,6 @@ export interface GetPermissionSetResult {
 }
 /**
  * Use this data source to get a Single Sign-On (SSO) Permission Set.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetPermissionSet = example.then(example => aws.ssoadmin.getPermissionSet({
- *     instanceArn: example.arns?.[0],
- *     name: "Example",
- * }));
- * export const arn = exampleGetPermissionSet.then(exampleGetPermissionSet => exampleGetPermissionSet.arn);
- * ```
  */
 export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
     return pulumi.output(args).apply((a: any) => getPermissionSet(a, opts))

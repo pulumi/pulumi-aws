@@ -21,54 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.TrustedTokenIssuer;
- * import com.pulumi.aws.ssoadmin.TrustedTokenIssuerArgs;
- * import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs;
- * import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
- * 
- *         var exampleTrustedTokenIssuer = new TrustedTokenIssuer(&#34;exampleTrustedTokenIssuer&#34;, TrustedTokenIssuerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
- *             .trustedTokenIssuerType(&#34;OIDC_JWT&#34;)
- *             .trustedTokenIssuerConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs.builder()
- *                 .oidcJwtConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.builder()
- *                     .claimAttributePath(&#34;email&#34;)
- *                     .identityStoreAttributePath(&#34;emails.value&#34;)
- *                     .issuerUrl(&#34;https://example.com&#34;)
- *                     .jwksRetrievalOption(&#34;OPEN_ID_DISCOVERY&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:

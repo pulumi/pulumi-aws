@@ -16,46 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewTrustedTokenIssuer(ctx, "example", &ssoadmin.TrustedTokenIssuerArgs{
-//				Name:                   pulumi.String("example"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//				TrustedTokenIssuerType: pulumi.String("OIDC_JWT"),
-//				TrustedTokenIssuerConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{
-//					OidcJwtConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{
-//						ClaimAttributePath:         pulumi.String("email"),
-//						IdentityStoreAttributePath: pulumi.String("emails.value"),
-//						IssuerUrl:                  pulumi.String("https://example.com"),
-//						JwksRetrievalOption:        pulumi.String("OPEN_ID_DISCOVERY"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:

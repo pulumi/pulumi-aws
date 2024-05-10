@@ -18,56 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributes;
- * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributesArgs;
- * import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
- * 
- *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes(&#34;exampleInstanceAccessControlAttributes&#34;, InstanceAccessControlAttributesArgs.builder()        
- *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
- *             .attributes(            
- *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key(&#34;name&#34;)
- *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
- *                         .sources(&#34;${path:name.givenName}&#34;)
- *                         .build())
- *                     .build(),
- *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key(&#34;last&#34;)
- *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
- *                         .sources(&#34;${path:name.familyName}&#34;)
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:

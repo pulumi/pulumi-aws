@@ -351,29 +351,6 @@ class Agent(pulumi.CustomResource):
             name="example")
         ```
 
-        ### With VPC Endpoints
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
-            vpc_id=example_aws_vpc["id"],
-            security_group_ids=[example_aws_security_group["id"]],
-            subnet_ids=[example_aws_subnet["id"]],
-            vpc_endpoint_type="Interface")
-        example = aws.ec2.get_network_interface_output(id=example_vpc_endpoint.network_interface_ids[0])
-        example_agent = aws.datasync.Agent("example",
-            ip_address="1.2.3.4",
-            security_group_arns=[example_aws_security_group["arn"]],
-            subnet_arns=[example_aws_subnet["arn"]],
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            private_link_endpoint=example.private_ip,
-            name="example")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
@@ -412,29 +389,6 @@ class Agent(pulumi.CustomResource):
 
         example = aws.datasync.Agent("example",
             ip_address="1.2.3.4",
-            name="example")
-        ```
-
-        ### With VPC Endpoints
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
-            vpc_id=example_aws_vpc["id"],
-            security_group_ids=[example_aws_security_group["id"]],
-            subnet_ids=[example_aws_subnet["id"]],
-            vpc_endpoint_type="Interface")
-        example = aws.ec2.get_network_interface_output(id=example_vpc_endpoint.network_interface_ids[0])
-        example_agent = aws.datasync.Agent("example",
-            ip_address="1.2.3.4",
-            security_group_arns=[example_aws_security_group["arn"]],
-            subnet_arns=[example_aws_subnet["arn"]],
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            private_link_endpoint=example.private_ip,
             name="example")
         ```
 

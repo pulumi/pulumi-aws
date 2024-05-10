@@ -15,26 +15,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// Data source for viewing AWS SSO Admin Principal Application Assignments.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
-        ///     {
-        ///         InstanceArn = test.Arns[0],
-        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
-        ///         PrincipalType = "USER",
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetPrincipalApplicationAssignmentsResult> InvokeAsync(GetPrincipalApplicationAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalApplicationAssignmentsResult>("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args ?? new GetPrincipalApplicationAssignmentsArgs(), options.WithDefaults());
@@ -43,26 +23,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// Data source for viewing AWS SSO Admin Principal Application Assignments.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
-        ///     {
-        ///         InstanceArn = test.Arns[0],
-        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
-        ///         PrincipalType = "USER",
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetPrincipalApplicationAssignmentsResult> Invoke(GetPrincipalApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalApplicationAssignmentsResult>("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args ?? new GetPrincipalApplicationAssignmentsInvokeArgs(), options.WithDefaults());

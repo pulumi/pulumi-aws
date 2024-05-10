@@ -17,26 +17,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.identitystore.User("example", {
- *     identityStoreId: exampleAwsSsoadminInstances.identityStoreIds[0],
- *     displayName: "John Doe",
- *     userName: "johndoe",
- *     name: {
- *         givenName: "John",
- *         familyName: "Doe",
- *     },
- *     emails: {
- *         value: "john@example.com",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:

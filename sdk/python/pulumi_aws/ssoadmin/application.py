@@ -368,39 +368,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        ```
-
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Admin Application using the `id`. For example:
@@ -436,39 +403,6 @@ class Application(pulumi.CustomResource):
         See this issue for additional context.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        ```
-
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
 
         ## Import
 

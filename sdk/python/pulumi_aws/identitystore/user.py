@@ -544,25 +544,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.identitystore.User("example",
-            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
@@ -605,25 +586,6 @@ class User(pulumi.CustomResource):
         users using this resource.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.identitystore.User("example",
-            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
 
         ## Import
 

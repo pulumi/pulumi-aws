@@ -44,35 +44,6 @@ namespace Pulumi.Aws.Ec2
         /// ```
         /// 
         /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using System.Threading.Tasks;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
-        /// {
-        ///     var foo = await Aws.Ec2.GetVpcs.InvokeAsync();
-        /// 
-        ///     var fooGetVpc = ;
-        /// 
-        ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Ids.Length; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
-        ///         {
-        ///             VpcId = fooGetVpc[range.Value].Id,
-        ///         }));
-        ///     }
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Ids,
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetVpcsResult> InvokeAsync(GetVpcsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithDefaults());
@@ -110,35 +81,6 @@ namespace Pulumi.Aws.Ec2
         /// ```
         /// 
         /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using System.Threading.Tasks;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
-        /// {
-        ///     var foo = await Aws.Ec2.GetVpcs.InvokeAsync();
-        /// 
-        ///     var fooGetVpc = ;
-        /// 
-        ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Ids.Length; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
-        ///         {
-        ///             VpcId = fooGetVpc[range.Value].Id,
-        ///         }));
-        ///     }
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Ids,
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetVpcsResult> Invoke(GetVpcsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithDefaults());

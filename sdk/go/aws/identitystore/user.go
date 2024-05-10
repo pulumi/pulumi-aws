@@ -21,41 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.Any(exampleAwsSsoadminInstances.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("johndoe"),
-//				Name: &identitystore.UserNameArgs{
-//					GivenName:  pulumi.String("John"),
-//					FamilyName: pulumi.String("Doe"),
-//				},
-//				Emails: &identitystore.UserEmailsArgs{
-//					Value: pulumi.String("john@example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:

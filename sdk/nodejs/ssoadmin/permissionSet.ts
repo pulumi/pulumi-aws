@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     description: "An example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     relayState: "https://s3.console.aws.amazon.com/s3/home?region=us-east-1#",
- *     sessionDuration: "PT2H",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For example:

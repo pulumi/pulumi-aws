@@ -19,35 +19,6 @@ namespace Pulumi.Aws.IdentityStore
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.IdentityStore.User("example", new()
-    ///     {
-    ///         IdentityStoreId = exampleAwsSsoadminInstances.IdentityStoreIds[0],
-    ///         DisplayName = "John Doe",
-    ///         UserName = "johndoe",
-    ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
-    ///         {
-    ///             GivenName = "John",
-    ///             FamilyName = "Doe",
-    ///         },
-    ///         Emails = new Aws.IdentityStore.Inputs.UserEmailsArgs
-    ///         {
-    ///             Value = "john@example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:

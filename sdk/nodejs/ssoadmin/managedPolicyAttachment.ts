@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
- *
- * ### With Account Assignment
- *
- * > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: ssoInstance.identityStoreIds[0],
- *     displayName: "Admin",
- *     description: "Admin Group",
- * });
- * const accountAssignment = new aws.ssoadmin.AccountAssignment("account_assignment", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     permissionSetArn: examplePermissionSet.arn,
- *     principalId: exampleGroup.groupId,
- *     principalType: "GROUP",
- *     targetId: "123456789012",
- *     targetType: "AWS_ACCOUNT",
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * }, {
- *     dependsOn: [exampleAwsSsoadminAccountAssignment],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SSO Managed Policy Attachments using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:

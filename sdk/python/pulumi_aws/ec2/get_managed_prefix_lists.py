@@ -82,20 +82,6 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
     """
     This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 
-    ## Example Usage
-
-    The following returns all managed prefix lists filtered by tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_env = aws.ec2.get_managed_prefix_lists(tags={
-        "Env": "test",
-    })
-    test_env_get_managed_prefix_list = [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in range(len(test_env.ids))]
-    ```
-
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -123,20 +109,6 @@ def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
     This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following returns all managed prefix lists filtered by tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_env = aws.ec2.get_managed_prefix_lists(tags={
-        "Env": "test",
-    })
-    test_env_get_managed_prefix_list = [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in range(len(test_env.ids))]
-    ```
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.

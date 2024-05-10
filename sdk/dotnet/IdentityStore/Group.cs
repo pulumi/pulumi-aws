@@ -14,26 +14,6 @@ namespace Pulumi.Aws.IdentityStore
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @this = new Aws.IdentityStore.Group("this", new()
-    ///     {
-    ///         DisplayName = "Example group",
-    ///         Description = "Example description",
-    ///         IdentityStoreId = example.IdentityStoreIds[0],
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
