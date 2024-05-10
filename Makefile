@@ -44,7 +44,7 @@ build_dotnet: upstream
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		echo "$(VERSION_GENERIC)" >version.txt && \
-		echo dotnet build /p:Version=$(DOTNET_VERSION)
+		dotnet build /p:Version=$(DOTNET_VERSION)
 
 build_go: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_go: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
@@ -61,8 +61,8 @@ build_java: bin/pulumi-java-gen upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
 		printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
-		echo gradle --console=plain build && \
-		echo gradle --console=plain javadoc
+		gradle --console=plain build && \
+		gradle --console=plain javadoc
 
 build_nodejs: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
@@ -126,7 +126,7 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource random 4.8.2
 	.pulumi/bin/pulumi plugin install resource github 5.14.0
 	.pulumi/bin/pulumi plugin install resource std 1.6.2
-	.pulumi/bin/pulumi plugin install converter terraform 1.0.17
+	.pulumi/bin/pulumi plugin install converter terraform 1.0.16
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
