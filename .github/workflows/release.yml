@@ -299,6 +299,7 @@ jobs:
       uses: goreleaser/goreleaser-action@v5
       env:
         GORELEASER_CURRENT_TAG: v${{ steps.version.outputs.version }}
+        PROVIDER_VERSION: ${{ steps.version.outputs.version }}
       with:
         args: -p 1 release --rm-dist --timeout 150m0s
         version: latest
