@@ -12,6 +12,38 @@ import (
 )
 
 // Use this data source to get a Single Sign-On (SSO) Permission Set.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetPermissionSet, err := ssoadmin.LookupPermissionSet(ctx, &ssoadmin.LookupPermissionSetArgs{
+//				InstanceArn: example.Arns[0],
+//				Name:        pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("arn", exampleGetPermissionSet.Arn)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionSetResult

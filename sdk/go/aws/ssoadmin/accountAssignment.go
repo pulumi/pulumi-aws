@@ -16,6 +16,124 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetPermissionSet, err := ssoadmin.LookupPermissionSet(ctx, &ssoadmin.LookupPermissionSetArgs{
+//				InstanceArn: example.Arns[0],
+//				Name:        pulumi.StringRef("AWSReadOnlyAccess"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
+//				IdentityStoreId: example.IdentityStoreIds[0],
+//				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
+//					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
+//						AttributePath:  "DisplayName",
+//						AttributeValue: "ExampleGroup",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
+//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				PermissionSetArn: pulumi.String(exampleGetPermissionSet.Arn),
+//				PrincipalId:      pulumi.String(exampleGetGroup.GroupId),
+//				PrincipalType:    pulumi.String("GROUP"),
+//				TargetId:         pulumi.String("123456789012"),
+//				TargetType:       pulumi.String("AWS_ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Managed Policy Attachment
+//
+// > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
+//				Name:        pulumi.String("Example"),
+//				InstanceArn: pulumi.String(example.Arns[0]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
+//				IdentityStoreId: pulumi.Any(ssoInstance.IdentityStoreIds[0]),
+//				DisplayName:     pulumi.String("Admin"),
+//				Description:     pulumi.String("Admin Group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewAccountAssignment(ctx, "account_assignment", &ssoadmin.AccountAssignmentArgs{
+//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				PermissionSetArn: examplePermissionSet.Arn,
+//				PrincipalId:      exampleGroup.GroupId,
+//				PrincipalType:    pulumi.String("GROUP"),
+//				TargetId:         pulumi.String("123456789012"),
+//				TargetType:       pulumi.String("AWS_ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
+//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
+//				PermissionSetArn: examplePermissionSet.Arn,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsoadminAccountAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:

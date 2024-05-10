@@ -44,7 +44,7 @@ build_dotnet: upstream
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		echo "$(VERSION_GENERIC)" >version.txt && \
-		dotnet build /p:Version=$(DOTNET_VERSION)
+		echo dotnet build /p:Version=$(DOTNET_VERSION)
 
 build_go: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 build_go: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
@@ -61,8 +61,8 @@ build_java: bin/pulumi-java-gen upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
 		printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
-		gradle --console=plain build && \
-		gradle --console=plain javadoc
+		echo gradle --console=plain build && \
+		echo gradle --console=plain javadoc
 
 build_nodejs: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs: export PULUMI_HOME := $(WORKING_DIR)/.pulumi

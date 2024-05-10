@@ -19,6 +19,72 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.PermissionSet;
+ * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.ssoadmin.CustomerManagedPolicyAttachment;
+ * import com.pulumi.aws.ssoadmin.CustomerManagedPolicyAttachmentArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var examplePermissionSet = new PermissionSet(&#34;examplePermissionSet&#34;, PermissionSetArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;TestPolicy&#34;)
+ *             .description(&#34;My test policy&#34;)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleCustomerManagedPolicyAttachment = new CustomerManagedPolicyAttachment(&#34;exampleCustomerManagedPolicyAttachment&#34;, CustomerManagedPolicyAttachmentArgs.builder()        
+ *             .instanceArn(examplePermissionSet.instanceArn())
+ *             .permissionSetArn(examplePermissionSet.arn())
+ *             .customerManagedPolicyReference(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs.builder()
+ *                 .name(examplePolicy.name())
+ *                 .path(&#34;/&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:

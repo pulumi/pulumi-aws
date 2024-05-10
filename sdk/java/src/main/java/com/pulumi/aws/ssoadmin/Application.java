@@ -25,6 +25,91 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.Application;
+ * import com.pulumi.aws.ssoadmin.ApplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .applicationProviderArn(&#34;arn:aws:sso::aws:applicationProvider/custom&#34;)
+ *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Portal Options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.Application;
+ * import com.pulumi.aws.ssoadmin.ApplicationArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.ApplicationPortalOptionsArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.ApplicationPortalOptionsSignInOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .applicationProviderArn(&#34;arn:aws:sso::aws:applicationProvider/custom&#34;)
+ *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
+ *             .portalOptions(ApplicationPortalOptionsArgs.builder()
+ *                 .visibility(&#34;ENABLED&#34;)
+ *                 .signInOptions(ApplicationPortalOptionsSignInOptionsArgs.builder()
+ *                     .applicationUrl(&#34;http://example.com&#34;)
+ *                     .origin(&#34;APPLICATION&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Admin Application using the `id`. For example:

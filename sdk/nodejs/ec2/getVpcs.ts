@@ -33,6 +33,25 @@ import * as utilities from "../utilities";
  * ```
  *
  * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({});
+ *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *         id: foo.ids[__index],
+ *     })));
+ *     const testFlowLog: aws.ec2.FlowLog[] = [];
+ *     for (const range = {value: 0}; range.value < foo.ids.length; range.value++) {
+ *         testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc[range.value].id}));
+ *     }
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
@@ -103,6 +122,25 @@ export interface GetVpcsResult {
  * ```
  *
  * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({});
+ *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *         id: foo.ids[__index],
+ *     })));
+ *     const testFlowLog: aws.ec2.FlowLog[] = [];
+ *     for (const range = {value: 0}; range.value < foo.ids.length; range.value++) {
+ *         testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc[range.value].id}));
+ *     }
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
     return pulumi.output(args).apply((a: any) => getVpcs(a, opts))

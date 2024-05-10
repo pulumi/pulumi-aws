@@ -8283,12 +8283,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists() {
         return getManagedPrefixLists(GetManagedPrefixListsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain() {
@@ -8297,12 +8311,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args) {
         return getManagedPrefixLists(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args) {
@@ -8311,12 +8339,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args, InvokeOptions options) {
@@ -8769,12 +8811,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways() {
         return getNatGateways(GetNatGatewaysArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain() {
@@ -8783,12 +8839,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args) {
         return getNatGateways(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args) {
@@ -8797,12 +8867,26 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args, InvokeOptions options) {
@@ -12723,12 +12807,118 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables() {
         return getRouteTables(GetRouteTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain() {
@@ -12737,12 +12927,118 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables(GetRouteTablesArgs args) {
         return getRouteTables(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(GetRouteTablesPlainArgs args) {
@@ -12751,12 +13047,118 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetRouteTablesResult> getRouteTables(GetRouteTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following adds a route for a particular cidr block to every (private
+     * kops) route table in a specified vpc to use a particular vpc peering
+     * connection.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
+     *             .vpcId(vpcId)
+     *             .filters(GetRouteTablesFilterArgs.builder()
+     *                 .name(&#34;tag:kubernetes.io/kops/role&#34;)
+     *                 .values(&#34;private*&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids()).length(); i++) {
+     *             new Route(&#34;r-&#34; + i, RouteArgs.builder()            
+     *                 .routeTableId(rts.applyValue(getRouteTablesResult -&gt; getRouteTablesResult.ids())[range.value()])
+     *                 .destinationCidrBlock(&#34;10.0.0.0/22&#34;)
+     *                 .vpcPeeringConnectionId(&#34;pcx-0e9a7a9ecd137dc54&#34;)
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(GetRouteTablesPlainArgs args, InvokeOptions options) {
@@ -19329,6 +19731,9 @@ public final class Ec2Functions {
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcsResult> getVpcs() {
         return getVpcs(GetVpcsArgs.Empty, InvokeOptions.Empty);
@@ -19375,6 +19780,9 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain() {
@@ -19423,6 +19831,9 @@ public final class Ec2Functions {
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcsResult> getVpcs(GetVpcsArgs args) {
         return getVpcs(args, InvokeOptions.Empty);
@@ -19469,6 +19880,9 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain(GetVpcsPlainArgs args) {
@@ -19517,6 +19931,9 @@ public final class Ec2Functions {
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcsResult> getVpcs(GetVpcsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
@@ -19563,6 +19980,9 @@ public final class Ec2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain(GetVpcsPlainArgs args, InvokeOptions options) {

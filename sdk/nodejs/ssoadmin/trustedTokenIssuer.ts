@@ -12,6 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const exampleTrustedTokenIssuer = new aws.ssoadmin.TrustedTokenIssuer("example", {
+ *     name: "example",
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ *     trustedTokenIssuerType: "OIDC_JWT",
+ *     trustedTokenIssuerConfiguration: {
+ *         oidcJwtConfiguration: {
+ *             claimAttributePath: "email",
+ *             identityStoreAttributePath: "emails.value",
+ *             issuerUrl: "https://example.com",
+ *             jwksRetrievalOption: "OPEN_ID_DISCOVERY",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:

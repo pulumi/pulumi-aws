@@ -23,12 +23,102 @@ public final class IdentitystoreFunctions {
     /**
      * Use this data source to get an Identity Store Group.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;DisplayName&#34;)
+     *                     .attributeValue(&#34;ExampleGroup&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.groupId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get an Identity Store Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;DisplayName&#34;)
+     *                     .attributeValue(&#34;ExampleGroup&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.groupId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -37,12 +127,102 @@ public final class IdentitystoreFunctions {
     /**
      * Use this data source to get an Identity Store Group.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;DisplayName&#34;)
+     *                     .attributeValue(&#34;ExampleGroup&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.groupId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:identitystore/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get an Identity Store Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;DisplayName&#34;)
+     *                     .attributeValue(&#34;ExampleGroup&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;groupId&#34;, exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.groupId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -231,12 +411,102 @@ public final class IdentitystoreFunctions {
     /**
      * Use this data source to get an Identity Store User.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;UserName&#34;)
+     *                     .attributeValue(&#34;ExampleUser&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;userId&#34;, exampleGetUser.applyValue(getUserResult -&gt; getUserResult.userId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get an Identity Store User.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;UserName&#34;)
+     *                     .attributeValue(&#34;ExampleUser&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;userId&#34;, exampleGetUser.applyValue(getUserResult -&gt; getUserResult.userId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -245,12 +515,102 @@ public final class IdentitystoreFunctions {
     /**
      * Use this data source to get an Identity Store User.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;UserName&#34;)
+     *                     .attributeValue(&#34;ExampleUser&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;userId&#34;, exampleGetUser.applyValue(getUserResult -&gt; getUserResult.userId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:identitystore/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get an Identity Store User.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+     * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
+     * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
+     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
+     *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
+     *                     .attributePath(&#34;UserName&#34;)
+     *                     .attributeValue(&#34;ExampleUser&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;userId&#34;, exampleGetUser.applyValue(getUserResult -&gt; getUserResult.userId()));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

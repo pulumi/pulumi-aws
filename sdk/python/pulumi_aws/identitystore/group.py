@@ -177,6 +177,18 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this = aws.identitystore.Group("this",
+            display_name="Example group",
+            description="Example description",
+            identity_store_id=example["identityStoreIds"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
@@ -203,6 +215,18 @@ class Group(pulumi.CustomResource):
         Resource for managing an AWS IdentityStore Group.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this = aws.identitystore.Group("this",
+            display_name="Example group",
+            description="Example description",
+            identity_store_id=example["identityStoreIds"])
+        ```
 
         ## Import
 

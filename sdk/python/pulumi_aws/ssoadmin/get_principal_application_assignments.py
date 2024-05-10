@@ -98,6 +98,17 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
 
     ## Example Usage
 
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=test["arns"],
+        principal_id=test_aws_identitystore_user["userId"],
+        principal_type="USER")
+    ```
+
 
     :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     :param str instance_arn: ARN of the instance of IAM Identity Center.
@@ -130,6 +141,17 @@ def get_principal_application_assignments_output(application_assignments: Option
     Data source for viewing AWS SSO Admin Principal Application Assignments.
 
     ## Example Usage
+
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=test["arns"],
+        principal_id=test_aws_identitystore_user["userId"],
+        principal_type="USER")
+    ```
 
 
     :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.

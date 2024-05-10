@@ -13,12 +13,62 @@ namespace Pulumi.Aws.SsoAdmin
     {
         /// <summary>
         /// Use this data source to get a Single Sign-On (SSO) Permission Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     var exampleGetPermissionSet = Aws.SsoAdmin.GetPermissionSet.Invoke(new()
+        ///     {
+        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+        ///         Name = "Example",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = exampleGetPermissionSet.Apply(getPermissionSetResult =&gt; getPermissionSetResult.Arn),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get a Single Sign-On (SSO) Permission Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     var exampleGetPermissionSet = Aws.SsoAdmin.GetPermissionSet.Invoke(new()
+        ///     {
+        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+        ///         Name = "Example",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = exampleGetPermissionSet.Apply(getPermissionSetResult =&gt; getPermissionSetResult.Arn),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());

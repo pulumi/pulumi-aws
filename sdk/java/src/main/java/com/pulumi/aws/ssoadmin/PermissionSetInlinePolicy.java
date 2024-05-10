@@ -16,6 +16,61 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.PermissionSet;
+ * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.ssoadmin.PermissionSetInlinePolicy;
+ * import com.pulumi.aws.ssoadmin.PermissionSetInlinePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var examplePermissionSet = new PermissionSet(&#34;examplePermissionSet&#34;, PermissionSetArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;1&#34;)
+ *                 .actions(                
+ *                     &#34;s3:ListAllMyBuckets&#34;,
+ *                     &#34;s3:GetBucketLocation&#34;)
+ *                 .resources(&#34;arn:aws:s3:::*&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var examplePermissionSetInlinePolicy = new PermissionSetInlinePolicy(&#34;examplePermissionSetInlinePolicy&#34;, PermissionSetInlinePolicyArgs.builder()        
+ *             .inlinePolicy(exampleGetPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .instanceArn(example.applyValue(getInstancesResult -&gt; getInstancesResult.arns()[0]))
+ *             .permissionSetArn(examplePermissionSet.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:

@@ -55,6 +55,64 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With VPC Endpoints
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+ * import com.pulumi.aws.datasync.Agent;
+ * import com.pulumi.aws.datasync.AgentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
+ *             .serviceName(String.format(&#34;com.amazonaws.%s.datasync&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *             .vpcId(exampleAwsVpc.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcEndpointType(&#34;Interface&#34;)
+ *             .build());
+ * 
+ *         final var example = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+ *             .id(exampleVpcEndpoint.networkInterfaceIds().applyValue(networkInterfaceIds -&gt; networkInterfaceIds[0]))
+ *             .build());
+ * 
+ *         var exampleAgent = new Agent(&#34;exampleAgent&#34;, AgentArgs.builder()        
+ *             .ipAddress(&#34;1.2.3.4&#34;)
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
+ *             .subnetArns(exampleAwsSubnet.arn())
+ *             .vpcEndpointId(exampleVpcEndpoint.id())
+ *             .privateLinkEndpoint(example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult).applyValue(example -&gt; example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.privateIp())))
+ *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
