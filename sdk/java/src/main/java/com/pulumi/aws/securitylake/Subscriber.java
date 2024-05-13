@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,25 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Subscriber(&#34;example&#34;, SubscriberArgs.builder()        
- *             .subscriberName(&#34;example-name&#34;)
- *             .sourceVersion(&#34;1.0&#34;)
- *             .accessType(&#34;S3&#34;)
+ *         var example = new Subscriber("example", SubscriberArgs.builder()        
+ *             .subscriberName("example-name")
+ *             .sourceVersion("1.0")
+ *             .accessType("S3")
  *             .source(SubscriberSourceArgs.builder()
  *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
- *                     .sourceName(&#34;ROUTE53&#34;)
- *                     .sourceVersion(&#34;1.0&#34;)
+ *                     .sourceName("ROUTE53")
+ *                     .sourceVersion("1.0")
  *                     .build())
  *                 .build())
  *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
- *                 .externalId(&#34;example&#34;)
- *                 .principal(&#34;1234567890&#34;)
+ *                 .externalId("example")
+ *                 .principal("1234567890")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,29 +62,29 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var gdBucket = new BucketV2(&#34;gdBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         final var bucketPol = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;Allow PutObject&#34;)
- *                     .actions(&#34;s3:PutObject&#34;)
- *                     .resources(gdBucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .sid("Allow PutObject")
+ *                     .actions("s3:PutObject")
+ *                     .resources(gdBucket.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;guardduty.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("guardduty.amazonaws.com")
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;Allow GetBucketLocation&#34;)
- *                     .actions(&#34;s3:GetBucketLocation&#34;)
+ *                     .sid("Allow GetBucketLocation")
+ *                     .actions("s3:GetBucketLocation")
  *                     .resources(gdBucket.arn())
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;guardduty.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("guardduty.amazonaws.com")
  *                         .build())
  *                     .build())
  *             .build());
@@ -91,46 +92,46 @@ import javax.annotation.Nullable;
  *         final var kmsPol = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;Allow GuardDuty to encrypt findings&#34;)
- *                     .actions(&#34;kms:GenerateDataKey&#34;)
- *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .sid("Allow GuardDuty to encrypt findings")
+ *                     .actions("kms:GenerateDataKey")
+ *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;guardduty.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("guardduty.amazonaws.com")
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;Allow all users to modify/delete key (test only)&#34;)
- *                     .actions(&#34;kms:*&#34;)
- *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .sid("Allow all users to modify/delete key (test only)")
+ *                     .actions("kms:*")
+ *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                         .type("AWS")
+ *                         .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var testGd = new Detector(&#34;testGd&#34;, DetectorArgs.builder()        
+ *         var testGd = new Detector("testGd", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var gdBucketAcl = new BucketAclV2(&#34;gdBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var gdBucketAcl = new BucketAclV2("gdBucketAcl", BucketAclV2Args.builder()        
  *             .bucket(gdBucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var gdBucketPolicy = new BucketPolicy(&#34;gdBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var gdBucketPolicy = new BucketPolicy("gdBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(gdBucket.id())
- *             .policy(bucketPol.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(bucketPol -&gt; bucketPol.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(bucketPol -> bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var gdKey = new Key(&#34;gdKey&#34;, KeyArgs.builder()        
- *             .description(&#34;Temporary key for AccTest of TF&#34;)
+ *         var gdKey = new Key("gdKey", KeyArgs.builder()        
+ *             .description("Temporary key for AccTest of TF")
  *             .deletionWindowInDays(7)
- *             .policy(kmsPol.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(kmsPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var test = new PublishingDestination(&#34;test&#34;, PublishingDestinationArgs.builder()        
+ *         var test = new PublishingDestination("test", PublishingDestinationArgs.builder()        
  *             .detectorId(testGd.id())
  *             .destinationArn(gdBucket.arn())
  *             .kmsKeyArn(gdKey.arn())
@@ -140,7 +141,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html

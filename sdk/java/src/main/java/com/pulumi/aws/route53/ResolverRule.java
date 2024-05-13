@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### System rule
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sys = new ResolverRule(&#34;sys&#34;, ResolverRuleArgs.builder()        
- *             .domainName(&#34;subdomain.example.com&#34;)
- *             .ruleType(&#34;SYSTEM&#34;)
+ *         var sys = new ResolverRule("sys", ResolverRuleArgs.builder()        
+ *             .domainName("subdomain.example.com")
+ *             .ruleType("SYSTEM")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Forward rule
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,20 +84,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fwd = new ResolverRule(&#34;fwd&#34;, ResolverRuleArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
- *             .name(&#34;example&#34;)
- *             .ruleType(&#34;FORWARD&#34;)
+ *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()        
+ *             .domainName("example.com")
+ *             .name("example")
+ *             .ruleType("FORWARD")
  *             .resolverEndpointId(foo.id())
  *             .targetIps(ResolverRuleTargetIpArgs.builder()
- *                 .ip(&#34;123.45.67.89&#34;)
+ *                 .ip("123.45.67.89")
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

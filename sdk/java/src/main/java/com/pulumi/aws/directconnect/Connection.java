@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Create a connection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new Connection(&#34;hoge&#34;, ConnectionArgs.builder()        
- *             .name(&#34;tf-dx-connection&#34;)
- *             .bandwidth(&#34;1Gbps&#34;)
- *             .location(&#34;EqDC2&#34;)
+ *         var hoge = new Connection("hoge", ConnectionArgs.builder()        
+ *             .name("tf-dx-connection")
+ *             .bandwidth("1Gbps")
+ *             .location("EqDC2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Request a MACsec-capable connection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,16 +84,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .name(&#34;tf-dx-connection&#34;)
- *             .bandwidth(&#34;10Gbps&#34;)
- *             .location(&#34;EqDA2&#34;)
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .name("tf-dx-connection")
+ *             .bandwidth("10Gbps")
+ *             .location("EqDA2")
  *             .requestMacsec(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Configure encryption mode for MACsec-capable connections
@@ -98,7 +102,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -119,17 +124,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .name(&#34;tf-dx-connection&#34;)
- *             .bandwidth(&#34;10Gbps&#34;)
- *             .location(&#34;EqDC2&#34;)
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .name("tf-dx-connection")
+ *             .bandwidth("10Gbps")
+ *             .location("EqDC2")
  *             .requestMacsec(true)
- *             .encryptionMode(&#34;must_encrypt&#34;)
+ *             .encryptionMode("must_encrypt")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

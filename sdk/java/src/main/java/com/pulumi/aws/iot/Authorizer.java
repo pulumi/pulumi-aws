@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Authorizer("example", AuthorizerArgs.builder()        
+ *             .name("example")
  *             .authorizerFunctionArn(exampleAwsLambdaFunction.arn())
  *             .signingDisabled(false)
- *             .status(&#34;ACTIVE&#34;)
- *             .tokenKeyName(&#34;Token-Header&#34;)
- *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;)
+ *             .status("ACTIVE")
+ *             .tokenKeyName("Token-Header")
+ *             .tokenSigningPublicKeys(Map.of("Key1", StdFunctions.file(FileArgs.builder()
+ *                 .input("test-fixtures/iot-authorizer-signing-key.pem")
  *                 .build()).result()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

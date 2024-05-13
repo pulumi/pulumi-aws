@@ -29,7 +29,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .accessPointId(&#34;fsap-12345678&#34;)
+     *             .accessPointId("fsap-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .accessPointId(&#34;fsap-12345678&#34;)
+     *             .accessPointId("fsap-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .accessPointId(&#34;fsap-12345678&#34;)
+     *             .accessPointId("fsap-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .accessPointId(&#34;fsap-12345678&#34;)
+     *             .accessPointId("fsap-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .fileSystemId(&#34;fs-12345678&#34;)
+     *             .fileSystemId("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .fileSystemId(&#34;fs-12345678&#34;)
+     *             .fileSystemId("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +281,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,12 +304,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .fileSystemId(&#34;fs-12345678&#34;)
+     *             .fileSystemId("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +346,13 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .fileSystemId(&#34;fs-12345678&#34;)
+     *             .fileSystemId("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +365,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,18 +388,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -395,7 +413,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -417,18 +436,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -441,7 +461,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -463,18 +484,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -487,7 +509,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -509,18 +532,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -533,7 +557,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -555,18 +580,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -579,7 +605,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,18 +628,19 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
      *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
      *             .build());
      * 
      *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
-     *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Environment", "dev"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +653,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -647,14 +676,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -667,7 +697,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -689,14 +720,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -709,7 +741,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -731,14 +764,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -751,7 +785,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -773,14 +808,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -793,7 +829,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -815,14 +852,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -835,7 +873,8 @@ public final class EfsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -857,14 +896,15 @@ public final class EfsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
      *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

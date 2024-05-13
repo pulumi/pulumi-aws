@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverFirewallRuleGroup(&#34;example&#34;, ResolverFirewallRuleGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new ResolverFirewallRuleGroup("example", ResolverFirewallRuleGroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleResolverFirewallRuleGroupAssociation = new ResolverFirewallRuleGroupAssociation(&#34;exampleResolverFirewallRuleGroupAssociation&#34;, ResolverFirewallRuleGroupAssociationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResolverFirewallRuleGroupAssociation = new ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", ResolverFirewallRuleGroupAssociationArgs.builder()        
+ *             .name("example")
  *             .firewallRuleGroupId(example.id())
  *             .priority(100)
  *             .vpcId(exampleAwsVpc.id())
@@ -58,7 +59,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

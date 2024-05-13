@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,32 +61,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new BucketV2(&#34;default&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tftest.applicationversion.bucket&#34;)
+ *         var default_ = new BucketV2("default", BucketV2Args.builder()        
+ *             .bucket("tftest.applicationversion.bucket")
  *             .build());
  * 
- *         var defaultBucketObjectv2 = new BucketObjectv2(&#34;defaultBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var defaultBucketObjectv2 = new BucketObjectv2("defaultBucketObjectv2", BucketObjectv2Args.builder()        
  *             .bucket(default_.id())
- *             .key(&#34;beanstalk/go-v1.zip&#34;)
- *             .source(new FileAsset(&#34;go-v1.zip&#34;))
+ *             .key("beanstalk/go-v1.zip")
+ *             .source(new FileAsset("go-v1.zip"))
  *             .build());
  * 
- *         var defaultApplication = new Application(&#34;defaultApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
- *             .description(&#34;tf-test-desc&#34;)
+ *         var defaultApplication = new Application("defaultApplication", ApplicationArgs.builder()        
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .build());
  * 
- *         var defaultApplicationVersion = new ApplicationVersion(&#34;defaultApplicationVersion&#34;, ApplicationVersionArgs.builder()        
- *             .name(&#34;tf-test-version-label&#34;)
- *             .application(&#34;tf-test-name&#34;)
- *             .description(&#34;application version&#34;)
+ *         var defaultApplicationVersion = new ApplicationVersion("defaultApplicationVersion", ApplicationVersionArgs.builder()        
+ *             .name("tf-test-version-label")
+ *             .application("tf-test-name")
+ *             .description("application version")
  *             .bucket(default_.id())
  *             .key(defaultBucketObjectv2.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

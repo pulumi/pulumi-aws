@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FolderMembership(&#34;example&#34;, FolderMembershipArgs.builder()        
+ *         var example = new FolderMembership("example", FolderMembershipArgs.builder()        
  *             .folderId(exampleAwsQuicksightFolder.folderId())
- *             .memberType(&#34;DATASET&#34;)
+ *             .memberType("DATASET")
  *             .memberId(exampleAwsQuicksightDataSet.dataSetId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;tf-dxg-example&#34;)
- *             .amazonSideAsn(&#34;64512&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .name("tf-dxg-example")
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

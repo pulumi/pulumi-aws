@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,25 +60,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxCluster(&#34;example&#34;, KxClusterArgs.builder()        
- *             .name(&#34;my-tf-kx-cluster&#34;)
+ *         var example = new KxCluster("example", KxClusterArgs.builder()        
+ *             .name("my-tf-kx-cluster")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
- *             .type(&#34;HDB&#34;)
- *             .releaseLabel(&#34;1.0&#34;)
- *             .azMode(&#34;SINGLE&#34;)
- *             .availabilityZoneId(&#34;use1-az2&#34;)
+ *             .type("HDB")
+ *             .releaseLabel("1.0")
+ *             .azMode("SINGLE")
+ *             .availabilityZoneId("use1-az2")
  *             .capacityConfiguration(KxClusterCapacityConfigurationArgs.builder()
- *                 .nodeType(&#34;kx.s.2xlarge&#34;)
+ *                 .nodeType("kx.s.2xlarge")
  *                 .nodeCount(2)
  *                 .build())
  *             .vpcConfiguration(KxClusterVpcConfigurationArgs.builder()
  *                 .vpcId(test.id())
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnetIds(exampleAwsSubnet.id())
- *                 .ipAddressType(&#34;IP_V4&#34;)
+ *                 .ipAddressType("IP_V4")
  *                 .build())
  *             .cacheStorageConfigurations(KxClusterCacheStorageConfigurationArgs.builder()
- *                 .type(&#34;CACHE_1000&#34;)
+ *                 .type("CACHE_1000")
  *                 .size(1200)
  *                 .build())
  *             .databases(KxClusterDatabaseArgs.builder()
@@ -92,7 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

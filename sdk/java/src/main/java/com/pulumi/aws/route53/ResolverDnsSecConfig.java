@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var exampleResolverDnsSecConfig = new ResolverDnsSecConfig(&#34;exampleResolverDnsSecConfig&#34;, ResolverDnsSecConfigArgs.builder()        
+ *         var exampleResolverDnsSecConfig = new ResolverDnsSecConfig("exampleResolverDnsSecConfig", ResolverDnsSecConfigArgs.builder()        
  *             .resourceId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

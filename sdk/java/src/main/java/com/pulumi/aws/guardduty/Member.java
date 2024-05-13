@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector(&#34;primary&#34;, DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var member = new Detector(&#34;member&#34;, DetectorArgs.builder()        
+ *         var member = new Detector("member", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
+ *         var memberMember = new Member("memberMember", MemberArgs.builder()        
  *             .accountId(member.accountId())
  *             .detectorId(primary.id())
- *             .email(&#34;required@example.com&#34;)
+ *             .email("required{@literal @}example.com")
  *             .invite(true)
- *             .invitationMessage(&#34;please accept guardduty invitation&#34;)
+ *             .invitationMessage("please accept guardduty invitation")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataShareConsumerAssociation(&#34;example&#34;, DataShareConsumerAssociationArgs.builder()        
- *             .dataShareArn(&#34;arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example&#34;)
+ *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()        
+ *             .dataShareArn("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
  *             .associateEntireAccount(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Consumer Region
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,14 +81,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataShareConsumerAssociation(&#34;example&#34;, DataShareConsumerAssociationArgs.builder()        
- *             .dataShareArn(&#34;arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example&#34;)
- *             .consumerRegion(&#34;us-west-2&#34;)
+ *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()        
+ *             .dataShareArn("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+ *             .consumerRegion("us-west-2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

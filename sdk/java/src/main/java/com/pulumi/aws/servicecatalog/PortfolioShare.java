@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,15 +53,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PortfolioShare(&#34;example&#34;, PortfolioShareArgs.builder()        
- *             .principalId(&#34;012128675309&#34;)
+ *         var example = new PortfolioShare("example", PortfolioShareArgs.builder()        
+ *             .principalId("012128675309")
  *             .portfolioId(exampleAwsServicecatalogPortfolio.id())
- *             .type(&#34;ACCOUNT&#34;)
+ *             .type("ACCOUNT")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

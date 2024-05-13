@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,29 +51,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachePolicy(&#34;example&#34;, CachePolicyArgs.builder()        
- *             .name(&#34;example-policy&#34;)
- *             .comment(&#34;test comment&#34;)
+ *         var example = new CachePolicy("example", CachePolicyArgs.builder()        
+ *             .name("example-policy")
+ *             .comment("test comment")
  *             .defaultTtl(50)
  *             .maxTtl(100)
  *             .minTtl(1)
  *             .parametersInCacheKeyAndForwardedToOrigin(CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.builder()
  *                 .cookiesConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs.builder()
- *                     .cookieBehavior(&#34;whitelist&#34;)
+ *                     .cookieBehavior("whitelist")
  *                     .cookies(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs.builder()
- *                         .items(&#34;example&#34;)
+ *                         .items("example")
  *                         .build())
  *                     .build())
  *                 .headersConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs.builder()
- *                     .headerBehavior(&#34;whitelist&#34;)
+ *                     .headerBehavior("whitelist")
  *                     .headers(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs.builder()
- *                         .items(&#34;example&#34;)
+ *                         .items("example")
  *                         .build())
  *                     .build())
  *                 .queryStringsConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs.builder()
- *                     .queryStringBehavior(&#34;whitelist&#34;)
+ *                     .queryStringBehavior("whitelist")
  *                     .queryStrings(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs.builder()
- *                         .items(&#34;example&#34;)
+ *                         .items("example")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

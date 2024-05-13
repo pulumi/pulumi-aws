@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceCredential(&#34;example&#34;, SourceCredentialArgs.builder()        
- *             .authType(&#34;PERSONAL_ACCESS_TOKEN&#34;)
- *             .serverType(&#34;GITHUB&#34;)
- *             .token(&#34;example&#34;)
+ *         var example = new SourceCredential("example", SourceCredentialArgs.builder()        
+ *             .authType("PERSONAL_ACCESS_TOKEN")
+ *             .serverType("GITHUB")
+ *             .token("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Bitbucket Server Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,16 +82,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceCredential(&#34;example&#34;, SourceCredentialArgs.builder()        
- *             .authType(&#34;BASIC_AUTH&#34;)
- *             .serverType(&#34;BITBUCKET&#34;)
- *             .token(&#34;example&#34;)
- *             .userName(&#34;test-user&#34;)
+ *         var example = new SourceCredential("example", SourceCredentialArgs.builder()        
+ *             .authType("BASIC_AUTH")
+ *             .serverType("BITBUCKET")
+ *             .token("example")
+ *             .userName("test-user")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

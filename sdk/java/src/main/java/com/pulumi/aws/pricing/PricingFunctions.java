@@ -21,7 +21,8 @@ public final class PricingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -43,45 +44,47 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonEC2&#34;)
+     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;c5.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("c5.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;operatingSystem&#34;)
-     *                     .value(&#34;Linux&#34;)
+     *                     .field("operatingSystem")
+     *                     .value("Linux")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;preInstalledSw&#34;)
-     *                     .value(&#34;NA&#34;)
+     *                     .field("preInstalledSw")
+     *                     .value("NA")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;licenseModel&#34;)
-     *                     .value(&#34;No License required&#34;)
+     *                     .field("licenseModel")
+     *                     .value("No License required")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;tenancy&#34;)
-     *                     .value(&#34;Shared&#34;)
+     *                     .field("tenancy")
+     *                     .value("Shared")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;capacitystatus&#34;)
-     *                     .value(&#34;Used&#34;)
+     *                     .field("capacitystatus")
+     *                     .value("Used")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -103,21 +106,22 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
+     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;ds1.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("ds1.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -131,7 +135,8 @@ public final class PricingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -153,45 +158,47 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonEC2&#34;)
+     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;c5.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("c5.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;operatingSystem&#34;)
-     *                     .value(&#34;Linux&#34;)
+     *                     .field("operatingSystem")
+     *                     .value("Linux")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;preInstalledSw&#34;)
-     *                     .value(&#34;NA&#34;)
+     *                     .field("preInstalledSw")
+     *                     .value("NA")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;licenseModel&#34;)
-     *                     .value(&#34;No License required&#34;)
+     *                     .field("licenseModel")
+     *                     .value("No License required")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;tenancy&#34;)
-     *                     .value(&#34;Shared&#34;)
+     *                     .field("tenancy")
+     *                     .value("Shared")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;capacitystatus&#34;)
-     *                     .value(&#34;Used&#34;)
+     *                     .field("capacitystatus")
+     *                     .value("Used")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,21 +220,22 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
+     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;ds1.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("ds1.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +249,8 @@ public final class PricingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,45 +272,47 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonEC2&#34;)
+     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;c5.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("c5.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;operatingSystem&#34;)
-     *                     .value(&#34;Linux&#34;)
+     *                     .field("operatingSystem")
+     *                     .value("Linux")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;preInstalledSw&#34;)
-     *                     .value(&#34;NA&#34;)
+     *                     .field("preInstalledSw")
+     *                     .value("NA")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;licenseModel&#34;)
-     *                     .value(&#34;No License required&#34;)
+     *                     .field("licenseModel")
+     *                     .value("No License required")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;tenancy&#34;)
-     *                     .value(&#34;Shared&#34;)
+     *                     .field("tenancy")
+     *                     .value("Shared")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;capacitystatus&#34;)
-     *                     .value(&#34;Used&#34;)
+     *                     .field("capacitystatus")
+     *                     .value("Used")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -323,21 +334,22 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
+     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;ds1.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("ds1.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -351,7 +363,8 @@ public final class PricingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -373,45 +386,47 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonEC2&#34;)
+     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;c5.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("c5.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;operatingSystem&#34;)
-     *                     .value(&#34;Linux&#34;)
+     *                     .field("operatingSystem")
+     *                     .value("Linux")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;preInstalledSw&#34;)
-     *                     .value(&#34;NA&#34;)
+     *                     .field("preInstalledSw")
+     *                     .value("NA")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;licenseModel&#34;)
-     *                     .value(&#34;No License required&#34;)
+     *                     .field("licenseModel")
+     *                     .value("No License required")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;tenancy&#34;)
-     *                     .value(&#34;Shared&#34;)
+     *                     .field("tenancy")
+     *                     .value("Shared")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;capacitystatus&#34;)
-     *                     .value(&#34;Used&#34;)
+     *                     .field("capacitystatus")
+     *                     .value("Used")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -433,21 +448,22 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
+     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;instanceType&#34;)
-     *                     .value(&#34;ds1.xlarge&#34;)
+     *                     .field("instanceType")
+     *                     .value("ds1.xlarge")
      *                     .build(),
      *                 GetProductFilterArgs.builder()
-     *                     .field(&#34;location&#34;)
-     *                     .value(&#34;US East (N. Virginia)&#34;)
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

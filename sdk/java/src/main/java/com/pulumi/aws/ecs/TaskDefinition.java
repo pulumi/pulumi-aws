@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,52 +57,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;service&#34;)
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *             .family("service")
  *             .containerDefinitions(serializeJson(
  *                 jsonArray(
  *                     jsonObject(
- *                         jsonProperty(&#34;name&#34;, &#34;first&#34;),
- *                         jsonProperty(&#34;image&#34;, &#34;service-first&#34;),
- *                         jsonProperty(&#34;cpu&#34;, 10),
- *                         jsonProperty(&#34;memory&#34;, 512),
- *                         jsonProperty(&#34;essential&#34;, true),
- *                         jsonProperty(&#34;portMappings&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;containerPort&#34;, 80),
- *                             jsonProperty(&#34;hostPort&#34;, 80)
+ *                         jsonProperty("name", "first"),
+ *                         jsonProperty("image", "service-first"),
+ *                         jsonProperty("cpu", 10),
+ *                         jsonProperty("memory", 512),
+ *                         jsonProperty("essential", true),
+ *                         jsonProperty("portMappings", jsonArray(jsonObject(
+ *                             jsonProperty("containerPort", 80),
+ *                             jsonProperty("hostPort", 80)
  *                         )))
  *                     ), 
  *                     jsonObject(
- *                         jsonProperty(&#34;name&#34;, &#34;second&#34;),
- *                         jsonProperty(&#34;image&#34;, &#34;service-second&#34;),
- *                         jsonProperty(&#34;cpu&#34;, 10),
- *                         jsonProperty(&#34;memory&#34;, 256),
- *                         jsonProperty(&#34;essential&#34;, true),
- *                         jsonProperty(&#34;portMappings&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;containerPort&#34;, 443),
- *                             jsonProperty(&#34;hostPort&#34;, 443)
+ *                         jsonProperty("name", "second"),
+ *                         jsonProperty("image", "service-second"),
+ *                         jsonProperty("cpu", 10),
+ *                         jsonProperty("memory", 256),
+ *                         jsonProperty("essential", true),
+ *                         jsonProperty("portMappings", jsonArray(jsonObject(
+ *                             jsonProperty("containerPort", 443),
+ *                             jsonProperty("hostPort", 443)
  *                         )))
  *                     )
  *                 )))
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
- *                 .hostPath(&#34;/ecs/service-storage&#34;)
+ *                 .name("service-storage")
+ *                 .hostPath("/ecs/service-storage")
  *                 .build())
  *             .placementConstraints(TaskDefinitionPlacementConstraintArgs.builder()
- *                 .type(&#34;memberOf&#34;)
- *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
+ *                 .type("memberOf")
+ *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With AppMesh Proxy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,33 +126,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;service&#34;)
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .input("task-definitions/service.json")
  *                 .build()).result())
  *             .proxyConfiguration(TaskDefinitionProxyConfigurationArgs.builder()
- *                 .type(&#34;APPMESH&#34;)
- *                 .containerName(&#34;applicationContainerName&#34;)
+ *                 .type("APPMESH")
+ *                 .containerName("applicationContainerName")
  *                 .properties(Map.ofEntries(
- *                     Map.entry(&#34;AppPorts&#34;, &#34;8080&#34;),
- *                     Map.entry(&#34;EgressIgnoredIPs&#34;, &#34;169.254.170.2,169.254.169.254&#34;),
- *                     Map.entry(&#34;IgnoredUID&#34;, &#34;1337&#34;),
- *                     Map.entry(&#34;ProxyEgressPort&#34;, 15001),
- *                     Map.entry(&#34;ProxyIngressPort&#34;, 15000)
+ *                     Map.entry("AppPorts", "8080"),
+ *                     Map.entry("EgressIgnoredIPs", "169.254.170.2,169.254.169.254"),
+ *                     Map.entry("IgnoredUID", "1337"),
+ *                     Map.entry("ProxyEgressPort", 15001),
+ *                     Map.entry("ProxyIngressPort", 15000)
  *                 ))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Using `docker_volume_configuration`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -172,21 +177,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;service&#34;)
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .input("task-definitions/service.json")
  *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
+ *                 .name("service-storage")
  *                 .dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs.builder()
- *                     .scope(&#34;shared&#34;)
+ *                     .scope("shared")
  *                     .autoprovision(true)
- *                     .driver(&#34;local&#34;)
+ *                     .driver("local")
  *                     .driverOpts(Map.ofEntries(
- *                         Map.entry(&#34;type&#34;, &#34;nfs&#34;),
- *                         Map.entry(&#34;device&#34;, String.format(&#34;%s:/&#34;, fs.dnsName())),
- *                         Map.entry(&#34;o&#34;, String.format(&#34;addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport&#34;, fs.dnsName()))
+ *                         Map.entry("type", "nfs"),
+ *                         Map.entry("device", String.format("%s:/", fs.dnsName())),
+ *                         Map.entry("o", String.format("addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.dnsName()))
  *                     ))
  *                     .build())
  *                 .build())
@@ -194,13 +199,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Using `efs_volume_configuration`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -224,21 +231,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;service&#34;)
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .input("task-definitions/service.json")
  *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
+ *                 .name("service-storage")
  *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
  *                     .fileSystemId(fs.id())
- *                     .rootDirectory(&#34;/opt/data&#34;)
- *                     .transitEncryption(&#34;ENABLED&#34;)
+ *                     .rootDirectory("/opt/data")
+ *                     .transitEncryption("ENABLED")
  *                     .transitEncryptionPort(2999)
  *                     .authorizationConfig(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .accessPointId(test.id())
- *                         .iam(&#34;ENABLED&#34;)
+ *                         .iam("ENABLED")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -246,13 +253,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Using `fsx_windows_file_server_volume_configuration`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -279,25 +288,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SecretVersion(&#34;test&#34;, SecretVersionArgs.builder()        
+ *         var test = new SecretVersion("test", SecretVersionArgs.builder()        
  *             .secretId(testAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;username&#34;, &#34;admin&#34;),
- *                     jsonProperty(&#34;password&#34;, testAwsDirectoryServiceDirectory.password())
+ *                     jsonProperty("username", "admin"),
+ *                     jsonProperty("password", testAwsDirectoryServiceDirectory.password())
  *                 )))
  *             .build());
  * 
- *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;service&#34;)
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;task-definitions/service.json&#34;)
+ *                 .input("task-definitions/service.json")
  *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
+ *                 .name("service-storage")
  *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
  *                     .fileSystemId(testAwsFsxWindowsFileSystem.id())
- *                     .rootDirectory(&#34;\\data&#34;)
+ *                     .rootDirectory("\\data")
  *                     .authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .credentialsParameter(test.arn())
  *                         .domain(testAwsDirectoryServiceDirectory.name())
@@ -308,13 +317,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Using `container_definitions` and `inference_accelerator`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -336,51 +347,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TaskDefinition(&#34;test&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;test&#34;)
- *             .containerDefinitions(&#34;&#34;&#34;
+ *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()        
+ *             .family("test")
+ *             .containerDefinitions("""
  * [
  *   {
- *     &#34;cpu&#34;: 10,
- *     &#34;command&#34;: [&#34;sleep&#34;, &#34;10&#34;],
- *     &#34;entryPoint&#34;: [&#34;/&#34;],
- *     &#34;environment&#34;: [
- *       {&#34;name&#34;: &#34;VARNAME&#34;, &#34;value&#34;: &#34;VARVAL&#34;}
+ *     "cpu": 10,
+ *     "command": ["sleep", "10"],
+ *     "entryPoint": ["/"],
+ *     "environment": [
+ *       {"name": "VARNAME", "value": "VARVAL"}
  *     ],
- *     &#34;essential&#34;: true,
- *     &#34;image&#34;: &#34;jenkins&#34;,
- *     &#34;memory&#34;: 128,
- *     &#34;name&#34;: &#34;jenkins&#34;,
- *     &#34;portMappings&#34;: [
+ *     "essential": true,
+ *     "image": "jenkins",
+ *     "memory": 128,
+ *     "name": "jenkins",
+ *     "portMappings": [
  *       {
- *         &#34;containerPort&#34;: 80,
- *         &#34;hostPort&#34;: 8080
+ *         "containerPort": 80,
+ *         "hostPort": 8080
  *       }
  *     ],
- *         &#34;resourceRequirements&#34;:[
+ *         "resourceRequirements":[
  *             {
- *                 &#34;type&#34;:&#34;InferenceAccelerator&#34;,
- *                 &#34;value&#34;:&#34;device_1&#34;
+ *                 "type":"InferenceAccelerator",
+ *                 "value":"device_1"
  *             }
  *         ]
  *   }
  * ]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs.builder()
- *                 .deviceName(&#34;device_1&#34;)
- *                 .deviceType(&#34;eia1.medium&#34;)
+ *                 .deviceName("device_1")
+ *                 .deviceType("eia1.medium")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Using `runtime_platform` and `fargate`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -402,32 +415,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TaskDefinition(&#34;test&#34;, TaskDefinitionArgs.builder()        
- *             .family(&#34;test&#34;)
- *             .requiresCompatibilities(&#34;FARGATE&#34;)
- *             .networkMode(&#34;awsvpc&#34;)
+ *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()        
+ *             .family("test")
+ *             .requiresCompatibilities("FARGATE")
+ *             .networkMode("awsvpc")
  *             .cpu(1024)
  *             .memory(2048)
- *             .containerDefinitions(&#34;&#34;&#34;
+ *             .containerDefinitions("""
  * [
  *   {
- *     &#34;name&#34;: &#34;iis&#34;,
- *     &#34;image&#34;: &#34;mcr.microsoft.com/windows/servercore/iis&#34;,
- *     &#34;cpu&#34;: 1024,
- *     &#34;memory&#34;: 2048,
- *     &#34;essential&#34;: true
+ *     "name": "iis",
+ *     "image": "mcr.microsoft.com/windows/servercore/iis",
+ *     "cpu": 1024,
+ *     "memory": 2048,
+ *     "essential": true
  *   }
  * ]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .runtimePlatform(TaskDefinitionRuntimePlatformArgs.builder()
- *                 .operatingSystemFamily(&#34;WINDOWS_SERVER_2019_CORE&#34;)
- *                 .cpuArchitecture(&#34;X86_64&#34;)
+ *                 .operatingSystemFamily("WINDOWS_SERVER_2019_CORE")
+ *                 .cpuArchitecture("X86_64")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

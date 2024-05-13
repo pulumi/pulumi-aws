@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Off
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath(&#34;path1/GET&#34;)
+ *             .methodPath("path1/GET")
  *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;OFF&#34;)
+ *                 .loggingLevel("OFF")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Errors Only
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,12 +90,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath(&#34;path1/GET&#34;)
+ *             .methodPath("path1/GET")
  *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;ERROR&#34;)
+ *                 .loggingLevel("ERROR")
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(false)
  *                 .build())
@@ -100,13 +103,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Errors and Info Logs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -128,12 +133,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath(&#34;path1/GET&#34;)
+ *             .methodPath("path1/GET")
  *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;INFO&#34;)
+ *                 .loggingLevel("INFO")
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(false)
  *                 .build())
@@ -141,13 +146,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Full Request and Response Logs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,12 +176,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath(&#34;path1/GET&#34;)
+ *             .methodPath("path1/GET")
  *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;INFO&#34;)
+ *                 .loggingLevel("INFO")
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(true)
  *                 .build())
@@ -182,7 +189,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

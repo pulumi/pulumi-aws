@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,38 +49,39 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
- *             .service(&#34;dynamodb&#34;)
+ *             .service("dynamodb")
  *             .build());
  * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .serviceName(example.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
+ *             .serviceName(example.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleVpcEndpointPolicy = new VpcEndpointPolicy(&#34;exampleVpcEndpointPolicy&#34;, VpcEndpointPolicyArgs.builder()        
+ *         var exampleVpcEndpointPolicy = new VpcEndpointPolicy("exampleVpcEndpointPolicy", VpcEndpointPolicyArgs.builder()        
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;AllowAll&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "AllowAll"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "*")
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;dynamodb:*&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                         jsonProperty("Action", jsonArray("dynamodb:*")),
+ *                         jsonProperty("Resource", "*")
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

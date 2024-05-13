@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGatewayConnectPeerAssociation(&#34;example&#34;, TransitGatewayConnectPeerAssociationArgs.builder()        
+ *         var example = new TransitGatewayConnectPeerAssociation("example", TransitGatewayConnectPeerAssociationArgs.builder()        
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .deviceId(exampleAwsNetworkmanagerDevice.id())
  *             .transitGatewayConnectPeerArn(exampleAwsEc2TransitGatewayConnectPeer.arn())
@@ -50,7 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

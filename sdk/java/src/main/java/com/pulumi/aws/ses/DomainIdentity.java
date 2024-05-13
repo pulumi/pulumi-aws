@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Route53 Record
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,21 +80,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
- *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
- *             .zoneId(&#34;ABCDEFGHIJ123&#34;)
- *             .name(&#34;_amazonses.example.com&#34;)
- *             .type(&#34;TXT&#34;)
- *             .ttl(&#34;600&#34;)
+ *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()        
+ *             .zoneId("ABCDEFGHIJ123")
+ *             .name("_amazonses.example.com")
+ *             .type("TXT")
+ *             .ttl("600")
  *             .records(example.verificationToken())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

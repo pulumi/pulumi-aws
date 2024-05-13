@@ -35,7 +35,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -57,12 +58,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getAcl(GetAclArgs.builder()
-     *             .name(&#34;my-acl&#34;)
+     *             .name("my-acl")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -75,7 +77,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -97,12 +100,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getAcl(GetAclArgs.builder()
-     *             .name(&#34;my-acl&#34;)
+     *             .name("my-acl")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -137,12 +142,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getAcl(GetAclArgs.builder()
-     *             .name(&#34;my-acl&#34;)
+     *             .name("my-acl")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,12 +184,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getAcl(GetAclArgs.builder()
-     *             .name(&#34;my-acl&#34;)
+     *             .name("my-acl")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +203,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,12 +226,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;my-cluster&#34;)
+     *             .name("my-cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,12 +268,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;my-cluster&#34;)
+     *             .name("my-cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +287,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -297,12 +310,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;my-cluster&#34;)
+     *             .name("my-cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -315,7 +329,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -337,12 +352,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;my-cluster&#34;)
+     *             .name("my-cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -355,7 +371,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -377,12 +394,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getParameterGroup(GetParameterGroupArgs.builder()
-     *             .name(&#34;my-parameter-group&#34;)
+     *             .name("my-parameter-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -395,7 +413,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -417,12 +436,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getParameterGroup(GetParameterGroupArgs.builder()
-     *             .name(&#34;my-parameter-group&#34;)
+     *             .name("my-parameter-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -435,7 +455,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -457,12 +478,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getParameterGroup(GetParameterGroupArgs.builder()
-     *             .name(&#34;my-parameter-group&#34;)
+     *             .name("my-parameter-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -475,7 +497,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -497,12 +520,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getParameterGroup(GetParameterGroupArgs.builder()
-     *             .name(&#34;my-parameter-group&#34;)
+     *             .name("my-parameter-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -515,7 +539,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,12 +562,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
+     *             .name("my-snapshot")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -555,7 +581,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -577,12 +604,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
+     *             .name("my-snapshot")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -595,7 +623,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -617,12 +646,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
+     *             .name("my-snapshot")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +665,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,12 +688,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
+     *             .name("my-snapshot")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -675,7 +707,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -697,12 +730,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -715,7 +749,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -737,12 +772,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -755,7 +791,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -777,12 +814,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -795,7 +833,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -817,12 +856,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -835,7 +875,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -857,12 +898,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;my-user&#34;)
+     *             .userName("my-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -875,7 +917,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -897,12 +940,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;my-user&#34;)
+     *             .userName("my-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,7 +959,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -937,12 +982,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;my-user&#34;)
+     *             .userName("my-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -955,7 +1001,8 @@ public final class MemorydbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -977,12 +1024,13 @@ public final class MemorydbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MemorydbFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;my-user&#34;)
+     *             .userName("my-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

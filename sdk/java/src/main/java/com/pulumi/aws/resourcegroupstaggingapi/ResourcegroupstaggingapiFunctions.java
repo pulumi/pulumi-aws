@@ -22,7 +22,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,13 +48,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -76,22 +79,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -113,12 +118,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -133,7 +139,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -158,13 +165,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -187,22 +196,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -224,12 +235,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -244,7 +256,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -269,13 +282,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -298,22 +313,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -335,12 +352,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -355,7 +373,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -380,13 +399,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -409,22 +430,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -446,12 +469,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -466,7 +490,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,13 +516,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -520,22 +547,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -557,12 +586,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -577,7 +607,8 @@ public final class ResourcegroupstaggingapiFunctions {
      * ### Get All Resource Tag Mappings
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -602,13 +633,15 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Tag Key and Value
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -631,22 +664,24 @@ public final class ResourcegroupstaggingapiFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
-     *                 .key(&#34;tag-key&#34;)
+     *                 .key("tag-key")
      *                 .values(                
-     *                     &#34;tag-value-1&#34;,
-     *                     &#34;tag-value-2&#34;)
+     *                     "tag-value-1",
+     *                     "tag-value-2")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Resource Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -668,12 +703,13 @@ public final class ResourcegroupstaggingapiFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
-     *             .resourceTypeFilters(&#34;ec2:instance&#34;)
+     *             .resourceTypeFilters("ec2:instance")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

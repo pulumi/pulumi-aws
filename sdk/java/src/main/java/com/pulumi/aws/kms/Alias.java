@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new Key(&#34;a&#34;);
+ *         var a = new Key("a");
  * 
- *         var aAlias = new Alias(&#34;aAlias&#34;, AliasArgs.builder()        
- *             .name(&#34;alias/my-key-alias&#34;)
+ *         var aAlias = new Alias("aAlias", AliasArgs.builder()        
+ *             .name("alias/my-key-alias")
  *             .targetKeyId(a.keyId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

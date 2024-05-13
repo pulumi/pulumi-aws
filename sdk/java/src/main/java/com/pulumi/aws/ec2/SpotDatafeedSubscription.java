@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new BucketV2(&#34;default&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-spot-datafeed&#34;)
+ *         var default_ = new BucketV2("default", BucketV2Args.builder()        
+ *             .bucket("tf-spot-datafeed")
  *             .build());
  * 
- *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription(&#34;defaultSpotDatafeedSubscription&#34;, SpotDatafeedSubscriptionArgs.builder()        
+ *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription("defaultSpotDatafeedSubscription", SpotDatafeedSubscriptionArgs.builder()        
  *             .bucket(default_.id())
- *             .prefix(&#34;my_subdirectory&#34;)
+ *             .prefix("my_subdirectory")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,40 +52,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us_east_1 = new Table(&#34;us-east-1&#34;, TableArgs.builder()        
- *             .hashKey(&#34;myAttribute&#34;)
- *             .name(&#34;myTable&#34;)
+ *         var us_east_1 = new Table("us-east-1", TableArgs.builder()        
+ *             .hashKey("myAttribute")
+ *             .name("myTable")
  *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .readCapacity(1)
  *             .writeCapacity(1)
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("myAttribute")
+ *                 .type("S")
  *                 .build())
  *             .build());
  * 
- *         var us_west_2 = new Table(&#34;us-west-2&#34;, TableArgs.builder()        
- *             .hashKey(&#34;myAttribute&#34;)
- *             .name(&#34;myTable&#34;)
+ *         var us_west_2 = new Table("us-west-2", TableArgs.builder()        
+ *             .hashKey("myAttribute")
+ *             .name("myTable")
  *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .readCapacity(1)
  *             .writeCapacity(1)
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("myAttribute")
+ *                 .type("S")
  *                 .build())
  *             .build());
  * 
- *         var myTable = new GlobalTable(&#34;myTable&#34;, GlobalTableArgs.builder()        
- *             .name(&#34;myTable&#34;)
+ *         var myTable = new GlobalTable("myTable", GlobalTableArgs.builder()        
+ *             .name("myTable")
  *             .replicas(            
  *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-east-1&#34;)
+ *                     .regionName("us-east-1")
  *                     .build(),
  *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-west-2&#34;)
+ *                     .regionName("us-west-2")
  *                     .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -94,7 +95,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

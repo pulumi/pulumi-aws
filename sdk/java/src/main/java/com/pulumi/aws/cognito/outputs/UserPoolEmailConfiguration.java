@@ -22,7 +22,7 @@ public final class UserPoolEmailConfiguration {
      */
     private @Nullable String emailSendingAccount;
     /**
-     * @return Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+     * @return Sender’s email address or sender’s display name with their email address (e.g., `john{@literal @}example.com`, `John Smith &lt;john{@literal @}example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john{@literal @}example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
      * 
      */
     private @Nullable String fromEmailAddress;
@@ -53,7 +53,7 @@ public final class UserPoolEmailConfiguration {
         return Optional.ofNullable(this.emailSendingAccount);
     }
     /**
-     * @return Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+     * @return Sender’s email address or sender’s display name with their email address (e.g., `john{@literal @}example.com`, `John Smith &lt;john{@literal @}example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john{@literal @}example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
      * 
      */
     public Optional<String> fromEmailAddress() {

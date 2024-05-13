@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleServiceSpecificCredential = new ServiceSpecificCredential(&#34;exampleServiceSpecificCredential&#34;, ServiceSpecificCredentialArgs.builder()        
- *             .serviceName(&#34;codecommit.amazonaws.com&#34;)
+ *         var exampleServiceSpecificCredential = new ServiceSpecificCredential("exampleServiceSpecificCredential", ServiceSpecificCredentialArgs.builder()        
+ *             .serviceName("codecommit.amazonaws.com")
  *             .userName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

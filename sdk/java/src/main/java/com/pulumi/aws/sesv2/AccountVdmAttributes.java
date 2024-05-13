@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountVdmAttributes(&#34;example&#34;, AccountVdmAttributesArgs.builder()        
- *             .vdmEnabled(&#34;ENABLED&#34;)
+ *         var example = new AccountVdmAttributes("example", AccountVdmAttributesArgs.builder()        
+ *             .vdmEnabled("ENABLED")
  *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
- *                 .engagementMetrics(&#34;ENABLED&#34;)
+ *                 .engagementMetrics("ENABLED")
  *                 .build())
  *             .guardianAttributes(AccountVdmAttributesGuardianAttributesArgs.builder()
- *                 .optimizedSharedDelivery(&#34;ENABLED&#34;)
+ *                 .optimizedSharedDelivery("ENABLED")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

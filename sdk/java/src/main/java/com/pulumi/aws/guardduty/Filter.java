@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,38 +46,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFilter = new Filter(&#34;myFilter&#34;, FilterArgs.builder()        
- *             .name(&#34;MyFilter&#34;)
- *             .action(&#34;ARCHIVE&#34;)
+ *         var myFilter = new Filter("myFilter", FilterArgs.builder()        
+ *             .name("MyFilter")
+ *             .action("ARCHIVE")
  *             .detectorId(example.id())
  *             .rank(1)
  *             .findingCriteria(FilterFindingCriteriaArgs.builder()
  *                 .criterions(                
  *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;region&#34;)
- *                         .equals(&#34;eu-west-1&#34;)
+ *                         .field("region")
+ *                         .equals("eu-west-1")
  *                         .build(),
  *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;service.additionalInfo.threatListName&#34;)
+ *                         .field("service.additionalInfo.threatListName")
  *                         .notEquals(                        
- *                             &#34;some-threat&#34;,
- *                             &#34;another-threat&#34;)
+ *                             "some-threat",
+ *                             "another-threat")
  *                         .build(),
  *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;updatedAt&#34;)
- *                         .greaterThan(&#34;2020-01-01T00:00:00Z&#34;)
- *                         .lessThan(&#34;2020-02-01T00:00:00Z&#34;)
+ *                         .field("updatedAt")
+ *                         .greaterThan("2020-01-01T00:00:00Z")
+ *                         .lessThan("2020-02-01T00:00:00Z")
  *                         .build(),
  *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;severity&#34;)
- *                         .greaterThanOrEqual(&#34;4&#34;)
+ *                         .field("severity")
+ *                         .greaterThanOrEqual("4")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

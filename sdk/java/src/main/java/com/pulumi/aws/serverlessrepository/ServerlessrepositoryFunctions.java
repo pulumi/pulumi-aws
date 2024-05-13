@@ -20,7 +20,8 @@ public final class ServerlessrepositoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,19 +45,20 @@ public final class ServerlessrepositoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
+     *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .name(&#34;Example&#34;)
-     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *             .name("Example")
+     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class ServerlessrepositoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,19 +96,20 @@ public final class ServerlessrepositoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
+     *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .name(&#34;Example&#34;)
-     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *             .name("Example")
+     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class ServerlessrepositoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,19 +147,20 @@ public final class ServerlessrepositoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
+     *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .name(&#34;Example&#34;)
-     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *             .name("Example")
+     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +173,8 @@ public final class ServerlessrepositoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -191,19 +198,20 @@ public final class ServerlessrepositoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
+     *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .name(&#34;Example&#34;)
-     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *             .name("Example")
+     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

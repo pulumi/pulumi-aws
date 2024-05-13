@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConditionalForwader(&#34;example&#34;, ConditionalForwaderArgs.builder()        
+ *         var example = new ConditionalForwader("example", ConditionalForwaderArgs.builder()        
  *             .directoryId(ad.id())
- *             .remoteDomainName(&#34;example.com&#34;)
+ *             .remoteDomainName("example.com")
  *             .dnsIps(            
- *                 &#34;8.8.8.8&#34;,
- *                 &#34;8.8.4.4&#34;)
+ *                 "8.8.8.8",
+ *                 "8.8.4.4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Data Lake Admins
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())
@@ -57,13 +58,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create Default Permissions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,32 +89,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
- *                     &#34;SELECT&#34;,
- *                     &#34;ALTER&#34;,
- *                     &#34;DROP&#34;)
+ *                     "SELECT",
+ *                     "ALTER",
+ *                     "DROP")
  *                 .principal(test.arn())
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;ALL&#34;)
+ *                 .permissions("ALL")
  *                 .principal(testAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable EMR access to LakeFormation resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,31 +139,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
- *                     &#34;SELECT&#34;,
- *                     &#34;ALTER&#34;,
- *                     &#34;DROP&#34;)
+ *                     "SELECT",
+ *                     "ALTER",
+ *                     "DROP")
  *                 .principal(test.arn())
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;ALL&#34;)
+ *                 .permissions("ALL")
  *                 .principal(testAwsIamRole.arn())
  *                 .build())
  *             .allowExternalDataFiltering(true)
  *             .externalDataFilteringAllowLists(            
  *                 current.accountId(),
  *                 thirdParty.accountId())
- *             .authorizedSessionTagValueLists(&#34;Amazon EMR&#34;)
+ *             .authorizedSessionTagValueLists("Amazon EMR")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

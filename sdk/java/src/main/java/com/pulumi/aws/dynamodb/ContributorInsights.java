@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,13 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ContributorInsights(&#34;test&#34;, ContributorInsightsArgs.builder()        
- *             .tableName(&#34;ExampleTableName&#34;)
+ *         var test = new ContributorInsights("test", ContributorInsightsArgs.builder()        
+ *             .tableName("ExampleTableName")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,23 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
- *             .description(&#34;example_rule&#34;)
- *             .resourceType(&#34;EBS_SNAPSHOT&#34;)
+ *         var example = new Rule("example", RuleArgs.builder()        
+ *             .description("example_rule")
+ *             .resourceType("EBS_SNAPSHOT")
  *             .resourceTags(RuleResourceTagArgs.builder()
- *                 .resourceTagKey(&#34;tag_key&#34;)
- *                 .resourceTagValue(&#34;tag_value&#34;)
+ *                 .resourceTagKey("tag_key")
+ *                 .resourceTagValue("tag_value")
  *                 .build())
  *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
  *                 .retentionPeriodValue(10)
- *                 .retentionPeriodUnit(&#34;DAYS&#34;)
+ *                 .retentionPeriodUnit("DAYS")
  *                 .build())
- *             .tags(Map.of(&#34;test_tag_key&#34;, &#34;test_tag_value&#34;))
+ *             .tags(Map.of("test_tag_key", "test_tag_value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,27 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .name(&#34;NAME&#34;)
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
- *             .instanceType(&#34;stream.standard.small&#34;)
+ *         var example = new Fleet("example", FleetArgs.builder()        
+ *             .name("NAME")
+ *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
+ *             .instanceType("stream.standard.small")
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleStack = new Stack(&#34;exampleStack&#34;, StackArgs.builder()        
- *             .name(&#34;STACK NAME&#34;)
+ *         var exampleStack = new Stack("exampleStack", StackArgs.builder()        
+ *             .name("STACK NAME")
  *             .build());
  * 
- *         var exampleFleetStackAssociation = new FleetStackAssociation(&#34;exampleFleetStackAssociation&#34;, FleetStackAssociationArgs.builder()        
+ *         var exampleFleetStackAssociation = new FleetStackAssociation("exampleFleetStackAssociation", FleetStackAssociationArgs.builder()        
  *             .fleetName(example.name())
  *             .stackName(exampleStack.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

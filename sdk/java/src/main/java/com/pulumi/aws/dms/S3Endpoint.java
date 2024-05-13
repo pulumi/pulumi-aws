@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,10 +54,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Endpoint(&#34;example&#34;, S3EndpointArgs.builder()        
- *             .endpointId(&#34;donnedtipi&#34;)
- *             .endpointType(&#34;target&#34;)
- *             .bucketName(&#34;beckut_name&#34;)
+ *         var example = new S3Endpoint("example", S3EndpointArgs.builder()        
+ *             .endpointId("donnedtipi")
+ *             .endpointType("target")
+ *             .bucketName("beckut_name")
  *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
@@ -64,13 +65,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Complete Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,53 +95,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Endpoint(&#34;example&#34;, S3EndpointArgs.builder()        
- *             .endpointId(&#34;donnedtipi&#34;)
- *             .endpointType(&#34;target&#34;)
- *             .sslMode(&#34;none&#34;)
+ *         var example = new S3Endpoint("example", S3EndpointArgs.builder()        
+ *             .endpointId("donnedtipi")
+ *             .endpointType("target")
+ *             .sslMode("none")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;donnedtipi&#34;),
- *                 Map.entry(&#34;Update&#34;, &#34;to-update&#34;),
- *                 Map.entry(&#34;Remove&#34;, &#34;to-remove&#34;)
+ *                 Map.entry("Name", "donnedtipi"),
+ *                 Map.entry("Update", "to-update"),
+ *                 Map.entry("Remove", "to-remove")
  *             ))
  *             .addColumnName(true)
  *             .addTrailingPaddingCharacter(false)
- *             .bucketFolder(&#34;folder&#34;)
- *             .bucketName(&#34;bucket_name&#34;)
- *             .cannedAclForObjects(&#34;private&#34;)
+ *             .bucketFolder("folder")
+ *             .bucketName("bucket_name")
+ *             .cannedAclForObjects("private")
  *             .cdcInsertsAndUpdates(true)
  *             .cdcInsertsOnly(false)
  *             .cdcMaxBatchInterval(100)
  *             .cdcMinFileSize(16)
- *             .cdcPath(&#34;cdc/path&#34;)
- *             .compressionType(&#34;GZIP&#34;)
- *             .csvDelimiter(&#34;;&#34;)
- *             .csvNoSupValue(&#34;x&#34;)
- *             .csvNullValue(&#34;?&#34;)
- *             .csvRowDelimiter(&#34;\\r\\n&#34;)
- *             .dataFormat(&#34;parquet&#34;)
+ *             .cdcPath("cdc/path")
+ *             .compressionType("GZIP")
+ *             .csvDelimiter(";")
+ *             .csvNoSupValue("x")
+ *             .csvNullValue("?")
+ *             .csvRowDelimiter("\\r\\n")
+ *             .dataFormat("parquet")
  *             .dataPageSize(1100000)
- *             .datePartitionDelimiter(&#34;UNDERSCORE&#34;)
+ *             .datePartitionDelimiter("UNDERSCORE")
  *             .datePartitionEnabled(true)
- *             .datePartitionSequence(&#34;yyyymmddhh&#34;)
- *             .datePartitionTimezone(&#34;Asia/Seoul&#34;)
+ *             .datePartitionSequence("yyyymmddhh")
+ *             .datePartitionTimezone("Asia/Seoul")
  *             .dictPageSizeLimit(1000000)
  *             .enableStatistics(false)
- *             .encodingType(&#34;plain&#34;)
- *             .encryptionMode(&#34;SSE_S3&#34;)
+ *             .encodingType("plain")
+ *             .encryptionMode("SSE_S3")
  *             .expectedBucketOwner(current.accountId())
- *             .externalTableDefinition(&#34;etd&#34;)
+ *             .externalTableDefinition("etd")
  *             .ignoreHeaderRows(1)
  *             .includeOpForFullLoad(true)
  *             .maxFileSize(1000000)
  *             .parquetTimestampInMillisecond(true)
- *             .parquetVersion(&#34;parquet-2-0&#34;)
+ *             .parquetVersion("parquet-2-0")
  *             .preserveTransactions(false)
  *             .rfc4180(false)
  *             .rowGroupLength(11000)
  *             .serverSideEncryptionKmsKeyId(exampleAwsKmsKey.arn())
  *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
- *             .timestampColumnName(&#34;tx_commit_time&#34;)
+ *             .timestampColumnName("tx_commit_time")
  *             .useCsvNoSupValue(false)
  *             .useTaskStartTimeForFullLoadTimestamp(true)
  *             .glueCatalogGeneration(true)
@@ -148,7 +151,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

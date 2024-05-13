@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,40 +53,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector(&#34;primary&#34;, DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2("bucket");
  * 
- *         var myIPSet = new BucketObjectv2(&#34;myIPSet&#34;, BucketObjectv2Args.builder()        
- *             .content(&#34;&#34;&#34;
+ *         var myIPSet = new BucketObjectv2("myIPSet", BucketObjectv2Args.builder()        
+ *             .content("""
  * 10.0.0.0/8
- *             &#34;&#34;&#34;)
+ *             """)
  *             .bucket(bucket.id())
- *             .key(&#34;MyIPSet&#34;)
+ *             .key("MyIPSet")
  *             .build());
  * 
- *         var example = new IPSet(&#34;example&#34;, IPSetArgs.builder()        
+ *         var example = new IPSet("example", IPSetArgs.builder()        
  *             .activate(true)
  *             .detectorId(primary.id())
- *             .format(&#34;TXT&#34;)
- *             .location(Output.tuple(myIPSet.bucket(), myIPSet.key()).applyValue(values -&gt; {
+ *             .format("TXT")
+ *             .location(Output.tuple(myIPSet.bucket(), myIPSet.key()).applyValue(values -> {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
- *                 return String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, bucket,key);
+ *                 return String.format("https://s3.amazonaws.com/%s/%s", bucket,key);
  *             }))
- *             .name(&#34;MyIPSet&#34;)
+ *             .name("MyIPSet")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

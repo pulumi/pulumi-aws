@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,10 +56,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
- *                 .tlsPolicy(&#34;REQUIRE&#34;)
+ *                 .tlsPolicy("REQUIRE")
  *                 .build())
  *             .reputationOptions(ConfigurationSetReputationOptionsArgs.builder()
  *                 .reputationMetricsEnabled(false)
@@ -68,17 +69,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .suppressionOptions(ConfigurationSetSuppressionOptionsArgs.builder()
  *                 .suppressedReasons(                
- *                     &#34;BOUNCE&#34;,
- *                     &#34;COMPLAINT&#34;)
+ *                     "BOUNCE",
+ *                     "COMPLAINT")
  *                 .build())
  *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
- *                 .customRedirectDomain(&#34;example.com&#34;)
+ *                 .customRedirectDomain("example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

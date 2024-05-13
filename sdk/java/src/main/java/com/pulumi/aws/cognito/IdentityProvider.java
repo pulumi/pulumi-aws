@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,29 +46,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example-pool&#34;)
- *             .autoVerifiedAttributes(&#34;email&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("example-pool")
+ *             .autoVerifiedAttributes("email")
  *             .build());
  * 
- *         var exampleProvider = new IdentityProvider(&#34;exampleProvider&#34;, IdentityProviderArgs.builder()        
+ *         var exampleProvider = new IdentityProvider("exampleProvider", IdentityProviderArgs.builder()        
  *             .userPoolId(example.id())
- *             .providerName(&#34;Google&#34;)
- *             .providerType(&#34;Google&#34;)
+ *             .providerName("Google")
+ *             .providerType("Google")
  *             .providerDetails(Map.ofEntries(
- *                 Map.entry(&#34;authorize_scopes&#34;, &#34;email&#34;),
- *                 Map.entry(&#34;client_id&#34;, &#34;your client_id&#34;),
- *                 Map.entry(&#34;client_secret&#34;, &#34;your client_secret&#34;)
+ *                 Map.entry("authorize_scopes", "email"),
+ *                 Map.entry("client_id", "your client_id"),
+ *                 Map.entry("client_secret", "your client_secret")
  *             ))
  *             .attributeMapping(Map.ofEntries(
- *                 Map.entry(&#34;email&#34;, &#34;email&#34;),
- *                 Map.entry(&#34;username&#34;, &#34;sub&#34;)
+ *                 Map.entry("email", "email"),
+ *                 Map.entry("username", "sub")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

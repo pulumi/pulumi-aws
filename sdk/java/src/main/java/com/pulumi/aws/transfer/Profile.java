@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Profile(&#34;example&#34;, ProfileArgs.builder()        
- *             .as2Id(&#34;example&#34;)
+ *         var example = new Profile("example", ProfileArgs.builder()        
+ *             .as2Id("example")
  *             .certificateIds(exampleAwsTransferCertificate.certificateId())
- *             .usage(&#34;LOCAL&#34;)
+ *             .usage("LOCAL")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

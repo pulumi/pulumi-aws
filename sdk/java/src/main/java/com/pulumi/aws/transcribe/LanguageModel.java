@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,61 +63,62 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transcribe.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("transcribe.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testPolicy = new RolePolicy(&#34;testPolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()        
+ *             .name("example")
  *             .role(exampleRole.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;s3:GetObject&#34;, 
- *                             &#34;s3:ListBucket&#34;
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "s3:GetObject", 
+ *                             "s3:ListBucket"
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", jsonArray("*"))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-transcribe&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example-transcribe")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
+ *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .key(&#34;transcribe/test1.txt&#34;)
- *             .source(new FileAsset(&#34;test1.txt&#34;))
+ *             .key("transcribe/test1.txt")
+ *             .source(new FileAsset("test1.txt"))
  *             .build());
  * 
- *         var exampleLanguageModel = new LanguageModel(&#34;exampleLanguageModel&#34;, LanguageModelArgs.builder()        
- *             .modelName(&#34;example&#34;)
- *             .baseModelName(&#34;NarrowBand&#34;)
+ *         var exampleLanguageModel = new LanguageModel("exampleLanguageModel", LanguageModelArgs.builder()        
+ *             .modelName("example")
+ *             .baseModelName("NarrowBand")
  *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()
  *                 .dataAccessRoleArn(exampleRole.arn())
- *                 .s3Uri(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;s3://%s/transcribe/&#34;, id)))
+ *                 .s3Uri(exampleBucketV2.id().applyValue(id -> String.format("s3://%s/transcribe/", id)))
  *                 .build())
- *             .languageCode(&#34;en-US&#34;)
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;development&#34;))
+ *             .languageCode("en-US")
+ *             .tags(Map.of("ENVIRONMENT", "development"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

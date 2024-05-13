@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,26 +49,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var example = new Volume("example", VolumeArgs.builder()        
+ *             .availabilityZone("us-west-2a")
  *             .size(40)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
  *             .volumeId(example.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld_snap&#34;))
+ *             .tags(Map.of("Name", "HelloWorld_snap"))
  *             .build());
  * 
- *         var exampleCopy = new SnapshotCopy(&#34;exampleCopy&#34;, SnapshotCopyArgs.builder()        
+ *         var exampleCopy = new SnapshotCopy("exampleCopy", SnapshotCopyArgs.builder()        
  *             .sourceSnapshotId(exampleSnapshot.id())
- *             .sourceRegion(&#34;us-west-2&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld_copy_snap&#34;))
+ *             .sourceRegion("us-west-2")
+ *             .tags(Map.of("Name", "HelloWorld_copy_snap"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

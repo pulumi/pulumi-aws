@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,23 +51,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *         var test = new Group("test", GroupArgs.builder()        
  *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;AmazonECSManaged&#34;)
+ *                 .key("AmazonECSManaged")
  *                 .value(true)
  *                 .propagateAtLaunch(true)
  *                 .build())
  *             .build());
  * 
- *         var testCapacityProvider = new CapacityProvider(&#34;testCapacityProvider&#34;, CapacityProviderArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var testCapacityProvider = new CapacityProvider("testCapacityProvider", CapacityProviderArgs.builder()        
+ *             .name("test")
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
  *                 .autoScalingGroupArn(test.arn())
- *                 .managedTerminationProtection(&#34;ENABLED&#34;)
+ *                 .managedTerminationProtection("ENABLED")
  *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
  *                     .maximumScalingStepSize(1000)
  *                     .minimumScalingStepSize(1)
- *                     .status(&#34;ENABLED&#34;)
+ *                     .status("ENABLED")
  *                     .targetCapacity(10)
  *                     .build())
  *                 .build())
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

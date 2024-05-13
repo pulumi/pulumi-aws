@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem(&#34;fs&#34;, FileSystemArgs.builder()        
- *             .creationToken(&#34;my-product&#34;)
+ *         var fs = new FileSystem("fs", FileSystemArgs.builder()        
+ *             .creationToken("my-product")
  *             .build());
  * 
- *         var policy = new BackupPolicy(&#34;policy&#34;, BackupPolicyArgs.builder()        
+ *         var policy = new BackupPolicy("policy", BackupPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
  *             .backupPolicy(BackupPolicyBackupPolicyArgs.builder()
- *                 .status(&#34;ENABLED&#34;)
+ *                 .status("ENABLED")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

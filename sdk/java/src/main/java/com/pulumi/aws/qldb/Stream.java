@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
- *             .ledgerName(&#34;existing-ledger-name&#34;)
- *             .streamName(&#34;sample-ledger-stream&#34;)
- *             .roleArn(&#34;sample-role-arn&#34;)
- *             .inclusiveStartTime(&#34;2021-01-01T00:00:00Z&#34;)
+ *         var example = new Stream("example", StreamArgs.builder()        
+ *             .ledgerName("existing-ledger-name")
+ *             .streamName("sample-ledger-stream")
+ *             .roleArn("sample-role-arn")
+ *             .inclusiveStartTime("2021-01-01T00:00:00Z")
  *             .kinesisConfiguration(StreamKinesisConfigurationArgs.builder()
  *                 .aggregationEnabled(false)
- *                 .streamArn(&#34;arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream&#34;)
+ *                 .streamArn("arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream")
  *                 .build())
- *             .tags(Map.of(&#34;example&#34;, &#34;tag&#34;))
+ *             .tags(Map.of("example", "tag"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

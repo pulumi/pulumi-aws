@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessEntry(&#34;example&#34;, AccessEntryArgs.builder()        
+ *         var example = new AccessEntry("example", AccessEntryArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
  *             .principalArn(exampleAwsIamRole.arn())
  *             .kubernetesGroups(            
- *                 &#34;group-1&#34;,
- *                 &#34;group-2&#34;)
- *             .type(&#34;STANDARD&#34;)
+ *                 "group-1",
+ *                 "group-2")
+ *             .type("STANDARD")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

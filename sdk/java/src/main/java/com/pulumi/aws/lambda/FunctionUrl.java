@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,32 +46,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLatest = new FunctionUrl(&#34;testLatest&#34;, FunctionUrlArgs.builder()        
+ *         var testLatest = new FunctionUrl("testLatest", FunctionUrlArgs.builder()        
  *             .functionName(test.functionName())
- *             .authorizationType(&#34;NONE&#34;)
+ *             .authorizationType("NONE")
  *             .build());
  * 
- *         var testLive = new FunctionUrl(&#34;testLive&#34;, FunctionUrlArgs.builder()        
+ *         var testLive = new FunctionUrl("testLive", FunctionUrlArgs.builder()        
  *             .functionName(test.functionName())
- *             .qualifier(&#34;my_alias&#34;)
- *             .authorizationType(&#34;AWS_IAM&#34;)
+ *             .qualifier("my_alias")
+ *             .authorizationType("AWS_IAM")
  *             .cors(FunctionUrlCorsArgs.builder()
  *                 .allowCredentials(true)
- *                 .allowOrigins(&#34;*&#34;)
- *                 .allowMethods(&#34;*&#34;)
+ *                 .allowOrigins("*")
+ *                 .allowMethods("*")
  *                 .allowHeaders(                
- *                     &#34;date&#34;,
- *                     &#34;keep-alive&#34;)
+ *                     "date",
+ *                     "keep-alive")
  *                 .exposeHeaders(                
- *                     &#34;keep-alive&#34;,
- *                     &#34;date&#34;)
+ *                     "keep-alive",
+ *                     "date")
  *                 .maxAge(86400)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

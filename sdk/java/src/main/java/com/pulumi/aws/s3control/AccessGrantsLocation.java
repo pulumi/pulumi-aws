@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance(&#34;example&#34;);
+ *         var example = new AccessGrantsInstance("example");
  * 
- *         var exampleAccessGrantsLocation = new AccessGrantsLocation(&#34;exampleAccessGrantsLocation&#34;, AccessGrantsLocationArgs.builder()        
+ *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .locationScope(&#34;s3://&#34;)
+ *             .locationScope("s3://")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

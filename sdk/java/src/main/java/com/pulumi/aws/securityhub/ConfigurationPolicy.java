@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Default standards enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,28 +55,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FindingAggregator(&#34;example&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;ALL_REGIONS&#34;)
+ *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()        
+ *             .linkingMode("ALL_REGIONS")
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(false)
- *             .autoEnableStandards(&#34;NONE&#34;)
+ *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
- *                 .configurationType(&#34;CENTRAL&#34;)
+ *                 .configurationType("CENTRAL")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleConfigurationPolicy = new ConfigurationPolicy(&#34;exampleConfigurationPolicy&#34;, ConfigurationPolicyArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;This is an example configuration policy&#34;)
+ *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()        
+ *             .name("Example")
+ *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
- *                     &#34;arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0&#34;,
- *                     &#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
+ *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
  *                     .disabledControlIdentifiers()
  *                     .build())
@@ -86,13 +87,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Disabled Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -115,9 +118,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var disabled = new ConfigurationPolicy(&#34;disabled&#34;, ConfigurationPolicyArgs.builder()        
- *             .name(&#34;Disabled&#34;)
- *             .description(&#34;This is an example of disabled configuration policy&#34;)
+ *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()        
+ *             .name("Disabled")
+ *             .description("This is an example of disabled configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(false)
  *                 .build())
@@ -127,13 +130,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Control Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -157,42 +162,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var disabled = new ConfigurationPolicy(&#34;disabled&#34;, ConfigurationPolicyArgs.builder()        
- *             .name(&#34;Custom Controls&#34;)
- *             .description(&#34;This is an example of configuration policy with custom control settings&#34;)
+ *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()        
+ *             .name("Custom Controls")
+ *             .description("This is an example of configuration policy with custom control settings")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
- *                     &#34;arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0&#34;,
- *                     &#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
+ *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
  *                     .enabledControlIdentifiers(                    
- *                         &#34;APIGateway.1&#34;,
- *                         &#34;IAM.7&#34;)
+ *                         "APIGateway.1",
+ *                         "IAM.7")
  *                     .securityControlCustomParameters(                    
  *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
- *                             .securityControlId(&#34;APIGateway.1&#34;)
+ *                             .securityControlId("APIGateway.1")
  *                             .parameters(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                 .name(&#34;loggingLevel&#34;)
- *                                 .valueType(&#34;CUSTOM&#34;)
+ *                                 .name("loggingLevel")
+ *                                 .valueType("CUSTOM")
  *                                 .enum_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs.builder()
- *                                     .value(&#34;INFO&#34;)
+ *                                     .value("INFO")
  *                                     .build())
  *                                 .build())
  *                             .build(),
  *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
- *                             .securityControlId(&#34;IAM.7&#34;)
+ *                             .securityControlId("IAM.7")
  *                             .parameters(                            
  *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                     .name(&#34;RequireLowercaseCharacters&#34;)
- *                                     .valueType(&#34;CUSTOM&#34;)
+ *                                     .name("RequireLowercaseCharacters")
+ *                                     .valueType("CUSTOM")
  *                                     .bool(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs.builder()
  *                                         .value(false)
  *                                         .build())
  *                                     .build(),
  *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                     .name(&#34;MaxPasswordAge&#34;)
- *                                     .valueType(&#34;CUSTOM&#34;)
+ *                                     .name("MaxPasswordAge")
+ *                                     .valueType("CUSTOM")
  *                                     .int_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs.builder()
  *                                         .value(60)
  *                                         .build())
@@ -206,7 +211,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

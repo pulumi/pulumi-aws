@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Policy on untagged image
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,42 +49,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example-repo")
  *             .build());
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
  *             .repository(example.name())
- *             .policy(&#34;&#34;&#34;
+ *             .policy("""
  * {
- *     &#34;rules&#34;: [
+ *     "rules": [
  *         {
- *             &#34;rulePriority&#34;: 1,
- *             &#34;description&#34;: &#34;Expire images older than 14 days&#34;,
- *             &#34;selection&#34;: {
- *                 &#34;tagStatus&#34;: &#34;untagged&#34;,
- *                 &#34;countType&#34;: &#34;sinceImagePushed&#34;,
- *                 &#34;countUnit&#34;: &#34;days&#34;,
- *                 &#34;countNumber&#34;: 14
+ *             "rulePriority": 1,
+ *             "description": "Expire images older than 14 days",
+ *             "selection": {
+ *                 "tagStatus": "untagged",
+ *                 "countType": "sinceImagePushed",
+ *                 "countUnit": "days",
+ *                 "countNumber": 14
  *             },
- *             &#34;action&#34;: {
- *                 &#34;type&#34;: &#34;expire&#34;
+ *             "action": {
+ *                 "type": "expire"
  *             }
  *         }
  *     ]
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Policy on tagged image
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,36 +109,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example-repo")
  *             .build());
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
  *             .repository(example.name())
- *             .policy(&#34;&#34;&#34;
+ *             .policy("""
  * {
- *     &#34;rules&#34;: [
+ *     "rules": [
  *         {
- *             &#34;rulePriority&#34;: 1,
- *             &#34;description&#34;: &#34;Keep last 30 images&#34;,
- *             &#34;selection&#34;: {
- *                 &#34;tagStatus&#34;: &#34;tagged&#34;,
- *                 &#34;tagPrefixList&#34;: [&#34;v&#34;],
- *                 &#34;countType&#34;: &#34;imageCountMoreThan&#34;,
- *                 &#34;countNumber&#34;: 30
+ *             "rulePriority": 1,
+ *             "description": "Keep last 30 images",
+ *             "selection": {
+ *                 "tagStatus": "tagged",
+ *                 "tagPrefixList": ["v"],
+ *                 "countType": "imageCountMoreThan",
+ *                 "countNumber": 30
  *             },
- *             &#34;action&#34;: {
- *                 &#34;type&#34;: &#34;expire&#34;
+ *             "action": {
+ *                 "type": "expire"
  *             }
  *         }
  *     ]
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

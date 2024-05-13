@@ -26,7 +26,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,13 +49,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,13 +92,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +112,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,13 +135,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,13 +178,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -190,7 +198,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -212,13 +221,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -231,7 +241,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -253,13 +264,14 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
+     *             .type("RESOURCE")
+     *             .typeName("AWS::Athena::WorkGroup")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +287,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,18 +312,19 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
+     *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -326,7 +340,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -350,18 +365,19 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
+     *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +393,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -401,18 +418,19 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
+     *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -428,7 +446,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -452,18 +471,19 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
+     *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -477,7 +497,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -501,19 +522,20 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
+     *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -527,7 +549,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -551,19 +574,20 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
+     *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -577,7 +601,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,19 +626,20 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
+     *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -627,7 +653,8 @@ public final class CloudformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -651,19 +678,20 @@ public final class CloudformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
+     *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+     *         var web = new Instance("web", InstanceArgs.builder()        
+     *             .ami("ami-abb07bcb")
+     *             .instanceType("t2.micro")
+     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

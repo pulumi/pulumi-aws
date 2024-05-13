@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,33 +52,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new User(&#34;lb&#34;, UserArgs.builder()        
- *             .name(&#34;loadbalancer&#34;)
- *             .path(&#34;/system/&#34;)
- *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
+ *         var lb = new User("lb", UserArgs.builder()        
+ *             .name("loadbalancer")
+ *             .path("/system/")
+ *             .tags(Map.of("tag-key", "tag-value"))
  *             .build());
  * 
- *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
+ *         var lbAccessKey = new AccessKey("lbAccessKey", AccessKeyArgs.builder()        
  *             .user(lb.name())
  *             .build());
  * 
  *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;ec2:Describe*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("ec2:Describe*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()        
+ *             .name("test")
  *             .user(lb.name())
- *             .policy(lbRo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -124,14 +126,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
+     * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
+     * @return The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
      * 
      */
     public Output<String> name() {

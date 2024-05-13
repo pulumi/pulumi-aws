@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;test-lb&#34;)
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()        
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
- *                 .instanceProtocol(&#34;http&#34;)
+ *                 .instanceProtocol("http")
  *                 .lbPort(80)
- *                 .lbProtocol(&#34;http&#34;)
+ *                 .lbProtocol("http")
  *                 .build())
  *             .build());
  * 
- *         var foo = new AppCookieStickinessPolicy(&#34;foo&#34;, AppCookieStickinessPolicyArgs.builder()        
- *             .name(&#34;foo_policy&#34;)
+ *         var foo = new AppCookieStickinessPolicy("foo", AppCookieStickinessPolicyArgs.builder()        
+ *             .name("foo_policy")
  *             .loadBalancer(lb.name())
  *             .lbPort(80)
- *             .cookieName(&#34;MyAppCookie&#34;)
+ *             .cookieName("MyAppCookie")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,10 +54,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new GraphQLApi(&#34;test&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .name(&#34;tf-example&#34;)
- *             .schema(&#34;&#34;&#34;
+ *         var test = new GraphQLApi("test", GraphQLApiArgs.builder()        
+ *             .authenticationType("API_KEY")
+ *             .name("tf-example")
+ *             .schema("""
  * type Mutation {
  * 	putPost(id: ID!, title: String!): Post
  * }
@@ -74,57 +75,57 @@ import javax.annotation.Nullable;
  * 	query: Query
  * 	mutation: Mutation
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var testDataSource = new DataSource(&#34;testDataSource&#34;, DataSourceArgs.builder()        
+ *         var testDataSource = new DataSource("testDataSource", DataSourceArgs.builder()        
  *             .apiId(test.id())
- *             .name(&#34;my_example&#34;)
- *             .type(&#34;HTTP&#34;)
+ *             .name("my_example")
+ *             .type("HTTP")
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
- *                 .endpoint(&#34;http://example.com&#34;)
+ *                 .endpoint("http://example.com")
  *                 .build())
  *             .build());
  * 
  *         // UNIT type resolver (default)
- *         var testResolver = new Resolver(&#34;testResolver&#34;, ResolverArgs.builder()        
+ *         var testResolver = new Resolver("testResolver", ResolverArgs.builder()        
  *             .apiId(test.id())
- *             .field(&#34;singlePost&#34;)
- *             .type(&#34;Query&#34;)
+ *             .field("singlePost")
+ *             .type("Query")
  *             .dataSource(testDataSource.name())
- *             .requestTemplate(&#34;&#34;&#34;
+ *             .requestTemplate("""
  * {
- *     &#34;version&#34;: &#34;2018-05-29&#34;,
- *     &#34;method&#34;: &#34;GET&#34;,
- *     &#34;resourcePath&#34;: &#34;/&#34;,
- *     &#34;params&#34;:{
- *         &#34;headers&#34;: $utils.http.copyheaders($ctx.request.headers)
+ *     "version": "2018-05-29",
+ *     "method": "GET",
+ *     "resourcePath": "/",
+ *     "params":{
+ *         "headers": $utils.http.copyheaders($ctx.request.headers)
  *     }
  * }
- *             &#34;&#34;&#34;)
- *             .responseTemplate(&#34;&#34;&#34;
+ *             """)
+ *             .responseTemplate("""
  * #if($ctx.result.statusCode == 200)
  *     $ctx.result.body
  * #else
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
- *             &#34;&#34;&#34;)
+ *             """)
  *             .cachingConfig(ResolverCachingConfigArgs.builder()
  *                 .cachingKeys(                
- *                     &#34;$context.identity.sub&#34;,
- *                     &#34;$context.arguments.id&#34;)
+ *                     "$context.identity.sub",
+ *                     "$context.arguments.id")
  *                 .ttl(60)
  *                 .build())
  *             .build());
  * 
  *         // PIPELINE type resolver
- *         var mutationPipelineTest = new Resolver(&#34;mutationPipelineTest&#34;, ResolverArgs.builder()        
- *             .type(&#34;Mutation&#34;)
+ *         var mutationPipelineTest = new Resolver("mutationPipelineTest", ResolverArgs.builder()        
+ *             .type("Mutation")
  *             .apiId(test.id())
- *             .field(&#34;pipelineTest&#34;)
- *             .requestTemplate(&#34;{}&#34;)
- *             .responseTemplate(&#34;$util.toJson($ctx.result)&#34;)
- *             .kind(&#34;PIPELINE&#34;)
+ *             .field("pipelineTest")
+ *             .requestTemplate("{}")
+ *             .responseTemplate("$util.toJson($ctx.result)")
+ *             .kind("PIPELINE")
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
  *                 .functions(                
  *                     test1.functionId(),
@@ -135,13 +136,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### JS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -164,17 +167,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Resolver(&#34;example&#34;, ResolverArgs.builder()        
- *             .type(&#34;Query&#34;)
+ *         var example = new Resolver("example", ResolverArgs.builder()        
+ *             .type("Query")
  *             .apiId(testAwsAppsyncGraphqlApi.id())
- *             .field(&#34;pipelineTest&#34;)
- *             .kind(&#34;PIPELINE&#34;)
+ *             .field("pipelineTest")
+ *             .kind("PIPELINE")
  *             .code(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;some-code-dir&#34;)
+ *                 .input("some-code-dir")
  *                 .build()).result())
  *             .runtime(ResolverRuntimeArgs.builder()
- *                 .name(&#34;APPSYNC_JS&#34;)
- *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .name("APPSYNC_JS")
+ *                 .runtimeVersion("1.0.0")
  *                 .build())
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
  *                 .functions(test.functionId())
@@ -183,7 +186,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -41,7 +41,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,14 +63,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiFromInstance(&#34;example&#34;, AmiFromInstanceArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .sourceInstanceId(&#34;i-xxxxxxxx&#34;)
+ *         var example = new AmiFromInstance("example", AmiFromInstanceArgs.builder()        
+ *             .name("example")
+ *             .sourceInstanceId("i-xxxxxxxx")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

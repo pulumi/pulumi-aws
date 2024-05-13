@@ -32,7 +32,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,13 +55,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
-     *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .experienceId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,13 +98,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
-     *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .experienceId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -114,7 +118,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,13 +141,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
-     *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .experienceId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,13 +184,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
-     *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .experienceId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -196,7 +204,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,13 +227,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
-     *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .faqId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +247,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,13 +270,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
-     *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .faqId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +290,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,13 +313,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
-     *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .faqId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +333,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -341,13 +356,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
-     *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .faqId("87654321-1234-4321-4321-321987654321")
+     *             .indexId("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -360,7 +376,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -382,12 +399,13 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
-     *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .id("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,12 +441,13 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
-     *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .id("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -440,7 +460,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -462,12 +483,13 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
-     *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .id("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -480,7 +502,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -502,12 +525,13 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
-     *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
+     *             .id("12345678-1234-1234-1234-123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -520,7 +544,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -542,13 +567,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .querySuggestionsBlockListId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -561,7 +587,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -583,13 +610,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .querySuggestionsBlockListId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -602,7 +630,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -624,13 +653,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .querySuggestionsBlockListId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -643,7 +673,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -665,13 +696,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .querySuggestionsBlockListId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -684,7 +716,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,13 +739,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .thesaurusId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,7 +759,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -747,13 +782,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .thesaurusId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -766,7 +802,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -788,13 +825,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .thesaurusId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -807,7 +845,8 @@ public final class KendraFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -829,13 +868,14 @@ public final class KendraFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
-     *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
+     *             .indexId("12345678-1234-1234-1234-123456789123")
+     *             .thesaurusId("87654321-1234-4321-4321-321987654321")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

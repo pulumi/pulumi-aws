@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,32 +49,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;default&#34;)
- *             .databaseName(&#34;default&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("default")
+ *             .databaseName("default")
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;redshift-events&#34;)
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *             .name("redshift-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
- *             .name(&#34;redshift-event-sub&#34;)
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *             .name("redshift-event-sub")
  *             .snsTopicArn(defaultTopic.arn())
- *             .sourceType(&#34;cluster&#34;)
+ *             .sourceType("cluster")
  *             .sourceIds(default_.id())
- *             .severity(&#34;INFO&#34;)
+ *             .severity("INFO")
  *             .eventCategories(            
- *                 &#34;configuration&#34;,
- *                 &#34;management&#34;,
- *                 &#34;monitoring&#34;,
- *                 &#34;security&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;default&#34;))
+ *                 "configuration",
+ *                 "management",
+ *                 "monitoring",
+ *                 "security")
+ *             .tags(Map.of("Name", "default"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

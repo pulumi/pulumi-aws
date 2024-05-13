@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,21 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SnapshotImport(&#34;example&#34;, SnapshotImportArgs.builder()        
+ *         var example = new SnapshotImport("example", SnapshotImportArgs.builder()        
  *             .diskContainer(SnapshotImportDiskContainerArgs.builder()
- *                 .format(&#34;VHD&#34;)
+ *                 .format("VHD")
  *                 .userBucket(SnapshotImportDiskContainerUserBucketArgs.builder()
- *                     .s3Bucket(&#34;disk-images&#34;)
- *                     .s3Key(&#34;source.vhd&#34;)
+ *                     .s3Bucket("disk-images")
+ *                     .s3Key("source.vhd")
  *                     .build())
  *                 .build())
- *             .roleName(&#34;disk-image-import&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .roleName("disk-image-import")
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

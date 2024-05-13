@@ -21,7 +21,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,20 +48,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +76,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,20 +103,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -127,7 +131,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -153,20 +158,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -180,7 +186,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -206,20 +213,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +241,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -259,20 +268,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -286,7 +296,8 @@ public final class ApprunnerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -312,20 +323,21 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

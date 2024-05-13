@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### All Account Resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection(&#34;example&#34;, ResourceCollectionArgs.builder()        
- *             .type(&#34;AWS_SERVICE&#34;)
+ *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()        
+ *             .type("AWS_SERVICE")
  *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
- *                 .stackNames(&#34;*&#34;)
+ *                 .stackNames("*")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CloudFormation Stacks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,22 +88,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection(&#34;example&#34;, ResourceCollectionArgs.builder()        
- *             .type(&#34;AWS_CLOUD_FORMATION&#34;)
+ *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()        
+ *             .type("AWS_CLOUD_FORMATION")
  *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
- *                 .stackNames(&#34;ExampleStack&#34;)
+ *                 .stackNames("ExampleStack")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -122,17 +127,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection(&#34;example&#34;, ResourceCollectionArgs.builder()        
- *             .type(&#34;AWS_TAGS&#34;)
+ *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()        
+ *             .type("AWS_TAGS")
  *             .tags(ResourceCollectionTagsArgs.builder()
- *                 .appBoundaryKey(&#34;DevOps-Guru-Example&#34;)
- *                 .tagValues(&#34;Example-Value&#34;)
+ *                 .appBoundaryKey("DevOps-Guru-Example")
+ *                 .tagValues("Example-Value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Tags All Resources
@@ -140,7 +146,8 @@ import javax.annotation.Nullable;
  * To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `[&#34;*&#34;]`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -162,17 +169,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection(&#34;example&#34;, ResourceCollectionArgs.builder()        
- *             .type(&#34;AWS_TAGS&#34;)
+ *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()        
+ *             .type("AWS_TAGS")
  *             .tags(ResourceCollectionTagsArgs.builder()
- *                 .appBoundaryKey(&#34;DevOps-Guru-Example&#34;)
- *                 .tagValues(&#34;*&#34;)
+ *                 .appBoundaryKey("DevOps-Guru-Example")
+ *                 .tagValues("*")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

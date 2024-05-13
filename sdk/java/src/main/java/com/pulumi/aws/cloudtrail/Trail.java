@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * For capturing events from services like IAM, `include_global_service_events` must be enabled.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,8 +68,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-test-trail&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("my-test-trail")
  *             .forceDestroy(true)
  *             .build());
  * 
@@ -81,52 +82,52 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;AWSCloudTrailAclCheck&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("AWSCloudTrailAclCheck")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
- *                     .actions(&#34;s3:GetBucketAcl&#34;)
+ *                     .actions("s3:GetBucketAcl")
  *                     .resources(exampleBucketV2.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;aws:SourceArn&#34;)
- *                         .values(String.format(&#34;arn:%s:cloudtrail:%s:%s:trail/example&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                         .test("StringEquals")
+ *                         .variable("aws:SourceArn")
+ *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;AWSCloudTrailWrite&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("AWSCloudTrailWrite")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
- *                     .actions(&#34;s3:PutObject&#34;)
- *                     .resources(exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/prefix/AWSLogs/%s/*&#34;, arn,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ *                     .actions("s3:PutObject")
+ *                     .resources(exampleBucketV2.arn().applyValue(arn -> String.format("%s/prefix/AWSLogs/%s/*", arn,current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))))
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test(&#34;StringEquals&#34;)
- *                             .variable(&#34;s3:x-amz-acl&#34;)
- *                             .values(&#34;bucket-owner-full-control&#34;)
+ *                             .test("StringEquals")
+ *                             .variable("s3:x-amz-acl")
+ *                             .values("bucket-owner-full-control")
  *                             .build(),
  *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test(&#34;StringEquals&#34;)
- *                             .variable(&#34;aws:SourceArn&#34;)
- *                             .values(String.format(&#34;arn:%s:cloudtrail:%s:%s:trail/example&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                             .test("StringEquals")
+ *                             .variable("aws:SourceArn")
+ *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                             .build())
  *                     .build())
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()        
+ *             .name("example")
  *             .s3BucketName(exampleBucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .s3KeyPrefix("prefix")
  *             .includeGlobalServiceEvents(false)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketPolicy)
@@ -134,7 +135,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Data Event Logging
@@ -147,7 +149,8 @@ import javax.annotation.Nullable;
  * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,26 +172,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()        
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
+ *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
- *                     .type(&#34;AWS::Lambda::Function&#34;)
- *                     .values(&#34;arn:aws:lambda&#34;)
+ *                     .type("AWS::Lambda::Function")
+ *                     .values("arn:aws:lambda")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging All S3 Object Events By Using Basic Event Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -210,26 +215,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()        
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
+ *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
- *                     .type(&#34;AWS::S3::Object&#34;)
- *                     .values(&#34;arn:aws:s3&#34;)
+ *                     .type("AWS::S3::Object")
+ *                     .values("arn:aws:s3")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -254,29 +261,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var important-bucket = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;important-bucket&#34;)
+ *             .bucket("important-bucket")
  *             .build());
  * 
- *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()        
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
+ *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
- *                     .type(&#34;AWS::S3::Object&#34;)
- *                     .values(String.format(&#34;%s/&#34;, important_bucket.arn()))
+ *                     .type("AWS::S3::Object")
+ *                     .values(String.format("%s/", important_bucket.arn()))
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -301,51 +310,53 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var not-important-bucket-1 = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;not-important-bucket-1&#34;)
+ *             .bucket("not-important-bucket-1")
  *             .build());
  * 
  *         final var not-important-bucket-2 = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;not-important-bucket-2&#34;)
+ *             .bucket("not-important-bucket-2")
  *             .build());
  * 
- *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()        
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name(&#34;Log all S3 objects events except for two S3 buckets&#34;)
+ *                     .name("Log all S3 objects events except for two S3 buckets")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;eventCategory&#34;)
- *                             .equals(&#34;Data&#34;)
+ *                             .field("eventCategory")
+ *                             .equals("Data")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.ARN&#34;)
+ *                             .field("resources.ARN")
  *                             .notStartsWiths(                            
- *                                 String.format(&#34;%s/&#34;, not_important_bucket_1.arn()),
- *                                 String.format(&#34;%s/&#34;, not_important_bucket_2.arn()))
+ *                                 String.format("%s/", not_important_bucket_1.arn()),
+ *                                 String.format("%s/", not_important_bucket_2.arn()))
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.type&#34;)
- *                             .equals(&#34;AWS::S3::Object&#34;)
+ *                             .field("resources.type")
+ *                             .equals("AWS::S3::Object")
  *                             .build())
  *                     .build(),
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name(&#34;Log readOnly and writeOnly management events&#34;)
+ *                     .name("Log readOnly and writeOnly management events")
  *                     .fieldSelectors(TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;eventCategory&#34;)
- *                         .equals(&#34;Management&#34;)
+ *                         .field("eventCategory")
+ *                         .equals("Management")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -370,82 +381,84 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var important-bucket-1 = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;important-bucket-1&#34;)
+ *             .bucket("important-bucket-1")
  *             .build());
  * 
  *         final var important-bucket-2 = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;important-bucket-2&#34;)
+ *             .bucket("important-bucket-2")
  *             .build());
  * 
  *         final var important-bucket-3 = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;important-bucket-3&#34;)
+ *             .bucket("important-bucket-3")
  *             .build());
  * 
- *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()        
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name(&#34;Log PutObject and DeleteObject events for two S3 buckets&#34;)
+ *                     .name("Log PutObject and DeleteObject events for two S3 buckets")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;eventCategory&#34;)
- *                             .equals(&#34;Data&#34;)
+ *                             .field("eventCategory")
+ *                             .equals("Data")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;eventName&#34;)
+ *                             .field("eventName")
  *                             .equals(                            
- *                                 &#34;PutObject&#34;,
- *                                 &#34;DeleteObject&#34;)
+ *                                 "PutObject",
+ *                                 "DeleteObject")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.ARN&#34;)
+ *                             .field("resources.ARN")
  *                             .startsWiths(                            
- *                                 String.format(&#34;%s/&#34;, important_bucket_1.arn()),
- *                                 String.format(&#34;%s/&#34;, important_bucket_2.arn()))
+ *                                 String.format("%s/", important_bucket_1.arn()),
+ *                                 String.format("%s/", important_bucket_2.arn()))
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;readOnly&#34;)
- *                             .equals(&#34;false&#34;)
+ *                             .field("readOnly")
+ *                             .equals("false")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.type&#34;)
- *                             .equals(&#34;AWS::S3::Object&#34;)
+ *                             .field("resources.type")
+ *                             .equals("AWS::S3::Object")
  *                             .build())
  *                     .build(),
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name(&#34;Log Delete* events for one S3 bucket&#34;)
+ *                     .name("Log Delete* events for one S3 bucket")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;eventCategory&#34;)
- *                             .equals(&#34;Data&#34;)
+ *                             .field("eventCategory")
+ *                             .equals("Data")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;eventName&#34;)
- *                             .startsWiths(&#34;Delete&#34;)
+ *                             .field("eventName")
+ *                             .startsWiths("Delete")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.ARN&#34;)
- *                             .equals(String.format(&#34;%s/important-prefix&#34;, important_bucket_3.arn()))
+ *                             .field("resources.ARN")
+ *                             .equals(String.format("%s/important-prefix", important_bucket_3.arn()))
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;readOnly&#34;)
- *                             .equals(&#34;false&#34;)
+ *                             .field("readOnly")
+ *                             .equals("false")
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .field(&#34;resources.type&#34;)
- *                             .equals(&#34;AWS::S3::Object&#34;)
+ *                             .field("resources.type")
+ *                             .equals("AWS::S3::Object")
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Sending Events to CloudWatch Logs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -468,17 +481,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(&#34;Example&#34;)
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name("Example")
  *             .build());
  * 
- *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .cloudWatchLogsGroupArn(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()        
+ *             .cloudWatchLogsGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

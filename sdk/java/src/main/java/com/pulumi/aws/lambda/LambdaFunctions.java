@@ -37,7 +37,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -59,13 +60,14 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName(&#34;my-lambda-func&#34;)
-     *             .name(&#34;production&#34;)
+     *             .functionName("my-lambda-func")
+     *             .name("production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -78,7 +80,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,13 +103,14 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName(&#34;my-lambda-func&#34;)
-     *             .name(&#34;production&#34;)
+     *             .functionName("my-lambda-func")
+     *             .name("production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -119,7 +123,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -141,13 +146,14 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName(&#34;my-lambda-func&#34;)
-     *             .name(&#34;production&#34;)
+     *             .functionName("my-lambda-func")
+     *             .name("production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -160,7 +166,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,13 +189,14 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName(&#34;my-lambda-func&#34;)
-     *             .name(&#34;production&#34;)
+     *             .functionName("my-lambda-func")
+     *             .name("production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -203,7 +211,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -225,12 +234,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
+     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -245,7 +255,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,12 +278,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
+     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +299,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -309,12 +322,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
+     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +343,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,12 +366,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
+     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -369,7 +385,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -391,14 +408,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -411,7 +429,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -433,14 +452,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -453,7 +473,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -475,14 +496,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -495,7 +517,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -517,14 +540,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -537,7 +561,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -559,14 +584,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -579,7 +605,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,14 +628,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -621,7 +649,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -643,14 +672,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -663,7 +693,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -685,14 +716,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -705,7 +737,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -729,7 +762,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -742,7 +776,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -766,7 +801,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -779,7 +815,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -803,7 +840,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -816,7 +854,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -840,7 +879,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -853,7 +893,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -877,7 +918,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -890,7 +932,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -914,7 +957,8 @@ public final class LambdaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -971,7 +1015,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -993,14 +1038,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var layerName = config.get(&#34;layerName&#34;);
+     *         final var layerName = config.get("layerName");
      *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1013,7 +1059,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1035,14 +1082,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var layerName = config.get(&#34;layerName&#34;);
+     *         final var layerName = config.get("layerName");
      *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1055,7 +1103,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1077,14 +1126,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var layerName = config.get(&#34;layerName&#34;);
+     *         final var layerName = config.get("layerName");
      *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1097,7 +1147,8 @@ public final class LambdaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1119,14 +1170,15 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var layerName = config.get(&#34;layerName&#34;);
+     *         final var layerName = config.get("layerName");
      *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

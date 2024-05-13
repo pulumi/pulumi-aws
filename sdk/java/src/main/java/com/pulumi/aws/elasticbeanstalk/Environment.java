@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,20 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
- *             .description(&#34;tf-test-desc&#34;)
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .build());
  * 
- *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
+ *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()        
+ *             .name("tf-test-name")
  *             .application(tftest.name())
- *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
+ *             .solutionStackName("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Option Settings
@@ -83,7 +85,8 @@ import javax.annotation.Nullable;
  * ### Example With Options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,31 +110,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
- *             .description(&#34;tf-test-desc&#34;)
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .build());
  * 
- *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
+ *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()        
+ *             .name("tf-test-name")
  *             .application(tftest.name())
- *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
+ *             .solutionStackName("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
  *             .settings(            
  *                 EnvironmentSettingArgs.builder()
- *                     .namespace(&#34;aws:ec2:vpc&#34;)
- *                     .name(&#34;VPCId&#34;)
- *                     .value(&#34;vpc-xxxxxxxx&#34;)
+ *                     .namespace("aws:ec2:vpc")
+ *                     .name("VPCId")
+ *                     .value("vpc-xxxxxxxx")
  *                     .build(),
  *                 EnvironmentSettingArgs.builder()
- *                     .namespace(&#34;aws:ec2:vpc&#34;)
- *                     .name(&#34;Subnets&#34;)
- *                     .value(&#34;subnet-xxxxxxxx&#34;)
+ *                     .namespace("aws:ec2:vpc")
+ *                     .name("Subnets")
+ *                     .value("subnet-xxxxxxxx")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

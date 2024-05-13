@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HsmConfiguration(&#34;example&#34;, HsmConfigurationArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .hsmConfigurationIdentifier(&#34;example&#34;)
- *             .hsmIpAddress(&#34;10.0.0.1&#34;)
- *             .hsmPartitionName(&#34;aws&#34;)
- *             .hsmPartitionPassword(&#34;example&#34;)
- *             .hsmServerPublicCertificate(&#34;example&#34;)
+ *         var example = new HsmConfiguration("example", HsmConfigurationArgs.builder()        
+ *             .description("example")
+ *             .hsmConfigurationIdentifier("example")
+ *             .hsmIpAddress("10.0.0.1")
+ *             .hsmPartitionName("aws")
+ *             .hsmPartitionPassword("example")
+ *             .hsmServerPublicCertificate("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

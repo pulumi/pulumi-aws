@@ -30,7 +30,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -52,12 +53,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
+     *             .computeEnvironmentName("batch-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -71,7 +73,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,12 +96,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
+     *             .computeEnvironmentName("batch-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
+     *             .computeEnvironmentName("batch-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -153,7 +159,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -175,12 +182,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
+     *             .computeEnvironmentName("batch-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +203,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,18 +226,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -250,13 +261,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -271,7 +283,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -293,18 +306,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,13 +341,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -347,7 +363,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -369,18 +386,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -402,13 +421,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -423,7 +443,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -445,18 +466,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -478,13 +501,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -499,7 +523,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -521,18 +546,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -554,13 +581,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -575,7 +603,8 @@ public final class BatchFunctions {
      * ### Lookup via Arn
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -597,18 +626,20 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:job-definition/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup via Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -630,13 +661,14 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .revision(2)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -650,7 +682,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -672,12 +705,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
-     *             .name(&#34;tf-test-batch-job-queue&#34;)
+     *             .name("tf-test-batch-job-queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -691,7 +725,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -713,12 +748,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
-     *             .name(&#34;tf-test-batch-job-queue&#34;)
+     *             .name("tf-test-batch-job-queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -732,7 +768,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -754,12 +791,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
-     *             .name(&#34;tf-test-batch-job-queue&#34;)
+     *             .name("tf-test-batch-job-queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -773,7 +811,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -795,12 +834,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
-     *             .name(&#34;tf-test-batch-job-queue&#34;)
+     *             .name("tf-test-batch-job-queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -813,7 +853,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -835,12 +876,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -853,7 +895,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -875,12 +918,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -893,7 +937,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -915,12 +960,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -933,7 +979,8 @@ public final class BatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -955,12 +1002,13 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
+     *             .arn("arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

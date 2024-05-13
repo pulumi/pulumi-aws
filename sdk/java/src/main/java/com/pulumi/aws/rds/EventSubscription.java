@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,43 +49,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.6.17&#34;)
- *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .dbName(&#34;mydb&#34;)
- *             .username(&#34;foo&#34;)
- *             .password(&#34;bar&#34;)
- *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
- *             .parameterGroupName(&#34;default.mysql5.6&#34;)
+ *             .engine("mysql")
+ *             .engineVersion("5.6.17")
+ *             .instanceClass("db.t2.micro")
+ *             .dbName("mydb")
+ *             .username("foo")
+ *             .password("bar")
+ *             .dbSubnetGroupName("my_database_subnet_group")
+ *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;rds-events&#34;)
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *             .name("rds-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
- *             .name(&#34;rds-event-sub&#34;)
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *             .name("rds-event-sub")
  *             .snsTopic(defaultTopic.arn())
- *             .sourceType(&#34;db-instance&#34;)
+ *             .sourceType("db-instance")
  *             .sourceIds(default_.identifier())
  *             .eventCategories(            
- *                 &#34;availability&#34;,
- *                 &#34;deletion&#34;,
- *                 &#34;failover&#34;,
- *                 &#34;failure&#34;,
- *                 &#34;low storage&#34;,
- *                 &#34;maintenance&#34;,
- *                 &#34;notification&#34;,
- *                 &#34;read replica&#34;,
- *                 &#34;recovery&#34;,
- *                 &#34;restoration&#34;)
+ *                 "availability",
+ *                 "deletion",
+ *                 "failover",
+ *                 "failure",
+ *                 "low storage",
+ *                 "maintenance",
+ *                 "notification",
+ *                 "read replica",
+ *                 "recovery",
+ *                 "restoration")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

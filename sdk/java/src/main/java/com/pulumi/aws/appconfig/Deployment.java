@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Deployment(&#34;example&#34;, DeploymentArgs.builder()        
+ *         var example = new Deployment("example", DeploymentArgs.builder()        
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
  *             .configurationVersion(exampleAwsAppconfigHostedConfigurationVersion.versionNumber())
  *             .deploymentStrategyId(exampleAwsAppconfigDeploymentStrategy.id())
- *             .description(&#34;My example deployment&#34;)
+ *             .description("My example deployment")
  *             .environmentId(exampleAwsAppconfigEnvironment.environmentId())
  *             .kmsKeyIdentifier(exampleAwsKmsKey.arn())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Deployment&#34;))
+ *             .tags(Map.of("Type", "AppConfig Deployment"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

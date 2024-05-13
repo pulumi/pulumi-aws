@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * To create a basic traffic mirror filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new TrafficMirrorFilter(&#34;foo&#34;, TrafficMirrorFilterArgs.builder()        
- *             .description(&#34;traffic mirror filter - example&#34;)
- *             .networkServices(&#34;amazon-dns&#34;)
+ *         var foo = new TrafficMirrorFilter("foo", TrafficMirrorFilterArgs.builder()        
+ *             .description("traffic mirror filter - example")
+ *             .networkServices("amazon-dns")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

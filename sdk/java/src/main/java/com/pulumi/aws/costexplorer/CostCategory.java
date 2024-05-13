@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,37 +49,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new CostCategory(&#34;test&#34;, CostCategoryArgs.builder()        
- *             .name(&#34;NAME&#34;)
- *             .ruleVersion(&#34;CostCategoryExpression.v1&#34;)
+ *         var test = new CostCategory("test", CostCategoryArgs.builder()        
+ *             .name("NAME")
+ *             .ruleVersion("CostCategoryExpression.v1")
  *             .rules(            
  *                 CostCategoryRuleArgs.builder()
- *                     .value(&#34;production&#34;)
+ *                     .value("production")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .values(&#34;-prod&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
+ *                             .key("LINKED_ACCOUNT_NAME")
+ *                             .values("-prod")
+ *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 CostCategoryRuleArgs.builder()
- *                     .value(&#34;staging&#34;)
+ *                     .value("staging")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .values(&#34;-stg&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
+ *                             .key("LINKED_ACCOUNT_NAME")
+ *                             .values("-stg")
+ *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 CostCategoryRuleArgs.builder()
- *                     .value(&#34;testing&#34;)
+ *                     .value("testing")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .values(&#34;-dev&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
+ *                             .key("LINKED_ACCOUNT_NAME")
+ *                             .values("-dev")
+ *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

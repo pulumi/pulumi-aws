@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,17 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lambdaLayerPermission = new LayerVersionPermission(&#34;lambdaLayerPermission&#34;, LayerVersionPermissionArgs.builder()        
- *             .layerName(&#34;arn:aws:lambda:us-west-2:123456654321:layer:test_layer1&#34;)
+ *         var lambdaLayerPermission = new LayerVersionPermission("lambdaLayerPermission", LayerVersionPermissionArgs.builder()        
+ *             .layerName("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1")
  *             .versionNumber(1)
- *             .principal(&#34;111111111111&#34;)
- *             .action(&#34;lambda:GetLayerVersion&#34;)
- *             .statementId(&#34;dev-account&#34;)
+ *             .principal("111111111111")
+ *             .action("lambda:GetLayerVersion")
+ *             .statementId("dev-account")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
- *             .name(&#34;bar&#34;)
- *             .imageTagMutability(&#34;MUTABLE&#34;)
+ *         var foo = new Repository("foo", RepositoryArgs.builder()        
+ *             .name("bar")
+ *             .imageTagMutability("MUTABLE")
  *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
  *                 .scanOnPush(true)
  *                 .build())
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

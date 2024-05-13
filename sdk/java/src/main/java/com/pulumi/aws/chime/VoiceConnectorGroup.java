@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,20 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vc1 = new VoiceConnector(&#34;vc1&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;connector-test-1&#34;)
+ *         var vc1 = new VoiceConnector("vc1", VoiceConnectorArgs.builder()        
+ *             .name("connector-test-1")
  *             .requireEncryption(true)
- *             .awsRegion(&#34;us-east-1&#34;)
+ *             .awsRegion("us-east-1")
  *             .build());
  * 
- *         var vc2 = new VoiceConnector(&#34;vc2&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;connector-test-2&#34;)
+ *         var vc2 = new VoiceConnector("vc2", VoiceConnectorArgs.builder()        
+ *             .name("connector-test-2")
  *             .requireEncryption(true)
- *             .awsRegion(&#34;us-west-2&#34;)
+ *             .awsRegion("us-west-2")
  *             .build());
  * 
- *         var group = new VoiceConnectorGroup(&#34;group&#34;, VoiceConnectorGroupArgs.builder()        
- *             .name(&#34;test-group&#34;)
+ *         var group = new VoiceConnectorGroup("group", VoiceConnectorGroupArgs.builder()        
+ *             .name("test-group")
  *             .connectors(            
  *                 VoiceConnectorGroupConnectorArgs.builder()
  *                     .voiceConnectorId(vc1.id())
@@ -75,7 +76,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

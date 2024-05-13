@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Storage Config Kinesis Firehose Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+ *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs.builder()
  *                     .firehoseArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                     .build())
- *                 .storageType(&#34;KINESIS_FIREHOSE&#34;)
+ *                 .storageType("KINESIS_FIREHOSE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Storage Config Kinesis Stream Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,26 +91,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+ *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.builder()
  *                     .streamArn(exampleAwsKinesisStream.arn())
  *                     .build())
- *                 .storageType(&#34;KINESIS_STREAM&#34;)
+ *                 .storageType("KINESIS_STREAM")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Storage Config Kinesis Video Stream Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -131,31 +136,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .resourceType(&#34;MEDIA_STREAMS&#34;)
+ *             .resourceType("MEDIA_STREAMS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs.builder()
- *                     .prefix(&#34;example&#34;)
+ *                     .prefix("example")
  *                     .retentionPeriodHours(3)
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
+ *                         .encryptionType("KMS")
  *                         .keyId(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
- *                 .storageType(&#34;KINESIS_VIDEO_STREAM&#34;)
+ *                 .storageType("KINESIS_VIDEO_STREAM")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Storage Config S3 Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -178,27 +185,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
+ *             .resourceType("CHAT_TRANSCRIPTS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
- *                     .bucketPrefix(&#34;example&#34;)
+ *                     .bucketPrefix("example")
  *                     .build())
- *                 .storageType(&#34;S3&#34;)
+ *                 .storageType("S3")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Storage Config S3 Config with Encryption Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -222,25 +231,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
+ *             .resourceType("CHAT_TRANSCRIPTS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
- *                     .bucketPrefix(&#34;example&#34;)
+ *                     .bucketPrefix("example")
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
+ *                         .encryptionType("KMS")
  *                         .keyId(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
- *                 .storageType(&#34;S3&#34;)
+ *                 .storageType("S3")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

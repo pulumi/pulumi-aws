@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceAction(&#34;example&#34;, ServiceActionArgs.builder()        
- *             .description(&#34;Motor generator unit&#34;)
- *             .name(&#34;MGU&#34;)
+ *         var example = new ServiceAction("example", ServiceActionArgs.builder()        
+ *             .description("Motor generator unit")
+ *             .name("MGU")
  *             .definition(ServiceActionDefinitionArgs.builder()
- *                 .name(&#34;AWS-RestartEC2Instance&#34;)
+ *                 .name("AWS-RestartEC2Instance")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,23 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;default&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .userId("testUserId")
+ *             .userName("default")
+ *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .engine("REDIS")
+ *             .passwords("password123456789")
  *             .build());
  * 
- *         var testUserGroup = new UserGroup(&#34;testUserGroup&#34;, UserGroupArgs.builder()        
- *             .engine(&#34;REDIS&#34;)
- *             .userGroupId(&#34;userGroupId&#34;)
+ *         var testUserGroup = new UserGroup("testUserGroup", UserGroupArgs.builder()        
+ *             .engine("REDIS")
+ *             .userGroupId("userGroupId")
  *             .userIds(test.userId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Database Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,38 +52,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
- *             .key(&#34;right&#34;)
+ *         var example = new LfTag("example", LfTagArgs.builder()        
+ *             .key("right")
  *             .values(            
- *                 &#34;abbey&#34;,
- *                 &#34;village&#34;,
- *                 &#34;luffield&#34;,
- *                 &#34;woodcote&#34;,
- *                 &#34;copse&#34;,
- *                 &#34;chapel&#34;,
- *                 &#34;stowe&#34;,
- *                 &#34;club&#34;)
+ *                 "abbey",
+ *                 "village",
+ *                 "luffield",
+ *                 "woodcote",
+ *                 "copse",
+ *                 "chapel",
+ *                 "stowe",
+ *                 "club")
  *             .build());
  * 
- *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
+ *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(ResourceLfTagsLfTagArgs.builder()
  *                 .key(example.key())
- *                 .value(&#34;stowe&#34;)
+ *                 .value("stowe")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multiple Tags Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,49 +110,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
- *             .key(&#34;right&#34;)
+ *         var example = new LfTag("example", LfTagArgs.builder()        
+ *             .key("right")
  *             .values(            
- *                 &#34;abbey&#34;,
- *                 &#34;village&#34;,
- *                 &#34;luffield&#34;,
- *                 &#34;woodcote&#34;,
- *                 &#34;copse&#34;,
- *                 &#34;chapel&#34;,
- *                 &#34;stowe&#34;,
- *                 &#34;club&#34;)
+ *                 "abbey",
+ *                 "village",
+ *                 "luffield",
+ *                 "woodcote",
+ *                 "copse",
+ *                 "chapel",
+ *                 "stowe",
+ *                 "club")
  *             .build());
  * 
- *         var example2 = new LfTag(&#34;example2&#34;, LfTagArgs.builder()        
- *             .key(&#34;left&#34;)
+ *         var example2 = new LfTag("example2", LfTagArgs.builder()        
+ *             .key("left")
  *             .values(            
- *                 &#34;farm&#34;,
- *                 &#34;theloop&#34;,
- *                 &#34;aintree&#34;,
- *                 &#34;brooklands&#34;,
- *                 &#34;maggotts&#34;,
- *                 &#34;becketts&#34;,
- *                 &#34;vale&#34;)
+ *                 "farm",
+ *                 "theloop",
+ *                 "aintree",
+ *                 "brooklands",
+ *                 "maggotts",
+ *                 "becketts",
+ *                 "vale")
  *             .build());
  * 
- *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
+ *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(            
  *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key(&#34;right&#34;)
- *                     .value(&#34;luffield&#34;)
+ *                     .key("right")
+ *                     .value("luffield")
  *                     .build(),
  *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key(&#34;left&#34;)
- *                     .value(&#34;aintree&#34;)
+ *                     .key("left")
+ *                     .value("aintree")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

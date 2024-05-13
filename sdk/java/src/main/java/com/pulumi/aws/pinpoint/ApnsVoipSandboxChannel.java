@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
+ *         var app = new App("app");
  * 
- *         var apnsVoipSandbox = new ApnsVoipSandboxChannel(&#34;apnsVoipSandbox&#34;, ApnsVoipSandboxChannelArgs.builder()        
+ *         var apnsVoipSandbox = new ApnsVoipSandboxChannel("apnsVoipSandbox", ApnsVoipSandboxChannelArgs.builder()        
  *             .applicationId(app.applicationId())
  *             .certificate(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;./certificate.pem&#34;)
+ *                 .input("./certificate.pem")
  *                 .build()).result())
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;./private_key.key&#34;)
+ *                 .input("./private_key.key")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

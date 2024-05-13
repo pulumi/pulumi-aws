@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example Name&#34;)
- *             .description(&#34;Example Description&#34;)
- *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue&#34;))
+ *         var test = new Queue("test", QueueArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example Name")
+ *             .description("Example Description")
+ *             .hoursOfOperationId("12345678-1234-1234-1234-123456789012")
+ *             .tags(Map.of("Name", "Example Queue"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Quick Connect IDs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,24 +88,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example Name&#34;)
- *             .description(&#34;Example Description&#34;)
- *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .quickConnectIds(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Quick Connect IDs&#34;))
+ *         var test = new Queue("test", QueueArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example Name")
+ *             .description("Example Description")
+ *             .hoursOfOperationId("12345678-1234-1234-1234-123456789012")
+ *             .quickConnectIds("12345678-abcd-1234-abcd-123456789012")
+ *             .tags(Map.of("Name", "Example Queue with Quick Connect IDs"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Outbound Caller Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -124,22 +129,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example Name&#34;)
- *             .description(&#34;Example Description&#34;)
- *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
+ *         var test = new Queue("test", QueueArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example Name")
+ *             .description("Example Description")
+ *             .hoursOfOperationId("12345678-1234-1234-1234-123456789012")
  *             .outboundCallerConfig(QueueOutboundCallerConfigArgs.builder()
- *                 .outboundCallerIdName(&#34;example&#34;)
- *                 .outboundCallerIdNumberId(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
- *                 .outboundFlowId(&#34;87654321-defg-1234-defg-987654321234&#34;)
+ *                 .outboundCallerIdName("example")
+ *                 .outboundCallerIdNumberId("12345678-abcd-1234-abcd-123456789012")
+ *                 .outboundFlowId("87654321-defg-1234-defg-987654321234")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Outbound Caller Config&#34;))
+ *             .tags(Map.of("Name", "Example Queue with Outbound Caller Config"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

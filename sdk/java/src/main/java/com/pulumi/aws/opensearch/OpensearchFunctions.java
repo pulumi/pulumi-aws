@@ -38,7 +38,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -60,12 +61,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
+     *             .domainName("my-domain-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -78,7 +80,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,12 +103,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
+     *             .domainName("my-domain-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,12 +145,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
+     *             .domainName("my-domain-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +164,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,12 +187,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
+     *             .domainName("my-domain-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -200,7 +208,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,7 +237,8 @@ public final class OpensearchFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -243,7 +253,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -271,7 +282,8 @@ public final class OpensearchFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -286,7 +298,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,7 +327,8 @@ public final class OpensearchFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +343,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,7 +372,8 @@ public final class OpensearchFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -372,7 +388,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -394,12 +411,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -414,7 +432,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -436,12 +455,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -456,7 +476,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -478,12 +499,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -498,7 +520,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -520,12 +543,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -540,7 +564,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -562,12 +587,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -582,7 +608,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -604,12 +631,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -624,7 +652,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -646,13 +675,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
+     *             .name("example-lifecycle-policy")
+     *             .type("retention")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -667,7 +697,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -689,13 +720,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
+     *             .name("example-lifecycle-policy")
+     *             .type("retention")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -710,7 +742,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -732,13 +765,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
+     *             .name("example-lifecycle-policy")
+     *             .type("retention")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -753,7 +787,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -775,13 +810,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
+     *             .name("example-lifecycle-policy")
+     *             .type("retention")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -796,7 +832,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -818,12 +855,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
+     *             .id("saml/12345678912/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -838,7 +876,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -860,12 +899,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
+     *             .id("saml/12345678912/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -880,7 +920,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -902,12 +943,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
+     *             .id("saml/12345678912/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -922,7 +964,8 @@ public final class OpensearchFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -944,12 +987,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
+     *             .id("saml/12345678912/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -962,7 +1006,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -984,13 +1029,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
+     *             .name("example-security-policy")
+     *             .type("encryption")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1003,7 +1049,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1025,13 +1072,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
+     *             .name("example-security-policy")
+     *             .type("encryption")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1044,7 +1092,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1066,13 +1115,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
+     *             .name("example-security-policy")
+     *             .type("encryption")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1085,7 +1135,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1107,13 +1158,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
+     *             .name("example-security-policy")
+     *             .type("encryption")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1126,7 +1178,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1148,12 +1201,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
+     *             .vpcEndpointId("vpce-829a4487959e2a839")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1166,7 +1220,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1188,12 +1243,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
+     *             .vpcEndpointId("vpce-829a4487959e2a839")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1206,7 +1262,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1228,12 +1285,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
+     *             .vpcEndpointId("vpce-829a4487959e2a839")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1246,7 +1304,8 @@ public final class OpensearchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1268,12 +1327,13 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
+     *             .vpcEndpointId("vpce-829a4487959e2a839")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

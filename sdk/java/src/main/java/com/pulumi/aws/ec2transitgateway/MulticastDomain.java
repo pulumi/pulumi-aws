@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,72 +64,72 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .build());
  * 
  *         final var amazonLinux = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;amzn-ami-hvm-*-x86_64-gp2&#34;)
+ *                     .name("name")
+ *                     .values("amzn-ami-hvm-*-x86_64-gp2")
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;owner-alias&#34;)
- *                     .values(&#34;amazon&#34;)
+ *                     .name("owner-alias")
+ *                     .values("amazon")
  *                     .build())
  *             .build());
  * 
- *         var vpc1 = new Vpc(&#34;vpc1&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var vpc1 = new Vpc("vpc1", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpc2 = new Vpc(&#34;vpc2&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var vpc2 = new Vpc("vpc2", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var subnet1 = new Subnet(&#34;subnet1&#34;, SubnetArgs.builder()        
+ *         var subnet1 = new Subnet("subnet1", SubnetArgs.builder()        
  *             .vpcId(vpc1.id())
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .cidrBlock("10.0.1.0/24")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
- *         var subnet2 = new Subnet(&#34;subnet2&#34;, SubnetArgs.builder()        
+ *         var subnet2 = new Subnet("subnet2", SubnetArgs.builder()        
  *             .vpcId(vpc1.id())
- *             .cidrBlock(&#34;10.0.2.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *             .cidrBlock("10.0.2.0/24")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
  *             .build());
  * 
- *         var subnet3 = new Subnet(&#34;subnet3&#34;, SubnetArgs.builder()        
+ *         var subnet3 = new Subnet("subnet3", SubnetArgs.builder()        
  *             .vpcId(vpc2.id())
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .cidrBlock("10.1.1.0/24")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
- *         var instance1 = new Instance(&#34;instance1&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var instance1 = new Instance("instance1", InstanceArgs.builder()        
+ *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t2.micro")
  *             .subnetId(subnet1.id())
  *             .build());
  * 
- *         var instance2 = new Instance(&#34;instance2&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var instance2 = new Instance("instance2", InstanceArgs.builder()        
+ *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t2.micro")
  *             .subnetId(subnet2.id())
  *             .build());
  * 
- *         var instance3 = new Instance(&#34;instance3&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var instance3 = new Instance("instance3", InstanceArgs.builder()        
+ *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t2.micro")
  *             .subnetId(subnet3.id())
  *             .build());
  * 
- *         var tgw = new TransitGateway(&#34;tgw&#34;, TransitGatewayArgs.builder()        
- *             .multicastSupport(&#34;enable&#34;)
+ *         var tgw = new TransitGateway("tgw", TransitGatewayArgs.builder()        
+ *             .multicastSupport("enable")
  *             .build());
  * 
- *         var attachment1 = new VpcAttachment(&#34;attachment1&#34;, VpcAttachmentArgs.builder()        
+ *         var attachment1 = new VpcAttachment("attachment1", VpcAttachmentArgs.builder()        
  *             .subnetIds(            
  *                 subnet1.id(),
  *                 subnet2.id())
@@ -136,57 +137,58 @@ import javax.annotation.Nullable;
  *             .vpcId(vpc1.id())
  *             .build());
  * 
- *         var attachment2 = new VpcAttachment(&#34;attachment2&#34;, VpcAttachmentArgs.builder()        
+ *         var attachment2 = new VpcAttachment("attachment2", VpcAttachmentArgs.builder()        
  *             .subnetIds(subnet3.id())
  *             .transitGatewayId(tgw.id())
  *             .vpcId(vpc2.id())
  *             .build());
  * 
- *         var domain = new MulticastDomain(&#34;domain&#34;, MulticastDomainArgs.builder()        
+ *         var domain = new MulticastDomain("domain", MulticastDomainArgs.builder()        
  *             .transitGatewayId(tgw.id())
- *             .staticSourcesSupport(&#34;enable&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Transit_Gateway_Multicast_Domain_Example&#34;))
+ *             .staticSourcesSupport("enable")
+ *             .tags(Map.of("Name", "Transit_Gateway_Multicast_Domain_Example"))
  *             .build());
  * 
- *         var association3 = new MulticastDomainAssociation(&#34;association3&#34;, MulticastDomainAssociationArgs.builder()        
+ *         var association3 = new MulticastDomainAssociation("association3", MulticastDomainAssociationArgs.builder()        
  *             .subnetId(subnet3.id())
  *             .transitGatewayAttachmentId(attachment2.id())
  *             .transitGatewayMulticastDomainId(domain.id())
  *             .build());
  * 
- *         var source = new MulticastGroupSource(&#34;source&#34;, MulticastGroupSourceArgs.builder()        
- *             .groupIpAddress(&#34;224.0.0.1&#34;)
+ *         var source = new MulticastGroupSource("source", MulticastGroupSourceArgs.builder()        
+ *             .groupIpAddress("224.0.0.1")
  *             .networkInterfaceId(instance3.primaryNetworkInterfaceId())
  *             .transitGatewayMulticastDomainId(association3.transitGatewayMulticastDomainId())
  *             .build());
  * 
- *         var association1 = new MulticastDomainAssociation(&#34;association1&#34;, MulticastDomainAssociationArgs.builder()        
+ *         var association1 = new MulticastDomainAssociation("association1", MulticastDomainAssociationArgs.builder()        
  *             .subnetId(subnet1.id())
  *             .transitGatewayAttachmentId(attachment1.id())
  *             .transitGatewayMulticastDomainId(domain.id())
  *             .build());
  * 
- *         var association2 = new MulticastDomainAssociation(&#34;association2&#34;, MulticastDomainAssociationArgs.builder()        
+ *         var association2 = new MulticastDomainAssociation("association2", MulticastDomainAssociationArgs.builder()        
  *             .subnetId(subnet2.id())
  *             .transitGatewayAttachmentId(attachment2.id())
  *             .transitGatewayMulticastDomainId(domain.id())
  *             .build());
  * 
- *         var member1 = new MulticastGroupMember(&#34;member1&#34;, MulticastGroupMemberArgs.builder()        
- *             .groupIpAddress(&#34;224.0.0.1&#34;)
+ *         var member1 = new MulticastGroupMember("member1", MulticastGroupMemberArgs.builder()        
+ *             .groupIpAddress("224.0.0.1")
  *             .networkInterfaceId(instance1.primaryNetworkInterfaceId())
  *             .transitGatewayMulticastDomainId(association1.transitGatewayMulticastDomainId())
  *             .build());
  * 
- *         var member2 = new MulticastGroupMember(&#34;member2&#34;, MulticastGroupMemberArgs.builder()        
- *             .groupIpAddress(&#34;224.0.0.1&#34;)
+ *         var member2 = new MulticastGroupMember("member2", MulticastGroupMemberArgs.builder()        
+ *             .groupIpAddress("224.0.0.1")
  *             .networkInterfaceId(instance2.primaryNetworkInterfaceId())
  *             .transitGatewayMulticastDomainId(association1.transitGatewayMulticastDomainId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

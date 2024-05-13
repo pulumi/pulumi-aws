@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,33 +50,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Vpc(&#34;primary&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.6.0.0/16&#34;)
+ *         var primary = new Vpc("primary", VpcArgs.builder()        
+ *             .cidrBlock("10.6.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var secondary = new Vpc(&#34;secondary&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.7.0.0/16&#34;)
+ *         var secondary = new Vpc("secondary", VpcArgs.builder()        
+ *             .cidrBlock("10.7.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var example = new Zone("example", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(primary.id())
  *                 .build())
  *             .build());
  * 
- *         var secondaryZoneAssociation = new ZoneAssociation(&#34;secondaryZoneAssociation&#34;, ZoneAssociationArgs.builder()        
+ *         var secondaryZoneAssociation = new ZoneAssociation("secondaryZoneAssociation", ZoneAssociationArgs.builder()        
  *             .zoneId(example.zoneId())
  *             .vpcId(secondary.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

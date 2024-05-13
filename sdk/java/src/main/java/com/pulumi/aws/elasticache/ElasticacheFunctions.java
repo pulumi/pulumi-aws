@@ -29,7 +29,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;my-cluster-id&#34;)
+     *             .clusterId("my-cluster-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;my-cluster-id&#34;)
+     *             .clusterId("my-cluster-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;my-cluster-id&#34;)
+     *             .clusterId("my-cluster-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;my-cluster-id&#34;)
+     *             .clusterId("my-cluster-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
-     *             .replicationGroupId(&#34;example&#34;)
+     *             .replicationGroupId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
-     *             .replicationGroupId(&#34;example&#34;)
+     *             .replicationGroupId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +281,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,12 +304,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
-     *             .replicationGroupId(&#34;example&#34;)
+     *             .replicationGroupId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +346,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
-     *             .replicationGroupId(&#34;example&#34;)
+     *             .replicationGroupId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +365,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,12 +388,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +407,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +430,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -429,7 +449,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -451,12 +472,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -469,7 +491,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,12 +514,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(&#34;my-subnet-group&#34;)
+     *             .name("my-subnet-group")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +533,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -531,12 +556,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
-     *             .userId(&#34;example&#34;)
+     *             .userId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -549,7 +575,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -571,12 +598,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
-     *             .userId(&#34;example&#34;)
+     *             .userId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -589,7 +617,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -611,12 +640,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
-     *             .userId(&#34;example&#34;)
+     *             .userId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -629,7 +659,8 @@ public final class ElasticacheFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -651,12 +682,13 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
-     *             .userId(&#34;example&#34;)
+     *             .userId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

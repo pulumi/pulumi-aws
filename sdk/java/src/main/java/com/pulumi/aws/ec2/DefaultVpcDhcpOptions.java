@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * Basic usage with tags:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DefaultVpcDhcpOptions(&#34;default&#34;, DefaultVpcDhcpOptionsArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Default DHCP Option Set&#34;))
+ *         var default_ = new DefaultVpcDhcpOptions("default", DefaultVpcDhcpOptionsArgs.builder()        
+ *             .tags(Map.of("Name", "Default DHCP Option Set"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

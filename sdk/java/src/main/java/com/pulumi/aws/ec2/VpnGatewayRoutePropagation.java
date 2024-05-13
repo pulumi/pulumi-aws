@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpnGatewayRoutePropagation(&#34;example&#34;, VpnGatewayRoutePropagationArgs.builder()        
+ *         var example = new VpnGatewayRoutePropagation("example", VpnGatewayRoutePropagationArgs.builder()        
  *             .vpnGatewayId(exampleAwsVpnGateway.id())
  *             .routeTableId(exampleAwsRouteTable.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

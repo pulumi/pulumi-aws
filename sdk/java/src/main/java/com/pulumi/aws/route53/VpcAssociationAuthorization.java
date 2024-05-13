@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,38 +48,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.6.0.0/16&#34;)
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("10.6.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(example.id())
  *                 .build())
  *             .build());
  * 
- *         var alternate = new Vpc(&#34;alternate&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.7.0.0/16&#34;)
+ *         var alternate = new Vpc("alternate", VpcArgs.builder()        
+ *             .cidrBlock("10.7.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization(&#34;exampleVpcAssociationAuthorization&#34;, VpcAssociationAuthorizationArgs.builder()        
+ *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization("exampleVpcAssociationAuthorization", VpcAssociationAuthorizationArgs.builder()        
  *             .vpcId(alternate.id())
  *             .zoneId(exampleZone.id())
  *             .build());
  * 
- *         var exampleZoneAssociation = new ZoneAssociation(&#34;exampleZoneAssociation&#34;, ZoneAssociationArgs.builder()        
+ *         var exampleZoneAssociation = new ZoneAssociation("exampleZoneAssociation", ZoneAssociationArgs.builder()        
  *             .vpcId(exampleVpcAssociationAuthorization.vpcId())
  *             .zoneId(exampleVpcAssociationAuthorization.zoneId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

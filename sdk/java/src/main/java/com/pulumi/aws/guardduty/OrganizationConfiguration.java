@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Detector(&#34;example&#34;, DetectorArgs.builder()        
+ *         var example = new Detector("example", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
- *             .autoEnableOrganizationMembers(&#34;ALL&#34;)
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *             .autoEnableOrganizationMembers("ALL")
  *             .detectorId(example.id())
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
  *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
@@ -81,7 +82,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

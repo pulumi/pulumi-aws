@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,63 +53,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrivateKey = new PrivateKey(&#34;examplePrivateKey&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;RSA&#34;)
+ *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()        
+ *             .algorithm("RSA")
  *             .rsaBits(4096)
  *             .build());
  * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;SERVICE_MANAGED&#34;)
- *             .tags(Map.of(&#34;NAME&#34;, &#34;tf-acc-test-transfer-server&#34;))
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *             .identityProviderType("SERVICE_MANAGED")
+ *             .tags(Map.of("NAME", "tf-acc-test-transfer-server"))
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("transfer.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;tf-test-transfer-user-iam-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("tf-test-transfer-user-iam-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
  *             .serverId(exampleServer.id())
- *             .userName(&#34;tftestuser&#34;)
+ *             .userName("tftestuser")
  *             .role(exampleRole.arn())
- *             .tags(Map.of(&#34;NAME&#34;, &#34;tftestuser&#34;))
+ *             .tags(Map.of("NAME", "tftestuser"))
  *             .build());
  * 
- *         var exampleSshKey = new SshKey(&#34;exampleSshKey&#34;, SshKeyArgs.builder()        
+ *         var exampleSshKey = new SshKey("exampleSshKey", SshKeyArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .userName(exampleUser.userName())
- *             .body(StdFunctions.trimspace().applyValue(invoke -&gt; invoke.result()))
+ *             .body(StdFunctions.trimspace().applyValue(invoke -> invoke.result()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;AllowFullAccesstoS3&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;s3:*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .sid("AllowFullAccesstoS3")
+ *                 .effect("Allow")
+ *                 .actions("s3:*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;tf-test-transfer-user-iam-policy&#34;)
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *             .name("tf-test-transfer-user-iam-policy")
  *             .role(exampleRole.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

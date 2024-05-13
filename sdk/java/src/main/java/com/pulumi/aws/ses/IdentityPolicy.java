@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,32 +45,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainIdentity = new DomainIdentity(&#34;exampleDomainIdentity&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;SES:SendEmail&#34;,
- *                     &#34;SES:SendRawEmail&#34;)
+ *                     "SES:SendEmail",
+ *                     "SES:SendRawEmail")
  *                 .resources(exampleDomainIdentity.arn())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;*&#34;)
- *                     .type(&#34;AWS&#34;)
+ *                     .identifiers("*")
+ *                     .type("AWS")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleIdentityPolicy = new IdentityPolicy(&#34;exampleIdentityPolicy&#34;, IdentityPolicyArgs.builder()        
+ *         var exampleIdentityPolicy = new IdentityPolicy("exampleIdentityPolicy", IdentityPolicyArgs.builder()        
  *             .identity(exampleDomainIdentity.arn())
- *             .name(&#34;example&#34;)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name("example")
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

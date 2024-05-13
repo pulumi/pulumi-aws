@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,8 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomActionType(&#34;example&#34;, CustomActionTypeArgs.builder()        
- *             .category(&#34;Build&#34;)
+ *         var example = new CustomActionType("example", CustomActionTypeArgs.builder()        
+ *             .category("Build")
  *             .inputArtifactDetails(CustomActionTypeInputArtifactDetailsArgs.builder()
  *                 .maximumCount(1)
  *                 .minimumCount(0)
@@ -59,13 +60,14 @@ import javax.annotation.Nullable;
  *                 .maximumCount(1)
  *                 .minimumCount(0)
  *                 .build())
- *             .providerName(&#34;example&#34;)
- *             .version(&#34;1&#34;)
+ *             .providerName("example")
+ *             .version("1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

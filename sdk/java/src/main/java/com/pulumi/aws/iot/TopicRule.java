@@ -43,7 +43,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -75,28 +76,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mytopic = new Topic(&#34;mytopic&#34;, TopicArgs.builder()        
- *             .name(&#34;mytopic&#34;)
+ *         var mytopic = new Topic("mytopic", TopicArgs.builder()        
+ *             .name("mytopic")
  *             .build());
  * 
- *         var myerrortopic = new Topic(&#34;myerrortopic&#34;, TopicArgs.builder()        
- *             .name(&#34;myerrortopic&#34;)
+ *         var myerrortopic = new Topic("myerrortopic", TopicArgs.builder()        
+ *             .name("myerrortopic")
  *             .build());
  * 
- *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
- *             .name(&#34;MyRule&#34;)
- *             .description(&#34;Example rule&#34;)
+ *         var rule = new TopicRule("rule", TopicRuleArgs.builder()        
+ *             .name("MyRule")
+ *             .description("Example rule")
  *             .enabled(true)
- *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
- *             .sqlVersion(&#34;2016-03-23&#34;)
+ *             .sql("SELECT * FROM 'topic/test'")
+ *             .sqlVersion("2016-03-23")
  *             .sns(TopicRuleSnsArgs.builder()
- *                 .messageFormat(&#34;RAW&#34;)
+ *                 .messageFormat("RAW")
  *                 .roleArn(role.arn())
  *                 .targetArn(mytopic.arn())
  *                 .build())
  *             .errorAction(TopicRuleErrorActionArgs.builder()
  *                 .sns(TopicRuleErrorActionSnsArgs.builder()
- *                     .messageFormat(&#34;RAW&#34;)
+ *                     .messageFormat("RAW")
  *                     .roleArn(role.arn())
  *                     .targetArn(myerrortopic.arn())
  *                     .build())
@@ -105,37 +106,38 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;iot.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("iot.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var myrole = new Role(&#34;myrole&#34;, RoleArgs.builder()        
- *             .name(&#34;myrole&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var myrole = new Role("myrole", RoleArgs.builder()        
+ *             .name("myrole")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var mypolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;sns:Publish&#34;)
+ *                 .effect("Allow")
+ *                 .actions("sns:Publish")
  *                 .resources(mytopic.arn())
  *                 .build())
  *             .build());
  * 
- *         var mypolicyRolePolicy = new RolePolicy(&#34;mypolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;mypolicy&#34;)
+ *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("mypolicy")
  *             .role(myrole.id())
- *             .policy(mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mypolicy -&gt; mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(mypolicy -> mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

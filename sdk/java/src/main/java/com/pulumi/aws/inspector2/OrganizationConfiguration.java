@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationConfiguration(&#34;example&#34;, OrganizationConfigurationArgs.builder()        
+ *         var example = new OrganizationConfiguration("example", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(OrganizationConfigurationAutoEnableArgs.builder()
  *                 .ec2(true)
  *                 .ecr(false)
@@ -59,7 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

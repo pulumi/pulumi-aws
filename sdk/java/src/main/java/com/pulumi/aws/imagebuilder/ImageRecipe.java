@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,35 +50,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ImageRecipe(&#34;example&#34;, ImageRecipeArgs.builder()        
+ *         var example = new ImageRecipe("example", ImageRecipeArgs.builder()        
  *             .blockDeviceMappings(ImageRecipeBlockDeviceMappingArgs.builder()
- *                 .deviceName(&#34;/dev/xvdb&#34;)
+ *                 .deviceName("/dev/xvdb")
  *                 .ebs(ImageRecipeBlockDeviceMappingEbsArgs.builder()
  *                     .deleteOnTermination(true)
  *                     .volumeSize(100)
- *                     .volumeType(&#34;gp2&#34;)
+ *                     .volumeType("gp2")
  *                     .build())
  *                 .build())
  *             .components(ImageRecipeComponentArgs.builder()
  *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter1&#34;)
- *                         .value(&#34;Value1&#34;)
+ *                         .name("Parameter1")
+ *                         .value("Value1")
  *                         .build(),
  *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter2&#34;)
- *                         .value(&#34;Value2&#34;)
+ *                         .name("Parameter2")
+ *                         .value("Value2")
  *                         .build())
  *                 .build())
- *             .name(&#34;example&#34;)
- *             .parentImage(String.format(&#34;arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x&#34;, current.partition(),currentAwsRegion.name()))
- *             .version(&#34;1.0.0&#34;)
+ *             .name("example")
+ *             .parentImage(String.format("arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x", current.partition(),currentAwsRegion.name()))
+ *             .version("1.0.0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var flowerTypes = new SlotType(&#34;flowerTypes&#34;, SlotTypeArgs.builder()        
+ *         var flowerTypes = new SlotType("flowerTypes", SlotTypeArgs.builder()        
  *             .createVersion(true)
- *             .description(&#34;Types of flowers to order&#34;)
+ *             .description("Types of flowers to order")
  *             .enumerationValues(            
  *                 SlotTypeEnumerationValueArgs.builder()
  *                     .synonyms(                    
- *                         &#34;Lirium&#34;,
- *                         &#34;Martagon&#34;)
- *                     .value(&#34;lilies&#34;)
+ *                         "Lirium",
+ *                         "Martagon")
+ *                     .value("lilies")
  *                     .build(),
  *                 SlotTypeEnumerationValueArgs.builder()
  *                     .synonyms(                    
- *                         &#34;Eduardoregelia&#34;,
- *                         &#34;Podonix&#34;)
- *                     .value(&#34;tulips&#34;)
+ *                         "Eduardoregelia",
+ *                         "Podonix")
+ *                     .value("tulips")
  *                     .build())
- *             .name(&#34;FlowerTypes&#34;)
- *             .valueSelectionStrategy(&#34;ORIGINAL_VALUE&#34;)
+ *             .name("FlowerTypes")
+ *             .valueSelectionStrategy("ORIGINAL_VALUE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

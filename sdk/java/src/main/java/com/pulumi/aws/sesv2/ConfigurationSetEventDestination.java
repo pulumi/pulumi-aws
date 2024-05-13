@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Cloud Watch Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(example.configurationSetName())
- *             .eventDestinationName(&#34;example&#34;)
+ *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
  *                 .cloudWatchDestination(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs.builder()
  *                     .dimensionConfigurations(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs.builder()
- *                         .defaultDimensionValue(&#34;example&#34;)
- *                         .dimensionName(&#34;example&#34;)
- *                         .dimensionValueSource(&#34;MESSAGE_TAG&#34;)
+ *                         .defaultDimensionValue("example")
+ *                         .dimensionName("example")
+ *                         .dimensionValueSource("MESSAGE_TAG")
  *                         .build())
  *                     .build())
  *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
+ *                 .matchingEventTypes("SEND")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Kinesis Firehose Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,32 +103,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(example.configurationSetName())
- *             .eventDestinationName(&#34;example&#34;)
+ *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
  *                 .kinesisFirehoseDestination(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs.builder()
  *                     .deliveryStreamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                     .iamRoleArn(exampleAwsIamRole.arn())
  *                     .build())
  *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
+ *                 .matchingEventTypes("SEND")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Pinpoint Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,31 +155,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(example.configurationSetName())
- *             .eventDestinationName(&#34;example&#34;)
+ *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
  *                 .pinpointDestination(ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs.builder()
  *                     .applicationArn(exampleAwsPinpointApp.arn())
  *                     .build())
  *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
+ *                 .matchingEventTypes("SEND")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SNS Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -199,25 +206,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(example.configurationSetName())
- *             .eventDestinationName(&#34;example&#34;)
+ *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
  *                 .snsDestination(ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs.builder()
  *                     .topicArn(exampleAwsSnsTopic.arn())
  *                     .build())
  *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
+ *                 .matchingEventTypes("SEND")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

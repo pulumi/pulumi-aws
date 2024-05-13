@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,45 +57,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-bucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("my-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
  *             .bucket(example.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleLustreFileSystem = new LustreFileSystem(&#34;exampleLustreFileSystem&#34;, LustreFileSystemArgs.builder()        
+ *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()        
  *             .storageCapacity(1200)
  *             .subnetIds(exampleAwsSubnet.id())
- *             .deploymentType(&#34;PERSISTENT_2&#34;)
+ *             .deploymentType("PERSISTENT_2")
  *             .perUnitStorageThroughput(125)
  *             .build());
  * 
- *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation(&#34;exampleDataRepositoryAssociation&#34;, DataRepositoryAssociationArgs.builder()        
+ *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation("exampleDataRepositoryAssociation", DataRepositoryAssociationArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
- *             .dataRepositoryPath(example.id().applyValue(id -&gt; String.format(&#34;s3://%s&#34;, id)))
- *             .fileSystemPath(&#34;/my-bucket&#34;)
+ *             .dataRepositoryPath(example.id().applyValue(id -> String.format("s3://%s", id)))
+ *             .fileSystemPath("/my-bucket")
  *             .s3(DataRepositoryAssociationS3Args.builder()
  *                 .autoExportPolicy(DataRepositoryAssociationS3AutoExportPolicyArgs.builder()
  *                     .events(                    
- *                         &#34;NEW&#34;,
- *                         &#34;CHANGED&#34;,
- *                         &#34;DELETED&#34;)
+ *                         "NEW",
+ *                         "CHANGED",
+ *                         "DELETED")
  *                     .build())
  *                 .autoImportPolicy(DataRepositoryAssociationS3AutoImportPolicyArgs.builder()
  *                     .events(                    
- *                         &#34;NEW&#34;,
- *                         &#34;CHANGED&#34;,
- *                         &#34;DELETED&#34;)
+ *                         "NEW",
+ *                         "CHANGED",
+ *                         "DELETED")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

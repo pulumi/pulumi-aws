@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var developers = new Group(&#34;developers&#34;, GroupArgs.builder()        
- *             .name(&#34;developers&#34;)
- *             .path(&#34;/users/&#34;)
+ *         var developers = new Group("developers", GroupArgs.builder()        
+ *             .name("developers")
+ *             .path("/users/")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -79,14 +81,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
+     * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
+     * @return The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
      * 
      */
     public Output<String> name() {

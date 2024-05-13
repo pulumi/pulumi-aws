@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,29 +43,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RegionSettings(&#34;test&#34;, RegionSettingsArgs.builder()        
+ *         var test = new RegionSettings("test", RegionSettingsArgs.builder()        
  *             .resourceTypeOptInPreference(Map.ofEntries(
- *                 Map.entry(&#34;Aurora&#34;, true),
- *                 Map.entry(&#34;DocumentDB&#34;, true),
- *                 Map.entry(&#34;DynamoDB&#34;, true),
- *                 Map.entry(&#34;EBS&#34;, true),
- *                 Map.entry(&#34;EC2&#34;, true),
- *                 Map.entry(&#34;EFS&#34;, true),
- *                 Map.entry(&#34;FSx&#34;, true),
- *                 Map.entry(&#34;Neptune&#34;, true),
- *                 Map.entry(&#34;RDS&#34;, true),
- *                 Map.entry(&#34;Storage Gateway&#34;, true),
- *                 Map.entry(&#34;VirtualMachine&#34;, true)
+ *                 Map.entry("Aurora", true),
+ *                 Map.entry("DocumentDB", true),
+ *                 Map.entry("DynamoDB", true),
+ *                 Map.entry("EBS", true),
+ *                 Map.entry("EC2", true),
+ *                 Map.entry("EFS", true),
+ *                 Map.entry("FSx", true),
+ *                 Map.entry("Neptune", true),
+ *                 Map.entry("RDS", true),
+ *                 Map.entry("Storage Gateway", true),
+ *                 Map.entry("VirtualMachine", true)
  *             ))
  *             .resourceTypeManagementPreference(Map.ofEntries(
- *                 Map.entry(&#34;DynamoDB&#34;, true),
- *                 Map.entry(&#34;EFS&#34;, true)
+ *                 Map.entry("DynamoDB", true),
+ *                 Map.entry("EFS", true)
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

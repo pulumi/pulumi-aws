@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,28 +45,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Account(&#34;primary&#34;);
+ *         var primary = new Account("primary");
  * 
- *         var member = new Account(&#34;member&#34;);
+ *         var member = new Account("member");
  * 
- *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;ACCOUNT ID&#34;)
- *             .email(&#34;EMAIL&#34;)
+ *         var primaryMember = new Member("primaryMember", MemberArgs.builder()        
+ *             .accountId("ACCOUNT ID")
+ *             .email("EMAIL")
  *             .invite(true)
- *             .invitationMessage(&#34;Message of the invite&#34;)
+ *             .invitationMessage("Message of the invite")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primary)
  *                 .build());
  * 
- *         var memberInvitationAccepter = new InvitationAccepter(&#34;memberInvitationAccepter&#34;, InvitationAccepterArgs.builder()        
- *             .administratorAccountId(&#34;ADMINISTRATOR ACCOUNT ID&#34;)
+ *         var memberInvitationAccepter = new InvitationAccepter("memberInvitationAccepter", InvitationAccepterArgs.builder()        
+ *             .administratorAccountId("ADMINISTRATOR ACCOUNT ID")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryMember)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

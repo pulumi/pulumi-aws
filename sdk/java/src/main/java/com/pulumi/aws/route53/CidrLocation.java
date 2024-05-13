@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CidrCollection(&#34;example&#34;, CidrCollectionArgs.builder()        
- *             .name(&#34;collection-1&#34;)
+ *         var example = new CidrCollection("example", CidrCollectionArgs.builder()        
+ *             .name("collection-1")
  *             .build());
  * 
- *         var exampleCidrLocation = new CidrLocation(&#34;exampleCidrLocation&#34;, CidrLocationArgs.builder()        
+ *         var exampleCidrLocation = new CidrLocation("exampleCidrLocation", CidrLocationArgs.builder()        
  *             .cidrCollectionId(example.id())
- *             .name(&#34;office&#34;)
+ *             .name("office")
  *             .cidrBlocks(            
- *                 &#34;200.5.3.0/24&#34;,
- *                 &#34;200.6.3.0/24&#34;)
+ *                 "200.5.3.0/24",
+ *                 "200.6.3.0/24")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

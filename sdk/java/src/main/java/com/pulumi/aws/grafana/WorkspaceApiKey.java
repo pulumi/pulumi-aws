@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var key = new WorkspaceApiKey(&#34;key&#34;, WorkspaceApiKeyArgs.builder()        
- *             .keyName(&#34;test-key&#34;)
- *             .keyRole(&#34;VIEWER&#34;)
+ *         var key = new WorkspaceApiKey("key", WorkspaceApiKeyArgs.builder()        
+ *             .keyName("test-key")
+ *             .keyRole("VIEWER")
  *             .secondsToLive(3600)
  *             .workspaceId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

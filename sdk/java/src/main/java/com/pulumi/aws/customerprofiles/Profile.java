@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,17 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .domainName("example")
  *             .build());
  * 
- *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
+ *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()        
  *             .domainName(example.domainName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

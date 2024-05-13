@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,36 +47,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new User(&#34;default&#34;, UserArgs.builder()        
- *             .userId(&#34;defaultUserID&#34;)
- *             .userName(&#34;default&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
+ *         var default_ = new User("default", UserArgs.builder()        
+ *             .userId("defaultUserID")
+ *             .userName("default")
+ *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .engine("REDIS")
+ *             .passwords("password123456789")
  *             .build());
  * 
- *         var example = new UserGroup(&#34;example&#34;, UserGroupArgs.builder()        
- *             .engine(&#34;REDIS&#34;)
- *             .userGroupId(&#34;userGroupId&#34;)
+ *         var example = new UserGroup("example", UserGroupArgs.builder()        
+ *             .engine("REDIS")
+ *             .userGroupId("userGroupId")
  *             .userIds(default_.userId())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userId(&#34;exampleUserID&#34;)
- *             .userName(&#34;exampleuser&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .userId("exampleUserID")
+ *             .userName("exampleuser")
+ *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .engine("REDIS")
+ *             .passwords("password123456789")
  *             .build());
  * 
- *         var exampleUserGroupAssociation = new UserGroupAssociation(&#34;exampleUserGroupAssociation&#34;, UserGroupAssociationArgs.builder()        
+ *         var exampleUserGroupAssociation = new UserGroupAssociation("exampleUserGroupAssociation", UserGroupAssociationArgs.builder()        
  *             .userGroupId(example.userGroupId())
  *             .userId(exampleUser.userId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

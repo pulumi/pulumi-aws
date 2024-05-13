@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2(&#34;example&#34;, EnvironmentEC2Args.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
- *             .name(&#34;example-env&#34;)
- *             .imageId(&#34;amazonlinux-2023-x86_64&#34;)
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *             .instanceType("t2.micro")
+ *             .name("example-env")
+ *             .imageId("amazonlinux-2023-x86_64")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Get the URL of the Cloud9 environment after creation:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,27 +85,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2(&#34;example&#34;, EnvironmentEC2Args.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *             .instanceType("t2.micro")
  *             .build());
  * 
  *         final var cloud9Instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
  *             .filters(GetInstanceFilterArgs.builder()
- *                 .name(&#34;tag:aws:cloud9:environment&#34;)
+ *                 .name("tag:aws:cloud9:environment")
  *                 .values(example.id())
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;cloud9Url&#34;, example.id().applyValue(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, region,id)));
+ *         ctx.export("cloud9Url", example.id().applyValue(id -> String.format("https://%s.console.aws.amazon.com/cloud9/ide/%s", region,id)));
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Allocate a static IP to the Cloud9 environment:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -127,26 +132,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2(&#34;example&#34;, EnvironmentEC2Args.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *             .instanceType("t2.micro")
  *             .build());
  * 
  *         final var cloud9Instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
  *             .filters(GetInstanceFilterArgs.builder()
- *                 .name(&#34;tag:aws:cloud9:environment&#34;)
+ *                 .name("tag:aws:cloud9:environment")
  *                 .values(example.id())
  *                 .build())
  *             .build());
  * 
- *         var cloud9Eip = new Eip(&#34;cloud9Eip&#34;, EipArgs.builder()        
- *             .instance(cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult).applyValue(cloud9Instance -&gt; cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult.id())))
- *             .domain(&#34;vpc&#34;)
+ *         var cloud9Eip = new Eip("cloud9Eip", EipArgs.builder()        
+ *             .instance(cloud9Instance.applyValue(getInstanceResult -> getInstanceResult).applyValue(cloud9Instance -> cloud9Instance.applyValue(getInstanceResult -> getInstanceResult.id())))
+ *             .domain("vpc")
  *             .build());
  * 
- *         ctx.export(&#34;cloud9PublicIp&#34;, cloud9Eip.publicIp());
+ *         ctx.export("cloud9PublicIp", cloud9Eip.publicIp());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

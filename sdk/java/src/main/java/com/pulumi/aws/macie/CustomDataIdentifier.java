@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleCustomDataIdentifier = new CustomDataIdentifier(&#34;exampleCustomDataIdentifier&#34;, CustomDataIdentifierArgs.builder()        
- *             .name(&#34;NAME OF CUSTOM DATA IDENTIFIER&#34;)
- *             .regex(&#34;[0-9]{3}-[0-9]{2}-[0-9]{4}&#34;)
- *             .description(&#34;DESCRIPTION&#34;)
+ *         var exampleCustomDataIdentifier = new CustomDataIdentifier("exampleCustomDataIdentifier", CustomDataIdentifierArgs.builder()        
+ *             .name("NAME OF CUSTOM DATA IDENTIFIER")
+ *             .regex("[0-9]{3}-[0-9]{2}-[0-9]{4}")
+ *             .description("DESCRIPTION")
  *             .maximumMatchDistance(10)
- *             .keywords(&#34;keyword&#34;)
- *             .ignoreWords(&#34;ignore&#34;)
+ *             .keywords("keyword")
+ *             .ignoreWords("ignore")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

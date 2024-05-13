@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
- *             .folderId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
+ *         var example = new Folder("example", FolderArgs.builder()        
+ *             .folderId("example-id")
+ *             .name("example-name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Permissions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,32 +84,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
- *             .folderId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
+ *         var example = new Folder("example", FolderArgs.builder()        
+ *             .folderId("example-id")
+ *             .name("example-name")
  *             .permissions(FolderPermissionArgs.builder()
  *                 .actions(                
- *                     &#34;quicksight:CreateFolder&#34;,
- *                     &#34;quicksight:DescribeFolder&#34;,
- *                     &#34;quicksight:UpdateFolder&#34;,
- *                     &#34;quicksight:DeleteFolder&#34;,
- *                     &#34;quicksight:CreateFolderMembership&#34;,
- *                     &#34;quicksight:DeleteFolderMembership&#34;,
- *                     &#34;quicksight:DescribeFolderPermissions&#34;,
- *                     &#34;quicksight:UpdateFolderPermissions&#34;)
+ *                     "quicksight:CreateFolder",
+ *                     "quicksight:DescribeFolder",
+ *                     "quicksight:UpdateFolder",
+ *                     "quicksight:DeleteFolder",
+ *                     "quicksight:CreateFolderMembership",
+ *                     "quicksight:DeleteFolderMembership",
+ *                     "quicksight:DescribeFolderPermissions",
+ *                     "quicksight:UpdateFolderPermissions")
  *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Parent Folder
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -127,20 +132,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new Folder(&#34;parent&#34;, FolderArgs.builder()        
- *             .folderId(&#34;parent-id&#34;)
- *             .name(&#34;parent-name&#34;)
+ *         var parent = new Folder("parent", FolderArgs.builder()        
+ *             .folderId("parent-id")
+ *             .name("parent-name")
  *             .build());
  * 
- *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
- *             .folderId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
+ *         var example = new Folder("example", FolderArgs.builder()        
+ *             .folderId("example-id")
+ *             .name("example-name")
  *             .parentFolderArn(parent.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

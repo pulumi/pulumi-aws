@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * Using `approved_patches` only.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,20 +56,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
- *             .name(&#34;patch-baseline&#34;)
- *             .approvedPatches(&#34;KB123456&#34;)
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *             .name("patch-baseline")
+ *             .approvedPatches("KB123456")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Advanced Usage, specifying patch filters
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,68 +94,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
- *             .name(&#34;patch-baseline&#34;)
- *             .description(&#34;Patch Baseline Description&#34;)
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *             .name("patch-baseline")
+ *             .description("Patch Baseline Description")
  *             .approvedPatches(            
- *                 &#34;KB123456&#34;,
- *                 &#34;KB456789&#34;)
- *             .rejectedPatches(&#34;KB987654&#34;)
+ *                 "KB123456",
+ *                 "KB456789")
+ *             .rejectedPatches("KB987654")
  *             .globalFilters(            
  *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;PRODUCT&#34;)
- *                     .values(&#34;WindowsServer2008&#34;)
+ *                     .key("PRODUCT")
+ *                     .values("WindowsServer2008")
  *                     .build(),
  *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;CLASSIFICATION&#34;)
- *                     .values(&#34;ServicePacks&#34;)
+ *                     .key("CLASSIFICATION")
+ *                     .values("ServicePacks")
  *                     .build(),
  *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;MSRC_SEVERITY&#34;)
- *                     .values(&#34;Low&#34;)
+ *                     .key("MSRC_SEVERITY")
+ *                     .values("Low")
  *                     .build())
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
- *                     .complianceLevel(&#34;HIGH&#34;)
+ *                     .complianceLevel("HIGH")
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PRODUCT&#34;)
- *                             .values(&#34;WindowsServer2016&#34;)
+ *                             .key("PRODUCT")
+ *                             .values("WindowsServer2016")
  *                             .build(),
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;CLASSIFICATION&#34;)
+ *                             .key("CLASSIFICATION")
  *                             .values(                            
- *                                 &#34;CriticalUpdates&#34;,
- *                                 &#34;SecurityUpdates&#34;,
- *                                 &#34;Updates&#34;)
+ *                                 "CriticalUpdates",
+ *                                 "SecurityUpdates",
+ *                                 "Updates")
  *                             .build(),
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;MSRC_SEVERITY&#34;)
+ *                             .key("MSRC_SEVERITY")
  *                             .values(                            
- *                                 &#34;Critical&#34;,
- *                                 &#34;Important&#34;,
- *                                 &#34;Moderate&#34;)
+ *                                 "Critical",
+ *                                 "Important",
+ *                                 "Moderate")
  *                             .build())
  *                     .build(),
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
  *                     .patchFilters(PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                         .key(&#34;PRODUCT&#34;)
- *                         .values(&#34;WindowsServer2012&#34;)
+ *                         .key("PRODUCT")
+ *                         .values("WindowsServer2012")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Advanced usage, specifying Microsoft application and Windows patch rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -174,52 +179,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var windowsOsApps = new PatchBaseline(&#34;windowsOsApps&#34;, PatchBaselineArgs.builder()        
- *             .name(&#34;WindowsOSAndMicrosoftApps&#34;)
- *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
- *             .operatingSystem(&#34;WINDOWS&#34;)
+ *         var windowsOsApps = new PatchBaseline("windowsOsApps", PatchBaselineArgs.builder()        
+ *             .name("WindowsOSAndMicrosoftApps")
+ *             .description("Patch both Windows and Microsoft apps")
+ *             .operatingSystem("WINDOWS")
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;CLASSIFICATION&#34;)
+ *                             .key("CLASSIFICATION")
  *                             .values(                            
- *                                 &#34;CriticalUpdates&#34;,
- *                                 &#34;SecurityUpdates&#34;)
+ *                                 "CriticalUpdates",
+ *                                 "SecurityUpdates")
  *                             .build(),
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;MSRC_SEVERITY&#34;)
+ *                             .key("MSRC_SEVERITY")
  *                             .values(                            
- *                                 &#34;Critical&#34;,
- *                                 &#34;Important&#34;)
+ *                                 "Critical",
+ *                                 "Important")
  *                             .build())
  *                     .build(),
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PATCH_SET&#34;)
- *                             .values(&#34;APPLICATION&#34;)
+ *                             .key("PATCH_SET")
+ *                             .values("APPLICATION")
  *                             .build(),
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PRODUCT&#34;)
+ *                             .key("PRODUCT")
  *                             .values(                            
- *                                 &#34;Office 2013&#34;,
- *                                 &#34;Office 2016&#34;)
+ *                                 "Office 2013",
+ *                                 "Office 2016")
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Advanced usage, specifying alternate patch source repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -242,15 +249,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var al201709 = new PatchBaseline(&#34;al201709&#34;, PatchBaselineArgs.builder()        
+ *         var al201709 = new PatchBaseline("al201709", PatchBaselineArgs.builder()        
  *             .approvalRules()
- *             .name(&#34;Amazon-Linux-2017.09&#34;)
- *             .description(&#34;My patch repository for Amazon Linux 2017.09&#34;)
- *             .operatingSystem(&#34;AMAZON_LINUX&#34;)
+ *             .name("Amazon-Linux-2017.09")
+ *             .description("My patch repository for Amazon Linux 2017.09")
+ *             .operatingSystem("AMAZON_LINUX")
  *             .sources(PatchBaselineSourceArgs.builder()
- *                 .name(&#34;My-AL2017.09&#34;)
- *                 .products(&#34;AmazonLinux2017.09&#34;)
- *                 .configuration(&#34;&#34;&#34;
+ *                 .name("My-AL2017.09")
+ *                 .products("AmazonLinux2017.09")
+ *                 .configuration("""
  * [amzn-main]
  * name=amzn-main-Base
  * mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
@@ -265,13 +272,14 @@ import javax.annotation.Nullable;
  * retries=3
  * timeout=5
  * report_instanceid=yes
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FastSnapshotRestore(&#34;example&#34;, FastSnapshotRestoreArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var example = new FastSnapshotRestore("example", FastSnapshotRestoreArgs.builder()        
+ *             .availabilityZone("us-west-2a")
  *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

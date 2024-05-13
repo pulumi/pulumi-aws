@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,28 +52,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-vocab-123&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example-vocab-123")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
+ *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()        
  *             .bucket(example.id())
- *             .key(&#34;transcribe/test1.txt&#34;)
- *             .source(new FileAsset(&#34;test.txt&#34;))
+ *             .key("transcribe/test1.txt")
+ *             .source(new FileAsset("test.txt"))
  *             .build());
  * 
- *         var exampleVocabulary = new Vocabulary(&#34;exampleVocabulary&#34;, VocabularyArgs.builder()        
- *             .vocabularyName(&#34;example&#34;)
- *             .languageCode(&#34;en-US&#34;)
- *             .vocabularyFileUri(Output.tuple(example.id(), object.key()).applyValue(values -&gt; {
+ *         var exampleVocabulary = new Vocabulary("exampleVocabulary", VocabularyArgs.builder()        
+ *             .vocabularyName("example")
+ *             .languageCode("en-US")
+ *             .vocabularyFileUri(Output.tuple(example.id(), object.key()).applyValue(values -> {
  *                 var id = values.t1;
  *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, id,key);
+ *                 return String.format("s3://%s/%s", id,key);
  *             }))
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
+ *                 Map.entry("tag1", "value1"),
+ *                 Map.entry("tag2", "value3")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(object)
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

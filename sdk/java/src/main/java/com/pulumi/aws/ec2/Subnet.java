@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,15 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Subnet(&#34;main&#34;, SubnetArgs.builder()        
+ *         var main = new Subnet("main", SubnetArgs.builder()        
  *             .vpcId(mainAwsVpc.id())
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Main&#34;))
+ *             .cidrBlock("10.0.1.0/24")
+ *             .tags(Map.of("Name", "Main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Subnets In Secondary VPC CIDR Blocks
@@ -65,7 +67,8 @@ import javax.annotation.Nullable;
  * resource, it is recommended to reference that resource&#39;s `vpc_id` attribute to ensure correct dependency ordering.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,19 +91,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
+ *         var secondaryCidr = new VpcIpv4CidrBlockAssociation("secondaryCidr", VpcIpv4CidrBlockAssociationArgs.builder()        
  *             .vpcId(main.id())
- *             .cidrBlock(&#34;172.20.0.0/16&#34;)
+ *             .cidrBlock("172.20.0.0/16")
  *             .build());
  * 
- *         var inSecondaryCidr = new Subnet(&#34;inSecondaryCidr&#34;, SubnetArgs.builder()        
+ *         var inSecondaryCidr = new Subnet("inSecondaryCidr", SubnetArgs.builder()        
  *             .vpcId(secondaryCidr.vpcId())
- *             .cidrBlock(&#34;172.20.0.0/24&#34;)
+ *             .cidrBlock("172.20.0.0/24")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

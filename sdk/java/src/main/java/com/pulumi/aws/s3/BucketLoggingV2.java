@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,33 +55,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
  *             .bucket(example.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var logBucket = new BucketV2(&#34;logBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-log-bucket&#34;)
+ *         var logBucket = new BucketV2("logBucket", BucketV2Args.builder()        
+ *             .bucket("my-tf-log-bucket")
  *             .build());
  * 
- *         var logBucketAcl = new BucketAclV2(&#34;logBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var logBucketAcl = new BucketAclV2("logBucketAcl", BucketAclV2Args.builder()        
  *             .bucket(logBucket.id())
- *             .acl(&#34;log-delivery-write&#34;)
+ *             .acl("log-delivery-write")
  *             .build());
  * 
- *         var exampleBucketLoggingV2 = new BucketLoggingV2(&#34;exampleBucketLoggingV2&#34;, BucketLoggingV2Args.builder()        
+ *         var exampleBucketLoggingV2 = new BucketLoggingV2("exampleBucketLoggingV2", BucketLoggingV2Args.builder()        
  *             .bucket(example.id())
  *             .targetBucket(logBucket.id())
- *             .targetPrefix(&#34;log/&#34;)
+ *             .targetPrefix("log/")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

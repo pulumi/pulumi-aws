@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### DynamoDB Table Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodb = new Target(&#34;dynamodb&#34;, TargetArgs.builder()        
+ *         var dynamodb = new Target("dynamodb", TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(&#34;table/tableName&#34;)
- *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
+ *             .resourceId("table/tableName")
+ *             .scalableDimension("dynamodb:table:ReadCapacityUnits")
+ *             .serviceNamespace("dynamodb")
  *             .build());
  * 
- *         var dynamodbScheduledAction = new ScheduledAction(&#34;dynamodbScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .name(&#34;dynamodb&#34;)
+ *         var dynamodbScheduledAction = new ScheduledAction("dynamodbScheduledAction", ScheduledActionArgs.builder()        
+ *             .name("dynamodb")
  *             .serviceNamespace(dynamodb.serviceNamespace())
  *             .resourceId(dynamodb.resourceId())
  *             .scalableDimension(dynamodb.scalableDimension())
- *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
+ *             .schedule("at(2006-01-02T15:04:05)")
  *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
  *                 .minCapacity(1)
  *                 .maxCapacity(200)
@@ -69,13 +70,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ECS Service Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,20 +102,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecs = new Target(&#34;ecs&#34;, TargetArgs.builder()        
+ *         var ecs = new Target("ecs", TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(&#34;service/clusterName/serviceName&#34;)
- *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
- *             .serviceNamespace(&#34;ecs&#34;)
+ *             .resourceId("service/clusterName/serviceName")
+ *             .scalableDimension("ecs:service:DesiredCount")
+ *             .serviceNamespace("ecs")
  *             .build());
  * 
- *         var ecsScheduledAction = new ScheduledAction(&#34;ecsScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .name(&#34;ecs&#34;)
+ *         var ecsScheduledAction = new ScheduledAction("ecsScheduledAction", ScheduledActionArgs.builder()        
+ *             .name("ecs")
  *             .serviceNamespace(ecs.serviceNamespace())
  *             .resourceId(ecs.resourceId())
  *             .scalableDimension(ecs.scalableDimension())
- *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
+ *             .schedule("at(2006-01-02T15:04:05)")
  *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
  *                 .minCapacity(1)
  *                 .maxCapacity(10)
@@ -121,7 +124,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,37 +51,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;app&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("app")
  *             .customRules(AppCustomRuleArgs.builder()
- *                 .source(&#34;https://example.com&#34;)
- *                 .status(&#34;302&#34;)
- *                 .target(&#34;https://www.example.com&#34;)
+ *                 .source("https://example.com")
+ *                 .status("302")
+ *                 .target("https://www.example.com")
  *                 .build())
  *             .build());
  * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()        
  *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
+ *             .branchName("master")
  *             .build());
  * 
- *         var exampleDomainAssociation = new DomainAssociation(&#34;exampleDomainAssociation&#34;, DomainAssociationArgs.builder()        
+ *         var exampleDomainAssociation = new DomainAssociation("exampleDomainAssociation", DomainAssociationArgs.builder()        
  *             .appId(example.id())
- *             .domainName(&#34;example.com&#34;)
+ *             .domainName("example.com")
  *             .subDomains(            
  *                 DomainAssociationSubDomainArgs.builder()
  *                     .branchName(master.branchName())
- *                     .prefix(&#34;&#34;)
+ *                     .prefix("")
  *                     .build(),
  *                 DomainAssociationSubDomainArgs.builder()
  *                     .branchName(master.branchName())
- *                     .prefix(&#34;www&#34;)
+ *                     .prefix("www")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

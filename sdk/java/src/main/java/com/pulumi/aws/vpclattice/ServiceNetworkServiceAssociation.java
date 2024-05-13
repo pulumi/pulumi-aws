@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceNetworkServiceAssociation(&#34;example&#34;, ServiceNetworkServiceAssociationArgs.builder()        
+ *         var example = new ServiceNetworkServiceAssociation("example", ServiceNetworkServiceAssociationArgs.builder()        
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

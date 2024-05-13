@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterRoleAssociation(&#34;example&#34;, ClusterRoleAssociationArgs.builder()        
+ *         var example = new ClusterRoleAssociation("example", ClusterRoleAssociationArgs.builder()        
  *             .dbClusterIdentifier(exampleAwsRdsCluster.id())
- *             .featureName(&#34;S3_INTEGRATION&#34;)
+ *             .featureName("S3_INTEGRATION")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

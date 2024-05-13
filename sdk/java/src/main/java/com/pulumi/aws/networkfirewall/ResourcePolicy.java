@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### For a Firewall Policy resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,36 +44,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
+ *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()        
  *             .resourceArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;network-firewall:ListFirewallPolicies&#34;, 
- *                             &#34;network-firewall:CreateFirewall&#34;, 
- *                             &#34;network-firewall:UpdateFirewall&#34;, 
- *                             &#34;network-firewall:AssociateFirewallPolicy&#34;
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "network-firewall:ListFirewallPolicies", 
+ *                             "network-firewall:CreateFirewall", 
+ *                             "network-firewall:UpdateFirewall", 
+ *                             "network-firewall:AssociateFirewallPolicy"
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, exampleAwsNetworkfirewallFirewallPolicy.arn()),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, &#34;arn:aws:iam::123456789012:root&#34;)
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", exampleAwsNetworkfirewallFirewallPolicy.arn()),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### For a Rule Group resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,29 +97,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
+ *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()        
  *             .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;network-firewall:ListRuleGroups&#34;, 
- *                             &#34;network-firewall:CreateFirewallPolicy&#34;, 
- *                             &#34;network-firewall:UpdateFirewallPolicy&#34;
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "network-firewall:ListRuleGroups", 
+ *                             "network-firewall:CreateFirewallPolicy", 
+ *                             "network-firewall:UpdateFirewallPolicy"
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, exampleAwsNetworkfirewallRuleGroup.arn()),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, &#34;arn:aws:iam::123456789012:root&#34;)
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", exampleAwsNetworkfirewallRuleGroup.arn()),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

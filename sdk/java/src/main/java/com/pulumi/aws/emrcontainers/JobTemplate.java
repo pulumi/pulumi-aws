@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new JobTemplate(&#34;example&#34;, JobTemplateArgs.builder()        
+ *         var example = new JobTemplate("example", JobTemplateArgs.builder()        
  *             .jobTemplateData(JobTemplateJobTemplateDataArgs.builder()
  *                 .executionRoleArn(exampleAwsIamRole.arn())
- *                 .releaseLabel(&#34;emr-6.10.0-latest&#34;)
+ *                 .releaseLabel("emr-6.10.0-latest")
  *                 .jobDriver(JobTemplateJobTemplateDataJobDriverArgs.builder()
  *                     .sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.builder()
- *                         .entryPoint(&#34;default&#34;)
+ *                         .entryPoint("default")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

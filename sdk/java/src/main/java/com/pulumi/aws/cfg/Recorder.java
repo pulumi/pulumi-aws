@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,34 +53,36 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("config.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var r = new Role(&#34;r&#34;, RoleArgs.builder()        
- *             .name(&#34;awsconfig-example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var r = new Role("r", RoleArgs.builder()        
+ *             .name("awsconfig-example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *             .name("example")
  *             .roleArn(r.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Exclude Resources Types Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -101,29 +104,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *             .name("example")
  *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
  *                 .allSupported(false)
  *                 .exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs.builder()
- *                     .resourceTypes(&#34;AWS::EC2::Instance&#34;)
+ *                     .resourceTypes("AWS::EC2::Instance")
  *                     .build())
  *                 .recordingStrategies(RecorderRecordingGroupRecordingStrategyArgs.builder()
- *                     .useOnly(&#34;EXCLUSION_BY_RESOURCE_TYPES&#34;)
+ *                     .useOnly("EXCLUSION_BY_RESOURCE_TYPES")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Periodic Recording
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,29 +152,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *             .name("example")
  *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
  *                 .allSupported(false)
  *                 .includeGlobalResourceTypes(false)
  *                 .resourceTypes(                
- *                     &#34;AWS::EC2::Instance&#34;,
- *                     &#34;AWS::EC2::NetworkInterface&#34;)
+ *                     "AWS::EC2::Instance",
+ *                     "AWS::EC2::NetworkInterface")
  *                 .build())
  *             .recordingMode(RecorderRecordingModeArgs.builder()
- *                 .recordingFrequency(&#34;CONTINUOUS&#34;)
+ *                 .recordingFrequency("CONTINUOUS")
  *                 .recordingModeOverride(RecorderRecordingModeRecordingModeOverrideArgs.builder()
- *                     .description(&#34;Only record EC2 network interfaces daily&#34;)
- *                     .resourceTypes(&#34;AWS::EC2::NetworkInterface&#34;)
- *                     .recordingFrequency(&#34;DAILY&#34;)
+ *                     .description("Only record EC2 network interfaces daily")
+ *                     .resourceTypes("AWS::EC2::NetworkInterface")
+ *                     .recordingFrequency("DAILY")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

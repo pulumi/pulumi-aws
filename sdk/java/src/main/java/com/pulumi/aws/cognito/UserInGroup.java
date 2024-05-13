@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,8 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("example")
  *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
  *                 .temporaryPasswordValidityDays(7)
  *                 .minimumLength(6)
@@ -58,17 +59,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
  *             .userPoolId(example.id())
- *             .username(&#34;example&#34;)
+ *             .username("example")
  *             .build());
  * 
- *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
+ *         var exampleUserGroup = new UserGroup("exampleUserGroup", UserGroupArgs.builder()        
  *             .userPoolId(example.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
- *         var exampleUserInGroup = new UserInGroup(&#34;exampleUserInGroup&#34;, UserInGroupArgs.builder()        
+ *         var exampleUserInGroup = new UserInGroup("exampleUserInGroup", UserInGroupArgs.builder()        
  *             .userPoolId(example.id())
  *             .groupName(exampleUserGroup.name())
  *             .username(exampleUser.username())
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

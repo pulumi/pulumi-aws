@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact(&#34;example&#34;, ContactArgs.builder()        
- *             .alias(&#34;alias&#34;)
- *             .type(&#34;PERSONAL&#34;)
+ *         var example = new Contact("example", ContactArgs.builder()        
+ *             .alias("alias")
+ *             .type("PERSONAL")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage With All Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,18 +85,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact(&#34;example&#34;, ContactArgs.builder()        
- *             .alias(&#34;alias&#34;)
- *             .displayName(&#34;displayName&#34;)
- *             .type(&#34;ESCALATION&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *         var example = new Contact("example", ContactArgs.builder()        
+ *             .alias("alias")
+ *             .displayName("displayName")
+ *             .type("ESCALATION")
+ *             .tags(Map.of("key", "value"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

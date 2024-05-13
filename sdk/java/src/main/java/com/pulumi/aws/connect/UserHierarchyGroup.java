@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,21 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyGroup(&#34;example&#34;, UserHierarchyGroupArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;example&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group&#34;))
+ *         var example = new UserHierarchyGroup("example", UserHierarchyGroupArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("example")
+ *             .tags(Map.of("Name", "Example User Hierarchy Group"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With a parent group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,22 +87,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new UserHierarchyGroup(&#34;parent&#34;, UserHierarchyGroupArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;parent&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Parent&#34;))
+ *         var parent = new UserHierarchyGroup("parent", UserHierarchyGroupArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("parent")
+ *             .tags(Map.of("Name", "Example User Hierarchy Group Parent"))
  *             .build());
  * 
- *         var child = new UserHierarchyGroup(&#34;child&#34;, UserHierarchyGroupArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;child&#34;)
+ *         var child = new UserHierarchyGroup("child", UserHierarchyGroupArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("child")
  *             .parentGroupId(parent.hierarchyGroupId())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Child&#34;))
+ *             .tags(Map.of("Name", "Example User Hierarchy Group Child"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

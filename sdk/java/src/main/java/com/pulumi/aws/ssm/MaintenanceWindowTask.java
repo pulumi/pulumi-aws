@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Automation Tasks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,22 +51,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
- *             .taskArn(&#34;AWS-RestartEC2Instance&#34;)
- *             .taskType(&#34;AUTOMATION&#34;)
+ *             .taskArn("AWS-RestartEC2Instance")
+ *             .taskType("AUTOMATION")
  *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .automationParameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.builder()
- *                     .documentVersion(&#34;$LATEST&#34;)
+ *                     .documentVersion("$LATEST")
  *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs.builder()
- *                         .name(&#34;InstanceId&#34;)
+ *                         .name("InstanceId")
  *                         .values(exampleAwsInstance.id())
  *                         .build())
  *                     .build())
@@ -74,13 +75,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda Tasks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,36 +107,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
  *             .taskArn(exampleAwsLambdaFunction.arn())
- *             .taskType(&#34;LAMBDA&#34;)
+ *             .taskType("LAMBDA")
  *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .lambdaParameters(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.builder()
  *                     .clientContext(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                         .input(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
+ *                         .input("{\"key1\":\"value1\"}")
  *                         .build()).result())
- *                     .payload(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
+ *                     .payload("{\"key1\":\"value1\"}")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Run Command Tasks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -158,31 +163,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
- *             .taskArn(&#34;AWS-RunShellScript&#34;)
- *             .taskType(&#34;RUN_COMMAND&#34;)
+ *             .taskArn("AWS-RunShellScript")
+ *             .taskType("RUN_COMMAND")
  *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .runCommandParameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.builder()
  *                     .outputS3Bucket(exampleAwsS3Bucket.id())
- *                     .outputS3KeyPrefix(&#34;output&#34;)
+ *                     .outputS3KeyPrefix("output")
  *                     .serviceRoleArn(exampleAwsIamRole.arn())
  *                     .timeoutSeconds(600)
  *                     .notificationConfig(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.builder()
  *                         .notificationArn(exampleAwsSnsTopic.arn())
- *                         .notificationEvents(&#34;All&#34;)
- *                         .notificationType(&#34;Command&#34;)
+ *                         .notificationEvents("All")
+ *                         .notificationType("Command")
  *                         .build())
  *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs.builder()
- *                         .name(&#34;commands&#34;)
- *                         .values(&#34;date&#34;)
+ *                         .name("commands")
+ *                         .values("date")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -190,13 +195,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Step Function Tasks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -220,28 +227,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
  *             .taskArn(exampleAwsSfnActivity.id())
- *             .taskType(&#34;STEP_FUNCTIONS&#34;)
+ *             .taskType("STEP_FUNCTIONS")
  *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .stepFunctionsParameters(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.builder()
- *                     .input(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
- *                     .name(&#34;example&#34;)
+ *                     .input("{\"key1\":\"value1\"}")
+ *                     .name("example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

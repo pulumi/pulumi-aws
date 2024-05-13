@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Firewall(&#34;example&#34;, FirewallArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Firewall("example", FirewallArgs.builder()        
+ *             .name("example")
  *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .vpcId(exampleAwsVpc.id())
  *             .subnetMappings(FirewallSubnetMappingArgs.builder()
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

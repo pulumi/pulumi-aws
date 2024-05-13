@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,32 +56,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .name(&#34;test_role&#34;)
+ *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *             .name("test_role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "ec2.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
- *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
+ *             .tags(Map.of("tag-key", "tag-value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Using Data Source for Assume Role Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -105,23 +108,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var instanceAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("ec2.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var instance = new Role(&#34;instance&#34;, RoleArgs.builder()        
- *             .name(&#34;instance_role&#34;)
- *             .path(&#34;/system/&#34;)
- *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var instance = new Role("instance", RoleArgs.builder()        
+ *             .name("instance_role")
+ *             .path("/system/")
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Exclusive Inline Policies
@@ -129,7 +133,8 @@ import javax.annotation.Nullable;
  * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -156,36 +161,37 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var inlinePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .actions("ec2:DescribeAccountAttributes")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;yak_role&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("yak_role")
  *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .inlinePolicies(            
  *                 RoleInlinePolicyArgs.builder()
- *                     .name(&#34;my_inline_policy&#34;)
+ *                     .name("my_inline_policy")
  *                     .policy(serializeJson(
  *                         jsonObject(
- *                             jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                             jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                                 jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                                 jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                             jsonProperty("Version", "2012-10-17"),
+ *                             jsonProperty("Statement", jsonArray(jsonObject(
+ *                                 jsonProperty("Action", jsonArray("ec2:Describe*")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", "*")
  *                             )))
  *                         )))
  *                     .build(),
  *                 RoleInlinePolicyArgs.builder()
- *                     .name(&#34;policy-8675309&#34;)
- *                     .policy(inlinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *                     .name("policy-8675309")
+ *                     .policy(inlinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Removing Inline Policies
@@ -193,7 +199,8 @@ import javax.annotation.Nullable;
  * This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -215,15 +222,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()        
  *             .inlinePolicies()
- *             .name(&#34;yak_role&#34;)
+ *             .name("yak_role")
  *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Exclusive Managed Policies
@@ -231,7 +239,8 @@ import javax.annotation.Nullable;
  * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -255,38 +264,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policyOne = new Policy(&#34;policyOne&#34;, PolicyArgs.builder()        
- *             .name(&#34;policy-618033&#34;)
+ *         var policyOne = new Policy("policyOne", PolicyArgs.builder()        
+ *             .name("policy-618033")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var policyTwo = new Policy(&#34;policyTwo&#34;, PolicyArgs.builder()        
- *             .name(&#34;policy-381966&#34;)
+ *         var policyTwo = new Policy("policyTwo", PolicyArgs.builder()        
+ *             .name("policy-381966")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;s3:ListAllMyBuckets&#34;, 
- *                             &#34;s3:ListBucket&#34;, 
- *                             &#34;s3:HeadBucket&#34;
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "s3:ListAllMyBuckets", 
+ *                             "s3:ListBucket", 
+ *                             "s3:HeadBucket"
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;yak_role&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("yak_role")
  *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .managedPolicyArns(            
  *                 policyOne.arn(),
@@ -295,7 +304,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Removing Managed Policies
@@ -303,7 +313,8 @@ import javax.annotation.Nullable;
  * This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -324,15 +335,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;yak_role&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("yak_role")
  *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .managedPolicyArns()
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

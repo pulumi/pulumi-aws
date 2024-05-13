@@ -42,7 +42,8 @@ import javax.annotation.Nullable;
  * The example below creates a CloudFront distribution with an S3 origin.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,19 +79,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;mybucket&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;My bucket&#34;))
+ *         var b = new BucketV2("b", BucketV2Args.builder()        
+ *             .bucket("mybucket")
+ *             .tags(Map.of("Name", "My bucket"))
  *             .build());
  * 
- *         var bAcl = new BucketAclV2(&#34;bAcl&#34;, BucketAclV2Args.builder()        
+ *         var bAcl = new BucketAclV2("bAcl", BucketAclV2Args.builder()        
  *             .bucket(b.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         final var s3OriginId = &#34;myS3Origin&#34;;
+ *         final var s3OriginId = "myS3Origin";
  * 
- *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(b.bucketRegionalDomainName())
  *                 .originAccessControlId(default_.id())
@@ -98,99 +99,99 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .enabled(true)
  *             .isIpv6Enabled(true)
- *             .comment(&#34;Some comment&#34;)
- *             .defaultRootObject(&#34;index.html&#34;)
+ *             .comment("Some comment")
+ *             .defaultRootObject("index.html")
  *             .loggingConfig(DistributionLoggingConfigArgs.builder()
  *                 .includeCookies(false)
- *                 .bucket(&#34;mylogs.s3.amazonaws.com&#34;)
- *                 .prefix(&#34;myprefix&#34;)
+ *                 .bucket("mylogs.s3.amazonaws.com")
+ *                 .prefix("myprefix")
  *                 .build())
  *             .aliases(            
- *                 &#34;mysite.example.com&#34;,
- *                 &#34;yoursite.example.com&#34;)
+ *                 "mysite.example.com",
+ *                 "yoursite.example.com")
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .allowedMethods(                
- *                     &#34;DELETE&#34;,
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;,
- *                     &#34;OPTIONS&#34;,
- *                     &#34;PATCH&#34;,
- *                     &#34;POST&#34;,
- *                     &#34;PUT&#34;)
+ *                     "DELETE",
+ *                     "GET",
+ *                     "HEAD",
+ *                     "OPTIONS",
+ *                     "PATCH",
+ *                     "POST",
+ *                     "PUT")
  *                 .cachedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;)
+ *                     "GET",
+ *                     "HEAD")
  *                 .targetOriginId(s3OriginId)
  *                 .forwardedValues(DistributionDefaultCacheBehaviorForwardedValuesArgs.builder()
  *                     .queryString(false)
  *                     .cookies(DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                         .forward(&#34;none&#34;)
+ *                         .forward("none")
  *                         .build())
  *                     .build())
- *                 .viewerProtocolPolicy(&#34;allow-all&#34;)
+ *                 .viewerProtocolPolicy("allow-all")
  *                 .minTtl(0)
  *                 .defaultTtl(3600)
  *                 .maxTtl(86400)
  *                 .build())
  *             .orderedCacheBehaviors(            
  *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern(&#34;/content/immutable/*&#34;)
+ *                     .pathPattern("/content/immutable/*")
  *                     .allowedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
  *                     .cachedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
  *                     .targetOriginId(s3OriginId)
  *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
  *                         .queryString(false)
- *                         .headers(&#34;Origin&#34;)
+ *                         .headers("Origin")
  *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward(&#34;none&#34;)
+ *                             .forward("none")
  *                             .build())
  *                         .build())
  *                     .minTtl(0)
  *                     .defaultTtl(86400)
  *                     .maxTtl(31536000)
  *                     .compress(true)
- *                     .viewerProtocolPolicy(&#34;redirect-to-https&#34;)
+ *                     .viewerProtocolPolicy("redirect-to-https")
  *                     .build(),
  *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern(&#34;/content/*&#34;)
+ *                     .pathPattern("/content/*")
  *                     .allowedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
  *                     .cachedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;)
+ *                         "GET",
+ *                         "HEAD")
  *                     .targetOriginId(s3OriginId)
  *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
  *                         .queryString(false)
  *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward(&#34;none&#34;)
+ *                             .forward("none")
  *                             .build())
  *                         .build())
  *                     .minTtl(0)
  *                     .defaultTtl(3600)
  *                     .maxTtl(86400)
  *                     .compress(true)
- *                     .viewerProtocolPolicy(&#34;redirect-to-https&#34;)
+ *                     .viewerProtocolPolicy("redirect-to-https")
  *                     .build())
- *             .priceClass(&#34;PriceClass_200&#34;)
+ *             .priceClass("PriceClass_200")
  *             .restrictions(DistributionRestrictionsArgs.builder()
  *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
- *                     .restrictionType(&#34;whitelist&#34;)
+ *                     .restrictionType("whitelist")
  *                     .locations(                    
- *                         &#34;US&#34;,
- *                         &#34;CA&#34;,
- *                         &#34;GB&#34;,
- *                         &#34;DE&#34;)
+ *                         "US",
+ *                         "CA",
+ *                         "GB",
+ *                         "DE")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("Environment", "production"))
  *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
  *                 .cloudfrontDefaultCertificate(true)
  *                 .build())
@@ -198,7 +199,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Failover Routing
@@ -206,7 +208,8 @@ import javax.annotation.Nullable;
  * The example below creates a CloudFront distribution with an origin group for failover routing.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -232,9 +235,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
  *             .originGroups(DistributionOriginGroupArgs.builder()
- *                 .originId(&#34;groupS3&#34;)
+ *                 .originId("groupS3")
  *                 .failoverCriteria(DistributionOriginGroupFailoverCriteriaArgs.builder()
  *                     .statusCodes(                    
  *                         403,
@@ -244,35 +247,36 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .members(                
  *                     DistributionOriginGroupMemberArgs.builder()
- *                         .originId(&#34;primaryS3&#34;)
+ *                         .originId("primaryS3")
  *                         .build(),
  *                     DistributionOriginGroupMemberArgs.builder()
- *                         .originId(&#34;failoverS3&#34;)
+ *                         .originId("failoverS3")
  *                         .build())
  *                 .build())
  *             .origins(            
  *                 DistributionOriginArgs.builder()
  *                     .domainName(primary.bucketRegionalDomainName())
- *                     .originId(&#34;primaryS3&#34;)
+ *                     .originId("primaryS3")
  *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                         .build())
  *                     .build(),
  *                 DistributionOriginArgs.builder()
  *                     .domainName(failover.bucketRegionalDomainName())
- *                     .originId(&#34;failoverS3&#34;)
+ *                     .originId("failoverS3")
  *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                         .build())
  *                     .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .targetOriginId(&#34;groupS3&#34;)
+ *                 .targetOriginId("groupS3")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Managed Caching Policy
@@ -280,7 +284,8 @@ import javax.annotation.Nullable;
  * The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -307,36 +312,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var s3OriginId = &#34;myS3Origin&#34;;
+ *         final var s3OriginId = "myS3Origin";
  * 
- *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(primary.bucketRegionalDomainName())
- *                 .originId(&#34;myS3Origin&#34;)
+ *                 .originId("myS3Origin")
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                     .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                     .build())
  *                 .build())
  *             .enabled(true)
  *             .isIpv6Enabled(true)
- *             .comment(&#34;Some comment&#34;)
- *             .defaultRootObject(&#34;index.html&#34;)
+ *             .comment("Some comment")
+ *             .defaultRootObject("index.html")
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .cachePolicyId(&#34;4135ea2d-6df8-44a3-9df3-4b5a84be39ad&#34;)
+ *                 .cachePolicyId("4135ea2d-6df8-44a3-9df3-4b5a84be39ad")
  *                 .allowedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;,
- *                     &#34;OPTIONS&#34;)
+ *                     "GET",
+ *                     "HEAD",
+ *                     "OPTIONS")
  *                 .targetOriginId(s3OriginId)
  *                 .build())
  *             .restrictions(DistributionRestrictionsArgs.builder()
  *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
- *                     .restrictionType(&#34;whitelist&#34;)
+ *                     .restrictionType("whitelist")
  *                     .locations(                    
- *                         &#34;US&#34;,
- *                         &#34;CA&#34;,
- *                         &#34;GB&#34;,
- *                         &#34;DE&#34;)
+ *                         "US",
+ *                         "CA",
+ *                         "GB",
+ *                         "DE")
  *                     .build())
  *                 .build())
  *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
@@ -346,7 +351,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

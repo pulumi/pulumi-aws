@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Applies to a single collection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;encryption&#34;)
- *             .description(&#34;encryption security policy for example-collection&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("encryption")
+ *             .description("encryption security policy for example-collection")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
- *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty("Rules", jsonArray(jsonObject(
+ *                         jsonProperty("Resource", jsonArray("collection/example-collection")),
+ *                         jsonProperty("ResourceType", "collection")
  *                     ))),
- *                     jsonProperty(&#34;AWSOwnedKey&#34;, true)
+ *                     jsonProperty("AWSOwnedKey", true)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Applies to multiple collections
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,29 +93,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;encryption&#34;)
- *             .description(&#34;encryption security policy for collections that begin with \&#34;example\&#34;&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("encryption")
+ *             .description("encryption security policy for collections that begin with \"example\"")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example*&#34;)),
- *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty("Rules", jsonArray(jsonObject(
+ *                         jsonProperty("Resource", jsonArray("collection/example*")),
+ *                         jsonProperty("ResourceType", "collection")
  *                     ))),
- *                     jsonProperty(&#34;AWSOwnedKey&#34;, true)
+ *                     jsonProperty("AWSOwnedKey", true)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using a customer managed key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,24 +139,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;encryption&#34;)
- *             .description(&#34;encryption security policy using customer KMS key&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("encryption")
+ *             .description("encryption security policy using customer KMS key")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/customer-managed-key-collection&#34;)),
- *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty("Rules", jsonArray(jsonObject(
+ *                         jsonProperty("Resource", jsonArray("collection/customer-managed-key-collection")),
+ *                         jsonProperty("ResourceType", "collection")
  *                     ))),
- *                     jsonProperty(&#34;AWSOwnedKey&#34;, false),
- *                     jsonProperty(&#34;KmsARN&#34;, &#34;arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36&#34;)
+ *                     jsonProperty("AWSOwnedKey", false),
+ *                     jsonProperty("KmsARN", "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Network Security Policy
@@ -159,7 +165,8 @@ import javax.annotation.Nullable;
  * ### Allow public access to the collection endpoint and the Dashboards endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -181,36 +188,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;network&#34;)
- *             .description(&#34;Public access&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("network")
+ *             .description("Public access")
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;Description&#34;, &#34;Public access to collection and Dashboards endpoint for example collection&#34;),
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty("Description", "Public access to collection and Dashboards endpoint for example collection"),
+ *                     jsonProperty("Rules", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty("ResourceType", "collection"),
+ *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;dashboard&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty("ResourceType", "dashboard"),
+ *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;AllowFromPublic&#34;, true)
+ *                     jsonProperty("AllowFromPublic", true)
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -232,37 +241,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;network&#34;)
- *             .description(&#34;VPC access&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("network")
+ *             .description("VPC access")
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;Description&#34;, &#34;VPC access to collection and Dashboards endpoint for example collection&#34;),
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty("Description", "VPC access to collection and Dashboards endpoint for example collection"),
+ *                     jsonProperty("Rules", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty("ResourceType", "collection"),
+ *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;dashboard&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty("ResourceType", "dashboard"),
+ *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;AllowFromPublic&#34;, false),
- *                     jsonProperty(&#34;SourceVPCEs&#34;, jsonArray(&#34;vpce-050f79086ee71ac05&#34;))
+ *                     jsonProperty("AllowFromPublic", false),
+ *                     jsonProperty("SourceVPCEs", jsonArray("vpce-050f79086ee71ac05"))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mixed access for different collections
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -284,41 +295,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;network&#34;)
- *             .description(&#34;Mixed access for marketing and sales&#34;)
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *             .name("example")
+ *             .type("network")
+ *             .description("Mixed access for marketing and sales")
  *             .policy(serializeJson(
  *                 jsonArray(
  *                     jsonObject(
- *                         jsonProperty(&#34;Description&#34;, &#34;Marketing access&#34;),
- *                         jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                         jsonProperty("Description", "Marketing access"),
+ *                         jsonProperty("Rules", jsonArray(
  *                             jsonObject(
- *                                 jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                                 jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/marketing*&#34;))
+ *                                 jsonProperty("ResourceType", "collection"),
+ *                                 jsonProperty("Resource", jsonArray("collection/marketing*"))
  *                             ), 
  *                             jsonObject(
- *                                 jsonProperty(&#34;ResourceType&#34;, &#34;dashboard&#34;),
- *                                 jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/marketing*&#34;))
+ *                                 jsonProperty("ResourceType", "dashboard"),
+ *                                 jsonProperty("Resource", jsonArray("collection/marketing*"))
  *                             )
  *                         )),
- *                         jsonProperty(&#34;AllowFromPublic&#34;, false),
- *                         jsonProperty(&#34;SourceVPCEs&#34;, jsonArray(&#34;vpce-050f79086ee71ac05&#34;))
+ *                         jsonProperty("AllowFromPublic", false),
+ *                         jsonProperty("SourceVPCEs", jsonArray("vpce-050f79086ee71ac05"))
  *                     ), 
  *                     jsonObject(
- *                         jsonProperty(&#34;Description&#34;, &#34;Sales access&#34;),
- *                         jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/finance&#34;))
+ *                         jsonProperty("Description", "Sales access"),
+ *                         jsonProperty("Rules", jsonArray(jsonObject(
+ *                             jsonProperty("ResourceType", "collection"),
+ *                             jsonProperty("Resource", jsonArray("collection/finance"))
  *                         ))),
- *                         jsonProperty(&#34;AllowFromPublic&#34;, true)
+ *                         jsonProperty("AllowFromPublic", true)
  *                     )
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

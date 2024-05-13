@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GeofenceCollection(&#34;example&#34;, GeofenceCollectionArgs.builder()        
- *             .collectionName(&#34;example&#34;)
+ *         var example = new GeofenceCollection("example", GeofenceCollectionArgs.builder()        
+ *             .collectionName("example")
  *             .build());
  * 
- *         var exampleTracker = new Tracker(&#34;exampleTracker&#34;, TrackerArgs.builder()        
- *             .trackerName(&#34;example&#34;)
+ *         var exampleTracker = new Tracker("exampleTracker", TrackerArgs.builder()        
+ *             .trackerName("example")
  *             .build());
  * 
- *         var exampleTrackerAssociation = new TrackerAssociation(&#34;exampleTrackerAssociation&#34;, TrackerAssociationArgs.builder()        
+ *         var exampleTrackerAssociation = new TrackerAssociation("exampleTrackerAssociation", TrackerAssociationArgs.builder()        
  *             .consumerArn(example.collectionArn())
  *             .trackerName(exampleTracker.trackerName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.builder()        
+ *         var vpnGw = new VpnGateway("vpnGw", VpnGatewayArgs.builder()        
  *             .vpcId(main.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *             .tags(Map.of("Name", "main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

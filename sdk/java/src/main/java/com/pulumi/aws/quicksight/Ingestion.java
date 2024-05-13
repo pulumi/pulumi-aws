@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Ingestion(&#34;example&#34;, IngestionArgs.builder()        
+ *         var example = new Ingestion("example", IngestionArgs.builder()        
  *             .dataSetId(exampleAwsQuicksightDataSet.dataSetId())
- *             .ingestionId(&#34;example-id&#34;)
- *             .ingestionType(&#34;FULL_REFRESH&#34;)
+ *             .ingestionId("example-id")
+ *             .ingestionType("FULL_REFRESH")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

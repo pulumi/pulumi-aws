@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,37 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Workflow("example", WorkflowArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var example_start = new Trigger(&#34;example-start&#34;, TriggerArgs.builder()        
- *             .name(&#34;trigger-start&#34;)
- *             .type(&#34;ON_DEMAND&#34;)
+ *         var example_start = new Trigger("example-start", TriggerArgs.builder()        
+ *             .name("trigger-start")
+ *             .type("ON_DEMAND")
  *             .workflowName(example.name())
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(&#34;example-job&#34;)
+ *                 .jobName("example-job")
  *                 .build())
  *             .build());
  * 
- *         var example_inner = new Trigger(&#34;example-inner&#34;, TriggerArgs.builder()        
- *             .name(&#34;trigger-inner&#34;)
- *             .type(&#34;CONDITIONAL&#34;)
+ *         var example_inner = new Trigger("example-inner", TriggerArgs.builder()        
+ *             .name("trigger-inner")
+ *             .type("CONDITIONAL")
  *             .workflowName(example.name())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(&#34;example-job&#34;)
- *                     .state(&#34;SUCCEEDED&#34;)
+ *                     .jobName("example-job")
+ *                     .state("SUCCEEDED")
  *                     .build())
  *                 .build())
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(&#34;another-example-job&#34;)
+ *                 .jobName("another-example-job")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

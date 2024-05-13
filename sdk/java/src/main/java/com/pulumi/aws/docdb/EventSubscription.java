@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,35 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterIdentifier("example")
  *             .availabilityZones(            
  *                 available.names()[0],
  *                 available.names()[1],
  *                 available.names()[2])
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;mustbeeightcharaters&#34;)
+ *             .masterUsername("foo")
+ *             .masterPassword("mustbeeightcharaters")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;example-events&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("example-events")
  *             .build());
  * 
- *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()        
+ *             .name("example")
  *             .enabled(true)
  *             .eventCategories(            
- *                 &#34;creation&#34;,
- *                 &#34;failure&#34;)
- *             .sourceType(&#34;db-cluster&#34;)
+ *                 "creation",
+ *                 "failure")
+ *             .sourceType("db-cluster")
  *             .sourceIds(example.id())
  *             .snsTopicArn(exampleTopic.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceSipRule(&#34;example&#34;, SdkvoiceSipRuleArgs.builder()        
- *             .name(&#34;example-sip-rule&#34;)
- *             .triggerType(&#34;RequestUriHostname&#34;)
+ *         var example = new SdkvoiceSipRule("example", SdkvoiceSipRuleArgs.builder()        
+ *             .name("example-sip-rule")
+ *             .triggerType("RequestUriHostname")
  *             .triggerValue(example_voice_connector.outboundHostName())
  *             .targetApplications(SdkvoiceSipRuleTargetApplicationArgs.builder()
  *                 .priority(1)
  *                 .sipMediaApplicationId(example_sma.id())
- *                 .awsRegion(&#34;us-east-1&#34;)
+ *                 .awsRegion("us-east-1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

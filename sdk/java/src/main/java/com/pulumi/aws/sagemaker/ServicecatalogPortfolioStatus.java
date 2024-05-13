@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * Usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,13 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServicecatalogPortfolioStatus(&#34;example&#34;, ServicecatalogPortfolioStatusArgs.builder()        
- *             .status(&#34;Enabled&#34;)
+ *         var example = new ServicecatalogPortfolioStatus("example", ServicecatalogPortfolioStatusArgs.builder()        
+ *             .status("Enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

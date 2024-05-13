@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
- *             .description(&#34;tf-test-desc&#34;)
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .build());
  * 
- *         var myTemplate = new ConfigurationTemplate(&#34;myTemplate&#34;, ConfigurationTemplateArgs.builder()        
- *             .name(&#34;tf-test-template-config&#34;)
+ *         var myTemplate = new ConfigurationTemplate("myTemplate", ConfigurationTemplateArgs.builder()        
+ *             .name("tf-test-template-config")
  *             .application(tftest.name())
- *             .solutionStackName(&#34;64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4&#34;)
+ *             .solutionStackName("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Option Settings

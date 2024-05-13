@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
+ *         var example = new Snapshot("example", SnapshotArgs.builder()        
  *             .clusterName(exampleAwsMemorydbCluster.name())
- *             .name(&#34;my-snapshot&#34;)
+ *             .name("my-snapshot")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

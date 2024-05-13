@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,30 +50,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()        
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
  *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol(&#34;GRE&#34;)
+ *                 .protocol("GRE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage with attachment accepter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,36 +102,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         var exampleAttachmentAccepter = new AttachmentAccepter(&#34;exampleAttachmentAccepter&#34;, AttachmentAccepterArgs.builder()        
+ *         var exampleAttachmentAccepter = new AttachmentAccepter("exampleAttachmentAccepter", AttachmentAccepterArgs.builder()        
  *             .attachmentId(example.id())
  *             .attachmentType(example.attachmentType())
  *             .build());
  * 
- *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()        
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
  *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol(&#34;GRE&#34;)
+ *                 .protocol("GRE")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)
  *                 .build());
  * 
- *         var example2 = new AttachmentAccepter(&#34;example2&#34;, AttachmentAccepterArgs.builder()        
+ *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()        
  *             .attachmentId(exampleConnectAttachment.id())
  *             .attachmentType(exampleConnectAttachment.attachmentType())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,13 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RecoveryGroup(&#34;example&#34;, RecoveryGroupArgs.builder()        
- *             .recoveryGroupName(&#34;my-high-availability-app&#34;)
+ *         var example = new RecoveryGroup("example", RecoveryGroupArgs.builder()        
+ *             .recoveryGroupName("my-high-availability-app")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

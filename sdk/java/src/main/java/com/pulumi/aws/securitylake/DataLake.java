@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,22 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLake(&#34;example&#34;, DataLakeArgs.builder()        
+ *         var example = new DataLake("example", DataLakeArgs.builder()        
  *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region(&#34;eu-west-1&#34;)
+ *                 .region("eu-west-1")
  *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
+ *                     .kmsKeyId("S3_MANAGED_KEY")
  *                     .build())
  *                 .lifecycleConfiguration(DataLakeConfigurationLifecycleConfigurationArgs.builder()
  *                     .transitions(                    
  *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
  *                             .days(31)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
+ *                             .storageClass("STANDARD_IA")
  *                             .build(),
  *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
  *                             .days(80)
- *                             .storageClass(&#34;ONEZONE_IA&#34;)
+ *                             .storageClass("ONEZONE_IA")
  *                             .build())
  *                     .expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs.builder()
  *                         .days(300)
@@ -73,13 +74,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -101,19 +104,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLake(&#34;example&#34;, DataLakeArgs.builder()        
+ *         var example = new DataLake("example", DataLakeArgs.builder()        
  *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region(&#34;eu-west-1&#34;)
+ *                 .region("eu-west-1")
  *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
+ *                     .kmsKeyId("S3_MANAGED_KEY")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

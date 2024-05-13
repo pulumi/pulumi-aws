@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;detective.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var example = new Organization("example", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("detective.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()        
+ *             .accountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

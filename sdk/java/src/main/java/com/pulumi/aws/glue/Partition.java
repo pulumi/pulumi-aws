@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Partition(&#34;example&#34;, PartitionArgs.builder()        
- *             .databaseName(&#34;some-database&#34;)
- *             .tableName(&#34;some-table&#34;)
- *             .values(&#34;some-value&#34;)
+ *         var example = new Partition("example", PartitionArgs.builder()        
+ *             .databaseName("some-database")
+ *             .tableName("some-table")
+ *             .values("some-value")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

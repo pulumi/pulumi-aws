@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,21 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Parameter(&#34;foo&#34;, ParameterArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .type(&#34;String&#34;)
- *             .value(&#34;bar&#34;)
+ *         var foo = new Parameter("foo", ParameterArgs.builder()        
+ *             .name("foo")
+ *             .type("String")
+ *             .value("bar")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Encrypted string using default SSM KMS key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,30 +89,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .storageType(&#34;gp2&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7.16&#34;)
- *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .dbName(&#34;mydb&#34;)
- *             .username(&#34;foo&#34;)
+ *             .storageType("gp2")
+ *             .engine("mysql")
+ *             .engineVersion("5.7.16")
+ *             .instanceClass("db.t2.micro")
+ *             .dbName("mydb")
+ *             .username("foo")
  *             .password(databaseMasterPassword)
- *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .dbSubnetGroupName("my_database_subnet_group")
+ *             .parameterGroupName("default.mysql5.7")
  *             .build());
  * 
- *         var secret = new Parameter(&#34;secret&#34;, ParameterArgs.builder()        
- *             .name(&#34;/production/database/password/master&#34;)
- *             .description(&#34;The parameter description&#34;)
- *             .type(&#34;SecureString&#34;)
+ *         var secret = new Parameter("secret", ParameterArgs.builder()        
+ *             .name("/production/database/password/master")
+ *             .description("The parameter description")
+ *             .type("SecureString")
  *             .value(databaseMasterPassword)
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,32 +57,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new Rule(&#34;this&#34;, RuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var this_ = new Rule("this", RuleArgs.builder()        
+ *             .name("example")
  *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;AWS&#34;)
- *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
+ *                 .owner("AWS")
+ *                 .sourceIdentifier("S3_BUCKET_VERSIONING_ENABLED")
  *                 .build())
  *             .build());
  * 
- *         var thisRemediationConfiguration = new RemediationConfiguration(&#34;thisRemediationConfiguration&#34;, RemediationConfigurationArgs.builder()        
+ *         var thisRemediationConfiguration = new RemediationConfiguration("thisRemediationConfiguration", RemediationConfigurationArgs.builder()        
  *             .configRuleName(this_.name())
- *             .resourceType(&#34;AWS::S3::Bucket&#34;)
- *             .targetType(&#34;SSM_DOCUMENT&#34;)
- *             .targetId(&#34;AWS-EnableS3BucketEncryption&#34;)
- *             .targetVersion(&#34;1&#34;)
+ *             .resourceType("AWS::S3::Bucket")
+ *             .targetType("SSM_DOCUMENT")
+ *             .targetId("AWS-EnableS3BucketEncryption")
+ *             .targetVersion("1")
  *             .parameters(            
  *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;AutomationAssumeRole&#34;)
- *                     .staticValue(&#34;arn:aws:iam::875924563244:role/security_config&#34;)
+ *                     .name("AutomationAssumeRole")
+ *                     .staticValue("arn:aws:iam::875924563244:role/security_config")
  *                     .build(),
  *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;BucketName&#34;)
- *                     .resourceValue(&#34;RESOURCE_ID&#34;)
+ *                     .name("BucketName")
+ *                     .resourceValue("RESOURCE_ID")
  *                     .build(),
  *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;SSEAlgorithm&#34;)
- *                     .staticValue(&#34;AES256&#34;)
+ *                     .name("SSEAlgorithm")
+ *                     .staticValue("AES256")
  *                     .build())
  *             .automatic(true)
  *             .maximumAutomaticAttempts(10)
@@ -96,7 +97,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

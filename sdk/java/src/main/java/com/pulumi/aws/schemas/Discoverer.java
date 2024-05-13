@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
- *             .name(&#34;chat-messages&#34;)
+ *         var messenger = new EventBus("messenger", EventBusArgs.builder()        
+ *             .name("chat-messages")
  *             .build());
  * 
- *         var test = new Discoverer(&#34;test&#34;, DiscovererArgs.builder()        
+ *         var test = new Discoverer("test", DiscovererArgs.builder()        
  *             .sourceArn(messenger.arn())
- *             .description(&#34;Auto discover event schemas&#34;)
+ *             .description("Auto discover event schemas")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

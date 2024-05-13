@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
  *                 .build())
  *             .build());
  * 
- *         var test = new Disk(&#34;test&#34;, DiskArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var test = new Disk("test", DiskArgs.builder()        
+ *             .name("test")
  *             .sizeInGb(8)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

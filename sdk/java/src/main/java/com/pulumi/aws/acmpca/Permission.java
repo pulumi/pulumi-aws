@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var example = new Permission(&#34;example&#34;, PermissionArgs.builder()        
+ *         var example = new Permission("example", PermissionArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .actions(            
- *                 &#34;IssueCertificate&#34;,
- *                 &#34;GetCertificate&#34;,
- *                 &#34;ListPermissions&#34;)
- *             .principal(&#34;acm.amazonaws.com&#34;)
+ *                 "IssueCertificate",
+ *                 "GetCertificate",
+ *                 "ListPermissions")
+ *             .principal("acm.amazonaws.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

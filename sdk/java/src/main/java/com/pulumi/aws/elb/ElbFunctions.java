@@ -27,7 +27,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,20 +54,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +82,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -106,20 +109,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -133,7 +137,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -159,20 +164,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +192,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -212,20 +219,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -239,7 +247,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -265,20 +274,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -292,7 +302,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -318,20 +329,21 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -350,7 +362,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -372,14 +385,15 @@ public final class ElbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -398,7 +412,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -420,14 +435,15 @@ public final class ElbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +462,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -468,14 +485,15 @@ public final class ElbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -494,7 +512,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -516,14 +535,15 @@ public final class ElbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -539,7 +559,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -574,50 +595,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -633,7 +655,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -668,50 +691,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -727,7 +751,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -762,50 +787,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -821,7 +847,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -856,50 +883,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,7 +943,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -950,50 +979,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1009,7 +1039,8 @@ public final class ElbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1044,50 +1075,51 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .type("AWS")
+     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
      *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .actions("s3:PutObject")
+     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-foobar-elb&#34;)
-     *             .availabilityZones(&#34;us-west-2a&#34;)
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
+     *                 .instanceProtocol("http")
      *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
+     *                 .lbProtocol("http")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

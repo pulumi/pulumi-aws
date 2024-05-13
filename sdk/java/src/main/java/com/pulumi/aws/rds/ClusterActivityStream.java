@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,33 +58,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;mustbeeightcharaters&#34;)
- *             .engine(&#34;aurora-postgresql&#34;)
- *             .engineVersion(&#34;13.4&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("mustbeeightcharaters")
+ *             .engine("aurora-postgresql")
+ *             .engineVersion("13.4")
  *             .build());
  * 
- *         var defaultClusterInstance = new ClusterInstance(&#34;defaultClusterInstance&#34;, ClusterInstanceArgs.builder()        
- *             .identifier(&#34;aurora-instance-demo&#34;)
+ *         var defaultClusterInstance = new ClusterInstance("defaultClusterInstance", ClusterInstanceArgs.builder()        
+ *             .identifier("aurora-instance-demo")
  *             .clusterIdentifier(default_.clusterIdentifier())
  *             .engine(default_.engine())
- *             .instanceClass(&#34;db.r6g.large&#34;)
+ *             .instanceClass("db.r6g.large")
  *             .build());
  * 
- *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
- *             .description(&#34;AWS KMS Key to encrypt Database Activity Stream&#34;)
+ *         var defaultKey = new Key("defaultKey", KeyArgs.builder()        
+ *             .description("AWS KMS Key to encrypt Database Activity Stream")
  *             .build());
  * 
- *         var defaultClusterActivityStream = new ClusterActivityStream(&#34;defaultClusterActivityStream&#34;, ClusterActivityStreamArgs.builder()        
+ *         var defaultClusterActivityStream = new ClusterActivityStream("defaultClusterActivityStream", ClusterActivityStreamArgs.builder()        
  *             .resourceArn(default_.arn())
- *             .mode(&#34;async&#34;)
+ *             .mode("async")
  *             .kmsKeyId(defaultKey.keyId())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(defaultClusterInstance)
@@ -91,7 +92,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

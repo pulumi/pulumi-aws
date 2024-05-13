@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Public NAT
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()        
  *             .allocationId(exampleAwsEip.id())
  *             .subnetId(exampleAwsSubnet.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+ *             .tags(Map.of("Name", "gw NAT"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsInternetGateway)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Public NAT with Secondary Private IP Addresses
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,22 +87,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()        
  *             .allocationId(exampleAwsEip.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryAllocationIds(secondary.id())
- *             .secondaryPrivateIpAddresses(&#34;10.0.1.5&#34;)
+ *             .secondaryPrivateIpAddresses("10.0.1.5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Private NAT
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -120,20 +125,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .connectivityType(&#34;private&#34;)
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *             .connectivityType("private")
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Private NAT with Secondary Private IP Addresses
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -154,15 +161,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .connectivityType(&#34;private&#34;)
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *             .connectivityType("private")
  *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryPrivateIpAddressCount(7)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

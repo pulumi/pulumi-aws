@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,60 +63,60 @@ import javax.annotation.Nullable;
  *         //  * dms-access-for-endpoint
  *         final var dmsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;dms.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("dms.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var dms_access_for_endpoint = new Role(&#34;dms-access-for-endpoint&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .name(&#34;dms-access-for-endpoint&#34;)
+ *         var dms_access_for_endpoint = new Role("dms-access-for-endpoint", RoleArgs.builder()        
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .name("dms-access-for-endpoint")
  *             .build());
  * 
- *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment(&#34;dms-access-for-endpoint-AmazonDMSRedshiftS3Role&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role&#34;)
+ *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role")
  *             .role(dms_access_for_endpoint.name())
  *             .build());
  * 
- *         var dms_cloudwatch_logs_role = new Role(&#34;dms-cloudwatch-logs-role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .name(&#34;dms-cloudwatch-logs-role&#34;)
+ *         var dms_cloudwatch_logs_role = new Role("dms-cloudwatch-logs-role", RoleArgs.builder()        
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .name("dms-cloudwatch-logs-role")
  *             .build());
  * 
- *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment(&#34;dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole&#34;)
+ *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole")
  *             .role(dms_cloudwatch_logs_role.name())
  *             .build());
  * 
- *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .name(&#34;dms-vpc-role&#34;)
+ *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()        
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .name("dms-vpc-role")
  *             .build());
  * 
- *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment(&#34;dms-vpc-role-AmazonDMSVPCManagementRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole&#34;)
+ *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
  *             .role(dms_vpc_role.name())
  *             .build());
  * 
  *         // Create a new replication instance
- *         var test = new ReplicationInstance(&#34;test&#34;, ReplicationInstanceArgs.builder()        
+ *         var test = new ReplicationInstance("test", ReplicationInstanceArgs.builder()        
  *             .allocatedStorage(20)
  *             .applyImmediately(true)
  *             .autoMinorVersionUpgrade(true)
- *             .availabilityZone(&#34;us-west-2c&#34;)
- *             .engineVersion(&#34;3.1.4&#34;)
- *             .kmsKeyArn(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
+ *             .availabilityZone("us-west-2c")
+ *             .engineVersion("3.1.4")
+ *             .kmsKeyArn("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
  *             .multiAz(false)
- *             .preferredMaintenanceWindow(&#34;sun:10:30-sun:14:30&#34;)
+ *             .preferredMaintenanceWindow("sun:10:30-sun:14:30")
  *             .publiclyAccessible(true)
- *             .replicationInstanceClass(&#34;dms.t2.micro&#34;)
- *             .replicationInstanceId(&#34;test-dms-replication-instance-tf&#34;)
+ *             .replicationInstanceClass("dms.t2.micro")
+ *             .replicationInstanceId("test-dms-replication-instance-tf")
  *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *             .vpcSecurityGroupIds(&#34;sg-12345678&#34;)
+ *             .tags(Map.of("Name", "test"))
+ *             .vpcSecurityGroupIds("sg-12345678")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
@@ -125,7 +126,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new certificate
- *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
- *             .certificateId(&#34;test-dms-certificate-tf&#34;)
- *             .certificatePem(&#34;...&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *         var test = new Certificate("test", CertificateArgs.builder()        
+ *             .certificateId("test-dms-certificate-tf")
+ *             .certificatePem("...")
+ *             .tags(Map.of("Name", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

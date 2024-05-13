@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGateway(&#34;example&#34;);
+ *         var example = new TransitGateway("example");
  * 
- *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
- *             .ipAddress(&#34;172.0.0.1&#34;)
- *             .type(&#34;ipsec.1&#34;)
+ *             .ipAddress("172.0.0.1")
+ *             .type("ipsec.1")
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
  *             .build());
  * 
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
  *             .resourceId(exampleVpnConnection.transitGatewayAttachmentId())
- *             .key(&#34;Name&#34;)
- *             .value(&#34;Hello World&#34;)
+ *             .key("Name")
+ *             .value("Hello World")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

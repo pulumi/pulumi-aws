@@ -26,7 +26,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,7 +54,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,7 +96,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,7 +138,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,7 +180,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +194,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,12 +217,13 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +236,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -248,12 +259,13 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -266,7 +278,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,12 +301,13 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -306,7 +320,8 @@ public final class RedshiftserverlessFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -328,12 +343,13 @@ public final class RedshiftserverlessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .namespaceName("example-namespace")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -348,7 +364,8 @@ public final class RedshiftserverlessFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -375,7 +392,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -390,7 +408,8 @@ public final class RedshiftserverlessFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -417,7 +436,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -432,7 +452,8 @@ public final class RedshiftserverlessFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -459,7 +480,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -474,7 +496,8 @@ public final class RedshiftserverlessFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -501,7 +524,8 @@ public final class RedshiftserverlessFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,29 +53,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .name(&#34;TestTable&#34;)
- *             .hashKey(&#34;BrodoBaggins&#34;)
- *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
+ *         var example = new Table("example", TableArgs.builder()        
+ *             .name("TestTable")
+ *             .hashKey("BrodoBaggins")
+ *             .billingMode("PAY_PER_REQUEST")
  *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;BrodoBaggins&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("BrodoBaggins")
+ *                 .type("S")
  *                 .build())
  *             .build());
  * 
- *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
+ *         var exampleTableReplica = new TableReplica("exampleTableReplica", TableReplicaArgs.builder()        
  *             .globalTableArn(example.arn())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;IZPAWS&#34;),
- *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
+ *                 Map.entry("Name", "IZPAWS"),
+ *                 Map.entry("Pozo", "Amargo")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

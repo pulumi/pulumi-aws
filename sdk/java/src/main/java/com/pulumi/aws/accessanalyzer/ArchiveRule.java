@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,27 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ArchiveRule(&#34;example&#34;, ArchiveRuleArgs.builder()        
- *             .analyzerName(&#34;example-analyzer&#34;)
- *             .ruleName(&#34;example-rule&#34;)
+ *         var example = new ArchiveRule("example", ArchiveRuleArgs.builder()        
+ *             .analyzerName("example-analyzer")
+ *             .ruleName("example-rule")
  *             .filters(            
  *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;condition.aws:UserId&#34;)
- *                     .eqs(&#34;userid&#34;)
+ *                     .criteria("condition.aws:UserId")
+ *                     .eqs("userid")
  *                     .build(),
  *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;error&#34;)
+ *                     .criteria("error")
  *                     .exists(true)
  *                     .build(),
  *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;isPublic&#34;)
- *                     .eqs(&#34;false&#34;)
+ *                     .criteria("isPublic")
+ *                     .eqs("false")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

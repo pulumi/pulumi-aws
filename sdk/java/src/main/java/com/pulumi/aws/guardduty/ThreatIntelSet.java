@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,41 +53,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector(&#34;primary&#34;, DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2("bucket");
  * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var myThreatIntelSet = new BucketObjectv2(&#34;myThreatIntelSet&#34;, BucketObjectv2Args.builder()        
- *             .acl(&#34;public-read&#34;)
- *             .content(&#34;&#34;&#34;
+ *         var myThreatIntelSet = new BucketObjectv2("myThreatIntelSet", BucketObjectv2Args.builder()        
+ *             .acl("public-read")
+ *             .content("""
  * 10.0.0.0/8
- *             &#34;&#34;&#34;)
+ *             """)
  *             .bucket(bucket.id())
- *             .key(&#34;MyThreatIntelSet&#34;)
+ *             .key("MyThreatIntelSet")
  *             .build());
  * 
- *         var myThreatIntelSetThreatIntelSet = new ThreatIntelSet(&#34;myThreatIntelSetThreatIntelSet&#34;, ThreatIntelSetArgs.builder()        
+ *         var myThreatIntelSetThreatIntelSet = new ThreatIntelSet("myThreatIntelSetThreatIntelSet", ThreatIntelSetArgs.builder()        
  *             .activate(true)
  *             .detectorId(primary.id())
- *             .format(&#34;TXT&#34;)
- *             .location(Output.tuple(myThreatIntelSet.bucket(), myThreatIntelSet.key()).applyValue(values -&gt; {
+ *             .format("TXT")
+ *             .location(Output.tuple(myThreatIntelSet.bucket(), myThreatIntelSet.key()).applyValue(values -> {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
- *                 return String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, bucket,key);
+ *                 return String.format("https://s3.amazonaws.com/%s/%s", bucket,key);
  *             }))
- *             .name(&#34;MyThreatIntelSet&#34;)
+ *             .name("MyThreatIntelSet")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

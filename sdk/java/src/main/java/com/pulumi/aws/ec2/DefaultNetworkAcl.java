@@ -50,7 +50,8 @@ import javax.annotation.Nullable;
  * This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -73,17 +74,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mainvpc = new Vpc(&#34;mainvpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var default_ = new DefaultNetworkAcl(&#34;default&#34;, DefaultNetworkAclArgs.builder()        
+ *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()        
  *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managing Subnets In A Default Network ACL
@@ -97,7 +99,8 @@ import javax.annotation.Nullable;
  * As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,11 +120,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DefaultNetworkAcl(&#34;default&#34;);
+ *         var default_ = new DefaultNetworkAcl("default");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration

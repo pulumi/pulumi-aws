@@ -56,7 +56,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -78,12 +79,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -96,7 +98,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -118,12 +121,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -136,7 +140,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -158,12 +163,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -176,7 +182,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -198,12 +205,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -216,7 +224,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -238,16 +247,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -260,7 +270,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -282,16 +293,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -304,7 +316,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,16 +339,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -348,7 +362,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -370,16 +385,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +408,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,16 +431,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +454,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,16 +477,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetComponentsFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -480,7 +500,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -502,12 +523,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -520,7 +542,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -542,12 +565,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -560,7 +584,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -582,12 +607,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -600,7 +626,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -622,12 +649,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -640,7 +668,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -662,16 +691,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -684,7 +714,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,16 +737,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -728,7 +760,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -750,16 +783,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -772,7 +806,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -794,16 +829,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -816,7 +852,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -838,16 +875,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -860,7 +898,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -882,16 +921,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetContainerRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -904,7 +944,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -926,12 +967,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -944,7 +986,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -966,12 +1009,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -984,7 +1028,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1006,12 +1051,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1024,7 +1070,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1046,12 +1093,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1064,7 +1112,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1087,14 +1136,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1107,7 +1157,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1130,14 +1181,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1150,7 +1202,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1173,14 +1226,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1193,7 +1247,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1216,14 +1271,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1236,7 +1292,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1259,14 +1316,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1279,7 +1337,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1302,14 +1361,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1324,7 +1384,8 @@ public final class ImagebuilderFunctions {
      * ### Latest
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1346,12 +1407,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1366,7 +1428,8 @@ public final class ImagebuilderFunctions {
      * ### Latest
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1388,12 +1451,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1408,7 +1472,8 @@ public final class ImagebuilderFunctions {
      * ### Latest
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1430,12 +1495,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1450,7 +1516,8 @@ public final class ImagebuilderFunctions {
      * ### Latest
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1472,12 +1539,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1490,7 +1558,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1512,12 +1581,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1530,7 +1600,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1552,12 +1623,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1570,7 +1642,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1592,12 +1665,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1610,7 +1684,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1632,12 +1707,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1650,7 +1726,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1673,14 +1750,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1693,7 +1771,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1716,14 +1795,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1736,7 +1816,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1759,14 +1840,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1779,7 +1861,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1802,14 +1885,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1822,7 +1906,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1845,14 +1930,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1865,7 +1951,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1888,14 +1975,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1908,7 +1996,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1930,12 +2019,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1948,7 +2038,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1970,12 +2061,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1988,7 +2080,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2010,12 +2103,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2028,7 +2122,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2050,12 +2145,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
+     *             .arn("arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2068,7 +2164,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2090,16 +2187,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2112,7 +2210,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2134,16 +2233,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2156,7 +2256,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2178,16 +2279,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2200,7 +2302,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2222,16 +2325,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2244,7 +2348,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2266,16 +2371,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2288,7 +2394,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2310,16 +2417,17 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
-     *             .owner(&#34;Self&#34;)
+     *             .owner("Self")
      *             .filters(GetImageRecipesFilterArgs.builder()
-     *                 .name(&#34;platform&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("platform")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2332,7 +2440,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2354,12 +2463,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2372,7 +2482,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2394,12 +2505,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2412,7 +2524,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2434,12 +2547,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2452,7 +2566,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2474,12 +2589,13 @@ public final class ImagebuilderFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
-     *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
+     *             .arn("arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2492,7 +2608,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2515,14 +2632,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2535,7 +2653,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2558,14 +2677,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2578,7 +2698,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2601,14 +2722,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2621,7 +2743,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2644,14 +2767,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2664,7 +2788,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2687,14 +2812,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2707,7 +2833,8 @@ public final class ImagebuilderFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2730,14 +2857,15 @@ public final class ImagebuilderFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
+     *                 .name("name")
+     *                 .values("example")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;SERVICE_MANAGED&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .identityProviderType("SERVICE_MANAGED")
  *             .build());
  * 
- *         var zoneId = new Tag(&#34;zoneId&#34;, TagArgs.builder()        
+ *         var zoneId = new Tag("zoneId", TagArgs.builder()        
  *             .resourceArn(example.arn())
- *             .key(&#34;aws:transfer:route53HostedZoneId&#34;)
- *             .value(&#34;/hostedzone/MyHostedZoneId&#34;)
+ *             .key("aws:transfer:route53HostedZoneId")
+ *             .value("/hostedzone/MyHostedZoneId")
  *             .build());
  * 
- *         var hostname = new Tag(&#34;hostname&#34;, TagArgs.builder()        
+ *         var hostname = new Tag("hostname", TagArgs.builder()        
  *             .resourceArn(example.arn())
- *             .key(&#34;aws:transfer:customHostname&#34;)
- *             .value(&#34;example.com&#34;)
+ *             .key("aws:transfer:customHostname")
+ *             .value("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

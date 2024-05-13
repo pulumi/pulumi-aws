@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector(&#34;primary&#34;);
+ *         var primary = new Detector("primary");
  * 
- *         var memberDetector = new Detector(&#34;memberDetector&#34;);
+ *         var memberDetector = new Detector("memberDetector");
  * 
- *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
+ *         var memberMember = new Member("memberMember", MemberArgs.builder()        
  *             .accountId(memberDetector.accountId())
  *             .detectorId(primary.id())
- *             .email(&#34;required@example.com&#34;)
+ *             .email("required{@literal @}example.com")
  *             .invite(true)
  *             .build());
  * 
- *         var member = new InviteAccepter(&#34;member&#34;, InviteAccepterArgs.builder()        
+ *         var member = new InviteAccepter("member", InviteAccepterArgs.builder()        
  *             .detectorId(memberDetector.id())
  *             .masterAccountId(primary.accountId())
  *             .build(), CustomResourceOptions.builder()
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

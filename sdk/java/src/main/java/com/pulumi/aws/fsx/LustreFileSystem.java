@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,15 +50,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LustreFileSystem(&#34;example&#34;, LustreFileSystemArgs.builder()        
- *             .importPath(String.format(&#34;s3://%s&#34;, exampleAwsS3Bucket.bucket()))
+ *         var example = new LustreFileSystem("example", LustreFileSystemArgs.builder()        
+ *             .importPath(String.format("s3://%s", exampleAwsS3Bucket.bucket()))
  *             .storageCapacity(1200)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

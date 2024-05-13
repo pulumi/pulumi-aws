@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
- *             .name(&#34;example-virtual-gateway&#34;)
- *             .meshName(&#34;example-service-mesh&#34;)
+ *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()        
+ *             .name("example-virtual-gateway")
+ *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Access Logs and TLS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,14 +96,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
- *             .name(&#34;example-virtual-gateway&#34;)
- *             .meshName(&#34;example-service-mesh&#34;)
+ *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()        
+ *             .name("example-virtual-gateway")
+ *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .tls(VirtualGatewaySpecListenerTlsArgs.builder()
  *                         .certificate(VirtualGatewaySpecListenerTlsCertificateArgs.builder()
@@ -108,13 +111,13 @@ import javax.annotation.Nullable;
  *                                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                                 .build())
  *                             .build())
- *                         .mode(&#34;STRICT&#34;)
+ *                         .mode("STRICT")
  *                         .build())
  *                     .build())
  *                 .logging(VirtualGatewaySpecLoggingArgs.builder()
  *                     .accessLog(VirtualGatewaySpecLoggingAccessLogArgs.builder()
  *                         .file(VirtualGatewaySpecLoggingAccessLogFileArgs.builder()
- *                             .path(&#34;/var/log/access.log&#34;)
+ *                             .path("/var/log/access.log")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -123,7 +126,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

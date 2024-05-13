@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
+ *         var app = new App("app");
  * 
- *         var channel = new BaiduChannel(&#34;channel&#34;, BaiduChannelArgs.builder()        
+ *         var channel = new BaiduChannel("channel", BaiduChannelArgs.builder()        
  *             .applicationId(app.applicationId())
- *             .apiKey(&#34;&#34;)
- *             .secretKey(&#34;&#34;)
+ *             .apiKey("")
+ *             .secretKey("")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### DynamoDB Table Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,23 +51,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
+ *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(&#34;table/tableName&#34;)
- *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
+ *             .resourceId("table/tableName")
+ *             .scalableDimension("dynamodb:table:ReadCapacityUnits")
+ *             .serviceNamespace("dynamodb")
  *             .build());
  * 
- *         var dynamodbTableReadPolicy = new Policy(&#34;dynamodbTableReadPolicy&#34;, PolicyArgs.builder()        
- *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -&gt; String.format(&#34;DynamoDBReadCapacityUtilization:%s&#34;, resourceId)))
- *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *         var dynamodbTableReadPolicy = new Policy("dynamodbTableReadPolicy", PolicyArgs.builder()        
+ *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -> String.format("DynamoDBReadCapacityUtilization:%s", resourceId)))
+ *             .policyType("TargetTrackingScaling")
  *             .resourceId(dynamodbTableReadTarget.resourceId())
  *             .scalableDimension(dynamodbTableReadTarget.scalableDimension())
  *             .serviceNamespace(dynamodbTableReadTarget.serviceNamespace())
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;DynamoDBReadCapacityUtilization&#34;)
+ *                     .predefinedMetricType("DynamoDBReadCapacityUtilization")
  *                     .build())
  *                 .targetValue(70)
  *                 .build())
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ECS Service Autoscaling
@@ -85,7 +87,8 @@ import javax.annotation.Nullable;
  * ### Preserve desired count when updating an autoscaled ECS Service
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,22 +109,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsService = new Service(&#34;ecsService&#34;, ServiceArgs.builder()        
- *             .name(&#34;serviceName&#34;)
- *             .cluster(&#34;clusterName&#34;)
- *             .taskDefinition(&#34;taskDefinitionFamily:1&#34;)
+ *         var ecsService = new Service("ecsService", ServiceArgs.builder()        
+ *             .name("serviceName")
+ *             .cluster("clusterName")
+ *             .taskDefinition("taskDefinitionFamily:1")
  *             .desiredCount(2)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Aurora Read Replica Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,23 +151,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;rds&#34;)
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
+ *         var replicas = new Target("replicas", TargetArgs.builder()        
+ *             .serviceNamespace("rds")
+ *             .scalableDimension("rds:cluster:ReadReplicaCount")
+ *             .resourceId(String.format("cluster:%s", example.id()))
  *             .minCapacity(1)
  *             .maxCapacity(15)
  *             .build());
  * 
- *         var replicasPolicy = new Policy(&#34;replicasPolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;cpu-auto-scaling&#34;)
+ *         var replicasPolicy = new Policy("replicasPolicy", PolicyArgs.builder()        
+ *             .name("cpu-auto-scaling")
  *             .serviceNamespace(replicas.serviceNamespace())
  *             .scalableDimension(replicas.scalableDimension())
  *             .resourceId(replicas.resourceId())
- *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *             .policyType("TargetTrackingScaling")
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;RDSReaderAverageCPUUtilization&#34;)
+ *                     .predefinedMetricType("RDSReaderAverageCPUUtilization")
  *                     .build())
  *                 .targetValue(75)
  *                 .scaleInCooldown(300)
@@ -172,13 +177,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create target tracking scaling policy using metric math
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -203,17 +210,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(&#34;service/clusterName/serviceName&#34;)
- *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
- *             .serviceNamespace(&#34;ecs&#34;)
+ *             .resourceId("service/clusterName/serviceName")
+ *             .scalableDimension("ecs:service:DesiredCount")
+ *             .serviceNamespace("ecs")
  *             .build());
  * 
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *         var example = new Policy("example", PolicyArgs.builder()        
+ *             .name("foo")
+ *             .policyType("TargetTrackingScaling")
  *             .resourceId(ecsTarget.resourceId())
  *             .scalableDimension(ecsTarget.scalableDimension())
  *             .serviceNamespace(ecsTarget.serviceNamespace())
@@ -222,46 +229,46 @@ import javax.annotation.Nullable;
  *                 .customizedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs.builder()
  *                     .metrics(                    
  *                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Get the queue size (the number of messages waiting to be processed)&#34;)
- *                             .id(&#34;m1&#34;)
+ *                             .label("Get the queue size (the number of messages waiting to be processed)")
+ *                             .id("m1")
  *                             .metricStat(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
- *                                     .namespace(&#34;AWS/SQS&#34;)
+ *                                     .metricName("ApproximateNumberOfMessagesVisible")
+ *                                     .namespace("AWS/SQS")
  *                                     .dimensions(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;QueueName&#34;)
- *                                         .value(&#34;my-queue&#34;)
+ *                                         .name("QueueName")
+ *                                         .value("my-queue")
  *                                         .build())
  *                                     .build())
- *                                 .stat(&#34;Sum&#34;)
+ *                                 .stat("Sum")
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Get the ECS running task count (the number of currently running tasks)&#34;)
- *                             .id(&#34;m2&#34;)
+ *                             .label("Get the ECS running task count (the number of currently running tasks)")
+ *                             .id("m2")
  *                             .metricStat(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .metricName(&#34;RunningTaskCount&#34;)
- *                                     .namespace(&#34;ECS/ContainerInsights&#34;)
+ *                                     .metricName("RunningTaskCount")
+ *                                     .namespace("ECS/ContainerInsights")
  *                                     .dimensions(                                    
  *                                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                             .name(&#34;ClusterName&#34;)
- *                                             .value(&#34;default&#34;)
+ *                                             .name("ClusterName")
+ *                                             .value("default")
  *                                             .build(),
  *                                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                             .name(&#34;ServiceName&#34;)
- *                                             .value(&#34;web-app&#34;)
+ *                                             .name("ServiceName")
+ *                                             .value("web-app")
  *                                             .build())
  *                                     .build())
- *                                 .stat(&#34;Average&#34;)
+ *                                 .stat("Average")
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Calculate the backlog per instance&#34;)
- *                             .id(&#34;e1&#34;)
- *                             .expression(&#34;m1 / m2&#34;)
+ *                             .label("Calculate the backlog per instance")
+ *                             .id("e1")
+ *                             .expression("m1 / m2")
  *                             .returnData(true)
  *                             .build())
  *                     .build())
@@ -270,13 +277,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### MSK / Kafka Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -301,23 +310,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;kafka&#34;)
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
+ *         var mskTarget = new Target("mskTarget", TargetArgs.builder()        
+ *             .serviceNamespace("kafka")
+ *             .scalableDimension("kafka:broker-storage:VolumeSize")
  *             .resourceId(example.arn())
  *             .minCapacity(1)
  *             .maxCapacity(8)
  *             .build());
  * 
- *         var targets = new Policy(&#34;targets&#34;, PolicyArgs.builder()        
- *             .name(&#34;storage-size-auto-scaling&#34;)
+ *         var targets = new Policy("targets", PolicyArgs.builder()        
+ *             .name("storage-size-auto-scaling")
  *             .serviceNamespace(mskTarget.serviceNamespace())
  *             .scalableDimension(mskTarget.scalableDimension())
  *             .resourceId(mskTarget.resourceId())
- *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *             .policyType("TargetTrackingScaling")
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;KafkaBrokerStorageUtilization&#34;)
+ *                     .predefinedMetricType("KafkaBrokerStorageUtilization")
  *                     .build())
  *                 .targetValue(55)
  *                 .build())
@@ -325,7 +334,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Create an association for a specific instance
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,17 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()        
  *             .name(exampleAwsSsmDocument.name())
  *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create an association for all managed instances in an AWS account
@@ -68,7 +70,8 @@ import javax.annotation.Nullable;
  * To target all managed instances in an AWS account, set the `key` as `&#34;InstanceIds&#34;` with `values` set as `[&#34;*&#34;]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,17 +93,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
- *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
+ *         var example = new Association("example", AssociationArgs.builder()        
+ *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(&#34;*&#34;)
+ *                 .key("InstanceIds")
+ *                 .values("*")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create an association for a specific tag
@@ -108,7 +112,8 @@ import javax.annotation.Nullable;
  * This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -130,17 +135,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
- *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
+ *         var example = new Association("example", AssociationArgs.builder()        
+ *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;tag:Environment&#34;)
- *                 .values(&#34;Development&#34;)
+ *                 .key("tag:Environment")
+ *                 .values("Development")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create an association with a specific schedule
@@ -148,7 +154,8 @@ import javax.annotation.Nullable;
  * This example shows how to schedule an association in various ways.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -170,18 +177,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()        
  *             .name(exampleAwsSsmDocument.name())
- *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
+ *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
+ *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

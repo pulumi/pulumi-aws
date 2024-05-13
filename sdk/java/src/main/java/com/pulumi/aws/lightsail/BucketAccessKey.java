@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Bucket(&#34;test&#34;, BucketArgs.builder()        
- *             .name(&#34;mytestbucket&#34;)
- *             .bundleId(&#34;small_1_0&#34;)
+ *         var test = new Bucket("test", BucketArgs.builder()        
+ *             .name("mytestbucket")
+ *             .bundleId("small_1_0")
  *             .build());
  * 
- *         var testLightsailBucketAccessKeyAccessKey = new LightsailBucketAccessKeyAccessKey(&#34;testLightsailBucketAccessKeyAccessKey&#34;, LightsailBucketAccessKeyAccessKeyArgs.builder()        
+ *         var testLightsailBucketAccessKeyAccessKey = new LightsailBucketAccessKeyAccessKey("testLightsailBucketAccessKeyAccessKey", LightsailBucketAccessKeyAccessKeyArgs.builder()        
  *             .bucketName(testAwsLightsailBucketAccessKey.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var exampleInternetGateway = new InternetGateway(&#34;exampleInternetGateway&#34;);
+ *         var exampleInternetGateway = new InternetGateway("exampleInternetGateway");
  * 
- *         var example = new InternetGatewayAttachment(&#34;example&#34;, InternetGatewayAttachmentArgs.builder()        
+ *         var example = new InternetGatewayAttachment("example", InternetGatewayAttachmentArgs.builder()        
  *             .internetGatewayId(exampleInternetGateway.id())
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceRepository(&#34;example&#34;, SourceRepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
- *             .projectName(&#34;example-project&#34;)
- *             .spaceName(&#34;example-space&#34;)
+ *         var example = new SourceRepository("example", SourceRepositoryArgs.builder()        
+ *             .name("example-repo")
+ *             .projectName("example-project")
+ *             .spaceName("example-space")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

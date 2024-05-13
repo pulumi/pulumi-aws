@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,31 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDomain = new Domain(&#34;myDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;my-opensearch-domain&#34;)
- *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
+ *         var myDomain = new Domain("myDomain", DomainArgs.builder()        
+ *             .domainName("my-opensearch-domain")
+ *             .engineVersion("Elasticsearch_7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r4.large.search&#34;)
+ *                 .instanceType("r4.large.search")
  *                 .build())
  *             .build());
  * 
- *         var example = new Package(&#34;example&#34;, PackageArgs.builder()        
- *             .packageName(&#34;example-txt&#34;)
+ *         var example = new Package("example", PackageArgs.builder()        
+ *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())
  *                 .s3Key(exampleAwsS3Object.key())
  *                 .build())
- *             .packageType(&#34;TXT-DICTIONARY&#34;)
+ *             .packageType("TXT-DICTIONARY")
  *             .build());
  * 
- *         var examplePackageAssociation = new PackageAssociation(&#34;examplePackageAssociation&#34;, PackageAssociationArgs.builder()        
+ *         var examplePackageAssociation = new PackageAssociation("examplePackageAssociation", PackageAssociationArgs.builder()        
  *             .packageId(example.id())
  *             .domainName(myDomain.domainName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

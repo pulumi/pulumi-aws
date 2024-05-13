@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### EFS File System w/ tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,20 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new FileSystem(&#34;foo&#34;, FileSystemArgs.builder()        
- *             .creationToken(&#34;my-product&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;MyProduct&#34;))
+ *         var foo = new FileSystem("foo", FileSystemArgs.builder()        
+ *             .creationToken("my-product")
+ *             .tags(Map.of("Name", "MyProduct"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using lifecycle policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,16 +89,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooWithLifecylePolicy = new FileSystem(&#34;fooWithLifecylePolicy&#34;, FileSystemArgs.builder()        
- *             .creationToken(&#34;my-product&#34;)
+ *         var fooWithLifecylePolicy = new FileSystem("fooWithLifecylePolicy", FileSystemArgs.builder()        
+ *             .creationToken("my-product")
  *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
- *                 .transitionToIa(&#34;AFTER_30_DAYS&#34;)
+ *                 .transitionToIa("AFTER_30_DAYS")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

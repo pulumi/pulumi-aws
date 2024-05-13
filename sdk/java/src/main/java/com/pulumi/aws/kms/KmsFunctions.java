@@ -40,7 +40,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,12 +63,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
+     *             .name("alias/aws/s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -82,7 +84,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,12 +107,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
+     *             .name("alias/aws/s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,12 +151,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
+     *             .name("alias/aws/s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +172,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -188,12 +195,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
+     *             .name("alias/aws/s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +217,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -232,24 +241,25 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
      * 
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
+     *             .plaintext("""
      * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
+     *   "client_id": "e587dbae22222f55da22",
+     *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -265,7 +275,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,24 +299,25 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
      * 
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
+     *             .plaintext("""
      * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
+     *   "client_id": "e587dbae22222f55da22",
+     *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -321,7 +333,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -344,24 +357,25 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
      * 
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
+     *             .plaintext("""
      * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
+     *   "client_id": "e587dbae22222f55da22",
+     *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +391,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -400,24 +415,25 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
      * 
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
+     *             .plaintext("""
      * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
+     *   "client_id": "e587dbae22222f55da22",
+     *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -432,7 +448,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -454,12 +471,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -474,7 +492,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -496,12 +515,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -516,7 +536,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -538,12 +559,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -558,7 +580,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -580,12 +603,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -600,7 +624,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -622,12 +647,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -642,7 +668,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -664,12 +691,13 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .customKeyStoreName("my_cloudhsm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -685,7 +713,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -707,24 +736,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -740,7 +770,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -762,24 +793,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -795,7 +827,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -817,24 +850,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -850,7 +884,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -872,24 +907,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -902,7 +938,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -924,24 +961,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -954,7 +992,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -976,24 +1015,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1006,7 +1046,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1028,24 +1069,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1058,7 +1100,8 @@ public final class KmsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1080,24 +1123,25 @@ public final class KmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
+     *             .keyId("alias/my-key")
      *             .build());
      * 
      *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
      *             .build());
      * 
      *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

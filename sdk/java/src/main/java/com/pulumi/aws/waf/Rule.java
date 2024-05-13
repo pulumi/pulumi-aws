@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,21 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .name(&#34;tfIPSet&#34;)
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
+ *                 .type("IPV4")
+ *                 .value("192.0.7.0/24")
  *                 .build())
  *             .build());
  * 
- *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
- *             .name(&#34;tfWAFRule&#34;)
- *             .metricName(&#34;tfWAFRule&#34;)
+ *         var wafrule = new Rule("wafrule", RuleArgs.builder()        
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
+ *                 .type("IPMatch")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(ipset)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

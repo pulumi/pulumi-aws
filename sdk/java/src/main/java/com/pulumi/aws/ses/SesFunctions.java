@@ -25,7 +25,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -49,7 +50,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,7 +89,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -99,7 +103,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -123,7 +128,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -136,7 +142,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -160,7 +167,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +181,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -197,7 +206,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -210,7 +220,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -234,7 +245,8 @@ public final class SesFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -247,7 +259,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -269,12 +282,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
+     *             .domain("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +301,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -309,12 +324,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
+     *             .domain("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -327,7 +343,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -349,12 +366,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
+     *             .domain("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -367,7 +385,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -389,12 +408,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
+     *             .domain("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -407,7 +427,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -429,12 +450,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
+     *             .email("awesome{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -447,7 +469,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -469,12 +492,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
+     *             .email("awesome{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -487,7 +511,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -509,12 +534,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
+     *             .email("awesome{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -527,7 +553,8 @@ public final class SesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -549,12 +576,13 @@ public final class SesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
+     *             .email("awesome{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

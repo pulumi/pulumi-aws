@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Connectivity and HTTP Status Code Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,25 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HealthCheck(&#34;example&#34;, HealthCheckArgs.builder()        
- *             .fqdn(&#34;example.com&#34;)
+ *         var example = new HealthCheck("example", HealthCheckArgs.builder()        
+ *             .fqdn("example.com")
  *             .port(80)
- *             .type(&#34;HTTP&#34;)
- *             .resourcePath(&#34;/&#34;)
- *             .failureThreshold(&#34;5&#34;)
- *             .requestInterval(&#34;30&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-health-check&#34;))
+ *             .type("HTTP")
+ *             .resourcePath("/")
+ *             .failureThreshold("5")
+ *             .requestInterval("30")
+ *             .tags(Map.of("Name", "tf-test-health-check"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Connectivity and String Matching Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,25 +89,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HealthCheck(&#34;example&#34;, HealthCheckArgs.builder()        
- *             .failureThreshold(&#34;5&#34;)
- *             .fqdn(&#34;example.com&#34;)
+ *         var example = new HealthCheck("example", HealthCheckArgs.builder()        
+ *             .failureThreshold("5")
+ *             .fqdn("example.com")
  *             .port(443)
- *             .requestInterval(&#34;30&#34;)
- *             .resourcePath(&#34;/&#34;)
- *             .searchString(&#34;example&#34;)
- *             .type(&#34;HTTPS_STR_MATCH&#34;)
+ *             .requestInterval("30")
+ *             .resourcePath("/")
+ *             .searchString("example")
+ *             .type("HTTPS_STR_MATCH")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Aggregate Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,22 +130,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new HealthCheck(&#34;parent&#34;, HealthCheckArgs.builder()        
- *             .type(&#34;CALCULATED&#34;)
+ *         var parent = new HealthCheck("parent", HealthCheckArgs.builder()        
+ *             .type("CALCULATED")
  *             .childHealthThreshold(1)
  *             .childHealthchecks(child.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-calculated-health-check&#34;))
+ *             .tags(Map.of("Name", "tf-test-calculated-health-check"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CloudWatch Alarm Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,28 +170,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;test-foobar5&#34;)
- *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
- *             .evaluationPeriods(&#34;2&#34;)
- *             .metricName(&#34;CPUUtilization&#34;)
- *             .namespace(&#34;AWS/EC2&#34;)
- *             .period(&#34;120&#34;)
- *             .statistic(&#34;Average&#34;)
- *             .threshold(&#34;80&#34;)
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *             .name("test-foobar5")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
+ *             .evaluationPeriods("2")
+ *             .metricName("CPUUtilization")
+ *             .namespace("AWS/EC2")
+ *             .period("120")
+ *             .statistic("Average")
+ *             .threshold("80")
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .build());
  * 
- *         var foo = new HealthCheck(&#34;foo&#34;, HealthCheckArgs.builder()        
- *             .type(&#34;CLOUDWATCH_METRIC&#34;)
+ *         var foo = new HealthCheck("foo", HealthCheckArgs.builder()        
+ *             .type("CLOUDWATCH_METRIC")
  *             .cloudwatchAlarmName(foobar.name())
- *             .cloudwatchAlarmRegion(&#34;us-west-2&#34;)
- *             .insufficientDataHealthStatus(&#34;Healthy&#34;)
+ *             .cloudwatchAlarmRegion("us-west-2")
+ *             .insufficientDataHealthStatus("Healthy")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

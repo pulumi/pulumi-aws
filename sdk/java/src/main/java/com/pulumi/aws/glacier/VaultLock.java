@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Testing Glacier Vault Lock Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,38 +47,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;glacier:DeleteArchive&#34;)
- *                 .effect(&#34;Deny&#34;)
+ *                 .actions("glacier:DeleteArchive")
+ *                 .effect("Deny")
  *                 .resources(exampleVault.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;NumericLessThanEquals&#34;)
- *                     .variable(&#34;glacier:ArchiveAgeinDays&#34;)
- *                     .values(&#34;365&#34;)
+ *                     .test("NumericLessThanEquals")
+ *                     .variable("glacier:ArchiveAgeinDays")
+ *                     .values("365")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleVaultLock = new VaultLock(&#34;exampleVaultLock&#34;, VaultLockArgs.builder()        
+ *         var exampleVaultLock = new VaultLock("exampleVaultLock", VaultLockArgs.builder()        
  *             .completeLock(false)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .vaultName(exampleVault.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Permanently Applying Glacier Vault Lock Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VaultLock(&#34;example&#34;, VaultLockArgs.builder()        
+ *         var example = new VaultLock("example", VaultLockArgs.builder()        
  *             .completeLock(true)
  *             .policy(exampleAwsIamPolicyDocument.json())
  *             .vaultName(exampleAwsGlacierVault.name())
@@ -106,7 +109,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

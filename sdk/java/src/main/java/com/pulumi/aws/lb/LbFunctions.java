@@ -35,7 +35,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -61,20 +62,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -87,7 +89,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -113,20 +116,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -139,7 +143,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,20 +170,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +197,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,20 +224,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -243,7 +251,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -269,20 +278,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -295,7 +305,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -321,20 +332,21 @@ public final class LbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()        
      *             .zoneId(primary.zoneId())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
+     *             .name("example.com")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -350,7 +362,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -372,12 +385,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -393,7 +407,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,12 +430,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +452,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,12 +475,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -479,7 +497,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -501,12 +520,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -522,7 +542,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -544,12 +565,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -565,7 +587,8 @@ public final class LbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -587,12 +610,13 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .tags(Map.of("elbv2.k8s.aws/cluster", "my-cluster"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -609,7 +633,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -632,24 +657,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +692,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -689,24 +716,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -723,7 +751,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -746,24 +775,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -780,7 +810,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -803,24 +834,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -837,7 +869,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -860,24 +893,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -894,7 +928,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -917,24 +952,25 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listenerArn = config.get("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
      * 
      *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
+     *             .name("default-public")
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
      *             .port(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -953,7 +989,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -975,8 +1012,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -984,7 +1021,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1003,7 +1041,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1025,8 +1064,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -1034,7 +1073,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1053,7 +1093,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,8 +1116,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -1084,7 +1125,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1103,7 +1145,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1125,8 +1168,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -1134,7 +1177,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1153,7 +1197,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1175,8 +1220,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -1184,7 +1229,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1203,7 +1249,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1225,8 +1272,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
      *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
@@ -1234,7 +1281,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1253,7 +1301,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1275,8 +1324,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1284,7 +1333,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1303,7 +1353,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1325,8 +1376,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1334,7 +1385,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1353,7 +1405,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1375,8 +1428,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1384,7 +1437,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1403,7 +1457,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1425,8 +1480,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1434,7 +1489,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1453,7 +1509,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1475,8 +1532,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1484,7 +1541,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1503,7 +1561,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1525,8 +1584,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
      *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
@@ -1534,7 +1593,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1553,7 +1613,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1575,8 +1636,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1584,7 +1645,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1603,7 +1665,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1625,8 +1688,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1634,7 +1697,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1653,7 +1717,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1675,8 +1740,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1684,7 +1749,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1703,7 +1769,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1725,8 +1792,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1734,7 +1801,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1753,7 +1821,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1775,8 +1844,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1784,7 +1853,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1803,7 +1873,8 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1825,8 +1896,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var lbTsArn = config.get("lbTsArn").orElse("");
+     *         final var lbTsName = config.get("lbTsName").orElse("");
      *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
      *             .arn(lbTsArn)
      *             .name(lbTsName)
@@ -1834,7 +1905,8 @@ public final class LbFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

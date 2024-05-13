@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new HaproxyLayer(&#34;lb&#34;, HaproxyLayerArgs.builder()        
+ *         var lb = new HaproxyLayer("lb", HaproxyLayerArgs.builder()        
  *             .stackId(main.id())
- *             .statsPassword(&#34;foobarbaz&#34;)
+ *             .statsPassword("foobarbaz")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Object Lock configuration for new or existing buckets
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,22 +57,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("mybucket")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2(&#34;exampleBucketObjectLockConfigurationV2&#34;, BucketObjectLockConfigurationV2Args.builder()        
+ *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", BucketObjectLockConfigurationV2Args.builder()        
  *             .bucket(example.id())
  *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()
- *                     .mode(&#34;COMPLIANCE&#34;)
+ *                     .mode("COMPLIANCE")
  *                     .days(5)
  *                     .build())
  *                 .build())
@@ -79,7 +80,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

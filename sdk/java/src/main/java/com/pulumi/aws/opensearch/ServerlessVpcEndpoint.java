@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessVpcEndpoint(&#34;example&#34;, ServerlessVpcEndpointArgs.builder()        
- *             .name(&#34;myendpoint&#34;)
+ *         var example = new ServerlessVpcEndpoint("example", ServerlessVpcEndpointArgs.builder()        
+ *             .name("myendpoint")
  *             .subnetIds(exampleAwsSubnet.id())
  *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

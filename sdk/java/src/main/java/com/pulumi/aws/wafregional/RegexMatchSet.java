@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,28 +48,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRegexPatternSet = new RegexPatternSet(&#34;exampleRegexPatternSet&#34;, RegexPatternSetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRegexPatternSet = new RegexPatternSet("exampleRegexPatternSet", RegexPatternSetArgs.builder()        
+ *             .name("example")
  *             .regexPatternStrings(            
- *                 &#34;one&#34;,
- *                 &#34;two&#34;)
+ *                 "one",
+ *                 "two")
  *             .build());
  * 
- *         var example = new RegexMatchSet(&#34;example&#34;, RegexMatchSetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()        
+ *             .name("example")
  *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
  *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;User-Agent&#34;)
- *                     .type(&#34;HEADER&#34;)
+ *                     .data("User-Agent")
+ *                     .type("HEADER")
  *                     .build())
  *                 .regexPatternSetId(exampleRegexPatternSet.id())
- *                 .textTransformation(&#34;NONE&#34;)
+ *                 .textTransformation("NONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

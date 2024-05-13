@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Create protection group for all resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;MAX&#34;)
- *             .pattern(&#34;ALL&#34;)
+ *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()        
+ *             .protectionGroupId("example")
+ *             .aggregation("MAX")
+ *             .pattern("ALL")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create protection group for arbitrary number of resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,33 +97,35 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var example = new Eip("example", EipArgs.builder()        
+ *             .domain("vpc")
  *             .build());
  * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *             .name("example")
+ *             .resourceArn(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
- *         var exampleProtectionGroup = new ProtectionGroup(&#34;exampleProtectionGroup&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;MEAN&#34;)
- *             .pattern(&#34;ARBITRARY&#34;)
- *             .members(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *         var exampleProtectionGroup = new ProtectionGroup("exampleProtectionGroup", ProtectionGroupArgs.builder()        
+ *             .protectionGroupId("example")
+ *             .aggregation("MEAN")
+ *             .pattern("ARBITRARY")
+ *             .members(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleProtection)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create protection group for a type of resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -141,16 +146,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;SUM&#34;)
- *             .pattern(&#34;BY_RESOURCE_TYPE&#34;)
- *             .resourceType(&#34;ELASTIC_IP_ALLOCATION&#34;)
+ *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()        
+ *             .protectionGroupId("example")
+ *             .aggregation("SUM")
+ *             .pattern("BY_RESOURCE_TYPE")
+ *             .resourceType("ELASTIC_IP_ALLOCATION")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

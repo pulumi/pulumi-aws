@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,49 +52,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart(&#34;mydemoresource&#34;)
+ *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration(&#34;myDemoIntegration&#34;, IntegrationArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
- *             .type(&#34;MOCK&#34;)
- *             .cacheKeyParameters(&#34;method.request.path.param&#34;)
- *             .cacheNamespace(&#34;foobar&#34;)
+ *             .type("MOCK")
+ *             .cacheKeyParameters("method.request.path.param")
+ *             .cacheNamespace("foobar")
  *             .timeoutMilliseconds(29000)
- *             .requestParameters(Map.of(&#34;integration.request.header.X-Authorization&#34;, &#34;&#39;static&#39;&#34;))
- *             .requestTemplates(Map.of(&#34;application/xml&#34;, &#34;&#34;&#34;
+ *             .requestParameters(Map.of("integration.request.header.X-Authorization", "'static'"))
+ *             .requestTemplates(Map.of("application/xml", """
  * {
- *    &#34;body&#34; : $input.json(&#39;$&#39;)
+ *    "body" : $input.json('$')
  * }
- *             &#34;&#34;&#34;))
+ *             """))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Lambda integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -130,86 +133,88 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var myregion = config.get(&#34;myregion&#34;);
- *         final var accountId = config.get(&#34;accountId&#34;);
+ *         final var myregion = config.get("myregion");
+ *         final var accountId = config.get("accountId");
  *         // API Gateway
- *         var api = new RestApi(&#34;api&#34;, RestApiArgs.builder()        
- *             .name(&#34;myapi&#34;)
+ *         var api = new RestApi("api", RestApiArgs.builder()        
+ *             .name("myapi")
  *             .build());
  * 
- *         var resource = new Resource(&#34;resource&#34;, ResourceArgs.builder()        
- *             .pathPart(&#34;resource&#34;)
+ *         var resource = new Resource("resource", ResourceArgs.builder()        
+ *             .pathPart("resource")
  *             .parentId(api.rootResourceId())
  *             .restApi(api.id())
  *             .build());
  * 
- *         var method = new Method(&#34;method&#34;, MethodArgs.builder()        
+ *         var method = new Method("method", MethodArgs.builder()        
  *             .restApi(api.id())
  *             .resourceId(resource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
  *         // IAM
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .name(&#34;myrole&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var role = new Role("role", RoleArgs.builder()        
+ *             .name("myrole")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var lambda = new Function(&#34;lambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda.zip&#34;))
- *             .name(&#34;mylambda&#34;)
+ *         var lambda = new Function("lambda", FunctionArgs.builder()        
+ *             .code(new FileArchive("lambda.zip"))
+ *             .name("mylambda")
  *             .role(role.arn())
- *             .handler(&#34;lambda.lambda_handler&#34;)
- *             .runtime(&#34;python3.7&#34;)
+ *             .handler("lambda.lambda_handler")
+ *             .runtime("python3.7")
  *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input(&#34;lambda.zip&#34;)
+ *                 .input("lambda.zip")
  *                 .build()).result())
  *             .build());
  * 
- *         var integration = new Integration(&#34;integration&#34;, IntegrationArgs.builder()        
+ *         var integration = new Integration("integration", IntegrationArgs.builder()        
  *             .restApi(api.id())
  *             .resourceId(resource.id())
  *             .httpMethod(method.httpMethod())
- *             .integrationHttpMethod(&#34;POST&#34;)
- *             .type(&#34;AWS_PROXY&#34;)
+ *             .integrationHttpMethod("POST")
+ *             .type("AWS_PROXY")
  *             .uri(lambda.invokeArn())
  *             .build());
  * 
  *         // Lambda
- *         var apigwLambda = new Permission(&#34;apigwLambda&#34;, PermissionArgs.builder()        
- *             .statementId(&#34;AllowExecutionFromAPIGateway&#34;)
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var apigwLambda = new Permission("apigwLambda", PermissionArgs.builder()        
+ *             .statementId("AllowExecutionFromAPIGateway")
+ *             .action("lambda:InvokeFunction")
  *             .function(lambda.name())
- *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(Output.tuple(api.id(), method.httpMethod(), resource.path()).applyValue(values -&gt; {
+ *             .principal("apigateway.amazonaws.com")
+ *             .sourceArn(Output.tuple(api.id(), method.httpMethod(), resource.path()).applyValue(values -> {
  *                 var id = values.t1;
  *                 var httpMethod = values.t2;
  *                 var path = values.t3;
- *                 return String.format(&#34;arn:aws:execute-api:%s:%s:%s/*{@literal /}%s%s&#34;, myregion,accountId,id,httpMethod,path);
+ *                 return String.format("arn:aws:execute-api:%s:%s:%s/*{@literal /}%s%s", myregion,accountId,id,httpMethod,path);
  *             }))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## VPC Link
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -241,64 +246,65 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var name = config.get(&#34;name&#34;);
- *         final var subnetId = config.get(&#34;subnetId&#34;);
- *         var test = new LoadBalancer(&#34;test&#34;, LoadBalancerArgs.builder()        
+ *         final var name = config.get("name");
+ *         final var subnetId = config.get("subnetId");
+ *         var test = new LoadBalancer("test", LoadBalancerArgs.builder()        
  *             .name(name)
  *             .internal(true)
- *             .loadBalancerType(&#34;network&#34;)
+ *             .loadBalancerType("network")
  *             .subnets(subnetId)
  *             .build());
  * 
- *         var testVpcLink = new VpcLink(&#34;testVpcLink&#34;, VpcLinkArgs.builder()        
+ *         var testVpcLink = new VpcLink("testVpcLink", VpcLinkArgs.builder()        
  *             .name(name)
  *             .targetArn(test.arn())
  *             .build());
  * 
- *         var testRestApi = new RestApi(&#34;testRestApi&#34;, RestApiArgs.builder()        
+ *         var testRestApi = new RestApi("testRestApi", RestApiArgs.builder()        
  *             .name(name)
  *             .build());
  * 
- *         var testResource = new Resource(&#34;testResource&#34;, ResourceArgs.builder()        
+ *         var testResource = new Resource("testResource", ResourceArgs.builder()        
  *             .restApi(testRestApi.id())
  *             .parentId(testRestApi.rootResourceId())
- *             .pathPart(&#34;test&#34;)
+ *             .pathPart("test")
  *             .build());
  * 
- *         var testMethod = new Method(&#34;testMethod&#34;, MethodArgs.builder()        
+ *         var testMethod = new Method("testMethod", MethodArgs.builder()        
  *             .restApi(testRestApi.id())
  *             .resourceId(testResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
- *             .requestModels(Map.of(&#34;application/json&#34;, &#34;Error&#34;))
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
+ *             .requestModels(Map.of("application/json", "Error"))
  *             .build());
  * 
- *         var testIntegration = new Integration(&#34;testIntegration&#34;, IntegrationArgs.builder()        
+ *         var testIntegration = new Integration("testIntegration", IntegrationArgs.builder()        
  *             .restApi(testRestApi.id())
  *             .resourceId(testResource.id())
  *             .httpMethod(testMethod.httpMethod())
  *             .requestTemplates(Map.ofEntries(
- *                 Map.entry(&#34;application/json&#34;, &#34;&#34;),
- *                 Map.entry(&#34;application/xml&#34;, &#34;&#34;&#34;
- * #set($inputRoot = $input.path(&#39;$&#39;))
- * { }                &#34;&#34;&#34;)
+ *                 Map.entry("application/json", ""),
+ *                 Map.entry("application/xml", """
+ * #set($inputRoot = $input.path('$'))
+ * { }                """)
  *             ))
  *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;integration.request.header.X-Authorization&#34;, &#34;&#39;static&#39;&#34;),
- *                 Map.entry(&#34;integration.request.header.X-Foo&#34;, &#34;&#39;Bar&#39;&#34;)
+ *                 Map.entry("integration.request.header.X-Authorization", "'static'"),
+ *                 Map.entry("integration.request.header.X-Foo", "'Bar'")
  *             ))
- *             .type(&#34;HTTP&#34;)
- *             .uri(&#34;https://www.google.de&#34;)
- *             .integrationHttpMethod(&#34;GET&#34;)
- *             .passthroughBehavior(&#34;WHEN_NO_MATCH&#34;)
- *             .contentHandling(&#34;CONVERT_TO_TEXT&#34;)
- *             .connectionType(&#34;VPC_LINK&#34;)
+ *             .type("HTTP")
+ *             .uri("https://www.google.de")
+ *             .integrationHttpMethod("GET")
+ *             .passthroughBehavior("WHEN_NO_MATCH")
+ *             .contentHandling("CONVERT_TO_TEXT")
+ *             .connectionType("VPC_LINK")
  *             .connectionId(testVpcLink.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

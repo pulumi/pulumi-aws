@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,38 +49,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucketPrefix(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucketPrefix("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
- *             .name(&#34;example-table-1&#34;)
- *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
- *             .hashKey(&#34;user_id&#34;)
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *             .name("example-table-1")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .hashKey("user_id")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;user_id&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("user_id")
+ *                 .type("S")
  *                 .build())
  *             .pointInTimeRecovery(TablePointInTimeRecoveryArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
- *         var exampleTableExport = new TableExport(&#34;exampleTableExport&#34;, TableExportArgs.builder()        
+ *         var exampleTableExport = new TableExport("exampleTableExport", TableExportArgs.builder()        
  *             .tableArn(exampleTable.arn())
  *             .s3Bucket(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with export time
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,15 +103,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TableExport(&#34;example&#34;, TableExportArgs.builder()        
- *             .exportTime(&#34;2023-04-02T11:30:13+01:00&#34;)
+ *         var example = new TableExport("example", TableExportArgs.builder()        
+ *             .exportTime("2023-04-02T11:30:13+01:00")
  *             .s3Bucket(exampleAwsS3Bucket.id())
  *             .tableArn(exampleAwsDynamodbTable.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

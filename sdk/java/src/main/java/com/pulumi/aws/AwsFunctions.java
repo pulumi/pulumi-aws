@@ -50,7 +50,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -72,12 +73,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
-     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .arn("arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -90,7 +92,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -112,12 +115,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
-     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .arn("arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -130,7 +134,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -152,12 +157,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
-     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .arn("arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -170,7 +176,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -192,12 +199,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
-     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .arn("arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +231,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -249,32 +258,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -300,7 +310,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,32 +337,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +389,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -403,32 +416,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -454,7 +468,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -480,32 +495,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -531,7 +547,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -557,32 +574,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -608,7 +626,8 @@ public final class AwsFunctions {
      * VPC and subnet CIDR prefixes systematically for an availability zone.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -634,32 +653,33 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name(&#34;eu-central-1a&#34;)
+     *             .name("eu-central-1a")
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -681,7 +701,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,21 +727,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -728,7 +750,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -752,22 +775,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -790,14 +815,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -819,7 +845,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -844,21 +871,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -866,7 +894,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -890,22 +919,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -928,14 +959,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -957,7 +989,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -982,21 +1015,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -1004,7 +1038,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1028,22 +1063,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1066,14 +1103,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1095,7 +1133,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1120,21 +1159,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -1142,7 +1182,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1166,22 +1207,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1204,14 +1247,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1233,7 +1277,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1258,21 +1303,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -1280,7 +1326,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1304,22 +1351,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1342,14 +1391,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1371,7 +1421,8 @@ public final class AwsFunctions {
      * ### By State
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1396,21 +1447,22 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .state(&#34;available&#34;)
+     *             .state("available")
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Filter
@@ -1418,7 +1470,8 @@ public final class AwsFunctions {
      * All Local Zones (regardless of opt-in status):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1442,22 +1495,24 @@ public final class AwsFunctions {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
+     *                 .name("opt-in-status")
      *                 .values(                
-     *                     &#34;not-opted-in&#34;,
-     *                     &#34;opted-in&#34;)
+     *                     "not-opted-in",
+     *                     "opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1480,14 +1535,15 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("opt-in-not-required")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1500,7 +1556,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1531,47 +1588,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1584,7 +1642,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1615,47 +1674,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1668,7 +1728,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1699,47 +1760,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1752,7 +1814,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1783,47 +1846,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1836,7 +1900,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1867,47 +1932,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1920,7 +1986,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1951,47 +2018,48 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
+     *             .acl("private")
      *             .build());
      * 
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
      *                     .actions(                    
-     *                         &#34;s3:GetBucketAcl&#34;,
-     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
+     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .type("AWS")
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
      *                         .build())
-     *                     .actions(&#34;s3:PutObject&#34;)
-     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2005,7 +2073,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2028,12 +2097,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2047,7 +2117,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2070,12 +2141,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2089,7 +2161,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2112,12 +2185,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2131,7 +2205,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2154,12 +2229,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2173,7 +2249,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2196,12 +2273,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2215,7 +2293,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2238,12 +2317,13 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
+     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
+     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2260,7 +2340,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2285,7 +2366,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2307,7 +2389,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2332,7 +2415,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2354,7 +2438,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2379,7 +2464,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2401,7 +2487,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2426,7 +2513,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2448,7 +2536,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2473,7 +2562,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2495,7 +2585,8 @@ public final class AwsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2520,7 +2611,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
@@ -2538,7 +2630,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2564,29 +2657,30 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
-     *                 &#34;eu-west-1&#34;,
-     *                 &#34;eu-central-1&#34;)
-     *             .services(&#34;ec2&#34;)
+     *                 "eu-west-1",
+     *                 "eu-central-1")
+     *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
-     *             .name(&#34;from_europe&#34;)
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort(&#34;443&#34;)
-     *                 .toPort(&#34;443&#34;)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .fromPort("443")
+     *                 .toPort("443")
+     *                 .protocol("tcp")
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
+     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2599,7 +2693,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2625,29 +2720,30 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
-     *                 &#34;eu-west-1&#34;,
-     *                 &#34;eu-central-1&#34;)
-     *             .services(&#34;ec2&#34;)
+     *                 "eu-west-1",
+     *                 "eu-central-1")
+     *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
-     *             .name(&#34;from_europe&#34;)
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort(&#34;443&#34;)
-     *                 .toPort(&#34;443&#34;)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .fromPort("443")
+     *                 .toPort("443")
+     *                 .protocol("tcp")
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
+     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2660,7 +2756,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2686,29 +2783,30 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
-     *                 &#34;eu-west-1&#34;,
-     *                 &#34;eu-central-1&#34;)
-     *             .services(&#34;ec2&#34;)
+     *                 "eu-west-1",
+     *                 "eu-central-1")
+     *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
-     *             .name(&#34;from_europe&#34;)
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort(&#34;443&#34;)
-     *                 .toPort(&#34;443&#34;)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .fromPort("443")
+     *                 .toPort("443")
+     *                 .protocol("tcp")
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
+     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2721,7 +2819,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2747,29 +2846,30 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
-     *                 &#34;eu-west-1&#34;,
-     *                 &#34;eu-central-1&#34;)
-     *             .services(&#34;ec2&#34;)
+     *                 "eu-west-1",
+     *                 "eu-central-1")
+     *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
-     *             .name(&#34;from_europe&#34;)
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort(&#34;443&#34;)
-     *                 .toPort(&#34;443&#34;)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .fromPort("443")
+     *                 .toPort("443")
+     *                 .protocol("tcp")
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
+     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2783,7 +2883,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2810,15 +2911,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2832,7 +2934,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2859,15 +2962,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2881,7 +2985,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2908,15 +3013,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2930,7 +3036,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2957,15 +3064,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2979,7 +3087,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3006,15 +3115,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3028,7 +3138,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3055,15 +3166,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;1&#34;)
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid("1")
+     *                 .actions("s3:ListBucket")
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3084,7 +3196,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3109,7 +3222,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3130,7 +3244,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3155,7 +3270,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3176,7 +3292,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3201,7 +3318,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3222,7 +3340,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3247,7 +3366,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3268,7 +3388,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3293,7 +3414,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3314,7 +3436,8 @@ public final class AwsFunctions {
      * the name of the AWS region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3339,7 +3462,8 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3354,7 +3478,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3379,13 +3504,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3412,13 +3539,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3442,14 +3571,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3464,7 +3594,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3489,13 +3620,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3522,13 +3655,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3552,14 +3687,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3574,7 +3710,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3599,13 +3736,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3632,13 +3771,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3662,14 +3803,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3684,7 +3826,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3709,13 +3852,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3742,13 +3887,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3772,14 +3919,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3794,7 +3942,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3819,13 +3968,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3852,13 +4003,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3882,14 +4035,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3904,7 +4058,8 @@ public final class AwsFunctions {
      * Enabled AWS Regions:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3929,13 +4084,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3962,13 +4119,15 @@ public final class AwsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3992,14 +4151,15 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
-     *                 .name(&#34;opt-in-status&#34;)
-     *                 .values(&#34;not-opted-in&#34;)
+     *                 .name("opt-in-status")
+     *                 .values("not-opted-in")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4014,7 +4174,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4039,19 +4200,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4073,18 +4236,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4106,12 +4271,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4126,7 +4292,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4151,19 +4318,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4185,18 +4354,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4218,12 +4389,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4238,7 +4410,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4263,19 +4436,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4297,18 +4472,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4330,12 +4507,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4350,7 +4528,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4375,19 +4554,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4409,18 +4590,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4442,12 +4625,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4462,7 +4646,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4487,19 +4672,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4521,18 +4708,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4554,12 +4743,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4574,7 +4764,8 @@ public final class AwsFunctions {
      * ### Get Service DNS Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4599,19 +4790,21 @@ public final class AwsFunctions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *             .serviceId(&#34;ec2&#34;)
+     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .serviceId("ec2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Use Service Reverse DNS Name to Get Components
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4633,18 +4826,20 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .reverseDnsName("cn.com.amazonaws.cn-north-1.s3")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Determine Regional Support for a Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4666,12 +4861,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .reverseDnsName("com.amazonaws.us-gov-west-1.waf")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

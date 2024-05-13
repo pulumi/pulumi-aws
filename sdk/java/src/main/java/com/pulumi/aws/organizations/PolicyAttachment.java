@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Organization Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var account = new PolicyAttachment(&#34;account&#34;, PolicyAttachmentArgs.builder()        
+ *         var account = new PolicyAttachment("account", PolicyAttachmentArgs.builder()        
  *             .policyId(example.id())
- *             .targetId(&#34;123456789012&#34;)
+ *             .targetId("123456789012")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Root
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,20 +81,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var root = new PolicyAttachment(&#34;root&#34;, PolicyAttachmentArgs.builder()        
+ *         var root = new PolicyAttachment("root", PolicyAttachmentArgs.builder()        
  *             .policyId(example.id())
  *             .targetId(exampleAwsOrganizationsOrganization.roots()[0].id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Unit
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -112,14 +117,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var unit = new PolicyAttachment(&#34;unit&#34;, PolicyAttachmentArgs.builder()        
+ *         var unit = new PolicyAttachment("unit", PolicyAttachmentArgs.builder()        
  *             .policyId(example.id())
  *             .targetId(exampleAwsOrganizationsOrganizationalUnit.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

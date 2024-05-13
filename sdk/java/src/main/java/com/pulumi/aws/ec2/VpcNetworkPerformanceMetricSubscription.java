@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcNetworkPerformanceMetricSubscription(&#34;example&#34;, VpcNetworkPerformanceMetricSubscriptionArgs.builder()        
- *             .source(&#34;us-east-1&#34;)
- *             .destination(&#34;us-west-1&#34;)
+ *         var example = new VpcNetworkPerformanceMetricSubscription("example", VpcNetworkPerformanceMetricSubscriptionArgs.builder()        
+ *             .source("us-east-1")
+ *             .destination("us-west-1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

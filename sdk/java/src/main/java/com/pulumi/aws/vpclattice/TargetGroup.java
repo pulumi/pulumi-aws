@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;INSTANCE&#34;)
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *             .name("example")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
- *                 .protocol(&#34;HTTPS&#34;)
+ *                 .protocol("HTTPS")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic usage with Health check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,15 +91,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;IP&#34;)
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *             .name("example")
+ *             .type("IP")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .vpcIdentifier(exampleAwsVpc.id())
- *                 .ipAddressType(&#34;IPV4&#34;)
+ *                 .ipAddressType("IPV4")
  *                 .port(443)
- *                 .protocol(&#34;HTTPS&#34;)
- *                 .protocolVersion(&#34;HTTP1&#34;)
+ *                 .protocol("HTTPS")
+ *                 .protocolVersion("HTTP1")
  *                 .healthCheck(TargetGroupConfigHealthCheckArgs.builder()
  *                     .enabled(true)
  *                     .healthCheckIntervalSeconds(20)
@@ -104,19 +107,20 @@ import javax.annotation.Nullable;
  *                     .healthyThresholdCount(7)
  *                     .unhealthyThresholdCount(3)
  *                     .matcher(TargetGroupConfigHealthCheckMatcherArgs.builder()
- *                         .value(&#34;200-299&#34;)
+ *                         .value("200-299")
  *                         .build())
- *                     .path(&#34;/instance&#34;)
+ *                     .path("/instance")
  *                     .port(80)
- *                     .protocol(&#34;HTTP&#34;)
- *                     .protocolVersion(&#34;HTTP1&#34;)
+ *                     .protocol("HTTP")
+ *                     .protocolVersion("HTTP1")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ALB
@@ -124,7 +128,8 @@ import javax.annotation.Nullable;
  * If the type is ALB, `health_check` block is not supported.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,20 +151,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;ALB&#34;)
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *             .name("example")
+ *             .type("ALB")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
- *                 .protocol(&#34;HTTPS&#34;)
- *                 .protocolVersion(&#34;HTTP1&#34;)
+ *                 .protocol("HTTPS")
+ *                 .protocolVersion("HTTP1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda
@@ -167,7 +173,8 @@ import javax.annotation.Nullable;
  * If the type is Lambda, `config` block is not supported.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -188,14 +195,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;LAMBDA&#34;)
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *             .name("example")
+ *             .type("LAMBDA")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

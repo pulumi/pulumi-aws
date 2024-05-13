@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### New MySQL Global Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,61 +54,63 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;global-test&#34;)
- *             .engine(&#34;aurora&#34;)
- *             .engineVersion(&#34;5.6.mysql_aurora.1.22.2&#34;)
- *             .databaseName(&#34;example_db&#34;)
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("global-test")
+ *             .engine("aurora")
+ *             .engineVersion("5.6.mysql_aurora.1.22.2")
+ *             .databaseName("example_db")
  *             .build());
  * 
- *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
- *             .masterUsername(&#34;username&#34;)
- *             .masterPassword(&#34;somepass123&#34;)
- *             .databaseName(&#34;example_db&#34;)
+ *             .clusterIdentifier("test-primary-cluster")
+ *             .masterUsername("username")
+ *             .masterPassword("somepass123")
+ *             .databaseName("example_db")
  *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-primary-cluster-instance&#34;)
+ *             .identifier("test-primary-cluster-instance")
  *             .clusterIdentifier(primary.id())
- *             .instanceClass(&#34;db.r4.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r4.large")
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
+ *             .clusterIdentifier("test-secondary-cluster")
  *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
  *                 .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-secondary-cluster-instance&#34;)
+ *             .identifier("test-secondary-cluster-instance")
  *             .clusterIdentifier(secondary.id())
- *             .instanceClass(&#34;db.r4.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r4.large")
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### New PostgreSQL Global Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,62 +136,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;global-test&#34;)
- *             .engine(&#34;aurora-postgresql&#34;)
- *             .engineVersion(&#34;11.9&#34;)
- *             .databaseName(&#34;example_db&#34;)
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("global-test")
+ *             .engine("aurora-postgresql")
+ *             .engineVersion("11.9")
+ *             .databaseName("example_db")
  *             .build());
  * 
- *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
- *             .masterUsername(&#34;username&#34;)
- *             .masterPassword(&#34;somepass123&#34;)
- *             .databaseName(&#34;example_db&#34;)
+ *             .clusterIdentifier("test-primary-cluster")
+ *             .masterUsername("username")
+ *             .masterPassword("somepass123")
+ *             .databaseName("example_db")
  *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-primary-cluster-instance&#34;)
+ *             .identifier("test-primary-cluster-instance")
  *             .clusterIdentifier(primary.id())
- *             .instanceClass(&#34;db.r4.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r4.large")
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
+ *             .clusterIdentifier("test-secondary-cluster")
  *             .globalClusterIdentifier(example.id())
  *             .skipFinalSnapshot(true)
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
  *                 .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-secondary-cluster-instance&#34;)
+ *             .identifier("test-secondary-cluster-instance")
  *             .clusterIdentifier(secondary.id())
- *             .instanceClass(&#34;db.r4.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r4.large")
+ *             .dbSubnetGroupName("default")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### New Global Cluster From Existing DB Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -210,17 +215,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;);
+ *         var example = new Cluster("example");
  * 
- *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
  *             .forceDestroy(true)
- *             .globalClusterIdentifier(&#34;example&#34;)
+ *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Upgrading Engine Versions
@@ -228,7 +234,8 @@ import javax.annotation.Nullable;
  * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -253,37 +260,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;kyivkharkiv&#34;)
- *             .engine(&#34;aurora-mysql&#34;)
- *             .engineVersion(&#34;5.7.mysql_aurora.2.07.5&#34;)
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("kyivkharkiv")
+ *             .engine("aurora-mysql")
+ *             .engineVersion("5.7.mysql_aurora.2.07.5")
  *             .build());
  * 
- *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()        
  *             .allowMajorVersionUpgrade(true)
  *             .applyImmediately(true)
- *             .clusterIdentifier(&#34;odessadnipro&#34;)
- *             .databaseName(&#34;totoro&#34;)
+ *             .clusterIdentifier("odessadnipro")
+ *             .databaseName("totoro")
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .globalClusterIdentifier(example.id())
- *             .masterPassword(&#34;satsukimae&#34;)
- *             .masterUsername(&#34;maesatsuki&#34;)
+ *             .masterPassword("satsukimae")
+ *             .masterUsername("maesatsuki")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .applyImmediately(true)
  *             .clusterIdentifier(primary.id())
  *             .engine(primary.engine())
  *             .engineVersion(primary.engineVersion())
- *             .identifier(&#34;donetsklviv&#34;)
- *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .identifier("donetsklviv")
+ *             .instanceClass("db.r4.large")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

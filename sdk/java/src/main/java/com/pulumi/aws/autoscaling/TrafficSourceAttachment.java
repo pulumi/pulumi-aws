@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,17 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrafficSourceAttachment(&#34;example&#34;, TrafficSourceAttachmentArgs.builder()        
+ *         var example = new TrafficSourceAttachment("example", TrafficSourceAttachmentArgs.builder()        
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .trafficSource(TrafficSourceAttachmentTrafficSourceArgs.builder()
  *                 .identifier(exampleAwsLbTargetGroup.arn())
- *                 .type(&#34;elbv2&#34;)
+ *                 .type("elbv2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

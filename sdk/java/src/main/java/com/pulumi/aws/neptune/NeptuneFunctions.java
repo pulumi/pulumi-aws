@@ -23,7 +23,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -46,14 +47,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,14 +92,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -175,14 +182,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +203,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,14 +227,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -238,7 +248,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -261,14 +272,15 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
+     *                 "1.0.3.0",
+     *                 "1.0.2.2",
+     *                 "1.0.2.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -281,7 +293,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -303,16 +316,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -325,7 +339,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,16 +362,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -369,7 +385,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -391,16 +408,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -413,7 +431,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -435,16 +454,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -457,7 +477,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -479,16 +500,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -501,7 +523,8 @@ public final class NeptuneFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -523,16 +546,17 @@ public final class NeptuneFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
+     *             .engineVersion("1.0.3.0")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

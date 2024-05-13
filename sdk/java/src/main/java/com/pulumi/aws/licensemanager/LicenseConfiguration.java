@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,19 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LicenseConfiguration(&#34;example&#34;, LicenseConfigurationArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example&#34;)
+ *         var example = new LicenseConfiguration("example", LicenseConfigurationArgs.builder()        
+ *             .name("Example")
+ *             .description("Example")
  *             .licenseCount(10)
  *             .licenseCountHardLimit(true)
- *             .licenseCountingType(&#34;Socket&#34;)
- *             .licenseRules(&#34;#minimumSockets=2&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;barr&#34;))
+ *             .licenseCountingType("Socket")
+ *             .licenseRules("#minimumSockets=2")
+ *             .tags(Map.of("foo", "barr"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Rules

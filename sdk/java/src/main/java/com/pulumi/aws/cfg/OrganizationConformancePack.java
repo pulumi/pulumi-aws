@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Using Template Body
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,18 +52,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var example = new OrganizationConformancePack(&#34;example&#34;, OrganizationConformancePackArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()        
+ *             .name("example")
  *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
- *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
- *                 .parameterValue(&#34;90&#34;)
+ *                 .parameterName("AccessKeysRotatedParameterMaxAccessKeyAge")
+ *                 .parameterValue("90")
  *                 .build())
- *             .templateBody(&#34;&#34;&#34;
+ *             .templateBody("""
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
  *     Type: String
@@ -74,7 +75,7 @@ import javax.annotation.Nullable;
  *         Owner: AWS
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAwsConfigConfigurationRecorder,
@@ -83,13 +84,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Template S3 URI
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,19 +120,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .key(&#34;example-key&#34;)
- *             .content(&#34;&#34;&#34;
+ *             .key("example-key")
+ *             .content("""
  * Resources:
  *   IAMPasswordPolicy:
  *     Properties:
@@ -138,15 +141,15 @@ import javax.annotation.Nullable;
  *         Owner: AWS
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var example = new OrganizationConformancePack(&#34;example&#34;, OrganizationConformancePackArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
+ *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()        
+ *             .name("example")
+ *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
+ *                 return String.format("s3://%s/%s", bucket,key);
  *             }))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -156,7 +159,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

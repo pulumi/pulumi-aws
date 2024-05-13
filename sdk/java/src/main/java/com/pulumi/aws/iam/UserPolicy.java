@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new User(&#34;lb&#34;, UserArgs.builder()        
- *             .name(&#34;loadbalancer&#34;)
- *             .path(&#34;/system/&#34;)
+ *         var lb = new User("lb", UserArgs.builder()        
+ *             .name("loadbalancer")
+ *             .path("/system/")
  *             .build());
  * 
- *         var lbRo = new UserPolicy(&#34;lbRo&#34;, UserPolicyArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var lbRo = new UserPolicy("lbRo", UserPolicyArgs.builder()        
+ *             .name("test")
  *             .user(lb.name())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
+ *         var lbAccessKey = new AccessKey("lbAccessKey", AccessKeyArgs.builder()        
  *             .user(lb.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,34 +56,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .name(&#34;foobar3-test&#34;)
+ *         var bar = new Group("bar", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
+ *             .name("foobar3-test")
  *             .maxSize(5)
  *             .minSize(2)
  *             .healthCheckGracePeriod(300)
- *             .healthCheckType(&#34;ELB&#34;)
+ *             .healthCheckType("ELB")
  *             .forceDelete(true)
  *             .launchConfiguration(foo.name())
  *             .build());
  * 
- *         var bat = new Policy(&#34;bat&#34;, PolicyArgs.builder()        
- *             .name(&#34;foobar3-test&#34;)
+ *         var bat = new Policy("bat", PolicyArgs.builder()        
+ *             .name("foobar3-test")
  *             .scalingAdjustment(4)
- *             .adjustmentType(&#34;ChangeInCapacity&#34;)
+ *             .adjustmentType("ChangeInCapacity")
  *             .cooldown(300)
  *             .autoscalingGroupName(bar.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create target tracking scaling policy using metric math
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -105,50 +108,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
- *             .autoscalingGroupName(&#34;my-test-asg&#34;)
- *             .name(&#34;foo&#34;)
- *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *         var example = new Policy("example", PolicyArgs.builder()        
+ *             .autoscalingGroupName("my-test-asg")
+ *             .name("foo")
+ *             .policyType("TargetTrackingScaling")
  *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
  *                 .targetValue(100)
  *                 .customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs.builder()
  *                     .metrics(                    
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Get the queue size (the number of messages waiting to be processed)&#34;)
- *                             .id(&#34;m1&#34;)
+ *                             .label("Get the queue size (the number of messages waiting to be processed)")
+ *                             .id("m1")
  *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .namespace(&#34;AWS/SQS&#34;)
- *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
+ *                                     .namespace("AWS/SQS")
+ *                                     .metricName("ApproximateNumberOfMessagesVisible")
  *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;QueueName&#34;)
- *                                         .value(&#34;my-queue&#34;)
+ *                                         .name("QueueName")
+ *                                         .value("my-queue")
  *                                         .build())
  *                                     .build())
- *                                 .stat(&#34;Sum&#34;)
+ *                                 .stat("Sum")
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Get the group size (the number of InService instances)&#34;)
- *                             .id(&#34;m2&#34;)
+ *                             .label("Get the group size (the number of InService instances)")
+ *                             .id("m2")
  *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
  *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .namespace(&#34;AWS/AutoScaling&#34;)
- *                                     .metricName(&#34;GroupInServiceInstances&#34;)
+ *                                     .namespace("AWS/AutoScaling")
+ *                                     .metricName("GroupInServiceInstances")
  *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;AutoScalingGroupName&#34;)
- *                                         .value(&#34;my-asg&#34;)
+ *                                         .name("AutoScalingGroupName")
+ *                                         .value("my-asg")
  *                                         .build())
  *                                     .build())
- *                                 .stat(&#34;Average&#34;)
+ *                                 .stat("Average")
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .label(&#34;Calculate the backlog per instance&#34;)
- *                             .id(&#34;e1&#34;)
- *                             .expression(&#34;m1 / m2&#34;)
+ *                             .label("Calculate the backlog per instance")
+ *                             .id("e1")
+ *                             .expression("m1 / m2")
  *                             .returnData(true)
  *                             .build())
  *                     .build())
@@ -157,13 +160,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create predictive scaling policy using customized metrics
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -189,40 +194,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
- *             .autoscalingGroupName(&#34;my-test-asg&#34;)
- *             .name(&#34;foo&#34;)
- *             .policyType(&#34;PredictiveScaling&#34;)
+ *         var example = new Policy("example", PolicyArgs.builder()        
+ *             .autoscalingGroupName("my-test-asg")
+ *             .name("foo")
+ *             .policyType("PredictiveScaling")
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
  *                     .targetValue(10)
  *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
- *                             .id(&#34;load_sum&#34;)
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 3600))&#34;)
+ *                             .id("load_sum")
+ *                             .expression("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))")
  *                             .build())
  *                         .build())
  *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                             .id(&#34;capacity_sum&#34;)
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
+ *                             .id("capacity_sum")
+ *                             .expression("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))")
  *                             .build())
  *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
  *                         .metricDataQueries(                        
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .id(&#34;capacity_sum&#34;)
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
+ *                                 .id("capacity_sum")
+ *                                 .expression("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))")
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .id(&#34;load_sum&#34;)
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
+ *                                 .id("load_sum")
+ *                                 .expression("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))")
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .id(&#34;weighted_average&#34;)
- *                                 .expression(&#34;load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)&#34;)
+ *                                 .id("weighted_average")
+ *                                 .expression("load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)")
  *                                 .build())
  *                         .build())
  *                     .build())
@@ -231,13 +236,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create predictive scaling policy using customized scaling and predefined load metric
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -262,30 +269,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
- *             .autoscalingGroupName(&#34;my-test-asg&#34;)
- *             .name(&#34;foo&#34;)
- *             .policyType(&#34;PredictiveScaling&#34;)
+ *         var example = new Policy("example", PolicyArgs.builder()        
+ *             .autoscalingGroupName("my-test-asg")
+ *             .name("foo")
+ *             .policyType("PredictiveScaling")
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
  *                     .targetValue(10)
  *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
- *                         .predefinedMetricType(&#34;ASGTotalCPUUtilization&#34;)
- *                         .resourceLabel(&#34;app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff&#34;)
+ *                         .predefinedMetricType("ASGTotalCPUUtilization")
+ *                         .resourceLabel("app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff")
  *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                             .id(&#34;scaling&#34;)
+ *                             .id("scaling")
  *                             .metricStat(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs.builder()
  *                                 .metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs.builder()
- *                                     .metricName(&#34;CPUUtilization&#34;)
- *                                     .namespace(&#34;AWS/EC2&#34;)
+ *                                     .metricName("CPUUtilization")
+ *                                     .namespace("AWS/EC2")
  *                                     .dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;AutoScalingGroupName&#34;)
- *                                         .value(&#34;my-test-asg&#34;)
+ *                                         .name("AutoScalingGroupName")
+ *                                         .value("my-test-asg")
  *                                         .build())
  *                                     .build())
- *                                 .stat(&#34;Average&#34;)
+ *                                 .stat("Average")
  *                                 .build())
  *                             .build())
  *                         .build())
@@ -295,7 +302,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -519,7 +527,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Target tracking policy. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -542,10 +551,10 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()        
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
      *                 .targetValue(40)
      *                 .build())
@@ -553,7 +562,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
@@ -566,7 +576,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * @return Target tracking policy. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -589,10 +600,10 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()        
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
      *                 .targetValue(40)
      *                 .build())
@@ -600,7 +611,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:

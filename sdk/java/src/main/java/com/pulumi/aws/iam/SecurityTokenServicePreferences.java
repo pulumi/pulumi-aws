@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,13 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityTokenServicePreferences(&#34;example&#34;, SecurityTokenServicePreferencesArgs.builder()        
- *             .globalEndpointTokenVersion(&#34;v2Token&#34;)
+ *         var example = new SecurityTokenServicePreferences("example", SecurityTokenServicePreferencesArgs.builder()        
+ *             .globalEndpointTokenVersion("v2Token")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

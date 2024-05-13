@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var subscription = new AccountSubscription(&#34;subscription&#34;, AccountSubscriptionArgs.builder()        
- *             .accountName(&#34;quicksight-pulumi&#34;)
- *             .authenticationMethod(&#34;IAM_AND_QUICKSIGHT&#34;)
- *             .edition(&#34;ENTERPRISE&#34;)
- *             .notificationEmail(&#34;notification@email.com&#34;)
+ *         var subscription = new AccountSubscription("subscription", AccountSubscriptionArgs.builder()        
+ *             .accountName("quicksight-pulumi")
+ *             .authenticationMethod("IAM_AND_QUICKSIGHT")
+ *             .edition("ENTERPRISE")
+ *             .notificationEmail("notification{@literal @}email.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

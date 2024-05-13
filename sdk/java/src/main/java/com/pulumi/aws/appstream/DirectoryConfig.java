@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DirectoryConfig(&#34;example&#34;, DirectoryConfigArgs.builder()        
- *             .directoryName(&#34;NAME OF DIRECTORY&#34;)
- *             .organizationalUnitDistinguishedNames(&#34;DISTINGUISHED NAME&#34;)
+ *         var example = new DirectoryConfig("example", DirectoryConfigArgs.builder()        
+ *             .directoryName("NAME OF DIRECTORY")
+ *             .organizationalUnitDistinguishedNames("DISTINGUISHED NAME")
  *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
- *                 .accountName(&#34;NAME OF ACCOUNT&#34;)
- *                 .accountPassword(&#34;PASSWORD OF ACCOUNT&#34;)
+ *                 .accountName("NAME OF ACCOUNT")
+ *                 .accountPassword("PASSWORD OF ACCOUNT")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

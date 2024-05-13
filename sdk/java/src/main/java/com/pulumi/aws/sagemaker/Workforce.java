@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Cognito Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,23 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolClient = new UserPoolClient(&#34;exampleUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()        
+ *             .name("example")
  *             .generateSecret(true)
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain(&#34;exampleUserPoolDomain&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *             .domain("example")
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         var example = new Workforce(&#34;example&#34;, WorkforceArgs.builder()        
- *             .workforceName(&#34;example&#34;)
+ *         var example = new Workforce("example", WorkforceArgs.builder()        
+ *             .workforceName("example")
  *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
  *                 .clientId(exampleUserPoolClient.id())
  *                 .userPool(exampleUserPoolDomain.userPoolId())
@@ -79,13 +80,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Oidc Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,23 +110,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workforce(&#34;example&#34;, WorkforceArgs.builder()        
- *             .workforceName(&#34;example&#34;)
+ *         var example = new Workforce("example", WorkforceArgs.builder()        
+ *             .workforceName("example")
  *             .oidcConfig(WorkforceOidcConfigArgs.builder()
- *                 .authorizationEndpoint(&#34;https://example.com&#34;)
- *                 .clientId(&#34;example&#34;)
- *                 .clientSecret(&#34;example&#34;)
- *                 .issuer(&#34;https://example.com&#34;)
- *                 .jwksUri(&#34;https://example.com&#34;)
- *                 .logoutEndpoint(&#34;https://example.com&#34;)
- *                 .tokenEndpoint(&#34;https://example.com&#34;)
- *                 .userInfoEndpoint(&#34;https://example.com&#34;)
+ *                 .authorizationEndpoint("https://example.com")
+ *                 .clientId("example")
+ *                 .clientSecret("example")
+ *                 .issuer("https://example.com")
+ *                 .jwksUri("https://example.com")
+ *                 .logoutEndpoint("https://example.com")
+ *                 .tokenEndpoint("https://example.com")
+ *                 .userInfoEndpoint("https://example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

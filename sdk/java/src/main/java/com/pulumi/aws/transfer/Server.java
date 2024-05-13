@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,19 +55,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example&#34;))
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .tags(Map.of("Name", "Example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Security Policy Name
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,19 +90,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .securityPolicyName(&#34;TransferSecurityPolicy-2020-06&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .securityPolicyName("TransferSecurityPolicy-2020-06")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### VPC Endpoint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,8 +126,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .endpointType(&#34;VPC&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .addressAllocationIds(exampleAwsEip.id())
  *                 .subnetIds(exampleAwsSubnet.id())
@@ -132,13 +137,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Directory authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -159,20 +166,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;AWS_DIRECTORY_SERVICE&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .identityProviderType("AWS_DIRECTORY_SERVICE")
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Lambda authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -193,20 +202,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;AWS_LAMBDA&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .identityProviderType("AWS_LAMBDA")
  *             .function(exampleAwsLambdaIdentityProvider.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Protocols
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -228,29 +239,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .endpointType(&#34;VPC&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .protocols(            
- *                 &#34;FTP&#34;,
- *                 &#34;FTPS&#34;)
+ *                 "FTP",
+ *                 "FTPS")
  *             .certificate(exampleAwsAcmCertificate.arn())
- *             .identityProviderType(&#34;API_GATEWAY&#34;)
- *             .url(String.format(&#34;%s%s&#34;, exampleAwsApiGatewayDeployment.invokeUrl(),exampleAwsApiGatewayResource.path()))
+ *             .identityProviderType("API_GATEWAY")
+ *             .url(String.format("%s%s", exampleAwsApiGatewayDeployment.invokeUrl(),exampleAwsApiGatewayResource.path()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Structured Logging Destinations
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -277,37 +290,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var transfer = new LogGroup(&#34;transfer&#34;, LogGroupArgs.builder()        
- *             .namePrefix(&#34;transfer_test_&#34;)
+ *         var transfer = new LogGroup("transfer", LogGroupArgs.builder()        
+ *             .namePrefix("transfer_test_")
  *             .build());
  * 
  *         final var transferAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("transfer.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var iamForTransfer = new Role(&#34;iamForTransfer&#34;, RoleArgs.builder()        
- *             .namePrefix(&#34;iam_for_transfer_&#34;)
- *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .managedPolicyArns(&#34;arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess&#34;)
+ *         var iamForTransfer = new Role("iamForTransfer", RoleArgs.builder()        
+ *             .namePrefix("iam_for_transfer_")
+ *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .managedPolicyArns("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess")
  *             .build());
  * 
- *         var transferServer = new Server(&#34;transferServer&#34;, ServerArgs.builder()        
- *             .endpointType(&#34;PUBLIC&#34;)
+ *         var transferServer = new Server("transferServer", ServerArgs.builder()        
+ *             .endpointType("PUBLIC")
  *             .loggingRole(iamForTransfer.arn())
- *             .protocols(&#34;SFTP&#34;)
- *             .structuredLogDestinations(transfer.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .protocols("SFTP")
+ *             .structuredLogDestinations(transfer.arn().applyValue(arn -> String.format("%s:*", arn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

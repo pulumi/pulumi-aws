@@ -47,7 +47,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -69,7 +70,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
+     *         var example = new Flow("example", FlowArgs.builder()        
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
      *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *                 .build())
@@ -77,7 +78,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -130,7 +132,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -152,7 +155,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
+     *         var example = new Flow("example", FlowArgs.builder()        
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
      *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *                 .build())
@@ -160,7 +163,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()        
  *             .domainId(exampleAwsSagemakerDomain.id())
  *             .userProfileName(exampleAwsSagemakerUserProfile.userProfileName())
- *             .appName(&#34;example&#34;)
- *             .appType(&#34;JupyterServer&#34;)
+ *             .appName("example")
+ *             .appType("JupyterServer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

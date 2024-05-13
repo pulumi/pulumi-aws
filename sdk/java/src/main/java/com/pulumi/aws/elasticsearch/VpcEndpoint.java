@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcEndpoint(&#34;foo&#34;, VpcEndpointArgs.builder()        
+ *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()        
  *             .domainArn(domain1.arn())
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                
@@ -58,7 +59,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

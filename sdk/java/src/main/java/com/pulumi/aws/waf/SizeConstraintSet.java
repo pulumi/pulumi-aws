@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
- *             .name(&#34;tfsize_constraints&#34;)
+ *         var sizeConstraintSet = new SizeConstraintSet("sizeConstraintSet", SizeConstraintSetArgs.builder()        
+ *             .name("tfsize_constraints")
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .comparisonOperator(&#34;EQ&#34;)
- *                 .size(&#34;4096&#34;)
+ *                 .textTransformation("NONE")
+ *                 .comparisonOperator("EQ")
+ *                 .size("4096")
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
- *                     .type(&#34;BODY&#34;)
+ *                     .type("BODY")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

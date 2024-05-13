@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool(&#34;example&#34;, DedicatedIpPoolArgs.builder()        
- *             .poolName(&#34;my-pool&#34;)
+ *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()        
+ *             .poolName("my-pool")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Pool
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,14 +80,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool(&#34;example&#34;, DedicatedIpPoolArgs.builder()        
- *             .poolName(&#34;my-managed-pool&#34;)
- *             .scalingMode(&#34;MANAGED&#34;)
+ *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()        
+ *             .poolName("my-managed-pool")
+ *             .scalingMode("MANAGED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

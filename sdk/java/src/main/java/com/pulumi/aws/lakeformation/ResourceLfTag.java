@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,19 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceLfTag(&#34;example&#34;, ResourceLfTagArgs.builder()        
+ *         var example = new ResourceLfTag("example", ResourceLfTagArgs.builder()        
  *             .database(ResourceLfTagDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTag(ResourceLfTagLfTagArgs.builder()
  *                 .key(exampleAwsLakeformationLfTag.key())
- *                 .value(&#34;stowe&#34;)
+ *                 .value("stowe")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

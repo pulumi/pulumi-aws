@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
- *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
+ *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()        
  *             .zoneId(exampleAwsRoute53Zone.zoneId())
- *             .name(example.id().applyValue(id -&gt; String.format(&#34;_amazonses.%s&#34;, id)))
- *             .type(&#34;TXT&#34;)
- *             .ttl(&#34;600&#34;)
+ *             .name(example.id().applyValue(id -> String.format("_amazonses.%s", id)))
+ *             .type("TXT")
+ *             .ttl("600")
  *             .records(example.verificationToken())
  *             .build());
  * 
- *         var exampleVerification = new DomainIdentityVerification(&#34;exampleVerification&#34;, DomainIdentityVerificationArgs.builder()        
+ *         var exampleVerification = new DomainIdentityVerification("exampleVerification", DomainIdentityVerificationArgs.builder()        
  *             .domain(example.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAmazonsesVerificationRecord)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

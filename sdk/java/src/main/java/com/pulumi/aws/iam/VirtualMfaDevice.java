@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * **Using certs on file:**
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualMfaDevice(&#34;example&#34;, VirtualMfaDeviceArgs.builder()        
- *             .virtualMfaDeviceName(&#34;example&#34;)
+ *         var example = new VirtualMfaDevice("example", VirtualMfaDeviceArgs.builder()        
+ *             .virtualMfaDeviceName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -126,14 +128,14 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.path);
     }
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     public Output<String> qrCodePng() {

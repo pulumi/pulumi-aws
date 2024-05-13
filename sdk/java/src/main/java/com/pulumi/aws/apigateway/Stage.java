@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,15 +53,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
- *         var example = new RestApi(&#34;example&#34;);
+ *         final var stageName = config.get("stageName").orElse("example");
+ *         var example = new RestApi("example");
  * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .name(example.id().applyValue(id -&gt; String.format(&#34;API-Gateway-Execution-Logs_%s/%s&#34;, id,stageName)))
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *             .name(example.id().applyValue(id -> String.format("API-Gateway-Execution-Logs_%s/%s", id,stageName)))
  *             .retentionInDays(7)
  *             .build());
  * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()        
  *             .stageName(stageName)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleLogGroup)
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

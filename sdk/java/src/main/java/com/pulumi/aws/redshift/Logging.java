@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Logging(&#34;example&#34;, LoggingArgs.builder()        
+ *         var example = new Logging("example", LoggingArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .logDestinationType(&#34;cloudwatch&#34;)
+ *             .logDestinationType("cloudwatch")
  *             .logExports(            
- *                 &#34;connectionlog&#34;,
- *                 &#34;userlog&#34;)
+ *                 "connectionlog",
+ *                 "userlog")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### S3 Destination Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,16 +84,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Logging(&#34;example&#34;, LoggingArgs.builder()        
+ *         var example = new Logging("example", LoggingArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .logDestinationType(&#34;s3&#34;)
+ *             .logDestinationType("s3")
  *             .bucketName(exampleAwsS3Bucket.id())
- *             .s3KeyPrefix(&#34;example-prefix/&#34;)
+ *             .s3KeyPrefix("example-prefix/")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

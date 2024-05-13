@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EnvironmentEC2(&#34;test&#34;, EnvironmentEC2Args.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
- *             .name(&#34;some-env&#34;)
+ *         var test = new EnvironmentEC2("test", EnvironmentEC2Args.builder()        
+ *             .instanceType("t2.micro")
+ *             .name("some-env")
  *             .build());
  * 
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
- *             .name(&#34;some-user&#34;)
+ *         var testUser = new User("testUser", UserArgs.builder()        
+ *             .name("some-user")
  *             .build());
  * 
- *         var testEnvironmentMembership = new EnvironmentMembership(&#34;testEnvironmentMembership&#34;, EnvironmentMembershipArgs.builder()        
+ *         var testEnvironmentMembership = new EnvironmentMembership("testEnvironmentMembership", EnvironmentMembershipArgs.builder()        
  *             .environmentId(test.id())
- *             .permissions(&#34;read-only&#34;)
+ *             .permissions("read-only")
  *             .userArn(testUser.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,10 +45,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Agreement(&#34;example&#34;, AgreementArgs.builder()        
+ *         var example = new Agreement("example", AgreementArgs.builder()        
  *             .accessRole(test.arn())
- *             .baseDirectory(&#34;/DOC-EXAMPLE-BUCKET/home/mydirectory&#34;)
- *             .description(&#34;example&#34;)
+ *             .baseDirectory("/DOC-EXAMPLE-BUCKET/home/mydirectory")
+ *             .description("example")
  *             .localProfileId(local.profileId())
  *             .partnerProfileId(partner.profileId())
  *             .serverId(testAwsTransferServer.id())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

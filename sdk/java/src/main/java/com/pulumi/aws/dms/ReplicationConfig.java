@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var name = new ReplicationConfig(&#34;name&#34;, ReplicationConfigArgs.builder()        
- *             .replicationConfigIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
- *             .resourceIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
- *             .replicationType(&#34;cdc&#34;)
+ *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()        
+ *             .replicationConfigIdentifier("test-dms-serverless-replication-tf")
+ *             .resourceIdentifier("test-dms-serverless-replication-tf")
+ *             .replicationType("cdc")
  *             .sourceEndpointArn(source.endpointArn())
  *             .targetEndpointArn(target.endpointArn())
- *             .tableMappings(&#34;&#34;&#34;
+ *             .tableMappings("""
  *   {
- *     &#34;rules&#34;:[{&#34;rule-type&#34;:&#34;selection&#34;,&#34;rule-id&#34;:&#34;1&#34;,&#34;rule-name&#34;:&#34;1&#34;,&#34;rule-action&#34;:&#34;include&#34;,&#34;object-locator&#34;:{&#34;schema-name&#34;:&#34;%%&#34;,&#34;table-name&#34;:&#34;%%&#34;}}]
+ *     "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .startReplication(true)
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
  *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
- *                 .maxCapacityUnits(&#34;64&#34;)
- *                 .minCapacityUnits(&#34;2&#34;)
- *                 .preferredMaintenanceWindow(&#34;sun:23:45-mon:00:30&#34;)
+ *                 .maxCapacityUnits("64")
+ *                 .minCapacityUnits("2")
+ *                 .preferredMaintenanceWindow("sun:23:45-mon:00:30")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * This example blocks requests coming from `192.0.7.0/24` and allows everything else.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,39 +59,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .name(&#34;tfIPSet&#34;)
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
+ *                 .type("IPV4")
+ *                 .value("192.0.7.0/24")
  *                 .build())
  *             .build());
  * 
- *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
- *             .name(&#34;tfWAFRule&#34;)
- *             .metricName(&#34;tfWAFRule&#34;)
+ *         var wafrule = new Rule("wafrule", RuleArgs.builder()        
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
+ *                 .type("IPMatch")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(ipset)
  *                 .build());
  * 
- *         var wafAcl = new WebAcl(&#34;wafAcl&#34;, WebAclArgs.builder()        
- *             .name(&#34;tfWebACL&#34;)
- *             .metricName(&#34;tfWebACL&#34;)
+ *         var wafAcl = new WebAcl("wafAcl", WebAclArgs.builder()        
+ *             .name("tfWebACL")
+ *             .metricName("tfWebACL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
+ *                 .type("ALLOW")
  *                 .build())
  *             .rules(WebAclRuleArgs.builder()
  *                 .action(WebAclRuleActionArgs.builder()
- *                     .type(&#34;BLOCK&#34;)
+ *                     .type("BLOCK")
  *                     .build())
  *                 .priority(1)
  *                 .ruleId(wafrule.id())
- *                 .type(&#34;REGULAR&#34;)
+ *                 .type("REGULAR")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -100,7 +101,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging
@@ -108,7 +110,8 @@ import javax.annotation.Nullable;
  * &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -131,17 +134,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
+ *         var example = new WebAcl("example", WebAclArgs.builder()        
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
  *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
  *                     .fieldToMatches(                    
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .type(&#34;URI&#34;)
+ *                             .type("URI")
  *                             .build(),
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .data(&#34;referer&#34;)
- *                             .type(&#34;HEADER&#34;)
+ *                             .data("referer")
+ *                             .type("HEADER")
  *                             .build())
  *                     .build())
  *                 .build())
@@ -149,7 +152,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testFleet = new ImageBuilder(&#34;testFleet&#34;, ImageBuilderArgs.builder()        
- *             .name(&#34;Name&#34;)
- *             .description(&#34;Description of a ImageBuilder&#34;)
- *             .displayName(&#34;Display name of a ImageBuilder&#34;)
+ *         var testFleet = new ImageBuilder("testFleet", ImageBuilderArgs.builder()        
+ *             .name("Name")
+ *             .description("Description of a ImageBuilder")
+ *             .displayName("Display name of a ImageBuilder")
  *             .enableDefaultInternetAccess(false)
- *             .imageName(&#34;AppStream-WinServer2019-10-05-2022&#34;)
- *             .instanceType(&#34;stream.standard.large&#34;)
+ *             .imageName("AppStream-WinServer2019-10-05-2022")
+ *             .instanceType("stream.standard.large")
  *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
  *                 .subnetIds(example.id())
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Image Builder&#34;))
+ *             .tags(Map.of("Name", "Example Image Builder"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

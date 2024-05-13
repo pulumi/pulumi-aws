@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,48 +54,49 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;apigateway.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("apigateway.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var cloudwatchRole = new Role(&#34;cloudwatchRole&#34;, RoleArgs.builder()        
- *             .name(&#34;api_gateway_cloudwatch_global&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var cloudwatchRole = new Role("cloudwatchRole", RoleArgs.builder()        
+ *             .name("api_gateway_cloudwatch_global")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var demo = new Account(&#34;demo&#34;, AccountArgs.builder()        
+ *         var demo = new Account("demo", AccountArgs.builder()        
  *             .cloudwatchRoleArn(cloudwatchRole.arn())
  *             .build());
  * 
  *         final var cloudwatch = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;logs:CreateLogGroup&#34;,
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:DescribeLogGroups&#34;,
- *                     &#34;logs:DescribeLogStreams&#34;,
- *                     &#34;logs:PutLogEvents&#34;,
- *                     &#34;logs:GetLogEvents&#34;,
- *                     &#34;logs:FilterLogEvents&#34;)
- *                 .resources(&#34;*&#34;)
+ *                     "logs:CreateLogGroup",
+ *                     "logs:CreateLogStream",
+ *                     "logs:DescribeLogGroups",
+ *                     "logs:DescribeLogStreams",
+ *                     "logs:PutLogEvents",
+ *                     "logs:GetLogEvents",
+ *                     "logs:FilterLogEvents")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var cloudwatchRolePolicy = new RolePolicy(&#34;cloudwatchRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var cloudwatchRolePolicy = new RolePolicy("cloudwatchRolePolicy", RolePolicyArgs.builder()        
+ *             .name("default")
  *             .role(cloudwatchRole.id())
- *             .policy(cloudwatch.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(cloudwatch.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

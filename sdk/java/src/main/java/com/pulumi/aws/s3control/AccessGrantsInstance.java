@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance(&#34;example&#34;);
+ *         var example = new AccessGrantsInstance("example");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS IAM Identity Center
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -75,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance(&#34;example&#34;, AccessGrantsInstanceArgs.builder()        
- *             .identityCenterArn(&#34;arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d&#34;)
+ *         var example = new AccessGrantsInstance("example", AccessGrantsInstanceArgs.builder()        
+ *             .identityCenterArn("arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PlaybackKeyPair(&#34;example&#34;, PlaybackKeyPairArgs.builder()        
+ *         var example = new PlaybackKeyPair("example", PlaybackKeyPairArgs.builder()        
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;./public-key.pem&#34;)
+ *                 .input("./public-key.pem")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

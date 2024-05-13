@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new NetworkInsightsPath(&#34;test&#34;, NetworkInsightsPathArgs.builder()        
+ *         var test = new NetworkInsightsPath("test", NetworkInsightsPathArgs.builder()        
  *             .source(source.id())
  *             .destination(destination.id())
- *             .protocol(&#34;tcp&#34;)
+ *             .protocol("tcp")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

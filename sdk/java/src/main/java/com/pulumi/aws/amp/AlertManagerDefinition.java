@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,22 +42,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demo = new Workspace(&#34;demo&#34;);
+ *         var demo = new Workspace("demo");
  * 
- *         var demoAlertManagerDefinition = new AlertManagerDefinition(&#34;demoAlertManagerDefinition&#34;, AlertManagerDefinitionArgs.builder()        
+ *         var demoAlertManagerDefinition = new AlertManagerDefinition("demoAlertManagerDefinition", AlertManagerDefinitionArgs.builder()        
  *             .workspaceId(demo.id())
- *             .definition(&#34;&#34;&#34;
+ *             .definition("""
  * alertmanager_config: |
  *   route:
- *     receiver: &#39;default&#39;
+ *     receiver: 'default'
  *   receivers:
- *     - name: &#39;default&#39;
- *             &#34;&#34;&#34;)
+ *     - name: 'default'
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

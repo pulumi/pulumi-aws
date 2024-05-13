@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,27 +44,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
+ *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()        
  *             .bucket(exampleAwsS3controlBucket.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Id&#34;, &#34;testBucketPolicy&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;s3-outposts:PutBucketLifecycleConfiguration&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Deny&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
+ *                     jsonProperty("Id", "testBucketPolicy"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "s3-outposts:PutBucketLifecycleConfiguration"),
+ *                         jsonProperty("Effect", "Deny"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "*")
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, exampleAwsS3controlBucket.arn()),
- *                         jsonProperty(&#34;Sid&#34;, &#34;statement1&#34;)
+ *                         jsonProperty("Resource", exampleAwsS3controlBucket.arn()),
+ *                         jsonProperty("Sid", "statement1")
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

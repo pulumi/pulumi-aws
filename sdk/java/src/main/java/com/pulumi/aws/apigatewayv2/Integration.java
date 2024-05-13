@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,20 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .integrationType(&#34;MOCK&#34;)
+ *             .integrationType("MOCK")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda Integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,34 +89,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;example.zip&#34;))
- *             .name(&#34;Example&#34;)
+ *         var example = new Function("example", FunctionArgs.builder()        
+ *             .code(new FileArchive("example.zip"))
+ *             .name("Example")
  *             .role(exampleAwsIamRole.arn())
- *             .handler(&#34;index.handler&#34;)
- *             .runtime(&#34;nodejs16.x&#34;)
+ *             .handler("index.handler")
+ *             .runtime("nodejs16.x")
  *             .build());
  * 
- *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
+ *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .integrationType(&#34;AWS_PROXY&#34;)
- *             .connectionType(&#34;INTERNET&#34;)
- *             .contentHandlingStrategy(&#34;CONVERT_TO_TEXT&#34;)
- *             .description(&#34;Lambda example&#34;)
- *             .integrationMethod(&#34;POST&#34;)
+ *             .integrationType("AWS_PROXY")
+ *             .connectionType("INTERNET")
+ *             .contentHandlingStrategy("CONVERT_TO_TEXT")
+ *             .description("Lambda example")
+ *             .integrationMethod("POST")
  *             .integrationUri(example.invokeArn())
- *             .passthroughBehavior(&#34;WHEN_NO_MATCH&#34;)
+ *             .passthroughBehavior("WHEN_NO_MATCH")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Service Integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,27 +139,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .credentialsArn(exampleAwsIamRole.arn())
- *             .description(&#34;SQS example&#34;)
- *             .integrationType(&#34;AWS_PROXY&#34;)
- *             .integrationSubtype(&#34;SQS-SendMessage&#34;)
+ *             .description("SQS example")
+ *             .integrationType("AWS_PROXY")
+ *             .integrationSubtype("SQS-SendMessage")
  *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;QueueUrl&#34;, &#34;$request.header.queueUrl&#34;),
- *                 Map.entry(&#34;MessageBody&#34;, &#34;$request.body.message&#34;)
+ *                 Map.entry("QueueUrl", "$request.header.queueUrl"),
+ *                 Map.entry("MessageBody", "$request.body.message")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Private Integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -177,36 +184,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .credentialsArn(exampleAwsIamRole.arn())
- *             .description(&#34;Example with a load balancer&#34;)
- *             .integrationType(&#34;HTTP_PROXY&#34;)
+ *             .description("Example with a load balancer")
+ *             .integrationType("HTTP_PROXY")
  *             .integrationUri(exampleAwsLbListener.arn())
- *             .integrationMethod(&#34;ANY&#34;)
- *             .connectionType(&#34;VPC_LINK&#34;)
+ *             .integrationMethod("ANY")
+ *             .connectionType("VPC_LINK")
  *             .connectionId(exampleAwsApigatewayv2VpcLink.id())
  *             .tlsConfig(IntegrationTlsConfigArgs.builder()
- *                 .serverNameToVerify(&#34;example.com&#34;)
+ *                 .serverNameToVerify("example.com")
  *                 .build())
  *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;append:header.authforintegration&#34;, &#34;$context.authorizer.authorizerResponse&#34;),
- *                 Map.entry(&#34;overwrite:path&#34;, &#34;staticValueForIntegration&#34;)
+ *                 Map.entry("append:header.authforintegration", "$context.authorizer.authorizerResponse"),
+ *                 Map.entry("overwrite:path", "staticValueForIntegration")
  *             ))
  *             .responseParameters(            
  *                 IntegrationResponseParameterArgs.builder()
  *                     .statusCode(403)
- *                     .mappings(Map.of(&#34;append:header.auth&#34;, &#34;$context.authorizer.authorizerResponse&#34;))
+ *                     .mappings(Map.of("append:header.auth", "$context.authorizer.authorizerResponse"))
  *                     .build(),
  *                 IntegrationResponseParameterArgs.builder()
  *                     .statusCode(200)
- *                     .mappings(Map.of(&#34;overwrite:statuscode&#34;, &#34;204&#34;))
+ *                     .mappings(Map.of("overwrite:statuscode", "204"))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

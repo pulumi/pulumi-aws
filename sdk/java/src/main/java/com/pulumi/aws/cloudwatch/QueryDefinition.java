@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,21 +43,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new QueryDefinition(&#34;example&#34;, QueryDefinitionArgs.builder()        
- *             .name(&#34;custom_query&#34;)
+ *         var example = new QueryDefinition("example", QueryDefinitionArgs.builder()        
+ *             .name("custom_query")
  *             .logGroupNames(            
- *                 &#34;/aws/logGroup1&#34;,
- *                 &#34;/aws/logGroup2&#34;)
- *             .queryString(&#34;&#34;&#34;
- * fields @timestamp, @message
- * | sort @timestamp desc
+ *                 "/aws/logGroup1",
+ *                 "/aws/logGroup2")
+ *             .queryString("""
+ * fields{@literal @}timestamp,{@literal @}message
+ * | sort{@literal @}timestamp desc
  * | limit 25
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

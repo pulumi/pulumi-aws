@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Attachment Routing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference(&#34;example&#34;, PrefixListReferenceArgs.builder()        
+ *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()        
  *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
@@ -52,13 +53,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Blackhole Routing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference(&#34;example&#34;, PrefixListReferenceArgs.builder()        
+ *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()        
  *             .blackhole(true)
  *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
@@ -87,7 +90,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

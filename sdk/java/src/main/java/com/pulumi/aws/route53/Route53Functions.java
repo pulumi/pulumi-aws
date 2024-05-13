@@ -57,7 +57,8 @@ public final class Route53Functions {
      * The following example shows how to get a delegation set from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -79,12 +80,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
+     *             .id("MQWGHCBFAKEID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -101,7 +103,8 @@ public final class Route53Functions {
      * The following example shows how to get a delegation set from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -123,12 +126,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
+     *             .id("MQWGHCBFAKEID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -145,7 +149,8 @@ public final class Route53Functions {
      * The following example shows how to get a delegation set from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -167,12 +172,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
+     *             .id("MQWGHCBFAKEID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +195,8 @@ public final class Route53Functions {
      * The following example shows how to get a delegation set from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +218,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
+     *             .id("MQWGHCBFAKEID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +237,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,16 +260,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -284,18 +295,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -308,7 +320,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -330,16 +343,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -363,18 +378,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -387,7 +403,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -409,16 +426,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -442,18 +461,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -466,7 +486,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -488,16 +509,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -521,18 +544,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -545,7 +569,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -567,16 +592,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -600,18 +627,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -624,7 +652,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -646,16 +675,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .resolverQueryLogConfigId("rqlc-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -679,18 +710,19 @@ public final class Route53Functions {
      *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
      *             .filters(            
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .name("Name")
+     *                     .values("shared-query-log-config")
      *                     .build(),
      *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .name("ShareStatus")
+     *                     .values("SHARED_WITH_ME")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -705,7 +737,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -727,16 +760,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -759,14 +794,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -781,7 +817,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -803,16 +840,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -835,14 +874,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -857,7 +897,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -879,16 +920,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -911,14 +954,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -933,7 +977,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -955,16 +1000,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -987,14 +1034,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1009,7 +1057,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1031,16 +1080,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1063,14 +1114,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1085,7 +1137,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1107,16 +1160,18 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
+     *             .resolverEndpointId("rslvr-in-1abc2345ef678g91h")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1139,14 +1194,15 @@ public final class Route53Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
+     *                 .name("NAME")
+     *                 .values("MyResolverExampleName")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1163,7 +1219,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall config using the VPC ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1185,12 +1242,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .resourceId("vpc-exampleid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1207,7 +1265,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall config using the VPC ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1229,12 +1288,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .resourceId("vpc-exampleid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1251,7 +1311,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall config using the VPC ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1273,12 +1334,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .resourceId("vpc-exampleid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1295,7 +1357,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall config using the VPC ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1317,12 +1380,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .resourceId("vpc-exampleid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1339,7 +1403,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall domain list from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1361,12 +1426,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .firewallDomainListId("rslvr-fdl-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1383,7 +1449,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall domain list from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1405,12 +1472,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .firewallDomainListId("rslvr-fdl-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1427,7 +1495,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall domain list from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1449,12 +1518,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .firewallDomainListId("rslvr-fdl-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1471,7 +1541,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall domain list from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1493,12 +1564,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .firewallDomainListId("rslvr-fdl-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1515,7 +1587,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1537,12 +1610,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .firewallRuleGroupId("rslvr-frg-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1559,7 +1633,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1581,12 +1656,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .firewallRuleGroupId("rslvr-frg-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1603,7 +1679,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1625,12 +1702,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .firewallRuleGroupId("rslvr-frg-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1647,7 +1725,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group from its ID.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1669,12 +1748,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .firewallRuleGroupId("rslvr-frg-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1691,7 +1771,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group association from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1713,12 +1794,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .firewallRuleGroupAssociationId("rslvr-frgassoc-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1735,7 +1817,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group association from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1757,12 +1840,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .firewallRuleGroupAssociationId("rslvr-frgassoc-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1779,7 +1863,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group association from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1801,12 +1886,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .firewallRuleGroupAssociationId("rslvr-frgassoc-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1823,7 +1909,8 @@ public final class Route53Functions {
      * The following example shows how to get a firewall rule group association from its id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1845,12 +1932,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .firewallRuleGroupAssociationId("rslvr-frgassoc-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1865,7 +1953,8 @@ public final class Route53Functions {
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1892,7 +1981,8 @@ public final class Route53Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1907,7 +1997,8 @@ public final class Route53Functions {
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1934,7 +2025,8 @@ public final class Route53Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1949,7 +2041,8 @@ public final class Route53Functions {
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1976,7 +2069,8 @@ public final class Route53Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1991,7 +2085,8 @@ public final class Route53Functions {
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2018,7 +2113,8 @@ public final class Route53Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2033,7 +2129,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2055,13 +2152,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2076,7 +2174,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2098,13 +2197,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2119,7 +2219,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2141,13 +2242,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2162,7 +2264,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2184,13 +2287,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2205,7 +2309,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2227,13 +2332,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2248,7 +2354,8 @@ public final class Route53Functions {
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2270,13 +2377,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
+     *             .domainName("subdomain.example.com")
+     *             .ruleType("SYSTEM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2291,7 +2399,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2313,20 +2422,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2348,13 +2459,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2362,7 +2474,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2384,12 +2497,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2404,7 +2518,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2426,20 +2541,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2461,13 +2578,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2475,7 +2593,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2497,12 +2616,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2517,7 +2637,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2539,20 +2660,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2574,13 +2697,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2588,7 +2712,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2610,12 +2735,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2630,7 +2756,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2652,20 +2779,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2687,13 +2816,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2701,7 +2831,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2723,12 +2854,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2743,7 +2875,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2765,20 +2898,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2800,13 +2935,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2814,7 +2950,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2836,12 +2973,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2856,7 +2994,8 @@ public final class Route53Functions {
      * ### Retrieving the default resolver rule
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2878,20 +3017,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
+     *             .ownerId("Route 53 Resolver")
+     *             .ruleType("RECURSIVE")
+     *             .shareStatus("NOT_SHARED")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving forward rules shared with me
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2913,13 +3054,14 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
+     *             .ruleType("FORWARD")
+     *             .shareStatus("SHARED_WITH_ME")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Retrieving rules by name regex
@@ -2927,7 +3069,8 @@ public final class Route53Functions {
      * Resolver rules whose name contains `abc`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2949,12 +3092,13 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2969,7 +3113,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2997,41 +3142,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3039,7 +3185,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3063,74 +3210,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3145,7 +3293,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3173,41 +3322,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3215,7 +3365,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3239,74 +3390,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3321,7 +3473,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3349,41 +3502,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3391,7 +3545,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3415,74 +3570,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3497,7 +3653,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3525,41 +3682,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3567,7 +3725,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3591,74 +3750,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3673,7 +3833,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3701,41 +3862,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3743,7 +3905,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3767,74 +3930,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3849,7 +4013,8 @@ public final class Route53Functions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3877,41 +4042,42 @@ public final class Route53Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *                     .id("my_elb")
+     *                     .type("elastic-load-balancer")
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
+     *                     .id("site_down_banner")
+     *                     .type("s3-website")
+     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
+     *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
+     *                     .endpointReference("site_down_banner")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Complex Example
@@ -3919,7 +4085,8 @@ public final class Route53Functions {
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3943,74 +4110,75 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_a")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-111111.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .id("na_endpoint_b")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-222222.us-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .id("eu_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-333333.eu-west-1.elb.amazonaws.com")
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .id("ap_endpoint")
+     *                     .type("elastic-load-balancer")
+     *                     .value("elb-444444.ap-northeast-2.elb.amazonaws.com")
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .endpointReference("na_endpoint_b")
      *                         .build())
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .region("aws:route53:us-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .region("aws:route53:eu-west-1")
      *                             .bias(10)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .region("aws:route53:ap-northeast-2")
      *                             .bias(0)
      *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .endpointReference("ap_endpoint")
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .comment(&#34;example comment&#34;)
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *             .name("example")
+     *             .comment("example comment")
+     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4027,7 +4195,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4051,21 +4220,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4082,7 +4252,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4106,21 +4277,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4137,7 +4309,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4161,21 +4334,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4192,7 +4366,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4216,21 +4391,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4247,7 +4423,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4271,21 +4448,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4302,7 +4480,8 @@ public final class Route53Functions {
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4326,21 +4505,22 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
+     *         var www = new Record("www", RecordArgs.builder()        
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .type("A")
+     *             .ttl("300")
+     *             .records("10.0.0.1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

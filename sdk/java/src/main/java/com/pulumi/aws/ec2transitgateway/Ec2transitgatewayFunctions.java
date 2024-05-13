@@ -62,7 +62,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,18 +87,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +112,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,18 +137,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +162,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,18 +187,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +212,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -230,18 +237,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -254,7 +262,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -278,18 +287,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -302,7 +312,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,18 +337,19 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getAttachment(GetAttachmentArgs.builder()
      *             .filters(            
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
+     *                     .name("transit-gateway-id")
      *                     .values(exampleAwsEc2TransitGateway.id())
      *                     .build(),
      *                 GetAttachmentFilterArgs.builder()
-     *                     .name(&#34;resource-type&#34;)
-     *                     .values(&#34;peering&#34;)
+     *                     .name("resource-type")
+     *                     .values("peering")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +448,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -459,20 +472,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,12 +509,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +530,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,20 +554,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -572,12 +591,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -592,7 +612,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,20 +636,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -650,12 +673,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -670,7 +694,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -693,20 +718,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -728,12 +755,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -748,7 +776,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -771,20 +800,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -806,12 +837,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -826,7 +858,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -849,20 +882,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
-     *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transport-transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -884,12 +919,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
-     *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
+     *             .transitGatewayConnectId("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -904,7 +940,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -927,20 +964,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -962,12 +1001,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -982,7 +1022,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1005,20 +1046,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1040,12 +1083,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1060,7 +1104,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1083,20 +1128,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1118,12 +1165,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1138,7 +1186,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1161,20 +1210,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1196,12 +1247,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1216,7 +1268,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1239,20 +1292,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1274,12 +1329,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1294,7 +1350,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1317,20 +1374,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1352,12 +1411,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
-     *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
+     *             .transitGatewayConnectPeerId("tgw-connect-peer-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1372,7 +1432,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1400,7 +1461,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1415,7 +1477,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1443,7 +1506,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1458,7 +1522,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1486,7 +1551,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1501,7 +1567,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1529,7 +1596,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1544,7 +1612,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1572,7 +1641,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1587,7 +1657,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1615,7 +1686,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1630,7 +1702,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1653,20 +1726,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1688,12 +1763,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1708,7 +1784,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1731,20 +1808,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1766,12 +1845,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1786,7 +1866,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1809,20 +1890,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1844,12 +1927,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1864,7 +1948,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1887,20 +1972,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1922,12 +2009,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1942,7 +2030,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1965,20 +2054,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2000,12 +2091,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2020,7 +2112,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2043,20 +2136,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
-     *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
+     *                 .name("transit-gateway-multicast-domain-id")
+     *                 .values("tgw-mcast-domain-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2078,12 +2173,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
-     *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
+     *             .transitGatewayMulticastDomainId("tgw-mcast-domain-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2098,7 +2194,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2121,20 +2218,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2156,12 +2255,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2176,7 +2276,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2199,20 +2300,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2234,12 +2337,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2254,7 +2358,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2277,20 +2382,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2312,12 +2419,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2332,7 +2440,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2355,20 +2464,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2390,12 +2501,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2410,7 +2522,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2433,20 +2546,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2468,12 +2583,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2488,7 +2604,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2511,20 +2628,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
-     *                 .name(&#34;transit-gateway-attachment-id&#34;)
-     *                 .values(&#34;tgw-attach-12345678&#34;)
+     *                 .name("transit-gateway-attachment-id")
+     *                 .values("tgw-attach-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2546,12 +2665,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2566,7 +2686,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2590,24 +2711,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2629,12 +2752,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2649,7 +2773,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2673,24 +2798,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2712,12 +2839,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2732,7 +2860,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2756,24 +2885,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2795,12 +2926,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2815,7 +2947,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2839,24 +2972,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2878,12 +3013,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2898,7 +3034,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2922,24 +3059,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2961,12 +3100,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2981,7 +3121,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3005,24 +3146,26 @@ public final class Ec2transitgatewayFunctions {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;default-association-route-table&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("default-association-route-table")
+     *                     .values("true")
      *                     .build(),
      *                 GetRouteTableFilterArgs.builder()
-     *                     .name(&#34;transit-gateway-id&#34;)
-     *                     .values(&#34;tgw-12345678&#34;)
+     *                     .name("transit-gateway-id")
+     *                     .values("tgw-12345678")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3044,12 +3187,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
-     *             .id(&#34;tgw-rtb-12345678&#34;)
+     *             .id("tgw-rtb-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3064,7 +3208,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3091,7 +3236,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3106,7 +3252,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3133,7 +3280,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3148,7 +3296,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3175,7 +3324,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3190,7 +3340,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3217,7 +3368,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3232,7 +3384,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3259,7 +3412,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3274,7 +3428,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3301,7 +3456,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3316,7 +3472,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3343,7 +3500,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3358,7 +3516,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3385,7 +3544,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3398,7 +3558,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3421,15 +3582,16 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
      *             .filters(GetRouteTableRoutesFilterArgs.builder()
-     *                 .name(&#34;type&#34;)
-     *                 .values(&#34;propagated&#34;)
+     *                 .name("type")
+     *                 .values("propagated")
      *                 .build())
      *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3442,7 +3604,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3465,15 +3628,16 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
      *             .filters(GetRouteTableRoutesFilterArgs.builder()
-     *                 .name(&#34;type&#34;)
-     *                 .values(&#34;propagated&#34;)
+     *                 .name("type")
+     *                 .values("propagated")
      *                 .build())
      *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3486,7 +3650,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3509,15 +3674,16 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
      *             .filters(GetRouteTableRoutesFilterArgs.builder()
-     *                 .name(&#34;type&#34;)
-     *                 .values(&#34;propagated&#34;)
+     *                 .name("type")
+     *                 .values("propagated")
      *                 .build())
      *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3530,7 +3696,8 @@ public final class Ec2transitgatewayFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3553,15 +3720,16 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
      *             .filters(GetRouteTableRoutesFilterArgs.builder()
-     *                 .name(&#34;type&#34;)
-     *                 .values(&#34;propagated&#34;)
+     *                 .name("type")
+     *                 .values("propagated")
      *                 .build())
      *             .transitGatewayRouteTableId(example.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3576,7 +3744,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3599,20 +3768,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3634,12 +3805,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3654,7 +3826,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3677,20 +3850,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3712,12 +3887,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3732,7 +3908,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3755,20 +3932,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3790,12 +3969,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3810,7 +3990,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3833,20 +4014,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3868,12 +4051,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3888,7 +4072,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3911,20 +4096,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3946,12 +4133,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3966,7 +4154,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3989,20 +4178,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
-     *                 .name(&#34;options.amazon-side-asn&#34;)
-     *                 .values(&#34;64512&#34;)
+     *                 .name("options.amazon-side-asn")
+     *                 .values("64512")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4024,12 +4215,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
-     *             .id(&#34;tgw-12345678&#34;)
+     *             .id("tgw-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4044,7 +4236,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4067,20 +4260,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4102,12 +4297,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4122,7 +4318,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4145,20 +4342,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4180,12 +4379,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4200,7 +4400,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4223,20 +4424,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4258,12 +4461,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4278,7 +4482,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4301,20 +4506,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4336,12 +4543,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4356,7 +4564,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4379,20 +4588,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4414,12 +4625,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4434,7 +4646,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4457,20 +4670,22 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
-     *                 .name(&#34;vpc-id&#34;)
-     *                 .values(&#34;vpc-12345678&#34;)
+     *                 .name("vpc-id")
+     *                 .values("vpc-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4492,12 +4707,13 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
-     *             .id(&#34;tgw-attach-12345678&#34;)
+     *             .id("tgw-attach-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4598,7 +4814,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4626,13 +4843,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4655,14 +4874,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4679,7 +4899,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4707,13 +4928,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4736,14 +4959,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4760,7 +4984,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4788,13 +5013,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4817,14 +5044,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4841,7 +5069,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4869,13 +5098,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4898,14 +5129,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4922,7 +5154,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4950,13 +5183,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4979,14 +5214,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5003,7 +5239,8 @@ public final class Ec2transitgatewayFunctions {
      * ### By Transit Gateway and VPN Connection Identifiers
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5031,13 +5268,15 @@ public final class Ec2transitgatewayFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5060,14 +5299,15 @@ public final class Ec2transitgatewayFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
-     *                 .name(&#34;resource-id&#34;)
-     *                 .values(&#34;some-resource&#34;)
+     *                 .name("resource-id")
+     *                 .values("some-resource")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

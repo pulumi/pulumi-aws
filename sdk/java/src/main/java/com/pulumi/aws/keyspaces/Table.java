@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,23 +54,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()        
  *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
- *             .tableName(&#34;my_table&#34;)
+ *             .tableName("my_table")
  *             .schemaDefinition(TableSchemaDefinitionArgs.builder()
  *                 .columns(TableSchemaDefinitionColumnArgs.builder()
- *                     .name(&#34;Message&#34;)
- *                     .type(&#34;ASCII&#34;)
+ *                     .name("Message")
+ *                     .type("ASCII")
  *                     .build())
  *                 .partitionKeys(TableSchemaDefinitionPartitionKeyArgs.builder()
- *                     .name(&#34;Message&#34;)
+ *                     .name("Message")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

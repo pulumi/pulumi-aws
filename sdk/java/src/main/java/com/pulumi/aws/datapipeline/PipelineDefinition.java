@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,68 +49,69 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline(&#34;default&#34;, PipelineArgs.builder()        
- *             .name(&#34;tf-pipeline-default&#34;)
+ *         var default_ = new Pipeline("default", PipelineArgs.builder()        
+ *             .name("tf-pipeline-default")
  *             .build());
  * 
- *         var example = new PipelineDefinition(&#34;example&#34;, PipelineDefinitionArgs.builder()        
+ *         var example = new PipelineDefinition("example", PipelineDefinitionArgs.builder()        
  *             .pipelineId(default_.id())
  *             .pipelineObjects(            
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;Default&#34;)
- *                     .name(&#34;Default&#34;)
+ *                     .id("Default")
+ *                     .name("Default")
  *                     .fields(PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                         .key(&#34;workerGroup&#34;)
- *                         .stringValue(&#34;workerGroup&#34;)
+ *                         .key("workerGroup")
+ *                         .stringValue("workerGroup")
  *                         .build())
  *                     .build(),
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;Schedule&#34;)
- *                     .name(&#34;Schedule&#34;)
+ *                     .id("Schedule")
+ *                     .name("Schedule")
  *                     .fields(                    
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;startDateTime&#34;)
- *                             .stringValue(&#34;2012-12-12T00:00:00&#34;)
+ *                             .key("startDateTime")
+ *                             .stringValue("2012-12-12T00:00:00")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;type&#34;)
- *                             .stringValue(&#34;Schedule&#34;)
+ *                             .key("type")
+ *                             .stringValue("Schedule")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;period&#34;)
- *                             .stringValue(&#34;1 hour&#34;)
+ *                             .key("period")
+ *                             .stringValue("1 hour")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;endDateTime&#34;)
- *                             .stringValue(&#34;2012-12-21T18:00:00&#34;)
+ *                             .key("endDateTime")
+ *                             .stringValue("2012-12-21T18:00:00")
  *                             .build())
  *                     .build(),
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;SayHello&#34;)
- *                     .name(&#34;SayHello&#34;)
+ *                     .id("SayHello")
+ *                     .name("SayHello")
  *                     .fields(                    
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;type&#34;)
- *                             .stringValue(&#34;ShellCommandActivity&#34;)
+ *                             .key("type")
+ *                             .stringValue("ShellCommandActivity")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;command&#34;)
- *                             .stringValue(&#34;echo hello&#34;)
+ *                             .key("command")
+ *                             .stringValue("echo hello")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;parent&#34;)
- *                             .stringValue(&#34;Default&#34;)
+ *                             .key("parent")
+ *                             .stringValue("Default")
  *                             .build(),
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;schedule&#34;)
- *                             .stringValue(&#34;Schedule&#34;)
+ *                             .key("schedule")
+ *                             .stringValue("Schedule")
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

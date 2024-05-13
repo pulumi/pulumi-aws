@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
- *             .engine(&#34;neptune&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("neptune-cluster-demo")
+ *             .engine("neptune")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .skipFinalSnapshot(true)
  *             .iamDatabaseAuthenticationEnabled(true)
  *             .applyImmediately(true)
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** AWS Neptune does not support user name/password–based access control.

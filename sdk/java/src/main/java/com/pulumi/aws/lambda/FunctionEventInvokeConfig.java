@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
@@ -64,13 +65,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Error Handling Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .maximumEventAgeInSeconds(60)
  *             .maximumRetryAttempts(0)
@@ -99,13 +102,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Configuration for Alias Name
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -126,20 +131,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .qualifier(exampleAwsLambdaAlias.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Configuration for Function Latest Unpublished Version
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -160,20 +167,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier(&#34;$LATEST&#34;)
+ *             .qualifier("$LATEST")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Configuration for Function Published Version
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -194,14 +203,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .qualifier(exampleAwsLambdaFunction.version())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

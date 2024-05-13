@@ -433,14 +433,14 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     @Import(name="validUserLists")
     private @Nullable Output<List<String>> validUserLists;
 
     /**
-     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     public Optional<Output<List<String>>> validUserLists() {
@@ -1110,7 +1110,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
          * 
          * @return builder
          * 
@@ -1121,7 +1121,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
          * 
          * @return builder
          * 
@@ -1131,7 +1131,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+         * @param validUserLists A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
          * 
          * @return builder
          * 

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new PlacementGroup(&#34;web&#34;, PlacementGroupArgs.builder()        
- *             .name(&#34;hunky-dory-pg&#34;)
- *             .strategy(&#34;cluster&#34;)
+ *         var web = new PlacementGroup("web", PlacementGroupArgs.builder()        
+ *             .name("hunky-dory-pg")
+ *             .strategy("cluster")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

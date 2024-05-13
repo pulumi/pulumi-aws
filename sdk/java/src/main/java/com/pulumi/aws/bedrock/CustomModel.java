@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,31 +54,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
- *             .modelId(&#34;amazon.titan-text-express-v1&#34;)
+ *             .modelId("amazon.titan-text-express-v1")
  *             .build());
  * 
- *         var exampleCustomModel = new CustomModel(&#34;exampleCustomModel&#34;, CustomModelArgs.builder()        
- *             .customModelName(&#34;example-model&#34;)
- *             .jobName(&#34;example-job-1&#34;)
- *             .baseModelIdentifier(example.applyValue(getModelResult -&gt; getModelResult.modelArn()))
+ *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()        
+ *             .customModelName("example-model")
+ *             .jobName("example-job-1")
+ *             .baseModelIdentifier(example.applyValue(getModelResult -> getModelResult.modelArn()))
  *             .roleArn(exampleAwsIamRole.arn())
  *             .hyperparameters(Map.ofEntries(
- *                 Map.entry(&#34;epochCount&#34;, &#34;1&#34;),
- *                 Map.entry(&#34;batchSize&#34;, &#34;1&#34;),
- *                 Map.entry(&#34;learningRate&#34;, &#34;0.005&#34;),
- *                 Map.entry(&#34;learningRateWarmupSteps&#34;, &#34;0&#34;)
+ *                 Map.entry("epochCount", "1"),
+ *                 Map.entry("batchSize", "1"),
+ *                 Map.entry("learningRate", "0.005"),
+ *                 Map.entry("learningRateWarmupSteps", "0")
  *             ))
  *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format(&#34;s3://%s/data/&#34;, output.id()))
+ *                 .s3Uri(String.format("s3://%s/data/", output.id()))
  *                 .build())
  *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
- *                 .s3Uri(String.format(&#34;s3://%s/data/train.jsonl&#34;, training.id()))
+ *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.id()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

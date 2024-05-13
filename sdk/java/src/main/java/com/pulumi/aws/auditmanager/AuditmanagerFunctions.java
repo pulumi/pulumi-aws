@@ -25,7 +25,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,19 +48,21 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Framework Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,35 +87,36 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("2. Personnel")
+     *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
+     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
+     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example2.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -127,7 +131,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -149,19 +154,21 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Framework Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,35 +193,36 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("2. Personnel")
+     *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
+     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
+     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example2.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +237,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,19 +260,21 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Framework Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,35 +299,36 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("2. Personnel")
+     *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
+     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
+     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example2.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -331,7 +343,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -353,19 +366,21 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Framework Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -390,35 +405,36 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("1. Risk Management")
+     *             .type("Standard")
      *             .build());
      * 
      *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
+     *             .name("2. Personnel")
+     *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
+     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
+     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example2.applyValue(getControlResult -> getControlResult.id()))
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -433,7 +449,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -455,13 +472,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;Essential Eight&#34;)
-     *             .frameworkType(&#34;Standard&#34;)
+     *             .name("Essential Eight")
+     *             .frameworkType("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -476,7 +494,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -498,13 +517,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;Essential Eight&#34;)
-     *             .frameworkType(&#34;Standard&#34;)
+     *             .name("Essential Eight")
+     *             .frameworkType("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -519,7 +539,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -541,13 +562,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;Essential Eight&#34;)
-     *             .frameworkType(&#34;Standard&#34;)
+     *             .name("Essential Eight")
+     *             .frameworkType("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -562,7 +584,8 @@ public final class AuditmanagerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,13 +607,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;Essential Eight&#34;)
-     *             .frameworkType(&#34;Standard&#34;)
+     *             .name("Essential Eight")
+     *             .frameworkType("Standard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

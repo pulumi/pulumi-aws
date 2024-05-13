@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,24 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;exampleuser&#34;)
- *             .masterPassword(&#34;Mustbe8characters&#34;)
- *             .nodeType(&#34;dc1.large&#34;)
- *             .clusterType(&#34;single-node&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterIdentifier("tf-redshift-cluster")
+ *             .databaseName("mydb")
+ *             .masterUsername("exampleuser")
+ *             .masterPassword("Mustbe8characters")
+ *             .nodeType("dc1.large")
+ *             .clusterType("single-node")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Managed Credentials
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,18 +93,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;exampleuser&#34;)
- *             .nodeType(&#34;dc1.large&#34;)
- *             .clusterType(&#34;single-node&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterIdentifier("tf-redshift-cluster")
+ *             .databaseName("mydb")
+ *             .masterUsername("exampleuser")
+ *             .nodeType("dc1.large")
+ *             .clusterType("single-node")
  *             .manageMasterPassword(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Domain Identity MAIL FROM
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,42 +51,44 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example SES Domain Identity
- *         var exampleDomainIdentity = new DomainIdentity(&#34;exampleDomainIdentity&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
- *         var example = new MailFrom(&#34;example&#34;, MailFromArgs.builder()        
+ *         var example = new MailFrom("example", MailFromArgs.builder()        
  *             .domain(exampleDomainIdentity.domain())
- *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
+ *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -> String.format("bounce.%s", domain)))
  *             .build());
  * 
  *         // Example Route53 MX record
- *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        
+ *         var exampleSesDomainMailFromMx = new Record("exampleSesDomainMailFromMx", RecordArgs.builder()        
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
- *             .type(&#34;MX&#34;)
- *             .ttl(&#34;600&#34;)
- *             .records(&#34;10 feedback-smtp.us-east-1.amazonses.com&#34;)
+ *             .type("MX")
+ *             .ttl("600")
+ *             .records("10 feedback-smtp.us-east-1.amazonses.com")
  *             .build());
  * 
  *         // Example Route53 TXT record for SPF
- *         var exampleSesDomainMailFromTxt = new Record(&#34;exampleSesDomainMailFromTxt&#34;, RecordArgs.builder()        
+ *         var exampleSesDomainMailFromTxt = new Record("exampleSesDomainMailFromTxt", RecordArgs.builder()        
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
- *             .type(&#34;TXT&#34;)
- *             .ttl(&#34;600&#34;)
- *             .records(&#34;v=spf1 include:amazonses.com -all&#34;)
+ *             .type("TXT")
+ *             .ttl("600")
+ *             .records("v=spf1 include:amazonses.com -all")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Email Identity MAIL FROM
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -109,18 +112,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example SES Email Identity
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .email(&#34;user@example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .email("user{@literal @}example.com")
  *             .build());
  * 
- *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
+ *         var exampleMailFrom = new MailFrom("exampleMailFrom", MailFromArgs.builder()        
  *             .domain(example.email())
- *             .mailFromDomain(&#34;mail.example.com&#34;)
+ *             .mailFromDomain("mail.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

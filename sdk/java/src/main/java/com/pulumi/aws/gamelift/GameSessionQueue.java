@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,8 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new GameSessionQueue(&#34;test&#34;, GameSessionQueueArgs.builder()        
- *             .name(&#34;example-session-queue&#34;)
+ *         var test = new GameSessionQueue("test", GameSessionQueueArgs.builder()        
+ *             .name("example-session-queue")
  *             .destinations(            
  *                 usWest2Fleet.arn(),
  *                 euCentral1Fleet.arn())
@@ -65,7 +66,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

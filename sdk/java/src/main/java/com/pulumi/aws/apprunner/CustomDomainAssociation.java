@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomDomainAssociation(&#34;example&#34;, CustomDomainAssociationArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
+ *         var example = new CustomDomainAssociation("example", CustomDomainAssociationArgs.builder()        
+ *             .domainName("example.com")
  *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -71,75 +72,77 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;codedeploy.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("codedeploy.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;example-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("example-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var aWSCodeDeployRole = new RolePolicyAttachment(&#34;aWSCodeDeployRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole&#34;)
+ *         var aWSCodeDeployRole = new RolePolicyAttachment("aWSCodeDeployRole", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole")
  *             .role(example.name())
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-app")
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;example-topic&#34;)
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *             .name("example-topic")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
  *             .appName(exampleApplication.name())
- *             .deploymentGroupName(&#34;example-group&#34;)
+ *             .deploymentGroupName("example-group")
  *             .serviceRoleArn(example.arn())
  *             .ec2TagSets(DeploymentGroupEc2TagSetArgs.builder()
  *                 .ec2TagFilters(                
  *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
- *                         .key(&#34;filterkey1&#34;)
- *                         .type(&#34;KEY_AND_VALUE&#34;)
- *                         .value(&#34;filtervalue&#34;)
+ *                         .key("filterkey1")
+ *                         .type("KEY_AND_VALUE")
+ *                         .value("filtervalue")
  *                         .build(),
  *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
- *                         .key(&#34;filterkey2&#34;)
- *                         .type(&#34;KEY_AND_VALUE&#34;)
- *                         .value(&#34;filtervalue&#34;)
+ *                         .key("filterkey2")
+ *                         .type("KEY_AND_VALUE")
+ *                         .value("filtervalue")
  *                         .build())
  *                 .build())
  *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
- *                 .triggerEvents(&#34;DeploymentFailure&#34;)
- *                 .triggerName(&#34;example-trigger&#34;)
+ *                 .triggerEvents("DeploymentFailure")
+ *                 .triggerName("example-trigger")
  *                 .triggerTargetArn(exampleTopic.arn())
  *                 .build())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
+ *                 .events("DEPLOYMENT_FAILURE")
  *                 .build())
  *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
+ *                 .alarms("my-alarm-name")
  *                 .enabled(true)
  *                 .build())
- *             .outdatedInstancesStrategy(&#34;UPDATE&#34;)
+ *             .outdatedInstancesStrategy("UPDATE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Blue Green Deployments with ECS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -171,32 +174,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .computePlatform(&#34;ECS&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .computePlatform("ECS")
+ *             .name("example")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
  *             .appName(example.name())
- *             .deploymentConfigName(&#34;CodeDeployDefault.ECSAllAtOnce&#34;)
- *             .deploymentGroupName(&#34;example&#34;)
+ *             .deploymentConfigName("CodeDeployDefault.ECSAllAtOnce")
+ *             .deploymentGroupName("example")
  *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
+ *                 .events("DEPLOYMENT_FAILURE")
  *                 .build())
  *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
  *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
- *                     .actionOnTimeout(&#34;CONTINUE_DEPLOYMENT&#34;)
+ *                     .actionOnTimeout("CONTINUE_DEPLOYMENT")
  *                     .build())
  *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
- *                     .action(&#34;TERMINATE&#34;)
+ *                     .action("TERMINATE")
  *                     .terminationWaitTimeInMinutes(5)
  *                     .build())
  *                 .build())
  *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
- *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
- *                 .deploymentType(&#34;BLUE_GREEN&#34;)
+ *                 .deploymentOption("WITH_TRAFFIC_CONTROL")
+ *                 .deploymentType("BLUE_GREEN")
  *                 .build())
  *             .ecsService(DeploymentGroupEcsServiceArgs.builder()
  *                 .clusterName(exampleAwsEcsCluster.name())
@@ -220,13 +223,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Blue Green Deployments with Servers and Classic ELB
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -255,17 +260,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .name("example-app")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
  *             .appName(example.name())
- *             .deploymentGroupName(&#34;example-group&#34;)
+ *             .deploymentGroupName("example-group")
  *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
- *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
- *                 .deploymentType(&#34;BLUE_GREEN&#34;)
+ *                 .deploymentOption("WITH_TRAFFIC_CONTROL")
+ *                 .deploymentType("BLUE_GREEN")
  *                 .build())
  *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
  *                 .elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs.builder()
@@ -274,21 +279,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
  *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
- *                     .actionOnTimeout(&#34;STOP_DEPLOYMENT&#34;)
+ *                     .actionOnTimeout("STOP_DEPLOYMENT")
  *                     .waitTimeInMinutes(60)
  *                     .build())
  *                 .greenFleetProvisioningOption(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs.builder()
- *                     .action(&#34;DISCOVER_EXISTING&#34;)
+ *                     .action("DISCOVER_EXISTING")
  *                     .build())
  *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
- *                     .action(&#34;KEEP_ALIVE&#34;)
+ *                     .action("KEEP_ALIVE")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

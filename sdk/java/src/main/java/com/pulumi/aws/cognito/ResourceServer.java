@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Create a basic resource server
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,25 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
- *             .identifier(&#34;https://example.com&#34;)
- *             .name(&#34;example&#34;)
+ *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()        
+ *             .identifier("https://example.com")
+ *             .name("example")
  *             .userPoolId(pool.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create a resource server with sample-scope
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,23 +92,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
- *             .identifier(&#34;https://example.com&#34;)
- *             .name(&#34;example&#34;)
+ *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()        
+ *             .identifier("https://example.com")
+ *             .name("example")
  *             .scopes(ResourceServerScopeArgs.builder()
- *                 .scopeName(&#34;sample-scope&#34;)
- *                 .scopeDescription(&#34;a Sample Scope Description&#34;)
+ *                 .scopeName("sample-scope")
+ *                 .scopeDescription("a Sample Scope Description")
  *                 .build())
  *             .userPoolId(pool.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

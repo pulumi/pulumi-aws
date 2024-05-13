@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,23 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
- *             .comment(&#34;test public key&#34;)
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *             .comment("test public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;public_key.pem&#34;)
+ *                 .input("public_key.pem")
  *                 .build()).result())
- *             .name(&#34;test_key&#34;)
+ *             .name("test_key")
  *             .build());
  * 
- *         var test = new FieldLevelEncryptionProfile(&#34;test&#34;, FieldLevelEncryptionProfileArgs.builder()        
- *             .comment(&#34;test comment&#34;)
- *             .name(&#34;test profile&#34;)
+ *         var test = new FieldLevelEncryptionProfile("test", FieldLevelEncryptionProfileArgs.builder()        
+ *             .comment("test comment")
+ *             .name("test profile")
  *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
  *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
  *                     .publicKeyId(example.id())
- *                     .providerId(&#34;test provider&#34;)
+ *                     .providerId("test provider")
  *                     .fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs.builder()
- *                         .items(&#34;DateOfBirth&#34;)
+ *                         .items("DateOfBirth")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -69,7 +70,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

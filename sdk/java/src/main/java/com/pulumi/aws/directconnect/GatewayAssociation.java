@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### VPN Gateway Association
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,33 +55,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .amazonSideAsn(&#34;64512&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .name("example")
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.255.255.0/28&#34;)
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.255.255.0/28")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleVpnGateway.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Transit Gateway Association
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,30 +107,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .amazonSideAsn(&#34;64512&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .name("example")
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway");
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleTransitGateway.id())
  *             .allowedPrefixes(            
- *                 &#34;10.255.255.0/30&#34;,
- *                 &#34;10.255.255.8/30&#34;)
+ *                 "10.255.255.0/30",
+ *                 "10.255.255.8/30")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Allowed Prefixes
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -154,30 +159,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .amazonSideAsn(&#34;64512&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .name("example")
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.255.255.0/28&#34;)
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.255.255.0/28")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleVpnGateway.id())
  *             .allowedPrefixes(            
- *                 &#34;210.52.109.0/24&#34;,
- *                 &#34;175.45.176.0/22&#34;)
+ *                 "210.52.109.0/24",
+ *                 "175.45.176.0/22")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

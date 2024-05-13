@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationHdfs(&#34;example&#34;, LocationHdfsArgs.builder()        
+ *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()        
  *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType(&#34;SIMPLE&#34;)
- *             .simpleUser(&#34;example&#34;)
+ *             .authenticationType("SIMPLE")
+ *             .simpleUser("example")
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()
  *                 .hostname(exampleAwsInstance.privateDns())
  *                 .port(80)
@@ -61,13 +62,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Kerberos Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,25 +92,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationHdfs(&#34;example&#34;, LocationHdfsArgs.builder()        
+ *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()        
  *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType(&#34;KERBEROS&#34;)
+ *             .authenticationType("KERBEROS")
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()
  *                 .hostname(exampleAwsInstance.privateDns())
  *                 .port(80)
  *                 .build())
- *             .kerberosPrincipal(&#34;user@example.com&#34;)
+ *             .kerberosPrincipal("user{@literal @}example.com")
  *             .kerberosKeytabBase64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;user.keytab&#34;)
+ *                 .input("user.keytab")
  *                 .build()).result())
  *             .kerberosKrb5Conf(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;krb5.conf&#34;)
+ *                 .input("krb5.conf")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

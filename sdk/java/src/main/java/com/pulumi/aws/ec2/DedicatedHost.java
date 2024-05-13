@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new host with instance type of c5.18xlarge with Auto Placement
  *         // and Host Recovery enabled.
- *         var test = new DedicatedHost(&#34;test&#34;, DedicatedHostArgs.builder()        
- *             .instanceType(&#34;c5.18xlarge&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .hostRecovery(&#34;on&#34;)
- *             .autoPlacement(&#34;on&#34;)
+ *         var test = new DedicatedHost("test", DedicatedHostArgs.builder()        
+ *             .instanceType("c5.18xlarge")
+ *             .availabilityZone("us-west-2a")
+ *             .hostRecovery("on")
+ *             .autoPlacement("on")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

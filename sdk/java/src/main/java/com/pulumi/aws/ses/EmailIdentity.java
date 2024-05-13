@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,13 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .email(&#34;email@example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .email("email{@literal @}example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -54,7 +56,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import SES email identities using the email address. For example:
  * 
  * ```sh
- * $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+ * $ pulumi import aws:ses/emailIdentity:EmailIdentity example email{@literal @}example.com
  * ```
  * 
  */

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,33 +53,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var valueWindows10 = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
- *             .bundleId(&#34;wsb-bh8rsxt14&#34;)
+ *             .bundleId("wsb-bh8rsxt14")
  *             .build());
  * 
  *         final var workspaces = KmsFunctions.getKey(GetKeyArgs.builder()
- *             .keyId(&#34;alias/aws/workspaces&#34;)
+ *             .keyId("alias/aws/workspaces")
  *             .build());
  * 
- *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
+ *         var example = new Workspace("example", WorkspaceArgs.builder()        
  *             .directoryId(exampleAwsWorkspacesDirectory.id())
- *             .bundleId(valueWindows10.applyValue(getBundleResult -&gt; getBundleResult.id()))
- *             .userName(&#34;john.doe&#34;)
+ *             .bundleId(valueWindows10.applyValue(getBundleResult -> getBundleResult.id()))
+ *             .userName("john.doe")
  *             .rootVolumeEncryptionEnabled(true)
  *             .userVolumeEncryptionEnabled(true)
- *             .volumeEncryptionKey(workspaces.applyValue(getKeyResult -&gt; getKeyResult.arn()))
+ *             .volumeEncryptionKey(workspaces.applyValue(getKeyResult -> getKeyResult.arn()))
  *             .workspaceProperties(WorkspaceWorkspacePropertiesArgs.builder()
- *                 .computeTypeName(&#34;VALUE&#34;)
+ *                 .computeTypeName("VALUE")
  *                 .userVolumeSizeGib(10)
  *                 .rootVolumeSizeGib(80)
- *                 .runningMode(&#34;AUTO_STOP&#34;)
+ *                 .runningMode("AUTO_STOP")
  *                 .runningModeAutoStopTimeoutInMinutes(60)
  *                 .build())
- *             .tags(Map.of(&#34;Department&#34;, &#34;IT&#34;))
+ *             .tags(Map.of("Department", "IT"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

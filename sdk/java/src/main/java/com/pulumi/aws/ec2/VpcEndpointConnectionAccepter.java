@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Accept cross-account request
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointService(&#34;example&#34;, VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
  *             .networkLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
  *             .vpcId(testAlternate.id())
  *             .serviceName(testAwsVpcEndpointService.serviceName())
- *             .vpcEndpointType(&#34;Interface&#34;)
+ *             .vpcEndpointType("Interface")
  *             .privateDnsEnabled(false)
  *             .securityGroupIds(test.id())
  *             .build());
  * 
- *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter(&#34;exampleVpcEndpointConnectionAccepter&#34;, VpcEndpointConnectionAccepterArgs.builder()        
+ *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()        
  *             .vpcEndpointServiceId(example.id())
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

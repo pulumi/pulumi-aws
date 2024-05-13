@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Basic configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,9 +64,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .kafkaconnectVersion(&#34;2.7.1&#34;)
+ *         var example = new Connector("example", ConnectorArgs.builder()        
+ *             .name("example")
+ *             .kafkaconnectVersion("2.7.1")
  *             .capacity(ConnectorCapacityArgs.builder()
  *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
  *                     .mcuCount(1)
@@ -80,9 +81,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .connectorConfiguration(Map.ofEntries(
- *                 Map.entry(&#34;connector.class&#34;, &#34;com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;),
- *                 Map.entry(&#34;topics&#34;, &#34;example&#34;)
+ *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
+ *                 Map.entry("tasks.max", "1"),
+ *                 Map.entry("topics", "example")
  *             ))
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
@@ -97,10 +98,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
- *                 .authenticationType(&#34;NONE&#34;)
+ *                 .authenticationType("NONE")
  *                 .build())
  *             .kafkaClusterEncryptionInTransit(ConnectorKafkaClusterEncryptionInTransitArgs.builder()
- *                 .encryptionType(&#34;TLS&#34;)
+ *                 .encryptionType("TLS")
  *                 .build())
  *             .plugins(ConnectorPluginArgs.builder()
  *                 .customPlugin(ConnectorPluginCustomPluginArgs.builder()
@@ -113,7 +114,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

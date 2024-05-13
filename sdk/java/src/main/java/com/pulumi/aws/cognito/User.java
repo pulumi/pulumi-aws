@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;MyExamplePool&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("MyExamplePool")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
  *             .userPoolId(example.id())
- *             .username(&#34;example&#34;)
+ *             .username("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Setting user attributes
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,19 +93,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;mypool&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("mypool")
  *             .schemas(            
  *                 UserPoolSchemaArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .attributeDataType(&#34;Boolean&#34;)
+ *                     .name("example")
+ *                     .attributeDataType("Boolean")
  *                     .mutable(false)
  *                     .required(false)
  *                     .developerOnlyAttribute(false)
  *                     .build(),
  *                 UserPoolSchemaArgs.builder()
- *                     .name(&#34;foo&#34;)
- *                     .attributeDataType(&#34;String&#34;)
+ *                     .name("foo")
+ *                     .attributeDataType("String")
  *                     .mutable(false)
  *                     .required(false)
  *                     .developerOnlyAttribute(false)
@@ -110,20 +113,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
  *             .userPoolId(example.id())
- *             .username(&#34;example&#34;)
+ *             .username("example")
  *             .attributes(Map.ofEntries(
- *                 Map.entry(&#34;example&#34;, true),
- *                 Map.entry(&#34;foo&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;email&#34;, &#34;no-reply@example.com&#34;),
- *                 Map.entry(&#34;email_verified&#34;, true)
+ *                 Map.entry("example", true),
+ *                 Map.entry("foo", "bar"),
+ *                 Map.entry("email", "no-reply{@literal @}example.com"),
+ *                 Map.entry("email_verified", true)
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

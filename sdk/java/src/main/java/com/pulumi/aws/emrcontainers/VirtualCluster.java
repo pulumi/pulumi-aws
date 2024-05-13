@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualCluster(&#34;example&#34;, VirtualClusterArgs.builder()        
+ *         var example = new VirtualCluster("example", VirtualClusterArgs.builder()        
  *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
  *                 .id(exampleAwsEksCluster.name())
- *                 .type(&#34;EKS&#34;)
+ *                 .type("EKS")
  *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
  *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
- *                         .namespace(&#34;default&#34;)
+ *                         .namespace("default")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

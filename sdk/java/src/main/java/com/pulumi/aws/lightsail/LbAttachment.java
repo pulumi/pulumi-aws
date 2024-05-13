@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
  *                 .build())
  *             .build());
  * 
- *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
- *             .name(&#34;test-load-balancer&#34;)
- *             .healthCheckPath(&#34;/&#34;)
- *             .instancePort(&#34;80&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *         var test = new Lb("test", LbArgs.builder()        
+ *             .name("test-load-balancer")
+ *             .healthCheckPath("/")
+ *             .instancePort("80")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .name(&#34;test-instance&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_3_0&#34;)
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *             .name("test-instance")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testLbAttachment = new LbAttachment(&#34;testLbAttachment&#34;, LbAttachmentArgs.builder()        
+ *         var testLbAttachment = new LbAttachment("testLbAttachment", LbAttachmentArgs.builder()        
  *             .lbName(test.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

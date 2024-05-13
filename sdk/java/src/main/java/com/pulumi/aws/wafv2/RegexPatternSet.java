@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RegexPatternSet(&#34;example&#34;, RegexPatternSetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;Example regex pattern set&#34;)
- *             .scope(&#34;REGIONAL&#34;)
+ *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()        
+ *             .name("example")
+ *             .description("Example regex pattern set")
+ *             .scope("REGIONAL")
  *             .regularExpressions(            
  *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString(&#34;one&#34;)
+ *                     .regexString("one")
  *                     .build(),
  *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString(&#34;two&#34;)
+ *                     .regexString("two")
  *                     .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -127,14 +129,14 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
     @Export(name="regularExpressions", refs={List.class,RegexPatternSetRegularExpression.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexPatternSetRegularExpression>> regularExpressions;
 
     /**
-     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
     public Output<Optional<List<RegexPatternSetRegularExpression>>> regularExpressions() {

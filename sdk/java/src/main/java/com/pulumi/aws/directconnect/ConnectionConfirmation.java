@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,13 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var confirmation = new ConnectionConfirmation(&#34;confirmation&#34;, ConnectionConfirmationArgs.builder()        
- *             .connectionId(&#34;dxcon-ffabc123&#34;)
+ *         var confirmation = new ConnectionConfirmation("confirmation", ConnectionConfirmationArgs.builder()        
+ *             .connectionId("dxcon-ffabc123")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

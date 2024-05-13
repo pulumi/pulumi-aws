@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,38 +42,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Dashboard(&#34;main&#34;, DashboardArgs.builder()        
- *             .dashboardName(&#34;my-dashboard&#34;)
+ *         var main = new Dashboard("main", DashboardArgs.builder()        
+ *             .dashboardName("my-dashboard")
  *             .dashboardBody(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;widgets&#34;, jsonArray(
+ *                     jsonProperty("widgets", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;metric&#34;),
- *                             jsonProperty(&#34;x&#34;, 0),
- *                             jsonProperty(&#34;y&#34;, 0),
- *                             jsonProperty(&#34;width&#34;, 12),
- *                             jsonProperty(&#34;height&#34;, 6),
- *                             jsonProperty(&#34;properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;metrics&#34;, jsonArray(jsonArray(
- *                                     &#34;AWS/EC2&#34;, 
- *                                     &#34;CPUUtilization&#34;, 
- *                                     &#34;InstanceId&#34;, 
- *                                     &#34;i-012345&#34;
+ *                             jsonProperty("type", "metric"),
+ *                             jsonProperty("x", 0),
+ *                             jsonProperty("y", 0),
+ *                             jsonProperty("width", 12),
+ *                             jsonProperty("height", 6),
+ *                             jsonProperty("properties", jsonObject(
+ *                                 jsonProperty("metrics", jsonArray(jsonArray(
+ *                                     "AWS/EC2", 
+ *                                     "CPUUtilization", 
+ *                                     "InstanceId", 
+ *                                     "i-012345"
  *                                 ))),
- *                                 jsonProperty(&#34;period&#34;, 300),
- *                                 jsonProperty(&#34;stat&#34;, &#34;Average&#34;),
- *                                 jsonProperty(&#34;region&#34;, &#34;us-east-1&#34;),
- *                                 jsonProperty(&#34;title&#34;, &#34;EC2 Instance CPU&#34;)
+ *                                 jsonProperty("period", 300),
+ *                                 jsonProperty("stat", "Average"),
+ *                                 jsonProperty("region", "us-east-1"),
+ *                                 jsonProperty("title", "EC2 Instance CPU")
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;text&#34;),
- *                             jsonProperty(&#34;x&#34;, 0),
- *                             jsonProperty(&#34;y&#34;, 7),
- *                             jsonProperty(&#34;width&#34;, 3),
- *                             jsonProperty(&#34;height&#34;, 3),
- *                             jsonProperty(&#34;properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;markdown&#34;, &#34;Hello world&#34;)
+ *                             jsonProperty("type", "text"),
+ *                             jsonProperty("x", 0),
+ *                             jsonProperty("y", 7),
+ *                             jsonProperty("width", 3),
+ *                             jsonProperty("height", 3),
+ *                             jsonProperty("properties", jsonObject(
+ *                                 jsonProperty("markdown", "Hello world")
  *                             ))
  *                         )
  *                     ))
@@ -81,7 +82,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

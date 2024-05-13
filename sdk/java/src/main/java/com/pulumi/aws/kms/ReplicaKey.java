@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Key(&#34;primary&#34;, KeyArgs.builder()        
- *             .description(&#34;Multi-Region primary key&#34;)
+ *         var primary = new Key("primary", KeyArgs.builder()        
+ *             .description("Multi-Region primary key")
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
  *             .build());
  * 
- *         var replica = new ReplicaKey(&#34;replica&#34;, ReplicaKeyArgs.builder()        
- *             .description(&#34;Multi-Region replica key&#34;)
+ *         var replica = new ReplicaKey("replica", ReplicaKeyArgs.builder()        
+ *             .description("Multi-Region replica key")
  *             .deletionWindowInDays(7)
  *             .primaryKeyArn(primary.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

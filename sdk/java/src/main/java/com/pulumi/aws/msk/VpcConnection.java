@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VpcConnection(&#34;test&#34;, VpcConnectionArgs.builder()        
- *             .authentication(&#34;SASL_IAM&#34;)
- *             .targetClusterArn(&#34;aws_msk_cluster.arn&#34;)
+ *         var test = new VpcConnection("test", VpcConnectionArgs.builder()        
+ *             .authentication("SASL_IAM")
+ *             .targetClusterArn("aws_msk_cluster.arn")
  *             .vpcId(testAwsVpc.id())
- *             .clientSubnets(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .clientSubnets(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .securityGroups(testAwsSecurityGroup.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

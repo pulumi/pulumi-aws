@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,74 +61,75 @@ import javax.annotation.Nullable;
  *         final var example = AwsFunctions.getRegion();
  * 
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
  *                 .build())
  *             .build());
  * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Primary&#34;))
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
+ *             .tags(Map.of("Name", "Primary"))
  *             .build());
  * 
- *         for (var i = 0; i &lt; 2; i++) {
- *             new Subnet(&#34;exampleSubnet-&#34; + i, SubnetArgs.builder()            
+ *         for (var i = 0; i < 2; i++) {
+ *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()            
  *                 .vpcId(exampleVpc.id())
- *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names())[range.value()])
- *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
- *                 .tags(Map.of(&#34;Name&#34;, &#34;Primary&#34;))
+ *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
+ *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .tags(Map.of("Name", "Primary"))
  *                 .build());
  * 
  *         
  * }
- *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;example.com&#34;)
- *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()        
+ *             .name("example.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .type("MicrosoftAD")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleVpc.id())
- *                 .subnetIds(exampleSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(exampleSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .build());
  * 
  *         final var available-secondary = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
  *                 .build())
  *             .build());
  * 
- *         var example_secondary = new Vpc(&#34;example-secondary&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *         var example_secondary = new Vpc("example-secondary", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
+ *             .tags(Map.of("Name", "Secondary"))
  *             .build());
  * 
- *         for (var i = 0; i &lt; 2; i++) {
- *             new Subnet(&#34;example-secondarySubnet-&#34; + i, SubnetArgs.builder()            
+ *         for (var i = 0; i < 2; i++) {
+ *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()            
  *                 .vpcId(example_secondary.id())
  *                 .availabilityZone(available_secondary.names()[range.value()])
- *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
- *                 .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .tags(Map.of("Name", "Secondary"))
  *                 .build());
  * 
  *         
  * }
- *         var exampleServiceRegion = new ServiceRegion(&#34;exampleServiceRegion&#34;, ServiceRegionArgs.builder()        
+ *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()        
  *             .directoryId(exampleDirectory.id())
- *             .regionName(example.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .regionName(example.applyValue(getRegionResult -> getRegionResult.name()))
  *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()
  *                 .vpcId(example_secondary.id())
- *                 .subnetIds(example_secondarySubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(example_secondarySubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Secondary&#34;))
+ *             .tags(Map.of("Name", "Secondary"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

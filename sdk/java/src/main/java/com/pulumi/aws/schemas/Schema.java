@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Registry(&#34;test&#34;, RegistryArgs.builder()        
- *             .name(&#34;my_own_registry&#34;)
+ *         var test = new Registry("test", RegistryArgs.builder()        
+ *             .name("my_own_registry")
  *             .build());
  * 
- *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .name(&#34;my_schema&#34;)
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()        
+ *             .name("my_schema")
  *             .registryName(test.name())
- *             .type(&#34;OpenApi3&#34;)
- *             .description(&#34;The schema definition for my event&#34;)
+ *             .type("OpenApi3")
+ *             .description("The schema definition for my event")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.0&#34;),
- *                     jsonProperty(&#34;info&#34;, jsonObject(
- *                         jsonProperty(&#34;version&#34;, &#34;1.0.0&#34;),
- *                         jsonProperty(&#34;title&#34;, &#34;Event&#34;)
+ *                     jsonProperty("openapi", "3.0.0"),
+ *                     jsonProperty("info", jsonObject(
+ *                         jsonProperty("version", "1.0.0"),
+ *                         jsonProperty("title", "Event")
  *                     )),
- *                     jsonProperty(&#34;paths&#34;, jsonObject(
+ *                     jsonProperty("paths", jsonObject(
  * 
  *                     )),
- *                     jsonProperty(&#34;components&#34;, jsonObject(
- *                         jsonProperty(&#34;schemas&#34;, jsonObject(
- *                             jsonProperty(&#34;Event&#34;, jsonObject(
- *                                 jsonProperty(&#34;type&#34;, &#34;object&#34;),
- *                                 jsonProperty(&#34;properties&#34;, jsonObject(
- *                                     jsonProperty(&#34;name&#34;, jsonObject(
- *                                         jsonProperty(&#34;type&#34;, &#34;string&#34;)
+ *                     jsonProperty("components", jsonObject(
+ *                         jsonProperty("schemas", jsonObject(
+ *                             jsonProperty("Event", jsonObject(
+ *                                 jsonProperty("type", "object"),
+ *                                 jsonProperty("properties", jsonObject(
+ *                                     jsonProperty("name", jsonObject(
+ *                                         jsonProperty("type", "string")
  *                                     ))
  *                                 ))
  *                             ))
@@ -83,7 +84,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -154,14 +156,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.lastModified;
     }
     /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+     * @return The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
      * 
      */
     public Output<String> name() {

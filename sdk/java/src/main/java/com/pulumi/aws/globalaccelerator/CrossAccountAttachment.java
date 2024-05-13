@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment(&#34;example&#34;, CrossAccountAttachmentArgs.builder()        
- *             .name(&#34;example-cross-account-attachment&#34;)
+ *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()        
+ *             .name("example-cross-account-attachment")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage with Optional Arguments
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,18 +83,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment(&#34;example&#34;, CrossAccountAttachmentArgs.builder()        
- *             .name(&#34;example-cross-account-attachment&#34;)
- *             .principals(&#34;123456789012&#34;)
+ *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()        
+ *             .name("example-cross-account-attachment")
+ *             .principals("123456789012")
  *             .resources(CrossAccountAttachmentResourceArgs.builder()
- *                 .endpointId(&#34;arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188&#34;)
- *                 .region(&#34;us-west-2&#34;)
+ *                 .endpointId("arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188")
+ *                 .region("us-west-2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

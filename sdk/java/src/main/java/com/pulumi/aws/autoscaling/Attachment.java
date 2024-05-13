@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer attachment
- *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
+ *         var example = new Attachment("example", AttachmentArgs.builder()        
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .elb(exampleAwsElb.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,14 +80,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new ALB Target Group attachment
- *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
+ *         var example = new Attachment("example", AttachmentArgs.builder()        
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .lbTargetGroupArn(exampleAwsLbTargetGroup.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

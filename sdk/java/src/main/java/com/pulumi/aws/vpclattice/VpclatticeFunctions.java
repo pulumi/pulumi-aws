@@ -34,7 +34,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -61,7 +62,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -76,7 +78,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -103,7 +106,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -145,7 +150,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -160,7 +166,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -187,7 +194,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -202,7 +210,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -227,7 +236,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -242,7 +252,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,7 +278,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -282,7 +294,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -307,7 +320,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -322,7 +336,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,7 +362,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -362,7 +378,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -389,7 +406,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -404,7 +422,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -431,7 +450,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +466,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -473,7 +494,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +510,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -515,7 +538,8 @@ public final class VpclatticeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -530,7 +554,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -552,12 +577,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -572,7 +598,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -594,12 +621,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -614,7 +642,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -636,12 +665,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -656,7 +686,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -678,12 +709,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -698,7 +730,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -720,12 +753,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -740,7 +774,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -762,12 +797,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -782,7 +818,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -804,12 +841,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
+     *             .serviceNetworkIdentifier("snsa-01112223334445556")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -824,7 +862,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -846,12 +885,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
+     *             .serviceNetworkIdentifier("snsa-01112223334445556")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -866,7 +906,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -888,12 +929,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
+     *             .serviceNetworkIdentifier("snsa-01112223334445556")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -908,7 +950,8 @@ public final class VpclatticeFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -930,12 +973,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
+     *             .serviceNetworkIdentifier("snsa-01112223334445556")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

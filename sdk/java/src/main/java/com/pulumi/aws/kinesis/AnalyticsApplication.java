@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ### Kinesis Stream Input
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,15 +66,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
- *             .name(&#34;kinesis-test&#34;)
+ *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *             .name("kinesis-test")
  *             .shardCount(1)
  *             .build());
  * 
- *         var testApplication = new AnalyticsApplication(&#34;testApplication&#34;, AnalyticsApplicationArgs.builder()        
- *             .name(&#34;kinesis-analytics-application-test&#34;)
+ *         var testApplication = new AnalyticsApplication("testApplication", AnalyticsApplicationArgs.builder()        
+ *             .name("kinesis-analytics-application-test")
  *             .inputs(AnalyticsApplicationInputsArgs.builder()
- *                 .namePrefix(&#34;test_prefix&#34;)
+ *                 .namePrefix("test_prefix")
  *                 .kinesisStream(AnalyticsApplicationInputsKinesisStreamArgs.builder()
  *                     .resourceArn(testStream.arn())
  *                     .roleArn(test.arn())
@@ -83,15 +84,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .schema(AnalyticsApplicationInputsSchemaArgs.builder()
  *                     .recordColumns(AnalyticsApplicationInputsSchemaRecordColumnArgs.builder()
- *                         .mapping(&#34;$.test&#34;)
- *                         .name(&#34;test&#34;)
- *                         .sqlType(&#34;VARCHAR(8)&#34;)
+ *                         .mapping("$.test")
+ *                         .name("test")
+ *                         .sqlType("VARCHAR(8)")
  *                         .build())
- *                     .recordEncoding(&#34;UTF-8&#34;)
+ *                     .recordEncoding("UTF-8")
  *                     .recordFormat(AnalyticsApplicationInputsSchemaRecordFormatArgs.builder()
  *                         .mappingParameters(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.builder()
  *                             .json(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs.builder()
- *                                 .recordRowPath(&#34;$&#34;)
+ *                                 .recordRowPath("$")
  *                                 .build())
  *                             .build())
  *                         .build())
@@ -101,13 +102,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Starting An Application
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,47 +150,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(&#34;analytics&#34;)
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name("analytics")
  *             .build());
  * 
- *         var exampleLogStream = new LogStream(&#34;exampleLogStream&#34;, LogStreamArgs.builder()        
- *             .name(&#34;example-kinesis-application&#34;)
+ *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()        
+ *             .name("example-kinesis-application")
  *             .logGroupName(example.name())
  *             .build());
  * 
- *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
- *             .name(&#34;example-kinesis-stream&#34;)
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *             .name("example-kinesis-stream")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .name(&#34;example-kinesis-delivery-stream&#34;)
- *             .destination(&#34;extended_s3&#34;)
+ *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()        
+ *             .name("example-kinesis-delivery-stream")
+ *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .bucketArn(exampleAwsS3Bucket.arn())
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
- *         var test = new AnalyticsApplication(&#34;test&#34;, AnalyticsApplicationArgs.builder()        
- *             .name(&#34;example-application&#34;)
+ *         var test = new AnalyticsApplication("test", AnalyticsApplicationArgs.builder()        
+ *             .name("example-application")
  *             .cloudwatchLoggingOptions(AnalyticsApplicationCloudwatchLoggingOptionsArgs.builder()
  *                 .logStreamArn(exampleLogStream.arn())
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .inputs(AnalyticsApplicationInputsArgs.builder()
- *                 .namePrefix(&#34;example_prefix&#34;)
+ *                 .namePrefix("example_prefix")
  *                 .schema(AnalyticsApplicationInputsSchemaArgs.builder()
  *                     .recordColumns(AnalyticsApplicationInputsSchemaRecordColumnArgs.builder()
- *                         .name(&#34;COLUMN_1&#34;)
- *                         .sqlType(&#34;INTEGER&#34;)
+ *                         .name("COLUMN_1")
+ *                         .sqlType("INTEGER")
  *                         .build())
  *                     .recordFormat(AnalyticsApplicationInputsSchemaRecordFormatArgs.builder()
  *                         .mappingParameters(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.builder()
  *                             .csv(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.builder()
- *                                 .recordColumnDelimiter(&#34;,&#34;)
- *                                 .recordRowDelimiter(&#34;|&#34;)
+ *                                 .recordColumnDelimiter(",")
+ *                                 .recordRowDelimiter("|")
  *                                 .build())
  *                             .build())
  *                         .build())
@@ -197,13 +200,13 @@ import javax.annotation.Nullable;
  *                     .roleArn(exampleAwsIamRole.arn())
  *                     .build())
  *                 .startingPositionConfigurations(AnalyticsApplicationInputsStartingPositionConfigurationArgs.builder()
- *                     .startingPosition(&#34;NOW&#34;)
+ *                     .startingPosition("NOW")
  *                     .build())
  *                 .build())
  *             .outputs(AnalyticsApplicationOutputArgs.builder()
- *                 .name(&#34;OUTPUT_1&#34;)
+ *                 .name("OUTPUT_1")
  *                 .schema(AnalyticsApplicationOutputSchemaArgs.builder()
- *                     .recordFormatType(&#34;CSV&#34;)
+ *                     .recordFormatType("CSV")
  *                     .build())
  *                 .kinesisFirehose(AnalyticsApplicationOutputKinesisFirehoseArgs.builder()
  *                     .resourceArn(exampleFirehoseDeliveryStream.arn())
@@ -215,7 +218,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

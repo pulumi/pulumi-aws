@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceSet(&#34;example&#34;, ResourceSetArgs.builder()        
+ *         var example = new ResourceSet("example", ResourceSetArgs.builder()        
  *             .resourceSetName(my_cw_alarm_set)
- *             .resourceSetType(&#34;AWS::CloudWatch::Alarm&#34;)
+ *             .resourceSetType("AWS::CloudWatch::Alarm")
  *             .resources(ResourceSetResourceArgs.builder()
  *                 .resourceArn(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .build())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

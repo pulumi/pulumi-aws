@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Alias Name
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisionedConcurrencyConfig(&#34;example&#34;, ProvisionedConcurrencyConfigArgs.builder()        
+ *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .provisionedConcurrentExecutions(1)
  *             .qualifier(exampleAwsLambdaAlias.name())
@@ -55,13 +56,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Function Version
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisionedConcurrencyConfig(&#34;example&#34;, ProvisionedConcurrencyConfigArgs.builder()        
+ *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()        
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .provisionedConcurrentExecutions(1)
  *             .qualifier(exampleAwsLambdaFunction.version())
@@ -90,7 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

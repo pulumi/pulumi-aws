@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterIamRoles(&#34;example&#34;, ClusterIamRolesArgs.builder()        
+ *         var example = new ClusterIamRoles("example", ClusterIamRolesArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .iamRoleArns(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

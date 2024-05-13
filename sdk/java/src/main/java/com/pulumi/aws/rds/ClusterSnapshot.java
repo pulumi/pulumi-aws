@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,14 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterSnapshot(&#34;example&#34;, ClusterSnapshotArgs.builder()        
+ *         var example = new ClusterSnapshot("example", ClusterSnapshotArgs.builder()        
  *             .dbClusterIdentifier(exampleAwsRdsCluster.id())
- *             .dbClusterSnapshotIdentifier(&#34;resourcetestsnapshot1234&#34;)
+ *             .dbClusterSnapshotIdentifier("resourcetestsnapshot1234")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

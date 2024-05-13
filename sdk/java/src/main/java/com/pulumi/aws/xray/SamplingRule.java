@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SamplingRule(&#34;example&#34;, SamplingRuleArgs.builder()        
- *             .ruleName(&#34;example&#34;)
+ *         var example = new SamplingRule("example", SamplingRuleArgs.builder()        
+ *             .ruleName("example")
  *             .priority(9999)
  *             .version(1)
  *             .reservoirSize(1)
  *             .fixedRate(0.05)
- *             .urlPath(&#34;*&#34;)
- *             .host(&#34;*&#34;)
- *             .httpMethod(&#34;*&#34;)
- *             .serviceType(&#34;*&#34;)
- *             .serviceName(&#34;*&#34;)
- *             .resourceArn(&#34;*&#34;)
- *             .attributes(Map.of(&#34;Hello&#34;, &#34;Tris&#34;))
+ *             .urlPath("*")
+ *             .host("*")
+ *             .httpMethod("*")
+ *             .serviceType("*")
+ *             .serviceName("*")
+ *             .resourceArn("*")
+ *             .attributes(Map.of("Hello", "Tris"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

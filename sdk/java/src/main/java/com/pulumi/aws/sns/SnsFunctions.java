@@ -22,7 +22,8 @@ public final class SnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,12 +45,13 @@ public final class SnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;an_example_topic&#34;)
+     *             .name("an_example_topic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -64,7 +66,8 @@ public final class SnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,12 +89,13 @@ public final class SnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;an_example_topic&#34;)
+     *             .name("an_example_topic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class SnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,12 +133,13 @@ public final class SnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;an_example_topic&#34;)
+     *             .name("an_example_topic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -148,7 +154,8 @@ public final class SnsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -170,12 +177,13 @@ public final class SnsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;an_example_topic&#34;)
+     *             .name("an_example_topic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

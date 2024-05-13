@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .name(&#34;ngrok-connection&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .authorizationType(&#34;API_KEY&#34;)
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("API_KEY")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
- *                     .key(&#34;x-signature&#34;)
- *                     .value(&#34;1234&#34;)
+ *                     .key("x-signature")
+ *                     .value("1234")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Authorization
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,27 +92,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .name(&#34;ngrok-connection&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .authorizationType(&#34;BASIC&#34;)
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .username(&#34;user&#34;)
- *                     .password(&#34;Pass1234!&#34;)
+ *                     .username("user")
+ *                     .password("Pass1234!")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### OAuth Authorization
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,32 +139,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .name(&#34;ngrok-connection&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .authorizationType(&#34;OAUTH_CLIENT_CREDENTIALS&#34;)
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint(&#34;https://auth.url.com/endpoint&#34;)
- *                     .httpMethod(&#34;GET&#34;)
+ *                     .authorizationEndpoint("https://auth.url.com/endpoint")
+ *                     .httpMethod("GET")
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
- *                         .clientId(&#34;1234567890&#34;)
- *                         .clientSecret(&#34;Pass1234!&#34;)
+ *                         .clientId("1234567890")
+ *                         .clientSecret("Pass1234!")
  *                         .build())
  *                     .oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs.builder()
  *                         .bodies(EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs.builder()
- *                             .key(&#34;body-parameter-key&#34;)
- *                             .value(&#34;body-parameter-value&#34;)
+ *                             .key("body-parameter-key")
+ *                             .value("body-parameter-value")
  *                             .isValueSecret(false)
  *                             .build())
  *                         .headers(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs.builder()
- *                             .key(&#34;header-parameter-key&#34;)
- *                             .value(&#34;header-parameter-value&#34;)
+ *                             .key("header-parameter-key")
+ *                             .value("header-parameter-value")
  *                             .isValueSecret(false)
  *                             .build())
  *                         .queryStrings(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs.builder()
- *                             .key(&#34;query-string-parameter-key&#34;)
- *                             .value(&#34;query-string-parameter-value&#34;)
+ *                             .key("query-string-parameter-key")
+ *                             .value("query-string-parameter-value")
  *                             .isValueSecret(false)
  *                             .build())
  *                         .build())
@@ -169,13 +174,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Invocation Http Parameters
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -199,35 +206,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .name(&#34;ngrok-connection&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .authorizationType(&#34;BASIC&#34;)
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .username(&#34;user&#34;)
- *                     .password(&#34;Pass1234!&#34;)
+ *                     .username("user")
+ *                     .password("Pass1234!")
  *                     .build())
  *                 .invocationHttpParameters(EventConnectionAuthParametersInvocationHttpParametersArgs.builder()
  *                     .bodies(                    
  *                         EventConnectionAuthParametersInvocationHttpParametersBodyArgs.builder()
- *                             .key(&#34;body-parameter-key&#34;)
- *                             .value(&#34;body-parameter-value&#34;)
+ *                             .key("body-parameter-key")
+ *                             .value("body-parameter-value")
  *                             .isValueSecret(false)
  *                             .build(),
  *                         EventConnectionAuthParametersInvocationHttpParametersBodyArgs.builder()
- *                             .key(&#34;body-parameter-key2&#34;)
- *                             .value(&#34;body-parameter-value2&#34;)
+ *                             .key("body-parameter-key2")
+ *                             .value("body-parameter-value2")
  *                             .isValueSecret(true)
  *                             .build())
  *                     .headers(EventConnectionAuthParametersInvocationHttpParametersHeaderArgs.builder()
- *                         .key(&#34;header-parameter-key&#34;)
- *                         .value(&#34;header-parameter-value&#34;)
+ *                         .key("header-parameter-key")
+ *                         .value("header-parameter-value")
  *                         .isValueSecret(false)
  *                         .build())
  *                     .queryStrings(EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs.builder()
- *                         .key(&#34;query-string-parameter-key&#34;)
- *                         .value(&#34;query-string-parameter-value&#34;)
+ *                         .key("query-string-parameter-key")
+ *                         .value("query-string-parameter-value")
  *                         .isValueSecret(false)
  *                         .build())
  *                     .build())
@@ -236,7 +243,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

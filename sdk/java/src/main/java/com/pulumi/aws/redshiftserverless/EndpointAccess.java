@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EndpointAccess(&#34;example&#34;, EndpointAccessArgs.builder()        
- *             .endpointName(&#34;example&#34;)
- *             .workgroupName(&#34;example&#34;)
+ *         var example = new EndpointAccess("example", EndpointAccessArgs.builder()        
+ *             .endpointName("example")
+ *             .workgroupName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

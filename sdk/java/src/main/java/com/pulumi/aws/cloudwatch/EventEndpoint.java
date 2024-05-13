@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,8 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new EventEndpoint(&#34;this&#34;, EventEndpointArgs.builder()        
- *             .name(&#34;global-endpoint&#34;)
+ *         var this_ = new EventEndpoint("this", EventEndpointArgs.builder()        
+ *             .name("global-endpoint")
  *             .roleArn(replication.arn())
  *             .eventBuses(            
  *                 EventEndpointEventBusArgs.builder()
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  *                     .eventBusArn(secondary.arn())
  *                     .build())
  *             .replicationConfig(EventEndpointReplicationConfigArgs.builder()
- *                 .state(&#34;DISABLED&#34;)
+ *                 .state("DISABLED")
  *                 .build())
  *             .routingConfig(EventEndpointRoutingConfigArgs.builder()
  *                 .failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs.builder()
@@ -72,7 +73,7 @@ import javax.annotation.Nullable;
  *                         .healthCheck(primaryAwsRoute53HealthCheck.arn())
  *                         .build())
  *                     .secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs.builder()
- *                         .route(&#34;us-east-2&#34;)
+ *                         .route("us-east-2")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

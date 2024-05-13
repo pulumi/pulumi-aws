@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new GangliaLayer(&#34;monitor&#34;, GangliaLayerArgs.builder()        
+ *         var monitor = new GangliaLayer("monitor", GangliaLayerArgs.builder()        
  *             .stackId(main.id())
- *             .password(&#34;foobarbaz&#34;)
+ *             .password("foobarbaz")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

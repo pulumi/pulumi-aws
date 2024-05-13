@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventConfigurations(&#34;example&#34;, EventConfigurationsArgs.builder()        
+ *         var example = new EventConfigurations("example", EventConfigurationsArgs.builder()        
  *             .eventConfigurations(Map.ofEntries(
- *                 Map.entry(&#34;THING&#34;, true),
- *                 Map.entry(&#34;THING_GROUP&#34;, false),
- *                 Map.entry(&#34;THING_TYPE&#34;, false),
- *                 Map.entry(&#34;THING_GROUP_MEMBERSHIP&#34;, false),
- *                 Map.entry(&#34;THING_GROUP_HIERARCHY&#34;, false),
- *                 Map.entry(&#34;THING_TYPE_ASSOCIATION&#34;, false),
- *                 Map.entry(&#34;JOB&#34;, false),
- *                 Map.entry(&#34;JOB_EXECUTION&#34;, false),
- *                 Map.entry(&#34;POLICY&#34;, false),
- *                 Map.entry(&#34;CERTIFICATE&#34;, true),
- *                 Map.entry(&#34;CA_CERTIFICATE&#34;, false)
+ *                 Map.entry("THING", true),
+ *                 Map.entry("THING_GROUP", false),
+ *                 Map.entry("THING_TYPE", false),
+ *                 Map.entry("THING_GROUP_MEMBERSHIP", false),
+ *                 Map.entry("THING_GROUP_HIERARCHY", false),
+ *                 Map.entry("THING_TYPE_ASSOCIATION", false),
+ *                 Map.entry("JOB", false),
+ *                 Map.entry("JOB_EXECUTION", false),
+ *                 Map.entry("POLICY", false),
+ *                 Map.entry("CERTIFICATE", true),
+ *                 Map.entry("CA_CERTIFICATE", false)
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Freeform
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,32 +47,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion(&#34;example&#34;, HostedConfigurationVersionArgs.builder()        
+ *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()        
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .description(&#34;Example Freeform Hosted Configuration Version&#34;)
- *             .contentType(&#34;application/json&#34;)
+ *             .description("Example Freeform Hosted Configuration Version")
+ *             .contentType("application/json")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;foo&#34;, &#34;bar&#34;),
- *                     jsonProperty(&#34;fruit&#34;, jsonArray(
- *                         &#34;apple&#34;, 
- *                         &#34;pear&#34;, 
- *                         &#34;orange&#34;
+ *                     jsonProperty("foo", "bar"),
+ *                     jsonProperty("fruit", jsonArray(
+ *                         "apple", 
+ *                         "pear", 
+ *                         "orange"
  *                     )),
- *                     jsonProperty(&#34;isThingEnabled&#34;, true)
+ *                     jsonProperty("isThingEnabled", true)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Feature Flags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,55 +96,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion(&#34;example&#34;, HostedConfigurationVersionArgs.builder()        
+ *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()        
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .description(&#34;Example Feature Flag Configuration Version&#34;)
- *             .contentType(&#34;application/json&#34;)
+ *             .description("Example Feature Flag Configuration Version")
+ *             .contentType("application/json")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;flags&#34;, jsonObject(
- *                         jsonProperty(&#34;foo&#34;, jsonObject(
- *                             jsonProperty(&#34;name&#34;, &#34;foo&#34;),
- *                             jsonProperty(&#34;_deprecation&#34;, jsonObject(
- *                                 jsonProperty(&#34;status&#34;, &#34;planned&#34;)
+ *                     jsonProperty("flags", jsonObject(
+ *                         jsonProperty("foo", jsonObject(
+ *                             jsonProperty("name", "foo"),
+ *                             jsonProperty("_deprecation", jsonObject(
+ *                                 jsonProperty("status", "planned")
  *                             ))
  *                         )),
- *                         jsonProperty(&#34;bar&#34;, jsonObject(
- *                             jsonProperty(&#34;name&#34;, &#34;bar&#34;),
- *                             jsonProperty(&#34;attributes&#34;, jsonObject(
- *                                 jsonProperty(&#34;someAttribute&#34;, jsonObject(
- *                                     jsonProperty(&#34;constraints&#34;, jsonObject(
- *                                         jsonProperty(&#34;type&#34;, &#34;string&#34;),
- *                                         jsonProperty(&#34;required&#34;, true)
+ *                         jsonProperty("bar", jsonObject(
+ *                             jsonProperty("name", "bar"),
+ *                             jsonProperty("attributes", jsonObject(
+ *                                 jsonProperty("someAttribute", jsonObject(
+ *                                     jsonProperty("constraints", jsonObject(
+ *                                         jsonProperty("type", "string"),
+ *                                         jsonProperty("required", true)
  *                                     ))
  *                                 )),
- *                                 jsonProperty(&#34;someOtherAttribute&#34;, jsonObject(
- *                                     jsonProperty(&#34;constraints&#34;, jsonObject(
- *                                         jsonProperty(&#34;type&#34;, &#34;number&#34;),
- *                                         jsonProperty(&#34;required&#34;, true)
+ *                                 jsonProperty("someOtherAttribute", jsonObject(
+ *                                     jsonProperty("constraints", jsonObject(
+ *                                         jsonProperty("type", "number"),
+ *                                         jsonProperty("required", true)
  *                                     ))
  *                                 ))
  *                             ))
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;values&#34;, jsonObject(
- *                         jsonProperty(&#34;foo&#34;, jsonObject(
- *                             jsonProperty(&#34;enabled&#34;, &#34;true&#34;)
+ *                     jsonProperty("values", jsonObject(
+ *                         jsonProperty("foo", jsonObject(
+ *                             jsonProperty("enabled", "true")
  *                         )),
- *                         jsonProperty(&#34;bar&#34;, jsonObject(
- *                             jsonProperty(&#34;enabled&#34;, &#34;true&#34;),
- *                             jsonProperty(&#34;someAttribute&#34;, &#34;Hello World&#34;),
- *                             jsonProperty(&#34;someOtherAttribute&#34;, 123)
+ *                         jsonProperty("bar", jsonObject(
+ *                             jsonProperty("enabled", "true"),
+ *                             jsonProperty("someAttribute", "Hello World"),
+ *                             jsonProperty("someOtherAttribute", 123)
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;version&#34;, &#34;1&#34;)
+ *                     jsonProperty("version", "1")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

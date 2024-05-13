@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic S3
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Access(&#34;example&#34;, AccessArgs.builder()        
- *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
+ *         var example = new Access("example", AccessArgs.builder()        
+ *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
  *             .serverId(exampleAwsTransferServer.id())
  *             .role(exampleAwsIamRole.arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, exampleAwsS3Bucket.id()))
+ *             .homeDirectory(String.format("/%s/", exampleAwsS3Bucket.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic EFS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,11 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Access(&#34;test&#34;, AccessArgs.builder()        
- *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
+ *         var test = new Access("test", AccessArgs.builder()        
+ *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
  *             .serverId(testAwsTransferServer.id())
  *             .role(testAwsIamRole.arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, testAwsEfsFileSystem.id()))
+ *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
  *             .posixProfile(AccessPosixProfileArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)
@@ -98,7 +101,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

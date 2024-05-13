@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceNetworkVpcAssociation(&#34;example&#34;, ServiceNetworkVpcAssociationArgs.builder()        
+ *         var example = new ServiceNetworkVpcAssociation("example", ServiceNetworkVpcAssociationArgs.builder()        
  *             .vpcIdentifier(exampleAwsVpc.id())
  *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
@@ -53,7 +54,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

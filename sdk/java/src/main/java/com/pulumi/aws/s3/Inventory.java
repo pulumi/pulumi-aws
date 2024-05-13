@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Add inventory configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,24 +56,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *         var inventory = new BucketV2("inventory", BucketV2Args.builder()        
+ *             .bucket("my-tf-inventory-bucket")
  *             .build());
  * 
- *         var testInventory = new Inventory(&#34;testInventory&#34;, InventoryArgs.builder()        
+ *         var testInventory = new Inventory("testInventory", InventoryArgs.builder()        
  *             .bucket(test.id())
- *             .name(&#34;EntireBucketDaily&#34;)
- *             .includedObjectVersions(&#34;All&#34;)
+ *             .name("EntireBucketDaily")
+ *             .includedObjectVersions("All")
  *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
+ *                 .frequency("Daily")
  *                 .build())
  *             .destination(InventoryDestinationArgs.builder()
  *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format(&#34;ORC&#34;)
+ *                     .format("ORC")
  *                     .bucketArn(inventory.arn())
  *                     .build())
  *                 .build())
@@ -80,13 +81,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Add inventory configuration with S3 object prefix
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -113,36 +116,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *         var inventory = new BucketV2("inventory", BucketV2Args.builder()        
+ *             .bucket("my-tf-inventory-bucket")
  *             .build());
  * 
- *         var test_prefix = new Inventory(&#34;test-prefix&#34;, InventoryArgs.builder()        
+ *         var test_prefix = new Inventory("test-prefix", InventoryArgs.builder()        
  *             .bucket(test.id())
- *             .name(&#34;DocumentsWeekly&#34;)
- *             .includedObjectVersions(&#34;All&#34;)
+ *             .name("DocumentsWeekly")
+ *             .includedObjectVersions("All")
  *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
+ *                 .frequency("Daily")
  *                 .build())
  *             .filter(InventoryFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
+ *                 .prefix("documents/")
  *                 .build())
  *             .destination(InventoryDestinationArgs.builder()
  *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format(&#34;ORC&#34;)
+ *                     .format("ORC")
  *                     .bucketArn(inventory.arn())
- *                     .prefix(&#34;inventory&#34;)
+ *                     .prefix("inventory")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

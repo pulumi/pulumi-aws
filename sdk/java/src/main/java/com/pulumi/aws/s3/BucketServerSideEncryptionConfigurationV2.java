@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,28 +54,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mykey = new Key(&#34;mykey&#34;, KeyArgs.builder()        
- *             .description(&#34;This key is used to encrypt bucket objects&#34;)
+ *         var mykey = new Key("mykey", KeyArgs.builder()        
+ *             .description("This key is used to encrypt bucket objects")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new BucketV2(&#34;mybucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()        
+ *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketServerSideEncryptionConfigurationV2(&#34;example&#34;, BucketServerSideEncryptionConfigurationV2Args.builder()        
+ *         var example = new BucketServerSideEncryptionConfigurationV2("example", BucketServerSideEncryptionConfigurationV2Args.builder()        
  *             .bucket(mybucket.id())
  *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
  *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                     .kmsMasterKeyId(mykey.arn())
- *                     .sseAlgorithm(&#34;aws:kms&#34;)
+ *                     .sseAlgorithm("aws:kms")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

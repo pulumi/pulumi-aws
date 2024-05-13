@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * Usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,19 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lc = new NotebookInstanceLifecycleConfiguration(&#34;lc&#34;, NotebookInstanceLifecycleConfigurationArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var lc = new NotebookInstanceLifecycleConfiguration("lc", NotebookInstanceLifecycleConfigurationArgs.builder()        
+ *             .name("foo")
  *             .onCreate(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(&#34;echo foo&#34;)
+ *                 .input("echo foo")
  *                 .build()).result())
  *             .onStart(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(&#34;echo bar&#34;)
+ *                 .input("echo bar")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

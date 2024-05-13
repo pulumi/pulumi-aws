@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -75,132 +76,132 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;codebuild.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("codebuild.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;logs:CreateLogGroup&#34;,
- *                         &#34;logs:CreateLogStream&#34;,
- *                         &#34;logs:PutLogEvents&#34;)
- *                     .resources(&#34;*&#34;)
+ *                         "logs:CreateLogGroup",
+ *                         "logs:CreateLogStream",
+ *                         "logs:PutLogEvents")
+ *                     .resources("*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;ec2:CreateNetworkInterface&#34;,
- *                         &#34;ec2:DescribeDhcpOptions&#34;,
- *                         &#34;ec2:DescribeNetworkInterfaces&#34;,
- *                         &#34;ec2:DeleteNetworkInterface&#34;,
- *                         &#34;ec2:DescribeSubnets&#34;,
- *                         &#34;ec2:DescribeSecurityGroups&#34;,
- *                         &#34;ec2:DescribeVpcs&#34;)
- *                     .resources(&#34;*&#34;)
+ *                         "ec2:CreateNetworkInterface",
+ *                         "ec2:DescribeDhcpOptions",
+ *                         "ec2:DescribeNetworkInterfaces",
+ *                         "ec2:DeleteNetworkInterface",
+ *                         "ec2:DescribeSubnets",
+ *                         "ec2:DescribeSecurityGroups",
+ *                         "ec2:DescribeVpcs")
+ *                     .resources("*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;ec2:CreateNetworkInterfacePermission&#34;)
- *                     .resources(&#34;arn:aws:ec2:us-east-1:123456789012:network-interface/*&#34;)
+ *                     .effect("Allow")
+ *                     .actions("ec2:CreateNetworkInterfacePermission")
+ *                     .resources("arn:aws:ec2:us-east-1:123456789012:network-interface/*")
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test(&#34;StringEquals&#34;)
- *                             .variable(&#34;ec2:Subnet&#34;)
+ *                             .test("StringEquals")
+ *                             .variable("ec2:Subnet")
  *                             .values(                            
  *                                 example1.arn(),
  *                                 example2.arn())
  *                             .build(),
  *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test(&#34;StringEquals&#34;)
- *                             .variable(&#34;ec2:AuthorizedService&#34;)
- *                             .values(&#34;codebuild.amazonaws.com&#34;)
+ *                             .test("StringEquals")
+ *                             .variable("ec2:AuthorizedService")
+ *                             .values("codebuild.amazonaws.com")
  *                             .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;s3:*&#34;)
+ *                     .effect("Allow")
+ *                     .actions("s3:*")
  *                     .resources(                    
  *                         exampleBucketV2.arn(),
- *                         exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                         exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
  *             .role(exampleRole.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .name(&#34;test-project&#34;)
- *             .description(&#34;test_codebuild_project&#34;)
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *             .name("test-project")
+ *             .description("test_codebuild_project")
  *             .buildTimeout(5)
  *             .serviceRole(exampleRole.arn())
  *             .artifacts(ProjectArtifactsArgs.builder()
- *                 .type(&#34;NO_ARTIFACTS&#34;)
+ *                 .type("NO_ARTIFACTS")
  *                 .build())
  *             .cache(ProjectCacheArgs.builder()
- *                 .type(&#34;S3&#34;)
+ *                 .type("S3")
  *                 .location(exampleBucketV2.bucket())
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
- *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
- *                 .type(&#34;LINUX_CONTAINER&#34;)
- *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
+ *                 .computeType("BUILD_GENERAL1_SMALL")
+ *                 .image("aws/codebuild/amazonlinux2-x86_64-standard:4.0")
+ *                 .type("LINUX_CONTAINER")
+ *                 .imagePullCredentialsType("CODEBUILD")
  *                 .environmentVariables(                
  *                     ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                         .name(&#34;SOME_KEY1&#34;)
- *                         .value(&#34;SOME_VALUE1&#34;)
+ *                         .name("SOME_KEY1")
+ *                         .value("SOME_VALUE1")
  *                         .build(),
  *                     ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                         .name(&#34;SOME_KEY2&#34;)
- *                         .value(&#34;SOME_VALUE2&#34;)
- *                         .type(&#34;PARAMETER_STORE&#34;)
+ *                         .name("SOME_KEY2")
+ *                         .value("SOME_VALUE2")
+ *                         .type("PARAMETER_STORE")
  *                         .build())
  *                 .build())
  *             .logsConfig(ProjectLogsConfigArgs.builder()
  *                 .cloudwatchLogs(ProjectLogsConfigCloudwatchLogsArgs.builder()
- *                     .groupName(&#34;log-group&#34;)
- *                     .streamName(&#34;log-stream&#34;)
+ *                     .groupName("log-group")
+ *                     .streamName("log-stream")
  *                     .build())
  *                 .s3Logs(ProjectLogsConfigS3LogsArgs.builder()
- *                     .status(&#34;ENABLED&#34;)
- *                     .location(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;%s/build-log&#34;, id)))
+ *                     .status("ENABLED")
+ *                     .location(exampleBucketV2.id().applyValue(id -> String.format("%s/build-log", id)))
  *                     .build())
  *                 .build())
  *             .source(ProjectSourceArgs.builder()
- *                 .type(&#34;GITHUB&#34;)
- *                 .location(&#34;https://github.com/mitchellh/packer.git&#34;)
+ *                 .type("GITHUB")
+ *                 .location("https://github.com/mitchellh/packer.git")
  *                 .gitCloneDepth(1)
  *                 .gitSubmodulesConfig(ProjectSourceGitSubmodulesConfigArgs.builder()
  *                     .fetchSubmodules(true)
  *                     .build())
  *                 .build())
- *             .sourceVersion(&#34;master&#34;)
+ *             .sourceVersion("master")
  *             .vpcConfig(ProjectVpcConfigArgs.builder()
  *                 .vpcId(exampleAwsVpc.id())
  *                 .subnets(                
@@ -210,45 +211,46 @@ import javax.annotation.Nullable;
  *                     example1AwsSecurityGroup.id(),
  *                     example2AwsSecurityGroup.id())
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
+ *             .tags(Map.of("Environment", "Test"))
  *             .build());
  * 
- *         var project_with_cache = new Project(&#34;project-with-cache&#34;, ProjectArgs.builder()        
- *             .name(&#34;test-project-cache&#34;)
- *             .description(&#34;test_codebuild_project_cache&#34;)
+ *         var project_with_cache = new Project("project-with-cache", ProjectArgs.builder()        
+ *             .name("test-project-cache")
+ *             .description("test_codebuild_project_cache")
  *             .buildTimeout(5)
  *             .queuedTimeout(5)
  *             .serviceRole(exampleRole.arn())
  *             .artifacts(ProjectArtifactsArgs.builder()
- *                 .type(&#34;NO_ARTIFACTS&#34;)
+ *                 .type("NO_ARTIFACTS")
  *                 .build())
  *             .cache(ProjectCacheArgs.builder()
- *                 .type(&#34;LOCAL&#34;)
+ *                 .type("LOCAL")
  *                 .modes(                
- *                     &#34;LOCAL_DOCKER_LAYER_CACHE&#34;,
- *                     &#34;LOCAL_SOURCE_CACHE&#34;)
+ *                     "LOCAL_DOCKER_LAYER_CACHE",
+ *                     "LOCAL_SOURCE_CACHE")
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
- *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
- *                 .type(&#34;LINUX_CONTAINER&#34;)
- *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
+ *                 .computeType("BUILD_GENERAL1_SMALL")
+ *                 .image("aws/codebuild/amazonlinux2-x86_64-standard:4.0")
+ *                 .type("LINUX_CONTAINER")
+ *                 .imagePullCredentialsType("CODEBUILD")
  *                 .environmentVariables(ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                     .name(&#34;SOME_KEY1&#34;)
- *                     .value(&#34;SOME_VALUE1&#34;)
+ *                     .name("SOME_KEY1")
+ *                     .value("SOME_VALUE1")
  *                     .build())
  *                 .build())
  *             .source(ProjectSourceArgs.builder()
- *                 .type(&#34;GITHUB&#34;)
- *                 .location(&#34;https://github.com/mitchellh/packer.git&#34;)
+ *                 .type("GITHUB")
+ *                 .location("https://github.com/mitchellh/packer.git")
  *                 .gitCloneDepth(1)
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
+ *             .tags(Map.of("Environment", "Test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

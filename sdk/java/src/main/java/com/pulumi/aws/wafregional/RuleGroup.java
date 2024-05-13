@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .metricName(&#34;example&#34;)
+ *         var example = new Rule("example", RuleArgs.builder()        
+ *             .name("example")
+ *             .metricName("example")
  *             .build());
  * 
- *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .metricName(&#34;example&#34;)
+ *         var exampleRuleGroup = new RuleGroup("exampleRuleGroup", RuleGroupArgs.builder()        
+ *             .name("example")
+ *             .metricName("example")
  *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
  *                 .action(RuleGroupActivatedRuleActionArgs.builder()
- *                     .type(&#34;COUNT&#34;)
+ *                     .type("COUNT")
  *                     .build())
  *                 .priority(50)
  *                 .ruleId(example.id())
@@ -67,7 +68,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

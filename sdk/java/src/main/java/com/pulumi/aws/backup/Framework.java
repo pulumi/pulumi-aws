@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,81 +49,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Framework(&#34;example&#34;, FrameworkArgs.builder()        
- *             .name(&#34;exampleFramework&#34;)
- *             .description(&#34;this is an example framework&#34;)
+ *         var example = new Framework("example", FrameworkArgs.builder()        
+ *             .name("exampleFramework")
+ *             .description("this is an example framework")
  *             .controls(            
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK&#34;)
+ *                     .name("BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK")
  *                     .inputParameters(FrameworkControlInputParameterArgs.builder()
- *                         .name(&#34;requiredRetentionDays&#34;)
- *                         .value(&#34;35&#34;)
+ *                         .name("requiredRetentionDays")
+ *                         .value("35")
  *                         .build())
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK&#34;)
+ *                     .name("BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredFrequencyUnit&#34;)
- *                             .value(&#34;hours&#34;)
+ *                             .name("requiredFrequencyUnit")
+ *                             .value("hours")
  *                             .build(),
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredRetentionDays&#34;)
- *                             .value(&#34;35&#34;)
+ *                             .name("requiredRetentionDays")
+ *                             .value("35")
  *                             .build(),
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredFrequencyValue&#34;)
- *                             .value(&#34;1&#34;)
+ *                             .name("requiredFrequencyValue")
+ *                             .value("1")
  *                             .build())
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RECOVERY_POINT_ENCRYPTED&#34;)
+ *                     .name("BACKUP_RECOVERY_POINT_ENCRYPTED")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN&#34;)
+ *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN")
  *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
+ *                         .complianceResourceTypes("EBS")
  *                         .build())
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED&#34;)
+ *                     .name("BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK&#34;)
+ *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;maxRetentionDays&#34;)
- *                             .value(&#34;100&#34;)
+ *                             .name("maxRetentionDays")
+ *                             .value("100")
  *                             .build(),
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;minRetentionDays&#34;)
- *                             .value(&#34;1&#34;)
+ *                             .name("minRetentionDays")
+ *                             .value("1")
  *                             .build())
  *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
+ *                         .complianceResourceTypes("EBS")
  *                         .build())
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_LAST_RECOVERY_POINT_CREATED&#34;)
+ *                     .name("BACKUP_LAST_RECOVERY_POINT_CREATED")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;recoveryPointAgeUnit&#34;)
- *                             .value(&#34;days&#34;)
+ *                             .name("recoveryPointAgeUnit")
+ *                             .value("days")
  *                             .build(),
  *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;recoveryPointAgeValue&#34;)
- *                             .value(&#34;1&#34;)
+ *                             .name("recoveryPointAgeValue")
+ *                             .value("1")
  *                             .build())
  *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
+ *                         .complianceResourceTypes("EBS")
  *                         .build())
  *                     .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Framework&#34;))
+ *             .tags(Map.of("Name", "Example Framework"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

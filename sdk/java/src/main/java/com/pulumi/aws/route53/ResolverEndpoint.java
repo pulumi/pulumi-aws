@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ResolverEndpoint(&#34;foo&#34;, ResolverEndpointArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .direction(&#34;INBOUND&#34;)
+ *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()        
+ *             .name("foo")
+ *             .direction("INBOUND")
  *             .securityGroupIds(            
  *                 sg1.id(),
  *                 sg2.id())
@@ -57,17 +58,18 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 ResolverEndpointIpAddressArgs.builder()
  *                     .subnetId(sn2.id())
- *                     .ip(&#34;10.0.64.4&#34;)
+ *                     .ip("10.0.64.4")
  *                     .build())
  *             .protocols(            
- *                 &#34;Do53&#34;,
- *                 &#34;DoH&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *                 "Do53",
+ *                 "DoH")
+ *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

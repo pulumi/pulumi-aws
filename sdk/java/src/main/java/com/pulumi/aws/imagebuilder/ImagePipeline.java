@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ImagePipeline(&#34;example&#34;, ImagePipelineArgs.builder()        
+ *         var example = new ImagePipeline("example", ImagePipelineArgs.builder()        
  *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
  *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .schedule(ImagePipelineScheduleArgs.builder()
- *                 .scheduleExpression(&#34;cron(0 0 * * ? *)&#34;)
+ *                 .scheduleExpression("cron(0 0 * * ? *)")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

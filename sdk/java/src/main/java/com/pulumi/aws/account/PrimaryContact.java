@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,22 +42,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new PrimaryContact(&#34;test&#34;, PrimaryContactArgs.builder()        
- *             .addressLine1(&#34;123 Any Street&#34;)
- *             .city(&#34;Seattle&#34;)
- *             .companyName(&#34;Example Corp, Inc.&#34;)
- *             .countryCode(&#34;US&#34;)
- *             .districtOrCounty(&#34;King&#34;)
- *             .fullName(&#34;My Name&#34;)
- *             .phoneNumber(&#34;+64211111111&#34;)
- *             .postalCode(&#34;98101&#34;)
- *             .stateOrRegion(&#34;WA&#34;)
- *             .websiteUrl(&#34;https://www.examplecorp.com&#34;)
+ *         var test = new PrimaryContact("test", PrimaryContactArgs.builder()        
+ *             .addressLine1("123 Any Street")
+ *             .city("Seattle")
+ *             .companyName("Example Corp, Inc.")
+ *             .countryCode("US")
+ *             .districtOrCounty("King")
+ *             .fullName("My Name")
+ *             .phoneNumber("+64211111111")
+ *             .postalCode("98101")
+ *             .stateOrRegion("WA")
+ *             .websiteUrl("https://www.examplecorp.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

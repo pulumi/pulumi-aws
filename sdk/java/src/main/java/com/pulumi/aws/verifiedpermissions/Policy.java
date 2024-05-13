@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Policy(&#34;test&#34;, PolicyArgs.builder()        
+ *         var test = new Policy("test", PolicyArgs.builder()        
  *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.id())
  *             .definition(PolicyDefinitionArgs.builder()
  *                 .static_(PolicyDefinitionStaticArgs.builder()
- *                     .statement(&#34;permit (principal, action == Action::\&#34;view\&#34;, resource in Album:: \&#34;test_album\&#34;);&#34;)
+ *                     .statement("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

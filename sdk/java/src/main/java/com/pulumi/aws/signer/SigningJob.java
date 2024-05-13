@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,23 +54,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSp = new SigningProfile(&#34;testSp&#34;, SigningProfileArgs.builder()        
- *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
+ *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()        
+ *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .build());
  * 
- *         var buildSigningJob = new SigningJob(&#34;buildSigningJob&#34;, SigningJobArgs.builder()        
+ *         var buildSigningJob = new SigningJob("buildSigningJob", SigningJobArgs.builder()        
  *             .profileName(testSp.name())
  *             .source(SigningJobSourceArgs.builder()
  *                 .s3(SigningJobSourceS3Args.builder()
- *                     .bucket(&#34;s3-bucket-name&#34;)
- *                     .key(&#34;object-to-be-signed.zip&#34;)
- *                     .version(&#34;jADjFYYYEXAMPLETszPjOmCMFDzd9dN1&#34;)
+ *                     .bucket("s3-bucket-name")
+ *                     .key("object-to-be-signed.zip")
+ *                     .version("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1")
  *                     .build())
  *                 .build())
  *             .destination(SigningJobDestinationArgs.builder()
  *                 .s3(SigningJobDestinationS3Args.builder()
- *                     .bucket(&#34;s3-bucket-name&#34;)
- *                     .prefix(&#34;signed/&#34;)
+ *                     .bucket("s3-bucket-name")
+ *                     .prefix("signed/")
  *                     .build())
  *                 .build())
  *             .ignoreSigningJobFailure(true)
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

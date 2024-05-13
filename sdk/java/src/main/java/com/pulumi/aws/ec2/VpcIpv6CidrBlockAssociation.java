@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var test = new Vpc("test", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var testVpcIpv6CidrBlockAssociation = new VpcIpv6CidrBlockAssociation(&#34;testVpcIpv6CidrBlockAssociation&#34;, VpcIpv6CidrBlockAssociationArgs.builder()        
+ *         var testVpcIpv6CidrBlockAssociation = new VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", VpcIpv6CidrBlockAssociationArgs.builder()        
  *             .ipv6IpamPoolId(testAwsVpcIpamPool.id())
  *             .vpcId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

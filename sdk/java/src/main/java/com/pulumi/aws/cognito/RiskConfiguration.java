@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RiskConfiguration(&#34;example&#34;, RiskConfigurationArgs.builder()        
+ *         var example = new RiskConfiguration("example", RiskConfigurationArgs.builder()        
  *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
- *                 .blockedIpRangeLists(&#34;10.10.10.10/32&#34;)
+ *                 .blockedIpRangeLists("10.10.10.10/32")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

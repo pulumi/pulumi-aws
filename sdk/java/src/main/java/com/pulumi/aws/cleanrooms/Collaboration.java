@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Collaboration with tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,14 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCollaboration = new Collaboration(&#34;testCollaboration&#34;, CollaborationArgs.builder()        
- *             .name(&#34;pulumi-example-collaboration&#34;)
+ *         var testCollaboration = new Collaboration("testCollaboration", CollaborationArgs.builder()        
+ *             .name("pulumi-example-collaboration")
  *             .creatorMemberAbilities(            
- *                 &#34;CAN_QUERY&#34;,
- *                 &#34;CAN_RECEIVE_RESULTS&#34;)
- *             .creatorDisplayName(&#34;Creator &#34;)
- *             .description(&#34;I made this collaboration with Pulumi!&#34;)
- *             .queryLogStatus(&#34;DISABLED&#34;)
+ *                 "CAN_QUERY",
+ *                 "CAN_RECEIVE_RESULTS")
+ *             .creatorDisplayName("Creator ")
+ *             .description("I made this collaboration with Pulumi!")
+ *             .queryLogStatus("DISABLED")
  *             .dataEncryptionMetadata(CollaborationDataEncryptionMetadataArgs.builder()
  *                 .allowClearText(true)
  *                 .allowDuplicates(true)
@@ -66,15 +67,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .members(CollaborationMemberArgs.builder()
  *                 .accountId(123456789012)
- *                 .displayName(&#34;Other member&#34;)
+ *                 .displayName("Other member")
  *                 .memberAbilities()
  *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
+ *             .tags(Map.of("Project", "Pulumi"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

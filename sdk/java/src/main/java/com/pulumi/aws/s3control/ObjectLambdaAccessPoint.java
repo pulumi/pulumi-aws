@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
- *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()        
+ *             .name("example")
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
  *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions(&#34;GetObject&#34;)
+ *                     .actions("GetObject")
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
  *                             .functionArn(exampleAwsLambdaFunction.arn())
@@ -73,7 +74,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

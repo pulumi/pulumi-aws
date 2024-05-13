@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,44 +59,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
  *             .permanentDeletionTimeInDays(7)
- *             .type(&#34;ROOT&#34;)
+ *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
+ *         var test = new Certificate("test", CertificateArgs.builder()        
  *             .certificateAuthorityArn(example.arn())
  *             .certificateSigningRequest(example.certificateSigningRequest())
- *             .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *             .templateArn(String.format(&#34;arn:%s:acm-pca:::template/RootCACertificate/V1&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .validity(CertificateValidityArgs.builder()
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .value(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate(&#34;exampleCertificateAuthorityCertificate&#34;, CertificateAuthorityCertificateArgs.builder()        
+ *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()        
  *             .certificateAuthorityArn(example.arn())
  *             .certificate(exampleAwsAcmpcaCertificate.certificate())
  *             .certificateChain(exampleAwsAcmpcaCertificate.certificateChain())
  *             .build());
  * 
- *         var testTrustAnchor = new TrustAnchor(&#34;testTrustAnchor&#34;, TrustAnchorArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()        
+ *             .name("example")
  *             .source(TrustAnchorSourceArgs.builder()
  *                 .sourceData(TrustAnchorSourceSourceDataArgs.builder()
  *                     .acmPcaArn(example.arn())
  *                     .build())
- *                 .sourceType(&#34;AWS_ACM_PCA&#34;)
+ *                 .sourceType("AWS_ACM_PCA")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleCertificateAuthorityCertificate)
@@ -103,7 +104,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

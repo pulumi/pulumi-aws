@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventIntegration(&#34;example&#34;, EventIntegrationArgs.builder()        
- *             .name(&#34;example-name&#34;)
- *             .description(&#34;Example Description&#34;)
- *             .eventbridgeBus(&#34;default&#34;)
+ *         var example = new EventIntegration("example", EventIntegrationArgs.builder()        
+ *             .name("example-name")
+ *             .description("Example Description")
+ *             .eventbridgeBus("default")
  *             .eventFilter(EventIntegrationEventFilterArgs.builder()
- *                 .source(&#34;aws.partner/examplepartner.com&#34;)
+ *                 .source("aws.partner/examplepartner.com")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Event Integration&#34;))
+ *             .tags(Map.of("Name", "Example Event Integration"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

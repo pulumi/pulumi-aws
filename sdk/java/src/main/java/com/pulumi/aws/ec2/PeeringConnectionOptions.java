@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,21 +59,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc(&#34;bar&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection(&#34;fooVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
+ *         var fooVpcPeeringConnection = new VpcPeeringConnection("fooVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
  *             .vpcId(foo.id())
  *             .peerVpcId(bar.id())
  *             .autoAccept(true)
  *             .build());
  * 
- *         var fooPeeringConnectionOptions = new PeeringConnectionOptions(&#34;fooPeeringConnectionOptions&#34;, PeeringConnectionOptionsArgs.builder()        
+ *         var fooPeeringConnectionOptions = new PeeringConnectionOptions("fooPeeringConnectionOptions", PeeringConnectionOptionsArgs.builder()        
  *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
@@ -81,13 +82,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Cross-Account Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,44 +121,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
  *         final var peer = AwsFunctions.getCallerIdentity();
  * 
- *         // Requester&#39;s side of the connection.
- *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
+ *         // Requester's side of the connection.
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .autoAccept(false)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
+ *             .tags(Map.of("Side", "Requester"))
  *             .build());
  * 
- *         // Accepter&#39;s side of the connection.
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
+ *         // Accepter's side of the connection.
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()        
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
- *         var requester = new PeeringConnectionOptions(&#34;requester&#34;, PeeringConnectionOptionsArgs.builder()        
+ *         var requester = new PeeringConnectionOptions("requester", PeeringConnectionOptionsArgs.builder()        
  *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
  *             .build());
  * 
- *         var accepter = new PeeringConnectionOptions(&#34;accepter&#34;, PeeringConnectionOptionsArgs.builder()        
+ *         var accepter = new PeeringConnectionOptions("accepter", PeeringConnectionOptionsArgs.builder()        
  *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
@@ -164,7 +167,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

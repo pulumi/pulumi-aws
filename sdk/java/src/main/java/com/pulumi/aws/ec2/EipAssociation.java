@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,25 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-21f78e11&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *         var web = new Instance("web", InstanceArgs.builder()        
+ *             .ami("ami-21f78e11")
+ *             .availabilityZone("us-west-2a")
+ *             .instanceType("t2.micro")
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var example = new Eip("example", EipArgs.builder()        
+ *             .domain("vpc")
  *             .build());
  * 
- *         var eipAssoc = new EipAssociation(&#34;eipAssoc&#34;, EipAssociationArgs.builder()        
+ *         var eipAssoc = new EipAssociation("eipAssoc", EipAssociationArgs.builder()        
  *             .instanceId(web.id())
  *             .allocationId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

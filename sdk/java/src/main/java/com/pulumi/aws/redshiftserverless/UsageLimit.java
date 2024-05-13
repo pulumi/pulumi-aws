@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
+ *         var example = new Workgroup("example", WorkgroupArgs.builder()        
  *             .namespaceName(exampleAwsRedshiftserverlessNamespace.namespaceName())
- *             .workgroupName(&#34;example&#34;)
+ *             .workgroupName("example")
  *             .build());
  * 
- *         var exampleUsageLimit = new UsageLimit(&#34;exampleUsageLimit&#34;, UsageLimitArgs.builder()        
+ *         var exampleUsageLimit = new UsageLimit("exampleUsageLimit", UsageLimitArgs.builder()        
  *             .resourceArn(example.arn())
- *             .usageType(&#34;serverless-compute&#34;)
+ *             .usageType("serverless-compute")
  *             .amount(60)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

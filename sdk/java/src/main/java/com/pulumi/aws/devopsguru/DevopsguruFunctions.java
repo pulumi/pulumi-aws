@@ -25,7 +25,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,12 +48,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getNotificationChannel(GetNotificationChannelArgs.builder()
-     *             .id(&#34;channel-1234&#34;)
+     *             .id("channel-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,12 +92,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getNotificationChannel(GetNotificationChannelArgs.builder()
-     *             .id(&#34;channel-1234&#34;)
+     *             .id("channel-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getNotificationChannel(GetNotificationChannelArgs.builder()
-     *             .id(&#34;channel-1234&#34;)
+     *             .id("channel-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,12 +180,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getNotificationChannel(GetNotificationChannelArgs.builder()
-     *             .id(&#34;channel-1234&#34;)
+     *             .id("channel-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,12 +224,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getResourceCollection(GetResourceCollectionArgs.builder()
-     *             .type(&#34;AWS_SERVICE&#34;)
+     *             .type("AWS_SERVICE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,12 +268,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getResourceCollection(GetResourceCollectionArgs.builder()
-     *             .type(&#34;AWS_SERVICE&#34;)
+     *             .type("AWS_SERVICE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,12 +312,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getResourceCollection(GetResourceCollectionArgs.builder()
-     *             .type(&#34;AWS_SERVICE&#34;)
+     *             .type("AWS_SERVICE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +333,8 @@ public final class DevopsguruFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -341,12 +356,13 @@ public final class DevopsguruFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevopsguruFunctions.getResourceCollection(GetResourceCollectionArgs.builder()
-     *             .type(&#34;AWS_SERVICE&#34;)
+     *             .type("AWS_SERVICE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

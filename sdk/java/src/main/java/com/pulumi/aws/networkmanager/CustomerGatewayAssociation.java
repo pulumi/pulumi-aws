@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,42 +57,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalNetwork(&#34;example&#34;, GlobalNetworkArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var example = new GlobalNetwork("example", GlobalNetworkArgs.builder()        
+ *             .description("example")
  *             .build());
  * 
- *         var exampleSite = new Site(&#34;exampleSite&#34;, SiteArgs.builder()        
+ *         var exampleSite = new Site("exampleSite", SiteArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .build());
  * 
- *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
+ *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .siteId(exampleSite.id())
  *             .build());
  * 
- *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
- *             .ipAddress(&#34;172.83.124.10&#34;)
- *             .type(&#34;ipsec.1&#34;)
+ *             .ipAddress("172.83.124.10")
+ *             .type("ipsec.1")
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway");
  * 
- *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .transitGatewayId(exampleTransitGateway.id())
  *             .type(exampleCustomerGateway.type())
  *             .staticRoutesOnly(true)
  *             .build());
  * 
- *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration(&#34;exampleTransitGatewayRegistration&#34;, TransitGatewayRegistrationArgs.builder()        
+ *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration("exampleTransitGatewayRegistration", TransitGatewayRegistrationArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .transitGatewayArn(exampleTransitGateway.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleVpnConnection)
  *                 .build());
  * 
- *         var exampleCustomerGatewayAssociation = new CustomerGatewayAssociation(&#34;exampleCustomerGatewayAssociation&#34;, CustomerGatewayAssociationArgs.builder()        
+ *         var exampleCustomerGatewayAssociation = new CustomerGatewayAssociation("exampleCustomerGatewayAssociation", CustomerGatewayAssociationArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .customerGatewayArn(exampleCustomerGateway.arn())
  *             .deviceId(exampleDevice.id())
@@ -101,7 +102,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,17 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BillingGroup(&#34;example&#34;, BillingGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new BillingGroup("example", BillingGroupArgs.builder()        
+ *             .name("example")
  *             .properties(BillingGroupPropertiesArgs.builder()
- *                 .description(&#34;This is my billing group&#34;)
+ *                 .description("This is my billing group")
  *                 .build())
- *             .tags(Map.of(&#34;terraform&#34;, &#34;true&#34;))
+ *             .tags(Map.of("terraform", "true"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

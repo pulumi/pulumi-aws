@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Add intelligent tiering configuration for entire S3 bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,33 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var example_entire_bucket = new BucketIntelligentTieringConfiguration(&#34;example-entire-bucket&#34;, BucketIntelligentTieringConfigurationArgs.builder()        
+ *         var example_entire_bucket = new BucketIntelligentTieringConfiguration("example-entire-bucket", BucketIntelligentTieringConfigurationArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;EntireBucket&#34;)
+ *             .name("EntireBucket")
  *             .tierings(            
  *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier(&#34;DEEP_ARCHIVE_ACCESS&#34;)
+ *                     .accessTier("DEEP_ARCHIVE_ACCESS")
  *                     .days(180)
  *                     .build(),
  *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier(&#34;ARCHIVE_ACCESS&#34;)
+ *                     .accessTier("ARCHIVE_ACCESS")
  *                     .days(125)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Add intelligent tiering configuration with S3 object filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,30 +105,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var example_filtered = new BucketIntelligentTieringConfiguration(&#34;example-filtered&#34;, BucketIntelligentTieringConfigurationArgs.builder()        
+ *         var example_filtered = new BucketIntelligentTieringConfiguration("example-filtered", BucketIntelligentTieringConfigurationArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;ImportantBlueDocuments&#34;)
- *             .status(&#34;Disabled&#34;)
+ *             .name("ImportantBlueDocuments")
+ *             .status("Disabled")
  *             .filter(BucketIntelligentTieringConfigurationFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
+ *                 .prefix("documents/")
  *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                     Map.entry("priority", "high"),
+ *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
  *             .tierings(BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                 .accessTier(&#34;ARCHIVE_ACCESS&#34;)
+ *                 .accessTier("ARCHIVE_ACCESS")
  *                 .days(125)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

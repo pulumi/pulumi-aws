@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,73 +55,73 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .customerMasterKeySpec(&#34;ECC_NIST_P256&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .customerMasterKeySpec("ECC_NIST_P256")
  *             .deletionWindowInDays(7)
- *             .keyUsage(&#34;SIGN_VERIFY&#34;)
+ *             .keyUsage("SIGN_VERIFY")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(
+ *                     jsonProperty("Statement", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
- *                                 &#34;kms:DescribeKey&#34;, 
- *                                 &#34;kms:GetPublicKey&#34;, 
- *                                 &#34;kms:Sign&#34;
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:DescribeKey", 
+ *                                 "kms:GetPublicKey", 
+ *                                 "kms:Sign"
  *                             )),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "dnssec-route53.amazonaws.com")
  *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service&#34;),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;StringEquals&#34;, jsonObject(
- *                                     jsonProperty(&#34;aws:SourceAccount&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                             jsonProperty("Sid", "Allow Route 53 DNSSEC Service"),
+ *                             jsonProperty("Resource", "*"),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("StringEquals", jsonObject(
+ *                                     jsonProperty("aws:SourceAccount", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                                 )),
- *                                 jsonProperty(&#34;ArnLike&#34;, jsonObject(
- *                                     jsonProperty(&#34;aws:SourceArn&#34;, &#34;arn:aws:route53:::hostedzone/*&#34;)
+ *                                 jsonProperty("ArnLike", jsonObject(
+ *                                     jsonProperty("aws:SourceArn", "arn:aws:route53:::hostedzone/*")
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, &#34;kms:CreateGrant&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
+ *                             jsonProperty("Action", "kms:CreateGrant"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "dnssec-route53.amazonaws.com")
  *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service to CreateGrant&#34;),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;Bool&#34;, jsonObject(
- *                                     jsonProperty(&#34;kms:GrantIsForAWSResource&#34;, &#34;true&#34;)
+ *                             jsonProperty("Sid", "Allow Route 53 DNSSEC Service to CreateGrant"),
+ *                             jsonProperty("Resource", "*"),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("Bool", jsonObject(
+ *                                     jsonProperty("kms:GrantIsForAWSResource", "true")
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, &#34;kms:*&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Enable IAM User Permissions&#34;)
+ *                             jsonProperty("Resource", "*"),
+ *                             jsonProperty("Sid", "Enable IAM User Permissions")
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .build());
  * 
- *         var exampleKeySigningKey = new KeySigningKey(&#34;exampleKeySigningKey&#34;, KeySigningKeyArgs.builder()        
+ *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()        
  *             .hostedZoneId(test.id())
  *             .keyManagementServiceArn(testAwsKmsKey.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
- *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec(&#34;exampleHostedZoneDnsSec&#34;, HostedZoneDnsSecArgs.builder()        
+ *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec("exampleHostedZoneDnsSec", HostedZoneDnsSecArgs.builder()        
  *             .hostedZoneId(exampleKeySigningKey.hostedZoneId())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleKeySigningKey)
@@ -128,7 +129,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

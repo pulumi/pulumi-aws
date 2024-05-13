@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,8 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new DataQualityJobDefinition(&#34;test&#34;, DataQualityJobDefinitionArgs.builder()        
- *             .name(&#34;my-data-quality-job-definition&#34;)
+ *         var test = new DataQualityJobDefinition("test", DataQualityJobDefinitionArgs.builder()        
+ *             .name("my-data-quality-job-definition")
  *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
  *                 .imageUri(monitor.registryPath())
  *                 .build())
@@ -72,14 +73,14 @@ import javax.annotation.Nullable;
  *             .dataQualityJobOutputConfig(DataQualityJobDefinitionDataQualityJobOutputConfigArgs.builder()
  *                 .monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.builder()
  *                     .s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.builder()
- *                         .s3Uri(String.format(&#34;https://%s/output&#34;, myBucket.bucketRegionalDomainName()))
+ *                         .s3Uri(String.format("https://%s/output", myBucket.bucketRegionalDomainName()))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .jobResources(DataQualityJobDefinitionJobResourcesArgs.builder()
  *                 .clusterConfig(DataQualityJobDefinitionJobResourcesClusterConfigArgs.builder()
  *                     .instanceCount(1)
- *                     .instanceType(&#34;ml.t3.medium&#34;)
+ *                     .instanceType("ml.t3.medium")
  *                     .volumeSizeInGb(20)
  *                     .build())
  *                 .build())
@@ -88,7 +89,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

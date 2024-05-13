@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;test&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repositoryName("test")
  *             .build());
  * 
- *         var testTrigger = new Trigger(&#34;testTrigger&#34;, TriggerArgs.builder()        
+ *         var testTrigger = new Trigger("testTrigger", TriggerArgs.builder()        
  *             .repositoryName(test.repositoryName())
  *             .triggers(TriggerTriggerArgs.builder()
- *                 .name(&#34;all&#34;)
- *                 .events(&#34;all&#34;)
+ *                 .name("all")
+ *                 .events("all")
  *                 .destinationArn(testAwsSnsTopic.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

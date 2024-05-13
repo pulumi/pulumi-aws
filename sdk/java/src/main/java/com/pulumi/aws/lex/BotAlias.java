@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderFlowersProd = new BotAlias(&#34;orderFlowersProd&#34;, BotAliasArgs.builder()        
- *             .botName(&#34;OrderFlowers&#34;)
- *             .botVersion(&#34;1&#34;)
- *             .description(&#34;Production Version of the OrderFlowers Bot.&#34;)
- *             .name(&#34;OrderFlowersProd&#34;)
+ *         var orderFlowersProd = new BotAlias("orderFlowersProd", BotAliasArgs.builder()        
+ *             .botName("OrderFlowers")
+ *             .botVersion("1")
+ *             .description("Production Version of the OrderFlowers Bot.")
+ *             .name("OrderFlowersProd")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

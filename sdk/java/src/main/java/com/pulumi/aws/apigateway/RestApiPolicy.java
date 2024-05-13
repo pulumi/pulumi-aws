@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,35 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRestApi = new RestApi(&#34;testRestApi&#34;, RestApiArgs.builder()        
- *             .name(&#34;example-rest-api&#34;)
+ *         var testRestApi = new RestApi("testRestApi", RestApiArgs.builder()        
+ *             .name("example-rest-api")
  *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;execute-api:Invoke&#34;)
+ *                 .actions("execute-api:Invoke")
  *                 .resources(testRestApi.executionArn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;123.123.123.123/32&#34;)
+ *                     .test("IpAddress")
+ *                     .variable("aws:SourceIp")
+ *                     .values("123.123.123.123/32")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var testRestApiPolicy = new RestApiPolicy(&#34;testRestApiPolicy&#34;, RestApiPolicyArgs.builder()        
+ *         var testRestApiPolicy = new RestApiPolicy("testRestApiPolicy", RestApiPolicyArgs.builder()        
  *             .restApiId(testRestApi.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

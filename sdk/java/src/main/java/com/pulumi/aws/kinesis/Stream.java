@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,22 +51,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
- *             .name(&#34;kinesis-test&#34;)
+ *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *             .name("kinesis-test")
  *             .shardCount(1)
  *             .retentionPeriod(48)
  *             .shardLevelMetrics(            
- *                 &#34;IncomingBytes&#34;,
- *                 &#34;OutgoingBytes&#34;)
+ *                 "IncomingBytes",
+ *                 "OutgoingBytes")
  *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
- *                 .streamMode(&#34;PROVISIONED&#34;)
+ *                 .streamMode("PROVISIONED")
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

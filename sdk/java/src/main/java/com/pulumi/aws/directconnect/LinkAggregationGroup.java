@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new LinkAggregationGroup(&#34;hoge&#34;, LinkAggregationGroupArgs.builder()        
- *             .name(&#34;tf-dx-lag&#34;)
- *             .connectionsBandwidth(&#34;1Gbps&#34;)
- *             .location(&#34;EqDC2&#34;)
+ *         var hoge = new LinkAggregationGroup("hoge", LinkAggregationGroupArgs.builder()        
+ *             .name("tf-dx-lag")
+ *             .connectionsBandwidth("1Gbps")
+ *             .location("EqDC2")
  *             .forceDestroy(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,16 +41,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Partner(&#34;example&#34;, PartnerArgs.builder()        
+ *         var example = new Partner("example", PartnerArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .accountId(1234567910)
  *             .databaseName(exampleAwsRedshiftCluster.databaseName())
- *             .partnerName(&#34;example&#34;)
+ *             .partnerName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

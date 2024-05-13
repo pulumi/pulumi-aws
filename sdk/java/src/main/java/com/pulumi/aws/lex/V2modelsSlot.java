@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsSlot(&#34;example&#34;, V2modelsSlotArgs.builder()        
+ *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()        
  *             .botId(exampleAwsLexv2modelsBot.id())
  *             .botVersion(exampleAwsLexv2modelsBotVersion.botVersion())
  *             .intentId(exampleAwsLexv2modelsIntent.id())
  *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

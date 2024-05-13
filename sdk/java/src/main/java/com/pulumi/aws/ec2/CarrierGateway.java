@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CarrierGateway(&#34;example&#34;, CarrierGatewayArgs.builder()        
+ *         var example = new CarrierGateway("example", CarrierGatewayArgs.builder()        
  *             .vpcId(exampleAwsVpc.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-carrier-gateway&#34;))
+ *             .tags(Map.of("Name", "example-carrier-gateway"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

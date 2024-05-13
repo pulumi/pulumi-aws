@@ -77,14 +77,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+     * @return The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
      * 
      */
     public Optional<Output<String>> name() {
@@ -308,7 +308,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+         * @param name The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+         * @param name The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _,{@literal @}.
          * 
          * @return builder
          * 

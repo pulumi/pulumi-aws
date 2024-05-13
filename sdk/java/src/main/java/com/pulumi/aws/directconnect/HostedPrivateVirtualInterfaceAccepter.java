@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,30 +52,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
- *         // Accepter&#39;s side of the VIF.
- *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;);
+ *         // Accepter's side of the VIF.
+ *         var vpnGw = new VpnGateway("vpnGw");
  * 
- *         // Creator&#39;s side of the VIF
- *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .name(&#34;vif-foo&#34;)
+ *         // Creator's side of the VIF
+ *         var creator = new HostedPrivateVirtualInterface("creator", HostedPrivateVirtualInterfaceArgs.builder()        
+ *             .connectionId("dxcon-zzzzzzzz")
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .name("vif-foo")
  *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
+ *             .addressFamily("ipv4")
  *             .bgpAsn(65352)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vpnGw)
  *                 .build());
  * 
- *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        
+ *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", HostedPrivateVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .vpnGatewayId(vpnGw.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Using replication configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,96 +71,96 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;s3.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("s3.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var replicationRole = new Role(&#34;replicationRole&#34;, RoleArgs.builder()        
- *             .name(&#34;tf-iam-role-replication-12345&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var replicationRole = new Role("replicationRole", RoleArgs.builder()        
+ *             .name("tf-iam-role-replication-12345")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var destination = new BucketV2(&#34;destination&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test-bucket-destination-12345&#34;)
+ *         var destination = new BucketV2("destination", BucketV2Args.builder()        
+ *             .bucket("tf-test-bucket-destination-12345")
  *             .build());
  * 
- *         var source = new BucketV2(&#34;source&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test-bucket-source-12345&#34;)
+ *         var source = new BucketV2("source", BucketV2Args.builder()        
+ *             .bucket("tf-test-bucket-source-12345")
  *             .build());
  * 
  *         final var replication = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;s3:GetReplicationConfiguration&#34;,
- *                         &#34;s3:ListBucket&#34;)
+ *                         "s3:GetReplicationConfiguration",
+ *                         "s3:ListBucket")
  *                     .resources(source.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;s3:GetObjectVersionForReplication&#34;,
- *                         &#34;s3:GetObjectVersionAcl&#34;,
- *                         &#34;s3:GetObjectVersionTagging&#34;)
- *                     .resources(source.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                         "s3:GetObjectVersionForReplication",
+ *                         "s3:GetObjectVersionAcl",
+ *                         "s3:GetObjectVersionTagging")
+ *                     .resources(source.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;s3:ReplicateObject&#34;,
- *                         &#34;s3:ReplicateDelete&#34;,
- *                         &#34;s3:ReplicateTags&#34;)
- *                     .resources(destination.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                         "s3:ReplicateObject",
+ *                         "s3:ReplicateDelete",
+ *                         "s3:ReplicateTags")
+ *                     .resources(destination.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .build())
  *             .build());
  * 
- *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;tf-iam-role-policy-replication-12345&#34;)
- *             .policy(replication.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(replication -&gt; replication.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()        
+ *             .name("tf-iam-role-policy-replication-12345")
+ *             .policy(replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(replication -> replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(replicationRole.name())
  *             .policyArn(replicationPolicy.arn())
  *             .build());
  * 
- *         var destinationBucketVersioningV2 = new BucketVersioningV2(&#34;destinationBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var destinationBucketVersioningV2 = new BucketVersioningV2("destinationBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(destination.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var sourceBucketAcl = new BucketAclV2(&#34;sourceBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var sourceBucketAcl = new BucketAclV2("sourceBucketAcl", BucketAclV2Args.builder()        
  *             .bucket(source.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var sourceBucketVersioningV2 = new BucketVersioningV2(&#34;sourceBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var sourceBucketVersioningV2 = new BucketVersioningV2("sourceBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(source.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var replicationBucketReplicationConfig = new BucketReplicationConfig(&#34;replicationBucketReplicationConfig&#34;, BucketReplicationConfigArgs.builder()        
+ *         var replicationBucketReplicationConfig = new BucketReplicationConfig("replicationBucketReplicationConfig", BucketReplicationConfigArgs.builder()        
  *             .role(replicationRole.arn())
  *             .bucket(source.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
+ *                 .id("foobar")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
+ *                     .prefix("foo")
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(destination.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
+ *                     .storageClass("STANDARD")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -168,13 +169,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Bi-Directional Replication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -205,58 +208,58 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ... other configuration ...
- *         var east = new BucketV2(&#34;east&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test-bucket-east-12345&#34;)
+ *         var east = new BucketV2("east", BucketV2Args.builder()        
+ *             .bucket("tf-test-bucket-east-12345")
  *             .build());
  * 
- *         var eastBucketVersioningV2 = new BucketVersioningV2(&#34;eastBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var eastBucketVersioningV2 = new BucketVersioningV2("eastBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(east.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var west = new BucketV2(&#34;west&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test-bucket-west-12345&#34;)
+ *         var west = new BucketV2("west", BucketV2Args.builder()        
+ *             .bucket("tf-test-bucket-west-12345")
  *             .build());
  * 
- *         var westBucketVersioningV2 = new BucketVersioningV2(&#34;westBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var westBucketVersioningV2 = new BucketVersioningV2("westBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(west.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var eastToWest = new BucketReplicationConfig(&#34;eastToWest&#34;, BucketReplicationConfigArgs.builder()        
+ *         var eastToWest = new BucketReplicationConfig("eastToWest", BucketReplicationConfigArgs.builder()        
  *             .role(eastReplication.arn())
  *             .bucket(east.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
+ *                 .id("foobar")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
+ *                     .prefix("foo")
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(west.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
+ *                     .storageClass("STANDARD")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(eastBucketVersioningV2)
  *                 .build());
  * 
- *         var westToEast = new BucketReplicationConfig(&#34;westToEast&#34;, BucketReplicationConfigArgs.builder()        
+ *         var westToEast = new BucketReplicationConfig("westToEast", BucketReplicationConfigArgs.builder()        
  *             .role(westReplication.arn())
  *             .bucket(west.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
+ *                 .id("foobar")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
+ *                     .prefix("foo")
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(east.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
+ *                     .storageClass("STANDARD")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -265,7 +268,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

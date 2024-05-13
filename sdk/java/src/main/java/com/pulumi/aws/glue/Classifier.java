@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Csv Classifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,29 +51,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *             .name("example")
  *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
  *                 .allowSingleColumn(false)
- *                 .containsHeader(&#34;PRESENT&#34;)
- *                 .delimiter(&#34;,&#34;)
+ *                 .containsHeader("PRESENT")
+ *                 .delimiter(",")
  *                 .disableValueTrimming(false)
  *                 .headers(                
- *                     &#34;example1&#34;,
- *                     &#34;example2&#34;)
- *                 .quoteSymbol(&#34;&#39;&#34;)
+ *                     "example1",
+ *                     "example2")
+ *                 .quoteSymbol("'")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Grok Classifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,23 +97,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *             .name("example")
  *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
- *                 .classification(&#34;example&#34;)
- *                 .grokPattern(&#34;example&#34;)
+ *                 .classification("example")
+ *                 .grokPattern("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### JSON Classifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -132,22 +137,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *             .name("example")
  *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
- *                 .jsonPath(&#34;example&#34;)
+ *                 .jsonPath("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### XML Classifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,17 +176,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *             .name("example")
  *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
- *                 .classification(&#34;example&#34;)
- *                 .rowTag(&#34;example&#34;)
+ *                 .classification("example")
+ *                 .rowTag("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

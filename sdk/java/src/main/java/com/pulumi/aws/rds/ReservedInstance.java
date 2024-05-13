@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,22 +55,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
- *             .dbInstanceClass(&#34;db.t2.micro&#34;)
+ *             .dbInstanceClass("db.t2.micro")
  *             .duration(31536000)
  *             .multiAz(false)
- *             .offeringType(&#34;All Upfront&#34;)
- *             .productDescription(&#34;mysql&#34;)
+ *             .offeringType("All Upfront")
+ *             .productDescription("mysql")
  *             .build());
  * 
- *         var example = new ReservedInstance(&#34;example&#34;, ReservedInstanceArgs.builder()        
- *             .offeringId(test.applyValue(getReservedInstanceOfferingResult -&gt; getReservedInstanceOfferingResult.offeringId()))
- *             .reservationId(&#34;optionalCustomReservationID&#34;)
+ *         var example = new ReservedInstance("example", ReservedInstanceArgs.builder()        
+ *             .offeringId(test.applyValue(getReservedInstanceOfferingResult -> getReservedInstanceOfferingResult.offeringId()))
+ *             .reservationId("optionalCustomReservationID")
  *             .instanceCount(3)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

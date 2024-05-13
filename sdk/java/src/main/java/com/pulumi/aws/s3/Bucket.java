@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ### Private Bucket w/ Tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,24 +60,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
- *             .acl(&#34;private&#34;)
+ *         var b = new Bucket("b", BucketArgs.builder()        
+ *             .bucket("my-tf-test-bucket")
+ *             .acl("private")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;)
+ *                 Map.entry("Name", "My bucket"),
+ *                 Map.entry("Environment", "Dev")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Static Website Hosting
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,37 +101,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
- *             .bucket(&#34;s3-website-test.mydomain.com&#34;)
- *             .acl(&#34;public-read&#34;)
+ *         var b = new Bucket("b", BucketArgs.builder()        
+ *             .bucket("s3-website-test.mydomain.com")
+ *             .acl("public-read")
  *             .policy(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;policy.json&#34;)
+ *                 .input("policy.json")
  *                 .build()).result())
  *             .website(BucketWebsiteArgs.builder()
- *                 .indexDocument(&#34;index.html&#34;)
- *                 .errorDocument(&#34;error.html&#34;)
- *                 .routingRules(&#34;&#34;&#34;
+ *                 .indexDocument("index.html")
+ *                 .errorDocument("error.html")
+ *                 .routingRules("""
  * [{
- *     &#34;Condition&#34;: {
- *         &#34;KeyPrefixEquals&#34;: &#34;docs/&#34;
+ *     "Condition": {
+ *         "KeyPrefixEquals": "docs/"
  *     },
- *     &#34;Redirect&#34;: {
- *         &#34;ReplaceKeyPrefixWith&#34;: &#34;documents/&#34;
+ *     "Redirect": {
+ *         "ReplaceKeyPrefixWith": "documents/"
  *     }
  * }]
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using CORS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,29 +155,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
- *             .bucket(&#34;s3-website-test.mydomain.com&#34;)
- *             .acl(&#34;public-read&#34;)
+ *         var b = new Bucket("b", BucketArgs.builder()        
+ *             .bucket("s3-website-test.mydomain.com")
+ *             .acl("public-read")
  *             .corsRules(BucketCorsRuleArgs.builder()
- *                 .allowedHeaders(&#34;*&#34;)
+ *                 .allowedHeaders("*")
  *                 .allowedMethods(                
- *                     &#34;PUT&#34;,
- *                     &#34;POST&#34;)
- *                 .allowedOrigins(&#34;https://s3-website-test.mydomain.com&#34;)
- *                 .exposeHeaders(&#34;ETag&#34;)
+ *                     "PUT",
+ *                     "POST")
+ *                 .allowedOrigins("https://s3-website-test.mydomain.com")
+ *                 .exposeHeaders("ETag")
  *                 .maxAgeSeconds(3000)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using versioning
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -194,9 +201,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
- *             .acl(&#34;private&#34;)
+ *         var b = new Bucket("b", BucketArgs.builder()        
+ *             .bucket("my-tf-test-bucket")
+ *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
@@ -204,13 +211,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -232,29 +241,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var logBucket = new Bucket(&#34;logBucket&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-tf-log-bucket&#34;)
- *             .acl(&#34;log-delivery-write&#34;)
+ *         var logBucket = new Bucket("logBucket", BucketArgs.builder()        
+ *             .bucket("my-tf-log-bucket")
+ *             .acl("log-delivery-write")
  *             .build());
  * 
- *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
- *             .acl(&#34;private&#34;)
+ *         var b = new Bucket("b", BucketArgs.builder()        
+ *             .bucket("my-tf-test-bucket")
+ *             .acl("private")
  *             .loggings(BucketLoggingArgs.builder()
  *                 .targetBucket(logBucket.id())
- *                 .targetPrefix(&#34;log/&#34;)
+ *                 .targetPrefix("log/")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using object lifecycle
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -279,58 +290,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-bucket&#34;)
- *             .acl(&#34;private&#34;)
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()        
+ *             .bucket("my-bucket")
+ *             .acl("private")
  *             .lifecycleRules(            
  *                 BucketLifecycleRuleArgs.builder()
- *                     .id(&#34;log&#34;)
+ *                     .id("log")
  *                     .enabled(true)
- *                     .prefix(&#34;log/&#34;)
+ *                     .prefix("log/")
  *                     .tags(Map.ofEntries(
- *                         Map.entry(&#34;rule&#34;, &#34;log&#34;),
- *                         Map.entry(&#34;autoclean&#34;, &#34;true&#34;)
+ *                         Map.entry("rule", "log"),
+ *                         Map.entry("autoclean", "true")
  *                     ))
  *                     .transitions(                    
  *                         BucketLifecycleRuleTransitionArgs.builder()
  *                             .days(30)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
+ *                             .storageClass("STANDARD_IA")
  *                             .build(),
  *                         BucketLifecycleRuleTransitionArgs.builder()
  *                             .days(60)
- *                             .storageClass(&#34;GLACIER&#34;)
+ *                             .storageClass("GLACIER")
  *                             .build())
  *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
  *                         .days(90)
  *                         .build())
  *                     .build(),
  *                 BucketLifecycleRuleArgs.builder()
- *                     .id(&#34;tmp&#34;)
- *                     .prefix(&#34;tmp/&#34;)
+ *                     .id("tmp")
+ *                     .prefix("tmp/")
  *                     .enabled(true)
  *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
- *                         .date(&#34;2016-01-12&#34;)
+ *                         .date("2016-01-12")
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new Bucket(&#34;versioningBucket&#34;, BucketArgs.builder()        
- *             .bucket(&#34;my-versioning-bucket&#34;)
- *             .acl(&#34;private&#34;)
+ *         var versioningBucket = new Bucket("versioningBucket", BucketArgs.builder()        
+ *             .bucket("my-versioning-bucket")
+ *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .lifecycleRules(BucketLifecycleRuleArgs.builder()
- *                 .prefix(&#34;config/&#34;)
+ *                 .prefix("config/")
  *                 .enabled(true)
  *                 .noncurrentVersionTransitions(                
  *                     BucketLifecycleRuleNoncurrentVersionTransitionArgs.builder()
  *                         .days(30)
- *                         .storageClass(&#34;STANDARD_IA&#34;)
+ *                         .storageClass("STANDARD_IA")
  *                         .build(),
  *                     BucketLifecycleRuleNoncurrentVersionTransitionArgs.builder()
  *                         .days(60)
- *                         .storageClass(&#34;GLACIER&#34;)
+ *                         .storageClass("GLACIER")
  *                         .build())
  *                 .noncurrentVersionExpiration(BucketLifecycleRuleNoncurrentVersionExpirationArgs.builder()
  *                     .days(90)
@@ -340,7 +351,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using replication configuration
@@ -348,7 +360,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -377,55 +390,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replication = new Role(&#34;replication&#34;, RoleArgs.builder()        
- *             .name(&#34;tf-iam-role-replication-12345&#34;)
- *             .assumeRolePolicy(&#34;&#34;&#34;
+ *         var replication = new Role("replication", RoleArgs.builder()        
+ *             .name("tf-iam-role-replication-12345")
+ *             .assumeRolePolicy("""
  * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
+ *   "Version": "2012-10-17",
+ *   "Statement": [
  *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;s3.amazonaws.com&#34;
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "s3.amazonaws.com"
  *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
+ *       "Effect": "Allow",
+ *       "Sid": ""
  *     }
  *   ]
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var destination = new Bucket(&#34;destination&#34;, BucketArgs.builder()        
- *             .bucket(&#34;tf-test-bucket-destination-12345&#34;)
+ *         var destination = new Bucket("destination", BucketArgs.builder()        
+ *             .bucket("tf-test-bucket-destination-12345")
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
- *         var source = new Bucket(&#34;source&#34;, BucketArgs.builder()        
- *             .bucket(&#34;tf-test-bucket-source-12345&#34;)
- *             .acl(&#34;private&#34;)
+ *         var source = new Bucket("source", BucketArgs.builder()        
+ *             .bucket("tf-test-bucket-source-12345")
+ *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .replicationConfiguration(BucketReplicationConfigurationArgs.builder()
  *                 .role(replication.arn())
  *                 .rules(BucketReplicationConfigurationRuleArgs.builder()
- *                     .id(&#34;foobar&#34;)
- *                     .status(&#34;Enabled&#34;)
+ *                     .id("foobar")
+ *                     .status("Enabled")
  *                     .filter(BucketReplicationConfigurationRuleFilterArgs.builder()
  *                         .tags()
  *                         .build())
  *                     .destination(BucketReplicationConfigurationRuleDestinationArgs.builder()
  *                         .bucket(destination.arn())
- *                         .storageClass(&#34;STANDARD&#34;)
+ *                         .storageClass("STANDARD")
  *                         .replicationTime(BucketReplicationConfigurationRuleDestinationReplicationTimeArgs.builder()
- *                             .status(&#34;Enabled&#34;)
+ *                             .status("Enabled")
  *                             .minutes(15)
  *                             .build())
  *                         .metrics(BucketReplicationConfigurationRuleDestinationMetricsArgs.builder()
- *                             .status(&#34;Enabled&#34;)
+ *                             .status("Enabled")
  *                             .minutes(15)
  *                             .build())
  *                         .build())
@@ -433,66 +446,68 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;tf-iam-role-policy-replication-12345&#34;)
- *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -&gt; {
+ *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()        
+ *             .name("tf-iam-role-policy-replication-12345")
+ *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -> {
  *                 var sourceArn = values.t1;
  *                 var sourceArn1 = values.t2;
  *                 var destinationArn = values.t3;
- *                 return &#34;&#34;&#34;
+ *                 return """
  * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
+ *   "Version": "2012-10-17",
+ *   "Statement": [
  *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:GetReplicationConfiguration&#34;,
- *         &#34;s3:ListBucket&#34;
+ *       "Action": [
+ *         "s3:GetReplicationConfiguration",
+ *         "s3:ListBucket"
  *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "%s"
  *       ]
  *     },
  *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:GetObjectVersionForReplication&#34;,
- *         &#34;s3:GetObjectVersionAcl&#34;,
- *          &#34;s3:GetObjectVersionTagging&#34;
+ *       "Action": [
+ *         "s3:GetObjectVersionForReplication",
+ *         "s3:GetObjectVersionAcl",
+ *          "s3:GetObjectVersionTagging"
  *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s/*&#34;
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "%s/*"
  *       ]
  *     },
  *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:ReplicateObject&#34;,
- *         &#34;s3:ReplicateDelete&#34;,
- *         &#34;s3:ReplicateTags&#34;
+ *       "Action": [
+ *         "s3:ReplicateObject",
+ *         "s3:ReplicateDelete",
+ *         "s3:ReplicateTags"
  *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;%s/*&#34;
+ *       "Effect": "Allow",
+ *       "Resource": "%s/*"
  *     }
  *   ]
  * }
- * &#34;, sourceArn,sourceArn1,destinationArn);
+ * ", sourceArn,sourceArn1,destinationArn);
  *             }))
  *             .build());
  * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(replication.name())
  *             .policyArn(replicationPolicy.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable Default Server Side Encryption
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -518,18 +533,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mykey = new Key(&#34;mykey&#34;, KeyArgs.builder()        
- *             .description(&#34;This key is used to encrypt bucket objects&#34;)
+ *         var mykey = new Key("mykey", KeyArgs.builder()        
+ *             .description("This key is used to encrypt bucket objects")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new Bucket(&#34;mybucket&#34;, BucketArgs.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var mybucket = new Bucket("mybucket", BucketArgs.builder()        
+ *             .bucket("mybucket")
  *             .serverSideEncryptionConfiguration(BucketServerSideEncryptionConfigurationArgs.builder()
  *                 .rule(BucketServerSideEncryptionConfigurationRuleArgs.builder()
  *                     .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                         .kmsMasterKeyId(mykey.arn())
- *                         .sseAlgorithm(&#34;aws:kms&#34;)
+ *                         .sseAlgorithm("aws:kms")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -537,13 +552,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using ACL policy grants
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -568,26 +585,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var currentUser = S3Functions.getCanonicalUserId();
  * 
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()        
+ *             .bucket("mybucket")
  *             .grants(            
  *                 BucketGrantArgs.builder()
- *                     .id(currentUser.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .type(&#34;CanonicalUser&#34;)
- *                     .permissions(&#34;FULL_CONTROL&#34;)
+ *                     .id(currentUser.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+ *                     .type("CanonicalUser")
+ *                     .permissions("FULL_CONTROL")
  *                     .build(),
  *                 BucketGrantArgs.builder()
- *                     .type(&#34;Group&#34;)
+ *                     .type("Group")
  *                     .permissions(                    
- *                         &#34;READ_ACP&#34;,
- *                         &#34;WRITE&#34;)
- *                     .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
+ *                         "READ_ACP",
+ *                         "WRITE")
+ *                     .uri("http://acs.amazonaws.com/groups/s3/LogDelivery")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

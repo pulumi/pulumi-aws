@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,41 +45,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;testing@example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .emailIdentity("testing{@literal @}example.com")
  *             .build());
  * 
- *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy(&#34;exampleEmailIdentityPolicy&#34;, EmailIdentityPolicyArgs.builder()        
+ *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy("exampleEmailIdentityPolicy", EmailIdentityPolicyArgs.builder()        
  *             .emailIdentity(example.emailIdentity())
- *             .policyName(&#34;example&#34;)
- *             .policy(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .policyName("example")
+ *             .policy(example.arn().applyValue(arn -> """
  * {
- *   &#34;Id&#34;:&#34;ExampleAuthorizationPolicy&#34;,
- *   &#34;Version&#34;:&#34;2012-10-17&#34;,
- *   &#34;Statement&#34;:[
+ *   "Id":"ExampleAuthorizationPolicy",
+ *   "Version":"2012-10-17",
+ *   "Statement":[
  *     {
- *       &#34;Sid&#34;:&#34;AuthorizeIAMUser&#34;,
- *       &#34;Effect&#34;:&#34;Allow&#34;,
- *       &#34;Resource&#34;:&#34;%s&#34;,
- *       &#34;Principal&#34;:{
- *         &#34;AWS&#34;:[
- *           &#34;arn:aws:iam::123456789012:user/John&#34;,
- *           &#34;arn:aws:iam::123456789012:user/Jane&#34;
+ *       "Sid":"AuthorizeIAMUser",
+ *       "Effect":"Allow",
+ *       "Resource":"%s",
+ *       "Principal":{
+ *         "AWS":[
+ *           "arn:aws:iam::123456789012:user/John",
+ *           "arn:aws:iam::123456789012:user/Jane"
  *         ]
  *       },
- *       &#34;Action&#34;:[
- *         &#34;ses:DeleteEmailIdentity&#34;,
- *         &#34;ses:PutEmailIdentityDkimSigningAttributes&#34;
+ *       "Action":[
+ *         "ses:DeleteEmailIdentity",
+ *         "ses:PutEmailIdentityDkimSigningAttributes"
  *       ]
  *     }
  *   ]
  * }
- * &#34;, arn)))
+ * ", arn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InfrastructureConfiguration(&#34;example&#34;, InfrastructureConfigurationArgs.builder()        
- *             .description(&#34;example description&#34;)
+ *         var example = new InfrastructureConfiguration("example", InfrastructureConfigurationArgs.builder()        
+ *             .description("example description")
  *             .instanceProfileName(exampleAwsIamInstanceProfile.name())
  *             .instanceTypes(            
- *                 &#34;t2.nano&#34;,
- *                 &#34;t3.micro&#34;)
+ *                 "t2.nano",
+ *                 "t3.micro")
  *             .keyPair(exampleAwsKeyPair.keyName())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .snsTopicArn(exampleAwsSnsTopic.arn())
  *             .subnetId(main.id())
@@ -63,15 +64,16 @@ import javax.annotation.Nullable;
  *             .logging(InfrastructureConfigurationLoggingArgs.builder()
  *                 .s3Logs(InfrastructureConfigurationLoggingS3LogsArgs.builder()
  *                     .s3BucketName(exampleAwsS3Bucket.bucket())
- *                     .s3KeyPrefix(&#34;logs&#34;)
+ *                     .s3KeyPrefix("logs")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *             .name("example")
+ *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With description
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,21 +82,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;example&#34;)
- *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *             .name("example")
+ *             .description("example")
+ *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,21 +119,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *             .name("example")
+ *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
+ *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With target_table
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,9 +157,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *             .name("example")
+ *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
  *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
  *                 .tableName(exampleAwsGlueCatalogTable.name())
@@ -161,7 +168,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

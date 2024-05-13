@@ -26,7 +26,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,12 +49,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,12 +91,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,12 +133,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,12 +175,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +194,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,12 +217,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +236,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -248,12 +259,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
-     *             .catalogId(&#34;14916253649&#34;)
+     *             .catalogId("14916253649")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -270,7 +282,8 @@ public final class LakeformationFunctions {
      * ### Permissions For A Lake Formation S3 Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,13 +314,15 @@ public final class LakeformationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For A Glue Catalog Database
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -333,19 +348,21 @@ public final class LakeformationFunctions {
      *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(testAwsGlueCatalogDatabase.name())
-     *                 .catalogId(&#34;110376042874&#34;)
+     *                 .catalogId("110376042874")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For Tag-Based Access Control
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -370,24 +387,25 @@ public final class LakeformationFunctions {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
-     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .resourceType("DATABASE")
      *                 .expressions(                
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Team&#34;)
-     *                         .values(&#34;Sales&#34;)
+     *                         .key("Team")
+     *                         .values("Sales")
      *                         .build(),
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Environment&#34;)
+     *                         .key("Environment")
      *                         .values(                        
-     *                             &#34;Dev&#34;,
-     *                             &#34;Production&#34;)
+     *                             "Dev",
+     *                             "Production")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -404,7 +422,8 @@ public final class LakeformationFunctions {
      * ### Permissions For A Lake Formation S3 Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -435,13 +454,15 @@ public final class LakeformationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For A Glue Catalog Database
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -467,19 +488,21 @@ public final class LakeformationFunctions {
      *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(testAwsGlueCatalogDatabase.name())
-     *                 .catalogId(&#34;110376042874&#34;)
+     *                 .catalogId("110376042874")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For Tag-Based Access Control
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -504,24 +527,25 @@ public final class LakeformationFunctions {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
-     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .resourceType("DATABASE")
      *                 .expressions(                
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Team&#34;)
-     *                         .values(&#34;Sales&#34;)
+     *                         .key("Team")
+     *                         .values("Sales")
      *                         .build(),
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Environment&#34;)
+     *                         .key("Environment")
      *                         .values(                        
-     *                             &#34;Dev&#34;,
-     *                             &#34;Production&#34;)
+     *                             "Dev",
+     *                             "Production")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -538,7 +562,8 @@ public final class LakeformationFunctions {
      * ### Permissions For A Lake Formation S3 Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -569,13 +594,15 @@ public final class LakeformationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For A Glue Catalog Database
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,19 +628,21 @@ public final class LakeformationFunctions {
      *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(testAwsGlueCatalogDatabase.name())
-     *                 .catalogId(&#34;110376042874&#34;)
+     *                 .catalogId("110376042874")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For Tag-Based Access Control
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -638,24 +667,25 @@ public final class LakeformationFunctions {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
-     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .resourceType("DATABASE")
      *                 .expressions(                
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Team&#34;)
-     *                         .values(&#34;Sales&#34;)
+     *                         .key("Team")
+     *                         .values("Sales")
      *                         .build(),
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Environment&#34;)
+     *                         .key("Environment")
      *                         .values(                        
-     *                             &#34;Dev&#34;,
-     *                             &#34;Production&#34;)
+     *                             "Dev",
+     *                             "Production")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -672,7 +702,8 @@ public final class LakeformationFunctions {
      * ### Permissions For A Lake Formation S3 Resource
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -703,13 +734,15 @@ public final class LakeformationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For A Glue Catalog Database
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -735,19 +768,21 @@ public final class LakeformationFunctions {
      *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(testAwsGlueCatalogDatabase.name())
-     *                 .catalogId(&#34;110376042874&#34;)
+     *                 .catalogId("110376042874")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Permissions For Tag-Based Access Control
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,24 +807,25 @@ public final class LakeformationFunctions {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
-     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .resourceType("DATABASE")
      *                 .expressions(                
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Team&#34;)
-     *                         .values(&#34;Sales&#34;)
+     *                         .key("Team")
+     *                         .values("Sales")
      *                         .build(),
      *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
-     *                         .key(&#34;Environment&#34;)
+     *                         .key("Environment")
      *                         .values(                        
-     *                             &#34;Dev&#34;,
-     *                             &#34;Production&#34;)
+     *                             "Dev",
+     *                             "Production")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -802,7 +838,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -824,12 +861,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
-     *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
+     *             .arn("arn:aws:s3:::tf-acc-test-9151654063908211878")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -842,7 +880,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -864,12 +903,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
-     *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
+     *             .arn("arn:aws:s3:::tf-acc-test-9151654063908211878")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -882,7 +922,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -904,12 +945,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
-     *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
+     *             .arn("arn:aws:s3:::tf-acc-test-9151654063908211878")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -922,7 +964,8 @@ public final class LakeformationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -944,12 +987,13 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
-     *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
+     *             .arn("arn:aws:s3:::tf-acc-test-9151654063908211878")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

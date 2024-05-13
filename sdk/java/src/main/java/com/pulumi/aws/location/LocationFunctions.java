@@ -40,7 +40,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,12 +63,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
+     *             .collectionName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -82,7 +84,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,12 +107,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
+     *             .collectionName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,12 +151,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
+     *             .collectionName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +172,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -188,12 +195,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
+     *             .collectionName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +214,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,12 +237,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
+     *             .mapName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -246,7 +256,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -268,12 +279,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
+     *             .mapName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -286,7 +298,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -308,12 +321,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
+     *             .mapName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -326,7 +340,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -348,12 +363,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
+     *             .mapName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -366,7 +382,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -388,12 +405,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
+     *             .indexName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -406,7 +424,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,12 +447,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
+     *             .indexName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -446,7 +466,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -468,12 +489,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
+     *             .indexName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -486,7 +508,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -508,12 +531,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
+     *             .indexName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -526,7 +550,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -548,12 +573,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
+     *             .calculatorName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -566,7 +592,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -588,12 +615,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
+     *             .calculatorName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -606,7 +634,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -628,12 +657,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
+     *             .calculatorName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -646,7 +676,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -668,12 +699,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
+     *             .calculatorName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -686,7 +718,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -708,12 +741,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -726,7 +760,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -748,12 +783,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -766,7 +802,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -788,12 +825,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -806,7 +844,8 @@ public final class LocationFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -828,12 +867,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -848,7 +888,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -870,13 +911,14 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
+     *             .consumerArn("arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer")
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -891,7 +933,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -913,13 +956,14 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
+     *             .consumerArn("arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer")
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -934,7 +978,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -956,13 +1001,14 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
+     *             .consumerArn("arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer")
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -977,7 +1023,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -999,13 +1046,14 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
+     *             .consumerArn("arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer")
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1020,7 +1068,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1042,12 +1091,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1062,7 +1112,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1084,12 +1135,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1104,7 +1156,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1126,12 +1179,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1146,7 +1200,8 @@ public final class LocationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1168,12 +1223,13 @@ public final class LocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
+     *             .trackerName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

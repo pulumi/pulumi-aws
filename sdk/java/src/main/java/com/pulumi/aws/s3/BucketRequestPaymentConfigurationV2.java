@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,14 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketRequestPaymentConfigurationV2(&#34;example&#34;, BucketRequestPaymentConfigurationV2Args.builder()        
+ *         var example = new BucketRequestPaymentConfigurationV2("example", BucketRequestPaymentConfigurationV2Args.builder()        
  *             .bucket(exampleAwsS3Bucket.id())
- *             .payer(&#34;Requester&#34;)
+ *             .payer("Requester")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

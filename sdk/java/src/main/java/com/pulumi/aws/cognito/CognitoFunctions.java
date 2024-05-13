@@ -40,7 +40,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,12 +63,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .identityPoolName(&#34;test pool&#34;)
+     *             .identityPoolName("test pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -82,7 +84,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,12 +107,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .identityPoolName(&#34;test pool&#34;)
+     *             .identityPoolName("test pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,12 +151,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .identityPoolName(&#34;test pool&#34;)
+     *             .identityPoolName("test pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +172,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -188,12 +195,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .identityPoolName(&#34;test pool&#34;)
+     *             .identityPoolName("test pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -208,7 +216,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -230,13 +239,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .name(&#34;example&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +261,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,13 +284,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .name(&#34;example&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -294,7 +306,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -316,13 +329,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .name(&#34;example&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -337,7 +351,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -359,13 +374,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .name(&#34;example&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -380,7 +396,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -402,12 +419,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -422,7 +440,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -444,12 +463,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -464,7 +484,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -486,12 +507,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -506,7 +528,8 @@ public final class CognitoFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -528,12 +551,13 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -546,7 +570,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -568,13 +593,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
-     *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .clientId("38fjsnc484p94kpqsnet7mpld0")
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -587,7 +613,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -609,13 +636,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
-     *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .clientId("38fjsnc484p94kpqsnet7mpld0")
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -628,7 +656,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -650,13 +679,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
-     *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .clientId("38fjsnc484p94kpqsnet7mpld0")
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -669,7 +699,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -691,13 +722,14 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
-     *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
-     *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
+     *             .clientId("38fjsnc484p94kpqsnet7mpld0")
+     *             .userPoolId("us-west-2_aaaaaaaaa")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -710,7 +742,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -737,7 +770,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +784,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -777,7 +812,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -790,7 +826,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -817,7 +854,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -830,7 +868,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -857,7 +896,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -870,7 +910,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -897,7 +938,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -910,7 +952,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -937,7 +980,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -950,7 +994,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -977,7 +1022,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -990,7 +1036,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1017,7 +1064,8 @@ public final class CognitoFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1030,7 +1078,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1063,16 +1112,17 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
-     *             .name(&#34;cognito&#34;)
-     *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *             .name("cognito")
+     *             .type("COGNITO_USER_POOLS")
+     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1085,7 +1135,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1118,16 +1169,17 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
-     *             .name(&#34;cognito&#34;)
-     *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *             .name("cognito")
+     *             .type("COGNITO_USER_POOLS")
+     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1140,7 +1192,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1173,16 +1226,17 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
-     *             .name(&#34;cognito&#34;)
-     *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *             .name("cognito")
+     *             .type("COGNITO_USER_POOLS")
+     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1195,7 +1249,8 @@ public final class CognitoFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1228,16 +1283,17 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
-     *             .name(&#34;cognito&#34;)
-     *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selected.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *             .name("cognito")
+     *             .type("COGNITO_USER_POOLS")
+     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

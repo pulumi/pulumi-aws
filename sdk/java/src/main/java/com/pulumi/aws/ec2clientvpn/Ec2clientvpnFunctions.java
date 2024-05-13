@@ -22,7 +22,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,20 +46,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -80,12 +83,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -100,7 +104,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -123,20 +128,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -158,12 +165,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -178,7 +186,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -201,20 +210,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -236,12 +247,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -256,7 +268,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -279,20 +292,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,12 +329,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -334,7 +350,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,20 +374,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -392,12 +411,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -412,7 +432,8 @@ public final class Ec2clientvpnFunctions {
      * ### By Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -435,20 +456,22 @@ public final class Ec2clientvpnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
+     *                 .name("tag:Name")
+     *                 .values("ExampleVpn")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Identifier
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -470,12 +493,13 @@ public final class Ec2clientvpnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
+     *             .clientVpnEndpointId("cvpn-endpoint-083cf50d6eb314f21")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

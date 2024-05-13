@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,9 +50,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
- *             .name(&#34;tf-test-name&#34;)
- *             .description(&#34;tf-test-desc&#34;)
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
  *                 .serviceRole(beanstalkService.arn())
  *                 .maxCount(128)
@@ -61,7 +62,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

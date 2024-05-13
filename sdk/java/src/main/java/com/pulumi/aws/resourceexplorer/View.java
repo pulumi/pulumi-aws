@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,17 +52,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .type(&#34;LOCAL&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .type("LOCAL")
  *             .build());
  * 
- *         var exampleView = new View(&#34;exampleView&#34;, ViewArgs.builder()        
- *             .name(&#34;exampleview&#34;)
+ *         var exampleView = new View("exampleView", ViewArgs.builder()        
+ *             .name("exampleview")
  *             .filters(ViewFiltersArgs.builder()
- *                 .filterString(&#34;resourcetype:ec2:instance&#34;)
+ *                 .filterString("resourcetype:ec2:instance")
  *                 .build())
  *             .includedProperties(ViewIncludedPropertyArgs.builder()
- *                 .name(&#34;tags&#34;)
+ *                 .name("tags")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
@@ -69,7 +70,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

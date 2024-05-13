@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,35 +59,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new Group(&#34;foobar&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-west-2a&#34;)
- *             .name(&#34;test-foobar5&#34;)
- *             .healthCheckType(&#34;EC2&#34;)
- *             .terminationPolicies(&#34;OldestInstance&#34;)
+ *         var foobar = new Group("foobar", GroupArgs.builder()        
+ *             .availabilityZones("us-west-2a")
+ *             .name("test-foobar5")
+ *             .healthCheckType("EC2")
+ *             .terminationPolicies("OldestInstance")
  *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;Foo&#34;)
- *                 .value(&#34;foo-bar&#34;)
+ *                 .key("Foo")
+ *                 .value("foo-bar")
  *                 .propagateAtLaunch(true)
  *                 .build())
  *             .build());
  * 
- *         var foobarLifecycleHook = new LifecycleHook(&#34;foobarLifecycleHook&#34;, LifecycleHookArgs.builder()        
- *             .name(&#34;foobar&#34;)
+ *         var foobarLifecycleHook = new LifecycleHook("foobarLifecycleHook", LifecycleHookArgs.builder()        
+ *             .name("foobar")
  *             .autoscalingGroupName(foobar.name())
- *             .defaultResult(&#34;CONTINUE&#34;)
+ *             .defaultResult("CONTINUE")
  *             .heartbeatTimeout(2000)
- *             .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
+ *             .lifecycleTransition("autoscaling:EC2_INSTANCE_LAUNCHING")
  *             .notificationMetadata(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;foo&#34;, &#34;bar&#34;)
+ *                     jsonProperty("foo", "bar")
  *                 )))
- *             .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
- *             .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
+ *             .notificationTargetArn("arn:aws:sqs:us-east-1:444455556666:queue1*")
+ *             .roleArn("arn:aws:iam::123456789012:role/S3Access")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

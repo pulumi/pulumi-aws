@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDetector = new Detector(&#34;myDetector&#34;, DetectorArgs.builder()        
+ *         var myDetector = new Detector("myDetector", DetectorArgs.builder()        
  *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
  *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,32 +60,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .build());
  * 
- *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr("exampleVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.20.0.0/16&#34;)
+ *             .cidr("172.20.0.0/16")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Provision Public IPv6 Pool CIDRs:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,30 +117,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var ipv6TestPublic = new VpcIpamPool(&#34;ipv6TestPublic&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv6&#34;)
+ *         var ipv6TestPublic = new VpcIpamPool("ipv6TestPublic", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv6")
  *             .ipamScopeId(example.publicDefaultScopeId())
- *             .locale(&#34;us-east-1&#34;)
- *             .description(&#34;public ipv6&#34;)
+ *             .locale("us-east-1")
+ *             .description("public ipv6")
  *             .publiclyAdvertisable(false)
- *             .publicIpSource(&#34;amazon&#34;)
- *             .awsService(&#34;ec2&#34;)
+ *             .publicIpSource("amazon")
+ *             .awsService("ec2")
  *             .build());
  * 
- *         var ipv6TestPublicVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;ipv6TestPublicVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var ipv6TestPublicVpcIpamPoolCidr = new VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(ipv6TestPublic.id())
  *             .netmaskLength(52)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

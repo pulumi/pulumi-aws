@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,61 +65,61 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var main = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;pipes.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "pipes.amazonaws.com")
  *                         )),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;StringEquals&#34;, jsonObject(
- *                                 jsonProperty(&#34;aws:SourceAccount&#34;, main.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("StringEquals", jsonObject(
+ *                                 jsonProperty("aws:SourceAccount", main.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                             ))
  *                         ))
  *                     ))
  *                 )))
  *             .build());
  * 
- *         var sourceQueue = new Queue(&#34;sourceQueue&#34;);
+ *         var sourceQueue = new Queue("sourceQueue");
  * 
- *         var source = new RolePolicy(&#34;source&#34;, RolePolicyArgs.builder()        
+ *         var source = new RolePolicy("source", RolePolicyArgs.builder()        
  *             .role(example.id())
- *             .policy(sourceQueue.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(sourceQueue.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;sqs:DeleteMessage&#34;, 
- *                             &#34;sqs:GetQueueAttributes&#34;, 
- *                             &#34;sqs:ReceiveMessage&#34;
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sqs:DeleteMessage", 
+ *                             "sqs:GetQueueAttributes", 
+ *                             "sqs:ReceiveMessage"
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
+ *                         jsonProperty("Resource", jsonArray(arn))
  *                     )))
  *                 ))))
  *             .build());
  * 
- *         var targetQueue = new Queue(&#34;targetQueue&#34;);
+ *         var targetQueue = new Queue("targetQueue");
  * 
- *         var target = new RolePolicy(&#34;target&#34;, RolePolicyArgs.builder()        
+ *         var target = new RolePolicy("target", RolePolicyArgs.builder()        
  *             .role(example.id())
- *             .policy(targetQueue.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(targetQueue.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
+ *                         jsonProperty("Resource", jsonArray(arn))
  *                     )))
  *                 ))))
  *             .build());
  * 
- *         var examplePipe = new Pipe(&#34;examplePipe&#34;, PipeArgs.builder()        
- *             .name(&#34;example-pipe&#34;)
+ *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()        
+ *             .name("example-pipe")
  *             .roleArn(example.arn())
  *             .source(sourceQueue.arn())
  *             .target(targetQueue.arn())
@@ -130,13 +131,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enrichment Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -159,22 +162,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
- *             .name(&#34;example-pipe&#34;)
+ *         var example = new Pipe("example", PipeArgs.builder()        
+ *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())
  *             .target(target.arn())
  *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
  *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
  *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
- *                     .pathParameterValues(&#34;example-path-param&#34;)
+ *                     .pathParameterValues("example-path-param")
  *                     .headerParameters(Map.ofEntries(
- *                         Map.entry(&#34;example-header&#34;, &#34;example-value&#34;),
- *                         Map.entry(&#34;second-example-header&#34;, &#34;second-example-value&#34;)
+ *                         Map.entry("example-header", "example-value"),
+ *                         Map.entry("second-example-header", "second-example-value")
  *                     ))
  *                     .queryStringParameters(Map.ofEntries(
- *                         Map.entry(&#34;example-query-string&#34;, &#34;example-value&#34;),
- *                         Map.entry(&#34;second-example-query-string&#34;, &#34;second-example-value&#34;)
+ *                         Map.entry("example-query-string", "example-value"),
+ *                         Map.entry("second-example-query-string", "second-example-value")
  *                     ))
  *                     .build())
  *                 .build())
@@ -182,13 +185,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filter Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -212,8 +217,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
- *             .name(&#34;example-pipe&#34;)
+ *         var example = new Pipe("example", PipeArgs.builder()        
+ *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())
  *             .target(target.arn())
@@ -222,7 +227,7 @@ import javax.annotation.Nullable;
  *                     .filters(PipeSourceParametersFilterCriteriaFilterArgs.builder()
  *                         .pattern(serializeJson(
  *                             jsonObject(
- *                                 jsonProperty(&#34;source&#34;, jsonArray(&#34;event-source&#34;))
+ *                                 jsonProperty("source", jsonArray("event-source"))
  *                             )))
  *                         .build())
  *                     .build())
@@ -231,13 +236,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQS Source and Target Configuration Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -261,8 +268,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
- *             .name(&#34;example-pipe&#34;)
+ *         var example = new Pipe("example", PipeArgs.builder()        
+ *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())
  *             .target(target.arn())
@@ -279,7 +286,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

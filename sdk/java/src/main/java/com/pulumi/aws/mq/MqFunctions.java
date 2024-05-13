@@ -26,7 +26,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,8 +49,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -60,7 +61,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,8 +98,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -107,7 +110,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -120,7 +124,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,8 +147,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -154,7 +159,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +173,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -189,8 +196,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -201,7 +208,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -214,7 +222,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -236,8 +245,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -248,7 +257,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -261,7 +271,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -283,8 +294,8 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
-     *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
+     *         final var brokerId = config.get("brokerId").orElse("");
+     *         final var brokerName = config.get("brokerName").orElse("");
      *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
      *             .build());
@@ -295,7 +306,8 @@ public final class MqFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -310,7 +322,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -332,12 +345,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -352,7 +366,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -374,12 +389,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -394,7 +410,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -416,12 +433,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +454,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,12 +477,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -478,7 +498,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -500,12 +521,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -520,7 +542,8 @@ public final class MqFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -542,12 +565,13 @@ public final class MqFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -560,7 +584,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,26 +609,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -616,7 +642,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -640,26 +667,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -672,7 +700,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -696,26 +725,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -728,7 +758,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -752,26 +783,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -784,7 +816,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -808,26 +841,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -840,7 +874,8 @@ public final class MqFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -864,26 +899,27 @@ public final class MqFunctions {
      *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType(&#34;EBS&#34;)
+     *             .storageType("EBS")
      *             .build());
      * 
      *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .storageType(&#34;EBS&#34;)
-     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .hostInstanceType("mq.m5.large")
+     *             .storageType("EBS")
+     *             .engineType("ACTIVEMQ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

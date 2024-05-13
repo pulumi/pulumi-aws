@@ -21,7 +21,8 @@ public final class TransferFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -43,12 +44,13 @@ public final class TransferFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
-     *             .serverId(&#34;s-1234567&#34;)
+     *             .serverId("s-1234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class TransferFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,12 +87,13 @@ public final class TransferFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
-     *             .serverId(&#34;s-1234567&#34;)
+     *             .serverId("s-1234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class TransferFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class TransferFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
-     *             .serverId(&#34;s-1234567&#34;)
+     *             .serverId("s-1234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -144,7 +150,8 @@ public final class TransferFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -166,12 +173,13 @@ public final class TransferFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
-     *             .serverId(&#34;s-1234567&#34;)
+     *             .serverId("s-1234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

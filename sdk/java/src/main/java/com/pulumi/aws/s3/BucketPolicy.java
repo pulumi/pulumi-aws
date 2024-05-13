@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
  *         final var allowAccessFromAnotherAccount = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("123456789012")
  *                     .build())
  *                 .actions(                
- *                     &#34;s3:GetObject&#34;,
- *                     &#34;s3:ListBucket&#34;)
+ *                     "s3:GetObject",
+ *                     "s3:ListBucket")
  *                 .resources(                
  *                     example.arn(),
- *                     example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     example.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                 .build())
  *             .build());
  * 
- *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy(&#34;allowAccessFromAnotherAccountBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(example.id())
- *             .policy(allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccount -&gt; allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccount -> allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

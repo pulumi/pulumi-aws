@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleProductSubscription = new ProductSubscription(&#34;exampleProductSubscription&#34;, ProductSubscriptionArgs.builder()        
- *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *         var exampleProductSubscription = new ProductSubscription("exampleProductSubscription", ProductSubscriptionArgs.builder()        
+ *             .productArn(String.format("arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

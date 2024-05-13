@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,16 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OpenZfsFileSystem(&#34;test&#34;, OpenZfsFileSystemArgs.builder()        
+ *         var test = new OpenZfsFileSystem("test", OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
  *             .subnetIds(test1.id())
- *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
+ *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

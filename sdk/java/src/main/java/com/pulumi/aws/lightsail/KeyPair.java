@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Create New Key Pair
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,19 +50,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Lightsail Key Pair
- *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
- *             .name(&#34;lg_key_pair&#34;)
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *             .name("lg_key_pair")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create New Key Pair with PGP Encrypted Private Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,20 +85,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
- *             .name(&#34;lg_key_pair&#34;)
- *             .pgpKey(&#34;keybase:keybaseusername&#34;)
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *             .name("lg_key_pair")
+ *             .pgpKey("keybase:keybaseusername")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Existing Public Key Import
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -116,16 +121,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
- *             .name(&#34;importing&#34;)
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *             .name("importing")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .input("~/.ssh/id_rsa.pub")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

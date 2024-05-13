@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * Create a replication set.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,22 +53,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
  *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
+ *                 .name("us-west-2")
  *                 .build())
- *             .tags(Map.of(&#34;exampleTag&#34;, &#34;exampleValue&#34;))
+ *             .tags(Map.of("exampleTag", "exampleValue"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Add a Region to a replication set. (You can add only one Region at a time.)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,25 +92,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
  *             .regions(            
  *                 ReplicationSetRegionArgs.builder()
- *                     .name(&#34;us-west-2&#34;)
+ *                     .name("us-west-2")
  *                     .build(),
  *                 ReplicationSetRegionArgs.builder()
- *                     .name(&#34;ap-southeast-2&#34;)
+ *                     .name("ap-southeast-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Delete a Region from a replication set. (You can delete only one Region at a time.)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,15 +134,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
  *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
+ *                 .name("us-west-2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Basic Usage with an AWS Customer Managed Key
@@ -145,7 +151,8 @@ import javax.annotation.Nullable;
  * Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -168,19 +175,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;);
+ *         var exampleKey = new Key("exampleKey");
  * 
- *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
  *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
+ *                 .name("us-west-2")
  *                 .kmsKeyArn(exampleKey.arn())
  *                 .build())
- *             .tags(Map.of(&#34;exampleTag&#34;, &#34;exampleValue&#34;))
+ *             .tags(Map.of("exampleTag", "exampleValue"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

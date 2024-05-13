@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Basic mysql blueprint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,25 +53,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .relationalDatabaseName(&#34;test&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .blueprintId(&#34;mysql_8_0&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .relationalDatabaseName("test")
+ *             .availabilityZone("us-east-1a")
+ *             .masterDatabaseName("testdatabasename")
+ *             .masterPassword("testdatabasepassword")
+ *             .masterUsername("test")
+ *             .blueprintId("mysql_8_0")
+ *             .bundleId("micro_1_0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic postrgres blueprint
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,19 +94,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .relationalDatabaseName(&#34;test&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .relationalDatabaseName("test")
+ *             .availabilityZone("us-east-1a")
+ *             .masterDatabaseName("testdatabasename")
+ *             .masterPassword("testdatabasepassword")
+ *             .masterUsername("test")
+ *             .blueprintId("postgres_12")
+ *             .bundleId("micro_1_0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom backup and maintenance windows
@@ -111,7 +115,8 @@ import javax.annotation.Nullable;
  * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -132,21 +137,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .relationalDatabaseName(&#34;test&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
- *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
- *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .relationalDatabaseName("test")
+ *             .availabilityZone("us-east-1a")
+ *             .masterDatabaseName("testdatabasename")
+ *             .masterPassword("testdatabasepassword")
+ *             .masterUsername("test")
+ *             .blueprintId("postgres_12")
+ *             .bundleId("micro_1_0")
+ *             .preferredBackupWindow("16:00-16:30")
+ *             .preferredMaintenanceWindow("Tue:17:00-Tue:17:30")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Final Snapshots
@@ -154,7 +160,8 @@ import javax.annotation.Nullable;
  * To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -175,22 +182,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .relationalDatabaseName(&#34;test&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
- *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
- *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
- *             .finalSnapshotName(&#34;MyFinalSnapshot&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .relationalDatabaseName("test")
+ *             .availabilityZone("us-east-1a")
+ *             .masterDatabaseName("testdatabasename")
+ *             .masterPassword("testdatabasepassword")
+ *             .masterUsername("test")
+ *             .blueprintId("postgres_12")
+ *             .bundleId("micro_1_0")
+ *             .preferredBackupWindow("16:00-16:30")
+ *             .preferredMaintenanceWindow("Tue:17:00-Tue:17:30")
+ *             .finalSnapshotName("MyFinalSnapshot")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Apply Immediately
@@ -198,7 +206,8 @@ import javax.annotation.Nullable;
  * To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -219,20 +228,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .relationalDatabaseName(&#34;test&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .relationalDatabaseName("test")
+ *             .availabilityZone("us-east-1a")
+ *             .masterDatabaseName("testdatabasename")
+ *             .masterPassword("testdatabasepassword")
+ *             .masterUsername("test")
+ *             .blueprintId("postgres_12")
+ *             .bundleId("micro_1_0")
  *             .applyImmediately(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Blueprint Ids
@@ -518,14 +528,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.masterEndpointPort;
     }
     /**
-     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;@&#34;.
+     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output<String> masterPassword;
 
     /**
-     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;@&#34;.
+     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     public Output<String> masterPassword() {

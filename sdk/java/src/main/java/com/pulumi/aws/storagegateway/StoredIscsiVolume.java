@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Create Empty Stored iSCSI Volume
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
+ *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
- *             .targetName(&#34;example&#34;)
+ *             .targetName("example")
  *             .preserveExistingData(false)
  *             .diskId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create Stored iSCSI Volume From Snapshot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,18 +88,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
+ *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .snapshotId(exampleAwsEbsSnapshot.id())
- *             .targetName(&#34;example&#34;)
+ *             .targetName("example")
  *             .preserveExistingData(false)
  *             .diskId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

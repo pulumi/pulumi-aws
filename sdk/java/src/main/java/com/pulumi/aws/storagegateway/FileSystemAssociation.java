@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,23 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileSystemAssociation(&#34;example&#34;, FileSystemAssociationArgs.builder()        
+ *         var example = new FileSystemAssociation("example", FileSystemAssociationArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsFsxWindowsFileSystem.arn())
- *             .username(&#34;Admin&#34;)
- *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .username("Admin")
+ *             .password("avoid-plaintext-passwords")
  *             .auditDestinationArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Required Services Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,11 +98,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var awsServiceStoragegatewayAmiFILES3Latest = SsmFunctions.getParameter(GetParameterArgs.builder()
- *             .name(&#34;/aws/service/storagegateway/ami/FILE_S3/latest&#34;)
+ *             .name("/aws/service/storagegateway/ami/FILE_S3/latest")
  *             .build());
  * 
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -&gt; getParameterResult.value()))
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -> getParameterResult.value()))
  *             .associatePublicIpAddress(true)
  *             .instanceType(available.instanceType())
  *             .vpcSecurityGroupIds(testAwsSecurityGroup.id())
@@ -110,19 +113,19 @@ import javax.annotation.Nullable;
  *                     testAwsVpcDhcpOptionsAssociation)
  *                 .build());
  * 
- *         var testGateway = new Gateway(&#34;testGateway&#34;, GatewayArgs.builder()        
+ *         var testGateway = new Gateway("testGateway", GatewayArgs.builder()        
  *             .gatewayIpAddress(test.publicIp())
- *             .gatewayName(&#34;test-sgw&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;FILE_FSX_SMB&#34;)
+ *             .gatewayName("test-sgw")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("FILE_FSX_SMB")
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
  *                 .domainName(testAwsDirectoryServiceDirectory.name())
  *                 .password(testAwsDirectoryServiceDirectory.password())
- *                 .username(&#34;Admin&#34;)
+ *                 .username("Admin")
  *                 .build())
  *             .build());
  * 
- *         var testWindowsFileSystem = new WindowsFileSystem(&#34;testWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
+ *         var testWindowsFileSystem = new WindowsFileSystem("testWindowsFileSystem", WindowsFileSystemArgs.builder()        
  *             .activeDirectoryId(testAwsDirectoryServiceDirectory.id())
  *             .securityGroupIds(testAwsSecurityGroup.id())
  *             .skipFinalBackup(true)
@@ -131,10 +134,10 @@ import javax.annotation.Nullable;
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var fsx = new FileSystemAssociation(&#34;fsx&#34;, FileSystemAssociationArgs.builder()        
+ *         var fsx = new FileSystemAssociation("fsx", FileSystemAssociationArgs.builder()        
  *             .gatewayArn(testGateway.arn())
  *             .locationArn(testWindowsFileSystem.arn())
- *             .username(&#34;Admin&#34;)
+ *             .username("Admin")
  *             .password(testAwsDirectoryServiceDirectory.password())
  *             .cacheAttributes(FileSystemAssociationCacheAttributesArgs.builder()
  *                 .cacheStaleTimeoutInSeconds(400)
@@ -144,7 +147,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipeline(&#34;example&#34;, PipelineArgs.builder()        
- *             .pipelineName(&#34;example&#34;)
- *             .pipelineDisplayName(&#34;example&#34;)
+ *         var example = new Pipeline("example", PipelineArgs.builder()        
+ *             .pipelineName("example")
+ *             .pipelineDisplayName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .pipelineDefinition(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2020-12-01&#34;),
- *                     jsonProperty(&#34;Steps&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Name&#34;, &#34;Test&#34;),
- *                         jsonProperty(&#34;Type&#34;, &#34;Fail&#34;),
- *                         jsonProperty(&#34;Arguments&#34;, jsonObject(
- *                             jsonProperty(&#34;ErrorMessage&#34;, &#34;test&#34;)
+ *                     jsonProperty("Version", "2020-12-01"),
+ *                     jsonProperty("Steps", jsonArray(jsonObject(
+ *                         jsonProperty("Name", "Test"),
+ *                         jsonProperty("Type", "Fail"),
+ *                         jsonProperty("Arguments", jsonObject(
+ *                             jsonProperty("ErrorMessage", "test")
  *                         ))
  *                     )))
  *                 )))
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

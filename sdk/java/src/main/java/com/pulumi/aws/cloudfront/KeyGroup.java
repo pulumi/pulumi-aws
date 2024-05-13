@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * The following example below creates a CloudFront key group.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
- *             .comment(&#34;example public key&#34;)
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *             .comment("example public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;public_key.pem&#34;)
+ *                 .input("public_key.pem")
  *                 .build()).result())
- *             .name(&#34;example-key&#34;)
+ *             .name("example-key")
  *             .build());
  * 
- *         var exampleKeyGroup = new KeyGroup(&#34;exampleKeyGroup&#34;, KeyGroupArgs.builder()        
- *             .comment(&#34;example key group&#34;)
+ *         var exampleKeyGroup = new KeyGroup("exampleKeyGroup", KeyGroupArgs.builder()        
+ *             .comment("example key group")
  *             .items(example.id())
- *             .name(&#34;example-key-group&#34;)
+ *             .name("example-key-group")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

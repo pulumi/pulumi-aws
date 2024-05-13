@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### cluster_identifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Statement(&#34;example&#34;, StatementArgs.builder()        
+ *         var example = new Statement("example", StatementArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .database(exampleAwsRedshiftCluster.databaseName())
  *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
- *             .sql(&#34;CREATE GROUP group_name;&#34;)
+ *             .sql("CREATE GROUP group_name;")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### workgroup_name
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,15 +85,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Statement(&#34;example&#34;, StatementArgs.builder()        
+ *         var example = new Statement("example", StatementArgs.builder()        
  *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
- *             .database(&#34;dev&#34;)
- *             .sql(&#34;CREATE GROUP group_name;&#34;)
+ *             .database("dev")
+ *             .sql("CREATE GROUP group_name;")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

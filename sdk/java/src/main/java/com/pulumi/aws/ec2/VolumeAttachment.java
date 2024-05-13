@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,27 +50,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-21f78e11&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *         var web = new Instance("web", InstanceArgs.builder()        
+ *             .ami("ami-21f78e11")
+ *             .availabilityZone("us-west-2a")
+ *             .instanceType("t2.micro")
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var example = new Volume("example", VolumeArgs.builder()        
+ *             .availabilityZone("us-west-2a")
  *             .size(1)
  *             .build());
  * 
- *         var ebsAtt = new VolumeAttachment(&#34;ebsAtt&#34;, VolumeAttachmentArgs.builder()        
- *             .deviceName(&#34;/dev/sdh&#34;)
+ *         var ebsAtt = new VolumeAttachment("ebsAtt", VolumeAttachmentArgs.builder()        
+ *             .deviceName("/dev/sdh")
  *             .volumeId(example.id())
  *             .instanceId(web.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

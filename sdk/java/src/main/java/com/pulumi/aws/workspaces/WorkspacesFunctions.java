@@ -31,7 +31,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,18 +54,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,13 +89,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -107,7 +111,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -129,18 +134,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -162,13 +169,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,18 +214,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -238,13 +249,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -259,7 +271,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -281,18 +294,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,13 +329,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -335,7 +351,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,18 +374,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -390,13 +409,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -411,7 +431,8 @@ public final class WorkspacesFunctions {
      * ### By ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -433,18 +454,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
+     *             .bundleId("wsb-b0s22j3d7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Owner &amp; Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -466,13 +489,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .owner(&#34;AMAZON&#34;)
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
+     *             .owner("AMAZON")
+     *             .name("Value with Windows 10 and Office 2016")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -485,7 +509,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -507,12 +532,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
+     *             .directoryId("d-9067783251")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -525,7 +551,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -547,12 +574,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
+     *             .directoryId("d-9067783251")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -565,7 +593,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -587,12 +616,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
+     *             .directoryId("d-9067783251")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -605,7 +635,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -627,12 +658,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
+     *             .directoryId("d-9067783251")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -645,7 +677,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -667,12 +700,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
+     *             .imageId("wsi-ten5h0y19")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -685,7 +719,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -707,12 +742,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
+     *             .imageId("wsi-ten5h0y19")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,7 +761,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -747,12 +784,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
+     *             .imageId("wsi-ten5h0y19")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -765,7 +803,8 @@ public final class WorkspacesFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -787,12 +826,13 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
+     *             .imageId("wsi-ten5h0y19")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -807,7 +847,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -829,18 +870,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -862,13 +905,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -883,7 +927,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -905,18 +950,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -938,13 +985,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -959,7 +1007,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -981,18 +1030,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1014,13 +1065,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1035,7 +1087,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1057,18 +1110,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1090,13 +1145,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1111,7 +1167,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1133,18 +1190,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1166,13 +1225,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1187,7 +1247,8 @@ public final class WorkspacesFunctions {
      * ### Filter By Workspace ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1209,18 +1270,20 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
+     *             .workspaceId("ws-cj5xcxsz5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter By Directory ID &amp; User Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1242,13 +1305,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
+     *             .directoryId("d-9967252f57")
+     *             .userName("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

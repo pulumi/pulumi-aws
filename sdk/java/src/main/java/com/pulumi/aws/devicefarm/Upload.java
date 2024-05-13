@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleUpload = new Upload(&#34;exampleUpload&#34;, UploadArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleUpload = new Upload("exampleUpload", UploadArgs.builder()        
+ *             .name("example")
  *             .projectArn(example.arn())
- *             .type(&#34;APPIUM_JAVA_TESTNG_TEST_SPEC&#34;)
+ *             .type("APPIUM_JAVA_TESTNG_TEST_SPEC")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,36 +45,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .domainName(&#34;tf-test&#34;)
- *             .engineVersion(&#34;OpenSearch_1.1&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .domainName("tf-test")
+ *             .engineVersion("OpenSearch_1.1")
  *             .build());
  * 
  *         final var main = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;es:*&#34;)
- *                 .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                 .actions("es:*")
+ *                 .resources(example.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;127.0.0.1/32&#34;)
+ *                     .test("IpAddress")
+ *                     .variable("aws:SourceIp")
+ *                     .values("127.0.0.1/32")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var mainDomainPolicy = new DomainPolicy(&#34;mainDomainPolicy&#34;, DomainPolicyArgs.builder()        
+ *         var mainDomainPolicy = new DomainPolicy("mainDomainPolicy", DomainPolicyArgs.builder()        
  *             .domainName(example.domainName())
- *             .accessPolicies(main.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(main -&gt; main.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .accessPolicies(main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(main -> main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new CustomerGateway(&#34;main&#34;, CustomerGatewayArgs.builder()        
+ *         var main = new CustomerGateway("main", CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
- *             .ipAddress(&#34;172.83.124.10&#34;)
- *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;main-customer-gateway&#34;))
+ *             .ipAddress("172.83.124.10")
+ *             .type("ipsec.1")
+ *             .tags(Map.of("Name", "main-customer-gateway"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

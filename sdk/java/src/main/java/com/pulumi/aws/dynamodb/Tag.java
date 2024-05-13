@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,21 +54,22 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()        
  *             .replicas(TableReplicaArgs.builder()
- *                 .regionName(replica.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(replica.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var test = new Tag(&#34;test&#34;, TagArgs.builder()        
- *             .resourceArn(example.arn().applyValue(arn -&gt; StdFunctions.replace()).applyValue(invoke -&gt; invoke.result()))
- *             .key(&#34;testkey&#34;)
- *             .value(&#34;testvalue&#34;)
+ *         var test = new Tag("test", TagArgs.builder()        
+ *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .key("testkey")
+ *             .value("testvalue")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

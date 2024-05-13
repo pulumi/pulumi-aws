@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,9 +52,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Replicator(&#34;test&#34;, ReplicatorArgs.builder()        
- *             .replicatorName(&#34;test-name&#34;)
- *             .description(&#34;test-description&#34;)
+ *         var test = new Replicator("test", ReplicatorArgs.builder()        
+ *             .replicatorName("test-name")
+ *             .description("test-description")
  *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
  *             .kafkaClusters(            
  *                 ReplicatorKafkaClusterArgs.builder()
@@ -61,7 +62,7 @@ import javax.annotation.Nullable;
  *                         .mskClusterArn(source.arn())
  *                         .build())
  *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
- *                         .subnetIds(sourceAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .subnetIds(sourceAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                         .securityGroupsIds(sourceAwsSecurityGroup.id())
  *                         .build())
  *                     .build(),
@@ -70,26 +71,27 @@ import javax.annotation.Nullable;
  *                         .mskClusterArn(target.arn())
  *                         .build())
  *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
- *                         .subnetIds(targetAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .subnetIds(targetAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                         .securityGroupsIds(targetAwsSecurityGroup.id())
  *                         .build())
  *                     .build())
  *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
  *                 .sourceKafkaClusterArn(source.arn())
  *                 .targetKafkaClusterArn(target.arn())
- *                 .targetCompressionType(&#34;NONE&#34;)
+ *                 .targetCompressionType("NONE")
  *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicsToReplicates(&#34;.*&#34;)
+ *                     .topicsToReplicates(".*")
  *                     .build())
  *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(&#34;.*&#34;)
+ *                     .consumerGroupsToReplicates(".*")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

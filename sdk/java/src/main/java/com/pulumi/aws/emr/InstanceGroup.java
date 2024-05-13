@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,16 +51,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
+ *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
  *             .clusterId(tf_test_cluster.id())
  *             .instanceCount(1)
- *             .instanceType(&#34;m5.xlarge&#34;)
- *             .name(&#34;my little instance group&#34;)
+ *             .instanceType("m5.xlarge")
+ *             .name("my little instance group")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -119,7 +121,8 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,28 +143,29 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -172,7 +176,8 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -193,28 +198,29 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

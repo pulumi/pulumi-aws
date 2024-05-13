@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,27 +52,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var documents = new BucketObjectv2(&#34;documents&#34;);
+ *         var documents = new BucketObjectv2("documents");
  * 
- *         var entities = new BucketObjectv2(&#34;entities&#34;);
+ *         var entities = new BucketObjectv2("entities");
  * 
- *         var example = new EntityRecognizer(&#34;example&#34;, EntityRecognizerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new EntityRecognizer("example", EntityRecognizerArgs.builder()        
+ *             .name("example")
  *             .dataAccessRoleArn(exampleAwsIamRole.arn())
- *             .languageCode(&#34;en&#34;)
+ *             .languageCode("en")
  *             .inputDataConfig(EntityRecognizerInputDataConfigArgs.builder()
  *                 .entityTypes(                
  *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
- *                         .type(&#34;ENTITY_1&#34;)
+ *                         .type("ENTITY_1")
  *                         .build(),
  *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
- *                         .type(&#34;ENTITY_2&#34;)
+ *                         .type("ENTITY_2")
  *                         .build())
  *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
- *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, documentsAwsS3Bucket.bucket(),id)))
+ *                     .s3Uri(documents.id().applyValue(id -> String.format("s3://%s/%s", documentsAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
- *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, entitiesAwsS3Bucket.bucket(),id)))
+ *                     .s3Uri(entities.id().applyValue(id -> String.format("s3://%s/%s", entitiesAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

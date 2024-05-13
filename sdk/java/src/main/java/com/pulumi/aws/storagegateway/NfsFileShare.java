@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,8 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NfsFileShare(&#34;example&#34;, NfsFileShareArgs.builder()        
- *             .clientLists(&#34;0.0.0.0/0&#34;)
+ *         var example = new NfsFileShare("example", NfsFileShareArgs.builder()        
+ *             .clientLists("0.0.0.0/0")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
  *             .roleArn(exampleAwsIamRole.arn())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * The following example will enable the aggregator for every region.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;ALL_REGIONS&#34;)
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *             .linkingMode("ALL_REGIONS")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### All Regions Except Specified Regions Usage
@@ -66,7 +68,8 @@ import javax.annotation.Nullable;
  * The following example will enable the aggregator for every region except those specified in `specified_regions`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,20 +92,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;ALL_REGIONS_EXCEPT_SPECIFIED&#34;)
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *             .linkingMode("ALL_REGIONS_EXCEPT_SPECIFIED")
  *             .specifiedRegions(            
- *                 &#34;eu-west-1&#34;,
- *                 &#34;eu-west-2&#34;)
+ *                 "eu-west-1",
+ *                 "eu-west-2")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specified Regions Usage
@@ -110,7 +114,8 @@ import javax.annotation.Nullable;
  * The following example will enable the aggregator for every region specified in `specified_regions`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,20 +138,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;SPECIFIED_REGIONS&#34;)
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *             .linkingMode("SPECIFIED_REGIONS")
  *             .specifiedRegions(            
- *                 &#34;eu-west-1&#34;,
- *                 &#34;eu-west-2&#34;)
+ *                 "eu-west-1",
+ *                 "eu-west-2")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

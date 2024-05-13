@@ -23,7 +23,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,12 +46,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,12 +88,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,12 +172,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,12 +214,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +233,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -245,12 +256,13 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .version(&#34;3.6.0&#34;)
+     *             .version("3.6.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -263,7 +275,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -285,18 +298,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,18 +346,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -355,7 +371,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -377,18 +394,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -401,7 +419,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -423,18 +442,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -447,7 +467,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -469,18 +490,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -493,7 +515,8 @@ public final class DocdbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -515,18 +538,19 @@ public final class DocdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engine(&#34;docdb&#34;)
-     *             .engineVersion(&#34;3.6.0&#34;)
-     *             .licenseModel(&#34;na&#34;)
+     *             .engine("docdb")
+     *             .engineVersion("3.6.0")
+     *             .licenseModel("na")
      *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
+     *                 "db.r5.large",
+     *                 "db.r4.large",
+     *                 "db.t3.medium")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

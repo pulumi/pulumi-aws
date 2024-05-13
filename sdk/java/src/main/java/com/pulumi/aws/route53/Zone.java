@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Public Zone
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,13 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Zone(&#34;primary&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var primary = new Zone("primary", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Public Subdomain Zone
@@ -63,7 +65,8 @@ import javax.annotation.Nullable;
  * zone.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,26 +89,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Zone(&#34;main&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var main = new Zone("main", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .build());
  * 
- *         var dev = new Zone(&#34;dev&#34;, ZoneArgs.builder()        
- *             .name(&#34;dev.example.com&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+ *         var dev = new Zone("dev", ZoneArgs.builder()        
+ *             .name("dev.example.com")
+ *             .tags(Map.of("Environment", "dev"))
  *             .build());
  * 
- *         var dev_ns = new Record(&#34;dev-ns&#34;, RecordArgs.builder()        
+ *         var dev_ns = new Record("dev-ns", RecordArgs.builder()        
  *             .zoneId(main.zoneId())
- *             .name(&#34;dev.example.com&#34;)
- *             .type(&#34;NS&#34;)
- *             .ttl(&#34;30&#34;)
+ *             .name("dev.example.com")
+ *             .type("NS")
+ *             .ttl("30")
  *             .records(dev.nameServers())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Private Zone
@@ -115,7 +119,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Private zones require at least one VPC association at all times.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -137,8 +142,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var private_ = new Zone(&#34;private&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var private_ = new Zone("private", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(example.id())
  *                 .build())
@@ -146,7 +151,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

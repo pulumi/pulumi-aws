@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoModel = new Model(&#34;myDemoModel&#34;, ModelArgs.builder()        
+ *         var myDemoModel = new Model("myDemoModel", ModelArgs.builder()        
  *             .restApi(myDemoAPI.id())
- *             .name(&#34;user&#34;)
- *             .description(&#34;a JSON schema&#34;)
- *             .contentType(&#34;application/json&#34;)
+ *             .name("user")
+ *             .description("a JSON schema")
+ *             .contentType("application/json")
  *             .schema(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;type&#34;, &#34;object&#34;)
+ *                     jsonProperty("type", "object")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

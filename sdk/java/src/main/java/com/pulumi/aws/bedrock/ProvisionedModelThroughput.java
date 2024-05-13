@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisionedModelThroughput(&#34;example&#34;, ProvisionedModelThroughputArgs.builder()        
- *             .provisionedModelName(&#34;example-model&#34;)
- *             .modelArn(&#34;arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2&#34;)
- *             .commitmentDuration(&#34;SixMonths&#34;)
+ *         var example = new ProvisionedModelThroughput("example", ProvisionedModelThroughputArgs.builder()        
+ *             .provisionedModelName("example-model")
+ *             .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2")
+ *             .commitmentDuration("SixMonths")
  *             .modelUnits(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,22 +57,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create an AMI that will start a machine whose root device is backed by
  *         // an EBS volume populated from a snapshot. We assume that such a snapshot
- *         // already exists with the id &#34;snap-xxxxxxxx&#34;.
- *         var example = new Ami(&#34;example&#34;, AmiArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .virtualizationType(&#34;hvm&#34;)
- *             .rootDeviceName(&#34;/dev/xvda&#34;)
- *             .imdsSupport(&#34;v2.0&#34;)
+ *         // already exists with the id "snap-xxxxxxxx".
+ *         var example = new Ami("example", AmiArgs.builder()        
+ *             .name("example")
+ *             .virtualizationType("hvm")
+ *             .rootDeviceName("/dev/xvda")
+ *             .imdsSupport("v2.0")
  *             .ebsBlockDevices(AmiEbsBlockDeviceArgs.builder()
- *                 .deviceName(&#34;/dev/xvda&#34;)
- *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
+ *                 .deviceName("/dev/xvda")
+ *                 .snapshotId("snap-xxxxxxxx")
  *                 .volumeSize(8)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

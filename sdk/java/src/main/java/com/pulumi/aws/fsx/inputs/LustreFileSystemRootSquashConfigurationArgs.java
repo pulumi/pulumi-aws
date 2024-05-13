@@ -17,14 +17,14 @@ public final class LustreFileSystemRootSquashConfigurationArgs extends com.pulum
     public static final LustreFileSystemRootSquashConfigurationArgs Empty = new LustreFileSystemRootSquashConfigurationArgs();
 
     /**
-     * When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+     * When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6{@literal @}tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]{@literal @}tcp).
      * 
      */
     @Import(name="noSquashNids")
     private @Nullable Output<List<String>> noSquashNids;
 
     /**
-     * @return When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+     * @return When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6{@literal @}tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]{@literal @}tcp).
      * 
      */
     public Optional<Output<List<String>>> noSquashNids() {
@@ -72,7 +72,7 @@ public final class LustreFileSystemRootSquashConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6{@literal @}tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]{@literal @}tcp).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LustreFileSystemRootSquashConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6{@literal @}tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]{@literal @}tcp).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LustreFileSystemRootSquashConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+         * @param noSquashNids When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6{@literal @}tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]{@literal @}tcp).
          * 
          * @return builder
          * 

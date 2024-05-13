@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NodeGroup(&#34;example&#34;, NodeGroupArgs.builder()        
+ *         var example = new NodeGroup("example", NodeGroupArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .nodeGroupName(&#34;example&#34;)
+ *             .nodeGroupName("example")
  *             .nodeRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(1)
  *                 .maxSize(2)
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Ignoring Changes to Desired Size
@@ -84,7 +86,8 @@ import javax.annotation.Nullable;
  * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,7 +109,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NodeGroup(&#34;example&#34;, NodeGroupArgs.builder()        
+ *         var example = new NodeGroup("example", NodeGroupArgs.builder()        
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(2)
  *                 .build())
@@ -114,13 +117,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example IAM Role for EKS Node Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -144,45 +149,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;eks-node-group-example&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("eks-node-group-example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "ec2.amazonaws.com")
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
- *         var example_AmazonEKSWorkerNodePolicy = new RolePolicyAttachment(&#34;example-AmazonEKSWorkerNodePolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy&#34;)
+ *         var example_AmazonEKSWorkerNodePolicy = new RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy")
  *             .role(example.name())
  *             .build());
  * 
- *         var example_AmazonEKSCNIPolicy = new RolePolicyAttachment(&#34;example-AmazonEKSCNIPolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy&#34;)
+ *         var example_AmazonEKSCNIPolicy = new RolePolicyAttachment("example-AmazonEKSCNIPolicy", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
  *             .role(example.name())
  *             .build());
  * 
- *         var example_AmazonEC2ContainerRegistryReadOnly = new RolePolicyAttachment(&#34;example-AmazonEC2ContainerRegistryReadOnly&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly&#34;)
+ *         var example_AmazonEC2ContainerRegistryReadOnly = new RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly")
  *             .role(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Subnets for EKS Node Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -207,12 +214,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .build());
  * 
- *         for (var i = 0; i &lt; 2; i++) {
- *             new Subnet(&#34;example-&#34; + i, SubnetArgs.builder()            
- *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names())[range.value()])
+ *         for (var i = 0; i < 2; i++) {
+ *             new Subnet("example-" + i, SubnetArgs.builder()            
+ *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
  *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
  *                     .input(exampleAwsVpc.cidrBlock())
  *                     .newbits(8)
@@ -225,7 +232,8 @@ import javax.annotation.Nullable;
  * }
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

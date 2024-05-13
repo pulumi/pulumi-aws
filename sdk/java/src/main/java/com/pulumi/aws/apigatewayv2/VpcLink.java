@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcLink(&#34;example&#34;, VpcLinkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new VpcLink("example", VpcLinkArgs.builder()        
+ *             .name("example")
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .subnetIds(exampleAwsSubnets.ids())
- *             .tags(Map.of(&#34;Usage&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Usage", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thing(&#34;example&#34;, ThingArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Thing("example", ThingArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;csr.pem&#34;)
+ *                 .input("csr.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
- *         var att = new ThingPrincipalAttachment(&#34;att&#34;, ThingPrincipalAttachmentArgs.builder()        
+ *         var att = new ThingPrincipalAttachment("att", ThingPrincipalAttachmentArgs.builder()        
  *             .principal(cert.arn())
  *             .thing(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

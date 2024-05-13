@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MetricsDestination(&#34;example&#34;, MetricsDestinationArgs.builder()        
+ *         var example = new MetricsDestination("example", MetricsDestinationArgs.builder()        
  *             .appMonitorName(exampleAwsRumAppMonitor.name())
- *             .destination(&#34;CloudWatch&#34;)
+ *             .destination("CloudWatch")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

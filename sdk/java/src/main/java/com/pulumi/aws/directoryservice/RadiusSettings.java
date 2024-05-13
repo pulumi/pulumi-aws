@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RadiusSettings(&#34;example&#34;, RadiusSettingsArgs.builder()        
+ *         var example = new RadiusSettings("example", RadiusSettingsArgs.builder()        
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
- *             .authenticationProtocol(&#34;PAP&#34;)
- *             .displayLabel(&#34;example&#34;)
+ *             .authenticationProtocol("PAP")
+ *             .displayLabel("example")
  *             .radiusPort(1812)
  *             .radiusRetries(4)
- *             .radiusServers(&#34;10.0.1.5&#34;)
+ *             .radiusServers("10.0.1.5")
  *             .radiusTimeout(1)
- *             .sharedSecret(&#34;12345678&#34;)
+ *             .sharedSecret("12345678")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,14 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GameServerGroup(&#34;example&#34;, GameServerGroupArgs.builder()        
- *             .gameServerGroupName(&#34;example&#34;)
+ *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()        
+ *             .gameServerGroupName("example")
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.large&#34;)
+ *                     .instanceType("c5.large")
  *                     .build(),
  *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5a.large&#34;)
+ *                     .instanceType("c5a.large")
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
  *                 .id(exampleAwsLaunchTemplate.id())
@@ -71,13 +72,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Full usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,49 +106,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GameServerGroup(&#34;example&#34;, GameServerGroupArgs.builder()        
+ *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()        
  *             .autoScalingPolicy(GameServerGroupAutoScalingPolicyArgs.builder()
  *                 .estimatedInstanceWarmup(60)
  *                 .targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.builder()
  *                     .targetValue(75)
  *                     .build())
  *                 .build())
- *             .balancingStrategy(&#34;SPOT_ONLY&#34;)
- *             .gameServerGroupName(&#34;example&#34;)
- *             .gameServerProtectionPolicy(&#34;FULL_PROTECTION&#34;)
+ *             .balancingStrategy("SPOT_ONLY")
+ *             .gameServerGroupName("example")
+ *             .gameServerProtectionPolicy("FULL_PROTECTION")
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.large&#34;)
- *                     .weightedCapacity(&#34;1&#34;)
+ *                     .instanceType("c5.large")
+ *                     .weightedCapacity("1")
  *                     .build(),
  *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.2xlarge&#34;)
- *                     .weightedCapacity(&#34;2&#34;)
+ *                     .instanceType("c5.2xlarge")
+ *                     .weightedCapacity("2")
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
  *                 .id(exampleAwsLaunchTemplate.id())
- *                 .version(&#34;1&#34;)
+ *                 .version("1")
  *                 .build())
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(exampleAwsIamRole.arn())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Name", "example"))
  *             .vpcSubnets(            
- *                 &#34;subnet-12345678&#34;,
- *                 &#34;subnet-23456789&#34;)
+ *                 "subnet-12345678",
+ *                 "subnet-23456789")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicyAttachment)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example IAM Role for GameLift Game Server Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -176,30 +181,31 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
+ *                     .type("Service")
  *                     .identifiers(                    
- *                         &#34;autoscaling.amazonaws.com&#34;,
- *                         &#34;gamelift.amazonaws.com&#34;)
+ *                         "autoscaling.amazonaws.com",
+ *                         "gamelift.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .name(&#34;gamelift-game-server-group-example&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .name("gamelift-game-server-group-example")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .role(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

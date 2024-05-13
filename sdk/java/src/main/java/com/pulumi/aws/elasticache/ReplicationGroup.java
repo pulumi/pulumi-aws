@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  * To create a single shard primary with single read replica:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -69,22 +70,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
  *             .automaticFailoverEnabled(true)
  *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
- *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b")
+ *             .replicationGroupId("tf-rep-group-1")
+ *             .description("example description")
+ *             .nodeType("cache.m4.large")
  *             .numCacheClusters(2)
- *             .parameterGroupName(&#34;default.redis3.2&#34;)
+ *             .parameterGroupName("default.redis3.2")
  *             .port(6379)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You have two options for adjusting the number of replicas:
@@ -93,7 +95,8 @@ import javax.annotation.Nullable;
  * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,22 +120,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
  *             .automaticFailoverEnabled(true)
  *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
- *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b")
+ *             .replicationGroupId("tf-rep-group-1")
+ *             .description("example description")
+ *             .nodeType("cache.m4.large")
  *             .numCacheClusters(2)
- *             .parameterGroupName(&#34;default.redis3.2&#34;)
+ *             .parameterGroupName("default.redis3.2")
  *             .port(6379)
  *             .build());
  * 
- *         for (var i = 0; i &lt; 1; i++) {
- *             new Cluster(&#34;replica-&#34; + i, ClusterArgs.builder()            
- *                 .clusterId(String.format(&#34;tf-rep-group-1-%s&#34;, range.value()))
+ *         for (var i = 0; i < 1; i++) {
+ *             new Cluster("replica-" + i, ClusterArgs.builder()            
+ *                 .clusterId(String.format("tf-rep-group-1-%s", range.value()))
  *                 .replicationGroupId(example.id())
  *                 .build());
  * 
@@ -140,7 +143,8 @@ import javax.annotation.Nullable;
  * }
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Cluster Mode Enabled
@@ -148,7 +152,8 @@ import javax.annotation.Nullable;
  * To create two shards with a primary and a single read replica each:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,12 +174,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var baz = new ReplicationGroup(&#34;baz&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;tf-redis-cluster&#34;)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.t2.small&#34;)
+ *         var baz = new ReplicationGroup("baz", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("tf-redis-cluster")
+ *             .description("example description")
+ *             .nodeType("cache.t2.small")
  *             .port(6379)
- *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
+ *             .parameterGroupName("default.redis3.2.cluster.on")
  *             .automaticFailoverEnabled(true)
  *             .numNodeGroups(2)
  *             .replicasPerNodeGroup(1)
@@ -182,13 +187,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Log Delivery configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -210,33 +217,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ReplicationGroup(&#34;test&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;myreplicaciongroup&#34;)
- *             .description(&#34;test description&#34;)
- *             .nodeType(&#34;cache.t3.small&#34;)
+ *         var test = new ReplicationGroup("test", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("myreplicaciongroup")
+ *             .description("test description")
+ *             .nodeType("cache.t3.small")
  *             .port(6379)
  *             .applyImmediately(true)
  *             .autoMinorVersionUpgrade(false)
- *             .maintenanceWindow(&#34;tue:06:30-tue:07:30&#34;)
- *             .snapshotWindow(&#34;01:00-02:00&#34;)
+ *             .maintenanceWindow("tue:06:30-tue:07:30")
+ *             .snapshotWindow("01:00-02:00")
  *             .logDeliveryConfigurations(            
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
  *                     .destination(example.name())
- *                     .destinationType(&#34;cloudwatch-logs&#34;)
- *                     .logFormat(&#34;text&#34;)
- *                     .logType(&#34;slow-log&#34;)
+ *                     .destinationType("cloudwatch-logs")
+ *                     .logFormat("text")
+ *                     .logType("slow-log")
  *                     .build(),
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
  *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
- *                     .destinationType(&#34;kinesis-firehose&#34;)
- *                     .logFormat(&#34;json&#34;)
- *                     .logType(&#34;engine-log&#34;)
+ *                     .destinationType("kinesis-firehose")
+ *                     .logFormat("json")
+ *                     .logType("engine-log")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
@@ -250,7 +258,8 @@ import javax.annotation.Nullable;
  * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -273,36 +282,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-primary&#34;)
- *             .description(&#34;primary replication group&#34;)
- *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;5.0.6&#34;)
- *             .nodeType(&#34;cache.m5.large&#34;)
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-primary")
+ *             .description("primary replication group")
+ *             .engine("redis")
+ *             .engineVersion("5.0.6")
+ *             .nodeType("cache.m5.large")
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
- *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
  *             .build());
  * 
- *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-secondary&#34;)
- *             .description(&#34;secondary replication group&#34;)
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-secondary")
+ *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis AUTH and In-Transit Encryption Enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -323,24 +334,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example&#34;)
- *             .description(&#34;example with authentication&#34;)
- *             .nodeType(&#34;cache.t2.micro&#34;)
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example")
+ *             .description("example with authentication")
+ *             .nodeType("cache.t2.micro")
  *             .numCacheClusters(1)
  *             .port(6379)
  *             .subnetGroupName(exampleAwsElasticacheSubnetGroup.name())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .parameterGroupName(&#34;default.redis5.0&#34;)
- *             .engineVersion(&#34;5.0.6&#34;)
+ *             .parameterGroupName("default.redis5.0")
+ *             .engineVersion("5.0.6")
  *             .transitEncryptionEnabled(true)
- *             .authToken(&#34;abcdefgh1234567890&#34;)
- *             .authTokenUpdateStrategy(&#34;ROTATE&#34;)
+ *             .authToken("abcdefgh1234567890")
+ *             .authTokenUpdateStrategy("ROTATE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.

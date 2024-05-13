@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### DynamoDB Table Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,23 +50,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
+ *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s&#34;, example.name()))
- *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
+ *             .resourceId(String.format("table/%s", example.name()))
+ *             .scalableDimension("dynamodb:table:ReadCapacityUnits")
+ *             .serviceNamespace("dynamodb")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### DynamoDB Index Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,23 +89,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbIndexReadTarget = new Target(&#34;dynamodbIndexReadTarget&#34;, TargetArgs.builder()        
+ *         var dynamodbIndexReadTarget = new Target("dynamodbIndexReadTarget", TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, example.name(),indexName))
- *             .scalableDimension(&#34;dynamodb:index:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
+ *             .resourceId(String.format("table/%s/index/%s", example.name(),indexName))
+ *             .scalableDimension("dynamodb:index:ReadCapacityUnits")
+ *             .serviceNamespace("dynamodb")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ECS Service Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,23 +128,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
- *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
- *             .serviceNamespace(&#34;ecs&#34;)
+ *             .resourceId(String.format("service/%s/%s", example.name(),exampleAwsEcsService.name()))
+ *             .scalableDimension("ecs:service:DesiredCount")
+ *             .serviceNamespace("ecs")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Aurora Read Replica Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -160,23 +167,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;rds&#34;)
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
+ *         var replicas = new Target("replicas", TargetArgs.builder()        
+ *             .serviceNamespace("rds")
+ *             .scalableDimension("rds:cluster:ReadReplicaCount")
+ *             .resourceId(String.format("cluster:%s", example.id()))
  *             .minCapacity(1)
  *             .maxCapacity(15)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Suppressing `tags_all` Differences For Older Resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -197,23 +206,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
- *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
- *             .serviceNamespace(&#34;ecs&#34;)
+ *             .resourceId(String.format("service/%s/%s", example.name(),exampleAwsEcsService.name()))
+ *             .scalableDimension("ecs:service:DesiredCount")
+ *             .serviceNamespace("ecs")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### MSK / Kafka Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -234,9 +245,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;kafka&#34;)
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
+ *         var mskTarget = new Target("mskTarget", TargetArgs.builder()        
+ *             .serviceNamespace("kafka")
+ *             .scalableDimension("kafka:broker-storage:VolumeSize")
  *             .resourceId(example.arn())
  *             .minCapacity(1)
  *             .maxCapacity(8)
@@ -244,7 +255,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

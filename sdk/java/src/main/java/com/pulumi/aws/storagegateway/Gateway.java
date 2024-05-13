@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Local Cache
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,8 +57,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVolumeAttachment = new VolumeAttachment(&#34;testVolumeAttachment&#34;, VolumeAttachmentArgs.builder()        
- *             .deviceName(&#34;/dev/xvdb&#34;)
+ *         var testVolumeAttachment = new VolumeAttachment("testVolumeAttachment", VolumeAttachmentArgs.builder()        
+ *             .deviceName("/dev/xvdb")
  *             .volumeId(testAwsEbsVolume.id())
  *             .instanceId(testAwsInstance.id())
  *             .build());
@@ -67,20 +68,22 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var testCache = new Cache(&#34;testCache&#34;, CacheArgs.builder()        
- *             .diskId(test.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskId()))
+ *         var testCache = new Cache("testCache", CacheArgs.builder()        
+ *             .diskId(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskId()))
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### FSx File Gateway
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,27 +105,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(&#34;1.2.3.4&#34;)
- *             .gatewayName(&#34;example&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;FILE_FSX_SMB&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("FILE_FSX_SMB")
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
- *                 .domainName(&#34;corp.example.com&#34;)
- *                 .password(&#34;avoid-plaintext-passwords&#34;)
- *                 .username(&#34;Admin&#34;)
+ *                 .domainName("corp.example.com")
+ *                 .password("avoid-plaintext-passwords")
+ *                 .username("Admin")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### S3 File Gateway
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -143,22 +148,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(&#34;1.2.3.4&#34;)
- *             .gatewayName(&#34;example&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;FILE_S3&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("FILE_S3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Tape Gateway
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -179,24 +186,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(&#34;1.2.3.4&#34;)
- *             .gatewayName(&#34;example&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;VTL&#34;)
- *             .mediumChangerType(&#34;AWS-Gateway-VTL&#34;)
- *             .tapeDriveType(&#34;IBM-ULT3580-TD5&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("VTL")
+ *             .mediumChangerType("AWS-Gateway-VTL")
+ *             .tapeDriveType("IBM-ULT3580-TD5")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Volume Gateway (Cached)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -217,22 +226,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(&#34;1.2.3.4&#34;)
- *             .gatewayName(&#34;example&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;CACHED&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("CACHED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Volume Gateway (Stored)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -253,16 +264,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(&#34;1.2.3.4&#34;)
- *             .gatewayName(&#34;example&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;STORED&#34;)
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("STORED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

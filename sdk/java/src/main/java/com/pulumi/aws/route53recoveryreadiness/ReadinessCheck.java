@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReadinessCheck(&#34;example&#34;, ReadinessCheckArgs.builder()        
+ *         var example = new ReadinessCheck("example", ReadinessCheckArgs.builder()        
  *             .readinessCheckName(my_cw_alarm_check)
  *             .resourceSetName(my_cw_alarm_set)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

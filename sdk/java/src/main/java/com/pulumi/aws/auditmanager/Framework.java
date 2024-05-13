@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,10 +48,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Framework(&#34;test&#34;, FrameworkArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new Framework("test", FrameworkArgs.builder()        
+ *             .name("example")
  *             .controlSets(FrameworkControlSetArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .controls(                
  *                     FrameworkControlSetControlArgs.builder()
  *                         .id(test1.id())
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

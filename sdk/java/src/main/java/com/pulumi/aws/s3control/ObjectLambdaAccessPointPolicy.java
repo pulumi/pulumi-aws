@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,21 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
- *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()        
+ *             .name("example")
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
  *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions(&#34;GetObject&#34;)
+ *                     .actions("GetObject")
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
  *                             .functionArn(exampleAwsLambdaFunction.arn())
@@ -73,25 +74,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy(&#34;exampleObjectLambdaAccessPointPolicy&#34;, ObjectLambdaAccessPointPolicyArgs.builder()        
+ *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", ObjectLambdaAccessPointPolicyArgs.builder()        
  *             .name(exampleObjectLambdaAccessPoint.name())
- *             .policy(exampleObjectLambdaAccessPoint.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(exampleObjectLambdaAccessPoint.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;s3-object-lambda:GetObject&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, current.accountId())
+ *                     jsonProperty("Version", "2008-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", "s3-object-lambda:GetObject"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", current.accountId())
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty("Resource", arn)
  *                     )))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,32 +49,33 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var pubsub = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;iot:*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("iot:*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var pubsubPolicy = new Policy(&#34;pubsubPolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;PubSubToAnyTopic&#34;)
- *             .policy(pubsub.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var pubsubPolicy = new Policy("pubsubPolicy", PolicyArgs.builder()        
+ *             .name("PubSubToAnyTopic")
+ *             .policy(pubsub.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;csr.pem&#34;)
+ *                 .input("csr.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
- *         var att = new PolicyAttachment(&#34;att&#34;, PolicyAttachmentArgs.builder()        
+ *         var att = new PolicyAttachment("att", PolicyAttachmentArgs.builder()        
  *             .policy(pubsubPolicy.name())
  *             .target(cert.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

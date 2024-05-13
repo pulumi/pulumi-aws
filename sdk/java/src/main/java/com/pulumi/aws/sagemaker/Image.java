@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .imageName(&#34;example&#34;)
+ *         var example = new Image("example", ImageArgs.builder()        
+ *             .imageName("example")
  *             .roleArn(test.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

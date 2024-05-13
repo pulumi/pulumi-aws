@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,34 +45,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;test-lb&#34;)
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()        
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()
  *                     .instancePort(25)
- *                     .instanceProtocol(&#34;tcp&#34;)
+ *                     .instanceProtocol("tcp")
  *                     .lbPort(25)
- *                     .lbProtocol(&#34;tcp&#34;)
+ *                     .lbProtocol("tcp")
  *                     .build(),
  *                 LoadBalancerListenerArgs.builder()
  *                     .instancePort(587)
- *                     .instanceProtocol(&#34;tcp&#34;)
+ *                     .instanceProtocol("tcp")
  *                     .lbPort(587)
- *                     .lbProtocol(&#34;tcp&#34;)
+ *                     .lbProtocol("tcp")
  *                     .build())
  *             .build());
  * 
- *         var smtp = new ProxyProtocolPolicy(&#34;smtp&#34;, ProxyProtocolPolicyArgs.builder()        
+ *         var smtp = new ProxyProtocolPolicy("smtp", ProxyProtocolPolicyArgs.builder()        
  *             .loadBalancer(lb.name())
  *             .instancePorts(            
- *                 &#34;25&#34;,
- *                 &#34;587&#34;)
+ *                 "25",
+ *                 "587")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

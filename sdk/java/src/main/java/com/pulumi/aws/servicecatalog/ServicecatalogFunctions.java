@@ -40,7 +40,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,12 +63,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
-     *             .id(&#34;application-1234&#34;)
+     *             .id("application-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -82,7 +84,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,12 +107,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
-     *             .id(&#34;application-1234&#34;)
+     *             .id("application-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,12 +151,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
-     *             .id(&#34;application-1234&#34;)
+     *             .id("application-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +172,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -188,12 +195,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
-     *             .id(&#34;application-1234&#34;)
+     *             .id("application-1234")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -208,7 +216,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -230,13 +239,14 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
-     *             .acceptLanguage(&#34;en&#34;)
-     *             .id(&#34;cons-hrvy0335&#34;)
+     *             .acceptLanguage("en")
+     *             .id("cons-hrvy0335")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +261,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,13 +284,14 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
-     *             .acceptLanguage(&#34;en&#34;)
-     *             .id(&#34;cons-hrvy0335&#34;)
+     *             .acceptLanguage("en")
+     *             .id("cons-hrvy0335")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -294,7 +306,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -316,13 +329,14 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
-     *             .acceptLanguage(&#34;en&#34;)
-     *             .id(&#34;cons-hrvy0335&#34;)
+     *             .acceptLanguage("en")
+     *             .id("cons-hrvy0335")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -337,7 +351,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -359,13 +374,14 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
-     *             .acceptLanguage(&#34;en&#34;)
-     *             .id(&#34;cons-hrvy0335&#34;)
+     *             .acceptLanguage("en")
+     *             .id("cons-hrvy0335")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -380,7 +396,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -402,12 +419,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -422,7 +440,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -444,12 +463,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -464,7 +484,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -486,12 +507,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -506,7 +528,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -528,12 +551,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -546,7 +570,8 @@ public final class ServicecatalogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -568,12 +593,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
-     *             .id(&#34;port-07052002&#34;)
+     *             .id("port-07052002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -586,7 +612,8 @@ public final class ServicecatalogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -608,12 +635,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
-     *             .id(&#34;port-07052002&#34;)
+     *             .id("port-07052002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -626,7 +654,8 @@ public final class ServicecatalogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,12 +677,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
-     *             .id(&#34;port-07052002&#34;)
+     *             .id("port-07052002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +696,8 @@ public final class ServicecatalogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -688,12 +719,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
-     *             .id(&#34;port-07052002&#34;)
+     *             .id("port-07052002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +740,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,12 +763,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
-     *             .portfolioId(&#34;port-3lli3b3an&#34;)
+     *             .portfolioId("port-3lli3b3an")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +784,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,12 +807,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
-     *             .portfolioId(&#34;port-3lli3b3an&#34;)
+     *             .portfolioId("port-3lli3b3an")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +828,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -814,12 +851,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
-     *             .portfolioId(&#34;port-3lli3b3an&#34;)
+     *             .portfolioId("port-3lli3b3an")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +872,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -856,12 +895,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
-     *             .portfolioId(&#34;port-3lli3b3an&#34;)
+     *             .portfolioId("port-3lli3b3an")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -878,7 +918,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -900,12 +941,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
-     *             .id(&#34;prod-dnigbtea24ste&#34;)
+     *             .id("prod-dnigbtea24ste")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -922,7 +964,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -944,12 +987,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
-     *             .id(&#34;prod-dnigbtea24ste&#34;)
+     *             .id("prod-dnigbtea24ste")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -966,7 +1010,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -988,12 +1033,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
-     *             .id(&#34;prod-dnigbtea24ste&#34;)
+     *             .id("prod-dnigbtea24ste")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1010,7 +1056,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1032,12 +1079,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
-     *             .id(&#34;prod-dnigbtea24ste&#34;)
+     *             .id("prod-dnigbtea24ste")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1052,7 +1100,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1074,12 +1123,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1094,7 +1144,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1116,12 +1167,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1136,7 +1188,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1158,12 +1211,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1178,7 +1232,8 @@ public final class ServicecatalogFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1200,12 +1255,13 @@ public final class ServicecatalogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
-     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .productId("prod-yakog5pdriver")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

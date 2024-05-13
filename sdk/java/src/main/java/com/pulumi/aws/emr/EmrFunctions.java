@@ -23,7 +23,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,14 +48,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,14 +94,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -135,14 +140,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -179,14 +186,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +207,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -223,14 +232,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -243,7 +253,8 @@ public final class EmrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,14 +278,15 @@ public final class EmrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
+     *                 .application("spark{@literal @}2.1.0")
+     *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -289,7 +301,8 @@ public final class EmrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -311,12 +324,13 @@ public final class EmrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .releaseLabel("ebs-6.15.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With a Lifecycle Pre-Condition
@@ -324,7 +338,8 @@ public final class EmrFunctions {
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -348,15 +363,15 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var instanceType = &#34;r7g.large&#34;;
+     *         final var instanceType = "r7g.large";
      * 
-     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     *         final var releaseLabel = "emr-6.15.0";
      * 
      *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -365,7 +380,8 @@ public final class EmrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -380,7 +396,8 @@ public final class EmrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -402,12 +419,13 @@ public final class EmrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .releaseLabel("ebs-6.15.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With a Lifecycle Pre-Condition
@@ -415,7 +433,8 @@ public final class EmrFunctions {
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -439,15 +458,15 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var instanceType = &#34;r7g.large&#34;;
+     *         final var instanceType = "r7g.large";
      * 
-     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     *         final var releaseLabel = "emr-6.15.0";
      * 
      *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -456,7 +475,8 @@ public final class EmrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -471,7 +491,8 @@ public final class EmrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -493,12 +514,13 @@ public final class EmrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .releaseLabel("ebs-6.15.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With a Lifecycle Pre-Condition
@@ -506,7 +528,8 @@ public final class EmrFunctions {
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -530,15 +553,15 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var instanceType = &#34;r7g.large&#34;;
+     *         final var instanceType = "r7g.large";
      * 
-     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     *         final var releaseLabel = "emr-6.15.0";
      * 
      *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -547,7 +570,8 @@ public final class EmrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -562,7 +586,8 @@ public final class EmrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,12 +609,13 @@ public final class EmrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
+     *             .releaseLabel("ebs-6.15.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With a Lifecycle Pre-Condition
@@ -597,7 +623,8 @@ public final class EmrFunctions {
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,15 +648,15 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var instanceType = &#34;r7g.large&#34;;
+     *         final var instanceType = "r7g.large";
      * 
-     *         final var releaseLabel = &#34;emr-6.15.0&#34;;
+     *         final var releaseLabel = "emr-6.15.0";
      * 
      *         final var test = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -638,7 +665,8 @@ public final class EmrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

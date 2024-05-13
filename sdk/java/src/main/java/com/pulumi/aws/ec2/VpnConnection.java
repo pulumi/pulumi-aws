@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * ### EC2 Transit Gateway
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,15 +59,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGateway(&#34;example&#34;);
+ *         var example = new TransitGateway("example");
  * 
- *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
- *             .ipAddress(&#34;172.0.0.1&#34;)
- *             .type(&#34;ipsec.1&#34;)
+ *             .ipAddress("172.0.0.1")
+ *             .type("ipsec.1")
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
@@ -74,13 +75,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Virtual Private Gateway
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,36 +110,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc(&#34;vpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpnGateway = new VpnGateway(&#34;vpnGateway&#34;, VpnGatewayArgs.builder()        
+ *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()        
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var customerGateway = new CustomerGateway(&#34;customerGateway&#34;, CustomerGatewayArgs.builder()        
+ *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
- *             .ipAddress(&#34;172.0.0.1&#34;)
- *             .type(&#34;ipsec.1&#34;)
+ *             .ipAddress("172.0.0.1")
+ *             .type("ipsec.1")
  *             .build());
  * 
- *         var main = new VpnConnection(&#34;main&#34;, VpnConnectionArgs.builder()        
+ *         var main = new VpnConnection("main", VpnConnectionArgs.builder()        
  *             .vpnGatewayId(vpnGateway.id())
  *             .customerGatewayId(customerGateway.id())
- *             .type(&#34;ipsec.1&#34;)
+ *             .type("ipsec.1")
  *             .staticRoutesOnly(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Site to Site Private VPN
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -167,28 +172,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
- *             .name(&#34;example_ipsec_vpn_example&#34;)
- *             .amazonSideAsn(&#34;64512&#34;)
+ *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()        
+ *             .name("example_ipsec_vpn_example")
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .amazonSideAsn(&#34;64513&#34;)
- *             .description(&#34;example_ipsec_vpn_example&#34;)
- *             .transitGatewayCidrBlocks(&#34;10.0.0.0/24&#34;)
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()        
+ *             .amazonSideAsn("64513")
+ *             .description("example_ipsec_vpn_example")
+ *             .transitGatewayCidrBlocks("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
  *             .bgpAsn(64514)
- *             .ipAddress(&#34;10.0.0.1&#34;)
- *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
+ *             .ipAddress("10.0.0.1")
+ *             .type("ipsec.1")
+ *             .tags(Map.of("Name", "example_ipsec_vpn_example"))
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
  *             .dxGatewayId(exampleGateway.id())
  *             .associatedGatewayId(exampleTransitGateway.id())
- *             .allowedPrefixes(&#34;10.0.0.0/8&#34;)
+ *             .allowedPrefixes("10.0.0.0/8")
  *             .build());
  * 
  *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
@@ -196,18 +201,19 @@ import javax.annotation.Nullable;
  *             .dxGatewayId(exampleGateway.id())
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
- *             .outsideIpAddressType(&#34;PrivateIpv4&#34;)
+ *             .outsideIpAddressType("PrivateIpv4")
  *             .transitGatewayId(exampleTransitGateway.id())
- *             .transportTransitGatewayAttachmentId(example.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(example -&gt; example.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
- *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
+ *             .transportTransitGatewayAttachmentId(example.applyValue(getDirectConnectGatewayAttachmentResult -> getDirectConnectGatewayAttachmentResult).applyValue(example -> example.applyValue(getDirectConnectGatewayAttachmentResult -> getDirectConnectGatewayAttachmentResult.id())))
+ *             .type("ipsec.1")
+ *             .tags(Map.of("Name", "example_ipsec_vpn_example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

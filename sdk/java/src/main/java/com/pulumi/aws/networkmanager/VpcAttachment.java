@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
  *             .subnetArns(exampleAwsSubnet.arn())
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

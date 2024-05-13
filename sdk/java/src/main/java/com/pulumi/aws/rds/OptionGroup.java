@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,34 +51,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OptionGroup(&#34;example&#34;, OptionGroupArgs.builder()        
- *             .name(&#34;option-group-test&#34;)
- *             .optionGroupDescription(&#34;Option Group&#34;)
- *             .engineName(&#34;sqlserver-ee&#34;)
- *             .majorEngineVersion(&#34;11.00&#34;)
+ *         var example = new OptionGroup("example", OptionGroupArgs.builder()        
+ *             .name("option-group-test")
+ *             .optionGroupDescription("Option Group")
+ *             .engineName("sqlserver-ee")
+ *             .majorEngineVersion("11.00")
  *             .options(            
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;Timezone&#34;)
+ *                     .optionName("Timezone")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
- *                         .name(&#34;TIME_ZONE&#34;)
- *                         .value(&#34;UTC&#34;)
+ *                         .name("TIME_ZONE")
+ *                         .value("UTC")
  *                         .build())
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;SQLSERVER_BACKUP_RESTORE&#34;)
+ *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
- *                         .name(&#34;IAM_ROLE_ARN&#34;)
+ *                         .name("IAM_ROLE_ARN")
  *                         .value(exampleAwsIamRole.arn())
  *                         .build())
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;TDE&#34;)
+ *                     .optionName("TDE")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.

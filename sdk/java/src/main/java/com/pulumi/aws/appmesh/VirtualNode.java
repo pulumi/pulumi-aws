@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,24 +60,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .name(&#34;serviceBv1&#34;)
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .virtualServiceName("servicea.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .build())
  *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
  *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .hostname("serviceb.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -84,13 +85,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Cloud Map Service Discovery
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -116,29 +119,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace(&#34;example&#34;, HttpNamespaceArgs.builder()        
- *             .name(&#34;example-ns&#34;)
+ *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()        
+ *             .name("example-ns")
  *             .build());
  * 
- *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .name(&#34;serviceBv1&#34;)
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .virtualServiceName("servicea.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .build())
  *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
  *                     .awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.builder()
- *                         .attributes(Map.of(&#34;stack&#34;, &#34;blue&#34;))
- *                         .serviceName(&#34;serviceb1&#34;)
+ *                         .attributes(Map.of("stack", "blue"))
+ *                         .serviceName("serviceb1")
  *                         .namespaceName(example.name())
  *                         .build())
  *                     .build())
@@ -147,13 +150,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Listener Health Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -177,23 +182,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .name(&#34;serviceBv1&#34;)
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .virtualServiceName("servicea.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .healthCheck(VirtualNodeSpecListenerHealthCheckArgs.builder()
- *                         .protocol(&#34;http&#34;)
- *                         .path(&#34;/ping&#34;)
+ *                         .protocol("http")
+ *                         .path("/ping")
  *                         .healthyThreshold(2)
  *                         .unhealthyThreshold(2)
  *                         .timeoutMillis(2000)
@@ -202,7 +207,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
  *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .hostname("serviceb.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -210,13 +215,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -243,30 +250,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .name(&#34;serviceBv1&#34;)
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .virtualServiceName("servicea.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
+ *                         .protocol("http")
  *                         .build())
  *                     .build())
  *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
  *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .hostname("serviceb.simpleapp.local")
  *                         .build())
  *                     .build())
  *                 .logging(VirtualNodeSpecLoggingArgs.builder()
  *                     .accessLog(VirtualNodeSpecLoggingAccessLogArgs.builder()
  *                         .file(VirtualNodeSpecLoggingAccessLogFileArgs.builder()
- *                             .path(&#34;/dev/stdout&#34;)
+ *                             .path("/dev/stdout")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -275,7 +282,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

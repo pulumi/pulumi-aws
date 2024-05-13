@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessLifecyclePolicy(&#34;example&#34;, ServerlessLifecyclePolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;retention&#34;)
+ *         var example = new ServerlessLifecyclePolicy("example", ServerlessLifecyclePolicyArgs.builder()        
+ *             .name("example")
+ *             .type("retention")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty("Rules", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;index&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;index/autoparts-inventory/*&#34;)),
- *                             jsonProperty(&#34;MinIndexRetention&#34;, &#34;81d&#34;)
+ *                             jsonProperty("ResourceType", "index"),
+ *                             jsonProperty("Resource", jsonArray("index/autoparts-inventory/*")),
+ *                             jsonProperty("MinIndexRetention", "81d")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;index&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;index/sales/orders*&#34;)),
- *                             jsonProperty(&#34;NoMinIndexRetention&#34;, true)
+ *                             jsonProperty("ResourceType", "index"),
+ *                             jsonProperty("Resource", jsonArray("index/sales/orders*")),
+ *                             jsonProperty("NoMinIndexRetention", true)
  *                         )
  *                     ))
  *                 )))
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

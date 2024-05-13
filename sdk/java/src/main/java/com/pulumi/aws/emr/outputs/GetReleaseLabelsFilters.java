@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetReleaseLabelsFilters {
     /**
-     * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     private @Nullable String application;
@@ -24,7 +24,7 @@ public final class GetReleaseLabelsFilters {
 
     private GetReleaseLabelsFilters() {}
     /**
-     * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     public Optional<String> application() {

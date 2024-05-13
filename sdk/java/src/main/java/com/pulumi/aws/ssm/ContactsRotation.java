@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,9 +47,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name(&#34;rotation&#34;)
+ *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
  *                 .numberOfOnCalls(1)
  *                 .recurrenceMultiplier(1)
@@ -57,20 +58,22 @@ import javax.annotation.Nullable;
  *                     .minuteOfHour(0)
  *                     .build())
  *                 .build())
- *             .timeZoneId(&#34;Australia/Sydney&#34;)
+ *             .timeZoneId("Australia/Sydney")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage with Weekly Settings and Shift Coverages Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,29 +96,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name(&#34;rotation&#34;)
+ *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
  *                 .numberOfOnCalls(1)
  *                 .recurrenceMultiplier(1)
  *                 .weeklySettings(                
  *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek(&#34;WED&#34;)
+ *                         .dayOfWeek("WED")
  *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
  *                             .hourOfDay(4)
  *                             .minuteOfHour(25)
  *                             .build())
  *                         .build(),
  *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek(&#34;FRI&#34;)
+ *                         .dayOfWeek("FRI")
  *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
  *                             .hourOfDay(15)
  *                             .minuteOfHour(57)
  *                             .build())
  *                         .build())
  *                 .shiftCoverages(ContactsRotationRecurrenceShiftCoverageArgs.builder()
- *                     .mapBlockKey(&#34;MON&#34;)
+ *                     .mapBlockKey("MON")
  *                     .coverageTimes(ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.builder()
  *                         .start(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs.builder()
  *                             .hourOfDay(1)
@@ -128,11 +131,11 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .startTime(&#34;2023-07-20T02:21:49+00:00&#34;)
- *             .timeZoneId(&#34;Australia/Sydney&#34;)
+ *             .startTime("2023-07-20T02:21:49+00:00")
+ *             .timeZoneId("Australia/Sydney")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;key1&#34;, &#34;tag1&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;tag2&#34;)
+ *                 Map.entry("key1", "tag1"),
+ *                 Map.entry("key2", "tag2")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
@@ -140,13 +143,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage with Monthly Settings Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -169,9 +174,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name(&#34;rotation&#34;)
+ *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
  *                 .numberOfOnCalls(1)
  *                 .recurrenceMultiplier(1)
@@ -191,14 +196,15 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                 .build())
- *             .timeZoneId(&#34;Australia/Sydney&#34;)
+ *             .timeZoneId("Australia/Sydney")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

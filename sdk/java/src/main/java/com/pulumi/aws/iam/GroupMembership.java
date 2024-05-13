@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,20 +53,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
- *             .name(&#34;test-group&#34;)
+ *         var group = new Group("group", GroupArgs.builder()        
+ *             .name("test-group")
  *             .build());
  * 
- *         var userOne = new User(&#34;userOne&#34;, UserArgs.builder()        
- *             .name(&#34;test-user&#34;)
+ *         var userOne = new User("userOne", UserArgs.builder()        
+ *             .name("test-user")
  *             .build());
  * 
- *         var userTwo = new User(&#34;userTwo&#34;, UserArgs.builder()        
- *             .name(&#34;test-user-two&#34;)
+ *         var userTwo = new User("userTwo", UserArgs.builder()        
+ *             .name("test-user-two")
  *             .build());
  * 
- *         var team = new GroupMembership(&#34;team&#34;, GroupMembershipArgs.builder()        
- *             .name(&#34;tf-testing-group-membership&#34;)
+ *         var team = new GroupMembership("team", GroupMembershipArgs.builder()        
+ *             .name("tf-testing-group-membership")
  *             .users(            
  *                 userOne.name(),
  *                 userTwo.name())
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

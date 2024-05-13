@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .identityManagementType(&#34;CONNECT_MANAGED&#34;)
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .identityManagementType("CONNECT_MANAGED")
  *             .inboundCallsEnabled(true)
- *             .instanceAlias(&#34;friendly-name-connect&#34;)
+ *             .instanceAlias("friendly-name-connect")
  *             .outboundCallsEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Existing Active Directory
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,23 +84,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
+ *         var test = new Instance("test", InstanceArgs.builder()        
  *             .directoryId(testAwsDirectoryServiceDirectory.id())
- *             .identityManagementType(&#34;EXISTING_DIRECTORY&#34;)
+ *             .identityManagementType("EXISTING_DIRECTORY")
  *             .inboundCallsEnabled(true)
- *             .instanceAlias(&#34;friendly-name-connect&#34;)
+ *             .instanceAlias("friendly-name-connect")
  *             .outboundCallsEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With SAML
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,16 +123,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .identityManagementType(&#34;SAML&#34;)
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .identityManagementType("SAML")
  *             .inboundCallsEnabled(true)
- *             .instanceAlias(&#34;friendly-name-connect&#34;)
+ *             .instanceAlias("friendly-name-connect")
  *             .outboundCallsEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

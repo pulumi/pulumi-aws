@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooAwsVpc.id())
@@ -67,13 +68,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with connection options:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,7 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooAwsVpc.id())
@@ -110,13 +113,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with tags:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -139,31 +144,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc(&#34;bar&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.2.0.0/16&#34;)
+ *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *             .cidrBlock("10.2.0.0/16")
  *             .build());
  * 
- *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .autoAccept(true)
- *             .tags(Map.of(&#34;Name&#34;, &#34;VPC Peering between foo and bar&#34;))
+ *             .tags(Map.of("Name", "VPC Peering between foo and bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with region:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -186,24 +193,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc(&#34;bar&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.2.0.0/16&#34;)
+ *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *             .cidrBlock("10.2.0.0/16")
  *             .build());
  * 
- *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
- *             .peerRegion(&#34;us-east-1&#34;)
+ *             .peerRegion("us-east-1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Notes

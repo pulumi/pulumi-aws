@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,33 +50,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Topic(&#34;example&#34;, TopicArgs.builder()        
- *             .name(&#34;example-topic&#34;)
+ *         var example = new Topic("example", TopicArgs.builder()        
+ *             .name("example-topic")
  *             .build());
  * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .name(&#34;foobar1-test&#34;)
+ *         var bar = new Group("bar", GroupArgs.builder()        
+ *             .name("foobar1-test")
  *             .build());
  * 
- *         var foo = new Group(&#34;foo&#34;, GroupArgs.builder()        
- *             .name(&#34;barfoo-test&#34;)
+ *         var foo = new Group("foo", GroupArgs.builder()        
+ *             .name("barfoo-test")
  *             .build());
  * 
- *         var exampleNotifications = new Notification(&#34;exampleNotifications&#34;, NotificationArgs.builder()        
+ *         var exampleNotifications = new Notification("exampleNotifications", NotificationArgs.builder()        
  *             .groupNames(            
  *                 bar.name(),
  *                 foo.name())
  *             .notifications(            
- *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+ *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+ *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+ *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+ *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
  *             .topicArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

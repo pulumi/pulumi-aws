@@ -29,7 +29,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,13 +52,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .name(&#34;MyCatalogTable&#34;)
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name("MyCatalogTable")
+     *             .databaseName("MyCatalogDatabase")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,13 +95,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .name(&#34;MyCatalogTable&#34;)
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name("MyCatalogTable")
+     *             .databaseName("MyCatalogDatabase")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,13 +138,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .name(&#34;MyCatalogTable&#34;)
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name("MyCatalogTable")
+     *             .databaseName("MyCatalogDatabase")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,13 +181,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .name(&#34;MyCatalogTable&#34;)
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name("MyCatalogTable")
+     *             .databaseName("MyCatalogDatabase")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,12 +224,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
-     *             .id(&#34;123456789123:connection&#34;)
+     *             .id("123456789123:connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -233,7 +243,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -255,12 +266,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
-     *             .id(&#34;123456789123:connection&#34;)
+     *             .id("123456789123:connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -273,7 +285,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -295,12 +308,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
-     *             .id(&#34;123456789123:connection&#34;)
+     *             .id("123456789123:connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -313,7 +327,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -335,12 +350,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
-     *             .id(&#34;123456789123:connection&#34;)
+     *             .id("123456789123:connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -353,7 +369,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -375,12 +392,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id(&#34;123456789123&#34;)
+     *             .id("123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -393,7 +411,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,12 +434,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id(&#34;123456789123&#34;)
+     *             .id("123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -433,7 +453,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -455,12 +476,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id(&#34;123456789123&#34;)
+     *             .id("123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -473,7 +495,8 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -495,12 +518,13 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id(&#34;123456789123&#34;)
+     *             .id("123456789123")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -515,7 +539,8 @@ public final class GlueFunctions {
      * ### Generate Python Script
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,96 +562,98 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;PYTHON&#34;)
+     *             .language("PYTHON")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mapping&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mapping")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Generate Scala Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,90 +675,91 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;SCALA&#34;)
+     *             .language("SCALA")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mappings&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mappings")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -746,7 +774,8 @@ public final class GlueFunctions {
      * ### Generate Python Script
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -768,96 +797,98 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;PYTHON&#34;)
+     *             .language("PYTHON")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mapping&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mapping")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Generate Scala Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -879,90 +910,91 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;SCALA&#34;)
+     *             .language("SCALA")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mappings&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mappings")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -977,7 +1009,8 @@ public final class GlueFunctions {
      * ### Generate Python Script
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -999,96 +1032,98 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;PYTHON&#34;)
+     *             .language("PYTHON")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mapping&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mapping")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Generate Scala Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1110,90 +1145,91 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;SCALA&#34;)
+     *             .language("SCALA")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mappings&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mappings")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1208,7 +1244,8 @@ public final class GlueFunctions {
      * ### Generate Python Script
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1230,96 +1267,98 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;PYTHON&#34;)
+     *             .language("PYTHON")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mapping&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mapping")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Generate Scala Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1341,90 +1380,91 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
-     *             .language(&#34;SCALA&#34;)
+     *             .language("SCALA")
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;datasource0&#34;)
-     *                     .target(&#34;applymapping1&#34;)
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;applymapping1&#34;)
-     *                     .target(&#34;selectfields2&#34;)
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;selectfields2&#34;)
-     *                     .target(&#34;resolvechoice3&#34;)
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
      *                     .build(),
      *                 GetScriptDagEdgeArgs.builder()
-     *                     .source(&#34;resolvechoice3&#34;)
-     *                     .target(&#34;datasink4&#34;)
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
      *                     .build())
      *             .dagNodes(            
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasource0&#34;)
-     *                     .nodeType(&#34;DataSource&#34;)
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;applymapping1&#34;)
-     *                     .nodeType(&#34;ApplyMapping&#34;)
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;mappings&#34;)
-     *                         .value(&#34;[(\&#34;column1\&#34;, \&#34;string\&#34;, \&#34;column1\&#34;, \&#34;string\&#34;)]&#34;)
+     *                         .name("mappings")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;selectfields2&#34;)
-     *                     .nodeType(&#34;SelectFields&#34;)
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
      *                     .args(GetScriptDagNodeArgArgs.builder()
-     *                         .name(&#34;paths&#34;)
-     *                         .value(&#34;[\&#34;column1\&#34;]&#34;)
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
      *                         .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;resolvechoice3&#34;)
-     *                     .nodeType(&#34;ResolveChoice&#34;)
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;choice&#34;)
-     *                             .value(&#34;\&#34;MATCH_CATALOG\&#34;&#34;)
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
-     *                     .id(&#34;datasink4&#34;)
-     *                     .nodeType(&#34;DataSink&#34;)
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
-     *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Fleet("example", FleetArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Network Configuration Usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,24 +81,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Fleet("example", FleetArgs.builder()        
+ *             .name("example")
  *             .network(FleetNetworkArgs.builder()
  *                 .vpcId(testAwsVpc.id())
- *                 .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(test.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Identity Provider Configuration Usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,19 +122,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Fleet(&#34;test&#34;, FleetArgs.builder()        
- *             .name(&#34;tf-worklink-fleet&#34;)
+ *         var test = new Fleet("test", FleetArgs.builder()        
+ *             .name("tf-worklink-fleet")
  *             .identityProvider(FleetIdentityProviderArgs.builder()
- *                 .type(&#34;SAML&#34;)
+ *                 .type("SAML")
  *                 .samlMetadata(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;saml-metadata.xml&#34;)
+ *                     .input("saml-metadata.xml")
  *                     .build()).result())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

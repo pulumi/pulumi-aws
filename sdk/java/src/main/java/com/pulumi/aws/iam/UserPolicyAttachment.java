@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;, UserArgs.builder()        
- *             .name(&#34;test-user&#34;)
+ *         var user = new User("user", UserArgs.builder()        
+ *             .name("test-user")
  *             .build());
  * 
- *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
- *             .name(&#34;test-policy&#34;)
- *             .description(&#34;A test policy&#34;)
- *             .policy(&#34;{ ... policy JSON ... }&#34;)
+ *         var policy = new Policy("policy", PolicyArgs.builder()        
+ *             .name("test-policy")
+ *             .description("A test policy")
+ *             .policy("{ ... policy JSON ... }")
  *             .build());
  * 
- *         var test_attach = new UserPolicyAttachment(&#34;test-attach&#34;, UserPolicyAttachmentArgs.builder()        
+ *         var test_attach = new UserPolicyAttachment("test-attach", UserPolicyAttachmentArgs.builder()        
  *             .user(user.name())
  *             .policyArn(policy.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

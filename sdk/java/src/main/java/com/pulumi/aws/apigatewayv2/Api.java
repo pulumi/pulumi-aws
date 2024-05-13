@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic WebSocket API
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,21 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
- *             .name(&#34;example-websocket-api&#34;)
- *             .protocolType(&#34;WEBSOCKET&#34;)
- *             .routeSelectionExpression(&#34;$request.body.action&#34;)
+ *         var example = new Api("example", ApiArgs.builder()        
+ *             .name("example-websocket-api")
+ *             .protocolType("WEBSOCKET")
+ *             .routeSelectionExpression("$request.body.action")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic HTTP API
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,14 +86,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
- *             .name(&#34;example-http-api&#34;)
- *             .protocolType(&#34;HTTP&#34;)
+ *         var example = new Api("example", ApiArgs.builder()        
+ *             .name("example-http-api")
+ *             .protocolType("HTTP")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -226,7 +230,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     }
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
@@ -235,7 +239,7 @@ public class Api extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */

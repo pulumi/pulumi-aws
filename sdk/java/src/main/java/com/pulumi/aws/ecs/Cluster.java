@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
- *             .name(&#34;white-hart&#34;)
+ *         var foo = new Cluster("foo", ClusterArgs.builder()        
+ *             .name("white-hart")
  *             .settings(ClusterSettingArgs.builder()
- *                 .name(&#34;containerInsights&#34;)
- *                 .value(&#34;enabled&#34;)
+ *                 .name("containerInsights")
+ *                 .value("enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with Log Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,21 +94,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("example")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new Cluster("test", ClusterArgs.builder()        
+ *             .name("example")
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()
  *                     .kmsKeyId(example.arn())
- *                     .logging(&#34;OVERRIDE&#34;)
+ *                     .logging("OVERRIDE")
  *                     .logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.builder()
  *                         .cloudWatchEncryptionEnabled(true)
  *                         .cloudWatchLogGroupName(exampleLogGroup.name())
@@ -116,7 +119,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

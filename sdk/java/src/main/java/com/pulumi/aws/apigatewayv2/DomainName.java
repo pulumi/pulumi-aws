@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,24 +52,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;ws-api.example.com&#34;)
+ *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *             .domainName("ws-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
+ *                 .endpointType("REGIONAL")
+ *                 .securityPolicy("TLS_1_2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Associated Route 53 Resource Record
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,29 +96,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;http-api.example.com&#34;)
+ *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *             .domainName("http-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
+ *                 .endpointType("REGIONAL")
+ *                 .securityPolicy("TLS_1_2")
  *                 .build())
  *             .build());
  * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
  *             .name(example.domainName())
- *             .type(&#34;A&#34;)
+ *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .aliases(RecordAliasArgs.builder()
- *                 .name(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
- *                 .zoneId(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
+ *                 .name(example.domainNameConfiguration().applyValue(domainNameConfiguration -> domainNameConfiguration.targetDomainName()))
+ *                 .zoneId(example.domainNameConfiguration().applyValue(domainNameConfiguration -> domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

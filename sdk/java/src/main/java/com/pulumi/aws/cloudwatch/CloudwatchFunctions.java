@@ -37,7 +37,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -59,12 +60,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
+     *             .name("example-bus-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -79,7 +81,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -101,12 +104,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
+     *             .name("example-bus-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -121,7 +125,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -143,12 +148,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
+     *             .name("example-bus-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -163,7 +169,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -185,12 +192,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
+     *             .name("example-bus-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -205,7 +213,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -227,12 +236,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -247,7 +257,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -269,12 +280,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -289,7 +301,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -311,12 +324,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -331,7 +345,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -353,12 +368,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
+     *             .name("test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -373,7 +389,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -395,12 +412,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -415,7 +433,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -437,12 +456,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -457,7 +477,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -479,12 +500,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -499,7 +521,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -521,12 +544,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -541,7 +565,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -563,12 +588,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -583,7 +609,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,12 +632,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+     *             .namePrefix("aws.partner/examplepartner.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +653,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -649,13 +678,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
+     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -673,10 +702,10 @@ public final class CloudwatchFunctions {
      *                         .build())
      *                     .build(),
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
+     *                     .sid("Deidentify")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig()
@@ -685,14 +714,15 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -707,7 +737,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -731,13 +762,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
+     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -755,10 +786,10 @@ public final class CloudwatchFunctions {
      *                         .build())
      *                     .build(),
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
+     *                     .sid("Deidentify")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig()
@@ -767,14 +798,15 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -789,7 +821,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -813,13 +846,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
+     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -837,10 +870,10 @@ public final class CloudwatchFunctions {
      *                         .build())
      *                     .build(),
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
+     *                     .sid("Deidentify")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig()
@@ -849,14 +882,15 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -871,7 +905,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -895,13 +930,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
+     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -919,10 +954,10 @@ public final class CloudwatchFunctions {
      *                         .build())
      *                     .build(),
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
+     *                     .sid("Deidentify")
      *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig()
@@ -931,14 +966,15 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -951,7 +987,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -973,12 +1010,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
+     *             .name("MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -991,7 +1029,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1013,12 +1052,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
+     *             .name("MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1031,7 +1071,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1053,12 +1094,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
+     *             .name("MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1071,7 +1113,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1093,12 +1136,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
+     *             .name("MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1111,7 +1155,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1133,12 +1178,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1151,7 +1197,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1173,12 +1220,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1191,7 +1239,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1213,12 +1262,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1231,7 +1281,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1253,12 +1304,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1271,7 +1323,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1293,12 +1346,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1311,7 +1365,8 @@ public final class CloudwatchFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1333,12 +1388,13 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
+     *             .logGroupNamePrefix("/MyImportantLogs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

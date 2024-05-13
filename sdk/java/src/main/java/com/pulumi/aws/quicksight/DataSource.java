@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,23 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DataSource(&#34;default&#34;, DataSourceArgs.builder()        
- *             .dataSourceId(&#34;example-id&#34;)
- *             .name(&#34;My Cool Data in S3&#34;)
+ *         var default_ = new DataSource("default", DataSourceArgs.builder()        
+ *             .dataSourceId("example-id")
+ *             .name("My Cool Data in S3")
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
- *                         .bucket(&#34;my-bucket&#34;)
- *                         .key(&#34;path/to/manifest.json&#34;)
+ *                         .bucket("my-bucket")
+ *                         .key("path/to/manifest.json")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .type(&#34;S3&#34;)
+ *             .type("S3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

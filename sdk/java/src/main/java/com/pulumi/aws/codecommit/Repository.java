@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,20 +43,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;MyTestRepository&#34;)
- *             .description(&#34;This is the Sample App Repository&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repositoryName("MyTestRepository")
+ *             .description("This is the Sample App Repository")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS KMS Customer Managed Keys (CMK)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,20 +81,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testKey = new Key(&#34;testKey&#34;, KeyArgs.builder()        
- *             .description(&#34;test&#34;)
+ *         var testKey = new Key("testKey", KeyArgs.builder()        
+ *             .description("test")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;MyTestRepository&#34;)
- *             .description(&#34;This is the Sample App Repository&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repositoryName("MyTestRepository")
+ *             .description("This is the Sample App Repository")
  *             .kmsKeyId(testKey.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

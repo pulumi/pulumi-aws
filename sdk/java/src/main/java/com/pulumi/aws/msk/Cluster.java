@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,85 +90,85 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc(&#34;vpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;192.168.0.0/22&#34;)
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *             .cidrBlock("192.168.0.0/22")
  *             .build());
  * 
  *         final var azs = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .build());
  * 
- *         var subnetAz1 = new Subnet(&#34;subnetAz1&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .cidrBlock(&#34;192.168.0.0/24&#34;)
+ *         var subnetAz1 = new Subnet("subnetAz1", SubnetArgs.builder()        
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .cidrBlock("192.168.0.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var subnetAz2 = new Subnet(&#34;subnetAz2&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
- *             .cidrBlock(&#34;192.168.1.0/24&#34;)
+ *         var subnetAz2 = new Subnet("subnetAz2", SubnetArgs.builder()        
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+ *             .cidrBlock("192.168.1.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var subnetAz3 = new Subnet(&#34;subnetAz3&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[2]))
- *             .cidrBlock(&#34;192.168.2.0/24&#34;)
+ *         var subnetAz3 = new Subnet("subnetAz3", SubnetArgs.builder()        
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[2]))
+ *             .cidrBlock("192.168.2.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
+ *         var sg = new SecurityGroup("sg", SecurityGroupArgs.builder()        
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var kms = new Key(&#34;kms&#34;, KeyArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var kms = new Key("kms", KeyArgs.builder()        
+ *             .description("example")
  *             .build());
  * 
- *         var test = new LogGroup(&#34;test&#34;, LogGroupArgs.builder()        
- *             .name(&#34;msk_broker_logs&#34;)
+ *         var test = new LogGroup("test", LogGroupArgs.builder()        
+ *             .name("msk_broker_logs")
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;msk-broker-logs-bucket&#34;)
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *             .bucket("msk-broker-logs-bucket")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("firehose.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
- *             .name(&#34;firehose_test_role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()        
+ *             .name("firehose_test_role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .name(&#34;kinesis-firehose-msk-broker-logs-stream&#34;)
- *             .destination(&#34;extended_s3&#34;)
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *             .name("kinesis-firehose-msk-broker-logs-stream")
+ *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
- *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;placeholder&#34;))
+ *             .tags(Map.of("LogDeliveryEnabled", "placeholder"))
  *             .build());
  * 
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterName(&#34;example&#34;)
- *             .kafkaVersion(&#34;3.2.0&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterName("example")
+ *             .kafkaVersion("3.2.0")
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType(&#34;kafka.m5.large&#34;)
+ *                 .instanceType("kafka.m5.large")
  *                 .clientSubnets(                
  *                     subnetAz1.id(),
  *                     subnetAz2.id(),
@@ -205,24 +206,26 @@ import javax.annotation.Nullable;
  *                     .s3(ClusterLoggingInfoBrokerLogsS3Args.builder()
  *                         .enabled(true)
  *                         .bucket(bucket.id())
- *                         .prefix(&#34;logs/msk-&#34;)
+ *                         .prefix("logs/msk-")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         ctx.export(&#34;zookeeperConnectString&#34;, example.zookeeperConnectString());
- *         ctx.export(&#34;bootstrapBrokersTls&#34;, example.bootstrapBrokersTls());
+ *         ctx.export("zookeeperConnectString", example.zookeeperConnectString());
+ *         ctx.export("bootstrapBrokersTls", example.bootstrapBrokersTls());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With volume_throughput argument
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -247,12 +250,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterName(&#34;example&#34;)
- *             .kafkaVersion(&#34;2.7.1&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterName("example")
+ *             .kafkaVersion("2.7.1")
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType(&#34;kafka.m5.4xlarge&#34;)
+ *                 .instanceType("kafka.m5.4xlarge")
  *                 .clientSubnets(                
  *                     subnetAz1.id(),
  *                     subnetAz2.id(),
@@ -272,7 +275,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

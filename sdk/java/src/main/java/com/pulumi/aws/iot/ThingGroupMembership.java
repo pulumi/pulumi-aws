@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ThingGroupMembership(&#34;example&#34;, ThingGroupMembershipArgs.builder()        
- *             .thingName(&#34;example-thing&#34;)
- *             .thingGroupName(&#34;example-group&#34;)
+ *         var example = new ThingGroupMembership("example", ThingGroupMembershipArgs.builder()        
+ *             .thingName("example-thing")
+ *             .thingGroupName("example-group")
  *             .overrideDynamicGroup(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

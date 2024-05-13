@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,51 +51,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpcConnectionRole = new Role(&#34;vpcConnectionRole&#34;, RoleArgs.builder()        
+ *         var vpcConnectionRole = new Role("vpcConnectionRole", RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;quicksight.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "quicksight.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name(&#34;QuickSightVPCConnectionRolePolicy&#34;)
+ *                 .name("QuickSightVPCConnectionRolePolicy")
  *                 .policy(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
- *                                 &#34;ec2:CreateNetworkInterface&#34;, 
- *                                 &#34;ec2:ModifyNetworkInterfaceAttribute&#34;, 
- *                                 &#34;ec2:DeleteNetworkInterface&#34;, 
- *                                 &#34;ec2:DescribeSubnets&#34;, 
- *                                 &#34;ec2:DescribeSecurityGroups&#34;
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "ec2:CreateNetworkInterface", 
+ *                                 "ec2:ModifyNetworkInterfaceAttribute", 
+ *                                 "ec2:DeleteNetworkInterface", 
+ *                                 "ec2:DescribeSubnets", 
+ *                                 "ec2:DescribeSecurityGroups"
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
+ *                             jsonProperty("Resource", jsonArray("*"))
  *                         )))
  *                     )))
  *                 .build())
  *             .build());
  * 
- *         var example = new VpcConnection(&#34;example&#34;, VpcConnectionArgs.builder()        
- *             .vpcConnectionId(&#34;example-connection-id&#34;)
- *             .name(&#34;Example Connection&#34;)
+ *         var example = new VpcConnection("example", VpcConnectionArgs.builder()        
+ *             .vpcConnectionId("example-connection-id")
+ *             .name("Example Connection")
  *             .roleArn(vpcConnectionRole.arn())
- *             .securityGroupIds(&#34;sg-00000000000000000&#34;)
+ *             .securityGroupIds("sg-00000000000000000")
  *             .subnetIds(            
- *                 &#34;subnet-00000000000000000&#34;,
- *                 &#34;subnet-00000000000000001&#34;)
+ *                 "subnet-00000000000000000",
+ *                 "subnet-00000000000000001")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,31 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var q = new Queue(&#34;q&#34;, QueueArgs.builder()        
- *             .name(&#34;examplequeue&#34;)
+ *         var q = new Queue("q", QueueArgs.builder()        
+ *             .name("examplequeue")
  *             .build());
  * 
- *         var ddl = new Queue(&#34;ddl&#34;, QueueArgs.builder()        
- *             .name(&#34;examplequeue-ddl&#34;)
- *             .redriveAllowPolicy(q.arn().applyValue(arn -&gt; serializeJson(
+ *         var ddl = new Queue("ddl", QueueArgs.builder()        
+ *             .name("examplequeue-ddl")
+ *             .redriveAllowPolicy(q.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
+ *                     jsonProperty("redrivePermission", "byQueue"),
+ *                     jsonProperty("sourceQueueArns", jsonArray(arn))
  *                 ))))
  *             .build());
  * 
- *         var qRedrivePolicy = new RedrivePolicy(&#34;qRedrivePolicy&#34;, RedrivePolicyArgs.builder()        
+ *         var qRedrivePolicy = new RedrivePolicy("qRedrivePolicy", RedrivePolicyArgs.builder()        
  *             .queueUrl(q.id())
- *             .redrivePolicy(ddl.arn().applyValue(arn -&gt; serializeJson(
+ *             .redrivePolicy(ddl.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
- *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                     jsonProperty("deadLetterTargetArn", arn),
+ *                     jsonProperty("maxReceiveCount", 4)
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

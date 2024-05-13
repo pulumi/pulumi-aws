@@ -63,14 +63,14 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
     @Import(name="fromAddress", required=true)
     private Output<String> fromAddress;
 
     /**
-     * @return The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * @return The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
     public Output<String> fromAddress() {
@@ -200,7 +200,7 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+         * @param fromAddress The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+         * @param fromAddress The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
          * 
          * @return builder
          * 

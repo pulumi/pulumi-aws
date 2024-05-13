@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
+ *         var example = new Model("example", ModelArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .contentType(&#34;application/json&#34;)
- *             .name(&#34;example&#34;)
+ *             .contentType("application/json")
+ *             .name("example")
  *             .schema(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;$schema&#34;, &#34;http://json-schema.org/draft-04/schema#&#34;),
- *                     jsonProperty(&#34;title&#34;, &#34;ExampleModel&#34;),
- *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
- *                     jsonProperty(&#34;properties&#34;, jsonObject(
- *                         jsonProperty(&#34;id&#34;, jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
+ *                     jsonProperty("$schema", "http://json-schema.org/draft-04/schema#"),
+ *                     jsonProperty("title", "ExampleModel"),
+ *                     jsonProperty("type", "object"),
+ *                     jsonProperty("properties", jsonObject(
+ *                         jsonProperty("id", jsonObject(
+ *                             jsonProperty("type", "string")
  *                         ))
  *                     ))
  *                 )))
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

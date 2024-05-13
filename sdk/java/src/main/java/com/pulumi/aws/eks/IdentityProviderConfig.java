@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IdentityProviderConfig(&#34;example&#34;, IdentityProviderConfigArgs.builder()        
+ *         var example = new IdentityProviderConfig("example", IdentityProviderConfigArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
  *             .oidc(IdentityProviderConfigOidcArgs.builder()
- *                 .clientId(&#34;your client_id&#34;)
- *                 .identityProviderConfigName(&#34;example&#34;)
- *                 .issuerUrl(&#34;your issuer_url&#34;)
+ *                 .clientId("your client_id")
+ *                 .identityProviderConfigName("example")
+ *                 .issuerUrl("your issuer_url")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

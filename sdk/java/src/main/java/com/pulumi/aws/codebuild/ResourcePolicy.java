@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReportGroup(&#34;example&#34;, ReportGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;TEST&#34;)
+ *         var example = new ReportGroup("example", ReportGroupArgs.builder()        
+ *             .name("example")
+ *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
- *                 .type(&#34;NO_EXPORT&#34;)
+ *                 .type("NO_EXPORT")
  *                 .build())
  *             .build());
  * 
@@ -59,32 +60,33 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleResourcePolicy = new ResourcePolicy(&#34;exampleResourcePolicy&#34;, ResourcePolicyArgs.builder()        
+ *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()        
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(example.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Id&#34;, &#34;default&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;default&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "default"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "default"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", current.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;codebuild:BatchGetReportGroups&#34;, 
- *                             &#34;codebuild:BatchGetReports&#34;, 
- *                             &#34;codebuild:ListReportsForReportGroup&#34;, 
- *                             &#34;codebuild:DescribeTestCases&#34;
+ *                         jsonProperty("Action", jsonArray(
+ *                             "codebuild:BatchGetReportGroups", 
+ *                             "codebuild:BatchGetReports", 
+ *                             "codebuild:ListReportsForReportGroup", 
+ *                             "codebuild:DescribeTestCases"
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty("Resource", arn)
  *                     )))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

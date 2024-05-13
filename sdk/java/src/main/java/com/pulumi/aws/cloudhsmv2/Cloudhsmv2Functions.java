@@ -20,7 +20,8 @@ public final class Cloudhsmv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,12 +43,13 @@ public final class Cloudhsmv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;cluster-testclusterid&#34;)
+     *             .clusterId("cluster-testclusterid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -60,7 +62,8 @@ public final class Cloudhsmv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -82,12 +85,13 @@ public final class Cloudhsmv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;cluster-testclusterid&#34;)
+     *             .clusterId("cluster-testclusterid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -100,7 +104,8 @@ public final class Cloudhsmv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -122,12 +127,13 @@ public final class Cloudhsmv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;cluster-testclusterid&#34;)
+     *             .clusterId("cluster-testclusterid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -140,7 +146,8 @@ public final class Cloudhsmv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -162,12 +169,13 @@ public final class Cloudhsmv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
-     *             .clusterId(&#34;cluster-testclusterid&#34;)
+     *             .clusterId("cluster-testclusterid")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,45 +59,46 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;Enable IAM User Permissions&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("Enable IAM User Permissions")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .type("AWS")
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                     .build())
- *                 .actions(&#34;kms:*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .actions("kms:*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;my test kms key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .description("my test kms key")
  *             .deletionWindowInDays(7)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-test&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("my-test")
  *             .build());
  * 
- *         var exampleReportGroup = new ReportGroup(&#34;exampleReportGroup&#34;, ReportGroupArgs.builder()        
- *             .name(&#34;my test report group&#34;)
- *             .type(&#34;TEST&#34;)
+ *         var exampleReportGroup = new ReportGroup("exampleReportGroup", ReportGroupArgs.builder()        
+ *             .name("my test report group")
+ *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
- *                 .type(&#34;S3&#34;)
+ *                 .type("S3")
  *                 .s3Destination(ReportGroupExportConfigS3DestinationArgs.builder()
  *                     .bucket(exampleBucketV2.id())
  *                     .encryptionDisabled(false)
  *                     .encryptionKey(exampleKey.arn())
- *                     .packaging(&#34;NONE&#34;)
- *                     .path(&#34;/some&#34;)
+ *                     .packaging("NONE")
+ *                     .path("/some")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

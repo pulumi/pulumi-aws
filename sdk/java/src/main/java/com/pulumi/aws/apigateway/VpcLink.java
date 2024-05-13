@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *             .name("example")
  *             .internal(true)
- *             .loadBalancerType(&#34;network&#34;)
+ *             .loadBalancerType("network")
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(&#34;12345&#34;)
+ *                 .subnetId("12345")
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcLink = new VpcLink(&#34;exampleVpcLink&#34;, VpcLinkArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;example description&#34;)
+ *         var exampleVpcLink = new VpcLink("exampleVpcLink", VpcLinkArgs.builder()        
+ *             .name("example")
+ *             .description("example description")
  *             .targetArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

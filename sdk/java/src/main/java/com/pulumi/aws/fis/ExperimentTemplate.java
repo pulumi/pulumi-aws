@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,34 +56,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExperimentTemplate(&#34;example&#34;, ExperimentTemplateArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var example = new ExperimentTemplate("example", ExperimentTemplateArgs.builder()        
+ *             .description("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
- *                 .source(&#34;none&#34;)
+ *                 .source("none")
  *                 .build())
  *             .actions(ExperimentTemplateActionArgs.builder()
- *                 .name(&#34;example-action&#34;)
- *                 .actionId(&#34;aws:ec2:terminate-instances&#34;)
+ *                 .name("example-action")
+ *                 .actionId("aws:ec2:terminate-instances")
  *                 .target(ExperimentTemplateActionTargetArgs.builder()
- *                     .key(&#34;Instances&#34;)
- *                     .value(&#34;example-target&#34;)
+ *                     .key("Instances")
+ *                     .value("example-target")
  *                     .build())
  *                 .build())
  *             .targets(ExperimentTemplateTargetArgs.builder()
- *                 .name(&#34;example-target&#34;)
- *                 .resourceType(&#34;aws:ec2:instance&#34;)
- *                 .selectionMode(&#34;COUNT(1)&#34;)
+ *                 .name("example-target")
+ *                 .resourceType("aws:ec2:instance")
+ *                 .selectionMode("COUNT(1)")
  *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
- *                     .key(&#34;env&#34;)
- *                     .value(&#34;example&#34;)
+ *                     .key("env")
+ *                     .value("example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

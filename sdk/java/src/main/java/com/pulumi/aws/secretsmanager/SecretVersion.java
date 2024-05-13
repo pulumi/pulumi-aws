@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Simple String Value
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecretVersion(&#34;example&#34;, SecretVersionArgs.builder()        
+ *         var example = new SecretVersion("example", SecretVersionArgs.builder()        
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .secretString(&#34;example-string-to-protect&#34;)
+ *             .secretString("example-string-to-protect")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Key-Value Pairs
@@ -61,7 +63,8 @@ import javax.annotation.Nullable;
  * Secrets Manager also accepts key-value pairs in JSON.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,8 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var example = config.get(&#34;example&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
+ *         final var example = config.get("example").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(
  *                 example))
@@ -93,7 +96,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Reading key-value pairs from JSON back into a native map

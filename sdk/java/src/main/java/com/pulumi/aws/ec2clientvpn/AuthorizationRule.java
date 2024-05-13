@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthorizationRule(&#34;example&#34;, AuthorizationRuleArgs.builder()        
+ *         var example = new AuthorizationRule("example", AuthorizationRuleArgs.builder()        
  *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
  *             .targetNetworkCidr(exampleAwsSubnet.cidrBlock())
  *             .authorizeAllGroups(true)
@@ -51,7 +52,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

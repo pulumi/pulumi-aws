@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,19 +52,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Product(&#34;example&#34;, ProductArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .owner(&#34;example-owner&#34;)
- *             .type(&#34;CLOUD_FORMATION_TEMPLATE&#34;)
+ *         var example = new Product("example", ProductArgs.builder()        
+ *             .name("example")
+ *             .owner("example-owner")
+ *             .type("CLOUD_FORMATION_TEMPLATE")
  *             .provisioningArtifactParameters(ProductProvisioningArtifactParametersArgs.builder()
- *                 .templateUrl(&#34;https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json&#34;)
+ *                 .templateUrl("https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json")
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

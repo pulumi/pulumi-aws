@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,41 +60,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .permanentDeletionTimeInDays(7)
  *             .build());
  * 
- *         var key = new PrivateKey(&#34;key&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;RSA&#34;)
+ *         var key = new PrivateKey("key", PrivateKeyArgs.builder()        
+ *             .algorithm("RSA")
  *             .build());
  * 
- *         var csr = new CertRequest(&#34;csr&#34;, CertRequestArgs.builder()        
+ *         var csr = new CertRequest("csr", CertRequestArgs.builder()        
  *             .privateKeyPem(key.privateKeyPem())
  *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName(&#34;example&#34;)
+ *                 .commonName("example")
  *                 .build())
  *             .build());
  * 
- *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
+ *         var example = new Certificate("example", CertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(csr.certRequestPem())
- *             .signingAlgorithm(&#34;SHA256WITHRSA&#34;)
+ *             .signingAlgorithm("SHA256WITHRSA")
  *             .validity(CertificateValidityArgs.builder()
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .value(1)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

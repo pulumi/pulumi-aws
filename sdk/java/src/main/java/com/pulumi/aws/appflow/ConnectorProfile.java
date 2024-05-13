@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,43 +62,43 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name(&#34;AmazonRedshiftAllCommandsFullAccess&#34;)
+ *             .name("AmazonRedshiftAllCommandsFullAccess")
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example_role&#34;)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example_role")
  *             .managedPolicyArns(test.arn())
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "ec2.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example_bucket&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example_bucket")
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example_cluster&#34;)
- *             .databaseName(&#34;example_db&#34;)
- *             .masterUsername(&#34;exampleuser&#34;)
- *             .masterPassword(&#34;examplePassword123!&#34;)
- *             .nodeType(&#34;dc1.large&#34;)
- *             .clusterType(&#34;single-node&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .clusterIdentifier("example_cluster")
+ *             .databaseName("example_db")
+ *             .masterUsername("exampleuser")
+ *             .masterPassword("examplePassword123!")
+ *             .nodeType("dc1.large")
+ *             .clusterType("single-node")
  *             .build());
  * 
- *         var exampleConnectorProfile = new ConnectorProfile(&#34;exampleConnectorProfile&#34;, ConnectorProfileArgs.builder()        
- *             .name(&#34;example_profile&#34;)
- *             .connectorType(&#34;Redshift&#34;)
- *             .connectionMode(&#34;Public&#34;)
+ *         var exampleConnectorProfile = new ConnectorProfile("exampleConnectorProfile", ConnectorProfileArgs.builder()        
+ *             .name("example_profile")
+ *             .connectorType("Redshift")
+ *             .connectionMode("Public")
  *             .connectorProfileConfig(ConnectorProfileConnectorProfileConfigArgs.builder()
  *                 .connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs.builder()
  *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs.builder()
@@ -108,10 +109,10 @@ import javax.annotation.Nullable;
  *                 .connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs.builder()
  *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs.builder()
  *                         .bucketName(exampleBucketV2.name())
- *                         .databaseUrl(Output.tuple(exampleCluster.endpoint(), exampleCluster.databaseName()).applyValue(values -&gt; {
+ *                         .databaseUrl(Output.tuple(exampleCluster.endpoint(), exampleCluster.databaseName()).applyValue(values -> {
  *                             var endpoint = values.t1;
  *                             var databaseName = values.t2;
- *                             return String.format(&#34;jdbc:redshift://%s/%s&#34;, endpoint,databaseName);
+ *                             return String.format("jdbc:redshift://%s/%s", endpoint,databaseName);
  *                         }))
  *                         .roleArn(exampleRole.arn())
  *                         .build())
@@ -121,7 +122,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

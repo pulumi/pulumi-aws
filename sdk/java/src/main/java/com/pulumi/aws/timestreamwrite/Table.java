@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()        
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
- *             .tableName(&#34;example&#34;)
+ *             .tableName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Full usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,25 +85,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()        
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
- *             .tableName(&#34;example&#34;)
+ *             .tableName("example")
  *             .retentionProperties(TableRetentionPropertiesArgs.builder()
  *                 .magneticStoreRetentionPeriodInDays(30)
  *                 .memoryStoreRetentionPeriodInHours(8)
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-timestream-table&#34;))
+ *             .tags(Map.of("Name", "example-timestream-table"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Customer-defined Partition Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,21 +128,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()        
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
- *             .tableName(&#34;example&#34;)
+ *             .tableName("example")
  *             .schema(TableSchemaArgs.builder()
  *                 .compositePartitionKey(TableSchemaCompositePartitionKeyArgs.builder()
- *                     .enforcementInRecord(&#34;REQUIRED&#34;)
- *                     .name(&#34;attr1&#34;)
- *                     .type(&#34;DIMENSION&#34;)
+ *                     .enforcementInRecord("REQUIRED")
+ *                     .name("attr1")
+ *                     .type("DIMENSION")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

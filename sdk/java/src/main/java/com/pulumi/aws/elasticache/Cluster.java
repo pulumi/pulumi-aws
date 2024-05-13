@@ -46,7 +46,8 @@ import javax.annotation.Nullable;
  * ### Memcached Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,24 +68,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterId(&#34;cluster-example&#34;)
- *             .engine(&#34;memcached&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterId("cluster-example")
+ *             .engine("memcached")
+ *             .nodeType("cache.m4.large")
  *             .numCacheNodes(2)
- *             .parameterGroupName(&#34;default.memcached1.4&#34;)
+ *             .parameterGroupName("default.memcached1.4")
  *             .port(11211)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Instance
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -105,19 +108,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterId(&#34;cluster-example&#34;)
- *             .engine(&#34;redis&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterId("cluster-example")
+ *             .engine("redis")
+ *             .nodeType("cache.m4.large")
  *             .numCacheNodes(1)
- *             .parameterGroupName(&#34;default.redis3.2&#34;)
- *             .engineVersion(&#34;3.2.10&#34;)
+ *             .parameterGroupName("default.redis3.2")
+ *             .engineVersion("3.2.10")
  *             .port(6379)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Cluster Mode Disabled Read Replica Instance
@@ -125,7 +129,8 @@ import javax.annotation.Nullable;
  * These inherit their settings from the replication group.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,20 +151,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replica = new Cluster(&#34;replica&#34;, ClusterArgs.builder()        
- *             .clusterId(&#34;cluster-example&#34;)
+ *         var replica = new Cluster("replica", ClusterArgs.builder()        
+ *             .clusterId("cluster-example")
  *             .replicationGroupId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Log Delivery configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -181,31 +188,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
- *             .clusterId(&#34;mycluster&#34;)
- *             .engine(&#34;redis&#34;)
- *             .nodeType(&#34;cache.t3.micro&#34;)
+ *         var test = new Cluster("test", ClusterArgs.builder()        
+ *             .clusterId("mycluster")
+ *             .engine("redis")
+ *             .nodeType("cache.t3.micro")
  *             .numCacheNodes(1)
  *             .port(6379)
  *             .applyImmediately(true)
  *             .logDeliveryConfigurations(            
  *                 ClusterLogDeliveryConfigurationArgs.builder()
  *                     .destination(example.name())
- *                     .destinationType(&#34;cloudwatch-logs&#34;)
- *                     .logFormat(&#34;text&#34;)
- *                     .logType(&#34;slow-log&#34;)
+ *                     .destinationType("cloudwatch-logs")
+ *                     .logFormat("text")
+ *                     .logType("slow-log")
  *                     .build(),
  *                 ClusterLogDeliveryConfigurationArgs.builder()
  *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
- *                     .destinationType(&#34;kinesis-firehose&#34;)
- *                     .logFormat(&#34;json&#34;)
- *                     .logType(&#34;engine-log&#34;)
+ *                     .destinationType("kinesis-firehose")
+ *                     .logFormat("json")
+ *                     .logType("engine-log")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

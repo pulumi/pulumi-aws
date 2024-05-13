@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,78 +55,80 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;dlm.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("dlm.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var dlmLifecycleRole = new Role(&#34;dlmLifecycleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;dlm-lifecycle-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var dlmLifecycleRole = new Role("dlmLifecycleRole", RoleArgs.builder()        
+ *             .name("dlm-lifecycle-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var dlmLifecycle = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;ec2:CreateSnapshot&#34;,
- *                         &#34;ec2:CreateSnapshots&#34;,
- *                         &#34;ec2:DeleteSnapshot&#34;,
- *                         &#34;ec2:DescribeInstances&#34;,
- *                         &#34;ec2:DescribeVolumes&#34;,
- *                         &#34;ec2:DescribeSnapshots&#34;)
- *                     .resources(&#34;*&#34;)
+ *                         "ec2:CreateSnapshot",
+ *                         "ec2:CreateSnapshots",
+ *                         "ec2:DeleteSnapshot",
+ *                         "ec2:DescribeInstances",
+ *                         "ec2:DescribeVolumes",
+ *                         "ec2:DescribeSnapshots")
+ *                     .resources("*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;ec2:CreateTags&#34;)
- *                     .resources(&#34;arn:aws:ec2:*::snapshot/*&#34;)
+ *                     .effect("Allow")
+ *                     .actions("ec2:CreateTags")
+ *                     .resources("arn:aws:ec2:*::snapshot/*")
  *                     .build())
  *             .build());
  * 
- *         var dlmLifecycleRolePolicy = new RolePolicy(&#34;dlmLifecycleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;dlm-lifecycle-policy&#34;)
+ *         var dlmLifecycleRolePolicy = new RolePolicy("dlmLifecycleRolePolicy", RolePolicyArgs.builder()        
+ *             .name("dlm-lifecycle-policy")
  *             .role(dlmLifecycleRole.id())
- *             .policy(dlmLifecycle.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(dlmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;example DLM lifecycle policy&#34;)
+ *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()        
+ *             .description("example DLM lifecycle policy")
  *             .executionRoleArn(dlmLifecycleRole.arn())
- *             .state(&#34;ENABLED&#34;)
+ *             .state("ENABLED")
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .resourceTypes(&#34;VOLUME&#34;)
+ *                 .resourceTypes("VOLUME")
  *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
- *                     .name(&#34;2 weeks of daily snapshots&#34;)
+ *                     .name("2 weeks of daily snapshots")
  *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
  *                         .interval(24)
- *                         .intervalUnit(&#34;HOURS&#34;)
- *                         .times(&#34;23:45&#34;)
+ *                         .intervalUnit("HOURS")
+ *                         .times("23:45")
  *                         .build())
  *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
  *                         .count(14)
  *                         .build())
- *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
+ *                     .tagsToAdd(Map.of("SnapshotCreator", "DLM"))
  *                     .copyTags(false)
  *                     .build())
- *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
+ *                 .targetTags(Map.of("Snapshot", "true"))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Cross-Region Snapshot Copy Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -158,64 +161,66 @@ import javax.annotation.Nullable;
  * 
  *         final var key = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;Enable IAM User Permissions&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("Enable IAM User Permissions")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .type("AWS")
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                     .build())
- *                 .actions(&#34;kms:*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .actions("kms:*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var dlmCrossRegionCopyCmk = new Key(&#34;dlmCrossRegionCopyCmk&#34;, KeyArgs.builder()        
- *             .description(&#34;Example Alternate Region KMS Key&#34;)
- *             .policy(key.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var dlmCrossRegionCopyCmk = new Key("dlmCrossRegionCopyCmk", KeyArgs.builder()        
+ *             .description("Example Alternate Region KMS Key")
+ *             .policy(key.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;example DLM lifecycle policy&#34;)
+ *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()        
+ *             .description("example DLM lifecycle policy")
  *             .executionRoleArn(dlmLifecycleRole.arn())
- *             .state(&#34;ENABLED&#34;)
+ *             .state("ENABLED")
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .resourceTypes(&#34;VOLUME&#34;)
+ *                 .resourceTypes("VOLUME")
  *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
- *                     .name(&#34;2 weeks of daily snapshots&#34;)
+ *                     .name("2 weeks of daily snapshots")
  *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
  *                         .interval(24)
- *                         .intervalUnit(&#34;HOURS&#34;)
- *                         .times(&#34;23:45&#34;)
+ *                         .intervalUnit("HOURS")
+ *                         .times("23:45")
  *                         .build())
  *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
  *                         .count(14)
  *                         .build())
- *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
+ *                     .tagsToAdd(Map.of("SnapshotCreator", "DLM"))
  *                     .copyTags(false)
  *                     .crossRegionCopyRules(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.builder()
- *                         .target(&#34;us-west-2&#34;)
+ *                         .target("us-west-2")
  *                         .encrypted(true)
  *                         .cmkArn(dlmCrossRegionCopyCmk.arn())
  *                         .copyTags(true)
  *                         .retainRule(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs.builder()
  *                             .interval(30)
- *                             .intervalUnit(&#34;DAYS&#34;)
+ *                             .intervalUnit("DAYS")
  *                             .build())
  *                         .build())
  *                     .build())
- *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
+ *                 .targetTags(Map.of("Snapshot", "true"))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Event Based Policy Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -248,45 +253,46 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;tf-acc-basic&#34;)
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+ *             .description("tf-acc-basic")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .policyType(&#34;EVENT_BASED_POLICY&#34;)
+ *                 .policyType("EVENT_BASED_POLICY")
  *                 .action(LifecyclePolicyPolicyDetailsActionArgs.builder()
- *                     .name(&#34;tf-acc-basic&#34;)
+ *                     .name("tf-acc-basic")
  *                     .crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs.builder()
  *                         .encryptionConfiguration()
  *                         .retainRule(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs.builder()
  *                             .interval(15)
- *                             .intervalUnit(&#34;MONTHS&#34;)
+ *                             .intervalUnit("MONTHS")
  *                             .build())
- *                         .target(&#34;us-east-1&#34;)
+ *                         .target("us-east-1")
  *                         .build())
  *                     .build())
  *                 .eventSource(LifecyclePolicyPolicyDetailsEventSourceArgs.builder()
- *                     .type(&#34;MANAGED_CWE&#34;)
+ *                     .type("MANAGED_CWE")
  *                     .parameters(LifecyclePolicyPolicyDetailsEventSourceParametersArgs.builder()
- *                         .descriptionRegex(&#34;^.*Created for policy: policy-1234567890abcdef0.*$&#34;)
- *                         .eventType(&#34;shareSnapshot&#34;)
- *                         .snapshotOwners(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .descriptionRegex("^.*Created for policy: policy-1234567890abcdef0.*$")
+ *                         .eventType("shareSnapshot")
+ *                         .snapshotOwners(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name(&#34;AWSDataLifecycleManagerServiceRole&#34;)
+ *             .name("AWSDataLifecycleManagerServiceRole")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(exampleAwsIamRole.id())
- *             .policyArn(example.applyValue(getPolicyResult -&gt; getPolicyResult.arn()))
+ *             .policyArn(example.applyValue(getPolicyResult -> getPolicyResult.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new HoursOfOperation(&#34;test&#34;, HoursOfOperationArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Office Hours&#34;)
- *             .description(&#34;Monday office hours&#34;)
- *             .timeZone(&#34;EST&#34;)
+ *         var test = new HoursOfOperation("test", HoursOfOperationArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Office Hours")
+ *             .description("Monday office hours")
+ *             .timeZone("EST")
  *             .configs(            
  *                 HoursOfOperationConfigArgs.builder()
- *                     .day(&#34;MONDAY&#34;)
+ *                     .day("MONDAY")
  *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
  *                         .hours(23)
  *                         .minutes(8)
@@ -66,7 +67,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 HoursOfOperationConfigArgs.builder()
- *                     .day(&#34;TUESDAY&#34;)
+ *                     .day("TUESDAY")
  *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
  *                         .hours(21)
  *                         .minutes(0)
@@ -76,12 +77,13 @@ import javax.annotation.Nullable;
  *                         .minutes(0)
  *                         .build())
  *                     .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Hours of Operation&#34;))
+ *             .tags(Map.of("Name", "Example Hours of Operation"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,34 +51,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Role(&#34;test&#34;, RoleArgs.builder()        
+ *         var test = new Role("test", RoleArgs.builder()        
  *             .name(awsShieldDrtAccessRoleArn)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;drt.shield.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "drt.shield.amazonaws.com")
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
+ *                         jsonProperty("Action", "sts:AssumeRole")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var testRolePolicyAttachment = new RolePolicyAttachment(&#34;testRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var testRolePolicyAttachment = new RolePolicyAttachment("testRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(test.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
  *             .build());
  * 
- *         var testDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation(&#34;testDrtAccessRoleArnAssociation&#34;, DrtAccessRoleArnAssociationArgs.builder()        
+ *         var testDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()        
  *             .roleArn(test.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

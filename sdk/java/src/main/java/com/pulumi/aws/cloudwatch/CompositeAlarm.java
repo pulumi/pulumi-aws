@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CompositeAlarm(&#34;example&#34;, CompositeAlarmArgs.builder()        
- *             .alarmDescription(&#34;This is a composite alarm!&#34;)
- *             .alarmName(&#34;example-composite-alarm&#34;)
+ *         var example = new CompositeAlarm("example", CompositeAlarmArgs.builder()        
+ *             .alarmDescription("This is a composite alarm!")
+ *             .alarmName("example-composite-alarm")
  *             .alarmActions(exampleAwsSnsTopic.arn())
  *             .okActions(exampleAwsSnsTopic.arn())
- *             .alarmRule(&#34;&#34;&#34;
+ *             .alarmRule("""
  * ALARM(%s) OR
  * ALARM(%s)
- * &#34;, alpha.alarmName(),bravo.alarmName()))
+ * ", alpha.alarmName(),bravo.alarmName()))
  *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
- *                 .alarm(&#34;suppressor-alarm&#34;)
+ *                 .alarm("suppressor-alarm")
  *                 .extensionPeriod(10)
  *                 .waitPeriod(20)
  *                 .build())
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

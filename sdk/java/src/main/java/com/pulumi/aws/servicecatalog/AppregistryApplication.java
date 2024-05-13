@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppregistryApplication(&#34;example&#34;, AppregistryApplicationArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()        
+ *             .name("example-app")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Connecting Resources
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,18 +84,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppregistryApplication(&#34;example&#34;, AppregistryApplicationArgs.builder()        
- *             .name(&#34;example-app&#34;)
+ *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()        
+ *             .name("example-app")
  *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-bucket&#34;)
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *             .bucket("example-bucket")
  *             .tags(example.applicationTag())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

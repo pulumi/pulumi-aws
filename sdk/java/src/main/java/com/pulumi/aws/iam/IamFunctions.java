@@ -68,7 +68,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,12 +91,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
-     *             .user(&#34;an_example_user_name&#34;)
+     *             .user("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +111,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +134,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
-     *             .user(&#34;an_example_user_name&#34;)
+     *             .user("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -150,7 +154,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -172,12 +177,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
-     *             .user(&#34;an_example_user_name&#34;)
+     *             .user("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +197,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,12 +220,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
-     *             .user(&#34;an_example_user_name&#34;)
+     *             .user("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -232,7 +240,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -254,10 +263,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -271,7 +281,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -293,10 +304,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -310,7 +322,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -332,10 +345,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +363,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,10 +386,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -388,7 +404,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -410,10 +427,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -427,7 +445,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -449,10 +468,11 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -467,7 +487,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -489,12 +510,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
-     *             .groupName(&#34;an_example_group_name&#34;)
+     *             .groupName("an_example_group_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +531,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -531,12 +554,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
-     *             .groupName(&#34;an_example_group_name&#34;)
+     *             .groupName("an_example_group_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -551,7 +575,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -573,12 +598,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
-     *             .groupName(&#34;an_example_group_name&#34;)
+     *             .groupName("an_example_group_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -593,7 +619,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,12 +642,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
-     *             .groupName(&#34;an_example_group_name&#34;)
+     *             .groupName("an_example_group_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +663,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,12 +686,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
-     *             .name(&#34;an_example_instance_profile_name&#34;)
+     *             .name("an_example_instance_profile_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -677,7 +707,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -699,12 +730,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
-     *             .name(&#34;an_example_instance_profile_name&#34;)
+     *             .name("an_example_instance_profile_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -719,7 +751,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -741,12 +774,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
-     *             .name(&#34;an_example_instance_profile_name&#34;)
+     *             .name("an_example_instance_profile_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -761,7 +795,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -783,12 +818,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
-     *             .name(&#34;an_example_instance_profile_name&#34;)
+     *             .name("an_example_instance_profile_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -803,7 +839,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -825,12 +862,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
-     *             .roleName(&#34;an_example_iam_role_name&#34;)
+     *             .roleName("an_example_iam_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -845,7 +883,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -867,12 +906,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
-     *             .roleName(&#34;an_example_iam_role_name&#34;)
+     *             .roleName("an_example_iam_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -887,7 +927,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -909,12 +950,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
-     *             .roleName(&#34;an_example_iam_role_name&#34;)
+     *             .roleName("an_example_iam_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -929,7 +971,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -951,12 +994,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
-     *             .roleName(&#34;an_example_iam_role_name&#34;)
+     *             .roleName("an_example_iam_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -971,7 +1015,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -993,16 +1038,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1024,12 +1071,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1044,7 +1092,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1066,16 +1115,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1097,12 +1148,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1117,7 +1169,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1139,16 +1192,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1170,12 +1225,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1190,7 +1246,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1212,16 +1269,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1243,12 +1302,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1263,7 +1323,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1285,16 +1346,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1316,12 +1379,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1336,7 +1400,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1358,16 +1423,18 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
+     *             .arn("arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1389,12 +1456,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
-     *             .url(&#34;https://accounts.google.com&#34;)
+     *             .url("https://accounts.google.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1410,7 +1478,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1432,18 +1501,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1465,12 +1536,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1486,7 +1558,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1508,18 +1581,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1541,12 +1616,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1562,7 +1638,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1584,18 +1661,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1617,12 +1696,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1638,7 +1718,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1660,18 +1741,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1693,12 +1776,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1714,7 +1798,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1736,18 +1821,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1769,12 +1856,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1790,7 +1878,8 @@ public final class IamFunctions {
      * ### By ARN
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1812,18 +1901,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
+     *             .arn("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### By Name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1845,12 +1936,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;test_policy&#34;)
+     *             .name("test_policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1867,7 +1959,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1893,41 +1986,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -1935,7 +2029,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1959,33 +2054,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -1995,7 +2091,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2018,34 +2115,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2069,30 +2168,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -2100,7 +2200,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2123,31 +2224,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -2157,7 +2259,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2180,28 +2283,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -2211,7 +2315,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2235,38 +2340,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -2274,7 +2380,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2297,53 +2404,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -2362,7 +2470,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2388,41 +2497,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -2430,7 +2540,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2454,33 +2565,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -2490,7 +2602,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2513,34 +2626,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2564,30 +2679,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -2595,7 +2711,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2618,31 +2735,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -2652,7 +2770,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2675,28 +2794,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -2706,7 +2826,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2730,38 +2851,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -2769,7 +2891,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2792,53 +2915,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -2857,7 +2981,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2883,41 +3008,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -2925,7 +3051,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2949,33 +3076,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -2985,7 +3113,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3008,34 +3137,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3059,30 +3190,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -3090,7 +3222,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3113,31 +3246,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -3147,7 +3281,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3170,28 +3305,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -3201,7 +3337,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3225,38 +3362,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -3264,7 +3402,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3287,53 +3426,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -3352,7 +3492,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3378,41 +3519,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -3420,7 +3562,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3444,33 +3587,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -3480,7 +3624,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3503,34 +3648,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3554,30 +3701,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -3585,7 +3733,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3608,31 +3757,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -3642,7 +3792,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3665,28 +3816,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -3696,7 +3848,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3720,38 +3873,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -3759,7 +3913,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3782,53 +3937,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -3847,7 +4003,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3873,41 +4030,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -3915,7 +4073,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3939,33 +4098,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -3975,7 +4135,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3998,34 +4159,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4049,30 +4212,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -4080,7 +4244,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4103,31 +4268,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -4137,7 +4303,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4160,28 +4327,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -4191,7 +4359,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4215,38 +4384,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -4254,7 +4424,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4277,53 +4448,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -4342,7 +4514,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4368,41 +4541,42 @@ public final class IamFunctions {
      *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;1&#34;)
+     *                     .sid("1")
      *                     .actions(                    
-     *                         &#34;s3:ListAllMyBuckets&#34;,
-     *                         &#34;s3:GetBucketLocation&#34;)
-     *                     .resources(&#34;arn:aws:s3:::*&#34;)
+     *                         "s3:ListAllMyBuckets",
+     *                         "s3:GetBucketLocation")
+     *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:ListBucket&#34;)
-     *                     .resources(String.format(&#34;arn:aws:s3:::%s&#34;, s3BucketName))
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;StringLike&#34;)
-     *                         .variable(&#34;s3:prefix&#34;)
+     *                         .test("StringLike")
+     *                         .variable("s3:prefix")
      *                         .values(                        
-     *                             &#34;&#34;,
-     *                             &#34;home/&#34;,
-     *                             &#34;home/&amp;{aws:username}/&#34;)
+     *                             "",
+     *                             "home/",
+     *                             "home/&{aws:username}/")
      *                         .build())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, s3BucketName),
-     *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, s3BucketName))
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}", s3BucketName),
+     *                         String.format("arn:aws:s3:::%s/home/&{{aws:username}}/*", s3BucketName))
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
-     *             .name(&#34;example_policy&#34;)
-     *             .path(&#34;/&#34;)
-     *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *             .name("example_policy")
+     *             .path("/")
+     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Multiple Condition Keys and Values
@@ -4410,7 +4584,8 @@ public final class IamFunctions {
      * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4434,33 +4609,34 @@ public final class IamFunctions {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
-     *                     &#34;kms:Decrypt&#34;,
-     *                     &#34;kms:GenerateDataKey&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
-     *                         .values(&#34;pi&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:service")
+     *                         .values("pi")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
-     *                         .values(&#34;rds&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:pi:service")
+     *                         .values("rds")
      *                         .build(),
      *                     GetPolicyDocumentStatementConditionArgs.builder()
-     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
-     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .test("ForAnyValue:StringEquals")
+     *                         .variable("kms:EncryptionContext:aws:rds:db-id")
      *                         .values(                        
-     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
-     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+     *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -4470,7 +4646,8 @@ public final class IamFunctions {
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4493,34 +4670,36 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;sts:AssumeRole&#34;)
+     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Service&#34;)
-     *                         .identifiers(&#34;firehose.amazonaws.com&#34;)
+     *                         .type("Service")
+     *                         .identifiers("firehose.amazonaws.com")
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;AWS&#34;)
+     *                         .type("AWS")
      *                         .identifiers(trustedRoleArn)
      *                         .build(),
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type(&#34;Federated&#34;)
+     *                         .type("Federated")
      *                         .identifiers(                        
-     *                             String.format(&#34;arn:aws:iam::%s:saml-provider/%s&#34;, accountId,providerName),
-     *                             &#34;cognito-identity.amazonaws.com&#34;)
+     *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
+     *                             "cognito-identity.amazonaws.com")
      *                         .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Example Using A Source Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4544,30 +4723,31 @@ public final class IamFunctions {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
      *                 .resources(                
-     *                     &#34;arn:aws:s3:::somebucket&#34;,
-     *                     &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                     "arn:aws:s3:::somebucket",
+     *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -4575,7 +4755,8 @@ public final class IamFunctions {
      * ### Example Using An Override Document
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4598,31 +4779,32 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;SidToOverride&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("SidToOverride")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;SidToOverride&#34;)
-     *                     .actions(&#34;s3:*&#34;)
+     *                     .sid("SidToOverride")
+     *                     .actions("s3:*")
      *                     .resources(                    
-     *                         &#34;arn:aws:s3:::somebucket&#34;,
-     *                         &#34;arn:aws:s3:::somebucket/*&#34;)
+     *                         "arn:aws:s3:::somebucket",
+     *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -4632,7 +4814,8 @@ public final class IamFunctions {
      * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4655,28 +4838,29 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("ec2:DescribeAccountAttributes")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceholder&#34;)
-     *                 .actions(&#34;s3:GetObject&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceholder")
+     *                 .actions("s3:GetObject")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -4686,7 +4870,8 @@ public final class IamFunctions {
      * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4710,38 +4895,39 @@ public final class IamFunctions {
      *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidOne&#34;)
-     *                     .actions(&#34;s3:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidOne")
+     *                     .actions("s3:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;UniqueSidTwo&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("UniqueSidTwo")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions(&#34;lambda:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .actions("lambda:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -4749,7 +4935,8 @@ public final class IamFunctions {
      * ### Example of Merging Override Documents
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4772,53 +4959,54 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Allow&#34;)
-     *                 .actions(&#34;s3:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Allow")
+     *                 .actions("s3:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;ec2:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .effect("Allow")
+     *                     .actions("ec2:*")
+     *                     .resources("*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                     .effect(&#34;Allow&#34;)
-     *                     .actions(&#34;iam:*&#34;)
-     *                     .resources(&#34;*&#34;)
+     *                     .sid("OverridePlaceHolderTwo")
+     *                     .effect("Allow")
+     *                     .actions("iam:*")
+     *                     .resources("*")
      *                     .build())
      *             .build());
      * 
      *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderOne&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;logs:*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderOne")
+     *                 .effect("Deny")
+     *                 .actions("logs:*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
-     *                 .effect(&#34;Deny&#34;)
-     *                 .actions(&#34;*&#34;)
-     *                 .resources(&#34;*&#34;)
+     *                 .sid("OverridePlaceHolderTwo")
+     *                 .effect("Deny")
+     *                 .actions("*")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -4842,7 +5030,8 @@ public final class IamFunctions {
      * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4869,22 +5058,24 @@ public final class IamFunctions {
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
-     *                 &#34;s3:GetObject&#34;,
-     *                 &#34;s3:PutObject&#34;,
-     *                 &#34;s3:DeleteObject&#34;)
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
-     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *                 "s3:GetObject",
+     *                 "s3:PutObject",
+     *                 "s3:DeleteObject")
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4906,15 +5097,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
      *                 .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Testing the Effect of a Declared Policy
@@ -4922,7 +5114,8 @@ public final class IamFunctions {
      * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4956,45 +5149,45 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
-     *             .name(&#34;example_s3_access&#34;)
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;Resource&#34;, arn)
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:GetObject"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Resource", arn)
      *                     )))
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
-     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                         jsonProperty("Version", "2012-10-17"),
+     *                         jsonProperty("Statement", jsonArray(jsonObject(
+     *                             jsonProperty("Action", "s3:*"),
+     *                             jsonProperty("Effect", "Allow"),
+     *                             jsonProperty("Principal", jsonObject(
+     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+     *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
-     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                                 String.format("%s/*", exampleBucketV2Arn1)
      *                             ))
      *                         )))
      *                     ));
@@ -5002,7 +5195,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
-     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
      *             .resourceArns(exampleBucketV2.arn())
      *             .resourcePolicyJson(accountAccess.policy())
@@ -5010,7 +5203,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
@@ -5034,7 +5228,8 @@ public final class IamFunctions {
      * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5061,22 +5256,24 @@ public final class IamFunctions {
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
-     *                 &#34;s3:GetObject&#34;,
-     *                 &#34;s3:PutObject&#34;,
-     *                 &#34;s3:DeleteObject&#34;)
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
-     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *                 "s3:GetObject",
+     *                 "s3:PutObject",
+     *                 "s3:DeleteObject")
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5098,15 +5295,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
      *                 .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Testing the Effect of a Declared Policy
@@ -5114,7 +5312,8 @@ public final class IamFunctions {
      * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5148,45 +5347,45 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
-     *             .name(&#34;example_s3_access&#34;)
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;Resource&#34;, arn)
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:GetObject"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Resource", arn)
      *                     )))
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
-     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                         jsonProperty("Version", "2012-10-17"),
+     *                         jsonProperty("Statement", jsonArray(jsonObject(
+     *                             jsonProperty("Action", "s3:*"),
+     *                             jsonProperty("Effect", "Allow"),
+     *                             jsonProperty("Principal", jsonObject(
+     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+     *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
-     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                                 String.format("%s/*", exampleBucketV2Arn1)
      *                             ))
      *                         )))
      *                     ));
@@ -5194,7 +5393,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
-     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
      *             .resourceArns(exampleBucketV2.arn())
      *             .resourcePolicyJson(accountAccess.policy())
@@ -5202,7 +5401,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
@@ -5226,7 +5426,8 @@ public final class IamFunctions {
      * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5253,22 +5454,24 @@ public final class IamFunctions {
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
-     *                 &#34;s3:GetObject&#34;,
-     *                 &#34;s3:PutObject&#34;,
-     *                 &#34;s3:DeleteObject&#34;)
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
-     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *                 "s3:GetObject",
+     *                 "s3:PutObject",
+     *                 "s3:DeleteObject")
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5290,15 +5493,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
      *                 .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Testing the Effect of a Declared Policy
@@ -5306,7 +5510,8 @@ public final class IamFunctions {
      * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5340,45 +5545,45 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
-     *             .name(&#34;example_s3_access&#34;)
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;Resource&#34;, arn)
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:GetObject"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Resource", arn)
      *                     )))
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
-     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                         jsonProperty("Version", "2012-10-17"),
+     *                         jsonProperty("Statement", jsonArray(jsonObject(
+     *                             jsonProperty("Action", "s3:*"),
+     *                             jsonProperty("Effect", "Allow"),
+     *                             jsonProperty("Principal", jsonObject(
+     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+     *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
-     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                                 String.format("%s/*", exampleBucketV2Arn1)
      *                             ))
      *                         )))
      *                     ));
@@ -5386,7 +5591,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
-     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
      *             .resourceArns(exampleBucketV2.arn())
      *             .resourcePolicyJson(accountAccess.policy())
@@ -5394,7 +5599,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
@@ -5418,7 +5624,8 @@ public final class IamFunctions {
      * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5445,22 +5652,24 @@ public final class IamFunctions {
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
-     *                 &#34;s3:GetObject&#34;,
-     *                 &#34;s3:PutObject&#34;,
-     *                 &#34;s3:DeleteObject&#34;)
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
-     *             .resourceArns(&#34;arn:aws:s3:::my-test-bucket&#34;)
+     *                 "s3:GetObject",
+     *                 "s3:PutObject",
+     *                 "s3:DeleteObject")
+     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5482,15 +5691,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
      *                 .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Testing the Effect of a Declared Policy
@@ -5498,7 +5708,8 @@ public final class IamFunctions {
      * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5532,45 +5743,45 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;example&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;my-test-bucket&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy(&#34;s3Access&#34;, UserPolicyArgs.builder()        
-     *             .name(&#34;example_s3_access&#34;)
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;Resource&#34;, arn)
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:GetObject"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Resource", arn)
      *                     )))
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy(&#34;accountAccess&#34;, BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
-     *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *                         jsonProperty("Version", "2012-10-17"),
+     *                         jsonProperty("Statement", jsonArray(jsonObject(
+     *                             jsonProperty("Action", "s3:*"),
+     *                             jsonProperty("Effect", "Allow"),
+     *                             jsonProperty("Principal", jsonObject(
+     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+     *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
-     *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+     *                                 String.format("%s/*", exampleBucketV2Arn1)
      *                             ))
      *                         )))
      *                     ));
@@ -5578,7 +5789,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
-     *             .actionNames(&#34;s3:GetObject&#34;)
+     *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
      *             .resourceArns(exampleBucketV2.arn())
      *             .resourcePolicyJson(accountAccess.policy())
@@ -5586,7 +5797,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
@@ -5603,7 +5815,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5625,12 +5838,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;an_example_role_name&#34;)
+     *             .name("an_example_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5645,7 +5859,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5667,12 +5882,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;an_example_role_name&#34;)
+     *             .name("an_example_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5687,7 +5903,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5709,12 +5926,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;an_example_role_name&#34;)
+     *             .name("an_example_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5729,7 +5947,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5751,12 +5970,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;an_example_role_name&#34;)
+     *             .name("an_example_role_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5771,7 +5991,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5796,7 +6017,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -5804,7 +6026,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5826,18 +6049,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5859,12 +6084,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -5872,7 +6098,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5894,18 +6121,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5927,13 +6156,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5948,7 +6178,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5973,7 +6204,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -5981,7 +6213,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6003,18 +6236,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6036,12 +6271,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -6049,7 +6285,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6071,18 +6308,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6104,13 +6343,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6125,7 +6365,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6150,7 +6391,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -6158,7 +6400,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6180,18 +6423,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6213,12 +6458,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -6226,7 +6472,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6248,18 +6495,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6281,13 +6530,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6302,7 +6552,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6327,7 +6578,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -6335,7 +6587,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6357,18 +6610,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6390,12 +6645,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -6403,7 +6659,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6425,18 +6682,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6458,13 +6717,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6479,7 +6739,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6504,7 +6765,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -6512,7 +6774,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6534,18 +6797,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6567,12 +6832,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -6580,7 +6846,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6602,18 +6869,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6635,13 +6904,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6656,7 +6926,8 @@ public final class IamFunctions {
      * ### All roles in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6681,7 +6952,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by name regex
@@ -6689,7 +6961,8 @@ public final class IamFunctions {
      * Roles whose role-name contains `project`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6711,18 +6984,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;.*project.*&#34;)
+     *             .nameRegex(".*project.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6744,12 +7019,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Roles provisioned by AWS SSO
@@ -6757,7 +7033,8 @@ public final class IamFunctions {
      * Roles in the account filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6779,18 +7056,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Specific role in the account filtered by name regex and path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6812,13 +7091,14 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
-     *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
-     *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
+     *             .nameRegex("AWSReservedSSO_permission_set_name_.*")
+     *             .pathPrefix("/aws-reserved/sso.amazonaws.com/")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6833,7 +7113,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6855,12 +7136,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
+     *             .arn("arn:aws:iam::123456789:saml-provider/myprovider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6875,7 +7157,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6897,12 +7180,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
+     *             .arn("arn:aws:iam::123456789:saml-provider/myprovider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6917,7 +7201,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6939,12 +7224,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
+     *             .arn("arn:aws:iam::123456789:saml-provider/myprovider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6959,7 +7245,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6981,12 +7268,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
-     *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
+     *             .arn("arn:aws:iam::123456789:saml-provider/myprovider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6999,7 +7287,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7024,24 +7313,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7054,7 +7344,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7079,24 +7370,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7109,7 +7401,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7134,24 +7427,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7164,7 +7458,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7189,24 +7484,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7219,7 +7515,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7244,24 +7541,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7274,7 +7572,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7299,24 +7598,25 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
-     *             .namePrefix(&#34;my-domain.org&#34;)
+     *             .namePrefix("my-domain.org")
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
-     *             .name(&#34;my-domain-elb&#34;)
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;https&#34;)
+     *                 .instanceProtocol("https")
      *                 .lbPort(443)
-     *                 .lbProtocol(&#34;https&#34;)
+     *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7333,7 +7633,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7355,12 +7656,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find the Runner&#39;s Source Role
@@ -7368,7 +7670,8 @@ public final class IamFunctions {
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7394,12 +7697,13 @@ public final class IamFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7416,7 +7720,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7438,12 +7743,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find the Runner&#39;s Source Role
@@ -7451,7 +7757,8 @@ public final class IamFunctions {
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7477,12 +7784,13 @@ public final class IamFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7499,7 +7807,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7521,12 +7830,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find the Runner&#39;s Source Role
@@ -7534,7 +7844,8 @@ public final class IamFunctions {
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7560,12 +7871,13 @@ public final class IamFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7582,7 +7894,8 @@ public final class IamFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7604,12 +7917,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find the Runner&#39;s Source Role
@@ -7617,7 +7931,8 @@ public final class IamFunctions {
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7643,12 +7958,13 @@ public final class IamFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7663,7 +7979,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7685,12 +8002,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;an_example_user_name&#34;)
+     *             .userName("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7705,7 +8023,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7727,12 +8046,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;an_example_user_name&#34;)
+     *             .userName("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7747,7 +8067,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7769,12 +8090,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;an_example_user_name&#34;)
+     *             .userName("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7789,7 +8111,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7811,12 +8134,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUser(GetUserArgs.builder()
-     *             .userName(&#34;an_example_user_name&#34;)
+     *             .userName("an_example_user_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7829,7 +8153,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7851,14 +8176,15 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
-     *             .encoding(&#34;SSH&#34;)
-     *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
-     *             .username(&#34;test-user&#34;)
+     *             .encoding("SSH")
+     *             .sshPublicKeyId("APKARUZ32GUTKIGARLXE")
+     *             .username("test-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7871,7 +8197,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7893,14 +8220,15 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
-     *             .encoding(&#34;SSH&#34;)
-     *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
-     *             .username(&#34;test-user&#34;)
+     *             .encoding("SSH")
+     *             .sshPublicKeyId("APKARUZ32GUTKIGARLXE")
+     *             .username("test-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7913,7 +8241,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7935,14 +8264,15 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
-     *             .encoding(&#34;SSH&#34;)
-     *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
-     *             .username(&#34;test-user&#34;)
+     *             .encoding("SSH")
+     *             .sshPublicKeyId("APKARUZ32GUTKIGARLXE")
+     *             .username("test-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7955,7 +8285,8 @@ public final class IamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7977,14 +8308,15 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
-     *             .encoding(&#34;SSH&#34;)
-     *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
-     *             .username(&#34;test-user&#34;)
+     *             .encoding("SSH")
+     *             .sshPublicKeyId("APKARUZ32GUTKIGARLXE")
+     *             .username("test-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7999,7 +8331,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8024,7 +8357,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8032,7 +8366,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8054,18 +8389,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8087,12 +8424,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8107,7 +8445,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8132,7 +8471,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8140,7 +8480,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8162,18 +8503,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8195,12 +8538,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8215,7 +8559,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8240,7 +8585,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8248,7 +8594,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8270,18 +8617,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8303,12 +8652,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8323,7 +8673,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8348,7 +8699,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8356,7 +8708,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8378,18 +8731,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8411,12 +8766,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8431,7 +8787,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8456,7 +8813,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8464,7 +8822,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8486,18 +8845,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8519,12 +8880,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8539,7 +8901,8 @@ public final class IamFunctions {
      * ### All users in an account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8564,7 +8927,8 @@ public final class IamFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by name regex
@@ -8572,7 +8936,8 @@ public final class IamFunctions {
      * Users whose username contains `abc`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8594,18 +8959,20 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
+     *             .nameRegex(".*abc.*")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Users filtered by path prefix
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8627,12 +8994,13 @@ public final class IamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
-     *             .pathPrefix(&#34;/custom-path&#34;)
+     *             .pathPrefix("/custom-path")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

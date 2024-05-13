@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,13 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConnectionAlias(&#34;example&#34;, ConnectionAliasArgs.builder()        
- *             .connectionString(&#34;testdomain.test&#34;)
+ *         var example = new ConnectionAlias("example", ConnectionAliasArgs.builder()        
+ *             .connectionString("testdomain.test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

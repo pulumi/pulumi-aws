@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;example&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("example")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;109876543210&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("109876543210")
  *                     .build())
- *                 .actions(&#34;schemas:*&#34;)
+ *                 .actions("schemas:*")
  *                 .resources(                
- *                     &#34;arn:aws:schemas:us-east-1:012345678901:registry/example&#34;,
- *                     &#34;arn:aws:schemas:us-east-1:012345678901:schema/example*&#34;)
+ *                     "arn:aws:schemas:us-east-1:012345678901:registry/example",
+ *                     "arn:aws:schemas:us-east-1:012345678901:schema/example*")
  *                 .build())
  *             .build());
  * 
- *         var exampleRegistryPolicy = new RegistryPolicy(&#34;exampleRegistryPolicy&#34;, RegistryPolicyArgs.builder()        
- *             .registryName(&#34;example&#34;)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRegistryPolicy = new RegistryPolicy("exampleRegistryPolicy", RegistryPolicyArgs.builder()        
+ *             .registryName("example")
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

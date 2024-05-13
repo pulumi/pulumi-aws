@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### EC2 Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -74,102 +75,104 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var ec2AssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("ec2.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var ecsInstanceRole = new Role(&#34;ecsInstanceRole&#34;, RoleArgs.builder()        
- *             .name(&#34;ecs_instance_role&#34;)
- *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var ecsInstanceRole = new Role("ecsInstanceRole", RoleArgs.builder()        
+ *             .name("ecs_instance_role")
+ *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;ecsInstanceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(ecsInstanceRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
  *             .build());
  * 
- *         var ecsInstanceRoleInstanceProfile = new InstanceProfile(&#34;ecsInstanceRoleInstanceProfile&#34;, InstanceProfileArgs.builder()        
- *             .name(&#34;ecs_instance_role&#34;)
+ *         var ecsInstanceRoleInstanceProfile = new InstanceProfile("ecsInstanceRoleInstanceProfile", InstanceProfileArgs.builder()        
+ *             .name("ecs_instance_role")
  *             .role(ecsInstanceRole.name())
  *             .build());
  * 
  *         final var batchAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;batch.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("batch.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var awsBatchServiceRole = new Role(&#34;awsBatchServiceRole&#34;, RoleArgs.builder()        
- *             .name(&#34;aws_batch_service_role&#34;)
- *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var awsBatchServiceRole = new Role("awsBatchServiceRole", RoleArgs.builder()        
+ *             .name("aws_batch_service_role")
+ *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;awsBatchServiceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(awsBatchServiceRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
  *             .build());
  * 
- *         var sample = new SecurityGroup(&#34;sample&#34;, SecurityGroupArgs.builder()        
- *             .name(&#34;aws_batch_compute_environment_security_group&#34;)
+ *         var sample = new SecurityGroup("sample", SecurityGroupArgs.builder()        
+ *             .name("aws_batch_compute_environment_security_group")
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .protocol("-1")
+ *                 .cidrBlocks("0.0.0.0/0")
  *                 .build())
  *             .build());
  * 
- *         var sampleVpc = new Vpc(&#34;sampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var sampleVpc = new Vpc("sampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var sampleSubnet = new Subnet(&#34;sampleSubnet&#34;, SubnetArgs.builder()        
+ *         var sampleSubnet = new Subnet("sampleSubnet", SubnetArgs.builder()        
  *             .vpcId(sampleVpc.id())
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
+ *             .cidrBlock("10.1.1.0/24")
  *             .build());
  * 
- *         var samplePlacementGroup = new PlacementGroup(&#34;samplePlacementGroup&#34;, PlacementGroupArgs.builder()        
- *             .name(&#34;sample&#34;)
- *             .strategy(&#34;cluster&#34;)
+ *         var samplePlacementGroup = new PlacementGroup("samplePlacementGroup", PlacementGroupArgs.builder()        
+ *             .name("sample")
+ *             .strategy("cluster")
  *             .build());
  * 
- *         var sampleComputeEnvironment = new ComputeEnvironment(&#34;sampleComputeEnvironment&#34;, ComputeEnvironmentArgs.builder()        
- *             .computeEnvironmentName(&#34;sample&#34;)
+ *         var sampleComputeEnvironment = new ComputeEnvironment("sampleComputeEnvironment", ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .instanceRole(ecsInstanceRoleInstanceProfile.arn())
- *                 .instanceTypes(&#34;c4.large&#34;)
+ *                 .instanceTypes("c4.large")
  *                 .maxVcpus(16)
  *                 .minVcpus(0)
  *                 .placementGroup(samplePlacementGroup.name())
  *                 .securityGroupIds(sample.id())
  *                 .subnets(sampleSubnet.id())
- *                 .type(&#34;EC2&#34;)
+ *                 .type("EC2")
  *                 .build())
  *             .serviceRole(awsBatchServiceRole.arn())
- *             .type(&#34;MANAGED&#34;)
+ *             .type("MANAGED")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(awsBatchServiceRoleRolePolicyAttachment)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Fargate Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -192,29 +195,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
- *             .computeEnvironmentName(&#34;sample&#34;)
+ *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .maxVcpus(16)
  *                 .securityGroupIds(sampleAwsSecurityGroup.id())
  *                 .subnets(sampleAwsSubnet.id())
- *                 .type(&#34;FARGATE&#34;)
+ *                 .type("FARGATE")
  *                 .build())
  *             .serviceRole(awsBatchServiceRoleAwsIamRole.arn())
- *             .type(&#34;MANAGED&#34;)
+ *             .type("MANAGED")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(awsBatchServiceRole)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Setting Update Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -237,28 +242,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
- *             .computeEnvironmentName(&#34;sample&#34;)
+ *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
- *                 .allocationStrategy(&#34;BEST_FIT_PROGRESSIVE&#34;)
+ *                 .allocationStrategy("BEST_FIT_PROGRESSIVE")
  *                 .instanceRole(ecsInstance.arn())
- *                 .instanceTypes(&#34;optimal&#34;)
+ *                 .instanceTypes("optimal")
  *                 .maxVcpus(4)
  *                 .minVcpus(0)
  *                 .securityGroupIds(sampleAwsSecurityGroup.id())
  *                 .subnets(sampleAwsSubnet.id())
- *                 .type(&#34;EC2&#34;)
+ *                 .type("EC2")
  *                 .build())
  *             .updatePolicy(ComputeEnvironmentUpdatePolicyArgs.builder()
  *                 .jobExecutionTimeoutMinutes(30)
  *                 .terminateJobsOnUpdate(false)
  *                 .build())
- *             .type(&#34;MANAGED&#34;)
+ *             .type("MANAGED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

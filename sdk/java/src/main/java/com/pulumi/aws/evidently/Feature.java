@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,28 +50,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Feature("example", FeatureArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .description(&#34;example description&#34;)
+ *             .description("example description")
  *             .variations(FeatureVariationArgs.builder()
- *                 .name(&#34;Variation1&#34;)
+ *                 .name("Variation1")
  *                 .value(FeatureVariationValueArgs.builder()
- *                     .stringValue(&#34;example&#34;)
+ *                     .stringValue("example")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Feature&#34;))
+ *             .tags(Map.of("Key1", "example Feature"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With default variation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,34 +96,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Feature("example", FeatureArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .defaultVariation(&#34;Variation2&#34;)
+ *             .defaultVariation("Variation2")
  *             .variations(            
  *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation1&#34;)
+ *                     .name("Variation1")
  *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval1&#34;)
+ *                         .stringValue("exampleval1")
  *                         .build())
  *                     .build(),
  *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation2&#34;)
+ *                     .name("Variation2")
  *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval2&#34;)
+ *                         .stringValue("exampleval2")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With entity overrides
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -143,34 +148,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Feature("example", FeatureArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
+ *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .variations(            
  *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation1&#34;)
+ *                     .name("Variation1")
  *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval1&#34;)
+ *                         .stringValue("exampleval1")
  *                         .build())
  *                     .build(),
  *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation2&#34;)
+ *                     .name("Variation2")
  *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval2&#34;)
+ *                         .stringValue("exampleval2")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With evaluation strategy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -193,22 +200,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Feature("example", FeatureArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .evaluationStrategy(&#34;ALL_RULES&#34;)
- *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
+ *             .evaluationStrategy("ALL_RULES")
+ *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .variations(FeatureVariationArgs.builder()
- *                 .name(&#34;Variation1&#34;)
+ *                 .name("Variation1")
  *                 .value(FeatureVariationValueArgs.builder()
- *                     .stringValue(&#34;exampleval1&#34;)
+ *                     .stringValue("exampleval1")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

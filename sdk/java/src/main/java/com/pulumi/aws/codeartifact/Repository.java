@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,29 +50,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;domain key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domain("example")
  *             .encryptionKey(example.arn())
  *             .build());
  * 
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;example&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repository("example")
  *             .domain(exampleDomain.domain())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Upstream Repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,13 +96,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var upstream = new Repository(&#34;upstream&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;upstream&#34;)
+ *         var upstream = new Repository("upstream", RepositoryArgs.builder()        
+ *             .repository("upstream")
  *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;example&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repository("example")
  *             .domain(example.domain())
  *             .upstreams(RepositoryUpstreamArgs.builder()
  *                 .repositoryName(upstream.repository())
@@ -108,13 +111,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With External Connection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -136,22 +141,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var upstream = new Repository(&#34;upstream&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;upstream&#34;)
+ *         var upstream = new Repository("upstream", RepositoryArgs.builder()        
+ *             .repository("upstream")
  *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;example&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .repository("example")
  *             .domain(example.domain())
  *             .externalConnections(RepositoryExternalConnectionsArgs.builder()
- *                 .externalConnectionName(&#34;public:npmjs&#34;)
+ *                 .externalConnectionName("public:npmjs")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

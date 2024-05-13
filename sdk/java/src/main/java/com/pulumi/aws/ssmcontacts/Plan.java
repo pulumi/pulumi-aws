@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,8 +46,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
- *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+ *         var example = new Plan("example", PlanArgs.builder()        
+ *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
  *                 .build())
@@ -54,13 +55,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage with SSM Contact
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,12 +87,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var contact = new Contact(&#34;contact&#34;, ContactArgs.builder()        
- *             .alias(&#34;alias&#34;)
- *             .type(&#34;PERSONAL&#34;)
+ *         var contact = new Contact("contact", ContactArgs.builder()        
+ *             .alias("alias")
+ *             .type("PERSONAL")
  *             .build());
  * 
- *         var plan = new Plan(&#34;plan&#34;, PlanArgs.builder()        
+ *         var plan = new Plan("plan", PlanArgs.builder()        
  *             .contactId(contact.arn())
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
@@ -98,13 +101,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage With All Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -128,22 +133,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var escalationPlan = new Contact(&#34;escalationPlan&#34;, ContactArgs.builder()        
- *             .alias(&#34;escalation-plan-alias&#34;)
- *             .type(&#34;ESCALATION&#34;)
+ *         var escalationPlan = new Contact("escalationPlan", ContactArgs.builder()        
+ *             .alias("escalation-plan-alias")
+ *             .type("ESCALATION")
  *             .build());
  * 
- *         var contactOne = new Contact(&#34;contactOne&#34;, ContactArgs.builder()        
- *             .alias(&#34;alias&#34;)
- *             .type(&#34;PERSONAL&#34;)
+ *         var contactOne = new Contact("contactOne", ContactArgs.builder()        
+ *             .alias("alias")
+ *             .type("PERSONAL")
  *             .build());
  * 
- *         var contactTwo = new Contact(&#34;contactTwo&#34;, ContactArgs.builder()        
- *             .alias(&#34;alias&#34;)
- *             .type(&#34;PERSONAL&#34;)
+ *         var contactTwo = new Contact("contactTwo", ContactArgs.builder()        
+ *             .alias("alias")
+ *             .type("PERSONAL")
  *             .build());
  * 
- *         var test = new Plan(&#34;test&#34;, PlanArgs.builder()        
+ *         var test = new Plan("test", PlanArgs.builder()        
  *             .contactId(escalationPlan.arn())
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(0)
@@ -171,7 +176,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connect(&#34;example&#34;, ConnectArgs.builder()        
+ *         var example = new Connect("example", ConnectArgs.builder()        
  *             .transportAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
- *         var exampleConnectPeer = new ConnectPeer(&#34;exampleConnectPeer&#34;, ConnectPeerArgs.builder()        
- *             .peerAddress(&#34;10.1.2.3&#34;)
- *             .insideCidrBlocks(&#34;169.254.100.0/29&#34;)
+ *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()        
+ *             .peerAddress("10.1.2.3")
+ *             .insideCidrBlocks("169.254.100.0/29")
  *             .transitGatewayAttachmentId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

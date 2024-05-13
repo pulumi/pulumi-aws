@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PlaceIndex(&#34;example&#34;, PlaceIndexArgs.builder()        
- *             .dataSource(&#34;Here&#34;)
- *             .indexName(&#34;example&#34;)
+ *         var example = new PlaceIndex("example", PlaceIndexArgs.builder()        
+ *             .dataSource("Here")
+ *             .indexName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
- *             .name(&#34;Yada&#34;)
+ *         var yada = new LogGroup("yada", LogGroupArgs.builder()        
+ *             .name("Yada")
  *             .build());
  * 
- *         var foo = new LogStream(&#34;foo&#34;, LogStreamArgs.builder()        
- *             .name(&#34;SampleLogStream1234&#34;)
+ *         var foo = new LogStream("foo", LogStreamArgs.builder()        
+ *             .name("SampleLogStream1234")
  *             .logGroupName(yada.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

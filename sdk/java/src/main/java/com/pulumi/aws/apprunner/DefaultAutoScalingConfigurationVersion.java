@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoScalingConfigurationVersion(&#34;example&#34;, AutoScalingConfigurationVersionArgs.builder()        
- *             .autoScalingConfigurationName(&#34;example&#34;)
+ *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()        
+ *             .autoScalingConfigurationName("example")
  *             .maxConcurrency(50)
  *             .maxSize(10)
  *             .minSize(2)
  *             .build());
  * 
- *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion(&#34;exampleDefaultAutoScalingConfigurationVersion&#34;, DefaultAutoScalingConfigurationVersionArgs.builder()        
+ *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", DefaultAutoScalingConfigurationVersionArgs.builder()        
  *             .autoScalingConfigurationArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -203,7 +203,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -225,28 +226,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -260,7 +262,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -282,28 +285,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -317,7 +321,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,28 +344,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -374,7 +380,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -396,28 +403,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -431,7 +439,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -453,28 +462,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +498,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,28 +521,29 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
+     *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
+     *             .nameRegex("^myami-\\d{3}")
+     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
+     *                     .name("name")
+     *                     .values("myami-*")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
+     *                     .name("root-device-type")
+     *                     .values("ebs")
      *                     .build(),
      *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
+     *                     .name("virtualization-type")
+     *                     .values("hvm")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -544,7 +556,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -566,16 +579,17 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners(&#34;099720109477&#34;)
+     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .name("name")
+     *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -588,7 +602,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -610,16 +625,17 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners(&#34;099720109477&#34;)
+     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .name("name")
+     *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -632,7 +648,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -654,16 +671,17 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners(&#34;099720109477&#34;)
+     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .name("name")
+     *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -676,7 +694,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -698,16 +717,17 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners(&#34;099720109477&#34;)
+     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .name("name")
+     *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -726,7 +746,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -748,14 +769,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -774,7 +796,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -796,14 +819,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -822,7 +846,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -844,14 +869,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -870,7 +896,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -892,14 +919,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -918,7 +946,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -940,14 +969,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -966,7 +996,8 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -988,14 +1019,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
+     *         final var coipPoolId = config.get("coipPoolId");
      *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1050,7 +1082,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1077,26 +1110,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1109,7 +1143,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1136,26 +1171,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1168,7 +1204,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1195,26 +1232,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1227,7 +1265,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1254,26 +1293,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1286,7 +1326,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1313,26 +1354,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1345,7 +1387,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1372,26 +1415,27 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
+     *                 .name("tag:Name")
+     *                 .values("foo-prod")
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1404,7 +1448,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1427,9 +1472,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1438,13 +1483,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1467,14 +1514,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1487,7 +1535,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1510,9 +1559,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1521,13 +1570,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1550,14 +1601,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1570,7 +1622,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1593,9 +1646,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1604,13 +1657,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1633,14 +1688,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1653,7 +1709,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1676,9 +1733,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1687,13 +1744,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1716,14 +1775,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1736,7 +1796,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1759,9 +1820,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1770,13 +1831,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1799,14 +1862,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1819,7 +1883,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1842,9 +1907,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost(&#34;testDedicatedHost&#34;, DedicatedHostArgs.builder()        
-     *             .instanceType(&#34;c5.18xlarge&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *             .instanceType("c5.18xlarge")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
@@ -1853,13 +1918,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1882,14 +1949,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
+     *                 .name("instance-type")
+     *                 .values("c5.18xlarge")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1904,7 +1972,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1926,14 +1995,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1948,7 +2018,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1970,14 +2041,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1992,7 +2064,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2014,14 +2087,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2036,7 +2110,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2058,14 +2133,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2080,7 +2156,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2102,14 +2179,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2124,7 +2202,8 @@ public final class Ec2Functions {
      * The following shows outputting all Elastic IPs with the a specific tag value.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2146,14 +2225,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
+     *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
+     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2168,7 +2248,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2190,18 +2271,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2224,20 +2307,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2259,18 +2344,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2292,12 +2379,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2312,7 +2400,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2334,18 +2423,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2368,20 +2459,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2403,18 +2496,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2436,12 +2531,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2456,7 +2552,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2478,18 +2575,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2512,20 +2611,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2547,18 +2648,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2580,12 +2683,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2600,7 +2704,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2622,18 +2727,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2656,20 +2763,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2691,18 +2800,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2724,12 +2835,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2744,7 +2856,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2766,18 +2879,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2800,20 +2915,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2835,18 +2952,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2868,12 +2987,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2888,7 +3008,8 @@ public final class Ec2Functions {
      * ### Search By Allocation ID (VPC only)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2910,18 +3031,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .id("eipalloc-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Filters (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2944,20 +3067,22 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("tag:Name")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Public IP (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2979,18 +3104,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .publicIp("1.2.3.4")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Search By Tags (EC2-Classic or VPC)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3012,12 +3139,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .tags(Map.of("Name", "exampleNameTagValue"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3030,7 +3158,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3052,21 +3181,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3079,7 +3209,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3101,21 +3232,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3128,7 +3260,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3150,21 +3283,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3177,7 +3311,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3199,21 +3334,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3226,7 +3362,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3248,21 +3385,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3275,7 +3413,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3297,21 +3436,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;i-instanceid&#34;)
+     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
+     *                     .name("image-id")
+     *                     .values("ami-xxxxxxxx")
      *                     .build(),
      *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
+     *                     .name("tag:Name")
+     *                     .values("instance-name-tag")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3324,7 +3464,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3346,12 +3487,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
+     *             .instanceType("t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3364,7 +3506,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3386,12 +3529,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
+     *             .instanceType("t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3404,7 +3548,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3426,12 +3571,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
+     *             .instanceType("t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3444,7 +3590,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3466,12 +3613,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
+     *             .instanceType("t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3484,7 +3632,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3507,19 +3656,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3532,7 +3682,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3555,19 +3706,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3580,7 +3732,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3603,19 +3756,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3628,7 +3782,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3651,19 +3806,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3676,7 +3832,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3699,19 +3856,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3724,7 +3882,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3747,19 +3906,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
+     *                 .name("instance-type")
      *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
+     *                     "t2.micro",
+     *                     "t3.micro")
      *                 .build())
      *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
+     *                 "t3.micro",
+     *                 "t2.micro")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3772,7 +3932,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3796,21 +3957,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3823,7 +3985,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3847,21 +4010,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3874,7 +4038,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3898,21 +4063,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3925,7 +4091,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3949,21 +4116,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3976,7 +4144,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4000,21 +4169,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4027,7 +4197,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4051,21 +4222,22 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
+     *                         "t2.micro",
+     *                         "t3.micro")
      *                     .build(),
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
+     *                     .name("location")
+     *                     .values("usw2-az4")
      *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
+     *             .locationType("availability-zone-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4078,7 +4250,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4102,28 +4275,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4136,7 +4310,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4160,28 +4335,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4194,7 +4370,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4218,28 +4395,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4252,7 +4430,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4276,28 +4455,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4310,7 +4490,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4334,28 +4515,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4368,7 +4550,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4392,28 +4575,29 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("auto-recovery-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("network-info.encryption-in-transit-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
+     *                     .name("instance-storage-supported")
+     *                     .values("true")
      *                     .build(),
      *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
+     *                     .name("instance-type")
      *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
+     *                         "g5.2xlarge",
+     *                         "g5.4xlarge")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4432,7 +4616,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4457,26 +4642,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4495,7 +4681,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4520,26 +4707,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4558,7 +4746,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4583,26 +4772,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4621,7 +4811,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4646,26 +4837,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4684,7 +4876,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4709,26 +4902,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4747,7 +4941,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4772,26 +4967,27 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
+     *                 .name("instance.group-id")
+     *                 .values("sg-12345678")
      *                 .build())
      *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
+     *                 "running",
+     *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i &lt; test.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(test.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
      *         
      * }
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4804,7 +5000,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4826,17 +5023,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4849,7 +5047,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4871,17 +5070,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4894,7 +5094,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4916,17 +5117,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4939,7 +5141,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4961,17 +5164,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4984,7 +5188,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5006,17 +5211,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5029,7 +5235,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5051,17 +5258,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
+     *                 .name("attachment.vpc-id")
      *                 .values(vpcId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5078,7 +5286,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5106,14 +5315,15 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5130,7 +5340,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5158,14 +5369,15 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5182,7 +5394,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5210,14 +5423,15 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5234,7 +5448,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5262,14 +5477,15 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5284,7 +5500,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5306,20 +5523,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5334,7 +5552,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5356,20 +5575,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5384,7 +5604,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5406,20 +5627,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5434,7 +5656,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5456,20 +5679,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5484,7 +5708,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5506,20 +5731,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5534,7 +5760,8 @@ public final class Ec2Functions {
      * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5556,20 +5783,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
+     *             .keyName("test")
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
+     *                 .name("tag:Component")
+     *                 .values("web")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
+     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
+     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5582,7 +5810,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5604,12 +5833,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
+     *             .name("test-launch-config")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5622,7 +5852,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5644,12 +5875,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
+     *             .name("test-launch-config")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5662,7 +5894,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5684,12 +5917,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
+     *             .name("test-launch-config")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5702,7 +5936,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5724,12 +5959,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
+     *             .name("test-launch-config")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5742,7 +5978,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5764,18 +6001,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5798,14 +6037,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5818,7 +6058,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5840,18 +6081,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5874,14 +6117,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5894,7 +6138,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5916,18 +6161,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5950,14 +6197,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5970,7 +6218,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5992,18 +6241,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6026,14 +6277,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6046,7 +6298,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6068,18 +6321,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6102,14 +6357,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6122,7 +6378,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6144,18 +6401,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
+     *             .name("my-launch-template")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6178,14 +6437,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
+     *                 .name("launch-template-name")
+     *                 .values("some-template")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6200,7 +6460,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6222,14 +6483,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6244,7 +6506,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6266,14 +6529,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6288,7 +6552,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6310,14 +6575,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6332,7 +6598,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6354,14 +6621,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6376,7 +6644,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6398,14 +6667,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6420,7 +6690,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a local gateway id as a variable.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6442,14 +6713,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
+     *         final var localGatewayId = config.get("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6467,7 +6739,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6489,14 +6762,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6514,7 +6788,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6536,14 +6811,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6561,7 +6837,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6583,14 +6860,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6608,7 +6886,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6630,14 +6909,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6655,7 +6935,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6677,14 +6958,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6702,7 +6984,8 @@ public final class Ec2Functions {
      * The following example returns a specific local gateway route table ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6724,14 +7007,15 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
+     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6746,7 +7030,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6769,10 +7054,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6787,7 +7073,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6810,10 +7097,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6828,7 +7116,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6851,10 +7140,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6869,7 +7159,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6892,10 +7183,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6910,7 +7202,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6933,10 +7226,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6951,7 +7245,8 @@ public final class Ec2Functions {
      * The following shows outputting all Local Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6974,10 +7269,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7062,7 +7358,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7089,7 +7386,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7102,7 +7400,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7129,7 +7428,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7142,7 +7442,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7169,7 +7470,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7182,7 +7484,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7209,7 +7512,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7222,7 +7526,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7249,7 +7554,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7262,7 +7568,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7289,7 +7596,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7302,7 +7610,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7327,7 +7636,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7340,7 +7650,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7365,7 +7676,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7378,7 +7690,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7403,7 +7716,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7416,7 +7730,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7441,7 +7756,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7454,7 +7770,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7479,7 +7796,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7492,7 +7810,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7517,7 +7836,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7532,7 +7852,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7554,13 +7875,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7575,7 +7897,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7597,13 +7920,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7618,7 +7942,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7640,13 +7965,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7661,7 +7987,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7683,13 +8010,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7704,7 +8032,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7726,13 +8055,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7747,7 +8077,8 @@ public final class Ec2Functions {
      * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7769,13 +8100,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7791,7 +8123,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7817,18 +8150,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7851,14 +8186,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7874,7 +8210,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7900,18 +8237,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7934,14 +8273,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7957,7 +8297,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7983,18 +8324,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8017,14 +8360,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8040,7 +8384,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8066,18 +8411,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8100,14 +8447,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8123,7 +8471,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8149,18 +8498,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8183,14 +8534,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8206,7 +8558,8 @@ public final class Ec2Functions {
      * ### Find the regional DynamoDB prefix list
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8232,18 +8585,20 @@ public final class Ec2Functions {
      *         final var current = AwsFunctions.getRegion();
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Find a managed prefix list using filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8266,14 +8621,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
+     *                 .name("prefix-list-name")
+     *                 .values("my-prefix-list")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8328,7 +8684,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8355,13 +8712,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8384,12 +8743,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8402,7 +8762,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8429,13 +8790,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8458,12 +8821,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8476,7 +8840,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8503,13 +8868,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8532,12 +8899,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8550,7 +8918,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8577,13 +8946,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8606,12 +8977,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8624,7 +8996,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8651,13 +9024,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8680,12 +9055,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8698,7 +9074,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8725,13 +9102,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With tags
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8754,12 +9133,13 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(public_.id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+     *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8814,7 +9194,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8839,17 +9220,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8872,19 +9255,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8908,14 +9293,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8928,7 +9314,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8953,17 +9340,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8986,19 +9375,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9022,14 +9413,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9042,7 +9434,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9067,17 +9460,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9100,19 +9495,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9136,14 +9533,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9156,7 +9554,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9181,17 +9580,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9214,19 +9615,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9250,14 +9653,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9270,7 +9674,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9295,17 +9700,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9328,19 +9735,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9364,14 +9773,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9384,7 +9794,8 @@ public final class Ec2Functions {
      * The following shows outputting all network ACL ids in a vpc.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9409,17 +9820,19 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network ACL ids in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9442,19 +9855,21 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network ACL id in a VPC which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9478,14 +9893,15 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
+     *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9498,7 +9914,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9525,7 +9942,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9538,7 +9956,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9565,7 +9984,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9578,7 +9998,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9605,7 +10026,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9618,7 +10040,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9645,7 +10068,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9658,7 +10082,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9685,7 +10110,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9698,7 +10124,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9725,7 +10152,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9738,7 +10166,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9765,7 +10194,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9778,7 +10208,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9805,7 +10236,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9818,7 +10250,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9845,7 +10278,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9858,7 +10292,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9885,7 +10320,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9898,7 +10334,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9925,7 +10362,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9938,7 +10376,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9965,7 +10404,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9978,7 +10418,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10000,12 +10441,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10018,7 +10460,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10040,12 +10483,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10058,7 +10502,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10080,12 +10525,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10098,7 +10544,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10120,12 +10567,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10138,7 +10586,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10160,12 +10609,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10178,7 +10628,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10200,12 +10651,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
+     *             .id("eni-01234567")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10218,7 +10670,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10241,16 +10694,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10272,20 +10727,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10308,15 +10765,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10329,7 +10787,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10352,16 +10811,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10383,20 +10844,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10419,15 +10882,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10440,7 +10904,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10463,16 +10928,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10494,20 +10961,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10530,15 +10999,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10551,7 +11021,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10574,16 +11045,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10605,20 +11078,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10641,15 +11116,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10662,7 +11138,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10685,16 +11162,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10716,20 +11195,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10752,15 +11233,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10773,7 +11255,8 @@ public final class Ec2Functions {
      * The following shows outputting all network interface ids in a region.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10796,16 +11279,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10827,20 +11312,22 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example retrieves a network interface ids which associated
      * with specific subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10863,15 +11350,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
+     *                 .name("subnet-id")
      *                 .values(test.id())
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10892,7 +11380,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10919,39 +11408,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10974,14 +11465,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11002,7 +11494,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11029,39 +11522,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11084,14 +11579,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11112,7 +11608,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11139,39 +11636,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11194,14 +11693,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11222,7 +11722,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11249,39 +11750,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11304,14 +11807,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11332,7 +11836,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11359,39 +11864,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11414,14 +11921,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11442,7 +11950,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11469,39 +11978,41 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         final var privateS3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3 -&gt; privateS3.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .protocol("tcp")
+     *             .ruleAction("allow")
+     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11524,14 +12035,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .name("prefix-list-id")
+     *                 .values("pl-68a54001")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11546,7 +12058,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11568,12 +12081,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .poolId("ipv4pool-ec2-000df99cff0c1ec10")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11588,7 +12102,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11610,12 +12125,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .poolId("ipv4pool-ec2-000df99cff0c1ec10")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11630,7 +12146,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11652,12 +12169,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .poolId("ipv4pool-ec2-000df99cff0c1ec10")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11672,7 +12190,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11694,12 +12213,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .poolId("ipv4pool-ec2-000df99cff0c1ec10")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11714,7 +12234,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11740,13 +12261,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11769,14 +12292,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11791,7 +12315,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11817,13 +12342,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11846,14 +12373,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11868,7 +12396,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11894,13 +12423,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11923,14 +12454,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11945,7 +12477,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11971,13 +12504,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12000,14 +12535,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12022,7 +12558,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12048,13 +12585,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12077,14 +12616,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12099,7 +12639,8 @@ public final class Ec2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12125,13 +12666,15 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Usage with Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12154,14 +12697,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
      *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .name("tag-key")
+     *                 .values("ExampleTagKey")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12178,7 +12722,8 @@ public final class Ec2Functions {
      * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12202,23 +12747,24 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(selectedAwsRouteTable.id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
+     *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12235,7 +12781,8 @@ public final class Ec2Functions {
      * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12259,23 +12806,24 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(selectedAwsRouteTable.id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
+     *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12292,7 +12840,8 @@ public final class Ec2Functions {
      * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12316,23 +12865,24 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(selectedAwsRouteTable.id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
+     *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12349,7 +12899,8 @@ public final class Ec2Functions {
      * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12373,23 +12924,24 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(selectedAwsRouteTable.id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
+     *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12406,7 +12958,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12430,20 +12983,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12460,7 +13014,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12484,20 +13039,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12514,7 +13070,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12538,20 +13095,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12568,7 +13126,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12592,20 +13151,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12622,7 +13182,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12646,20 +13207,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12676,7 +13238,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12700,20 +13263,21 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+     *         var route = new Route("route", RouteArgs.builder()        
+     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .destinationCidrBlock("10.0.1.0/22")
+     *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12775,7 +13339,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12799,19 +13364,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12831,7 +13397,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12855,19 +13422,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12887,7 +13455,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12911,19 +13480,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12943,7 +13513,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12967,19 +13538,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12999,7 +13571,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13023,19 +13596,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13055,7 +13629,8 @@ public final class Ec2Functions {
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13079,19 +13654,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
+     *         final var securityGroupId = config.get("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13104,7 +13680,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13127,18 +13704,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13162,18 +13741,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13186,7 +13766,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13209,18 +13790,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13244,18 +13827,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13268,7 +13852,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13291,18 +13876,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13326,18 +13913,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13350,7 +13938,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13373,18 +13962,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13408,18 +13999,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13432,7 +14024,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13455,18 +14048,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13490,18 +14085,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13514,7 +14110,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13537,18 +14134,20 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
+     *                 Map.entry("Application", "k8s"),
+     *                 Map.entry("Environment", "dev")
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13572,18 +14171,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
+     *                     .name("group-name")
+     *                     .values("*nodes*")
      *                     .build(),
      *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
+     *                     .name("vpc-id")
      *                     .values(vpcId)
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13596,7 +14196,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13620,7 +14221,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13633,7 +14235,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13657,7 +14260,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13670,7 +14274,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13694,7 +14299,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13707,7 +14313,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13731,7 +14338,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13744,7 +14352,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13768,7 +14377,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13781,7 +14391,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13805,7 +14416,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13818,7 +14430,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13840,17 +14453,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13863,7 +14477,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13885,17 +14500,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13908,7 +14524,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13930,17 +14547,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13953,7 +14571,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13975,17 +14594,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13998,7 +14618,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14020,17 +14641,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14043,7 +14665,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14065,17 +14688,18 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
+     *                 .name("product-description")
+     *                 .values("Linux/UNIX")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14092,7 +14716,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14117,24 +14742,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14142,7 +14768,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14165,14 +14792,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14189,7 +14817,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14214,24 +14843,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14239,7 +14869,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14262,14 +14893,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14286,7 +14918,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14311,24 +14944,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14336,7 +14970,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14359,14 +14994,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14383,7 +15019,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14408,24 +15045,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14433,7 +15071,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14456,14 +15095,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14480,7 +15120,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14505,24 +15146,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14530,7 +15172,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14553,14 +15196,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14577,7 +15221,8 @@ public final class Ec2Functions {
      * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14602,24 +15247,25 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
+     *         final var subnetId = config.get("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
+     *                 .protocol("tcp")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
@@ -14627,7 +15273,8 @@ public final class Ec2Functions {
      * If you want to match against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14650,14 +15297,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
+     *                 .name("tag:Name")
+     *                 .values("yakdriver")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14714,7 +15362,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14737,10 +15386,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14755,7 +15405,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14778,10 +15429,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14796,7 +15448,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14819,10 +15472,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14837,7 +15491,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14860,10 +15515,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14878,7 +15534,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14901,10 +15558,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14919,7 +15577,8 @@ public final class Ec2Functions {
      * The following shows outputting all Transit Gateway Route Table Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14942,10 +15601,11 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14966,7 +15626,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14990,16 +15651,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15007,7 +15668,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15028,7 +15690,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15052,16 +15715,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15069,7 +15732,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15090,7 +15754,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15114,16 +15779,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15131,7 +15796,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15152,7 +15818,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15176,16 +15843,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15193,7 +15860,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15214,7 +15882,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15238,16 +15907,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15255,7 +15924,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15276,7 +15946,8 @@ public final class Ec2Functions {
      * within it.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15300,16 +15971,16 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
+     *         final var vpcId = config.get("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -15317,7 +15988,8 @@ public final class Ec2Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15332,7 +16004,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15354,18 +16027,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15389,18 +16064,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15415,7 +16091,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15437,18 +16114,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15472,18 +16151,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15498,7 +16178,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15520,18 +16201,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15555,18 +16238,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15581,7 +16265,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15603,18 +16288,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15638,18 +16325,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15664,7 +16352,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15686,18 +16375,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15721,18 +16412,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15747,7 +16439,8 @@ public final class Ec2Functions {
      * ### Lookup by DHCP Options ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15769,18 +16462,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
+     *             .dhcpOptionsId("dopts-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Lookup by Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15804,18 +16499,19 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
+     *                     .name("key")
+     *                     .values("domain-name")
      *                     .build(),
      *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
+     *                     .name("value")
+     *                     .values("example.com")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15829,7 +16525,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15855,17 +16552,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15879,7 +16577,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15905,17 +16604,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15929,7 +16629,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15955,17 +16656,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15979,7 +16681,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16005,17 +16708,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16029,7 +16733,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16055,17 +16760,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16079,7 +16785,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16105,17 +16812,18 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16131,7 +16839,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16158,30 +16867,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16203,18 +16914,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16237,14 +16950,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16260,7 +16974,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16287,30 +17002,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16332,18 +17049,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16366,14 +17085,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16389,7 +17109,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16416,30 +17137,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16461,18 +17184,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16495,14 +17220,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16518,7 +17244,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16545,30 +17272,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16590,18 +17319,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16624,14 +17355,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16647,7 +17379,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16674,30 +17407,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16719,18 +17454,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16753,14 +17490,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16776,7 +17514,8 @@ public final class Ec2Functions {
      * ### AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16803,30 +17542,32 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
+     *             .service("s3")
+     *             .serviceType("Gateway")
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Non-AWS Service
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16848,18 +17589,20 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
+     *             .serviceName("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16882,14 +17625,15 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
+     *                 .name("service-name")
+     *                 .values("some-service")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16910,7 +17654,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16936,23 +17681,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -16977,7 +17723,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17003,23 +17750,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17044,7 +17792,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17070,23 +17819,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17111,7 +17861,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17137,23 +17888,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17178,7 +17930,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17204,23 +17957,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17245,7 +17999,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17271,23 +18026,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17308,7 +18064,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17333,22 +18090,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -17374,7 +18132,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17399,22 +18158,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -17440,7 +18200,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17465,22 +18226,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -17506,7 +18268,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17531,22 +18294,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -17572,7 +18336,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17596,18 +18361,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17628,7 +18394,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17652,18 +18419,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17684,7 +18452,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17708,18 +18477,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17740,7 +18510,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17764,18 +18535,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17796,7 +18568,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17820,18 +18593,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17852,7 +18626,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17876,18 +18651,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
@@ -17912,7 +18688,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17938,23 +18715,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17975,7 +18753,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18001,23 +18780,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18038,7 +18818,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18064,23 +18845,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18101,7 +18883,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18127,23 +18910,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18164,7 +18948,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18190,23 +18975,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18227,7 +19013,8 @@ public final class Ec2Functions {
      * AWS IPAM.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18253,23 +19040,24 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18286,7 +19074,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18311,22 +19100,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -18348,7 +19138,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18373,22 +19164,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -18410,7 +19202,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18435,22 +19228,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -18472,7 +19266,8 @@ public final class Ec2Functions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18497,22 +19292,23 @@ public final class Ec2Functions {
      *         final var p = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*mypool*&#34;)
+     *                     .name("description")
+     *                     .values("*mypool*")
      *                     .build(),
      *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Filtering:
@@ -18534,7 +19330,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18558,18 +19355,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18586,7 +19384,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18610,18 +19409,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18638,7 +19438,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18662,18 +19463,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18690,7 +19492,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18714,18 +19517,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18742,7 +19546,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18766,18 +19571,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18794,7 +19600,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18818,18 +19625,19 @@ public final class Ec2Functions {
      *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
+     *                     .name("description")
+     *                     .values("*test*")
      *                     .build(),
      *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
+     *                     .name("address-family")
+     *                     .values("ipv4")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18843,7 +19651,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18871,24 +19680,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18902,7 +19712,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18930,24 +19741,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18961,7 +19773,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18989,24 +19802,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19020,7 +19834,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19048,24 +19863,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19079,7 +19895,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19107,24 +19924,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19138,7 +19956,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19166,24 +19985,25 @@ public final class Ec2Functions {
      *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
+     *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19296,7 +20116,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19318,13 +20139,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19343,7 +20165,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19365,13 +20188,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19390,7 +20214,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19412,13 +20237,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19437,7 +20263,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19459,13 +20286,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19484,7 +20312,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19506,13 +20335,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19531,7 +20361,8 @@ public final class Ec2Functions {
      * The following shows outputting all VPC Ids.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19553,13 +20384,14 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getVpcs(GetVpcsArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
+     *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, foo.applyValue(getVpcsResult -&gt; getVpcsResult.ids()));
+     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
@@ -19575,7 +20407,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19598,15 +20431,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19620,7 +20454,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19643,15 +20478,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19665,7 +20501,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19688,15 +20525,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19710,7 +20548,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19733,15 +20572,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19755,7 +20595,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19778,15 +20619,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19800,7 +20642,8 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19823,15 +20666,16 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
+     *                 .name("tag:Name")
+     *                 .values("vpn-gw")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

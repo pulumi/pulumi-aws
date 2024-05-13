@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
- *             .name(&#34;example-stream&#34;)
+ *         var example = new Stream("example", StreamArgs.builder()        
+ *             .name("example-stream")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleStreamConsumer = new StreamConsumer(&#34;exampleStreamConsumer&#34;, StreamConsumerArgs.builder()        
- *             .name(&#34;example-consumer&#34;)
+ *         var exampleStreamConsumer = new StreamConsumer("exampleStreamConsumer", StreamConsumerArgs.builder()        
+ *             .name("example-consumer")
  *             .streamArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

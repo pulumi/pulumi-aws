@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,15 +51,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
- *             .layerName(&#34;lambda_layer_name&#34;)
- *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
+ *         var lambdaLayer = new LayerVersion("lambdaLayer", LayerVersionArgs.builder()        
+ *             .code(new FileArchive("lambda_layer_payload.zip"))
+ *             .layerName("lambda_layer_name")
+ *             .compatibleRuntimes("nodejs16.x")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Specifying the Deployment Package

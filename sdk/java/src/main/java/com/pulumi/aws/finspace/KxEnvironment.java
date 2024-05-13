@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Sample KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Sample KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Transit Gateway Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,32 +97,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Sample KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Sample KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()        
+ *             .description("example")
  *             .build());
  * 
- *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
- *             .description(&#34;Environment description&#34;)
+ *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()        
+ *             .name("my-tf-kx-environment")
+ *             .description("Environment description")
  *             .kmsKeyId(example.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
  *                 .transitGatewayId(exampleTransitGateway.id())
- *                 .routableCidrSpace(&#34;100.64.0.0/26&#34;)
+ *                 .routableCidrSpace("100.64.0.0/26")
  *                 .build())
  *             .customDnsConfigurations(KxEnvironmentCustomDnsConfigurationArgs.builder()
- *                 .customDnsServerName(&#34;example.finspace.amazonaws.com&#34;)
- *                 .customDnsServerIp(&#34;10.0.0.76&#34;)
+ *                 .customDnsServerName("example.finspace.amazonaws.com")
+ *                 .customDnsServerIp("10.0.0.76")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Transit Gateway Attachment Network ACL Configuration

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UsageLimit(&#34;example&#34;, UsageLimitArgs.builder()        
+ *         var example = new UsageLimit("example", UsageLimitArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .featureType(&#34;concurrency-scaling&#34;)
- *             .limitType(&#34;time&#34;)
+ *             .featureType("concurrency-scaling")
+ *             .limitType("time")
  *             .amount(60)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

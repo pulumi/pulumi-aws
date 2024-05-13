@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,34 +54,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var code = new Repository(&#34;code&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;example-code-repo&#34;)
+ *         var code = new Repository("code", RepositoryArgs.builder()        
+ *             .repositoryName("example-code-repo")
  *             .build());
  * 
- *         var notif = new Topic(&#34;notif&#34;, TopicArgs.builder()        
- *             .name(&#34;notification&#34;)
+ *         var notif = new Topic("notif", TopicArgs.builder()        
+ *             .name("notification")
  *             .build());
  * 
  *         final var notifAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sns:Publish&#34;)
+ *                 .actions("sns:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;codestar-notifications.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("codestar-notifications.amazonaws.com")
  *                     .build())
  *                 .resources(notif.arn())
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
  *             .arn(notif.arn())
- *             .policy(notifAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(notifAccess -&gt; notifAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(notifAccess -> notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var commits = new NotificationRule(&#34;commits&#34;, NotificationRuleArgs.builder()        
- *             .detailType(&#34;BASIC&#34;)
- *             .eventTypeIds(&#34;codecommit-repository-comments-on-commits&#34;)
- *             .name(&#34;example-code-repo-commits&#34;)
+ *         var commits = new NotificationRule("commits", NotificationRuleArgs.builder()        
+ *             .detailType("BASIC")
+ *             .eventTypeIds("codecommit-repository-comments-on-commits")
+ *             .name("example-code-repo-commits")
  *             .resource(code.arn())
  *             .targets(NotificationRuleTargetArgs.builder()
  *                 .address(notif.arn())
@@ -89,7 +90,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

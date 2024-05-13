@@ -25,7 +25,8 @@ public final class AmpFunctions {
      * ### Basic configuration
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,12 +48,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
+     *             .workspaceId("ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class AmpFunctions {
      * ### Basic configuration
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,12 +92,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
+     *             .workspaceId("ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class AmpFunctions {
      * ### Basic configuration
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
+     *             .workspaceId("ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class AmpFunctions {
      * ### Basic configuration
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,12 +180,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
+     *             .workspaceId("ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,14 +227,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -247,12 +258,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -267,7 +279,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -292,14 +305,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -321,12 +336,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -341,7 +357,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,14 +383,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -395,12 +414,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -415,7 +435,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -440,14 +461,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -469,12 +492,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -489,7 +513,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,14 +539,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -543,12 +570,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -563,7 +591,8 @@ public final class AmpFunctions {
      * The following example returns all of the workspaces in a region:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -588,14 +617,16 @@ public final class AmpFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -617,12 +648,13 @@ public final class AmpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix(&#34;example&#34;)
+     *             .aliasPrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

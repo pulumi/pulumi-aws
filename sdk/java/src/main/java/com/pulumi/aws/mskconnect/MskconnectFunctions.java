@@ -26,7 +26,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,12 +49,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getConnector(GetConnectorArgs.builder()
-     *             .name(&#34;example-mskconnector&#34;)
+     *             .name("example-mskconnector")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,12 +91,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getConnector(GetConnectorArgs.builder()
-     *             .name(&#34;example-mskconnector&#34;)
+     *             .name("example-mskconnector")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,12 +133,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getConnector(GetConnectorArgs.builder()
-     *             .name(&#34;example-mskconnector&#34;)
+     *             .name("example-mskconnector")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,12 +175,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getConnector(GetConnectorArgs.builder()
-     *             .name(&#34;example-mskconnector&#34;)
+     *             .name("example-mskconnector")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +194,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,12 +217,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getCustomPlugin(GetCustomPluginArgs.builder()
-     *             .name(&#34;example-debezium-1&#34;)
+     *             .name("example-debezium-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +236,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -248,12 +259,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getCustomPlugin(GetCustomPluginArgs.builder()
-     *             .name(&#34;example-debezium-1&#34;)
+     *             .name("example-debezium-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -266,7 +278,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,12 +301,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getCustomPlugin(GetCustomPluginArgs.builder()
-     *             .name(&#34;example-debezium-1&#34;)
+     *             .name("example-debezium-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -306,7 +320,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -328,12 +343,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getCustomPlugin(GetCustomPluginArgs.builder()
-     *             .name(&#34;example-debezium-1&#34;)
+     *             .name("example-debezium-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -346,7 +362,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -368,12 +385,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getWorkerConfiguration(GetWorkerConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -386,7 +404,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -408,12 +427,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getWorkerConfiguration(GetWorkerConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -426,7 +446,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -448,12 +469,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getWorkerConfiguration(GetWorkerConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -466,7 +488,8 @@ public final class MskconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -488,12 +511,13 @@ public final class MskconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskconnectFunctions.getWorkerConfiguration(GetWorkerConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

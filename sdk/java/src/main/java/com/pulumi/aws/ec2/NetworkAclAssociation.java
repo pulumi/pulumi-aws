@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new NetworkAclAssociation(&#34;main&#34;, NetworkAclAssociationArgs.builder()        
+ *         var main = new NetworkAclAssociation("main", NetworkAclAssociationArgs.builder()        
  *             .networkAclId(mainAwsNetworkAcl.id())
  *             .subnetId(mainAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

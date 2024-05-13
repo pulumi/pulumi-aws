@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,26 +51,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
- *             .name(&#34;name&#34;)
+ *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+ *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
- *                 .title(&#34;title&#34;)
- *                 .impact(&#34;3&#34;)
+ *                 .title("title")
+ *                 .impact("3")
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage With All Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,13 +97,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
- *             .name(&#34;name&#34;)
+ *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+ *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
- *                 .title(&#34;title&#34;)
- *                 .impact(&#34;3&#34;)
- *                 .dedupeString(&#34;dedupe&#34;)
- *                 .incidentTags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *                 .title("title")
+ *                 .impact("3")
+ *                 .dedupeString("dedupe")
+ *                 .incidentTags(Map.of("key", "value"))
  *                 .notificationTargets(                
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
  *                         .snsTopicArn(example1.arn())
@@ -108,49 +111,50 @@ import javax.annotation.Nullable;
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
  *                         .snsTopicArn(example2.arn())
  *                         .build())
- *                 .summary(&#34;summary&#34;)
+ *                 .summary("summary")
  *                 .build())
- *             .displayName(&#34;display name&#34;)
+ *             .displayName("display name")
  *             .chatChannels(topic.arn())
- *             .engagements(&#34;arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1&#34;)
+ *             .engagements("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1")
  *             .action(ResponsePlanActionArgs.builder()
  *                 .ssmAutomations(ResponsePlanActionSsmAutomationArgs.builder()
  *                     .documentName(document1.name())
  *                     .roleArn(role1.arn())
- *                     .documentVersion(&#34;version1&#34;)
- *                     .targetAccount(&#34;RESPONSE_PLAN_OWNER_ACCOUNT&#34;)
+ *                     .documentVersion("version1")
+ *                     .targetAccount("RESPONSE_PLAN_OWNER_ACCOUNT")
  *                     .parameters(                    
  *                         ResponsePlanActionSsmAutomationParameterArgs.builder()
- *                             .name(&#34;key&#34;)
+ *                             .name("key")
  *                             .values(                            
- *                                 &#34;value1&#34;,
- *                                 &#34;value2&#34;)
+ *                                 "value1",
+ *                                 "value2")
  *                             .build(),
  *                         ResponsePlanActionSsmAutomationParameterArgs.builder()
- *                             .name(&#34;foo&#34;)
- *                             .values(&#34;bar&#34;)
+ *                             .name("foo")
+ *                             .values("bar")
  *                             .build())
  *                     .dynamicParameters(Map.ofEntries(
- *                         Map.entry(&#34;someKey&#34;, &#34;INVOLVED_RESOURCES&#34;),
- *                         Map.entry(&#34;anotherKey&#34;, &#34;INCIDENT_RECORD_ARN&#34;)
+ *                         Map.entry("someKey", "INVOLVED_RESOURCES"),
+ *                         Map.entry("anotherKey", "INCIDENT_RECORD_ARN")
  *                     ))
  *                     .build())
  *                 .build())
  *             .integration(ResponsePlanIntegrationArgs.builder()
  *                 .pagerduties(ResponsePlanIntegrationPagerdutyArgs.builder()
- *                     .name(&#34;pagerdutyIntergration&#34;)
- *                     .serviceId(&#34;example&#34;)
- *                     .secretId(&#34;example&#34;)
+ *                     .name("pagerdutyIntergration")
+ *                     .serviceId("example")
+ *                     .secretId("example")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(Map.of("key", "value"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

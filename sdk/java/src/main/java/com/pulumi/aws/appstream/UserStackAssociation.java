@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Stack(&#34;test&#34;, StackArgs.builder()        
- *             .name(&#34;STACK NAME&#34;)
+ *         var test = new Stack("test", StackArgs.builder()        
+ *             .name("STACK NAME")
  *             .build());
  * 
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
- *             .authenticationType(&#34;USERPOOL&#34;)
- *             .userName(&#34;EMAIL&#34;)
+ *         var testUser = new User("testUser", UserArgs.builder()        
+ *             .authenticationType("USERPOOL")
+ *             .userName("EMAIL")
  *             .build());
  * 
- *         var testUserStackAssociation = new UserStackAssociation(&#34;testUserStackAssociation&#34;, UserStackAssociationArgs.builder()        
+ *         var testUserStackAssociation = new UserStackAssociation("testUserStackAssociation", UserStackAssociationArgs.builder()        
  *             .authenticationType(testUser.authenticationType())
  *             .stackName(test.name())
  *             .userName(testUser.userName())
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

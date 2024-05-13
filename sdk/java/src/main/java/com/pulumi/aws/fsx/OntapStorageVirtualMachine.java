@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapStorageVirtualMachine(&#34;test&#34;, OntapStorageVirtualMachineArgs.builder()        
+ *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()        
  *             .fileSystemId(testAwsFsxOntapFileSystem.id())
- *             .name(&#34;test&#34;)
+ *             .name("test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using a Self-Managed Microsoft Active Directory
@@ -63,7 +65,8 @@ import javax.annotation.Nullable;
  * Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,25 +89,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapStorageVirtualMachine(&#34;test&#34;, OntapStorageVirtualMachineArgs.builder()        
+ *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()        
  *             .fileSystemId(testAwsFsxOntapFileSystem.id())
- *             .name(&#34;mysvm&#34;)
+ *             .name("mysvm")
  *             .activeDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.builder()
- *                 .netbiosName(&#34;mysvm&#34;)
+ *                 .netbiosName("mysvm")
  *                 .selfManagedActiveDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.builder()
  *                     .dnsIps(                    
- *                         &#34;10.0.0.111&#34;,
- *                         &#34;10.0.0.222&#34;)
- *                     .domainName(&#34;corp.example.com&#34;)
- *                     .password(&#34;avoid-plaintext-passwords&#34;)
- *                     .username(&#34;Admin&#34;)
+ *                         "10.0.0.111",
+ *                         "10.0.0.222")
+ *                     .domainName("corp.example.com")
+ *                     .password("avoid-plaintext-passwords")
+ *                     .username("Admin")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

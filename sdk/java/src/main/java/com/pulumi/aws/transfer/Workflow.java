@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic single step example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()        
  *             .steps(WorkflowStepArgs.builder()
  *                 .deleteStepDetails(WorkflowStepDeleteStepDetailsArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .sourceFileLocation(&#34;${original.file}&#34;)
+ *                     .name("example")
+ *                     .sourceFileLocation("${original.file}")
  *                     .build())
- *                 .type(&#34;DELETE&#34;)
+ *                 .type("DELETE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multistep example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,33 +94,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()        
  *             .steps(            
  *                 WorkflowStepArgs.builder()
  *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
- *                         .name(&#34;example&#34;)
- *                         .sourceFileLocation(&#34;${original.file}&#34;)
+ *                         .name("example")
+ *                         .sourceFileLocation("${original.file}")
  *                         .target(exampleAwsLambdaFunction.arn())
  *                         .timeoutSeconds(60)
  *                         .build())
- *                     .type(&#34;CUSTOM&#34;)
+ *                     .type("CUSTOM")
  *                     .build(),
  *                 WorkflowStepArgs.builder()
  *                     .tagStepDetails(WorkflowStepTagStepDetailsArgs.builder()
- *                         .name(&#34;example&#34;)
- *                         .sourceFileLocation(&#34;${original.file}&#34;)
+ *                         .name("example")
+ *                         .sourceFileLocation("${original.file}")
  *                         .tags(WorkflowStepTagStepDetailsTagArgs.builder()
- *                             .key(&#34;Name&#34;)
- *                             .value(&#34;Hello World&#34;)
+ *                             .key("Name")
+ *                             .value("Hello World")
  *                             .build())
  *                         .build())
- *                     .type(&#34;TAG&#34;)
+ *                     .type("TAG")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

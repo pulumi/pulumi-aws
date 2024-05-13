@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AvailabilityZoneGroup(&#34;example&#34;, AvailabilityZoneGroupArgs.builder()        
- *             .groupName(&#34;us-west-2-lax-1&#34;)
- *             .optInStatus(&#34;opted-in&#34;)
+ *         var example = new AvailabilityZoneGroup("example", AvailabilityZoneGroupArgs.builder()        
+ *             .groupName("us-west-2-lax-1")
+ *             .optInStatus("opted-in")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

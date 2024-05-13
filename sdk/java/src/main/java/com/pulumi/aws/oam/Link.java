@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Link(&#34;example&#34;, LinkArgs.builder()        
- *             .labelTemplate(&#34;$AccountName&#34;)
- *             .resourceTypes(&#34;AWS::CloudWatch::Metric&#34;)
+ *         var example = new Link("example", LinkArgs.builder()        
+ *             .labelTemplate("$AccountName")
+ *             .resourceTypes("AWS::CloudWatch::Metric")
  *             .sinkIdentifier(test.id())
- *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("Env", "prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

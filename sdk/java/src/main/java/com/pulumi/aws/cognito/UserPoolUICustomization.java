@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### UI customization settings for a single client
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,38 +52,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain(&#34;exampleUserPoolDomain&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *             .domain("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolClient = new UserPoolClient(&#34;exampleUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()        
+ *             .name("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolUICustomization = new UserPoolUICustomization(&#34;exampleUserPoolUICustomization&#34;, UserPoolUICustomizationArgs.builder()        
+ *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()        
  *             .clientId(exampleUserPoolClient.id())
- *             .css(&#34;.label-customizable {font-weight: 400;}&#34;)
+ *             .css(".label-customizable {font-weight: 400;}")
  *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;logo.png&#34;)
+ *                 .input("logo.png")
  *                 .build()).result())
  *             .userPoolId(exampleUserPoolDomain.userPoolId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### UI customization settings for all clients
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,26 +110,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain(&#34;exampleUserPoolDomain&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *             .domain("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolUICustomization = new UserPoolUICustomization(&#34;exampleUserPoolUICustomization&#34;, UserPoolUICustomizationArgs.builder()        
- *             .css(&#34;.label-customizable {font-weight: 400;}&#34;)
+ *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()        
+ *             .css(".label-customizable {font-weight: 400;}")
  *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;logo.png&#34;)
+ *                 .input("logo.png")
  *                 .build()).result())
  *             .userPoolId(exampleUserPoolDomain.userPoolId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

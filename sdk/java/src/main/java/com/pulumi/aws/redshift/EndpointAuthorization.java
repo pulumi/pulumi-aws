@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EndpointAuthorization(&#34;example&#34;, EndpointAuthorizationArgs.builder()        
- *             .account(&#34;01234567910&#34;)
+ *         var example = new EndpointAuthorization("example", EndpointAuthorizationArgs.builder()        
+ *             .account("01234567910")
  *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

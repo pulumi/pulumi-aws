@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,25 +62,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
- *             .brokerName(&#34;example&#34;)
+ *         var example = new Broker("example", BrokerArgs.builder()        
+ *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
  *                 .revision(test.latestRevision())
  *                 .build())
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
- *             .hostInstanceType(&#34;mq.t2.micro&#34;)
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .hostInstanceType("mq.t2.micro")
  *             .securityGroups(testAwsSecurityGroup.id())
  *             .users(BrokerUserArgs.builder()
- *                 .username(&#34;ExampleUser&#34;)
- *                 .password(&#34;MindTheGap&#34;)
+ *                 .username("ExampleUser")
+ *                 .password("MindTheGap")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### High-throughput Optimized Example
@@ -87,7 +89,8 @@ import javax.annotation.Nullable;
  * This example shows the use of EBS storage for high-throughput optimized performance.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -110,32 +113,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
- *             .brokerName(&#34;example&#34;)
+ *         var example = new Broker("example", BrokerArgs.builder()        
+ *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
  *                 .revision(test.latestRevision())
  *                 .build())
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
- *             .storageType(&#34;ebs&#34;)
- *             .hostInstanceType(&#34;mq.m5.large&#34;)
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .storageType("ebs")
+ *             .hostInstanceType("mq.m5.large")
  *             .securityGroups(testAwsSecurityGroup.id())
  *             .users(BrokerUserArgs.builder()
- *                 .username(&#34;ExampleUser&#34;)
- *                 .password(&#34;MindTheGap&#34;)
+ *                 .username("ExampleUser")
+ *                 .password("MindTheGap")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Cross-Region Data Replication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -157,51 +162,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrimary = new Broker(&#34;examplePrimary&#34;, BrokerArgs.builder()        
+ *         var examplePrimary = new Broker("examplePrimary", BrokerArgs.builder()        
  *             .applyImmediately(true)
- *             .brokerName(&#34;example_primary&#34;)
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
- *             .hostInstanceType(&#34;mq.m5.large&#34;)
+ *             .brokerName("example_primary")
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .hostInstanceType("mq.m5.large")
  *             .securityGroups(examplePrimaryAwsSecurityGroup.id())
- *             .deploymentMode(&#34;ACTIVE_STANDBY_MULTI_AZ&#34;)
+ *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .users(            
  *                 BrokerUserArgs.builder()
- *                     .username(&#34;ExampleUser&#34;)
- *                     .password(&#34;MindTheGap&#34;)
+ *                     .username("ExampleUser")
+ *                     .password("MindTheGap")
  *                     .build(),
  *                 BrokerUserArgs.builder()
- *                     .username(&#34;ExampleReplicationUser&#34;)
- *                     .password(&#34;Example12345&#34;)
+ *                     .username("ExampleReplicationUser")
+ *                     .password("Example12345")
  *                     .replicationUser(true)
  *                     .build())
  *             .build());
  * 
- *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
+ *         var example = new Broker("example", BrokerArgs.builder()        
  *             .applyImmediately(true)
- *             .brokerName(&#34;example&#34;)
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
- *             .hostInstanceType(&#34;mq.m5.large&#34;)
+ *             .brokerName("example")
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .hostInstanceType("mq.m5.large")
  *             .securityGroups(exampleAwsSecurityGroup.id())
- *             .deploymentMode(&#34;ACTIVE_STANDBY_MULTI_AZ&#34;)
- *             .dataReplicationMode(&#34;CRDR&#34;)
+ *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
+ *             .dataReplicationMode("CRDR")
  *             .dataReplicationPrimaryBrokerArn(primary.arn())
  *             .users(            
  *                 BrokerUserArgs.builder()
- *                     .username(&#34;ExampleUser&#34;)
- *                     .password(&#34;MindTheGap&#34;)
+ *                     .username("ExampleUser")
+ *                     .password("MindTheGap")
  *                     .build(),
  *                 BrokerUserArgs.builder()
- *                     .username(&#34;ExampleReplicationUser&#34;)
- *                     .password(&#34;Example12345&#34;)
+ *                     .username("ExampleReplicationUser")
+ *                     .password("Example12345")
  *                     .replicationUser(true)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.

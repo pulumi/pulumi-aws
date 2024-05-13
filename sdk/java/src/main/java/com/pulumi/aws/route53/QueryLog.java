@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,12 +57,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Route53 zone with query logging
- *         var exampleCom = new Zone(&#34;exampleCom&#34;, ZoneArgs.builder()        
- *             .name(&#34;example.com&#34;)
+ *         var exampleCom = new Zone("exampleCom", ZoneArgs.builder()        
+ *             .name("example.com")
  *             .build());
  * 
- *         var awsRoute53ExampleCom = new LogGroup(&#34;awsRoute53ExampleCom&#34;, LogGroupArgs.builder()        
- *             .name(exampleCom.name().applyValue(name -&gt; String.format(&#34;/aws/route53/%s&#34;, name)))
+ *         var awsRoute53ExampleCom = new LogGroup("awsRoute53ExampleCom", LogGroupArgs.builder()        
+ *             .name(exampleCom.name().applyValue(name -> String.format("/aws/route53/%s", name)))
  *             .retentionInDays(30)
  *             .build());
  * 
@@ -70,22 +71,22 @@ import javax.annotation.Nullable;
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;)
- *                 .resources(&#34;arn:aws:logs:*:*:log-group:/aws/route53/*&#34;)
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;route53.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("route53.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy(&#34;route53-query-logging-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
+ *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
  *             .policyDocument(route53_query_logging_policy.json())
- *             .policyName(&#34;route53-query-logging-policy&#34;)
+ *             .policyName("route53-query-logging-policy")
  *             .build());
  * 
- *         var exampleComQueryLog = new QueryLog(&#34;exampleComQueryLog&#34;, QueryLogArgs.builder()        
+ *         var exampleComQueryLog = new QueryLog("exampleComQueryLog", QueryLogArgs.builder()        
  *             .cloudwatchLogGroupArn(awsRoute53ExampleCom.arn())
  *             .zoneId(exampleCom.zoneId())
  *             .build(), CustomResourceOptions.builder()
@@ -94,7 +95,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

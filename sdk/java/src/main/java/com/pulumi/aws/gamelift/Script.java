@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,8 +45,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Script(&#34;example&#34;, ScriptArgs.builder()        
- *             .name(&#34;example-script&#34;)
+ *         var example = new Script("example", ScriptArgs.builder()        
+ *             .name("example-script")
  *             .storageLocation(ScriptStorageLocationArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

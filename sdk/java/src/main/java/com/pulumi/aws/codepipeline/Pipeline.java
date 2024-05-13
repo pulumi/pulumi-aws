@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,97 +65,97 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .name(&#34;example-connection&#34;)
- *             .providerType(&#34;GitHub&#34;)
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .name("example-connection")
+ *             .providerType("GitHub")
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;test-bucket&#34;)
+ *         var codepipelineBucket = new BucketV2("codepipelineBucket", BucketV2Args.builder()        
+ *             .bucket("test-bucket")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;codepipeline.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("codepipeline.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var codepipelineRole = new Role(&#34;codepipelineRole&#34;, RoleArgs.builder()        
- *             .name(&#34;test-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var codepipelineRole = new Role("codepipelineRole", RoleArgs.builder()        
+ *             .name("test-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var s3kmskey = KmsFunctions.getAlias(GetAliasArgs.builder()
- *             .name(&#34;alias/myKmsKey&#34;)
+ *             .name("alias/myKmsKey")
  *             .build());
  * 
- *         var codepipeline = new Pipeline(&#34;codepipeline&#34;, PipelineArgs.builder()        
- *             .name(&#34;tf-test-pipeline&#34;)
+ *         var codepipeline = new Pipeline("codepipeline", PipelineArgs.builder()        
+ *             .name("tf-test-pipeline")
  *             .roleArn(codepipelineRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
  *                 .location(codepipelineBucket.bucket())
- *                 .type(&#34;S3&#34;)
+ *                 .type("S3")
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(s3kmskey.applyValue(getAliasResult -&gt; getAliasResult.arn()))
- *                     .type(&#34;KMS&#34;)
+ *                     .id(s3kmskey.applyValue(getAliasResult -> getAliasResult.arn()))
+ *                     .type("KMS")
  *                     .build())
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Source&#34;)
+ *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Source&#34;)
- *                         .category(&#34;Source&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeStarSourceConnection&#34;)
- *                         .version(&#34;1&#34;)
- *                         .outputArtifacts(&#34;source_output&#34;)
+ *                         .name("Source")
+ *                         .category("Source")
+ *                         .owner("AWS")
+ *                         .provider("CodeStarSourceConnection")
+ *                         .version("1")
+ *                         .outputArtifacts("source_output")
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ConnectionArn&#34;, example.arn()),
- *                             Map.entry(&#34;FullRepositoryId&#34;, &#34;my-organization/example&#34;),
- *                             Map.entry(&#34;BranchName&#34;, &#34;main&#34;)
+ *                             Map.entry("ConnectionArn", example.arn()),
+ *                             Map.entry("FullRepositoryId", "my-organization/example"),
+ *                             Map.entry("BranchName", "main")
  *                         ))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
+ *                     .name("Build")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Build&#34;)
- *                         .category(&#34;Build&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeBuild&#34;)
- *                         .inputArtifacts(&#34;source_output&#34;)
- *                         .outputArtifacts(&#34;build_output&#34;)
- *                         .version(&#34;1&#34;)
- *                         .configuration(Map.of(&#34;ProjectName&#34;, &#34;test&#34;))
+ *                         .name("Build")
+ *                         .category("Build")
+ *                         .owner("AWS")
+ *                         .provider("CodeBuild")
+ *                         .inputArtifacts("source_output")
+ *                         .outputArtifacts("build_output")
+ *                         .version("1")
+ *                         .configuration(Map.of("ProjectName", "test"))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Deploy&#34;)
+ *                     .name("Deploy")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Deploy&#34;)
- *                         .category(&#34;Deploy&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CloudFormation&#34;)
- *                         .inputArtifacts(&#34;build_output&#34;)
- *                         .version(&#34;1&#34;)
+ *                         .name("Deploy")
+ *                         .category("Deploy")
+ *                         .owner("AWS")
+ *                         .provider("CloudFormation")
+ *                         .inputArtifacts("build_output")
+ *                         .version("1")
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ActionMode&#34;, &#34;REPLACE_ON_FAILURE&#34;),
- *                             Map.entry(&#34;Capabilities&#34;, &#34;CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM&#34;),
- *                             Map.entry(&#34;OutputFileName&#34;, &#34;CreateStackOutput.json&#34;),
- *                             Map.entry(&#34;StackName&#34;, &#34;MyStack&#34;),
- *                             Map.entry(&#34;TemplatePath&#34;, &#34;build_output::sam-templated.yaml&#34;)
+ *                             Map.entry("ActionMode", "REPLACE_ON_FAILURE"),
+ *                             Map.entry("Capabilities", "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"),
+ *                             Map.entry("OutputFileName", "CreateStackOutput.json"),
+ *                             Map.entry("StackName", "MyStack"),
+ *                             Map.entry("TemplatePath", "build_output::sam-templated.yaml")
  *                         ))
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var codepipelineBucketPab = new BucketPublicAccessBlock(&#34;codepipelineBucketPab&#34;, BucketPublicAccessBlockArgs.builder()        
+ *         var codepipelineBucketPab = new BucketPublicAccessBlock("codepipelineBucketPab", BucketPublicAccessBlockArgs.builder()        
  *             .bucket(codepipelineBucket.id())
  *             .blockPublicAcls(true)
  *             .blockPublicPolicy(true)
@@ -165,40 +166,41 @@ import javax.annotation.Nullable;
  *         final var codepipelinePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;s3:GetObject&#34;,
- *                         &#34;s3:GetObjectVersion&#34;,
- *                         &#34;s3:GetBucketVersioning&#34;,
- *                         &#34;s3:PutObjectAcl&#34;,
- *                         &#34;s3:PutObject&#34;)
+ *                         "s3:GetObject",
+ *                         "s3:GetObjectVersion",
+ *                         "s3:GetBucketVersioning",
+ *                         "s3:PutObjectAcl",
+ *                         "s3:PutObject")
  *                     .resources(                    
  *                         codepipelineBucket.arn(),
- *                         codepipelineBucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                         codepipelineBucket.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;codestar-connections:UseConnection&#34;)
+ *                     .effect("Allow")
+ *                     .actions("codestar-connections:UseConnection")
  *                     .resources(example.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;codebuild:BatchGetBuilds&#34;,
- *                         &#34;codebuild:StartBuild&#34;)
- *                     .resources(&#34;*&#34;)
+ *                         "codebuild:BatchGetBuilds",
+ *                         "codebuild:StartBuild")
+ *                     .resources("*")
  *                     .build())
  *             .build());
  * 
- *         var codepipelinePolicyRolePolicy = new RolePolicy(&#34;codepipelinePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;codepipeline_policy&#34;)
+ *         var codepipelinePolicyRolePolicy = new RolePolicy("codepipelinePolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("codepipeline_policy")
  *             .role(codepipelineRole.id())
- *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicy -&gt; codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(codepipelinePolicy -> codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

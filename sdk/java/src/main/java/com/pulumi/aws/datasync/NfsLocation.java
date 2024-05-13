@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NfsLocation(&#34;example&#34;, NfsLocationArgs.builder()        
- *             .serverHostname(&#34;nfs.example.com&#34;)
- *             .subdirectory(&#34;/exported/path&#34;)
+ *         var example = new NfsLocation("example", NfsLocationArgs.builder()        
+ *             .serverHostname("nfs.example.com")
+ *             .subdirectory("/exported/path")
  *             .onPremConfig(NfsLocationOnPremConfigArgs.builder()
  *                 .agentArns(exampleAwsDatasyncAgent.arn())
  *                 .build())
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

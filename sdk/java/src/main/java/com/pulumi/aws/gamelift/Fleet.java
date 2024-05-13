@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()        
  *             .buildId(exampleAwsGameliftBuild.id())
- *             .ec2InstanceType(&#34;t2.micro&#34;)
- *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .name(&#34;example-fleet-name&#34;)
+ *             .ec2InstanceType("t2.micro")
+ *             .fleetType("ON_DEMAND")
+ *             .name("example-fleet-name")
  *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
  *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
  *                     .concurrentExecutions(1)
- *                     .launchPath(&#34;C:\\game\\GomokuServer.exe&#34;)
+ *                     .launchPath("C:\\game\\GomokuServer.exe")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

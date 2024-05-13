@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,28 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDevelopers = new Group(&#34;myDevelopers&#34;, GroupArgs.builder()        
- *             .name(&#34;developers&#34;)
- *             .path(&#34;/users/&#34;)
+ *         var myDevelopers = new Group("myDevelopers", GroupArgs.builder()        
+ *             .name("developers")
+ *             .path("/users/")
  *             .build());
  * 
- *         var myDeveloperPolicy = new GroupPolicy(&#34;myDeveloperPolicy&#34;, GroupPolicyArgs.builder()        
- *             .name(&#34;my_developer_policy&#34;)
+ *         var myDeveloperPolicy = new GroupPolicy("myDeveloperPolicy", GroupPolicyArgs.builder()        
+ *             .name("my_developer_policy")
  *             .group(myDevelopers.name())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

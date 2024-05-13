@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,41 +49,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;domain key&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domain("example")
  *             .encryptionKey(exampleKey.arn())
  *             .build());
  * 
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .repository(&#34;example&#34;)
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *             .repository("example")
  *             .domain(exampleDomain.domain())
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;codeartifact:ReadFromRepository&#34;)
+ *                 .actions("codeartifact:ReadFromRepository")
  *                 .resources(exampleRepository.arn())
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy(&#34;exampleRepositoryPermissionsPolicy&#34;, RepositoryPermissionsPolicyArgs.builder()        
+ *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", RepositoryPermissionsPolicyArgs.builder()        
  *             .repository(exampleRepository.repository())
  *             .domain(exampleDomain.domain())
- *             .policyDocument(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

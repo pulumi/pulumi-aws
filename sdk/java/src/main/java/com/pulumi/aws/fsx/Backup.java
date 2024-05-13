@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Lustre Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,26 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLustreFileSystem = new LustreFileSystem(&#34;exampleLustreFileSystem&#34;, LustreFileSystemArgs.builder()        
+ *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()        
  *             .storageCapacity(1200)
  *             .subnetIds(exampleAwsSubnet.id())
- *             .deploymentType(&#34;PERSISTENT_1&#34;)
+ *             .deploymentType("PERSISTENT_1")
  *             .perUnitStorageThroughput(50)
  *             .build());
  * 
- *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Windows Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleWindowsFileSystem = new WindowsFileSystem(&#34;exampleWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
+ *         var exampleWindowsFileSystem = new WindowsFileSystem("exampleWindowsFileSystem", WindowsFileSystemArgs.builder()        
  *             .activeDirectoryId(eample.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
@@ -94,19 +97,21 @@ import javax.annotation.Nullable;
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()        
  *             .fileSystemId(exampleWindowsFileSystem.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## ONTAP Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,27 +134,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOntapVolume = new OntapVolume(&#34;exampleOntapVolume&#34;, OntapVolumeArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .junctionPath(&#34;/example&#34;)
+ *         var exampleOntapVolume = new OntapVolume("exampleOntapVolume", OntapVolumeArgs.builder()        
+ *             .name("example")
+ *             .junctionPath("/example")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
  *             .storageVirtualMachineId(test.id())
  *             .build());
  * 
- *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()        
  *             .volumeId(exampleOntapVolume.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## OpenZFS Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -172,20 +179,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
- *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
+ *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()        
  *             .fileSystemId(exampleOpenZfsFileSystem.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

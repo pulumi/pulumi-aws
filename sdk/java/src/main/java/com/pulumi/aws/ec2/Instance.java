@@ -39,7 +39,8 @@ import javax.annotation.Nullable;
  * ### Basic example using AMI lookup
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,31 +67,33 @@ import javax.annotation.Nullable;
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*&#34;)
+ *                     .name("name")
+ *                     .values("ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*")
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
+ *                     .name("virtualization-type")
+ *                     .values("hvm")
  *                     .build())
- *             .owners(&#34;099720109477&#34;)
+ *             .owners("099720109477")
  *             .build());
  * 
- *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *         var web = new Instance("web", InstanceArgs.builder()        
+ *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t3.micro")
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Spot instance example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,38 +120,40 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var this = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;architecture&#34;)
- *                     .values(&#34;arm64&#34;)
+ *                     .name("architecture")
+ *                     .values("arm64")
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;al2023-ami-2023*&#34;)
+ *                     .name("name")
+ *                     .values("al2023-ami-2023*")
  *                     .build())
  *             .build());
  * 
- *         var thisInstance = new Instance(&#34;thisInstance&#34;, InstanceArgs.builder()        
+ *         var thisInstance = new Instance("thisInstance", InstanceArgs.builder()        
  *             .ami(this_.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
  *                     .maxPrice(0.0031)
  *                     .build())
  *                 .build())
- *             .instanceType(&#34;t4g.nano&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test-spot&#34;))
+ *             .instanceType("t4g.nano")
+ *             .tags(Map.of("Name", "test-spot"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Network and credit specification example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -177,45 +182,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myVpc = new Vpc(&#34;myVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;172.16.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *         var myVpc = new Vpc("myVpc", VpcArgs.builder()        
+ *             .cidrBlock("172.16.0.0/16")
+ *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var mySubnet = new Subnet(&#34;mySubnet&#34;, SubnetArgs.builder()        
+ *         var mySubnet = new Subnet("mySubnet", SubnetArgs.builder()        
  *             .vpcId(myVpc.id())
- *             .cidrBlock(&#34;172.16.10.0/24&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .cidrBlock("172.16.10.0/24")
+ *             .availabilityZone("us-west-2a")
+ *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var foo = new NetworkInterface(&#34;foo&#34;, NetworkInterfaceArgs.builder()        
+ *         var foo = new NetworkInterface("foo", NetworkInterfaceArgs.builder()        
  *             .subnetId(mySubnet.id())
- *             .privateIps(&#34;172.16.10.100&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;primary_network_interface&#34;))
+ *             .privateIps("172.16.10.100")
+ *             .tags(Map.of("Name", "primary_network_interface"))
  *             .build());
  * 
- *         var fooInstance = new Instance(&#34;fooInstance&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-005e54dee72cc1d00&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var fooInstance = new Instance("fooInstance", InstanceArgs.builder()        
+ *             .ami("ami-005e54dee72cc1d00")
+ *             .instanceType("t2.micro")
  *             .networkInterfaces(InstanceNetworkInterfaceArgs.builder()
  *                 .networkInterfaceId(foo.id())
  *                 .deviceIndex(0)
  *                 .build())
  *             .creditSpecification(InstanceCreditSpecificationArgs.builder()
- *                 .cpuCredits(&#34;unlimited&#34;)
+ *                 .cpuCredits("unlimited")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CPU options example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -243,41 +250,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;172.16.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("172.16.0.0/16")
+ *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
  *             .vpcId(example.id())
- *             .cidrBlock(&#34;172.16.10.0/24&#34;)
- *             .availabilityZone(&#34;us-east-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .cidrBlock("172.16.10.0/24")
+ *             .availabilityZone("us-east-2a")
+ *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
  *         final var amzn-linux-2023-ami = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;al2023-ami-2023.*-x86_64&#34;)
+ *                 .name("name")
+ *                 .values("al2023-ami-2023.*-x86_64")
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
  *             .ami(amzn_linux_2023_ami.id())
- *             .instanceType(&#34;c6a.2xlarge&#34;)
+ *             .instanceType("c6a.2xlarge")
  *             .subnetId(exampleSubnet.id())
  *             .cpuOptions(InstanceCpuOptionsArgs.builder()
  *                 .coreCount(2)
  *                 .threadsPerCore(2)
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Host resource group or Licence Manager registered AMI example
@@ -287,7 +295,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -308,16 +317,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new Instance(&#34;this&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-0dcc1e21636832c5d&#34;)
- *             .instanceType(&#34;m5.large&#34;)
- *             .hostResourceGroupArn(&#34;arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost&#34;)
- *             .tenancy(&#34;host&#34;)
+ *         var this_ = new Instance("this", InstanceArgs.builder()        
+ *             .ami("ami-0dcc1e21636832c5d")
+ *             .instanceType("m5.large")
+ *             .hostResourceGroupArn("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost")
+ *             .tenancy("host")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Tag Guide

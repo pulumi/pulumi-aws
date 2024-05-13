@@ -42,7 +42,8 @@ import javax.annotation.Nullable;
  * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,18 +66,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
- *             .validationMethod(&#34;EMAIL&#34;)
+ *         var example = new Certificate("example", CertificateArgs.builder()        
+ *             .domainName("example.com")
+ *             .validationMethod("EMAIL")
  *             .build());
  * 
- *         var exampleCertificateValidation = new CertificateValidation(&#34;exampleCertificateValidation&#34;, CertificateValidationArgs.builder()        
+ *         var exampleCertificateValidation = new CertificateValidation("exampleCertificateValidation", CertificateValidationArgs.builder()        
  *             .certificateArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

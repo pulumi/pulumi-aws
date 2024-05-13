@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,18 +49,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new replication subnet group
- *         var example = new ReplicationSubnetGroup(&#34;example&#34;, ReplicationSubnetGroupArgs.builder()        
- *             .replicationSubnetGroupDescription(&#34;Example replication subnet group&#34;)
- *             .replicationSubnetGroupId(&#34;example-dms-replication-subnet-group-tf&#34;)
+ *         var example = new ReplicationSubnetGroup("example", ReplicationSubnetGroupArgs.builder()        
+ *             .replicationSubnetGroupDescription("Example replication subnet group")
+ *             .replicationSubnetGroupId("example-dms-replication-subnet-group-tf")
  *             .subnetIds(            
- *                 &#34;subnet-12345678&#34;,
- *                 &#34;subnet-12345679&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *                 "subnet-12345678",
+ *                 "subnet-12345679")
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating special IAM role
@@ -67,7 +69,8 @@ import javax.annotation.Nullable;
  * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,41 +97,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
- *             .name(&#34;dms-vpc-role&#34;)
- *             .description(&#34;Allows DMS to manage VPC&#34;)
+ *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()        
+ *             .name("dms-vpc-role")
+ *             .description("Allows DMS to manage VPC")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;dms.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "dms.amazonaws.com")
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
+ *                         jsonProperty("Action", "sts:AssumeRole")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var example = new RolePolicyAttachment(&#34;example&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var example = new RolePolicyAttachment("example", RolePolicyAttachmentArgs.builder()        
  *             .role(dms_vpc_role.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
  *             .build());
  * 
- *         var exampleReplicationSubnetGroup = new ReplicationSubnetGroup(&#34;exampleReplicationSubnetGroup&#34;, ReplicationSubnetGroupArgs.builder()        
- *             .replicationSubnetGroupDescription(&#34;Example&#34;)
- *             .replicationSubnetGroupId(&#34;example-id&#34;)
+ *         var exampleReplicationSubnetGroup = new ReplicationSubnetGroup("exampleReplicationSubnetGroup", ReplicationSubnetGroupArgs.builder()        
+ *             .replicationSubnetGroupDescription("Example")
+ *             .replicationSubnetGroupId("example-id")
  *             .subnetIds(            
- *                 &#34;subnet-12345678&#34;,
- *                 &#34;subnet-12345679&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-id&#34;))
+ *                 "subnet-12345678",
+ *                 "subnet-12345679")
+ *             .tags(Map.of("Name", "example-id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

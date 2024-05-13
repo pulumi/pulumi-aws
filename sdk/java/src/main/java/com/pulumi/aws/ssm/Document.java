@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Create an ssm document in JSON format
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,39 +51,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
- *             .name(&#34;test_document&#34;)
- *             .documentType(&#34;Command&#34;)
- *             .content(&#34;&#34;&#34;
+ *         var foo = new Document("foo", DocumentArgs.builder()        
+ *             .name("test_document")
+ *             .documentType("Command")
+ *             .content("""
  *   {
- *     &#34;schemaVersion&#34;: &#34;1.2&#34;,
- *     &#34;description&#34;: &#34;Check ip configuration of a Linux instance.&#34;,
- *     &#34;parameters&#34;: {
+ *     "schemaVersion": "1.2",
+ *     "description": "Check ip configuration of a Linux instance.",
+ *     "parameters": {
  * 
  *     },
- *     &#34;runtimeConfig&#34;: {
- *       &#34;aws:runShellScript&#34;: {
- *         &#34;properties&#34;: [
+ *     "runtimeConfig": {
+ *       "aws:runShellScript": {
+ *         "properties": [
  *           {
- *             &#34;id&#34;: &#34;0.aws:runShellScript&#34;,
- *             &#34;runCommand&#34;: [&#34;ifconfig&#34;]
+ *             "id": "0.aws:runShellScript",
+ *             "runCommand": ["ifconfig"]
  *           }
  *         ]
  *       }
  *     }
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create an ssm document in YAML format
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,26 +106,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
- *             .name(&#34;test_document&#34;)
- *             .documentFormat(&#34;YAML&#34;)
- *             .documentType(&#34;Command&#34;)
- *             .content(&#34;&#34;&#34;
- * schemaVersion: &#39;1.2&#39;
+ *         var foo = new Document("foo", DocumentArgs.builder()        
+ *             .name("test_document")
+ *             .documentFormat("YAML")
+ *             .documentType("Command")
+ *             .content("""
+ * schemaVersion: '1.2'
  * description: Check ip configuration of a Linux instance.
  * parameters: {}
  * runtimeConfig:
- *   &#39;aws:runShellScript&#39;:
+ *   'aws:runShellScript':
  *     properties:
- *       - id: &#39;0.aws:runShellScript&#39;
+ *       - id: '0.aws:runShellScript'
  *         runCommand:
  *           - ifconfig
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

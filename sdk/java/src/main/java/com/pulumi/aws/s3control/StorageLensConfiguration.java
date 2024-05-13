@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,8 +58,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new StorageLensConfiguration(&#34;example&#34;, StorageLensConfigurationArgs.builder()        
- *             .configId(&#34;example-1&#34;)
+ *         var example = new StorageLensConfiguration("example", StorageLensConfigurationArgs.builder()        
+ *             .configId("example-1")
  *             .storageLensConfiguration(StorageLensConfigurationStorageLensConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .accountLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelArgs.builder()
@@ -76,10 +77,10 @@ import javax.annotation.Nullable;
  *                         .enabled(true)
  *                         .build())
  *                     .s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.builder()
- *                         .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .accountId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                         .arn(target.arn())
- *                         .format(&#34;CSV&#34;)
- *                         .outputSchemaVersion(&#34;V_1&#34;)
+ *                         .format("CSV")
+ *                         .outputSchemaVersion("V_1")
  *                         .encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.builder()
  *                             .sseS3s()
  *                             .build())
@@ -89,14 +90,15 @@ import javax.annotation.Nullable;
  *                     .buckets(                    
  *                         b1.arn(),
  *                         b2.arn())
- *                     .regions(&#34;us-east-2&#34;)
+ *                     .regions("us-east-2")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

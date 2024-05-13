@@ -26,7 +26,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,13 +49,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
+     *             .name("example.service.local")
+     *             .type("DNS_PRIVATE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,13 +92,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
+     *             .name("example.service.local")
+     *             .type("DNS_PRIVATE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +112,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,13 +135,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
+     *             .name("example.service.local")
+     *             .type("DNS_PRIVATE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,13 +178,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
+     *             .name("example.service.local")
+     *             .type("DNS_PRIVATE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -188,7 +196,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -210,12 +219,13 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
+     *             .name("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +236,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -248,12 +259,13 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
+     *             .name("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -264,7 +276,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -286,12 +299,13 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
+     *             .name("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -302,7 +316,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -324,12 +339,13 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
+     *             .name("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -342,7 +358,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -364,13 +381,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
+     *             .name("example")
+     *             .namespaceId("NAMESPACE_ID_VALUE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -383,7 +401,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -405,13 +424,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
+     *             .name("example")
+     *             .namespaceId("NAMESPACE_ID_VALUE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -424,7 +444,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -446,13 +467,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
+     *             .name("example")
+     *             .namespaceId("NAMESPACE_ID_VALUE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -465,7 +487,8 @@ public final class ServicediscoveryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -487,13 +510,14 @@ public final class ServicediscoveryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
+     *             .name("example")
+     *             .namespaceId("NAMESPACE_ID_VALUE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

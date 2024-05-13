@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Service with a Code Repository Source
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,8 +59,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .serviceName(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
  *                     .connectionArn(exampleAwsApprunnerConnection.arn())
@@ -67,38 +68,40 @@ import javax.annotation.Nullable;
  *                 .codeRepository(ServiceSourceConfigurationCodeRepositoryArgs.builder()
  *                     .codeConfiguration(ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.builder()
  *                         .codeConfigurationValues(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs.builder()
- *                             .buildCommand(&#34;python setup.py develop&#34;)
- *                             .port(&#34;8000&#34;)
- *                             .runtime(&#34;PYTHON_3&#34;)
- *                             .startCommand(&#34;python runapp.py&#34;)
+ *                             .buildCommand("python setup.py develop")
+ *                             .port("8000")
+ *                             .runtime("PYTHON_3")
+ *                             .startCommand("python runapp.py")
  *                             .build())
- *                         .configurationSource(&#34;API&#34;)
+ *                         .configurationSource("API")
  *                         .build())
- *                     .repositoryUrl(&#34;https://github.com/example/my-example-python-app&#34;)
+ *                     .repositoryUrl("https://github.com/example/my-example-python-app")
  *                     .sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs.builder()
- *                         .type(&#34;BRANCH&#34;)
- *                         .value(&#34;main&#34;)
+ *                         .type("BRANCH")
+ *                         .value("main")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .networkConfiguration(ServiceNetworkConfigurationArgs.builder()
  *                 .egressConfiguration(ServiceNetworkConfigurationEgressConfigurationArgs.builder()
- *                     .egressType(&#34;VPC&#34;)
+ *                     .egressType("VPC")
  *                     .vpcConnectorArn(connector.arn())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Service with an Image Repository Source
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -122,30 +125,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .serviceName(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
  *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port(&#34;8000&#34;)
+ *                         .port("8000")
  *                         .build())
- *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
- *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
+ *                     .imageIdentifier("public.ecr.aws/aws-containers/hello-app-runner:latest")
+ *                     .imageRepositoryType("ECR_PUBLIC")
  *                     .build())
  *                 .autoDeploymentsEnabled(false)
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Service with Observability Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -173,15 +178,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleObservabilityConfiguration = new ObservabilityConfiguration(&#34;exampleObservabilityConfiguration&#34;, ObservabilityConfigurationArgs.builder()        
- *             .observabilityConfigurationName(&#34;example&#34;)
+ *         var exampleObservabilityConfiguration = new ObservabilityConfiguration("exampleObservabilityConfiguration", ObservabilityConfigurationArgs.builder()        
+ *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
- *                 .vendor(&#34;AWSXRAY&#34;)
+ *                 .vendor("AWSXRAY")
  *                 .build())
  *             .build());
  * 
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .serviceName(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .serviceName("example")
  *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
  *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())
  *                 .observabilityEnabled(true)
@@ -189,19 +194,20 @@ import javax.annotation.Nullable;
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
  *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port(&#34;8000&#34;)
+ *                         .port("8000")
  *                         .build())
- *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
- *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
+ *                     .imageIdentifier("public.ecr.aws/aws-containers/hello-app-runner:latest")
+ *                     .imageRepositoryType("ECR_PUBLIC")
  *                     .build())
  *                 .autoDeploymentsEnabled(false)
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

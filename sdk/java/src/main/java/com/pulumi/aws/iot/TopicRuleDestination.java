@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TopicRuleDestination(&#34;example&#34;, TopicRuleDestinationArgs.builder()        
+ *         var example = new TopicRuleDestination("example", TopicRuleDestinationArgs.builder()        
  *             .vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs.builder()
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .securityGroups(exampleAwsSecurityGroup.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

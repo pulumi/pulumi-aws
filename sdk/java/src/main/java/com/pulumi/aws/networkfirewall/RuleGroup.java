@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Stateful Inspection for denying access to a domain
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,28 +51,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATEFUL&#34;)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
+ *                         .generatedRulesType("DENYLIST")
+ *                         .targetTypes("HTTP_HOST")
+ *                         .targets("test.example.com")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Stateful Inspection for permitting packets from a source IP address
@@ -82,7 +84,8 @@ import javax.annotation.Nullable;
  * ### Stateful Inspection for blocking packets from going to an intended destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -105,44 +108,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATEFUL&#34;)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .statefulRules(RuleGroupRuleGroupRulesSourceStatefulRuleArgs.builder()
- *                         .action(&#34;DROP&#34;)
+ *                         .action("DROP")
  *                         .header(RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.builder()
- *                             .destination(&#34;124.1.1.24/32&#34;)
+ *                             .destination("124.1.1.24/32")
  *                             .destinationPort(53)
- *                             .direction(&#34;ANY&#34;)
- *                             .protocol(&#34;TCP&#34;)
- *                             .source(&#34;1.2.3.4/32&#34;)
+ *                             .direction("ANY")
+ *                             .protocol("TCP")
+ *                             .source("1.2.3.4/32")
  *                             .sourcePort(53)
  *                             .build())
  *                         .ruleOptions(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.builder()
- *                             .keyword(&#34;sid&#34;)
- *                             .settings(&#34;1&#34;)
+ *                             .keyword("sid")
+ *                             .settings("1")
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Stateful Inspection from rules specifications defined in Suricata flat format
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,28 +168,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATEFUL&#34;)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .rules(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;example.rules&#34;)
+ *                 .input("example.rules")
  *                 .build()).result())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -208,58 +215,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATEFUL&#34;)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
  *                     .ipSets(                    
  *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;WEBSERVERS_HOSTS&#34;)
+ *                             .key("WEBSERVERS_HOSTS")
  *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
  *                                 .definitions(                                
- *                                     &#34;10.0.0.0/16&#34;,
- *                                     &#34;10.0.1.0/24&#34;,
- *                                     &#34;192.168.0.0/16&#34;)
+ *                                     "10.0.0.0/16",
+ *                                     "10.0.1.0/24",
+ *                                     "192.168.0.0/16")
  *                                 .build())
  *                             .build(),
  *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;EXTERNAL_HOST&#34;)
+ *                             .key("EXTERNAL_HOST")
  *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
- *                                 .definitions(&#34;1.2.3.4/32&#34;)
+ *                                 .definitions("1.2.3.4/32")
  *                                 .build())
  *                             .build())
  *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
- *                         .key(&#34;HTTP_PORTS&#34;)
+ *                         .key("HTTP_PORTS")
  *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
  *                             .definitions(                            
- *                                 &#34;443&#34;,
- *                                 &#34;80&#34;)
+ *                                 "443",
+ *                                 "80")
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesString(StdFunctions.file(FileArgs.builder()
- *                         .input(&#34;suricata_rules_file&#34;)
+ *                         .input("suricata_rules_file")
  *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Stateless Inspection with a Custom Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -283,11 +292,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .description(&#34;Stateless Rate Limiting Rule&#34;)
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *             .description("Stateless Rate Limiting Rule")
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATELESS&#34;)
+ *             .name("example")
+ *             .type("STATELESS")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.builder()
@@ -295,28 +304,28 @@ import javax.annotation.Nullable;
  *                             .actionDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs.builder()
  *                                 .publishMetricAction(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs.builder()
  *                                     .dimensions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
- *                                         .value(&#34;2&#34;)
+ *                                         .value("2")
  *                                         .build())
  *                                     .build())
  *                                 .build())
- *                             .actionName(&#34;ExampleMetricsAction&#34;)
+ *                             .actionName("ExampleMetricsAction")
  *                             .build())
  *                         .statelessRules(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs.builder()
  *                             .priority(1)
  *                             .ruleDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs.builder()
  *                                 .actions(                                
- *                                     &#34;aws:pass&#34;,
- *                                     &#34;ExampleMetricsAction&#34;)
+ *                                     "aws:pass",
+ *                                     "ExampleMetricsAction")
  *                                 .matchAttributes(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.builder()
  *                                     .sources(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.builder()
- *                                         .addressDefinition(&#34;1.2.3.4/32&#34;)
+ *                                         .addressDefinition("1.2.3.4/32")
  *                                         .build())
  *                                     .sourcePorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs.builder()
  *                                         .fromPort(443)
  *                                         .toPort(443)
  *                                         .build())
  *                                     .destinations(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs.builder()
- *                                         .addressDefinition(&#34;124.1.1.5/32&#34;)
+ *                                         .addressDefinition("124.1.1.5/32")
  *                                         .build())
  *                                     .destinationPorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs.builder()
  *                                         .fromPort(443)
@@ -324,10 +333,10 @@ import javax.annotation.Nullable;
  *                                         .build())
  *                                     .protocols(6)
  *                                     .tcpFlags(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs.builder()
- *                                         .flags(&#34;SYN&#34;)
+ *                                         .flags("SYN")
  *                                         .masks(                                        
- *                                             &#34;SYN&#34;,
- *                                             &#34;ACK&#34;)
+ *                                             "SYN",
+ *                                             "ACK")
  *                                         .build())
  *                                     .build())
  *                                 .build())
@@ -336,20 +345,22 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Set References to the Rule Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -374,21 +385,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .name(&#34;example&#34;)
- *             .type(&#34;STATEFUL&#34;)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
+ *                         .generatedRulesType("DENYLIST")
+ *                         .targetTypes("HTTP_HOST")
+ *                         .targets("test.example.com")
  *                         .build())
  *                     .build())
  *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
  *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
- *                         .key(&#34;example&#34;)
+ *                         .key("example")
  *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
  *                             .referenceArn(this_.arn())
  *                             .build())
@@ -396,14 +407,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

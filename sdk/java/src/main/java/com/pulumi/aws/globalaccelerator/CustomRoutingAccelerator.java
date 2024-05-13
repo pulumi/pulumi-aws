@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomRoutingAccelerator(&#34;example&#34;, CustomRoutingAcceleratorArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .ipAddressType(&#34;IPV4&#34;)
- *             .ipAddresses(&#34;1.2.3.4&#34;)
+ *         var example = new CustomRoutingAccelerator("example", CustomRoutingAcceleratorArgs.builder()        
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
+ *             .ipAddresses("1.2.3.4")
  *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
- *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
+ *                 .flowLogsS3Bucket("example-bucket")
+ *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

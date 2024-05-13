@@ -25,7 +25,8 @@ public final class SqsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,12 +48,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;queue&#34;)
+     *             .name("queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class SqsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,12 +92,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;queue&#34;)
+     *             .name("queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class SqsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;queue&#34;)
+     *             .name("queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class SqsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,12 +180,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueue(GetQueueArgs.builder()
-     *             .name(&#34;queue&#34;)
+     *             .name("queue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,12 +224,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,12 +268,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,12 +312,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +333,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -341,12 +356,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -361,7 +377,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -383,12 +400,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -403,7 +421,8 @@ public final class SqsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -425,12 +444,13 @@ public final class SqsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
-     *             .queueNamePrefix(&#34;example&#34;)
+     *             .queueNamePrefix("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

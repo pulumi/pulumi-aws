@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
- *             .name(&#34;chat-messages&#34;)
+ *         var messenger = new EventBus("messenger", EventBusArgs.builder()        
+ *             .name("chat-messages")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,17 +81,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
- *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
+ *             .namePrefix("aws.partner/examplepartner.com")
  *             .build());
  * 
- *         var examplepartnerEventBus = new EventBus(&#34;examplepartnerEventBus&#34;, EventBusArgs.builder()        
- *             .name(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
- *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
+ *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()        
+ *             .name(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
+ *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

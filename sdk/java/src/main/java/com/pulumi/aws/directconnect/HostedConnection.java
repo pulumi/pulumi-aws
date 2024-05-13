@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,17 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hosted = new HostedConnection(&#34;hosted&#34;, HostedConnectionArgs.builder()        
- *             .connectionId(&#34;dxcon-ffabc123&#34;)
- *             .bandwidth(&#34;100Mbps&#34;)
- *             .name(&#34;tf-dx-hosted-connection&#34;)
- *             .ownerAccountId(&#34;123456789012&#34;)
+ *         var hosted = new HostedConnection("hosted", HostedConnectionArgs.builder()        
+ *             .connectionId("dxcon-ffabc123")
+ *             .bandwidth("100Mbps")
+ *             .name("tf-dx-hosted-connection")
+ *             .ownerAccountId("123456789012")
  *             .vlan(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -23,7 +23,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,7 +51,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,7 +93,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,7 +135,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -170,7 +177,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -210,7 +219,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +233,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -250,7 +261,8 @@ public final class VpcFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -263,7 +275,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -286,14 +299,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -306,7 +320,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -329,14 +344,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +365,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -372,14 +389,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +410,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,14 +434,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -435,7 +455,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,14 +479,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -478,7 +500,8 @@ public final class VpcFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -501,14 +524,15 @@ public final class VpcFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
      *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
+     *                 .name("group-id")
      *                 .values(securityGroupId)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

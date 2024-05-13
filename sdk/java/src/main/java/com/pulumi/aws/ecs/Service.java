@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,24 +64,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mongo = new Service(&#34;mongo&#34;, ServiceArgs.builder()        
- *             .name(&#34;mongodb&#34;)
+ *         var mongo = new Service("mongo", ServiceArgs.builder()        
+ *             .name("mongodb")
  *             .cluster(fooAwsEcsCluster.id())
  *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
  *             .desiredCount(3)
  *             .iamRole(fooAwsIamRole.arn())
  *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
- *                 .type(&#34;binpack&#34;)
- *                 .field(&#34;cpu&#34;)
+ *                 .type("binpack")
+ *                 .field("cpu")
  *                 .build())
  *             .loadBalancers(ServiceLoadBalancerArgs.builder()
  *                 .targetGroupArn(fooAwsLbTargetGroup.arn())
- *                 .containerName(&#34;mongo&#34;)
+ *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
  *             .placementConstraints(ServicePlacementConstraintArgs.builder()
- *                 .type(&#34;memberOf&#34;)
- *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
+ *                 .type("memberOf")
+ *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(foo)
@@ -88,7 +89,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Ignoring Changes to Desired Count
@@ -96,7 +98,8 @@ import javax.annotation.Nullable;
  * You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,19 +120,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()        
  *             .desiredCount(2)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Daemon Scheduling Strategy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,22 +155,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Service(&#34;bar&#34;, ServiceArgs.builder()        
- *             .name(&#34;bar&#34;)
+ *         var bar = new Service("bar", ServiceArgs.builder()        
+ *             .name("bar")
  *             .cluster(foo.id())
  *             .taskDefinition(barAwsEcsTaskDefinition.arn())
- *             .schedulingStrategy(&#34;DAEMON&#34;)
+ *             .schedulingStrategy("DAEMON")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CloudWatch Deployment Alarms
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -187,8 +194,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example")
  *             .cluster(exampleAwsEcsCluster.id())
  *             .alarms(ServiceAlarmsArgs.builder()
  *                 .enable(true)
@@ -199,13 +206,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### External Deployment Controller
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -227,17 +236,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example")
  *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentController(ServiceDeploymentControllerArgs.builder()
- *                 .type(&#34;EXTERNAL&#34;)
+ *                 .type("EXTERNAL")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

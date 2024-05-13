@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### With CSR
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;/my/csr.pem&#34;)
+ *                 .input("/my/csr.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Without CSR
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,19 +84,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .active(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### From existing certificate without a CA
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,16 +119,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .certificatePem(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;/my/cert.pem&#34;)
+ *                 .input("/my/cert.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

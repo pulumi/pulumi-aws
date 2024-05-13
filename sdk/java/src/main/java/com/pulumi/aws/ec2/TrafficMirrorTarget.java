@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * To create a basic traffic mirror session
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nlb = new TrafficMirrorTarget(&#34;nlb&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;NLB target&#34;)
+ *         var nlb = new TrafficMirrorTarget("nlb", TrafficMirrorTargetArgs.builder()        
+ *             .description("NLB target")
  *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
- *         var eni = new TrafficMirrorTarget(&#34;eni&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;ENI target&#34;)
+ *         var eni = new TrafficMirrorTarget("eni", TrafficMirrorTargetArgs.builder()        
+ *             .description("ENI target")
  *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .build());
  * 
- *         var gwlb = new TrafficMirrorTarget(&#34;gwlb&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;GWLB target&#34;)
+ *         var gwlb = new TrafficMirrorTarget("gwlb", TrafficMirrorTargetArgs.builder()        
+ *             .description("GWLB target")
  *             .gatewayLoadBalancerEndpointId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

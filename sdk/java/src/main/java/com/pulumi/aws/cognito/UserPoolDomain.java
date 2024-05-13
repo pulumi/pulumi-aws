@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Amazon Cognito domain
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example-pool&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .name("example-pool")
  *             .build());
  * 
- *         var main = new UserPoolDomain(&#34;main&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example-domain&#34;)
+ *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()        
+ *             .domain("example-domain")
  *             .userPoolId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Cognito domain
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,24 +93,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example-pool&#34;)
+ *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()        
+ *             .name("example-pool")
  *             .build());
  * 
- *         var main = new UserPoolDomain(&#34;main&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example-domain&#34;)
+ *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()        
+ *             .domain("example-domain")
  *             .certificateArn(cert.arn())
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
  *         final var example = Route53Functions.getZone(GetZoneArgs.builder()
- *             .name(&#34;example.com&#34;)
+ *             .name("example.com")
  *             .build());
  * 
- *         var auth_cognito_A = new Record(&#34;auth-cognito-A&#34;, RecordArgs.builder()        
+ *         var auth_cognito_A = new Record("auth-cognito-A", RecordArgs.builder()        
  *             .name(main.domain())
- *             .type(&#34;A&#34;)
- *             .zoneId(example.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+ *             .type("A")
+ *             .zoneId(example.applyValue(getZoneResult -> getZoneResult.zoneId()))
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(false)
  *                 .name(main.cloudfrontDistribution())
@@ -117,7 +120,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

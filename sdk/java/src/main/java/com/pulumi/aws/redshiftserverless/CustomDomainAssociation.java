@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
+ *         var example = new Certificate("example", CertificateArgs.builder()        
+ *             .domainName("example.com")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .namespaceName(&#34;example-namespace&#34;)
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *             .namespaceName("example-namespace")
  *             .build());
  * 
- *         var exampleWorkgroup = new Workgroup(&#34;exampleWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .workgroupName(&#34;example-workgroup&#34;)
+ *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()        
+ *             .workgroupName("example-workgroup")
  *             .namespaceName(exampleNamespace.namespaceName())
  *             .build());
  * 
- *         var exampleCustomDomainAssociation = new CustomDomainAssociation(&#34;exampleCustomDomainAssociation&#34;, CustomDomainAssociationArgs.builder()        
+ *         var exampleCustomDomainAssociation = new CustomDomainAssociation("exampleCustomDomainAssociation", CustomDomainAssociationArgs.builder()        
  *             .workgroupName(exampleWorkgroup.workgroupName())
- *             .customDomainName(&#34;example.com&#34;)
+ *             .customDomainName("example.com")
  *             .customDomainCertificateArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

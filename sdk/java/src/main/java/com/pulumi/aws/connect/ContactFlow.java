@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,52 +53,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ContactFlow(&#34;test&#34;, ContactFlowArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Test&#34;)
- *             .description(&#34;Test Contact Flow Description&#34;)
- *             .type(&#34;CONTACT_FLOW&#34;)
+ *         var test = new ContactFlow("test", ContactFlowArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Test")
+ *             .description("Test Contact Flow Description")
+ *             .type("CONTACT_FLOW")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2019-10-30&#34;),
- *                     jsonProperty(&#34;StartAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                     jsonProperty(&#34;Actions&#34;, jsonArray(
+ *                     jsonProperty("Version", "2019-10-30"),
+ *                     jsonProperty("StartAction", "12345678-1234-1234-1234-123456789012"),
+ *                     jsonProperty("Actions", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;MessageParticipant&#34;),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
- *                                 jsonProperty(&#34;NextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                                 jsonProperty(&#34;Errors&#34;, jsonArray(
+ *                             jsonProperty("Identifier", "12345678-1234-1234-1234-123456789012"),
+ *                             jsonProperty("Type", "MessageParticipant"),
+ *                             jsonProperty("Transitions", jsonObject(
+ *                                 jsonProperty("NextAction", "abcdef-abcd-abcd-abcd-abcdefghijkl"),
+ *                                 jsonProperty("Errors", jsonArray(
  *                                 )),
- *                                 jsonProperty(&#34;Conditions&#34;, jsonArray(
+ *                                 jsonProperty("Conditions", jsonArray(
  *                                 ))
  *                             )),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                                 jsonProperty(&#34;Text&#34;, &#34;Thanks for calling the sample flow!&#34;)
+ *                             jsonProperty("Parameters", jsonObject(
+ *                                 jsonProperty("Text", "Thanks for calling the sample flow!")
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;DisconnectParticipant&#34;),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
+ *                             jsonProperty("Identifier", "abcdef-abcd-abcd-abcd-abcdefghijkl"),
+ *                             jsonProperty("Type", "DisconnectParticipant"),
+ *                             jsonProperty("Transitions", jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
+ *                             jsonProperty("Parameters", jsonObject(
  * 
  *                             ))
  *                         )
  *                     ))
  *                 )))
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;Test Contact Flow&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
- *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *                 Map.entry("Name", "Test Contact Flow"),
+ *                 Map.entry("Application", "Example"),
+ *                 Map.entry("Method", "Create")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With External Content
@@ -107,7 +109,8 @@ import javax.annotation.Nullable;
  * Use the generated file as input:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -128,25 +131,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ContactFlow(&#34;test&#34;, ContactFlowArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Test&#34;)
- *             .description(&#34;Test Contact Flow Description&#34;)
- *             .type(&#34;CONTACT_FLOW&#34;)
- *             .filename(&#34;contact_flow.json&#34;)
+ *         var test = new ContactFlow("test", ContactFlowArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Test")
+ *             .description("Test Contact Flow Description")
+ *             .type("CONTACT_FLOW")
+ *             .filename("contact_flow.json")
  *             .contentHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input(&#34;contact_flow.json&#34;)
+ *                 .input("contact_flow.json")
  *                 .build()).result())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;Test Contact Flow&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
- *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *                 Map.entry("Name", "Test Contact Flow"),
+ *                 Map.entry("Application", "Example"),
+ *                 Map.entry("Method", "Create")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

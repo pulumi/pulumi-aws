@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,44 +47,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *             .name("example-repo")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;new policy&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("new policy")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("123456789012")
  *                     .build())
  *                 .actions(                
- *                     &#34;ecr:GetDownloadUrlForLayer&#34;,
- *                     &#34;ecr:BatchGetImage&#34;,
- *                     &#34;ecr:BatchCheckLayerAvailability&#34;,
- *                     &#34;ecr:PutImage&#34;,
- *                     &#34;ecr:InitiateLayerUpload&#34;,
- *                     &#34;ecr:UploadLayerPart&#34;,
- *                     &#34;ecr:CompleteLayerUpload&#34;,
- *                     &#34;ecr:DescribeRepositories&#34;,
- *                     &#34;ecr:GetRepositoryPolicy&#34;,
- *                     &#34;ecr:ListImages&#34;,
- *                     &#34;ecr:DeleteRepository&#34;,
- *                     &#34;ecr:BatchDeleteImage&#34;,
- *                     &#34;ecr:SetRepositoryPolicy&#34;,
- *                     &#34;ecr:DeleteRepositoryPolicy&#34;)
+ *                     "ecr:GetDownloadUrlForLayer",
+ *                     "ecr:BatchGetImage",
+ *                     "ecr:BatchCheckLayerAvailability",
+ *                     "ecr:PutImage",
+ *                     "ecr:InitiateLayerUpload",
+ *                     "ecr:UploadLayerPart",
+ *                     "ecr:CompleteLayerUpload",
+ *                     "ecr:DescribeRepositories",
+ *                     "ecr:GetRepositoryPolicy",
+ *                     "ecr:ListImages",
+ *                     "ecr:DeleteRepository",
+ *                     "ecr:BatchDeleteImage",
+ *                     "ecr:SetRepositoryPolicy",
+ *                     "ecr:DeleteRepositoryPolicy")
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
+ *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()        
  *             .repository(exampleRepository.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

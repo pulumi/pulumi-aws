@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,10 +51,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .repository(&#34;https://github.com/example/app&#34;)
- *             .buildSpec(&#34;&#34;&#34;
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
+ *             .repository("https://github.com/example/app")
+ *             .buildSpec("""
  * version: 0.1
  * frontend:
  *   phases:
@@ -66,22 +67,23 @@ import javax.annotation.Nullable;
  *   artifacts:
  *     baseDirectory: build
  *     files:
- *       - &#39;**{@literal /}*&#39;
+ *       - '**{@literal /}*'
  *   cache:
  *     paths:
  *       - node_modules/**{@literal /}*
- *             &#34;&#34;&#34;)
+ *             """)
  *             .customRules(AppCustomRuleArgs.builder()
- *                 .source(&#34;/&lt;*&gt;&#34;)
- *                 .status(&#34;404&#34;)
- *                 .target(&#34;/index.html&#34;)
+ *                 .source("/<*>")
+ *                 .status("404")
+ *                 .target("/index.html")
  *                 .build())
- *             .environmentVariables(Map.of(&#34;ENV&#34;, &#34;test&#34;))
+ *             .environmentVariables(Map.of("ENV", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Repository with Tokens
@@ -89,7 +91,8 @@ import javax.annotation.Nullable;
  * If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -110,15 +113,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .repository(&#34;https://github.com/example/app&#34;)
- *             .accessToken(&#34;...&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
+ *             .repository("https://github.com/example/app")
+ *             .accessToken("...")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
@@ -126,7 +130,8 @@ import javax.annotation.Nullable;
  * ### Auto Branch Creation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -148,12 +153,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
  *             .enableAutoBranchCreation(true)
  *             .autoBranchCreationPatterns(            
- *                 &#34;*&#34;,
- *                 &#34;*{@literal /}**&#34;)
+ *                 "*",
+ *                 "*{@literal /}**")
  *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
  *                 .enableAutoBuild(true)
  *                 .build())
@@ -161,13 +166,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Authorization
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -188,23 +195,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
  *             .enableBasicAuth(true)
  *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(&#34;username1:password1&#34;)
+ *                 .input("username1:password1")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Rewrites and Redirects
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -226,30 +235,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
  *             .customRules(            
  *                 AppCustomRuleArgs.builder()
- *                     .source(&#34;/api/&lt;*&gt;&#34;)
- *                     .status(&#34;200&#34;)
- *                     .target(&#34;https://api.example.com/api/&lt;*&gt;&#34;)
+ *                     .source("/api/<*>")
+ *                     .status("200")
+ *                     .target("https://api.example.com/api/<*>")
  *                     .build(),
  *                 AppCustomRuleArgs.builder()
- *                     .source(&#34;&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;&#34;)
- *                     .status(&#34;200&#34;)
- *                     .target(&#34;/index.html&#34;)
+ *                     .source("</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>")
+ *                     .status("200")
+ *                     .target("/index.html")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Image
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -270,20 +281,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .environmentVariables(Map.of(&#34;_CUSTOM_IMAGE&#34;, &#34;node:16&#34;))
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
+ *             .environmentVariables(Map.of("_CUSTOM_IMAGE", "node:16"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Headers
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -304,28 +317,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .customHeaders(&#34;&#34;&#34;
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
+ *             .customHeaders("""
  * customHeaders:
- *   - pattern: &#39;**&#39;
+ *   - pattern: '**'
  *     headers:
- *       - key: &#39;Strict-Transport-Security&#39;
- *         value: &#39;max-age=31536000; includeSubDomains&#39;
- *       - key: &#39;X-Frame-Options&#39;
- *         value: &#39;SAMEORIGIN&#39;
- *       - key: &#39;X-XSS-Protection&#39;
- *         value: &#39;1; mode=block&#39;
- *       - key: &#39;X-Content-Type-Options&#39;
- *         value: &#39;nosniff&#39;
- *       - key: &#39;Content-Security-Policy&#39;
- *         value: &#34;default-src &#39;self&#39;&#34;
- *             &#34;&#34;&#34;)
+ *       - key: 'Strict-Transport-Security'
+ *         value: 'max-age=31536000; includeSubDomains'
+ *       - key: 'X-Frame-Options'
+ *         value: 'SAMEORIGIN'
+ *       - key: 'X-XSS-Protection'
+ *         value: '1; mode=block'
+ *       - key: 'X-Content-Type-Options'
+ *         value: 'nosniff'
+ *       - key: 'Content-Security-Policy'
+ *         value: "default-src 'self'"
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

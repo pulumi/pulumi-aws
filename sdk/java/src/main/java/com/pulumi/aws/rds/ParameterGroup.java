@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,23 +61,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
- *             .name(&#34;rds-pg&#34;)
- *             .family(&#34;mysql5.6&#34;)
+ *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()        
+ *             .name("rds-pg")
+ *             .family("mysql5.6")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_server&#34;)
- *                     .value(&#34;utf8&#34;)
+ *                     .name("character_set_server")
+ *                     .value("utf8")
  *                     .build(),
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_client&#34;)
- *                     .value(&#34;utf8&#34;)
+ *                     .name("character_set_client")
+ *                     .value("utf8")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

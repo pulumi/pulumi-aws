@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalogEncryptionSettings(&#34;example&#34;, DataCatalogEncryptionSettingsArgs.builder()        
+ *         var example = new DataCatalogEncryptionSettings("example", DataCatalogEncryptionSettingsArgs.builder()        
  *             .dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.builder()
  *                 .connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.builder()
  *                     .awsKmsKeyId(test.arn())
  *                     .returnConnectionPasswordEncrypted(true)
  *                     .build())
  *                 .encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.builder()
- *                     .catalogEncryptionMode(&#34;SSE-KMS&#34;)
+ *                     .catalogEncryptionMode("SSE-KMS")
  *                     .catalogEncryptionServiceRole(role.test().arn())
  *                     .sseAwsKmsKeyId(test.arn())
  *                     .build())
@@ -60,7 +61,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

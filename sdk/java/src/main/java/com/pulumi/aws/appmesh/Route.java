@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### HTTP Routing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,14 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .name(&#34;serviceB-route&#34;)
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
+ *                         .prefix("/")
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(                        
@@ -75,13 +76,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### HTTP Header Routing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -106,20 +109,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .name(&#34;serviceB-route&#34;)
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .method(&#34;POST&#34;)
- *                         .prefix(&#34;/&#34;)
- *                         .scheme(&#34;https&#34;)
+ *                         .method("POST")
+ *                         .prefix("/")
+ *                         .scheme("https")
  *                         .headers(RouteSpecHttpRouteMatchHeaderArgs.builder()
- *                             .name(&#34;clientRequestId&#34;)
+ *                             .name("clientRequestId")
  *                             .match(RouteSpecHttpRouteMatchHeaderMatchArgs.builder()
- *                                 .prefix(&#34;123&#34;)
+ *                                 .prefix("123")
  *                                 .build())
  *                             .build())
  *                         .build())
@@ -135,13 +138,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Retry Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -168,20 +173,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .name(&#34;serviceB-route&#34;)
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
+ *                         .prefix("/")
  *                         .build())
  *                     .retryPolicy(RouteSpecHttpRouteRetryPolicyArgs.builder()
- *                         .httpRetryEvents(&#34;server-error&#34;)
+ *                         .httpRetryEvents("server-error")
  *                         .maxRetries(1)
  *                         .perRetryTimeout(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs.builder()
- *                             .unit(&#34;s&#34;)
+ *                             .unit("s")
  *                             .value(15)
  *                             .build())
  *                         .build())
@@ -197,13 +202,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### TCP Routing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -227,8 +234,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .name(&#34;serviceB-route&#34;)
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
@@ -245,7 +252,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

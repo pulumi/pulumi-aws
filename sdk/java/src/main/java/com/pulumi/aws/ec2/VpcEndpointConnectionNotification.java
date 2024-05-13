@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,37 +52,38 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;vpce.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("vpce.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;SNS:Publish&#34;)
- *                 .resources(&#34;arn:aws:sns:*:*:vpce-notification-topic&#34;)
+ *                 .actions("SNS:Publish")
+ *                 .resources("arn:aws:sns:*:*:vpce-notification-topic")
  *                 .build())
  *             .build());
  * 
- *         var topicTopic = new Topic(&#34;topicTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;vpce-notification-topic&#34;)
- *             .policy(topic.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()        
+ *             .name("vpce-notification-topic")
+ *             .policy(topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new VpcEndpointService(&#34;foo&#34;, VpcEndpointServiceArgs.builder()        
+ *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
  *             .networkLoadBalancerArns(test.arn())
  *             .build());
  * 
- *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification(&#34;fooVpcEndpointConnectionNotification&#34;, VpcEndpointConnectionNotificationArgs.builder()        
+ *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", VpcEndpointConnectionNotificationArgs.builder()        
  *             .vpcEndpointServiceId(foo.id())
  *             .connectionNotificationArn(topicTopic.arn())
  *             .connectionEvents(            
- *                 &#34;Accept&#34;,
- *                 &#34;Reject&#34;)
+ *                 "Accept",
+ *                 "Reject")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

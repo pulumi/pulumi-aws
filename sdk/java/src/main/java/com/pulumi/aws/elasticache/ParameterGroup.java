@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
- *             .name(&#34;cache-params&#34;)
- *             .family(&#34;redis2.8&#34;)
+ *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()        
+ *             .name("cache-params")
+ *             .family("redis2.8")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;activerehashing&#34;)
- *                     .value(&#34;yes&#34;)
+ *                     .name("activerehashing")
+ *                     .value("yes")
  *                     .build(),
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;min-slaves-to-write&#34;)
- *                     .value(&#34;2&#34;)
+ *                     .name("min-slaves-to-write")
+ *                     .value("2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

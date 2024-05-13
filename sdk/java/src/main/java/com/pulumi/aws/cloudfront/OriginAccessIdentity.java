@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * The following example below creates a CloudFront origin access identity.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginAccessIdentity(&#34;example&#34;, OriginAccessIdentityArgs.builder()        
- *             .comment(&#34;Some comment&#34;)
+ *         var example = new OriginAccessIdentity("example", OriginAccessIdentityArgs.builder()        
+ *             .comment("Some comment")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Using With CloudFront
@@ -66,7 +68,8 @@ import javax.annotation.Nullable;
  * `aws.cloudfront.Distribution` resource:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Distribution(&#34;example&#34;, DistributionArgs.builder()        
+ *         var example = new Distribution("example", DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                     .originAccessIdentity(exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath())
@@ -99,7 +102,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Updating your bucket policy
@@ -110,7 +114,8 @@ import javax.annotation.Nullable;
  * you see this behaviour, use the `iam_arn` instead:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -135,23 +140,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;s3:GetObject&#34;)
- *                 .resources(String.format(&#34;%s/*&#34;, exampleAwsS3Bucket.arn()))
+ *                 .actions("s3:GetObject")
+ *                 .resources(String.format("%s/*", exampleAwsS3Bucket.arn()))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
+ *                     .type("AWS")
  *                     .identifiers(exampleAwsCloudfrontOriginAccessIdentity.iamArn())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
+ *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()        
  *             .bucket(exampleAwsS3Bucket.id())
- *             .policy(s3Policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(s3Policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html

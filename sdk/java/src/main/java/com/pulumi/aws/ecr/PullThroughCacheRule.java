@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PullThroughCacheRule(&#34;example&#34;, PullThroughCacheRuleArgs.builder()        
- *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
- *             .upstreamRegistryUrl(&#34;public.ecr.aws&#34;)
- *             .credentialArn(&#34;arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic&#34;)
+ *         var example = new PullThroughCacheRule("example", PullThroughCacheRuleArgs.builder()        
+ *             .ecrRepositoryPrefix("ecr-public")
+ *             .upstreamRegistryUrl("public.ecr.aws")
+ *             .credentialArn("arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,23 +54,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
+ *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()        
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
- *                 .cidr(&#34;10.0.0.8/32&#34;)
+ *                 .cidr("10.0.0.8/32")
  *                 .build())
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("ENVIRONMENT", "prod"))
  *             .build());
  * 
- *         var exampleInput = new Input(&#34;exampleInput&#34;, InputArgs.builder()        
- *             .name(&#34;example-input&#34;)
+ *         var exampleInput = new Input("exampleInput", InputArgs.builder()        
+ *             .name("example-input")
  *             .inputSecurityGroups(example.id())
- *             .type(&#34;UDP_PUSH&#34;)
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .type("UDP_PUSH")
+ *             .tags(Map.of("ENVIRONMENT", "prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

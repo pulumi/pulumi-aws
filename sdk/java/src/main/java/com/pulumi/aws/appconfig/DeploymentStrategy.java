@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeploymentStrategy(&#34;example&#34;, DeploymentStrategyArgs.builder()        
- *             .name(&#34;example-deployment-strategy-tf&#34;)
- *             .description(&#34;Example Deployment Strategy&#34;)
+ *         var example = new DeploymentStrategy("example", DeploymentStrategyArgs.builder()        
+ *             .name("example-deployment-strategy-tf")
+ *             .description("Example Deployment Strategy")
  *             .deploymentDurationInMinutes(3)
  *             .finalBakeTimeInMinutes(4)
  *             .growthFactor(10)
- *             .growthType(&#34;LINEAR&#34;)
- *             .replicateTo(&#34;NONE&#34;)
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Deployment Strategy&#34;))
+ *             .growthType("LINEAR")
+ *             .replicateTo("NONE")
+ *             .tags(Map.of("Type", "AppConfig Deployment Strategy"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

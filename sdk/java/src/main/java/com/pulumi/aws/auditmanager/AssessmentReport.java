@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AssessmentReport(&#34;test&#34;, AssessmentReportArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new AssessmentReport("test", AssessmentReportArgs.builder()        
+ *             .name("example")
  *             .assessmentId(testAwsAuditmanagerAssessment.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

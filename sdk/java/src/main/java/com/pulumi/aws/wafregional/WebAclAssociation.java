@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Application Load Balancer Association
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,72 +64,73 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .name(&#34;tfIPSet&#34;)
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
+ *                 .type("IPV4")
+ *                 .value("192.0.7.0/24")
  *                 .build())
  *             .build());
  * 
- *         var foo = new Rule(&#34;foo&#34;, RuleArgs.builder()        
- *             .name(&#34;tfWAFRule&#34;)
- *             .metricName(&#34;tfWAFRule&#34;)
+ *         var foo = new Rule("foo", RuleArgs.builder()        
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
+ *                 .type("IPMatch")
  *                 .build())
  *             .build());
  * 
- *         var fooWebAcl = new WebAcl(&#34;fooWebAcl&#34;, WebAclArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .metricName(&#34;foo&#34;)
+ *         var fooWebAcl = new WebAcl("fooWebAcl", WebAclArgs.builder()        
+ *             .name("foo")
+ *             .metricName("foo")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
+ *                 .type("ALLOW")
  *                 .build())
  *             .rules(WebAclRuleArgs.builder()
  *                 .action(WebAclRuleActionArgs.builder()
- *                     .type(&#34;BLOCK&#34;)
+ *                     .type("BLOCK")
  *                     .build())
  *                 .priority(1)
  *                 .ruleId(foo.id())
  *                 .build())
  *             .build());
  * 
- *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
  *         final var available = AwsFunctions.getAvailabilityZones();
  * 
- *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
+ *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()        
  *             .vpcId(fooVpc.id())
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .cidrBlock("10.1.1.0/24")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
- *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
+ *         var bar = new Subnet("bar", SubnetArgs.builder()        
  *             .vpcId(fooVpc.id())
- *             .cidrBlock(&#34;10.1.2.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *             .cidrBlock("10.1.2.0/24")
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
  *             .build());
  * 
- *         var fooLoadBalancer = new LoadBalancer(&#34;fooLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var fooLoadBalancer = new LoadBalancer("fooLoadBalancer", LoadBalancerArgs.builder()        
  *             .internal(true)
  *             .subnets(            
  *                 fooSubnet.id(),
  *                 bar.id())
  *             .build());
  * 
- *         var fooWebAclAssociation = new WebAclAssociation(&#34;fooWebAclAssociation&#34;, WebAclAssociationArgs.builder()        
+ *         var fooWebAclAssociation = new WebAclAssociation("fooWebAclAssociation", WebAclAssociationArgs.builder()        
  *             .resourceArn(fooLoadBalancer.arn())
  *             .webAclId(fooWebAcl.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

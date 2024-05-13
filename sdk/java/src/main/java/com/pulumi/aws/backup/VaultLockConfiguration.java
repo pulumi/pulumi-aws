@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,8 +43,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VaultLockConfiguration(&#34;test&#34;, VaultLockConfigurationArgs.builder()        
- *             .backupVaultName(&#34;example_backup_vault&#34;)
+ *         var test = new VaultLockConfiguration("test", VaultLockConfigurationArgs.builder()        
+ *             .backupVaultName("example_backup_vault")
  *             .changeableForDays(3)
  *             .maxRetentionDays(1200)
  *             .minRetentionDays(7)
@@ -51,7 +52,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

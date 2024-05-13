@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new ResourceGroup(&#34;bar&#34;, ResourceGroupArgs.builder()        
+ *         var bar = new ResourceGroup("bar", ResourceGroupArgs.builder()        
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;)
+ *                 Map.entry("Name", "foo"),
+ *                 Map.entry("Env", "bar")
  *             ))
  *             .build());
  * 
- *         var foo = new AssessmentTarget(&#34;foo&#34;, AssessmentTargetArgs.builder()        
- *             .name(&#34;assessment target&#34;)
+ *         var foo = new AssessmentTarget("foo", AssessmentTargetArgs.builder()        
+ *             .name("assessment target")
  *             .resourceGroupArn(bar.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

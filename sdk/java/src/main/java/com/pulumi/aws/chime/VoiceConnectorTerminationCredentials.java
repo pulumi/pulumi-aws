@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,26 +51,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *             .name("test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination(&#34;defaultVoiceConnectorTermination&#34;, VoiceConnectorTerminationArgs.builder()        
+ *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination("defaultVoiceConnectorTermination", VoiceConnectorTerminationArgs.builder()        
  *             .disabled(true)
  *             .cpsLimit(1)
- *             .cidrAllowLists(&#34;50.35.78.96/31&#34;)
+ *             .cidrAllowLists("50.35.78.96/31")
  *             .callingRegions(            
- *                 &#34;US&#34;,
- *                 &#34;CA&#34;)
+ *                 "US",
+ *                 "CA")
  *             .voiceConnectorId(default_.id())
  *             .build());
  * 
- *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials(&#34;defaultVoiceConnectorTerminationCredentials&#34;, VoiceConnectorTerminationCredentialsArgs.builder()        
+ *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", VoiceConnectorTerminationCredentialsArgs.builder()        
  *             .voiceConnectorId(default_.id())
  *             .credentials(VoiceConnectorTerminationCredentialsCredentialArgs.builder()
- *                 .username(&#34;test&#34;)
- *                 .password(&#34;test!&#34;)
+ *                 .username("test")
+ *                 .password("test!")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(defaultVoiceConnectorTermination)
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

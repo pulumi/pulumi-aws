@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +49,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;vc-name-test&#34;)
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming(&#34;defaultVoiceConnectorStreaming&#34;, VoiceConnectorStreamingArgs.builder()        
+ *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()        
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .dataRetention(7)
- *             .streamingNotificationTargets(&#34;SQS&#34;)
+ *             .streamingNotificationTargets("SQS")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Usage With Media Insights
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,55 +106,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;vc-name-test&#34;)
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;mediapipelines.chime.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("mediapipelines.chime.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;ExampleResourceAccessRole&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("ExampleResourceAccessRole")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
- *             .name(&#34;ExampleStream&#34;)
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *             .name("ExampleStream")
  *             .shardCount(2)
  *             .build());
  * 
- *         var example = new MediaInsightsPipelineConfiguration(&#34;example&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;ExampleConfig&#34;)
+ *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("ExampleConfig")
  *             .resourceAccessRoleArn(exampleRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
+ *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode(&#34;en-US&#34;)
+ *                         .languageCode("en-US")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(exampleStream.arn())
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming(&#34;defaultVoiceConnectorStreaming&#34;, VoiceConnectorStreamingArgs.builder()        
+ *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()        
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .dataRetention(7)
- *             .streamingNotificationTargets(&#34;SQS&#34;)
+ *             .streamingNotificationTargets("SQS")
  *             .mediaInsightsConfiguration(VoiceConnectorStreamingMediaInsightsConfigurationArgs.builder()
  *                 .disabled(false)
  *                 .configurationArn(example.arn())
@@ -160,7 +163,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

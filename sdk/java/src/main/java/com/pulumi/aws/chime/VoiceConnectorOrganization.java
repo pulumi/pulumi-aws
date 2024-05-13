@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,26 +48,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *             .name("test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization(&#34;defaultVoiceConnectorOrganization&#34;, VoiceConnectorOrganizationArgs.builder()        
+ *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization("defaultVoiceConnectorOrganization", VoiceConnectorOrganizationArgs.builder()        
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .routes(            
  *                 VoiceConnectorOrganizationRouteArgs.builder()
- *                     .host(&#34;127.0.0.1&#34;)
+ *                     .host("127.0.0.1")
  *                     .port(8081)
- *                     .protocol(&#34;TCP&#34;)
+ *                     .protocol("TCP")
  *                     .priority(1)
  *                     .weight(1)
  *                     .build(),
  *                 VoiceConnectorOrganizationRouteArgs.builder()
- *                     .host(&#34;127.0.0.2&#34;)
+ *                     .host("127.0.0.2")
  *                     .port(8082)
- *                     .protocol(&#34;TCP&#34;)
+ *                     .protocol("TCP")
  *                     .priority(2)
  *                     .weight(10)
  *                     .build())
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

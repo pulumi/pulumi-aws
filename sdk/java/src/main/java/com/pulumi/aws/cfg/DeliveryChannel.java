@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,34 +56,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-awsconfig&#34;)
+ *         var b = new BucketV2("b", BucketV2Args.builder()        
+ *             .bucket("example-awsconfig")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("config.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var r = new Role(&#34;r&#34;, RoleArgs.builder()        
- *             .name(&#34;awsconfig-example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var r = new Role("r", RoleArgs.builder()        
+ *             .name("awsconfig-example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()        
+ *             .name("example")
  *             .roleArn(r.arn())
  *             .build());
  * 
- *         var foo = new DeliveryChannel(&#34;foo&#34;, DeliveryChannelArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var foo = new DeliveryChannel("foo", DeliveryChannelArgs.builder()        
+ *             .name("example")
  *             .s3BucketName(b.bucket())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(fooRecorder)
@@ -90,23 +91,24 @@ import javax.annotation.Nullable;
  * 
  *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;s3:*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("s3:*")
  *                 .resources(                
  *                     b.arn(),
- *                     b.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     b.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                 .build())
  *             .build());
  * 
- *         var pRolePolicy = new RolePolicy(&#34;pRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;awsconfig-example&#34;)
+ *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()        
+ *             .name("awsconfig-example")
  *             .role(r.id())
- *             .policy(p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(p -&gt; p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(p -> p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

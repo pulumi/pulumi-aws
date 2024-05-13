@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
- *             .flowDefinitionName(&#34;example&#34;)
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
+ *                 .taskDescription("example")
+ *                 .taskTitle("example")
  *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Public Workteam Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,16 +102,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
- *             .flowDefinitionName(&#34;example&#34;)
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(String.format(&#34;arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default&#34;, current.name()))
+ *                 .taskDescription("example")
+ *                 .taskTitle("example")
+ *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.name()))
  *                 .publicWorkforceTaskPrice(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.builder()
  *                     .amountInUsd(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.builder()
  *                         .cents(1)
@@ -117,19 +120,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Human Loop Activation Config Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -155,44 +160,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
- *             .flowDefinitionName(&#34;example&#34;)
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
+ *                 .taskDescription("example")
+ *                 .taskTitle("example")
  *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
  *                 .build())
  *             .humanLoopRequestSource(FlowDefinitionHumanLoopRequestSourceArgs.builder()
- *                 .awsManagedHumanLoopRequestSource(&#34;AWS/Textract/AnalyzeDocument/Forms/V1&#34;)
+ *                 .awsManagedHumanLoopRequestSource("AWS/Textract/AnalyzeDocument/Forms/V1")
  *                 .build())
  *             .humanLoopActivationConfig(FlowDefinitionHumanLoopActivationConfigArgs.builder()
  *                 .humanLoopActivationConditionsConfig(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs.builder()
- *                     .humanLoopActivationConditions(&#34;&#34;&#34;
+ *                     .humanLoopActivationConditions("""
  *         {
- * 			&#34;Conditions&#34;: [
+ * 			"Conditions": [
  * 			  {
- * 				&#34;ConditionType&#34;: &#34;Sampling&#34;,
- * 				&#34;ConditionParameters&#34;: {
- * 				  &#34;RandomSamplingPercentage&#34;: 5
+ * 				"ConditionType": "Sampling",
+ * 				"ConditionParameters": {
+ * 				  "RandomSamplingPercentage": 5
  * 				}
  * 			  }
  * 			]
  * 		}
- *                     &#34;&#34;&#34;)
+ *                     """)
  *                     .build())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

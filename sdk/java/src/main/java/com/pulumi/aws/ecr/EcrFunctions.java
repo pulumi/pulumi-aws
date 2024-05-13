@@ -37,7 +37,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,7 +63,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -75,7 +77,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,7 +103,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -113,7 +117,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -138,7 +143,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,7 +183,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -214,7 +223,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -227,7 +237,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -252,7 +263,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,13 +312,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .imageTag(&#34;latest&#34;)
+     *             .repositoryName("my/service")
+     *             .imageTag("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -318,7 +332,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -340,13 +355,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .imageTag(&#34;latest&#34;)
+     *             .repositoryName("my/service")
+     *             .imageTag("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -359,7 +375,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -381,13 +398,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .imageTag(&#34;latest&#34;)
+     *             .repositoryName("my/service")
+     *             .imageTag("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,13 +441,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .imageTag(&#34;latest&#34;)
+     *             .repositoryName("my/service")
+     *             .imageTag("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -443,7 +463,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -469,24 +490,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -501,7 +523,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -527,24 +550,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -559,7 +583,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -585,24 +610,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -617,7 +643,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -643,24 +670,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -675,7 +703,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -701,24 +730,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -733,7 +763,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -759,24 +790,25 @@ public final class EcrFunctions {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
      *                 .priority(1)
-     *                 .description(&#34;This is a test.&#34;)
+     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
-     *                     .tagStatus(&#34;tagged&#34;)
-     *                     .tagPrefixLists(&#34;prod&#34;)
-     *                     .countType(&#34;imageCountMoreThan&#34;)
+     *                     .tagStatus("tagged")
+     *                     .tagPrefixLists("prod")
+     *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -&gt; getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -789,7 +821,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -811,12 +844,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .ecrRepositoryPrefix("ecr-public")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -829,7 +863,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -851,12 +886,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .ecrRepositoryPrefix("ecr-public")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -869,7 +905,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -891,12 +928,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .ecrRepositoryPrefix("ecr-public")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -909,7 +947,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,12 +970,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .ecrRepositoryPrefix("ecr-public")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -951,7 +991,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -975,7 +1016,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -990,7 +1032,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1014,7 +1057,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1029,7 +1073,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1053,7 +1098,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1068,7 +1114,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1092,7 +1139,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1107,7 +1155,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1131,7 +1180,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1146,7 +1196,8 @@ public final class EcrFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1170,7 +1221,8 @@ public final class EcrFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1183,7 +1235,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1205,12 +1258,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
+     *             .name("ecr-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1223,7 +1277,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1245,12 +1300,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
+     *             .name("ecr-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1263,7 +1319,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1285,12 +1342,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
+     *             .name("ecr-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1303,7 +1361,8 @@ public final class EcrFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1325,12 +1384,13 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
+     *             .name("ecr-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

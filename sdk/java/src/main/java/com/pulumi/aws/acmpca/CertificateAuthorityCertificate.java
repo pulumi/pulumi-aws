@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Self-Signed Root Certificate Authority Certificate
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,31 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
- *             .type(&#34;ROOT&#34;)
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
- *             .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *             .templateArn(String.format(&#34;arn:%s:acm-pca:::template/RootCACertificate/V1&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .validity(CertificateValidityArgs.builder()
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .value(1)
  *                 .build())
  *             .build());
  * 
- *         var example = new CertificateAuthorityCertificate(&#34;example&#34;, CertificateAuthorityCertificateArgs.builder()        
+ *         var example = new CertificateAuthorityCertificate("example", CertificateAuthorityCertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificate(exampleCertificate.certificate())
  *             .certificateChain(exampleCertificate.certificateChain())
@@ -84,7 +85,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Certificate for Subordinate Certificate Authority
@@ -92,7 +94,8 @@ import javax.annotation.Nullable;
  * Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -122,45 +125,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var subordinateCertificateAuthority = new CertificateAuthority(&#34;subordinateCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
- *             .type(&#34;SUBORDINATE&#34;)
+ *         var subordinateCertificateAuthority = new CertificateAuthority("subordinateCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *             .type("SUBORDINATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_2048&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_2048")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;sub.example.com&#34;)
+ *                     .commonName("sub.example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var root = new CertificateAuthority(&#34;root&#34;);
+ *         var root = new CertificateAuthority("root");
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var subordinateCertificate = new Certificate(&#34;subordinateCertificate&#34;, CertificateArgs.builder()        
+ *         var subordinateCertificate = new Certificate("subordinateCertificate", CertificateArgs.builder()        
  *             .certificateAuthorityArn(root.arn())
  *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
- *             .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *             .templateArn(String.format(&#34;arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .validity(CertificateValidityArgs.builder()
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .value(1)
  *                 .build())
  *             .build());
  * 
- *         var subordinate = new CertificateAuthorityCertificate(&#34;subordinate&#34;, CertificateAuthorityCertificateArgs.builder()        
+ *         var subordinate = new CertificateAuthorityCertificate("subordinate", CertificateAuthorityCertificateArgs.builder()        
  *             .certificateAuthorityArn(subordinateCertificateAuthority.arn())
  *             .certificate(subordinateCertificate.certificate())
  *             .certificateChain(subordinateCertificate.certificateChain())
  *             .build());
  * 
- *         var rootCertificateAuthorityCertificate = new CertificateAuthorityCertificate(&#34;rootCertificateAuthorityCertificate&#34;);
+ *         var rootCertificateAuthorityCertificate = new CertificateAuthorityCertificate("rootCertificateAuthorityCertificate");
  * 
- *         var rootCertificate = new Certificate(&#34;rootCertificate&#34;);
+ *         var rootCertificate = new Certificate("rootCertificate");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

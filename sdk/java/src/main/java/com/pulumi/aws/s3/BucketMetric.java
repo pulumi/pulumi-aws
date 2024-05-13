@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Add metrics configuration for entire S3 bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var example_entire_bucket = new BucketMetric(&#34;example-entire-bucket&#34;, BucketMetricArgs.builder()        
+ *         var example_entire_bucket = new BucketMetric("example-entire-bucket", BucketMetricArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;EntireBucket&#34;)
+ *             .name("EntireBucket")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Add metrics configuration with S3 object filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,31 +92,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
+ *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;ImportantBlueDocuments&#34;)
+ *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
+ *                 .prefix("documents/")
  *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                     Map.entry("priority", "high"),
+ *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Add metrics configuration with S3 object filter for S3 Access Point
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -139,30 +144,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var example_access_point = new AccessPoint(&#34;example-access-point&#34;, AccessPointArgs.builder()        
+ *         var example_access_point = new AccessPoint("example-access-point", AccessPointArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;example-access-point&#34;)
+ *             .name("example-access-point")
  *             .build());
  * 
- *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
+ *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;ImportantBlueDocuments&#34;)
+ *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .accessPoint(example_access_point.arn())
  *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                     Map.entry("priority", "high"),
+ *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

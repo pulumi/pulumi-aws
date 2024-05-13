@@ -66,7 +66,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,27 +88,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .dbName(&#34;mydb&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .username(&#34;foo&#34;)
- *             .password(&#34;foobarbaz&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .dbName("mydb")
+ *             .engine("mysql")
+ *             .engineVersion("5.7")
+ *             .instanceClass("db.t3.micro")
+ *             .username("foo")
+ *             .password("foobarbaz")
+ *             .parameterGroupName("default.mysql5.7")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Custom for Oracle Usage with Replica
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -134,48 +137,48 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Lookup the available instance classes for the custom engine for the region being operated in
  *         final var custom-oracle = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
- *             .engine(&#34;custom-oracle-ee&#34;)
- *             .engineVersion(&#34;19.c.ee.002&#34;)
- *             .licenseModel(&#34;bring-your-own-license&#34;)
- *             .storageType(&#34;gp3&#34;)
+ *             .engine("custom-oracle-ee")
+ *             .engineVersion("19.c.ee.002")
+ *             .licenseModel("bring-your-own-license")
+ *             .storageType("gp3")
  *             .preferredInstanceClasses(            
- *                 &#34;db.r5.xlarge&#34;,
- *                 &#34;db.r5.2xlarge&#34;,
- *                 &#34;db.r5.4xlarge&#34;)
+ *                 "db.r5.xlarge",
+ *                 "db.r5.2xlarge",
+ *                 "db.r5.4xlarge")
  *             .build());
  * 
  *         // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
- *             .keyId(&#34;example-ef278353ceba4a5a97de6784565b9f78&#34;)
+ *             .keyId("example-ef278353ceba4a5a97de6784565b9f78")
  *             .build());
  * 
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(50)
  *             .autoMinorVersionUpgrade(false)
- *             .customIamInstanceProfile(&#34;AWSRDSCustomInstanceProfile&#34;)
+ *             .customIamInstanceProfile("AWSRDSCustomInstanceProfile")
  *             .backupRetentionPeriod(7)
  *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_oracle.engine())
  *             .engineVersion(custom_oracle.engineVersion())
- *             .identifier(&#34;ee-instance-demo&#34;)
+ *             .identifier("ee-instance-demo")
  *             .instanceClass(custom_oracle.instanceClass())
- *             .kmsKeyId(byId.applyValue(getKeyResult -&gt; getKeyResult.arn()))
+ *             .kmsKeyId(byId.applyValue(getKeyResult -> getKeyResult.arn()))
  *             .licenseModel(custom_oracle.licenseModel())
  *             .multiAz(false)
- *             .password(&#34;avoid-plaintext-passwords&#34;)
- *             .username(&#34;test&#34;)
+ *             .password("avoid-plaintext-passwords")
+ *             .username("test")
  *             .storageEncrypted(true)
  *             .build());
  * 
- *         var test_replica = new Instance(&#34;test-replica&#34;, InstanceArgs.builder()        
+ *         var test_replica = new Instance("test-replica", InstanceArgs.builder()        
  *             .replicateSourceDb(default_.identifier())
- *             .replicaMode(&#34;mounted&#34;)
+ *             .replicaMode("mounted")
  *             .autoMinorVersionUpgrade(false)
- *             .customIamInstanceProfile(&#34;AWSRDSCustomInstanceProfile&#34;)
+ *             .customIamInstanceProfile("AWSRDSCustomInstanceProfile")
  *             .backupRetentionPeriod(7)
- *             .identifier(&#34;ee-instance-replica&#34;)
+ *             .identifier("ee-instance-replica")
  *             .instanceClass(custom_oracle.instanceClass())
- *             .kmsKeyId(byId.applyValue(getKeyResult -&gt; getKeyResult.arn()))
+ *             .kmsKeyId(byId.applyValue(getKeyResult -> getKeyResult.arn()))
  *             .multiAz(false)
  *             .skipFinalSnapshot(true)
  *             .storageEncrypted(true)
@@ -183,13 +186,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Custom for SQL Server
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -216,46 +221,48 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Lookup the available instance classes for the custom engine for the region being operated in
  *         final var custom-sqlserver = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
- *             .engine(&#34;custom-sqlserver-se&#34;)
- *             .engineVersion(&#34;15.00.4249.2.v1&#34;)
- *             .storageType(&#34;gp3&#34;)
+ *             .engine("custom-sqlserver-se")
+ *             .engineVersion("15.00.4249.2.v1")
+ *             .storageType("gp3")
  *             .preferredInstanceClasses(            
- *                 &#34;db.r5.xlarge&#34;,
- *                 &#34;db.r5.2xlarge&#34;,
- *                 &#34;db.r5.4xlarge&#34;)
+ *                 "db.r5.xlarge",
+ *                 "db.r5.2xlarge",
+ *                 "db.r5.4xlarge")
  *             .build());
  * 
  *         // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
- *             .keyId(&#34;example-ef278353ceba4a5a97de6784565b9f78&#34;)
+ *             .keyId("example-ef278353ceba4a5a97de6784565b9f78")
  *             .build());
  * 
- *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()        
  *             .allocatedStorage(500)
  *             .autoMinorVersionUpgrade(false)
- *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceProfile&#34;)
+ *             .customIamInstanceProfile("AWSRDSCustomSQLServerInstanceProfile")
  *             .backupRetentionPeriod(7)
  *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_sqlserver.engine())
  *             .engineVersion(custom_sqlserver.engineVersion())
- *             .identifier(&#34;sql-instance-demo&#34;)
+ *             .identifier("sql-instance-demo")
  *             .instanceClass(custom_sqlserver.instanceClass())
- *             .kmsKeyId(byId.applyValue(getKeyResult -&gt; getKeyResult.arn()))
+ *             .kmsKeyId(byId.applyValue(getKeyResult -> getKeyResult.arn()))
  *             .multiAz(false)
- *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .password("avoid-plaintext-passwords")
  *             .storageEncrypted(true)
- *             .username(&#34;test&#34;)
+ *             .username("test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Db2 Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -284,55 +291,56 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
  *         final var default = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
- *             .engine(&#34;db2-se&#34;)
+ *             .engine("db2-se")
  *             .build());
  * 
  *         // Lookup the available instance classes for the engine in the region being operated in
  *         final var example = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(default_.engine())
  *             .engineVersion(default_.version())
- *             .licenseModel(&#34;bring-your-own-license&#34;)
- *             .storageType(&#34;gp3&#34;)
+ *             .licenseModel("bring-your-own-license")
+ *             .storageType("gp3")
  *             .preferredInstanceClasses(            
- *                 &#34;db.t3.small&#34;,
- *                 &#34;db.r6i.large&#34;,
- *                 &#34;db.m6i.large&#34;)
+ *                 "db.t3.small",
+ *                 "db.r6i.large",
+ *                 "db.m6i.large")
  *             .build());
  * 
  *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
- *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
- *             .name(&#34;db-db2-params&#34;)
+ *         var exampleParameterGroup = new ParameterGroup("exampleParameterGroup", ParameterGroupArgs.builder()        
+ *             .name("db-db2-params")
  *             .family(default_.parameterGroupFamily())
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
- *                     .applyMethod(&#34;immediate&#34;)
- *                     .name(&#34;rds.ibm_customer_id&#34;)
+ *                     .applyMethod("immediate")
+ *                     .name("rds.ibm_customer_id")
  *                     .value(0)
  *                     .build(),
  *                 ParameterGroupParameterArgs.builder()
- *                     .applyMethod(&#34;immediate&#34;)
- *                     .name(&#34;rds.ibm_site_id&#34;)
+ *                     .applyMethod("immediate")
+ *                     .name("rds.ibm_site_id")
  *                     .value(0)
  *                     .build())
  *             .build());
  * 
  *         // Create the RDS Db2 instance, use the data sources defined to set attributes
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
  *             .allocatedStorage(100)
  *             .backupRetentionPeriod(7)
- *             .dbName(&#34;test&#34;)
- *             .engine(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engine()))
- *             .engineVersion(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engineVersion()))
- *             .identifier(&#34;db2-instance-demo&#34;)
- *             .instanceClass(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.instanceClass()))
+ *             .dbName("test")
+ *             .engine(example.applyValue(getOrderableDbInstanceResult -> getOrderableDbInstanceResult.engine()))
+ *             .engineVersion(example.applyValue(getOrderableDbInstanceResult -> getOrderableDbInstanceResult.engineVersion()))
+ *             .identifier("db2-instance-demo")
+ *             .instanceClass(example.applyValue(getOrderableDbInstanceResult -> getOrderableDbInstanceResult.instanceClass()))
  *             .parameterGroupName(exampleParameterGroup.name())
- *             .password(&#34;avoid-plaintext-passwords&#34;)
- *             .username(&#34;test&#34;)
+ *             .password("avoid-plaintext-passwords")
+ *             .username("test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Storage Autoscaling
@@ -340,7 +348,8 @@ import javax.annotation.Nullable;
  * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -361,14 +370,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()        
  *             .allocatedStorage(50)
  *             .maxAllocatedStorage(100)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Master Passwords via Secrets Manager, default KMS Key
@@ -378,7 +388,8 @@ import javax.annotation.Nullable;
  * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -399,20 +410,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .dbName(&#34;mydb&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
+ *             .dbName("mydb")
+ *             .engine("mysql")
+ *             .engineVersion("5.7")
+ *             .instanceClass("db.t3.micro")
  *             .manageMasterUserPassword(true)
- *             .username(&#34;foo&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .username("foo")
+ *             .parameterGroupName("default.mysql5.7")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Master Passwords via Secrets Manager, specific KMS Key
@@ -422,7 +434,8 @@ import javax.annotation.Nullable;
  * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -445,25 +458,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Example KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Example KMS Key")
  *             .build());
  * 
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .dbName(&#34;mydb&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
+ *             .dbName("mydb")
+ *             .engine("mysql")
+ *             .engineVersion("5.7")
+ *             .instanceClass("db.t3.micro")
  *             .manageMasterUserPassword(true)
  *             .masterUserSecretKmsKeyId(example.keyId())
- *             .username(&#34;foo&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .username("foo")
+ *             .parameterGroupName("default.mysql5.7")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

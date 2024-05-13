@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,9 +51,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .junctionPath(&#34;/test&#34;)
+ *         var test = new OntapVolume("test", OntapVolumeArgs.builder()        
+ *             .name("test")
+ *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
  *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
@@ -60,7 +61,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Tiering Policy
@@ -68,7 +70,8 @@ import javax.annotation.Nullable;
  * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,21 +93,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .junctionPath(&#34;/test&#34;)
+ *         var test = new OntapVolume("test", OntapVolumeArgs.builder()        
+ *             .name("test")
+ *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
  *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
  *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
- *                 .name(&#34;AUTO&#34;)
+ *                 .name("AUTO")
  *                 .coolingPeriod(31)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

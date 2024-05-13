@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dada = new LogGroup(&#34;dada&#34;, LogGroupArgs.builder()        
- *             .name(&#34;MyApp/access.log&#34;)
+ *         var dada = new LogGroup("dada", LogGroupArgs.builder()        
+ *             .name("MyApp/access.log")
  *             .build());
  * 
- *         var yada = new LogMetricFilter(&#34;yada&#34;, LogMetricFilterArgs.builder()        
- *             .name(&#34;MyAppAccessCount&#34;)
- *             .pattern(&#34;&#34;)
+ *         var yada = new LogMetricFilter("yada", LogMetricFilterArgs.builder()        
+ *             .name("MyAppAccessCount")
+ *             .pattern("")
  *             .logGroupName(dada.name())
  *             .metricTransformation(LogMetricFilterMetricTransformationArgs.builder()
- *                 .name(&#34;EventCount&#34;)
- *                 .namespace(&#34;YourNamespace&#34;)
- *                 .value(&#34;1&#34;)
+ *                 .name("EventCount")
+ *                 .namespace("YourNamespace")
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

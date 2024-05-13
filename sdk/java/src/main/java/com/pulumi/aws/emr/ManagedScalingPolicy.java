@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample = new Cluster(&#34;sample&#34;, ClusterArgs.builder()        
- *             .name(&#34;emr-sample-cluster&#34;)
- *             .releaseLabel(&#34;emr-5.30.0&#34;)
+ *         var sample = new Cluster("sample", ClusterArgs.builder()        
+ *             .name("emr-sample-cluster")
+ *             .releaseLabel("emr-5.30.0")
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
+ *                 .instanceType("m4.large")
  *                 .build())
  *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
+ *                 .instanceType("c4.large")
  *                 .build())
  *             .build());
  * 
- *         var samplepolicy = new ManagedScalingPolicy(&#34;samplepolicy&#34;, ManagedScalingPolicyArgs.builder()        
+ *         var samplepolicy = new ManagedScalingPolicy("samplepolicy", ManagedScalingPolicyArgs.builder()        
  *             .clusterId(sample.id())
  *             .computeLimits(ManagedScalingPolicyComputeLimitArgs.builder()
- *                 .unitType(&#34;Instances&#34;)
+ *                 .unitType("Instances")
  *                 .minimumCapacityUnits(2)
  *                 .maximumCapacityUnits(10)
  *                 .maximumOndemandCapacityUnits(2)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

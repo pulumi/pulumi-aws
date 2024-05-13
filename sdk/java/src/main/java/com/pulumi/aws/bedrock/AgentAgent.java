@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,52 +65,53 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;bedrock.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("bedrock.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .values(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                         .variable(&#34;aws:SourceAccount&#34;)
+ *                         .test("StringEquals")
+ *                         .values(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .variable("aws:SourceAccount")
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;ArnLike&#34;)
- *                         .values(String.format(&#34;arn:aws:bedrock:%s:%s:agent/*&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                         .variable(&#34;AWS:SourceArn&#34;)
+ *                         .test("ArnLike")
+ *                         .values(String.format("arn:aws:bedrock:%s:%s:agent/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .variable("AWS:SourceArn")
  *                         .build())
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(exampleAgentTrust.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .namePrefix(&#34;AmazonBedrockExecutionRoleForAgents_&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAgentTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
  *             .build());
  * 
  *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;bedrock:InvokeModel&#34;)
- *                 .resources(String.format(&#34;arn:aws:bedrock:%s::foundation-model/anthropic.claude-v2&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *                 .actions("bedrock:InvokeModel")
+ *                 .resources(String.format("arn:aws:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(example.id())
  *             .build());
  * 
- *         var test = new AgentAgent(&#34;test&#34;, AgentAgentArgs.builder()        
- *             .agentName(&#34;my-agent-name&#34;)
+ *         var test = new AgentAgent("test", AgentAgentArgs.builder()        
+ *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
  *             .idleSessionTtlInSeconds(500)
- *             .foundationModel(&#34;anthropic.claude-v2&#34;)
+ *             .foundationModel("anthropic.claude-v2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

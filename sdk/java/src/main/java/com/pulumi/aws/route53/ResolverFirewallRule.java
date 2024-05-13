@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverFirewallDomainList(&#34;example&#34;, ResolverFirewallDomainListArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .domains(&#34;example.com&#34;)
+ *         var example = new ResolverFirewallDomainList("example", ResolverFirewallDomainListArgs.builder()        
+ *             .name("example")
+ *             .domains("example.com")
  *             .tags()
  *             .build());
  * 
- *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup(&#34;exampleResolverFirewallRuleGroup&#34;, ResolverFirewallRuleGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", ResolverFirewallRuleGroupArgs.builder()        
+ *             .name("example")
  *             .tags()
  *             .build());
  * 
- *         var exampleResolverFirewallRule = new ResolverFirewallRule(&#34;exampleResolverFirewallRule&#34;, ResolverFirewallRuleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .action(&#34;BLOCK&#34;)
- *             .blockOverrideDnsType(&#34;CNAME&#34;)
- *             .blockOverrideDomain(&#34;example.com&#34;)
+ *         var exampleResolverFirewallRule = new ResolverFirewallRule("exampleResolverFirewallRule", ResolverFirewallRuleArgs.builder()        
+ *             .name("example")
+ *             .action("BLOCK")
+ *             .blockOverrideDnsType("CNAME")
+ *             .blockOverrideDomain("example.com")
  *             .blockOverrideTtl(1)
- *             .blockResponse(&#34;OVERRIDE&#34;)
+ *             .blockResponse("OVERRIDE")
  *             .firewallDomainListId(example.id())
  *             .firewallRuleGroupId(exampleResolverFirewallRuleGroup.id())
  *             .priority(100)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

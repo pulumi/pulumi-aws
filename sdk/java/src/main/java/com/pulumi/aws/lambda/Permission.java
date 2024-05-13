@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,55 +52,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
- *             .name(&#34;iam_for_lambda&#34;)
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *             .name("iam_for_lambda")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "lambda.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
- *             .name(&#34;lambda_function_name&#34;)
+ *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+ *             .code(new FileArchive("lambdatest.zip"))
+ *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
- *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;nodejs16.x&#34;)
+ *             .handler("exports.handler")
+ *             .runtime("nodejs16.x")
  *             .build());
  * 
- *         var testAlias = new Alias(&#34;testAlias&#34;, AliasArgs.builder()        
- *             .name(&#34;testalias&#34;)
- *             .description(&#34;a sample description&#34;)
+ *         var testAlias = new Alias("testAlias", AliasArgs.builder()        
+ *             .name("testalias")
+ *             .description("a sample description")
  *             .functionName(testLambda.name())
- *             .functionVersion(&#34;$LATEST&#34;)
+ *             .functionVersion("$LATEST")
  *             .build());
  * 
- *         var allowCloudwatch = new Permission(&#34;allowCloudwatch&#34;, PermissionArgs.builder()        
- *             .statementId(&#34;AllowExecutionFromCloudWatch&#34;)
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var allowCloudwatch = new Permission("allowCloudwatch", PermissionArgs.builder()        
+ *             .statementId("AllowExecutionFromCloudWatch")
+ *             .action("lambda:InvokeFunction")
  *             .function(testLambda.name())
- *             .principal(&#34;events.amazonaws.com&#34;)
- *             .sourceArn(&#34;arn:aws:events:eu-west-1:111122223333:rule/RunDaily&#34;)
+ *             .principal("events.amazonaws.com")
+ *             .sourceArn("arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
  *             .qualifier(testAlias.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With SNS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -130,57 +133,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Topic(&#34;default&#34;, TopicArgs.builder()        
- *             .name(&#34;call-lambda-maybe&#34;)
+ *         var default_ = new Topic("default", TopicArgs.builder()        
+ *             .name("call-lambda-maybe")
  *             .build());
  * 
- *         var defaultRole = new Role(&#34;defaultRole&#34;, RoleArgs.builder()        
- *             .name(&#34;iam_for_lambda_with_sns&#34;)
+ *         var defaultRole = new Role("defaultRole", RoleArgs.builder()        
+ *             .name("iam_for_lambda_with_sns")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "lambda.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var func = new Function(&#34;func&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
- *             .name(&#34;lambda_called_from_sns&#34;)
+ *         var func = new Function("func", FunctionArgs.builder()        
+ *             .code(new FileArchive("lambdatest.zip"))
+ *             .name("lambda_called_from_sns")
  *             .role(defaultRole.arn())
- *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;python3.7&#34;)
+ *             .handler("exports.handler")
+ *             .runtime("python3.7")
  *             .build());
  * 
- *         var withSns = new Permission(&#34;withSns&#34;, PermissionArgs.builder()        
- *             .statementId(&#34;AllowExecutionFromSNS&#34;)
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var withSns = new Permission("withSns", PermissionArgs.builder()        
+ *             .statementId("AllowExecutionFromSNS")
+ *             .action("lambda:InvokeFunction")
  *             .function(func.name())
- *             .principal(&#34;sns.amazonaws.com&#34;)
+ *             .principal("sns.amazonaws.com")
  *             .sourceArn(default_.arn())
  *             .build());
  * 
- *         var lambda = new TopicSubscription(&#34;lambda&#34;, TopicSubscriptionArgs.builder()        
+ *         var lambda = new TopicSubscription("lambda", TopicSubscriptionArgs.builder()        
  *             .topic(default_.arn())
- *             .protocol(&#34;lambda&#34;)
+ *             .protocol("lambda")
  *             .endpoint(func.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With API Gateway REST API
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -203,28 +208,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var lambdaPermission = new Permission(&#34;lambdaPermission&#34;, PermissionArgs.builder()        
- *             .statementId(&#34;AllowMyDemoAPIInvoke&#34;)
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(&#34;MyDemoFunction&#34;)
- *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/*&#34;, executionArn)))
+ *         var lambdaPermission = new Permission("lambdaPermission", PermissionArgs.builder()        
+ *             .statementId("AllowMyDemoAPIInvoke")
+ *             .action("lambda:InvokeFunction")
+ *             .function("MyDemoFunction")
+ *             .principal("apigateway.amazonaws.com")
+ *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -> String.format("%s/*", executionArn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With CloudWatch Log Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -257,59 +264,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new LogGroup(&#34;default&#34;, LogGroupArgs.builder()        
- *             .name(&#34;/default&#34;)
+ *         var default_ = new LogGroup("default", LogGroupArgs.builder()        
+ *             .name("/default")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var defaultRole = new Role(&#34;defaultRole&#34;, RoleArgs.builder()        
- *             .name(&#34;iam_for_lambda_called_from_cloudwatch_logs&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var defaultRole = new Role("defaultRole", RoleArgs.builder()        
+ *             .name("iam_for_lambda_called_from_cloudwatch_logs")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var loggingFunction = new Function(&#34;loggingFunction&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lamba_logging.zip&#34;))
- *             .name(&#34;lambda_called_from_cloudwatch_logs&#34;)
- *             .handler(&#34;exports.handler&#34;)
+ *         var loggingFunction = new Function("loggingFunction", FunctionArgs.builder()        
+ *             .code(new FileArchive("lamba_logging.zip"))
+ *             .name("lambda_called_from_cloudwatch_logs")
+ *             .handler("exports.handler")
  *             .role(defaultRole.arn())
- *             .runtime(&#34;python3.7&#34;)
+ *             .runtime("python3.7")
  *             .build());
  * 
- *         var logging = new Permission(&#34;logging&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var logging = new Permission("logging", PermissionArgs.builder()        
+ *             .action("lambda:InvokeFunction")
  *             .function(loggingFunction.name())
- *             .principal(&#34;logs.eu-west-1.amazonaws.com&#34;)
- *             .sourceArn(default_.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .principal("logs.eu-west-1.amazonaws.com")
+ *             .sourceArn(default_.arn().applyValue(arn -> String.format("%s:*", arn)))
  *             .build());
  * 
- *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter(&#34;loggingLogSubscriptionFilter&#34;, LogSubscriptionFilterArgs.builder()        
+ *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter("loggingLogSubscriptionFilter", LogSubscriptionFilterArgs.builder()        
  *             .destinationArn(loggingFunction.arn())
- *             .filterPattern(&#34;&#34;)
+ *             .filterPattern("")
  *             .logGroup(default_.name())
- *             .name(&#34;logging_default&#34;)
+ *             .name("logging_default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(logging)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Cross-Account Invocation Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -332,22 +341,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var url = new FunctionUrl(&#34;url&#34;, FunctionUrlArgs.builder()        
+ *         var url = new FunctionUrl("url", FunctionUrlArgs.builder()        
  *             .functionName(example.functionName())
- *             .authorizationType(&#34;AWS_IAM&#34;)
+ *             .authorizationType("AWS_IAM")
  *             .build());
  * 
- *         var urlPermission = new Permission(&#34;urlPermission&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunctionUrl&#34;)
+ *         var urlPermission = new Permission("urlPermission", PermissionArgs.builder()        
+ *             .action("lambda:InvokeFunctionUrl")
  *             .function(example.functionName())
- *             .principal(&#34;arn:aws:iam::444455556666:role/example&#34;)
- *             .sourceAccount(&#34;444455556666&#34;)
- *             .functionUrlAuthType(&#34;AWS_IAM&#34;)
+ *             .principal("arn:aws:iam::444455556666:role/example")
+ *             .sourceAccount("444455556666")
+ *             .functionUrlAuthType("AWS_IAM")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

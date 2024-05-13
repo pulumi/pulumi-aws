@@ -41,7 +41,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -66,7 +67,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -79,7 +81,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,7 +107,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -117,7 +121,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,7 +147,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,7 +187,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,7 +227,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -231,7 +241,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -256,7 +267,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -274,7 +286,8 @@ public final class S3Functions {
      * ### Route53 Record
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,32 +314,34 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;bucket.test.com&#34;)
+     *             .bucket("bucket.test.com")
      *             .build());
      * 
      *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
-     *             .name(&#34;bucket&#34;)
-     *             .type(&#34;A&#34;)
+     *         var example = new Record("example", RecordArgs.builder()        
+     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .name("bucket")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### CloudFront Origin
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,19 +366,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;a-test-bucket&#34;)
+     *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
-     *                 .originId(&#34;s3-selected-bucket&#34;)
+     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -381,7 +397,8 @@ public final class S3Functions {
      * ### Route53 Record
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -408,32 +425,34 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;bucket.test.com&#34;)
+     *             .bucket("bucket.test.com")
      *             .build());
      * 
      *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
-     *             .name(&#34;bucket&#34;)
-     *             .type(&#34;A&#34;)
+     *         var example = new Record("example", RecordArgs.builder()        
+     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .name("bucket")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### CloudFront Origin
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,19 +477,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;a-test-bucket&#34;)
+     *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
-     *                 .originId(&#34;s3-selected-bucket&#34;)
+     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +508,8 @@ public final class S3Functions {
      * ### Route53 Record
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -515,32 +536,34 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;bucket.test.com&#34;)
+     *             .bucket("bucket.test.com")
      *             .build());
      * 
      *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
-     *             .name(&#34;bucket&#34;)
-     *             .type(&#34;A&#34;)
+     *         var example = new Record("example", RecordArgs.builder()        
+     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .name("bucket")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### CloudFront Origin
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -565,19 +588,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;a-test-bucket&#34;)
+     *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
-     *                 .originId(&#34;s3-selected-bucket&#34;)
+     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -595,7 +619,8 @@ public final class S3Functions {
      * ### Route53 Record
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -622,32 +647,34 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;bucket.test.com&#34;)
+     *             .bucket("bucket.test.com")
      *             .build());
      * 
      *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
+     *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
-     *             .name(&#34;bucket&#34;)
-     *             .type(&#34;A&#34;)
+     *         var example = new Record("example", RecordArgs.builder()        
+     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .name("bucket")
+     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### CloudFront Origin
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -672,19 +699,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
-     *             .bucket(&#34;a-test-bucket&#34;)
+     *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
-     *                 .originId(&#34;s3-selected-bucket&#34;)
+     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -705,7 +733,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -729,19 +758,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -751,7 +781,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -775,22 +806,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -811,7 +843,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -835,19 +868,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -857,7 +891,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -881,22 +916,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -917,7 +953,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -941,19 +978,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -963,7 +1001,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -987,22 +1026,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1023,7 +1063,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1047,19 +1088,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -1069,7 +1111,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1093,22 +1136,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1167,7 +1211,8 @@ public final class S3Functions {
      * The following example retrieves IAM policy of a specified S3 bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,13 +1234,14 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
-     *             .bucket(&#34;example-bucket-name&#34;)
+     *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1210,7 +1256,8 @@ public final class S3Functions {
      * The following example retrieves IAM policy of a specified S3 bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1232,13 +1279,14 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
-     *             .bucket(&#34;example-bucket-name&#34;)
+     *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1253,7 +1301,8 @@ public final class S3Functions {
      * The following example retrieves IAM policy of a specified S3 bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1275,13 +1324,14 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
-     *             .bucket(&#34;example-bucket-name&#34;)
+     *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1296,7 +1346,8 @@ public final class S3Functions {
      * The following example retrieves IAM policy of a specified S3 bucket.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1318,13 +1369,14 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
-     *             .bucket(&#34;example-bucket-name&#34;)
+     *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1340,7 +1392,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1362,10 +1415,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1381,7 +1435,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1403,10 +1458,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1422,7 +1478,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1444,10 +1501,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1463,7 +1521,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1485,10 +1544,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1504,7 +1564,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1526,10 +1587,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1545,7 +1607,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1567,10 +1630,11 @@ public final class S3Functions {
      *     public static void stack(Context ctx) {
      *         final var current = S3Functions.getCanonicalUserId();
      * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1583,7 +1647,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1607,7 +1672,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1620,7 +1686,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1644,7 +1711,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1657,7 +1725,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1681,7 +1750,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1694,7 +1764,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1718,7 +1789,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1731,7 +1803,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1755,7 +1828,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1768,7 +1842,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1792,7 +1867,8 @@ public final class S3Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1811,7 +1887,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1835,19 +1912,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -1857,7 +1935,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1881,22 +1960,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1915,7 +1995,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1939,19 +2020,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -1961,7 +2043,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1985,22 +2068,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2019,7 +2103,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2043,19 +2128,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -2065,7 +2151,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2089,22 +2176,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2123,7 +2211,8 @@ public final class S3Functions {
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2147,19 +2236,20 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-deploy-config&#34;)
-     *             .key(&#34;ec2-bootstrap-script.sh&#34;)
+     *             .bucket("ourcorp-deploy-config")
+     *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
+     *         var example = new Instance("example", InstanceArgs.builder()        
+     *             .instanceType("t2.micro")
+     *             .ami("ami-2757f631")
+     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
@@ -2169,7 +2259,8 @@ public final class S3Functions {
      * `aws.lambda.Function`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2193,22 +2284,23 @@ public final class S3Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
-     *             .bucket(&#34;ourcorp-lambda-functions&#34;)
-     *             .key(&#34;hello-world.zip&#34;)
+     *             .bucket("ourcorp-lambda-functions")
+     *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
-     *             .name(&#34;lambda_function_name&#34;)
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
-     *             .handler(&#34;exports.test&#34;)
+     *             .handler("exports.test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,32 +49,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.6.21&#34;)
- *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .dbName(&#34;baz&#34;)
- *             .password(&#34;barbarbarbar&#34;)
- *             .username(&#34;foo&#34;)
- *             .maintenanceWindow(&#34;Fri:09:00-Fri:09:30&#34;)
+ *             .engine("mysql")
+ *             .engineVersion("5.6.21")
+ *             .instanceClass("db.t2.micro")
+ *             .dbName("baz")
+ *             .password("barbarbarbar")
+ *             .username("foo")
+ *             .maintenanceWindow("Fri:09:00-Fri:09:30")
  *             .backupRetentionPeriod(0)
- *             .parameterGroupName(&#34;default.mysql5.6&#34;)
+ *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
  *             .dbInstanceIdentifier(example.identifier())
- *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
+ *             .dbSnapshotIdentifier("testsnapshot1234")
  *             .build());
  * 
- *         var exampleSnapshotCopy = new SnapshotCopy(&#34;exampleSnapshotCopy&#34;, SnapshotCopyArgs.builder()        
+ *         var exampleSnapshotCopy = new SnapshotCopy("exampleSnapshotCopy", SnapshotCopyArgs.builder()        
  *             .sourceDbSnapshotIdentifier(exampleSnapshot.dbSnapshotArn())
- *             .targetDbSnapshotIdentifier(&#34;testsnapshot1234-copy&#34;)
+ *             .targetDbSnapshotIdentifier("testsnapshot1234-copy")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

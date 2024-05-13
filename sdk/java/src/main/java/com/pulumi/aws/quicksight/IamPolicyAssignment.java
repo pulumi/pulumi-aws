@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IamPolicyAssignment(&#34;example&#34;, IamPolicyAssignmentArgs.builder()        
- *             .assignmentName(&#34;example&#34;)
- *             .assignmentStatus(&#34;ENABLED&#34;)
+ *         var example = new IamPolicyAssignment("example", IamPolicyAssignmentArgs.builder()        
+ *             .assignmentName("example")
+ *             .assignmentStatus("ENABLED")
  *             .policyArn(exampleAwsIamPolicy.arn())
  *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
  *                 .users(exampleAwsQuicksightUser.userName())
@@ -56,7 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

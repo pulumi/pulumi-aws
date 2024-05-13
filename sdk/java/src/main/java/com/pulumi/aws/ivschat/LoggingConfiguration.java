@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage - Logging to CloudWatch
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,9 +49,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;);
+ *         var example = new LogGroup("example");
  * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .cloudwatchLogs(LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs.builder()
  *                     .logGroupName(example.name())
@@ -60,13 +61,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,42 +103,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucketPrefix(&#34;tf-ivschat-logging-bucket&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucketPrefix("tf-ivschat-logging-bucket")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("firehose.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;firehose_example_role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("firehose_example_role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new FirehoseDeliveryStream(&#34;example&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .name(&#34;pulumi-kinesis-firehose-extended-s3-example-stream&#34;)
- *             .destination(&#34;extended_s3&#34;)
+ *         var example = new FirehoseDeliveryStream("example", FirehoseDeliveryStreamArgs.builder()        
+ *             .name("pulumi-kinesis-firehose-extended-s3-example-stream")
+ *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(exampleRole.arn())
  *                 .bucketArn(exampleBucketV2.arn())
  *                 .build())
- *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;true&#34;))
+ *             .tags(Map.of("LogDeliveryEnabled", "true"))
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .firehose(LoggingConfigurationDestinationConfigurationFirehoseArgs.builder()
  *                     .deliveryStreamName(example.name())
@@ -145,13 +148,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Usage - Logging to S3
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -176,12 +181,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucketName(&#34;tf-ivschat-logging&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucketName("tf-ivschat-logging")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
  *                     .bucketName(example.id())
@@ -191,7 +196,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

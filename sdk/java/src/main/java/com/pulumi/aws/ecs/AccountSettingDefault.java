@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AccountSettingDefault(&#34;test&#34;, AccountSettingDefaultArgs.builder()        
- *             .name(&#34;taskLongArnFormat&#34;)
- *             .value(&#34;enabled&#34;)
+ *         var test = new AccountSettingDefault("test", AccountSettingDefaultArgs.builder()        
+ *             .name("taskLongArnFormat")
+ *             .value("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

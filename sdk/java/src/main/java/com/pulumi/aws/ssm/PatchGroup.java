@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
- *             .name(&#34;patch-baseline&#34;)
- *             .approvedPatches(&#34;KB123456&#34;)
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *             .name("patch-baseline")
+ *             .approvedPatches("KB123456")
  *             .build());
  * 
- *         var patchgroup = new PatchGroup(&#34;patchgroup&#34;, PatchGroupArgs.builder()        
+ *         var patchgroup = new PatchGroup("patchgroup", PatchGroupArgs.builder()        
  *             .baselineId(production.id())
- *             .patchGroup(&#34;patch-group-name&#34;)
+ *             .patchGroup("patch-group-name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

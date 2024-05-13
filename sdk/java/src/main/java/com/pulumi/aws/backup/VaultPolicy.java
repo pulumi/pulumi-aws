@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,38 +45,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
  *                 .actions(                
- *                     &#34;backup:DescribeBackupVault&#34;,
- *                     &#34;backup:DeleteBackupVault&#34;,
- *                     &#34;backup:PutBackupVaultAccessPolicy&#34;,
- *                     &#34;backup:DeleteBackupVaultAccessPolicy&#34;,
- *                     &#34;backup:GetBackupVaultAccessPolicy&#34;,
- *                     &#34;backup:StartBackupJob&#34;,
- *                     &#34;backup:GetBackupVaultNotifications&#34;,
- *                     &#34;backup:PutBackupVaultNotifications&#34;)
+ *                     "backup:DescribeBackupVault",
+ *                     "backup:DeleteBackupVault",
+ *                     "backup:PutBackupVaultAccessPolicy",
+ *                     "backup:DeleteBackupVaultAccessPolicy",
+ *                     "backup:GetBackupVaultAccessPolicy",
+ *                     "backup:StartBackupJob",
+ *                     "backup:GetBackupVaultNotifications",
+ *                     "backup:PutBackupVaultNotifications")
  *                 .resources(exampleVault.arn())
  *                 .build())
  *             .build());
  * 
- *         var exampleVaultPolicy = new VaultPolicy(&#34;exampleVaultPolicy&#34;, VaultPolicyArgs.builder()        
+ *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()        
  *             .backupVaultName(exampleVault.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

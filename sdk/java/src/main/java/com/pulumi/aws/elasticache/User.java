@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .userId("testUserId")
+ *             .userName("testUserName")
+ *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .engine("REDIS")
+ *             .passwords("password123456789")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,23 +85,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
- *             .accessString(&#34;on ~* +@all&#34;)
- *             .engine(&#34;REDIS&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .userId("testUserId")
+ *             .userName("testUserName")
+ *             .accessString("on ~* +{@literal @}all")
+ *             .engine("REDIS")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type(&#34;iam&#34;)
+ *                 .type("iam")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -120,22 +125,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
- *             .accessString(&#34;on ~* +@all&#34;)
- *             .engine(&#34;REDIS&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .userId("testUserId")
+ *             .userName("testUserName")
+ *             .accessString("on ~* +{@literal @}all")
+ *             .engine("REDIS")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type(&#34;password&#34;)
+ *                 .type("password")
  *                 .passwords(                
- *                     &#34;password1&#34;,
- *                     &#34;password2&#34;)
+ *                     "password1",
+ *                     "password2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

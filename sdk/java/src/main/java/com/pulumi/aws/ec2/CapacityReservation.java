@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new CapacityReservation(&#34;default&#34;, CapacityReservationArgs.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
- *             .instancePlatform(&#34;Linux/UNIX&#34;)
- *             .availabilityZone(&#34;eu-west-1a&#34;)
+ *         var default_ = new CapacityReservation("default", CapacityReservationArgs.builder()        
+ *             .instanceType("t2.micro")
+ *             .instancePlatform("Linux/UNIX")
+ *             .availabilityZone("eu-west-1a")
  *             .instanceCount(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

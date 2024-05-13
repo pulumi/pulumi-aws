@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,16 +48,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var test = new FindingsFilter(&#34;test&#34;, FindingsFilterArgs.builder()        
- *             .name(&#34;NAME OF THE FINDINGS FILTER&#34;)
- *             .description(&#34;DESCRIPTION&#34;)
+ *         var test = new FindingsFilter("test", FindingsFilterArgs.builder()        
+ *             .name("NAME OF THE FINDINGS FILTER")
+ *             .description("DESCRIPTION")
  *             .position(1)
- *             .action(&#34;ARCHIVE&#34;)
+ *             .action("ARCHIVE")
  *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
  *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
- *                     .field(&#34;region&#34;)
+ *                     .field("region")
  *                     .eqs(current.name())
  *                     .build())
  *                 .build())
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

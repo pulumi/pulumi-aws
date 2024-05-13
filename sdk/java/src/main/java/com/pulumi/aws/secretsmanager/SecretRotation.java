@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecretRotation(&#34;example&#34;, SecretRotationArgs.builder()        
+ *         var example = new SecretRotation("example", SecretRotationArgs.builder()        
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
  *             .rotationRules(SecretRotationRotationRulesArgs.builder()
@@ -56,7 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Rotation Configuration

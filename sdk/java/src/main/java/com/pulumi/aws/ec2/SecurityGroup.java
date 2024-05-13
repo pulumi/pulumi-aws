@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,50 +61,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
- *             .name(&#34;allow_tls&#34;)
- *             .description(&#34;Allow TLS inbound traffic and all outbound traffic&#34;)
+ *         var allowTls = new SecurityGroup("allowTls", SecurityGroupArgs.builder()        
+ *             .name("allow_tls")
+ *             .description("Allow TLS inbound traffic and all outbound traffic")
  *             .vpcId(main.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .tags(Map.of("Name", "allow_tls"))
  *             .build());
  * 
- *         var allowTlsIpv4 = new SecurityGroupIngressRule(&#34;allowTlsIpv4&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *         var allowTlsIpv4 = new SecurityGroupIngressRule("allowTlsIpv4", SecurityGroupIngressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv4(main.cidrBlock())
  *             .fromPort(443)
- *             .ipProtocol(&#34;tcp&#34;)
+ *             .ipProtocol("tcp")
  *             .toPort(443)
  *             .build());
  * 
- *         var allowTlsIpv6 = new SecurityGroupIngressRule(&#34;allowTlsIpv6&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *         var allowTlsIpv6 = new SecurityGroupIngressRule("allowTlsIpv6", SecurityGroupIngressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv6(main.ipv6CidrBlock())
  *             .fromPort(443)
- *             .ipProtocol(&#34;tcp&#34;)
+ *             .ipProtocol("tcp")
  *             .toPort(443)
  *             .build());
  * 
- *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv4&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule("allowAllTrafficIpv4", SecurityGroupEgressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv4(&#34;0.0.0.0/0&#34;)
- *             .ipProtocol(&#34;-1&#34;)
+ *             .cidrIpv4("0.0.0.0/0")
+ *             .ipProtocol("-1")
  *             .build());
  * 
- *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv6&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule("allowAllTrafficIpv6", SecurityGroupEgressRuleArgs.builder()        
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv6(&#34;::/0&#34;)
- *             .ipProtocol(&#34;-1&#34;)
+ *             .cidrIpv6("::/0")
+ *             .ipProtocol("-1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,19 +128,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
+ *                 .protocol("-1")
+ *                 .cidrBlocks("0.0.0.0/0")
+ *                 .ipv6CidrBlocks("::/0")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage With Prefix List IDs
@@ -148,7 +152,8 @@ import javax.annotation.Nullable;
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -171,20 +176,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
+ *         var myEndpoint = new VpcEndpoint("myEndpoint");
  * 
- *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
+ *                 .protocol("-1")
  *                 .prefixListIds(myEndpoint.prefixListId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
@@ -194,7 +200,8 @@ import javax.annotation.Nullable;
  * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -215,8 +222,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .name(&#34;sg&#34;)
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *             .name("sg")
  *             .vpcId(exampleAwsVpc.id())
  *             .ingress()
  *             .egress()
@@ -224,7 +231,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Recreating a Security Group
@@ -246,7 +254,8 @@ import javax.annotation.Nullable;
  * If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn&#39;t scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -267,13 +276,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .name(&#34;izizavle&#34;)
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *             .name("izizavle")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Provisioners
@@ -283,7 +293,8 @@ import javax.annotation.Nullable;
  * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -312,46 +323,47 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var default = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
- *             .name(&#34;default&#34;)
+ *             .name("default")
  *             .build());
  * 
- *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .name(&#34;sg&#34;)
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *             .name("sg")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;workaround1&#34;, &#34;tagged-name&#34;),
- *                 Map.entry(&#34;workaround2&#34;, default_.id())
+ *                 Map.entry("workaround1", "tagged-name"),
+ *                 Map.entry("workaround2", default_.id())
  *             ))
  *             .build());
  * 
- *         var exampleProvisioner0 = new Command(&#34;exampleProvisioner0&#34;, CommandArgs.builder()        
- *             .create(&#34;true&#34;)
- *             .update(&#34;true&#34;)
- *             .delete(&#34;&#34;&#34;
- *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters &#34;Name=tag:Name,Values=%s&#34; --query &#34;VpcEndpoints[0].VpcEndpointId&#34; --output text` &amp;&amp;
+ *         var exampleProvisioner0 = new Command("exampleProvisioner0", CommandArgs.builder()        
+ *             .create("true")
+ *             .update("true")
+ *             .delete("""
+ *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=%s" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
- * &#34;, tags.workaround1(),tags.workaround2(),id))
+ * ", tags.workaround1(),tags.workaround2(),id))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .triggers(Map.of(&#34;rerun_upon_change_of&#34;, StdFunctions.join(JoinArgs.builder()
- *                 .separator(&#34;,&#34;)
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
+ *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))
  *             .build());
  * 
- *         var exampleResourceProvisioner0 = new Command(&#34;exampleResourceProvisioner0&#34;, CommandArgs.builder()        
- *             .create(&#34;&#34;&#34;
+ *         var exampleResourceProvisioner0 = new Command("exampleResourceProvisioner0", CommandArgs.builder()        
+ *             .create("""
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
- * &#34;, exampleAwsVpcEndpoint.id(),default_.id()))
+ * ", exampleAwsVpcEndpoint.id(),default_.id()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleResource)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IntegrationResponse(&#34;example&#34;, IntegrationResponseArgs.builder()        
+ *         var example = new IntegrationResponse("example", IntegrationResponseArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationId(exampleAwsApigatewayv2Integration.id())
- *             .integrationResponseKey(&#34;/200/&#34;)
+ *             .integrationResponseKey("/200/")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

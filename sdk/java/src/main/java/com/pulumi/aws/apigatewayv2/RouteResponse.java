@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteResponse(&#34;example&#34;, RouteResponseArgs.builder()        
+ *         var example = new RouteResponse("example", RouteResponseArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .routeId(exampleAwsApigatewayv2Route.id())
- *             .routeResponseKey(&#34;$default&#34;)
+ *             .routeResponseKey("$default")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Enabling Two-Way Communication

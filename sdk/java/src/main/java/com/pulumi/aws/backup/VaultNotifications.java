@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,40 +48,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;backup-vault-events&#34;)
+ *         var testTopic = new Topic("testTopic", TopicArgs.builder()        
+ *             .name("backup-vault-events")
  *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
+ *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;SNS:Publish&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .actions("SNS:Publish")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;backup.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("backup.amazonaws.com")
  *                     .build())
  *                 .resources(testTopic.arn())
- *                 .sid(&#34;__default_statement_ID&#34;)
+ *                 .sid("__default_statement_ID")
  *                 .build())
  *             .build());
  * 
- *         var testTopicPolicy = new TopicPolicy(&#34;testTopicPolicy&#34;, TopicPolicyArgs.builder()        
+ *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()        
  *             .arn(testTopic.arn())
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var testVaultNotifications = new VaultNotifications(&#34;testVaultNotifications&#34;, VaultNotificationsArgs.builder()        
- *             .backupVaultName(&#34;example_backup_vault&#34;)
+ *         var testVaultNotifications = new VaultNotifications("testVaultNotifications", VaultNotificationsArgs.builder()        
+ *             .backupVaultName("example_backup_vault")
  *             .snsTopicArn(testTopic.arn())
  *             .backupVaultEvents(            
- *                 &#34;BACKUP_JOB_STARTED&#34;,
- *                 &#34;RESTORE_JOB_COMPLETED&#34;)
+ *                 "BACKUP_JOB_STARTED",
+ *                 "RESTORE_JOB_COMPLETED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

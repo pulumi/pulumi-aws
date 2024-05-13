@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +54,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myContainerService = new ContainerService(&#34;myContainerService&#34;, ContainerServiceArgs.builder()        
- *             .name(&#34;container-service-1&#34;)
- *             .power(&#34;nano&#34;)
+ *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()        
+ *             .name("container-service-1")
+ *             .power("nano")
  *             .scale(1)
  *             .isDisabled(false)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;foo1&#34;, &#34;bar1&#34;),
- *                 Map.entry(&#34;foo2&#34;, &#34;&#34;)
+ *                 Map.entry("foo1", "bar1"),
+ *                 Map.entry("foo2", "")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Public Domain Names
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,24 +97,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myContainerService = new ContainerService(&#34;myContainerService&#34;, ContainerServiceArgs.builder()        
+ *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()        
  *             .publicDomainNames(ContainerServicePublicDomainNamesArgs.builder()
  *                 .certificates(ContainerServicePublicDomainNamesCertificateArgs.builder()
- *                     .certificateName(&#34;example-certificate&#34;)
- *                     .domainNames(&#34;www.example.com&#34;)
+ *                     .certificateName("example-certificate")
+ *                     .domainNames("www.example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Private Registry Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -138,7 +143,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultContainerService = new ContainerService(&#34;defaultContainerService&#34;, ContainerServiceArgs.builder()        
+ *         var defaultContainerService = new ContainerService("defaultContainerService", ContainerServiceArgs.builder()        
  *             .privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs.builder()
  *                 .ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.builder()
  *                     .isActive(true)
@@ -148,25 +153,26 @@ import javax.annotation.Nullable;
  * 
  *         final var default = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -&gt; privateRegistryAccess.ecrImagePullerRole().principalArn()))
+ *                     .type("AWS")
+ *                     .identifiers(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -> privateRegistryAccess.ecrImagePullerRole().principalArn()))
  *                     .build())
  *                 .actions(                
- *                     &#34;ecr:BatchGetImage&#34;,
- *                     &#34;ecr:GetDownloadUrlForLayer&#34;)
+ *                     "ecr:BatchGetImage",
+ *                     "ecr:GetDownloadUrlForLayer")
  *                 .build())
  *             .build());
  * 
- *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
+ *         var defaultRepositoryPolicy = new RepositoryPolicy("defaultRepositoryPolicy", RepositoryPolicyArgs.builder()        
  *             .repository(defaultAwsEcrRepository.name())
- *             .policy(default_.applyValue(default_ -&gt; default_.json()))
+ *             .policy(default_.applyValue(default_ -> default_.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

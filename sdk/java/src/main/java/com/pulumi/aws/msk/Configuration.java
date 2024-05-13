@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
- *             .kafkaVersions(&#34;2.1.0&#34;)
- *             .name(&#34;example&#34;)
- *             .serverProperties(&#34;&#34;&#34;
+ *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *             .kafkaVersions("2.1.0")
+ *             .name("example")
+ *             .serverProperties("""
  * auto.create.topics.enable = true
  * delete.topic.enable = true
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

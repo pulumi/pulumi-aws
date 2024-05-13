@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Apache Flink Application
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,19 +66,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-flink-application&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example-flink-application")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
  *             .bucket(example.id())
- *             .key(&#34;example-flink-application&#34;)
- *             .source(new FileAsset(&#34;flink-app.jar&#34;))
+ *             .key("example-flink-application")
+ *             .source(new FileAsset("flink-app.jar"))
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-flink-application&#34;)
- *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-flink-application")
+ *             .runtimeEnvironment("FLINK-1_8")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
@@ -87,51 +88,53 @@ import javax.annotation.Nullable;
  *                             .fileKey(exampleBucketObjectv2.key())
  *                             .build())
  *                         .build())
- *                     .codeContentType(&#34;ZIPFILE&#34;)
+ *                     .codeContentType("ZIPFILE")
  *                     .build())
  *                 .environmentProperties(ApplicationApplicationConfigurationEnvironmentPropertiesArgs.builder()
  *                     .propertyGroups(                    
  *                         ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.builder()
- *                             .propertyGroupId(&#34;PROPERTY-GROUP-1&#34;)
- *                             .propertyMap(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *                             .propertyGroupId("PROPERTY-GROUP-1")
+ *                             .propertyMap(Map.of("Key1", "Value1"))
  *                             .build(),
  *                         ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.builder()
- *                             .propertyGroupId(&#34;PROPERTY-GROUP-2&#34;)
+ *                             .propertyGroupId("PROPERTY-GROUP-2")
  *                             .propertyMap(Map.ofEntries(
- *                                 Map.entry(&#34;KeyA&#34;, &#34;ValueA&#34;),
- *                                 Map.entry(&#34;KeyB&#34;, &#34;ValueB&#34;)
+ *                                 Map.entry("KeyA", "ValueA"),
+ *                                 Map.entry("KeyB", "ValueB")
  *                             ))
  *                             .build())
  *                     .build())
  *                 .flinkApplicationConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs.builder()
  *                     .checkpointConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.builder()
- *                         .configurationType(&#34;DEFAULT&#34;)
+ *                         .configurationType("DEFAULT")
  *                         .build())
  *                     .monitoringConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs.builder()
- *                         .configurationType(&#34;CUSTOM&#34;)
- *                         .logLevel(&#34;DEBUG&#34;)
- *                         .metricsLevel(&#34;TASK&#34;)
+ *                         .configurationType("CUSTOM")
+ *                         .logLevel("DEBUG")
+ *                         .metricsLevel("TASK")
  *                         .build())
  *                     .parallelismConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs.builder()
  *                         .autoScalingEnabled(true)
- *                         .configurationType(&#34;CUSTOM&#34;)
+ *                         .configurationType("CUSTOM")
  *                         .parallelism(10)
  *                         .parallelismPerKpu(4)
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQL Application
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -174,54 +177,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(&#34;example-sql-application&#34;)
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name("example-sql-application")
  *             .build());
  * 
- *         var exampleLogStream = new LogStream(&#34;exampleLogStream&#34;, LogStreamArgs.builder()        
- *             .name(&#34;example-sql-application&#34;)
+ *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()        
+ *             .name("example-sql-application")
  *             .logGroupName(example.name())
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-sql-application&#34;)
- *             .runtimeEnvironment(&#34;SQL-1_0&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-sql-application")
+ *             .runtimeEnvironment("SQL-1_0")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
- *                         .textContent(&#34;&#34;&#34;
+ *                         .textContent("""
  * SELECT 1;
- *                         &#34;&#34;&#34;)
+ *                         """)
  *                         .build())
- *                     .codeContentType(&#34;PLAINTEXT&#34;)
+ *                     .codeContentType("PLAINTEXT")
  *                     .build())
  *                 .sqlApplicationConfiguration(ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.builder()
  *                     .input(ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.builder()
- *                         .namePrefix(&#34;PREFIX_1&#34;)
+ *                         .namePrefix("PREFIX_1")
  *                         .inputParallelism(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs.builder()
  *                             .count(3)
  *                             .build())
  *                         .inputSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.builder()
  *                             .recordColumns(                            
  *                                 ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs.builder()
- *                                     .name(&#34;COLUMN_1&#34;)
- *                                     .sqlType(&#34;VARCHAR(8)&#34;)
- *                                     .mapping(&#34;MAPPING-1&#34;)
+ *                                     .name("COLUMN_1")
+ *                                     .sqlType("VARCHAR(8)")
+ *                                     .mapping("MAPPING-1")
  *                                     .build(),
  *                                 ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs.builder()
- *                                     .name(&#34;COLUMN_2&#34;)
- *                                     .sqlType(&#34;DOUBLE&#34;)
+ *                                     .name("COLUMN_2")
+ *                                     .sqlType("DOUBLE")
  *                                     .build())
- *                             .recordEncoding(&#34;UTF-8&#34;)
+ *                             .recordEncoding("UTF-8")
  *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs.builder()
- *                                 .recordFormatType(&#34;CSV&#34;)
+ *                                 .recordFormatType("CSV")
  *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs.builder()
  *                                     .csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs.builder()
- *                                         .recordColumnDelimiter(&#34;,&#34;)
- *                                         .recordRowDelimiter(&#34;&#34;&#34;
+ *                                         .recordColumnDelimiter(",")
+ *                                         .recordRowDelimiter("""
  * 
- *                                         &#34;&#34;&#34;)
+ *                                         """)
  *                                         .build())
  *                                     .build())
  *                                 .build())
@@ -232,42 +235,42 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .outputs(                    
  *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
- *                             .name(&#34;OUTPUT_1&#34;)
+ *                             .name("OUTPUT_1")
  *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
- *                                 .recordFormatType(&#34;JSON&#34;)
+ *                                 .recordFormatType("JSON")
  *                                 .build())
  *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
  *                                 .resourceArn(exampleAwsLambdaFunction.arn())
  *                                 .build())
  *                             .build(),
  *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
- *                             .name(&#34;OUTPUT_2&#34;)
+ *                             .name("OUTPUT_2")
  *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
- *                                 .recordFormatType(&#34;CSV&#34;)
+ *                                 .recordFormatType("CSV")
  *                                 .build())
  *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
  *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                                 .build())
  *                             .build())
  *                     .referenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.builder()
- *                         .tableName(&#34;TABLE-1&#34;)
+ *                         .tableName("TABLE-1")
  *                         .referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs.builder()
  *                             .recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs.builder()
- *                                 .name(&#34;COLUMN_1&#34;)
- *                                 .sqlType(&#34;INTEGER&#34;)
+ *                                 .name("COLUMN_1")
+ *                                 .sqlType("INTEGER")
  *                                 .build())
  *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs.builder()
- *                                 .recordFormatType(&#34;JSON&#34;)
+ *                                 .recordFormatType("JSON")
  *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.builder()
  *                                     .jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs.builder()
- *                                         .recordRowPath(&#34;$&#34;)
+ *                                         .recordRowPath("$")
  *                                         .build())
  *                                     .build())
  *                                 .build())
  *                             .build())
  *                         .s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.builder()
  *                             .bucketArn(exampleAwsS3Bucket.arn())
- *                             .fileKey(&#34;KEY-1&#34;)
+ *                             .fileKey("KEY-1")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -279,13 +282,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### VPC Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -316,19 +321,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-flink-application&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example-flink-application")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
  *             .bucket(example.id())
- *             .key(&#34;example-flink-application&#34;)
- *             .source(new FileAsset(&#34;flink-app.jar&#34;))
+ *             .key("example-flink-application")
+ *             .source(new FileAsset("flink-app.jar"))
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-flink-application&#34;)
- *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-flink-application")
+ *             .runtimeEnvironment("FLINK-1_8")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
@@ -338,7 +343,7 @@ import javax.annotation.Nullable;
  *                             .fileKey(exampleBucketObjectv2.key())
  *                             .build())
  *                         .build())
- *                     .codeContentType(&#34;ZIPFILE&#34;)
+ *                     .codeContentType("ZIPFILE")
  *                     .build())
  *                 .vpcConfiguration(ApplicationApplicationConfigurationVpcConfigurationArgs.builder()
  *                     .securityGroupIds(                    
@@ -351,7 +356,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,43 +49,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .engineType(&#34;bluage&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .name("Example")
+ *             .engineType("bluage")
  *             .definition(ApplicationDefinitionArgs.builder()
- *                 .content(&#34;&#34;&#34;
+ *                 .content("""
  * {
- *   &#34;definition&#34;: {
- *     &#34;listeners&#34;: [
+ *   "definition": {
+ *     "listeners": [
  *       {
- *         &#34;port&#34;: 8196,
- *         &#34;type&#34;: &#34;http&#34;
+ *         "port": 8196,
+ *         "type": "http"
  *       }
  *     ],
- *     &#34;ba-application&#34;: {
- *       &#34;app-location&#34;: &#34;%s/PlanetsDemo-v1.zip&#34;
+ *     "ba-application": {
+ *       "app-location": "%s/PlanetsDemo-v1.zip"
  *     }
  *   },
- *   &#34;source-locations&#34;: [
+ *   "source-locations": [
  *     {
- *       &#34;source-id&#34;: &#34;s3-source&#34;,
- *       &#34;source-type&#34;: &#34;s3&#34;,
- *       &#34;properties&#34;: {
- *         &#34;s3-bucket&#34;: &#34;example-bucket&#34;,
- *         &#34;s3-key-prefix&#34;: &#34;v1&#34;
+ *       "source-id": "s3-source",
+ *       "source-type": "s3",
+ *       "properties": {
+ *         "s3-bucket": "example-bucket",
+ *         "s3-key-prefix": "v1"
  *       }
  *     }
  *   ],
- *   &#34;template-version&#34;: &#34;2.0&#34;
+ *   "template-version": "2.0"
  * }
  * 
- * &#34;, s3_source))
+ * ", s3_source))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

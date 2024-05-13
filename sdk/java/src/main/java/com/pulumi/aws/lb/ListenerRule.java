@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,51 +66,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;);
+ *         var frontEndListener = new Listener("frontEndListener");
  * 
- *         var static_ = new ListenerRule(&#34;static&#34;, ListenerRuleArgs.builder()        
+ *         var static_ = new ListenerRule("static", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(100)
  *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                 .build())
  *             .conditions(            
  *                 ListenerRuleConditionArgs.builder()
  *                     .pathPattern(ListenerRuleConditionPathPatternArgs.builder()
- *                         .values(&#34;/static/*&#34;)
+ *                         .values("/static/*")
  *                         .build())
  *                     .build(),
  *                 ListenerRuleConditionArgs.builder()
  *                     .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                         .values(&#34;example.com&#34;)
+ *                         .values("example.com")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *         // Forward action
- *         var hostBasedWeightedRouting = new ListenerRule(&#34;hostBasedWeightedRouting&#34;, ListenerRuleArgs.builder()        
+ *         var hostBasedWeightedRouting = new ListenerRule("hostBasedWeightedRouting", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
  *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                 .build())
  *             .conditions(ListenerRuleConditionArgs.builder()
  *                 .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                     .values(&#34;my-service.*.mycompany.io&#34;)
+ *                     .values("my-service.*.mycompany.io")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         // Weighted Forward action
- *         var hostBasedRouting = new ListenerRule(&#34;hostBasedRouting&#34;, ListenerRuleArgs.builder()        
+ *         var hostBasedRouting = new ListenerRule("hostBasedRouting", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
  *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
@@ -128,65 +129,65 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .conditions(ListenerRuleConditionArgs.builder()
  *                 .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                     .values(&#34;my-service.*.mycompany.io&#34;)
+ *                     .values("my-service.*.mycompany.io")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         // Redirect action
- *         var redirectHttpToHttps = new ListenerRule(&#34;redirectHttpToHttps&#34;, ListenerRuleArgs.builder()        
+ *         var redirectHttpToHttps = new ListenerRule("redirectHttpToHttps", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;redirect&#34;)
+ *                 .type("redirect")
  *                 .redirect(ListenerRuleActionRedirectArgs.builder()
- *                     .port(&#34;443&#34;)
- *                     .protocol(&#34;HTTPS&#34;)
- *                     .statusCode(&#34;HTTP_301&#34;)
+ *                     .port("443")
+ *                     .protocol("HTTPS")
+ *                     .statusCode("HTTP_301")
  *                     .build())
  *                 .build())
  *             .conditions(ListenerRuleConditionArgs.builder()
  *                 .httpHeader(ListenerRuleConditionHttpHeaderArgs.builder()
- *                     .httpHeaderName(&#34;X-Forwarded-For&#34;)
- *                     .values(&#34;192.168.1.*&#34;)
+ *                     .httpHeaderName("X-Forwarded-For")
+ *                     .values("192.168.1.*")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         // Fixed-response action
- *         var healthCheck = new ListenerRule(&#34;healthCheck&#34;, ListenerRuleArgs.builder()        
+ *         var healthCheck = new ListenerRule("healthCheck", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;fixed-response&#34;)
+ *                 .type("fixed-response")
  *                 .fixedResponse(ListenerRuleActionFixedResponseArgs.builder()
- *                     .contentType(&#34;text/plain&#34;)
- *                     .messageBody(&#34;HEALTHY&#34;)
- *                     .statusCode(&#34;200&#34;)
+ *                     .contentType("text/plain")
+ *                     .messageBody("HEALTHY")
+ *                     .statusCode("200")
  *                     .build())
  *                 .build())
  *             .conditions(ListenerRuleConditionArgs.builder()
  *                 .queryStrings(                
  *                     ListenerRuleConditionQueryStringArgs.builder()
- *                         .key(&#34;health&#34;)
- *                         .value(&#34;check&#34;)
+ *                         .key("health")
+ *                         .value("check")
  *                         .build(),
  *                     ListenerRuleConditionQueryStringArgs.builder()
- *                         .value(&#34;bar&#34;)
+ *                         .value("bar")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *         // Authenticate-cognito Action
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool("pool");
  * 
- *         var client = new UserPoolClient(&#34;client&#34;);
+ *         var client = new UserPoolClient("client");
  * 
- *         var domain = new UserPoolDomain(&#34;domain&#34;);
+ *         var domain = new UserPoolDomain("domain");
  * 
- *         var admin = new ListenerRule(&#34;admin&#34;, ListenerRuleArgs.builder()        
+ *         var admin = new ListenerRule("admin", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
  *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;authenticate-cognito&#34;)
+ *                     .type("authenticate-cognito")
  *                     .authenticateCognito(ListenerRuleActionAuthenticateCognitoArgs.builder()
  *                         .userPoolArn(pool.arn())
  *                         .userPoolClientId(client.id())
@@ -194,35 +195,36 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;forward&#34;)
+ *                     .type("forward")
  *                     .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                     .build())
  *             .build());
  * 
  *         // Authenticate-oidc Action
- *         var oidc = new ListenerRule(&#34;oidc&#34;, ListenerRuleArgs.builder()        
+ *         var oidc = new ListenerRule("oidc", ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
  *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;authenticate-oidc&#34;)
+ *                     .type("authenticate-oidc")
  *                     .authenticateOidc(ListenerRuleActionAuthenticateOidcArgs.builder()
- *                         .authorizationEndpoint(&#34;https://example.com/authorization_endpoint&#34;)
- *                         .clientId(&#34;client_id&#34;)
- *                         .clientSecret(&#34;client_secret&#34;)
- *                         .issuer(&#34;https://example.com&#34;)
- *                         .tokenEndpoint(&#34;https://example.com/token_endpoint&#34;)
- *                         .userInfoEndpoint(&#34;https://example.com/user_info_endpoint&#34;)
+ *                         .authorizationEndpoint("https://example.com/authorization_endpoint")
+ *                         .clientId("client_id")
+ *                         .clientSecret("client_secret")
+ *                         .issuer("https://example.com")
+ *                         .tokenEndpoint("https://example.com/token_endpoint")
+ *                         .userInfoEndpoint("https://example.com/user_info_endpoint")
  *                         .build())
  *                     .build(),
  *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;forward&#34;)
+ *                     .type("forward")
  *                     .targetGroupArn(staticAwsLbTargetGroup.arn())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

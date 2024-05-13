@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,49 +59,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var caPrivateKey = new PrivateKey(&#34;caPrivateKey&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;RSA&#34;)
+ *         var caPrivateKey = new PrivateKey("caPrivateKey", PrivateKeyArgs.builder()        
+ *             .algorithm("RSA")
  *             .build());
  * 
- *         var ca = new SelfSignedCert(&#34;ca&#34;, SelfSignedCertArgs.builder()        
+ *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()        
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
- *                 .commonName(&#34;example.com&#34;)
- *                 .organization(&#34;ACME Examples, Inc&#34;)
+ *                 .commonName("example.com")
+ *                 .organization("ACME Examples, Inc")
  *                 .build())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
- *                 &#34;key_encipherment&#34;,
- *                 &#34;digital_signature&#34;,
- *                 &#34;server_auth&#34;)
+ *                 "key_encipherment",
+ *                 "digital_signature",
+ *                 "server_auth")
  *             .isCaCertificate(true)
  *             .build());
  * 
- *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;RSA&#34;)
+ *         var verificationPrivateKey = new PrivateKey("verificationPrivateKey", PrivateKeyArgs.builder()        
+ *             .algorithm("RSA")
  *             .build());
  * 
  *         final var example = IotFunctions.getRegistrationCode();
  * 
- *         var verification = new CertRequest(&#34;verification&#34;, CertRequestArgs.builder()        
+ *         var verification = new CertRequest("verification", CertRequestArgs.builder()        
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
  *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+ *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
  *                 .build())
  *             .build());
  * 
- *         var verificationLocallySignedCert = new LocallySignedCert(&#34;verificationLocallySignedCert&#34;, LocallySignedCertArgs.builder()        
+ *         var verificationLocallySignedCert = new LocallySignedCert("verificationLocallySignedCert", LocallySignedCertArgs.builder()        
  *             .certRequestPem(verification.certRequestPem())
  *             .caPrivateKeyPem(caPrivateKey.privateKeyPem())
  *             .caCertPem(ca.certPem())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
- *                 &#34;key_encipherment&#34;,
- *                 &#34;digital_signature&#34;,
- *                 &#34;server_auth&#34;)
+ *                 "key_encipherment",
+ *                 "digital_signature",
+ *                 "server_auth")
  *             .build());
  * 
- *         var exampleCaCertificate = new CaCertificate(&#34;exampleCaCertificate&#34;, CaCertificateArgs.builder()        
+ *         var exampleCaCertificate = new CaCertificate("exampleCaCertificate", CaCertificateArgs.builder()        
  *             .active(true)
  *             .caCertificatePem(ca.certPem())
  *             .verificationCertificatePem(verificationLocallySignedCert.certPem())
@@ -109,7 +110,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

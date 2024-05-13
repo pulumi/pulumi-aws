@@ -42,7 +42,8 @@ import javax.annotation.Nullable;
  * ### Specifying Elastic IPs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,9 +65,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .loadBalancerType(&#34;network&#34;)
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *             .name("example")
+ *             .loadBalancerType("network")
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
  *                     .subnetId(example1AwsSubnet.id())
@@ -80,13 +81,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying private IP addresses for an internal-facing load balancer
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -108,23 +111,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .loadBalancerType(&#34;network&#34;)
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *             .name("example")
+ *             .loadBalancerType("network")
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
  *                     .subnetId(example1.id())
- *                     .privateIpv4Address(&#34;10.0.1.15&#34;)
+ *                     .privateIpv4Address("10.0.1.15")
  *                     .build(),
  *                 LoadBalancerSubnetMappingArgs.builder()
  *                     .subnetId(example2.id())
- *                     .privateIpv4Address(&#34;10.0.2.15&#34;)
+ *                     .privateIpv4Address("10.0.2.15")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

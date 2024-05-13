@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new QuerySuggestionsBlockList(&#34;example&#34;, QuerySuggestionsBlockListArgs.builder()        
+ *         var example = new QuerySuggestionsBlockList("example", QuerySuggestionsBlockListArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;Example&#34;)
+ *             .name("Example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(&#34;example/suggestions.txt&#34;)
+ *                 .key("example/suggestions.txt")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Index&#34;))
+ *             .tags(Map.of("Name", "Example Kendra Index"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

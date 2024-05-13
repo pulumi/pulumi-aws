@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,14 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FeatureGroup(&#34;example&#34;, FeatureGroupArgs.builder()        
- *             .featureGroupName(&#34;example&#34;)
- *             .recordIdentifierFeatureName(&#34;example&#34;)
- *             .eventTimeFeatureName(&#34;example&#34;)
+ *         var example = new FeatureGroup("example", FeatureGroupArgs.builder()        
+ *             .featureGroupName("example")
+ *             .recordIdentifierFeatureName("example")
+ *             .eventTimeFeatureName("example")
  *             .roleArn(test.arn())
  *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
- *                 .featureName(&#34;example&#34;)
- *                 .featureType(&#34;String&#34;)
+ *                 .featureName("example")
+ *                 .featureType("String")
  *                 .build())
  *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
  *                 .enableOnlineStore(true)
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

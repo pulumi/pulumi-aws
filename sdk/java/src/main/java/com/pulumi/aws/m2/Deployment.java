@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Deployment(&#34;test&#34;, DeploymentArgs.builder()        
- *             .environmentId(&#34;01234567890abcdef012345678&#34;)
- *             .applicationId(&#34;34567890abcdef012345678012&#34;)
+ *         var test = new Deployment("test", DeploymentArgs.builder()        
+ *             .environmentId("01234567890abcdef012345678")
+ *             .applicationId("34567890abcdef012345678012")
  *             .applicationVersion(1)
  *             .start(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

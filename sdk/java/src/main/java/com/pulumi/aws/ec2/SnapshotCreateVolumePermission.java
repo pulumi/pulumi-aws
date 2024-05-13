@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var example = new Volume("example", VolumeArgs.builder()        
+ *             .availabilityZone("us-west-2a")
  *             .size(40)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
  *             .volumeId(example.id())
  *             .build());
  * 
- *         var examplePerm = new SnapshotCreateVolumePermission(&#34;examplePerm&#34;, SnapshotCreateVolumePermissionArgs.builder()        
+ *         var examplePerm = new SnapshotCreateVolumePermission("examplePerm", SnapshotCreateVolumePermissionArgs.builder()        
  *             .snapshotId(exampleSnapshot.id())
- *             .accountId(&#34;12345678&#34;)
+ *             .accountId("12345678")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

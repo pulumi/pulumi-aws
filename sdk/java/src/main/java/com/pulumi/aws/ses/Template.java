@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,18 +42,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myTemplate = new Template(&#34;myTemplate&#34;, TemplateArgs.builder()        
- *             .name(&#34;MyTemplate&#34;)
- *             .subject(&#34;Greetings, {{name}}!&#34;)
- *             .html(&#34;&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;&#34;)
- *             .text(&#34;&#34;&#34;
+ *         var myTemplate = new Template("myTemplate", TemplateArgs.builder()        
+ *             .name("MyTemplate")
+ *             .subject("Greetings, {{name}}!")
+ *             .html("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>")
+ *             .text("""
  * Hello {{name}},
- * Your favorite animal is {{favoriteanimal}}.            &#34;&#34;&#34;)
+ * Your favorite animal is {{favoriteanimal}}.            """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NetworkAssociation(&#34;example&#34;, NetworkAssociationArgs.builder()        
+ *         var example = new NetworkAssociation("example", NetworkAssociationArgs.builder()        
  *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

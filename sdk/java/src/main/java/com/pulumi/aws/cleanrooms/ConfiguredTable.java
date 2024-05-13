@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Configured table with tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testConfiguredTable = new ConfiguredTable(&#34;testConfiguredTable&#34;, ConfiguredTableArgs.builder()        
- *             .name(&#34;pulumi-example-table&#34;)
- *             .description(&#34;I made this table with Pulumi!&#34;)
- *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
+ *         var testConfiguredTable = new ConfiguredTable("testConfiguredTable", ConfiguredTableArgs.builder()        
+ *             .name("pulumi-example-table")
+ *             .description("I made this table with Pulumi!")
+ *             .analysisMethod("DIRECT_QUERY")
  *             .allowedColumns(            
- *                 &#34;column1&#34;,
- *                 &#34;column2&#34;,
- *                 &#34;column3&#34;)
+ *                 "column1",
+ *                 "column2",
+ *                 "column3")
  *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
- *                 .databaseName(&#34;example_database&#34;)
- *                 .tableName(&#34;example_table&#34;)
+ *                 .databaseName("example_database")
+ *                 .tableName("example_table")
  *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
+ *             .tags(Map.of("Project", "Pulumi"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

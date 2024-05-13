@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AgentAgentActionGroup(&#34;example&#34;, AgentAgentActionGroupArgs.builder()        
- *             .actionGroupName(&#34;example&#34;)
- *             .agentId(&#34;ABDJFOWER1&#34;)
- *             .agentVersion(&#34;DRAFT&#34;)
+ *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()        
+ *             .actionGroupName("example")
+ *             .agentId("ABDJFOWER1")
+ *             .agentVersion("DRAFT")
  *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
- *                 .lambda(&#34;arn:aws:lambda:us-east-1:123456789012:function:example-function&#34;)
+ *                 .lambda("arn:aws:lambda:us-east-1:123456789012:function:example-function")
  *                 .build())
  *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
  *                 .s3(AgentAgentActionGroupApiSchemaS3Args.builder()
- *                     .s3BucketName(&#34;example-bucket&#34;)
- *                     .s3ObjectKey(&#34;path/to/schema.json&#34;)
+ *                     .s3BucketName("example-bucket")
+ *                     .s3ObjectKey("path/to/schema.json")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

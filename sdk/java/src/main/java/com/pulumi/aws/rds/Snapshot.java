@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,27 +48,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Instance(&#34;bar&#34;, InstanceArgs.builder()        
+ *         var bar = new Instance("bar", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.6.21&#34;)
- *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .dbName(&#34;baz&#34;)
- *             .password(&#34;barbarbarbar&#34;)
- *             .username(&#34;foo&#34;)
- *             .maintenanceWindow(&#34;Fri:09:00-Fri:09:30&#34;)
+ *             .engine("mysql")
+ *             .engineVersion("5.6.21")
+ *             .instanceClass("db.t2.micro")
+ *             .dbName("baz")
+ *             .password("barbarbarbar")
+ *             .username("foo")
+ *             .maintenanceWindow("Fri:09:00-Fri:09:30")
  *             .backupRetentionPeriod(0)
- *             .parameterGroupName(&#34;default.mysql5.6&#34;)
+ *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var test = new Snapshot(&#34;test&#34;, SnapshotArgs.builder()        
+ *         var test = new Snapshot("test", SnapshotArgs.builder()        
  *             .dbInstanceIdentifier(bar.identifier())
- *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
+ *             .dbSnapshotIdentifier("testsnapshot1234")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

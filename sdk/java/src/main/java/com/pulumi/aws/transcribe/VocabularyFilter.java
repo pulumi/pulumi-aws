@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VocabularyFilter(&#34;example&#34;, VocabularyFilterArgs.builder()        
- *             .vocabularyFilterName(&#34;example&#34;)
- *             .languageCode(&#34;en-US&#34;)
+ *         var example = new VocabularyFilter("example", VocabularyFilterArgs.builder()        
+ *             .vocabularyFilterName("example")
+ *             .languageCode("en-US")
  *             .words(            
- *                 &#34;cars&#34;,
- *                 &#34;bucket&#34;)
+ *                 "cars",
+ *                 "bucket")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
+ *                 Map.entry("tag1", "value1"),
+ *                 Map.entry("tag2", "value3")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

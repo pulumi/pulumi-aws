@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,15 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Account(&#34;test&#34;);
+ *         var test = new Account("test");
  * 
- *         var testClassificationJob = new ClassificationJob(&#34;testClassificationJob&#34;, ClassificationJobArgs.builder()        
- *             .jobType(&#34;ONE_TIME&#34;)
- *             .name(&#34;NAME OF THE CLASSIFICATION JOB&#34;)
+ *         var testClassificationJob = new ClassificationJob("testClassificationJob", ClassificationJobArgs.builder()        
+ *             .jobType("ONE_TIME")
+ *             .name("NAME OF THE CLASSIFICATION JOB")
  *             .s3JobDefinition(ClassificationJobS3JobDefinitionArgs.builder()
  *                 .bucketDefinitions(ClassificationJobS3JobDefinitionBucketDefinitionArgs.builder()
- *                     .accountId(&#34;ACCOUNT ID&#34;)
- *                     .buckets(&#34;S3 BUCKET NAME&#34;)
+ *                     .accountId("ACCOUNT ID")
+ *                     .buckets("S3 BUCKET NAME")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

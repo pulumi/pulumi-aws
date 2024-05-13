@@ -28,7 +28,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -55,14 +56,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -77,7 +79,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -104,14 +107,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -126,7 +130,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -153,14 +158,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -175,7 +181,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -202,14 +209,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -224,7 +232,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,14 +260,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -273,7 +283,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license grant ARNs granted to your account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,14 +311,15 @@ public final class LicensemanagerFunctions {
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;GranteePrincipalARN&#34;)
-     *                 .values(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -322,7 +334,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting the received license data using and ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -344,12 +357,13 @@ public final class LicensemanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicense(GetReceivedLicenseArgs.builder()
-     *             .licenseArn(&#34;arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0&#34;)
+     *             .licenseArn("arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -364,7 +378,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting the received license data using and ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -386,12 +401,13 @@ public final class LicensemanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicense(GetReceivedLicenseArgs.builder()
-     *             .licenseArn(&#34;arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0&#34;)
+     *             .licenseArn("arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -406,7 +422,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting the received license data using and ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,12 +445,13 @@ public final class LicensemanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicense(GetReceivedLicenseArgs.builder()
-     *             .licenseArn(&#34;arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0&#34;)
+     *             .licenseArn("arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -448,7 +466,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting the received license data using and ARN.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -470,12 +489,13 @@ public final class LicensemanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicense(GetReceivedLicenseArgs.builder()
-     *             .licenseArn(&#34;arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0&#34;)
+     *             .licenseArn("arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -490,7 +510,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -513,14 +534,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -535,7 +557,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -558,14 +581,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -580,7 +604,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -603,14 +628,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +651,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,14 +675,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -670,7 +698,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -693,14 +722,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -715,7 +745,8 @@ public final class LicensemanagerFunctions {
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -738,14 +769,15 @@ public final class LicensemanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;IssuerName&#34;)
-     *                 .values(&#34;AWS/Marketplace&#34;)
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

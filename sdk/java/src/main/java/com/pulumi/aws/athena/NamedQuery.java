@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,42 +53,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new BucketV2(&#34;hoge&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test&#34;)
+ *         var hoge = new BucketV2("hoge", BucketV2Args.builder()        
+ *             .bucket("tf-test")
  *             .build());
  * 
- *         var test = new Key(&#34;test&#34;, KeyArgs.builder()        
+ *         var test = new Key("test", KeyArgs.builder()        
  *             .deletionWindowInDays(7)
- *             .description(&#34;Athena KMS Key&#34;)
+ *             .description("Athena KMS Key")
  *             .build());
  * 
- *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()        
+ *             .name("example")
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
  *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption(&#34;SSE_KMS&#34;)
+ *                         .encryptionOption("SSE_KMS")
  *                         .kmsKeyArn(test.arn())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var hogeDatabase = new Database(&#34;hogeDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;users&#34;)
+ *         var hogeDatabase = new Database("hogeDatabase", DatabaseArgs.builder()        
+ *             .name("users")
  *             .bucket(hoge.id())
  *             .build());
  * 
- *         var foo = new NamedQuery(&#34;foo&#34;, NamedQueryArgs.builder()        
- *             .name(&#34;bar&#34;)
+ *         var foo = new NamedQuery("foo", NamedQueryArgs.builder()        
+ *             .name("bar")
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())
- *             .query(hogeDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
+ *             .query(hogeDatabase.name().applyValue(name -> String.format("SELECT * FROM %s limit 10;", name)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

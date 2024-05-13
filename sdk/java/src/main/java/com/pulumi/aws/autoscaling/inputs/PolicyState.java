@@ -244,7 +244,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * Target tracking policy. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,10 +268,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()        
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
      *                 .targetValue(40)
      *                 .build())
@@ -278,7 +279,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
@@ -291,7 +293,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * @return Target tracking policy. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,10 +317,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()        
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
      *                 .targetValue(40)
      *                 .build())
@@ -325,7 +328,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
@@ -689,7 +693,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -712,10 +717,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *         var example = new Policy("example", PolicyArgs.builder()        
          *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+         *                     .predefinedMetricType("ASGAverageCPUUtilization")
          *                     .build())
          *                 .targetValue(40)
          *                 .build())
@@ -723,7 +728,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in target tracking configuration:
@@ -740,7 +746,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -763,10 +770,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *         var example = new Policy("example", PolicyArgs.builder()        
          *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+         *                     .predefinedMetricType("ASGAverageCPUUtilization")
          *                     .build())
          *                 .targetValue(40)
          *                 .build())
@@ -774,7 +781,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in target tracking configuration:

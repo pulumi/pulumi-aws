@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Attaching an AWS-managed policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PermissionsBoundaryAttachment(&#34;example&#34;, PermissionsBoundaryAttachmentArgs.builder()        
+ *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()        
  *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
  *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
- *                 .managedPolicyArn(&#34;arn:aws:iam::aws:policy/ReadOnlyAccess&#34;)
+ *                 .managedPolicyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

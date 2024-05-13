@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Pause Cluster Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,61 +56,63 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;scheduler.redshift.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("scheduler.redshift.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;redshift_scheduled_action&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("redshift_scheduled_action")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;redshift:PauseCluster&#34;,
- *                     &#34;redshift:ResumeCluster&#34;,
- *                     &#34;redshift:ResizeCluster&#34;)
- *                 .resources(&#34;*&#34;)
+ *                     "redshift:PauseCluster",
+ *                     "redshift:ResumeCluster",
+ *                     "redshift:ResizeCluster")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;redshift_scheduled_action&#34;)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *             .name("redshift_scheduled_action")
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .policyArn(examplePolicy.arn())
  *             .role(exampleRole.name())
  *             .build());
  * 
- *         var exampleScheduledAction = new ScheduledAction(&#34;exampleScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .name(&#34;tf-redshift-scheduled-action&#34;)
- *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
+ *         var exampleScheduledAction = new ScheduledAction("exampleScheduledAction", ScheduledActionArgs.builder()        
+ *             .name("tf-redshift-scheduled-action")
+ *             .schedule("cron(00 23 * * ? *)")
  *             .iamRole(exampleRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
  *                 .pauseCluster(ScheduledActionTargetActionPauseClusterArgs.builder()
- *                     .clusterIdentifier(&#34;tf-redshift001&#34;)
+ *                     .clusterIdentifier("tf-redshift001")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Resize Cluster Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -132,15 +135,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ScheduledAction(&#34;example&#34;, ScheduledActionArgs.builder()        
- *             .name(&#34;tf-redshift-scheduled-action&#34;)
- *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
+ *         var example = new ScheduledAction("example", ScheduledActionArgs.builder()        
+ *             .name("tf-redshift-scheduled-action")
+ *             .schedule("cron(00 23 * * ? *)")
  *             .iamRole(exampleAwsIamRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
  *                 .resizeCluster(ScheduledActionTargetActionResizeClusterArgs.builder()
- *                     .clusterIdentifier(&#34;tf-redshift001&#34;)
- *                     .clusterType(&#34;multi-node&#34;)
- *                     .nodeType(&#34;dc1.large&#34;)
+ *                     .clusterIdentifier("tf-redshift001")
+ *                     .clusterType("multi-node")
+ *                     .nodeType("dc1.large")
  *                     .numberOfNodes(2)
  *                     .build())
  *                 .build())
@@ -148,7 +151,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

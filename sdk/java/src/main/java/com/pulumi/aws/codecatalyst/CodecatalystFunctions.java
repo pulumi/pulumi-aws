@@ -22,7 +22,8 @@ public final class CodecatalystFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,14 +45,15 @@ public final class CodecatalystFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
+     *             .spaceName("myspace")
+     *             .projectName("myproject")
      *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class CodecatalystFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,14 +91,15 @@ public final class CodecatalystFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
+     *             .spaceName("myspace")
+     *             .projectName("myproject")
      *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +114,8 @@ public final class CodecatalystFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class CodecatalystFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
+     *             .spaceName("myspace")
+     *             .projectName("myproject")
      *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +160,8 @@ public final class CodecatalystFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,14 +183,15 @@ public final class CodecatalystFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
+     *             .spaceName("myspace")
+     *             .projectName("myproject")
      *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,25 +58,26 @@ import javax.annotation.Nullable;
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
+ *                     .name("name")
+ *                     .values("ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*")
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
+ *                     .name("virtualization-type")
+ *                     .values("hvm")
  *                     .build())
- *             .owners(&#34;099720109477&#34;)
+ *             .owners("099720109477")
  *             .build());
  * 
- *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .name(&#34;web_config&#34;)
- *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()        
+ *             .name("web_config")
+ *             .imageId(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t2.micro")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

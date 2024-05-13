@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-vpclattice-service&#34;)
- *             .authType(&#34;AWS_IAM&#34;)
- *             .customDomainName(&#34;example.com&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example-vpclattice-service")
+ *             .authType("AWS_IAM")
+ *             .customDomainName("example.com")
  *             .build());
  * 
- *         var exampleAuthPolicy = new AuthPolicy(&#34;exampleAuthPolicy&#34;, AuthPolicyArgs.builder()        
+ *         var exampleAuthPolicy = new AuthPolicy("exampleAuthPolicy", AuthPolicyArgs.builder()        
  *             .resourceIdentifier(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;StringNotEqualsIgnoreCase&#34;, jsonObject(
- *                                 jsonProperty(&#34;aws:PrincipalType&#34;, &#34;anonymous&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "*"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", "*"),
+ *                         jsonProperty("Resource", "*"),
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("StringNotEqualsIgnoreCase", jsonObject(
+ *                                 jsonProperty("aws:PrincipalType", "anonymous")
  *                             ))
  *                         ))
  *                     )))
@@ -73,7 +74,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

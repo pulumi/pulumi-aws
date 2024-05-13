@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainNameApiAssociation(&#34;example&#34;, DomainNameApiAssociationArgs.builder()        
+ *         var example = new DomainNameApiAssociation("example", DomainNameApiAssociationArgs.builder()        
  *             .apiId(exampleAwsAppsyncGraphqlApi.id())
  *             .domainName(exampleAwsAppsyncDomainName.domainName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

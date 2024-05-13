@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * Basic usage.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,22 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ManagedPrefixList(&#34;example&#34;, ManagedPrefixListArgs.builder()        
- *             .name(&#34;All VPC CIDR-s&#34;)
- *             .addressFamily(&#34;IPv4&#34;)
+ *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()        
+ *             .name("All VPC CIDR-s")
+ *             .addressFamily("IPv4")
  *             .maxEntries(5)
- *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
+ *             .tags(Map.of("Env", "live"))
  *             .build());
  * 
- *         var entry1 = new ManagedPrefixListEntry(&#34;entry1&#34;, ManagedPrefixListEntryArgs.builder()        
+ *         var entry1 = new ManagedPrefixListEntry("entry1", ManagedPrefixListEntryArgs.builder()        
  *             .cidr(exampleAwsVpc.cidrBlock())
- *             .description(&#34;Primary&#34;)
+ *             .description("Primary")
  *             .prefixListId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

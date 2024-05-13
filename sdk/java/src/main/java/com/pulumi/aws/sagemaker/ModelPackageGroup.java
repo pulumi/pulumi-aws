@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,13 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ModelPackageGroup(&#34;example&#34;, ModelPackageGroupArgs.builder()        
- *             .modelPackageGroupName(&#34;example&#34;)
+ *         var example = new ModelPackageGroup("example", ModelPackageGroupArgs.builder()        
+ *             .modelPackageGroupName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

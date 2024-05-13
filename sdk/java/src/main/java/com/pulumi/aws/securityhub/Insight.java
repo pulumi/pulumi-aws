@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Filter by AWS account ID
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,35 +47,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
  *             .filters(InsightFiltersArgs.builder()
  *                 .awsAccountIds(                
  *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;1234567890&#34;)
+ *                         .comparison("EQUALS")
+ *                         .value("1234567890")
  *                         .build(),
  *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;09876543210&#34;)
+ *                         .comparison("EQUALS")
+ *                         .value("09876543210")
  *                         .build())
  *                 .build())
- *             .groupByAttribute(&#34;AwsAccountId&#34;)
- *             .name(&#34;example-insight&#34;)
+ *             .groupByAttribute("AwsAccountId")
+ *             .name("example-insight")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filter by date range
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,32 +101,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
  *             .filters(InsightFiltersArgs.builder()
  *                 .createdAts(InsightFiltersCreatedAtArgs.builder()
  *                     .dateRange(InsightFiltersCreatedAtDateRangeArgs.builder()
- *                         .unit(&#34;DAYS&#34;)
+ *                         .unit("DAYS")
  *                         .value(5)
  *                         .build())
  *                     .build())
  *                 .build())
- *             .groupByAttribute(&#34;CreatedAt&#34;)
- *             .name(&#34;example-insight&#34;)
+ *             .groupByAttribute("CreatedAt")
+ *             .name("example-insight")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filter by destination IPv4 address
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,29 +152,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
  *             .filters(InsightFiltersArgs.builder()
  *                 .networkDestinationIpv4s(InsightFiltersNetworkDestinationIpv4Args.builder()
- *                     .cidr(&#34;10.0.0.0/16&#34;)
+ *                     .cidr("10.0.0.0/16")
  *                     .build())
  *                 .build())
- *             .groupByAttribute(&#34;NetworkDestinationIpV4&#34;)
- *             .name(&#34;example-insight&#34;)
+ *             .groupByAttribute("NetworkDestinationIpV4")
+ *             .name("example-insight")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filter by finding&#39;s confidence
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -193,29 +200,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
  *             .filters(InsightFiltersArgs.builder()
  *                 .confidences(InsightFiltersConfidenceArgs.builder()
- *                     .gte(&#34;80&#34;)
+ *                     .gte("80")
  *                     .build())
  *                 .build())
- *             .groupByAttribute(&#34;Confidence&#34;)
- *             .name(&#34;example-insight&#34;)
+ *             .groupByAttribute("Confidence")
+ *             .name("example-insight")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filter by resource tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -239,25 +248,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
  *             .filters(InsightFiltersArgs.builder()
  *                 .resourceTags(InsightFiltersResourceTagArgs.builder()
- *                     .comparison(&#34;EQUALS&#34;)
- *                     .key(&#34;Environment&#34;)
- *                     .value(&#34;Production&#34;)
+ *                     .comparison("EQUALS")
+ *                     .key("Environment")
+ *                     .value("Production")
  *                     .build())
  *                 .build())
- *             .groupByAttribute(&#34;ResourceTags&#34;)
- *             .name(&#34;example-insight&#34;)
+ *             .groupByAttribute("ResourceTags")
+ *             .name("example-insight")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

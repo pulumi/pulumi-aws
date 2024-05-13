@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,31 +52,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
  *                 .feature(exampleAwsEvidentlyFeature.name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
+ *                 .name("Variation1")
+ *                 .variation("Variation1")
  *                 .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                     .groupWeights(Map.of("Variation1", 0))
+ *                     .startTime("2024-01-07 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With description
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,32 +101,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .description(&#34;example description&#34;)
+ *             .description("example description")
  *             .groups(LaunchGroupArgs.builder()
  *                 .feature(exampleAwsEvidentlyFeature.name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
+ *                 .name("Variation1")
+ *                 .variation("Variation1")
  *                 .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                     .groupWeights(Map.of("Variation1", 0))
+ *                     .startTime("2024-01-07 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With multiple groups
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,42 +151,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
- *                     .description(&#34;first-group&#34;)
+ *                     .name("Variation1")
+ *                     .variation("Variation1")
+ *                     .description("first-group")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
- *                     .description(&#34;second-group&#34;)
+ *                     .name("Variation2")
+ *                     .variation("Variation2")
+ *                     .description("second-group")
  *                     .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
  *                     .groupWeights(Map.ofEntries(
- *                         Map.entry(&#34;Variation1&#34;, 0),
- *                         Map.entry(&#34;Variation2&#34;, 0)
+ *                         Map.entry("Variation1", 0),
+ *                         Map.entry("Variation2", 0)
  *                     ))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                     .startTime("2024-01-07 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With metric_monitors
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -206,50 +213,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
  *                 .feature(exampleAwsEvidentlyFeature.name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
+ *                 .name("Variation1")
+ *                 .variation("Variation1")
  *                 .build())
  *             .metricMonitors(            
  *                 LaunchMetricMonitorArgs.builder()
  *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
- *                         .entityIdKey(&#34;entity_id_key1&#34;)
- *                         .eventPattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,11,\&#34;&lt;=\&#34;,22]}]}&#34;)
- *                         .name(&#34;name1&#34;)
- *                         .unitLabel(&#34;unit_label1&#34;)
- *                         .valueKey(&#34;value_key1&#34;)
+ *                         .entityIdKey("entity_id_key1")
+ *                         .eventPattern("{\"Price\":[{\"numeric\":[\">\",11,\"<=\",22]}]}")
+ *                         .name("name1")
+ *                         .unitLabel("unit_label1")
+ *                         .valueKey("value_key1")
  *                         .build())
  *                     .build(),
  *                 LaunchMetricMonitorArgs.builder()
  *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
- *                         .entityIdKey(&#34;entity_id_key2&#34;)
- *                         .eventPattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,9,\&#34;&lt;=\&#34;,19]}]}&#34;)
- *                         .name(&#34;name2&#34;)
- *                         .unitLabel(&#34;unit_label2&#34;)
- *                         .valueKey(&#34;value_key2&#34;)
+ *                         .entityIdKey("entity_id_key2")
+ *                         .eventPattern("{\"Price\":[{\"numeric\":[\">\",9,\"<=\",19]}]}")
+ *                         .name("name2")
+ *                         .unitLabel("unit_label2")
+ *                         .valueKey("value_key2")
  *                         .build())
  *                     .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                     .groupWeights(Map.of("Variation1", 0))
+ *                     .startTime("2024-01-07 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With randomization_salt
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -272,32 +281,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
- *             .randomizationSalt(&#34;example randomization salt&#34;)
+ *             .randomizationSalt("example randomization salt")
  *             .groups(LaunchGroupArgs.builder()
  *                 .feature(exampleAwsEvidentlyFeature.name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
+ *                 .name("Variation1")
+ *                 .variation("Variation1")
  *                 .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                     .groupWeights(Map.of("Variation1", 0))
+ *                     .startTime("2024-01-07 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With multiple steps
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -320,48 +331,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
+ *                     .name("Variation1")
+ *                     .variation("Variation1")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
+ *                     .name("Variation2")
+ *                     .variation("Variation2")
  *                     .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(                
  *                     LaunchScheduledSplitsConfigStepArgs.builder()
  *                         .groupWeights(Map.ofEntries(
- *                             Map.entry(&#34;Variation1&#34;, 15),
- *                             Map.entry(&#34;Variation2&#34;, 10)
+ *                             Map.entry("Variation1", 15),
+ *                             Map.entry("Variation2", 10)
  *                         ))
- *                         .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
+ *                         .startTime("2024-01-07 01:43:59+00:00")
  *                         .build(),
  *                     LaunchScheduledSplitsConfigStepArgs.builder()
  *                         .groupWeights(Map.ofEntries(
- *                             Map.entry(&#34;Variation1&#34;, 20),
- *                             Map.entry(&#34;Variation2&#34;, 25)
+ *                             Map.entry("Variation1", 20),
+ *                             Map.entry("Variation2", 25)
  *                         ))
- *                         .startTime(&#34;2024-01-08 01:43:59+00:00&#34;)
+ *                         .startTime("2024-01-08 01:43:59+00:00")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With segment overrides
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -384,48 +397,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Launch("example", LaunchArgs.builder()        
+ *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
+ *                     .name("Variation1")
+ *                     .variation("Variation1")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
  *                     .feature(exampleAwsEvidentlyFeature.name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
+ *                     .name("Variation2")
+ *                     .variation("Variation2")
  *                     .build())
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
  *                     .groupWeights(Map.ofEntries(
- *                         Map.entry(&#34;Variation1&#34;, 0),
- *                         Map.entry(&#34;Variation2&#34;, 0)
+ *                         Map.entry("Variation1", 0),
+ *                         Map.entry("Variation2", 0)
  *                     ))
  *                     .segmentOverrides(                    
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(1)
  *                             .segment(exampleAwsEvidentlySegment.name())
- *                             .weights(Map.of(&#34;Variation2&#34;, 10000))
+ *                             .weights(Map.of("Variation2", 10000))
  *                             .build(),
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(2)
  *                             .segment(exampleAwsEvidentlySegment.name())
  *                             .weights(Map.ofEntries(
- *                                 Map.entry(&#34;Variation1&#34;, 40000),
- *                                 Map.entry(&#34;Variation2&#34;, 30000)
+ *                                 Map.entry("Variation1", 40000),
+ *                                 Map.entry("Variation2", 30000)
  *                             ))
  *                             .build())
- *                     .startTime(&#34;2024-01-08 01:43:59+00:00&#34;)
+ *                     .startTime("2024-01-08 01:43:59+00:00")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

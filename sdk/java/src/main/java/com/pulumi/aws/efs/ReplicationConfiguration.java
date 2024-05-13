@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +48,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileSystem(&#34;example&#34;);
+ *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .region(&#34;us-west-2&#34;)
+ *                 .region("us-west-2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,25 +90,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileSystem(&#34;example&#34;);
+ *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .availabilityZoneName(&#34;us-west-2b&#34;)
- *                 .kmsKeyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
+ *                 .availabilityZoneName("us-west-2b")
+ *                 .kmsKeyId("1234abcd-12ab-34cd-56ef-1234567890ab")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -128,19 +133,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileSystem(&#34;example&#34;);
+ *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .fileSystemId(&#34;fs-1234567890&#34;)
- *                 .region(&#34;us-west-2&#34;)
+ *                 .fileSystemId("fs-1234567890")
+ *                 .region("us-west-2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

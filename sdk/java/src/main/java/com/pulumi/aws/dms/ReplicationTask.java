@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new replication task
- *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
- *             .cdcStartTime(&#34;1993-05-21T05:50:00Z&#34;)
- *             .migrationType(&#34;full-load&#34;)
+ *         var test = new ReplicationTask("test", ReplicationTaskArgs.builder()        
+ *             .cdcStartTime("1993-05-21T05:50:00Z")
+ *             .migrationType("full-load")
  *             .replicationInstanceArn(test_dms_replication_instance_tf.replicationInstanceArn())
- *             .replicationTaskId(&#34;test-dms-replication-task-tf&#34;)
- *             .replicationTaskSettings(&#34;...&#34;)
+ *             .replicationTaskId("test-dms-replication-task-tf")
+ *             .replicationTaskSettings("...")
  *             .sourceEndpointArn(test_dms_source_endpoint_tf.endpointArn())
- *             .tableMappings(&#34;{\&#34;rules\&#34;:[{\&#34;rule-type\&#34;:\&#34;selection\&#34;,\&#34;rule-id\&#34;:\&#34;1\&#34;,\&#34;rule-name\&#34;:\&#34;1\&#34;,\&#34;object-locator\&#34;:{\&#34;schema-name\&#34;:\&#34;%\&#34;,\&#34;table-name\&#34;:\&#34;%\&#34;},\&#34;rule-action\&#34;:\&#34;include\&#34;}]}&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tableMappings("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}")
+ *             .tags(Map.of("Name", "test"))
  *             .targetEndpointArn(test_dms_target_endpoint_tf.endpointArn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

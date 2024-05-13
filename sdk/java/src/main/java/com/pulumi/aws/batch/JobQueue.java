@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Job Queue
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,9 +50,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testQueue = new JobQueue(&#34;testQueue&#34;, JobQueueArgs.builder()        
- *             .name(&#34;tf-test-batch-job-queue&#34;)
- *             .state(&#34;ENABLED&#34;)
+ *         var testQueue = new JobQueue("testQueue", JobQueueArgs.builder()        
+ *             .name("tf-test-batch-job-queue")
+ *             .state("ENABLED")
  *             .priority(1)
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
@@ -66,13 +67,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Job Queue with a fair share scheduling policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,22 +100,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SchedulingPolicy(&#34;example&#34;, SchedulingPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()        
+ *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)
  *                 .shareDecaySeconds(3600)
  *                 .shareDistributions(SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                     .shareIdentifier(&#34;A1*&#34;)
+ *                     .shareIdentifier("A1*")
  *                     .weightFactor(0.1)
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleJobQueue = new JobQueue(&#34;exampleJobQueue&#34;, JobQueueArgs.builder()        
- *             .name(&#34;tf-test-batch-job-queue&#34;)
+ *         var exampleJobQueue = new JobQueue("exampleJobQueue", JobQueueArgs.builder()        
+ *             .name("tf-test-batch-job-queue")
  *             .schedulingPolicyArn(example.arn())
- *             .state(&#34;ENABLED&#34;)
+ *             .state("ENABLED")
  *             .priority(1)
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
@@ -127,7 +130,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

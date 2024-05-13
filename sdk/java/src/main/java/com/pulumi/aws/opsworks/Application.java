@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,42 +50,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_app = new Application(&#34;foo-app&#34;, ApplicationArgs.builder()        
- *             .name(&#34;foobar application&#34;)
- *             .shortName(&#34;foobar&#34;)
+ *         var foo_app = new Application("foo-app", ApplicationArgs.builder()        
+ *             .name("foobar application")
+ *             .shortName("foobar")
  *             .stackId(main.id())
- *             .type(&#34;rails&#34;)
- *             .description(&#34;This is a Rails application&#34;)
+ *             .type("rails")
+ *             .description("This is a Rails application")
  *             .domains(            
- *                 &#34;example.com&#34;,
- *                 &#34;sub.example.com&#34;)
+ *                 "example.com",
+ *                 "sub.example.com")
  *             .environments(ApplicationEnvironmentArgs.builder()
- *                 .key(&#34;key&#34;)
- *                 .value(&#34;value&#34;)
+ *                 .key("key")
+ *                 .value("value")
  *                 .secure(false)
  *                 .build())
  *             .appSources(ApplicationAppSourceArgs.builder()
- *                 .type(&#34;git&#34;)
- *                 .revision(&#34;master&#34;)
- *                 .url(&#34;https://github.com/example.git&#34;)
+ *                 .type("git")
+ *                 .revision("master")
+ *                 .url("https://github.com/example.git")
  *                 .build())
  *             .enableSsl(true)
  *             .sslConfigurations(ApplicationSslConfigurationArgs.builder()
  *                 .privateKey(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;./foobar.key&#34;)
+ *                     .input("./foobar.key")
  *                     .build()).result())
  *                 .certificate(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;./foobar.crt&#34;)
+ *                     .input("./foobar.crt")
  *                     .build()).result())
  *                 .build())
- *             .documentRoot(&#34;public&#34;)
+ *             .documentRoot("public")
  *             .autoBundleOnDeploy(true)
- *             .railsEnv(&#34;staging&#34;)
+ *             .railsEnv("staging")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

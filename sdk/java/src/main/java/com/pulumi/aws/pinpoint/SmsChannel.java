@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
+ *         var app = new App("app");
  * 
- *         var sms = new SmsChannel(&#34;sms&#34;, SmsChannelArgs.builder()        
+ *         var sms = new SmsChannel("sms", SmsChannelArgs.builder()        
  *             .applicationId(app.applicationId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

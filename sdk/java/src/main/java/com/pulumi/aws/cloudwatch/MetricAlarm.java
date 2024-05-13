@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,28 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;test-foobar5&#34;)
- *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *             .name("test-foobar5")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
- *             .metricName(&#34;CPUUtilization&#34;)
- *             .namespace(&#34;AWS/EC2&#34;)
+ *             .metricName("CPUUtilization")
+ *             .namespace("AWS/EC2")
  *             .period(120)
- *             .statistic(&#34;Average&#34;)
+ *             .statistic("Average")
  *             .threshold(80)
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .insufficientDataActions()
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example in Conjunction with Scaling Policies
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,37 +94,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bat = new Policy(&#34;bat&#34;, PolicyArgs.builder()        
- *             .name(&#34;foobar3-test&#34;)
+ *         var bat = new Policy("bat", PolicyArgs.builder()        
+ *             .name("foobar3-test")
  *             .scalingAdjustment(4)
- *             .adjustmentType(&#34;ChangeInCapacity&#34;)
+ *             .adjustmentType("ChangeInCapacity")
  *             .cooldown(300)
  *             .autoscalingGroupName(bar.name())
  *             .build());
  * 
- *         var batMetricAlarm = new MetricAlarm(&#34;batMetricAlarm&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;test-foobar5&#34;)
- *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
+ *         var batMetricAlarm = new MetricAlarm("batMetricAlarm", MetricAlarmArgs.builder()        
+ *             .name("test-foobar5")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
- *             .metricName(&#34;CPUUtilization&#34;)
- *             .namespace(&#34;AWS/EC2&#34;)
+ *             .metricName("CPUUtilization")
+ *             .namespace("AWS/EC2")
  *             .period(120)
- *             .statistic(&#34;Average&#34;)
+ *             .statistic("Average")
  *             .threshold(80)
- *             .dimensions(Map.of(&#34;AutoScalingGroupName&#34;, bar.name()))
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .dimensions(Map.of("AutoScalingGroupName", bar.name()))
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .alarmActions(bat.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with an Expression
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -144,51 +149,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;test-foobar&#34;)
- *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
  *             .threshold(10)
- *             .alarmDescription(&#34;Request error rate has exceeded 10%&#34;)
+ *             .alarmDescription("Request error rate has exceeded 10%")
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;e1&#34;)
- *                     .expression(&#34;m2/m1*100&#34;)
- *                     .label(&#34;Error Rate&#34;)
- *                     .returnData(&#34;true&#34;)
+ *                     .id("e1")
+ *                     .expression("m2/m1*100")
+ *                     .label("Error Rate")
+ *                     .returnData("true")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m1&#34;)
+ *                     .id("m1")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .metricName(&#34;RequestCount&#34;)
- *                         .namespace(&#34;AWS/ApplicationELB&#34;)
+ *                         .metricName("RequestCount")
+ *                         .namespace("AWS/ApplicationELB")
  *                         .period(120)
- *                         .stat(&#34;Sum&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
+ *                         .stat("Sum")
+ *                         .unit("Count")
+ *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m2&#34;)
+ *                     .id("m2")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .metricName(&#34;HTTPCode_ELB_5XX_Count&#34;)
- *                         .namespace(&#34;AWS/ApplicationELB&#34;)
+ *                         .metricName("HTTPCode_ELB_5XX_Count")
+ *                         .namespace("AWS/ApplicationELB")
  *                         .period(120)
- *                         .stat(&#34;Sum&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
+ *                         .stat("Sum")
+ *                         .unit("Count")
+ *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -211,43 +218,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var xxAnomalyDetection = new MetricAlarm(&#34;xxAnomalyDetection&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;test-foobar&#34;)
- *             .comparisonOperator(&#34;GreaterThanUpperThreshold&#34;)
+ *         var xxAnomalyDetection = new MetricAlarm("xxAnomalyDetection", MetricAlarmArgs.builder()        
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanUpperThreshold")
  *             .evaluationPeriods(2)
- *             .thresholdMetricId(&#34;e1&#34;)
- *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
+ *             .thresholdMetricId("e1")
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;e1&#34;)
- *                     .expression(&#34;ANOMALY_DETECTION_BAND(m1)&#34;)
- *                     .label(&#34;CPUUtilization (Expected)&#34;)
- *                     .returnData(&#34;true&#34;)
+ *                     .id("e1")
+ *                     .expression("ANOMALY_DETECTION_BAND(m1)")
+ *                     .label("CPUUtilization (Expected)")
+ *                     .returnData("true")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m1&#34;)
- *                     .returnData(&#34;true&#34;)
+ *                     .id("m1")
+ *                     .returnData("true")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .metricName(&#34;CPUUtilization&#34;)
- *                         .namespace(&#34;AWS/EC2&#34;)
+ *                         .metricName("CPUUtilization")
+ *                         .namespace("AWS/EC2")
  *                         .period(120)
- *                         .stat(&#34;Average&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .dimensions(Map.of(&#34;InstanceId&#34;, &#34;i-abc123&#34;))
+ *                         .stat("Average")
+ *                         .unit("Count")
+ *                         .dimensions(Map.of("InstanceId", "i-abc123"))
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -268,28 +277,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nlbHealthyhosts = new MetricAlarm(&#34;nlbHealthyhosts&#34;, MetricAlarmArgs.builder()        
- *             .name(&#34;alarmname&#34;)
- *             .comparisonOperator(&#34;LessThanThreshold&#34;)
+ *         var nlbHealthyhosts = new MetricAlarm("nlbHealthyhosts", MetricAlarmArgs.builder()        
+ *             .name("alarmname")
+ *             .comparisonOperator("LessThanThreshold")
  *             .evaluationPeriods(1)
- *             .metricName(&#34;HealthyHostCount&#34;)
- *             .namespace(&#34;AWS/NetworkELB&#34;)
+ *             .metricName("HealthyHostCount")
+ *             .namespace("AWS/NetworkELB")
  *             .period(60)
- *             .statistic(&#34;Average&#34;)
+ *             .statistic("Average")
  *             .threshold(logstashServersCount)
- *             .alarmDescription(&#34;Number of healthy nodes in Target Group&#34;)
- *             .actionsEnabled(&#34;true&#34;)
+ *             .alarmDescription("Number of healthy nodes in Target Group")
+ *             .actionsEnabled("true")
  *             .alarmActions(sns.arn())
  *             .okActions(sns.arn())
  *             .dimensions(Map.ofEntries(
- *                 Map.entry(&#34;TargetGroup&#34;, lb_tg.arnSuffix()),
- *                 Map.entry(&#34;LoadBalancer&#34;, lb.arnSuffix())
+ *                 Map.entry("TargetGroup", lb_tg.arnSuffix()),
+ *                 Map.entry("LoadBalancer", lb.arnSuffix())
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
